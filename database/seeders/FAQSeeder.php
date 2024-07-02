@@ -3,13 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\FAQ;
 
-class DatabaseSeeder extends Seeder
+class FAQSeeder extends Seeder
 {
     public function run()
     {
-        $this->call([
-            FAQSeeder::class,
-        ]);
+        FAQ::factory()->count(10)->create();
     }
 }

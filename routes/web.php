@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\FAQController;
+
+Route::resource('faqs', FAQController::class);
 
 Route::get('/', function () {
     // if has auth, redirect to dashboard
