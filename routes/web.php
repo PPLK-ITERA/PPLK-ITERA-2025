@@ -4,6 +4,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\UserController;
+
+Route::get('/top-followers', [UserController::class, 'topFollowers']);
+Route::get('/search', [UserController::class, 'search']);
+Route::get('/list-maba', [UserController::class, 'listMaba']);
+
 
 Route::get('/', function () {
     // if has auth, redirect to dashboard
