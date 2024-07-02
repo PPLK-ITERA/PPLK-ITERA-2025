@@ -13,10 +13,10 @@ class Kelompok extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'user_id', 'score_id', 'linkedin_url',
-        'photo_profile_url', 'password'
+        'photo_profile_url'
     ];
     protected $hidden = [
-        'created_at', 'updated_at'
+        'created_at', 'updated_at', 'password'
     ];
 
     public function scoreboard()
