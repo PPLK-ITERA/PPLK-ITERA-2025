@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('pertanyaan');
-            $table->string('jawaban');
-            $table->enum('status', ['in_progress', 'completed'])->default('in_progress');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->text('message')->nullable();
+            $table->string('status')->default('in_progress');
+            $table->text('response')->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -7,29 +7,39 @@ use App\Models\Feedback;
 
 class FeedbackController extends Controller
 {
-    public function index()
+    public function submit(Request $request)
     {
-        $feedback = Feedback::with('responses')->get();
-        return view('feedback.index', compact('feedback'));
-    }
-
-    public function store(Request $feedback)
-    {
-        $feedback->validate([
-            'pertanyaan' => 'required',
+        $request->validate([
+            'message' => 'required|string|max:225',
         ]);
 
         Feedback::create([
             'user_id' => auth()->id,
-            'pertanyaan' => $feedback->pertanyaan,
+            'message' => $request->input('message'),
+            'status' => 'in_progress',
+            'response' => null,
         ]);
 
         return redirect()->back()->with('success', 'Feedback submitted succesfully.');
     }
 
-    public function allFeedback()
+    public function response(Request $request, $id)
     {
-        $feedback = Feedback::with('responses')->get();
-        return view('feedback.all', compact('feedback'));
+        $request->validate([
+            'response' => 'required|string',
+        ]);
+
+        $feedback = Feedback::findOrFail($id);
+        $feedback->response = $request->input('response');
+        $feedback->status = 'completed';
+        $feedback->save();
+
+        return redirect()->back()->with('success', 'Response submitted succesfully.');
+    }
+
+    public function showAllFeedback()
+    {
+        $feedback = Feedback::all();
+        return view('admin.feedback', compact('feedback'));
     }
 }
