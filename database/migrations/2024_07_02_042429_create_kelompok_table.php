@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kelompok', function (Blueprint $table) {
-            $table->id('id');
+            $table->id();
             $table->foreignId('user_id');
             $table->foreignId('score_id');
             $table->string('linkedin_url')->nullable();

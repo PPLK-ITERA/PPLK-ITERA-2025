@@ -20,7 +20,7 @@ class ScoreboardController extends Controller
             // Sum the scores of all users in the group
             $totalScore = $kelompok->users->sum('score');
 
-            // Update the scoreboard with the total score
+            // Update or create the scoreboard entry for the group
             $scoreboard = Scoreboard::updateOrCreate(
                 ['kelompok_id' => $kelompok->id],
                 ['total_score' => $totalScore]
@@ -33,63 +33,36 @@ class ScoreboardController extends Controller
     /**
      * Get the scoreboard with ranking.
      */
-
     public function getScoreboard()
     {
-        // Fetch the top 10 scores
-        $top10 = Scoreboard::with('kelompok')
-            ->orderBy('total_score', 'desc')
-            ->take(10)
+        // Fetch all scoreboards ordered by total score descending
+        $scoreboards = Scoreboard::with('kelompok')
+            ->orderByDesc('total_score')
             ->get();
 
-        // Fetch the scores of other groups not in the top 10
-        $otherScores = Scoreboard::with('kelompok')
-            ->whereNotIn('id', $top10->pluck('id'))
-            ->orderBy('total_score', 'desc')
-            ->get();
+        // Initialize arrays to store top 10 and other scores
+        $top10 = [];
+        $otherScores = [];
+
+        // Process each scoreboard entry
+        $rank = 1;
+        foreach ($scoreboards as $scoreboard) {
+            // Assign rank to the scoreboard entry
+            $scoreboard->rank = $rank;
+
+            // Determine whether to add to top 10 or other scores
+            if ($rank <= 10) {
+                $top10[] = $scoreboard;
+            } else {
+                $otherScores[] = $scoreboard;
+            }
+
+            $rank++;
+        }
 
         return response()->json([
             'top_10' => $top10,
             'other_scores' => $otherScores
         ]);
-    }
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Scoreboard $scoreboard)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Scoreboard $scoreboard)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Scoreboard $scoreboard)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Scoreboard $scoreboard)
-    {
-        //
     }
 }

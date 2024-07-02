@@ -5,61 +5,33 @@ namespace App\Http\Controllers;
 use App\Models\Kelompok;
 use Illuminate\Http\Request;
 
+namespace App\Http\Controllers;
+
+use App\Models\Kelompok;
+use Illuminate\Http\Request;
+
 class KelompokController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        // Mengambil semua kelompok
+        $kelompoks = Kelompok::all();
+
+        return response()->json($kelompoks);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show($id)
     {
-        //
-    }
+        // Mengambil satu kelompok berdasarkan ID
+        $kelompok = Kelompok::findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        // Menghitung total skor kelompok
+        $totalScore = $kelompok->calculateTotalScore();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Kelompok $kelompok)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Kelompok $kelompok)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Kelompok $kelompok)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Kelompok $kelompok)
-    {
-        //
+        return response()->json([
+            'kelompok' => $kelompok,
+            'total_score' => $totalScore
+        ]);
     }
 }
+

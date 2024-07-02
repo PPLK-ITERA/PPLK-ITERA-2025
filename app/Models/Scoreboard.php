@@ -11,9 +11,8 @@ class Scoreboard extends Model
 
     protected $table = 'scoreboard';
     protected $primaryKey = 'id';
-
-    protected $fillable = [
-        'kelompok_id', 'total_score'
+    protected $fillable =[
+        'kelompok_id','total_score'
     ];
     protected $hidden = [
         'created_at', 'updated_at'

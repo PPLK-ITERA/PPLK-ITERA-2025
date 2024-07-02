@@ -12,7 +12,7 @@ class Kelompok extends Model
     protected $table = 'kelompok';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'id', 'user_id', 'score_id', 'linkedin_url',
+        'user_id', 'score_id', 'linkedin_url',
         'photo_profile_url', 'password'
     ];
     protected $hidden = [
