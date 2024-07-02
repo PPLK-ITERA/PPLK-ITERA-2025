@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('linkedin_url')->nullable();
             $table->string('instagram_url')->nullable();
             $table->string('pilar')->nullable();
+            $table->integer('view_count')->default(0);
             $table->timestamps();
         });
     }

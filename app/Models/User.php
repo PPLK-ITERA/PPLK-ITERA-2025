@@ -10,7 +10,7 @@ class User extends Model
     use HasFactory;
 
     protected $fillable = [
-        'email', 'password', 'role', 'photo_profile_url', 'linkedin_url', 'instagram_url', 'pilar'
+        'email', 'password', 'role', 'photo_profile_url', 'linkedin_url', 'instagram_url', 'pilar', 'view_count'
     ];
 
     public function followers()
@@ -23,3 +23,4 @@ class User extends Model
         return $this->hasMany(Follow::class, 'following_user_id');
     }
 }
+
