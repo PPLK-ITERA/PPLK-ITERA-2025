@@ -10,18 +10,17 @@ class Scoreboard extends Model
     use HasFactory;
 
     protected $table = 'scoreboard';
-    protected $primarykey = 'id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-        'id','kelompok_id'
+        'kelompok_id', 'total_score'
     ];
     protected $hidden = [
         'created_at', 'updated_at'
     ];
-    
+
     public function kelompok()
     {
-        return $this->belongsTo(Kelompok::class, 'kelompok_id','id');
+        return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');
     }
-
 }

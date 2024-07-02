@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('scoreboard', function (Blueprint $table) {
             $table->id('id');
             $table->foreignId('kelompok_id');
+            $table->integer('total_score')->default(0);
             $table->timestamps();
         });
     }
