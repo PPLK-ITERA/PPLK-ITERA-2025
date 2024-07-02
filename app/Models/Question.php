@@ -22,7 +22,9 @@ class Question extends Model
      *
      * @var array<int, string>
      */
-    protected $hidden = [];
+    protected $hidden = [
+        'created_at', 'updated_at'
+    ];
 
     /**
      * Get the attributes that should be cast.
@@ -32,7 +34,11 @@ class Question extends Model
     protected function casts(): array
     {
         return [
-            'teks_pertanyaan' => 'text',
+            'teks_pertanyaan' => 'string',
         ];
+    }
+    public function Answer()
+    {
+        return $this->hasMany(Answer::class, 'question_id', 'id');
     }
 }
