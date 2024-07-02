@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\ResponseController;
 
 Route::get('/', function () {
     // if has auth, redirect to dashboard
@@ -27,6 +29,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedbacks.index');
+    
+    Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
+        Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
+    });
+
+    Route::middleware(['checkRole:admin'])->group(function () {
+        Route::post('/feedback/respond/{id}', [FeedbackController::class, 'respond'])->name('feedback.respond');
+        Route::get('/admin/feedbacks', [FeedbackController::class, 'showAllFeedbacks'])->name('admin.feedbacks');
+    });
 });
 
 require __DIR__.'/auth.php';
