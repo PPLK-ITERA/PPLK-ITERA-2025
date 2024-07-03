@@ -30,6 +30,7 @@ class User extends Authenticatable
         'kelompok_id',
         'pilar',
         'score',
+        'role',
     ];
 
     /**
@@ -53,9 +54,13 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'isFirstTime' => 'boolean',
         ];
     }
     public function kelompok(){
         return $this->hasOne(Kelompok::class,'kelompok_id','id');
+    }
+    public function role(){
+        return $this->belongsTo(Role::class);
     }
 }
