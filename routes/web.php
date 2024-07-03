@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
     Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
-    Route::get('/scoreboard/{id}/top-scores', [ScoreboardController::class, 'getTopScores']);
+    Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
 });
 
 require __DIR__.'/auth.php';

@@ -61,6 +61,10 @@ class User extends Authenticatable
         return $this->hasOne(Kelompok::class,'kelompok_id','id');
     }
     public function role(){
-        return $this->belongsTo(Role::class);
+        return $this->hasOne(Role::class);
+    }
+
+    public function pilar(){
+        return $this->hasOne(pilar::class,'pilar','id');
     }
 }

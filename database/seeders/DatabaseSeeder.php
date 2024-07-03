@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\pilar;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
@@ -29,7 +30,10 @@ class DatabaseSeeder extends Seeder
             // Add more seeders if needed
         ]);
             Role::create(
-                ['role' => 'Mahsiswa'],
+                ['role' => 'Mahasiswa'],
+        );
+            pilar::create(
+            ['pilar_name'=> 'mblegedes'],
         );
         
         
