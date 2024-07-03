@@ -9,7 +9,8 @@ use App\Http\Controllers\UserController;
 Route::get('/top-followers', [UserController::class, 'topFollowers']);
 Route::get('/search', [UserController::class, 'search']);
 Route::get('/list-maba', [UserController::class, 'listMaba']);
-
+Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
+Route::get('/follow', [UserController::class, 'followview']);
 
 Route::get('/', function () {
     // if has auth, redirect to dashboard

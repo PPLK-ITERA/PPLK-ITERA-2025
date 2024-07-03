@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;    
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
         'email', 'password', 'role', 'photo_profile_url', 'linkedin_url', 'instagram_url', 'pilar', 'view_count'
@@ -22,5 +23,6 @@ class User extends Model
     {
         return $this->hasMany(Follow::class, 'following_user_id');
     }
+    
 }
 
