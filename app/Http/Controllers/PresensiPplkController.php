@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelompok;
 use App\Models\PresensiPplk;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,10 +14,16 @@ class PresensiPplkController extends Controller
         $presensi = PresensiPplk::all();
         return response()->json($presensi, 200);
     }
-
+    
     public function getUserPresensi($user_id){
         $presensi = PresensiPplk::where('user_id', $user_id)->get();
         return response()->json($presensi, 200);
+    }
+
+    public function getUserPresensiByKelompok($kelompok_id, $tanggal_presensi){
+        $kelompok = Kelompok::find($kelompok_id);
+        $presensi = PresensiPplk::whereIn('user_id', $kelompok->user()->pluck('id')->toArray())->get()->where('tanggal_presensi', $tanggal_presensi);
+        return response()->json(['kelompok' => $kelompok->no_kelompok, 'presensi' => $presensi]);
     }
 
     public function store(Request $request){

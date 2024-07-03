@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
     Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
     Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
+    Route::get('/getUserPresensiByKelompok/{kelompok_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
 });
 
 require __DIR__.'/auth.php';

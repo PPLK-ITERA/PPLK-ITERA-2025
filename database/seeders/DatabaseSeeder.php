@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             KelompokSeeder::class,
             ScoreboardSeeder::class,
             UserSeeder::class,
+            PresensiPplkSeeder::class
             // Add more seeders if needed
         ]);
             Role::create(
