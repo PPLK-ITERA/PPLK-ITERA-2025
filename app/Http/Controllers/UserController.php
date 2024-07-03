@@ -20,47 +20,51 @@ class UserController extends Controller
         return response()->json($users);
     }
 
-    // Search bar untuk mencari user berdasarkan nama atau email
-    public function search(Request $request)
-    {
-        $request->validate([
-            'query' => 'required|string|max:255'
-        ]);
-    
-        $query = $request->input('query');
-    
-        $users = User::where('name', 'like', "%$query%")
-                    ->orWhere('nim', 'like', "%$query%")
-                    ->select('name', 'nim')
-                    ->get();
-    
-        if ($users->isEmpty()) {
-            return response()->json(['message' => 'No users found'], 404);
-        }
-    
-        return response()->json($users);
-    }
+   // Search bar untuk mencari user berdasarkan nama atau email
+   public function search(Request $request)
+   {
+      $request->validate([
+         'query' => 'required|string|max:255'
+      ]);
 
-    // Menampilkan list mahasiswa baru yang bisa diurutkan
-    public function listMaba(Request $request)
-    {
-        $validOrders = ['viewer', 'followers', 'followings', 'nim'];
-        $orderBy = $request->input('order_by', 'nim');
-        $direction = $request->input('direction', 'asc');
-    
-        if (!in_array($orderBy, $validOrders)) {
-            return response()->json(['error' => 'Invalid order_by parameter'], 400);
-        }
-    
-        $query = User::where('role', 'maba')->select('name', 'nim');
-    
-        if ($orderBy == 'followers') {
+      $query = $request->input('query');
+
+      $users = User::where('name', 'like', "%$query%")
+         ->orWhere('nim', 'like', "%$query%")
+         ->select('name', 'nim')
+         ->get();
+
+      if ($users->isEmpty()) {
+         return response()->json(['message' => 'No users found'], 404);
+      }
+
+      return response()->json($users);
+   }
+
+   // Menampilkan list mahasiswa baru yang bisa diurutkan
+   public function listMaba(Request $request)
+   {
+      $validOrders = ['viewer', 'followers', 'followings', 'nim'];
+      $orderBy = $request->input('order_by', 'nim');
+      $direction = $request->input('direction', 'asc');
+
+      if (!in_array($orderBy, $validOrders)) {
+         return response()->json(['error' => 'Invalid order_by parameter'], 400);
+      }
+
+      $query = User::where('role', 'maba')->select('name', 'nim');
+
+      switch ($orderBy) {
+         case 'followers':
             $query->withCount('followers')->orderBy('followers_count', $direction);
-        } elseif ($orderBy == 'followings') {
+            break;
+         case 'followings':
             $query->withCount('followings')->orderBy('followings_count', $direction);
-        } elseif ($orderBy == 'viewer') {
-            $query->select('name', 'nim', 'view_count')->orderBy('view_count', $direction);
-        } else {
+            break;
+         case 'viewer':
+            $query->addSelect('view_count')->orderBy('view_count', $direction);
+            break;
+         default:
             $query->orderBy($orderBy, $direction);
         }
     
