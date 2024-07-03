@@ -9,60 +9,35 @@ use Illuminate\Http\Request;
 class ScoreboardController extends Controller
 {
     /**
-     * Accumulate scores for each group and update the scoreboard.
+     * Mengambil score kelompok berdasarkan kelompok_id dan menampilkan top 10 skor.
+     *
+     * @param  int  $kelompok_id
+     * @return \Illuminate\Http\Response
      */
-    public function accumulateScores()
+    public function getTopScores($kelompok_id)
     {
-        // Fetch all groups with their users
-        $kelompoks = Kelompok::with('users')->get();
+        // Mengambil semua kelompok dan mengurutkan berdasarkan total_score
+        $topScores = Scoreboard::orderBy('total_score', 'desc')
+                               ->take(10)
+                               ->get();
 
-        foreach ($kelompoks as $kelompok) {
-            // Sum the scores of all users in the group
-            $totalScore = $kelompok->users->sum('score');
+        // Mencari kelompok berdasarkan kelompok_id
+        $kelompok = Scoreboard::where('kelompok_id', $kelompok_id)->first();
 
-            // Update or create the scoreboard entry for the group
-            $scoreboard = Scoreboard::updateOrCreate(
-                ['kelompok_id' => $kelompok->id],
-                ['total_score' => $totalScore]
-            );
+        // Mengecek apakah kelompok ditemukan
+        if (!$kelompok) {
+            return response()->json(['error' => 'Kelompok tidak ditemukan'], 404);
         }
 
-        return response()->json(['message' => 'Scores accumulated and scoreboard updated successfully.']);
-    }
+        // Mengecek apakah kelompok ada di top 10
+        $ranked = $topScores->contains('kelompok_id', $kelompok_id);
 
-    /**
-     * Get the scoreboard with ranking.
-     */
-    public function getScoreboard()
-    {
-        // Fetch all scoreboards ordered by total score descending
-        $scoreboards = Scoreboard::with('kelompok')
-            ->orderByDesc('total_score')
-            ->get();
-
-        // Initialize arrays to store top 10 and other scores
-        $top10 = [];
-        $otherScores = [];
-
-        // Process each scoreboard entry
-        $rank = 1;
-        foreach ($scoreboards as $scoreboard) {
-            // Assign rank to the scoreboard entry
-            $scoreboard->rank = $rank;
-
-            // Determine whether to add to top 10 or other scores
-            if ($rank <= 10) {
-                $top10[] = $scoreboard;
-            } else {
-                $otherScores[] = $scoreboard;
-            }
-
-            $rank++;
+        if ($ranked) {
+            // Mengembalikan top 10 skor jika kelompok ada di top 10
+            return response()->json($topScores);
+        } else {
+            // Mengembalikan skor kelompok jika tidak ada di top 10
+            return response()->json(['kelompok_id' => $kelompok_id, 'total_score' => $kelompok->total_score]);
         }
-
-        return response()->json([
-            'top_10' => $top10,
-            'other_scores' => $otherScores
-        ]);
     }
 }

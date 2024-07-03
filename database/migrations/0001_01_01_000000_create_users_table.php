@@ -18,6 +18,13 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->foreignId('role');
+            $table->string('photo_profile_url')->nullable();
+            $table->string('linkedin_url')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->foreignId('pilar');
+            $table->foreignId('kelompok_id');
+            $table->integer('scores');
             $table->timestamps();
         });
 

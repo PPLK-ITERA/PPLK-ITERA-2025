@@ -18,8 +18,7 @@ class Scoreboard extends Model
         'created_at', 'updated_at'
     ];
 
-    public function kelompok()
-    {
-        return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');
+    public function kelompok(){
+        return $this->hasOne(Kelompok::class,'kelompok_id','id');
     }
 }

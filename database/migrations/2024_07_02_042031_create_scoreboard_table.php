@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('scoreboard', function (Blueprint $table) {
-            $table->id('id');
+            $table->id('id')->primary();
             $table->foreignId('kelompok_id');
             $table->integer('total_score');
             $table->timestamps();

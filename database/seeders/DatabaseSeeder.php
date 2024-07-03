@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             KelompokSeeder::class,
             ScoreboardSeeder::class,
+            UserSeeder::class,
             // Add more seeders if needed
         ]);
     }
