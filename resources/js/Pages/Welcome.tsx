@@ -55,25 +55,24 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
           <img
             src="/assets/logo-pplk-2024.png"
             className="w-36 h-36 -ml-48 lg:-ml-72 lg:-mt-[70px]"
-            quality={100}
             alt="logo-pplk-2024"
             width={202}
             height={202}
           />
 
-          <form onSubmit={submit} className="flex flex-col items-center md:items-start justify-start p-2" >
+          <form onSubmit={submit} className="md:items-start flex flex-col items-center justify-start p-2" >
             <h1 className="text-2xl w-[300px] sm:w-[300px] sm:text-3xl lg:w-96 lg:text-4xl font-bold md:mb-8 text-jaffa-800 lg:mt-10">
               Selamat Datang
-              <br className="hidden lg:block" /> Di Kuis Personality
-              <br className="hidden lg:block" /> PPLK
+              <br className="lg:block hidden" /> Di Kuis Personality
+              <br className="lg:block hidden" /> PPLK
             </h1>
 
             <div>
               <label htmlFor="email">Email</label>
               <div className="relative w-[300px] sm:w-[300px] lg:w-96">
-                <Mail className="absolute top-3 left-2 text-jaffa-600" />
+                <Mail className="top-3 left-2 text-jaffa-600 absolute" />
                 <Input
-                  className="focus:ring-2 ring-jaffa-600 border-jaffa-600 h-12 mb-4 pl-10 rounded-md border"
+                  className="focus:ring-2 ring-jaffa-600 border-jaffa-600 h-12 pl-10 mb-4 border rounded-md"
                   name="email"
                   type="email"
                   autoComplete="email"
@@ -92,12 +91,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <div className="relative">
                   <LockKeyhole
                     strokeWidth={1.5}
-                    className="top-3 absolute left-2 text-jaffa-600"
+                    className="top-3 left-2 text-jaffa-600 absolute"
                   />
                 </div>
 
                 <Input
-                  className="bg-transparent focus:ring-2 ring-jaffa-600 border-jaffa-600 h-12 mb-4 pl-10 rounded-md border"
+                  className="focus:ring-2 ring-jaffa-600 border-jaffa-600 h-12 pl-10 mb-4 bg-transparent border rounded-md"
                   type={showPassword ? "text" : "password"}
                   placeholder="Password anda"
                   value={data.password}
@@ -109,7 +108,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 {showPassword ? (
                   <Eye
                     strokeWidth={1.5}
-                    className="top-3 absolute right-2 text-jaffa-600 cursor-pointer"
+                    className="top-3 right-2 text-jaffa-600 absolute cursor-pointer"
                     onClick={() => {
                       setShowPassword(!showPassword);
                       handleTogglePassword();
@@ -118,7 +117,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 ) : (
                   <EyeOff
                     strokeWidth={1.5}
-                    className="top-3 absolute right-2 text-jaffa-600 cursor-pointer"
+                    className="top-3 right-2 text-jaffa-600 absolute cursor-pointer"
                     onClick={() => {
                       setShowPassword(!showPassword);
                       handleTogglePassword();
