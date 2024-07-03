@@ -17,7 +17,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignId('role')->default(1);
+            $table->boolean('isFirstTime')->default(true);
             $table->rememberToken();
+            $table->string('photo_profile_url')->nullable();
+            $table->string('linkedin_url')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->foreignId('pilar')->nullable();
+            $table->foreignId('kelompok_id')->nullable();
+            $table->integer('score')->default(0);
             $table->timestamps();
         });
 

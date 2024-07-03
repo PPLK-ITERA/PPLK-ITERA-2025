@@ -4,27 +4,28 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Scoreboard;
+use App\Models\Kelompok;
+use App\Models\User;
 
 class ScoreboardSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        // Create dummy data for Scoreboard
-        $scoreboard1 = Scoreboard::create([
-            'kelompok_id' => 1,
-            'total_score' => 100,
-        ]);
+        // Ambil semua kelompok
+        $kelompoks = Kelompok::all();
 
-        $scoreboard2 = Scoreboard::create([
-            'kelompok_id' => 2,
-            'total_score' => 90,
-        ]);
+        foreach ($kelompoks as $kelompok) {
+            // Hitung total skor untuk setiap kelompok
+            $totalScore = User::where('kelompok_id', $kelompok->id)->sum('score');
 
-        // Add more Scoreboard as needed
+            // Buat entri di scoreboard
+            Scoreboard::create([
+                'kelompok_id' => $kelompok->id,
+                'total_score' => $totalScore,
+            ]);
+        }
     }
 }

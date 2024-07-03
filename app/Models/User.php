@@ -20,9 +20,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
+        'photo_profile_url',
+        'linkedin_url',
+        'instagram_url',
+        'kelompok_id',
+        'pilar',
+        'score',
+        'role',
     ];
 
     /**
@@ -33,6 +41,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'pilar',
     ];
 
     /**
@@ -45,9 +54,17 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'isFirstTime' => 'boolean',
         ];
     }
     public function kelompok(){
-        return $this->hasOne(Kelompok::class,'user_id','id');
+        return $this->hasOne(Kelompok::class,'kelompok_id','id');
+    }
+    public function role(){
+        return $this->hasOne(Role::class);
+    }
+
+    public function pilar(){
+        return $this->hasOne(pilar::class,'pilar','id');
     }
 }

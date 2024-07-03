@@ -12,20 +12,20 @@ class Kelompok extends Model
     protected $table = 'kelompok';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'user_id', 'score_id', 'linkedin_url',
-        'photo_profile_url'
+        'no_kelompok',
+        'nama_kelompok',
+        'logo_kelompok',
     ];
     protected $hidden = [
-        'created_at', 'updated_at', 'password'
+        'created_at', 'updated_at'
     ];
 
     public function scoreboard()
     {
         return $this->hasOne(Scoreboard::class, 'kelompok_id', 'id');
     }
-
-    public function users()
-    {
-        return $this->hasMany(User::class, 'kelompok_id', 'id');
+    public function user(){
+        return $this->hasMany(User::class,'kelompok_id','id');
     }
+
 }

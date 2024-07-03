@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scoreboard', function (Blueprint $table) {
-            $table->id('id')->primary();
-            $table->foreignId('kelompok_id');
-            $table->integer('total_score');
+        Schema::create('pilar', function (Blueprint $table) {
+            $table->id()->primary();
+            $table->string('pilar_name');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scoreboard');
+        Schema::dropIfExists('pilats');
     }
 };

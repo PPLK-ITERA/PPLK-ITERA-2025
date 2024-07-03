@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Scoreboard extends Model
+class pilar extends Model
 {
     use HasFactory;
-
-    protected $table = 'scoreboard';
+    protected $table = 'pilar';
     protected $primaryKey = 'id';
-    protected $fillable =[
-        'kelompok_id','total_score'
+    protected $fillable = [
+        'pilar_name',
     ];
     protected $hidden = [
         'created_at', 'updated_at'
     ];
 
-    public function kelompok(){
-        return $this->hasOne(Kelompok::class,'kelompok_id','id');
+    public function users(){
+        return $this->hasMany(User::class);
     }
 }
