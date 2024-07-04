@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedbacks.index');
+    Route::get('/user/feedback', [FeedbackController::class, 'showUserFeedback'])->name('user.feedback');
     
     Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
         Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
