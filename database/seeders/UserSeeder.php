@@ -64,6 +64,35 @@ class UserSeeder extends Seeder
             'role'  => 1,
         ]);
         
+      
+        // Create admin user if not exists
+        User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Admin User',
+                'password' => bcrypt('password'),
+                'role' => 'admin',
+            ]
+        );
 
+        // Create dapmen user if not exists
+        User::firstOrCreate(
+            ['email' => 'dapmen@example.com'],
+            [
+                'name' => 'Dapmen User',
+                'password' => bcrypt('password'),
+                'role' => 'dapmen',
+            ]
+        );
+
+        // Create mahasiswa user if not exists
+        User::firstOrCreate(
+            ['email' => 'mahasiswa@example.com'],
+            [
+                'name' => 'Mahasiswa User',
+                'password' => bcrypt('password'),
+                'role' => 'mahasiswa',
+            ]
+        );
     }
 }
