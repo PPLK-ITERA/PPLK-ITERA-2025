@@ -2,27 +2,24 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Follow;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-   // Menampilkan top 3 follower
-   public function topFollowers()
-   {
-      $users = User::withCount('followers')
-         ->orderBy('followers_count', 'desc')
-         ->take(3)
-         ->get(['name', 'nim']) // Select only the name and nim columns
-         ->makeHidden(['id', 'email', 'password', 'role', 'photo_profile_url', 'linkedin_url', 'instagram_url', 'pilar', 'view_count', 'created_at', 'updated_at']); // Hide unwanted columns
-
-      // Manually add followers_count
-      $users->each(function ($user) {
-         $user->followers_count = $user->followers()->count();
-      });
-
-      return response()->json($users);
-   }
+    // Menampilkan top 3 follower
+    public function topFollowers()
+    {
+        $users = User::select('name', 'nim')
+                    ->withCount('followers')
+                    ->orderBy('followers_count', 'desc')
+                    ->take(3)
+                    ->get();
+    
+        return response()->json($users);
+    }
 
    // Search bar untuk mencari user berdasarkan nama atau email
    public function search(Request $request)
@@ -70,15 +67,47 @@ class UserController extends Controller
             break;
          default:
             $query->orderBy($orderBy, $direction);
-      }
-
-      $users = $query->get();
-
-      if ($users->isEmpty()) {
-         return response()->json(['message' => 'No maba found'], 404);
-      }
-
-      return response()->json($users);
-   }
-}
-//
+        }
+    
+        $users = $query->get();
+    
+        if ($users->isEmpty()) {
+            return response()->json(['message' => 'No maba found'], 404);
+        }
+    
+        return response()->json($users);
+    }
+    
+    
+        // Follow a user
+    public function follow($id)
+    {
+            $followingUserId = auth()->id();  // Assuming you use Laravel's auth system
+            $followedUserId = $id;
+        
+            // Validate that the user exists
+            User::findOrFail($followedUserId);
+        
+            // Check if already following
+            $follow = Follow::where('following_user_id', $followingUserId)
+                            ->where('followed_user_id', $followedUserId)
+                            ->first();
+        
+            if ($follow) {
+                // If already following, unfollow the user
+                $follow->delete();
+                return response()->json(['message' => 'Successfully unfollowed the user']);
+            }
+        
+            // Otherwise, create the follow relationship
+            Follow::create([
+                'following_user_id' => $followingUserId,
+                'followed_user_id' => $followedUserId
+            ]);
+        
+            return response()->json(['message' => 'Successfully followed the user']);
+    }
+    public function followview(){
+        return view('test');
+    }
+}        
