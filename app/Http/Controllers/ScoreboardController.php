@@ -5,39 +5,51 @@ namespace App\Http\Controllers;
 use App\Models\Kelompok;
 use App\Models\Scoreboard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ScoreboardController extends Controller
 {
+
     /**
-     * Mengambil score kelompok berdasarkan kelompok_id dan menampilkan top 10 skor.
+     * Mengambil total skor kelompok dari database tabel user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getTotalScoresFromDatabase()
+    {
+        $kelompokScores = User::select('kelompok_id', \DB::raw('SUM(score) as total_score'))
+                              ->groupBy('kelompok_id')
+                              ->orderBy('total_score', 'desc')
+                              ->get();
+
+        $topTenScores = $kelompokScores->take(10);
+
+        return response()->json($topTenScores);        
+    }
+
+    /**
+     * Menampilkan skor kelompok yang tidak masuk dalam 10 besar.
      *
      * @param  int  $kelompok_id
      * @return \Illuminate\Http\Response
      */
-    public function getTopScores($kelompok_id)
+    public function getKelompokScore($kelompok_id)
     {
-        // Mengambil semua kelompok dan mengurutkan berdasarkan total_score
-        $topScores = Scoreboard::orderBy('total_score', 'desc')
-                               ->take(10)
-                               ->get();
+        $kelompokScores = User::select('kelompok_id', \DB::raw('SUM(score) as total_score'))
+                              ->groupBy('kelompok_id')
+                              ->orderBy('total_score', 'desc')
+                              ->get();
 
-        // Mencari kelompok berdasarkan kelompok_id
-        $kelompok = Scoreboard::where('kelompok_id', $kelompok_id)->first();
+        $topTenIds = $kelompokScores->take(10)->pluck('kelompok_id');
+        $kelompokInTopTen = $topTenIds->contains($kelompok_id);
 
-        // Mengecek apakah kelompok ditemukan
-        if (!$kelompok) {
-            return response()->json(['error' => 'Kelompok tidak ditemukan'], 404);
+        if (!$kelompokInTopTen) {
+            $kelompokScore = $kelompokScores->where('kelompok_id', $kelompok_id)->first();
+            return response()->json($kelompokScore);
         }
 
-        // Mengecek apakah kelompok ada di top 10
-        $ranked = $topScores->contains('kelompok_id', $kelompok_id);
-
-        if ($ranked) {
-            // Mengembalikan top 10 skor jika kelompok ada di top 10
-            return response()->json($topScores);
-        } else {
-            // Mengembalikan skor kelompok jika tidak ada di top 10
-            return response()->json(['kelompok_id' => $kelompok_id, 'total_score' => $kelompok->total_score]);
-        }
+        return response()->json(['message' => 'Kelompok masuk dalam 10 besar.']);
     }
+
 }

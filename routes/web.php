@@ -29,9 +29,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // melihat list user pada kelompok
     Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
-    Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
-    Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
+    //melihat top 10 
+    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
+    //melihat kelompok yang tidak masuk top 10
+    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+    
 });
+
 
 require __DIR__.'/auth.php';
