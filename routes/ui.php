@@ -15,6 +15,10 @@ Route::middleware('guest')->group(function () {
     Route::get('scoreboard', function () {
         return Inertia::render('Scoreboard/Page');
     })->name('scoreboard');
+
+    Route::get('relasi', function () {
+        return Inertia::render('Relasi/Page');
+    })->name('relasi');
 });
 
 Route::middleware('auth')->group(function () {
