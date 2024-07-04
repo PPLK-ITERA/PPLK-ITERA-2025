@@ -43,9 +43,9 @@ class FeedbackController extends Controller
         return view('admin.feedback', compact('feedback'));
     }
 
-    public function showUserFeedback(Request $request)
+    public function showUserFeedback()
     {
-        $feedback = Feedback::where('user_id', $request->user()->id)->get();
+        $feedback = Feedback::where('user_id', auth()->id)->get();
         return view('user.feedback', compact('feedback'));
     }
 }
