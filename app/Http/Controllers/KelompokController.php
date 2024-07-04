@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelompok;
-use App\Models\User;
+use App\Models\Scoreboard;
 use Illuminate\Http\Request;
 
 class KelompokController extends Controller
@@ -34,26 +34,5 @@ class KelompokController extends Controller
         return response()->json(['kelompok_id' => $kelompok_id, 'user_id' => $groupedUserId]);
     }
 
-    /**
-     * Menjumlahkan skor setiap user dalam satu kelompok dan menjadikannya skor kelompok.
-     *
-     * @param  int  $kelompok_id
-     * @return \Illuminate\Http\Response
-     */
-    public function getKelompokScore($kelompok_id)
-    {
-        // Mengambil kelompok berdasarkan id
-        $kelompok = Kelompok::find($kelompok_id);
 
-        // Mengecek apakah kelompok ditemukan
-        if (!$kelompok) {
-            return response()->json(['error' => 'Kelompok tidak ditemukan'], 404);
-        }
-
-        // Mengambil semua pengguna dalam kelompok tersebut dan menjumlahkan skor mereka
-        $totalScore = $kelompok->user()->sum('score');
-
-        // Mengembalikan total skor kelompok
-        return response()->json(['kelompok_id' => $kelompok_id, 'total_score' => $totalScore]);
-    }
 }
