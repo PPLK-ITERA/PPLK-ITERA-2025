@@ -1,21 +1,17 @@
 <?php
-
+//TODO: Remove the feedback and response related
 use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\UserController;
+// use App\Http\Controllers\ResponseController;
+// use App\Http\Controllers\FeedbackController;
 
-Route::get('/top-followers', [UserController::class, 'topFollowers']);
-Route::get('/search', [UserController::class, 'search']);
-Route::get('/list-maba', [UserController::class, 'listMaba']);
-Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
-Route::get('/follow', [UserController::class, 'followview']);
+
 
 
 Route::get('/', function () {
@@ -37,32 +33,57 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // melihat list user pada kelompok
-    Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
-    //melihat top 10 
-    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-    //melihat kelompok yang tidak masuk top 10
-    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
-     Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedbacks.index');
-    Route::get('/user/feedback', [FeedbackController::class, 'showUserFeedback'])->name('user.feedback');
-    
-    Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
-        Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
-    });
 
-    Route::middleware(['checkRole:admin'])->group(function () {
-        Route::post('/feedback/respond/{id}', [FeedbackController::class, 'respond'])->name('feedback.respond');
-        Route::get('/admin/feedbacks', [FeedbackController::class, 'showAllFeedbacks'])->name('admin.feedbacks');
-    });
-    Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
-    Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
-    Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
-    Route::get('/getUserPresensiByKelompok/{kelompok_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
+   // Profile
+   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+   // Scoreboard
+   // melihat list user pada kelompok
+   Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
+   //melihat top 10
+   Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
+   //melihat kelompok yang tidak masuk top 10
+   Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+
+
+
+   //Middleware only maba
+   Route::middleware(['checkRole:maba'])->group(function () {
+      //Followers
+      //top 3 followers
+      Route::get('/top-followers', [UserController::class, 'topFollowers']);
+      //search maba
+      Route::post('/search', [UserController::class, 'search']);
+      //seluruh list maba
+      Route::get('/list-maba', [UserController::class, 'listMaba']);
+      //follow button
+      Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
+   });
+
+   Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
+   });
+   Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
+      //Presensi PPLK
+      Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
+      Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
+   });
+   Route::middleware(['checkRole:Admin'])->group(function () {
+   });
+
+
+   // Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
+   // Route::get('/follow', [UserController::class, 'followview']);
+   // Route::get('/user/feedback', [FeedbackController::class, 'showUserFeedback'])->name('user.feedback');
+   // Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedbacks.index');
+   // Route::post('/feedback/respond/{id}', [FeedbackController::class, 'respond'])->name('feedback.respond');
+   // Route::get('/admin/feedbacks', [FeedbackController::class, 'showAllFeedbacks'])->name('admin.feedbacks');
+   // Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
+   // Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
+   // Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
 });
-    
 
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
