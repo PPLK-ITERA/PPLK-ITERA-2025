@@ -1,6 +1,4 @@
-/* @import url("font/Avigea/Avigea-Italic.otf");
-@import url("font/Avigea/Avigea.otf");
-@import url("font/Festival-Budaya/FestivalBudayaXXXI.otf"); */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;

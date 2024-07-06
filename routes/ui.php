@@ -11,6 +11,10 @@ Route::middleware('guest')->group(function () {
     Route::get('dev', function () {
         return Inertia::render('Dev/Page');
     })->name('dev');
+
+    Route::get('informasi/profil', function () {
+        return Inertia::render('Informasi/Profil/Page');
+    })->name('informasi/profil');
 });
 
 Route::middleware('auth')->group(function () {

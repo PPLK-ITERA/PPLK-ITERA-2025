@@ -3,93 +3,95 @@ import Autoplay from "embla-carousel-autoplay";
 
 import { Card, CardContent, CardTitle } from "@/Components/ui/card";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/Components/ui/carousel";
 import { type CarouselApi } from "@/Components/ui/carousel";
 import { DATA_FUNFACT } from "@/lib/data/funfact";
 import { Person } from "@/lib/types/FunFactType";
 
 const CarouselForm = () => {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
+    const [api, setApi] = React.useState<CarouselApi>();
+    const [current, setCurrent] = React.useState(0);
 
-  React.useEffect(() => {
-    if (!api) {
-      return;
+    React.useEffect(() => {
+        if (!api) {
+            return;
+        }
+
+        setCurrent(api.selectedScrollSnap() + 1);
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1);
+        });
+    }, [api]);
+
+    function getRandomPerson(data: Person[]): Person {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        return data[randomIndex];
     }
 
-    setCurrent(api.selectedScrollSnap() + 1);
+    const randomPerson: Person = getRandomPerson(DATA_FUNFACT);
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
+    return (
+        <div>
+            <Carousel
+                className="h-[200px] w-[300px] text-white sm:h-[415px] sm:w-[415px]"
+                setApi={setApi}
+                plugins={[
+                    Autoplay({
+                        delay: 4000,
+                    }),
+                ]}
+            >
+                <CarouselContent>
+                    {randomPerson.funfact.map((item, index) => (
+                        <CarouselItem key={index}>
+                            <div>
+                                <Card className="flex flex-col items-center justify-center border-none bg-white/10 p-2 backdrop-blur-lg md:aspect-square lg:p-5">
+                                    <CardTitle>
+                                        <p className="text-center text-2xl font-bold text-white lg:text-4xl">
+                                            {item.title}
+                                        </p>
+                                        <p className="text-center text-sm font-semibold text-white lg:text-lg">
+                                            {item.subtitle}
+                                        </p>
+                                    </CardTitle>
 
-  function getRandomPerson(data: Person[]): Person {
-    const randomIndex = Math.floor(Math.random() * data.length);
-    return data[randomIndex];
-  }
+                                    <CardContent className="mt-5 flex items-center justify-center md:mt-20">
+                                        <span className="md:text-md text-center text-sm font-semibold text-white">
+                                            {item.desc}
+                                        </span>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
 
-  const randomPerson :Person = getRandomPerson(DATA_FUNFACT);
+                <CarouselPrevious className="invisible bg-transparent text-white hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible" />
 
-  return (
-    <div>
-      <Carousel
-        className="sm:w-[415px] sm:h-[415px] w-[300px] h-[200px] text-white"
-        setApi={setApi}
-        plugins={[
-          Autoplay({
-            delay: 4000,
-          }),
-        ]}
-      >
-        <CarouselContent>
-          {randomPerson.funfact.map((item, index) => (
-            <CarouselItem key={index}>
-              <div>
-                <Card className="bg-white/10 border-none backdrop-blur-lg p-2 lg:p-5 md:aspect-square flex justify-center items-center flex-col">
-                  <CardTitle>
-                    <p className="text-2xl lg:text-4xl font-bold text-center text-white">
-                      {item.title}
-                    </p>
-                    <p className="text-sm lg:text-lg font-semibold text-center text-white">
-                      {item.subtitle}
-                    </p>
-                  </CardTitle>
-                  
-                  <CardContent className="flex mt-5 md:mt-20 items-center justify-center">
-                    <span className="text-sm md:text-md font-semibold text-center  text-white">
-                      {item.desc}
-                    </span>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+                <div className="text-center text-sm text-white">
+                    {randomPerson.funfact.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => api?.scrollTo(index)}
+                            className={`mx-1 inline-block h-2 w-2 rounded-full bg-white transition duration-200 ease-in-out ${
+                                index === current - 1
+                                    ? "w-5 bg-white"
+                                    : "bg-white/50"
+                            }`}
+                        />
+                    ))}
+                </div>
 
-        <CarouselPrevious className="bg-transparent invisible lg:visible text-white hover:bg-transparent hover:border-2 hover:border-white hover:text-white" />
-        
-        <div className="text-center text-sm text-white">
-          {randomPerson.funfact.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => api?.scrollTo(index)}
-              className={`inline-block w-2 h-2 transition ease-in-out duration-200 mx-1 rounded-full bg-white ${
-                index === current - 1 ? "bg-white w-5" : "bg-white/50"
-              }`}
-            />
-          ))}
+                <CarouselNext className="invisible bg-transparent text-white hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible" />
+            </Carousel>
         </div>
-
-        <CarouselNext className="bg-transparent invisible lg:visible text-white hover:bg-transparent hover:border-2 hover:border-white hover:text-white" />
-      </Carousel>
-    </div>
-  );
+    );
 };
 
 export default CarouselForm;

@@ -1,150 +1,81 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { Mail, LockKeyhole, Eye, EyeOff } from "lucide-react";
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
+import React from "react";
+import elang from "../../../public/assets/elang-hero.png";
+import overlay_earth from "../../../public/assets/overlay-earth.png";
+import pillar_brown from "../../../public/assets/pillar-brown.png";
+import overlay_box from "../../../public/assets/overlay-box.png";
+import What from "@/Components/landing-page/What";
+import Panduan from "@/Components/landing-page/Panduan";
+import VideoSection from "@/Components/landing-page/VideoSection";
+import FilosofiLogo from "@/Components/landing-page/FilosofiLogo";
+import Maskot from "@/Components/landing-page/Maskot";
+import InfoSection from "@/Components/landing-page/InfoSection";
+import Sponsorship from "@/Components/landing-page/Sponsorship";
+import Footer from "@/Components/Footer";
+import sponsor_overlay from "../../../public/assets/sponsor-overlay.png";
+import NavHero from "@/Components/NavHero";
 
-import CarouselForm from "@/Components/fragments/CarouselForm";
-import { Button } from "@/Components/ui/button";
-import { Input } from "@/Components/ui/input";
-import { useToast } from "@/Components/ui/use-toast";
-import { Head, Link, useForm } from "@inertiajs/react";
-import TextInput from "@/Components/TextInput";
-import InputError from "@/Components/InputError";
-import PrimaryButton from "@/Components/PrimaryButton";
-
-export default function Welcome({ auth, laravelVersion, phpVersion }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: "",
-        password: "",
-        remember: false,
-    });
-
-    const [showPassword, setShowPassword] = useState(false);
-
-    const handleEmailChange = (e) => {
-        setData("email", e.target.value);
-    };
-
-    const handlePasswordChange = (e) => {
-        setData("password", e.target.value);
-    };
-
-    const handleTogglePassword = () => {
-        setShowPassword(!showPassword);
-    };
-
-    const submit = (e) => {
-        e.preventDefault();
-        console.log("anjir");
-        post(route("login"));
-    };
-
+export default function LandingPage() {
     return (
-        <>
-            <Head title="Welcome" />
+        <div>
+            <MaxWidthWrapper className="relative">
+                <img
+                    src={elang}
+                    alt="elang"
+                    className="absolute right-10 top-32"
+                />
+            </MaxWidthWrapper>
 
-            <div
-                className={`flex flex-col md:flex-row w-full h-full font-medium overflow-hidden justify-center font-fesbud`}
-            >
-                <div className="w-full md:w-[60%] min-h-[70px] p-5 md:p-0 md:min-h-[100vh] object-cover flex justify-center md:items-center bg-[url('/assets/background-login.png')] bg-cover">
-                    <CarouselForm />
-                </div>
+            <NavHero />
 
-                <div className="flex bg-gradient-to-tl from-jaffa-600/50 from-1% via-white via-20% to-transparent to-85% justify-center items-center flex-col w-full md:w-[40%] z-10">
-                    <img
-                        src="/assets/logo-pplk-2024.png"
-                        className="w-36 h-36 -ml-48 lg:-ml-72 lg:-mt-[70px]"
-                        alt="logo-pplk-2024"
-                        width={202}
-                        height={202}
-                    />
-
-                    <form
-                        onSubmit={submit}
-                        className="md:items-start flex flex-col items-center justify-start p-2"
-                    >
-                        <h1 className="text-2xl w-[300px] sm:w-[300px] sm:text-3xl lg:w-96 lg:text-4xl font-bold md:mb-8 text-jaffa-800 lg:mt-10">
-                            Selamat Datang
-                            <br className="lg:block hidden" /> Di Kuis
-                            Personality
-                            <br className="lg:block hidden" /> PPLK
-                        </h1>
-
-                        <div>
-                            <label htmlFor="email">Email</label>
-                            <div className="relative w-[300px] sm:w-[300px] lg:w-96">
-                                <Mail className="top-3 left-2 text-jaffa-600 absolute" />
-                                <Input
-                                    className="focus:ring-2 ring-jaffa-600 border-jaffa-600 h-12 pl-10 mb-4 border rounded-md"
-                                    name="email"
-                                    type="email"
-                                    autoComplete="email"
-                                    value={data.email}
-                                    onChange={handleEmailChange}
-                                    placeholder="Email anda"
-                                    id="email"
-                                />
-                                <InputError
-                                    message={errors.email}
-                                    className="mt-2"
-                                />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label htmlFor="password">Password</label>
-                            <div className="relative w-[300px] sm:w-[300px] lg:w-96">
-                                <div className="relative">
-                                    <LockKeyhole
-                                        strokeWidth={1.5}
-                                        className="top-3 left-2 text-jaffa-600 absolute"
-                                    />
-                                </div>
-
-                                <Input
-                                    className="focus:ring-2 ring-jaffa-600 border-jaffa-600 h-12 pl-10 mb-4 bg-transparent border rounded-md"
-                                    type={showPassword ? "text" : "password"}
-                                    placeholder="Password anda"
-                                    value={data.password}
-                                    onChange={handlePasswordChange}
-                                    name="password"
-                                    id="password"
-                                />
-                                <InputError
-                                    message={errors.password}
-                                    className="mt-2"
-                                />
-                                {showPassword ? (
-                                    <Eye
-                                        strokeWidth={1.5}
-                                        className="top-3 right-2 text-jaffa-600 absolute cursor-pointer"
-                                        onClick={() => {
-                                            setShowPassword(!showPassword);
-                                            handleTogglePassword();
-                                        }}
-                                    />
-                                ) : (
-                                    <EyeOff
-                                        strokeWidth={1.5}
-                                        className="top-3 right-2 text-jaffa-600 absolute cursor-pointer"
-                                        onClick={() => {
-                                            setShowPassword(!showPassword);
-                                            handleTogglePassword();
-                                        }}
-                                    />
-                                )}
-                            </div>
-                        </div>
-
-                        <Button
-                            type="submit"
-                            disabled={processing}
-                            className="w-[300px] sm:w-[300px] lg:w-96 h-12 mb-4 px-4 rounded-md border bg-jaffa-600 hover:bg-white hover:shadow-md focus:ring-2 focus:ring-jaffa-600 hover:text-jaffa-600 transition ease-out duration-300 text-black font-bold"
-                        >
-                            Masuk
-                        </Button>
-                    </form>
-                </div>
+            <div className="bg-pattern-white">
+                <MaxWidthWrapper>
+                    <What />
+                    <Panduan />
+                </MaxWidthWrapper>
+                <img
+                    src={overlay_earth}
+                    alt="overlay_earth"
+                    className="w-full"
+                />
             </div>
-        </>
+
+            <VideoSection />
+
+            <div className="relative -mt-5 bg-[#170C0A] bg-pattern-white">
+                <MaxWidthWrapper>
+                    <FilosofiLogo />
+                    <Maskot />
+                </MaxWidthWrapper>
+
+                <img
+                    src={pillar_brown}
+                    alt="pillar_brown"
+                    className="absolute bottom-0 w-full"
+                />
+            </div>
+
+            <img
+                src={overlay_box}
+                alt="pillar_brown"
+                className="absolute -mt-[200px] w-full"
+            />
+
+            <div className="bg-pattern-white pb-20 pt-40">
+                <InfoSection />
+            </div>
+
+            <div className="h-[10px] w-full bg-candlelight-600" />
+
+            <Sponsorship />
+
+            <img
+                src={sponsor_overlay}
+                alt="sponsor_overlay"
+                className="w-full object-cover"
+            />
+
+            <Footer />
+        </div>
     );
 }
