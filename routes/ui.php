@@ -12,6 +12,10 @@ Route::middleware('guest')->group(function () {
         return Inertia::render('Dev/Page');
     })->name('dev');
 
+    Route::get('informasi/profil', function () {
+        return Inertia::render('Informasi/Profil/Page');
+    })->name('informasi/profil');
+
     Route::get('scoreboard', function () {
         return Inertia::render('Scoreboard/Page');
     })->name('scoreboard');
@@ -19,10 +23,11 @@ Route::middleware('guest')->group(function () {
     Route::get('relasi', function () {
         return Inertia::render('Relasi/Page');
     })->name('relasi');
-    
+=========
     Route::get('informasi/profil', function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');
+>>>>>>>>> Temporary merge branch 2
 });
 
 Route::middleware('auth')->group(function () {
