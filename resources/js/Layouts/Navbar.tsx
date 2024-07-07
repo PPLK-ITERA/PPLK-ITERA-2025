@@ -9,11 +9,11 @@ const Navbar = ({ user }) => {
     // const { pathname } = useLocation();
 
     return (
-        <nav className="bg-gradient-to-r from-candlelight-800 to-candlelight-950 w-full px-2 py-2">
-            <div className="flex items-center justify-between w-full">
-                <h2 className={` text-center `}>Welcome, {user.name}</h2>
+        <nav className="w-full bg-gradient-to-r from-candlelight-800 to-candlelight-950 px-2 py-2">
+            <div className="flex w-full items-center justify-between">
+                <h2 className={`text-center`}>Welcome, {user.name}</h2>
                 <h2
-                    className={`hidden md:block  text-center flex-grow mb-1 md:mb-0`}
+                    className={`mb-1 hidden flex-grow text-center md:mb-0 md:block`}
                 >
                     <Link href={route("dashboard")}>
                         Pillar of Personality PPLK 2024
