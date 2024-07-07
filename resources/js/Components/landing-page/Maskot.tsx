@@ -4,15 +4,15 @@ import maskot from "../../../../public/assets/ChaBud.gif";
 
 export default function Maskot() {
     return (
-        <div className="flex min-h-[150vh] items-center justify-center">
-            <div className="flex w-1/2 flex-col items-start justify-center px-10 text-left">
-                <h2 className="font-avigea text-4xl text-white">
+        <div className="flex min-h-[100vh] items-center justify-center lg:min-h-[150vh]">
+            <div className="flex w-2/3 flex-col items-start justify-center px-10 text-left lg:w-3/5">
+                <h2 className="font-avigea text-white md:text-2xl lg:text-4xl">
                     Kenalan Sama
                     <br />
                     Maskot PPLK 2024!
                 </h2>
 
-                <p className="mt-5 max-w-[80%] font-montserrat text-2xl font-normal text-white/80">
+                <p className="mt-5 font-montserrat font-normal text-white/80 md:text-lg lg:max-w-[80%] lg:text-2xl">
                     Hai, Aku ChaBud, Maskot PPLK 2024, Barang siapa ? barang
                     gwehh! Aku hadir untuk memberikan informasi seputar PPLK
                     2024 nih, yuk kenalan lebih jauh sama aku!
@@ -26,7 +26,7 @@ export default function Maskot() {
                 </Link>
             </div>
 
-            <div className="flex h-full w-1/2 items-center justify-center text-white">
+            <div className="flex h-full w-1/3 items-center justify-center text-white lg:w-2/5">
                 <img
                     src={maskot}
                     alt="maskot"

@@ -22,7 +22,7 @@ export default function LandingPage() {
                 <img
                     src={elang}
                     alt="elang"
-                    className="absolute right-10 top-32"
+                    className="absolute right-10 top-32 md:w-1/3 lg:w-1/3"
                 />
             </MaxWidthWrapper>
 
@@ -42,9 +42,10 @@ export default function LandingPage() {
 
             <VideoSection />
 
+            <FilosofiLogo />
+
             <div className="relative -mt-5 bg-[#170C0A] bg-pattern-white">
                 <MaxWidthWrapper>
-                    <FilosofiLogo />
                     <Maskot />
                 </MaxWidthWrapper>
 

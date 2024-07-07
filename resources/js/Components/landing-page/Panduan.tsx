@@ -2,20 +2,20 @@ import React from "react";
 
 export default function Panduan() {
     return (
-        <div className="flex min-h-screen items-center justify-center">
-            <div className="flex w-1/2 flex-col items-start justify-center text-left">
+        <div className="flex min-h-screen flex-col items-center justify-center py-20 lg:flex-row">
+            <div className="flex w-full flex-col items-center justify-center text-left lg:w-1/2 lg:items-start">
                 <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-4xl text-transparent">
                     Panduan
                 </h2>
 
-                <p className="mt-5 max-w-[70%] font-montserrat text-2xl font-normal">
+                <p className="mt-5 max-w-[70%] text-center font-montserrat text-2xl font-normal lg:text-start">
                     Panduan PPLK berfungsi untuk menyajikan informasi terbaru
                     seputar PPLK ITERA khusus untuk teman-teman Mahasiswa Baru.
                     Jangan sampai ketinggalan informasi terbaru ya!
                 </p>
             </div>
 
-            <div className="flex w-1/2 flex-wrap gap-5">
+            <div className="mt-10 flex w-full flex-wrap justify-center gap-5 lg:mt-0 lg:w-1/2 lg:justify-start">
                 <div className="flex h-[280px] w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400 shadow-2xl">
                     <div className="rounded-full bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4">
                         <svg

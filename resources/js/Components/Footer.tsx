@@ -28,15 +28,15 @@ export default function Footer() {
                         <img
                             src={logopplk_white}
                             alt="logopplk_white"
-                            className="h-32 w-32"
+                            className="-ml-5 h-32 w-32"
                         />
 
-                        <h3 className="font-fesbud text-[28px]">
+                        <h3 className="font-fesbud md:text-[20px] lg:text-[28px]">
                             PPLK ITERA 2024
                         </h3>
 
                         <p className="mt-5 leading-5 tracking-wide text-jaffa-100">
-                            <span className="text-[20px]">
+                            <span className="text-[16px] lg:text-[20px]">
                                 Program Pengenalan
                                 <br />
                                 Lingkungan Kampus
@@ -51,7 +51,7 @@ export default function Footer() {
                     <div className="flex gap-10">
                         {/* Informasi */}
                         <div className="flex flex-col">
-                            <h3 className="text-xl font-semibold text-white">
+                            <h3 className="font-semibold text-white md:text-[16px] lg:text-xl">
                                 Informasi
                             </h3>
 
@@ -60,7 +60,7 @@ export default function Footer() {
                                     <Link
                                         key={index}
                                         href={info.href}
-                                        className="font-montserrat text-[16px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80"
+                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
                                     >
                                         {info.title}
                                     </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
 
                         {/* Temukan Kami di */}
                         <div className="flex flex-col">
-                            <h3 className="text-xl font-semibold text-white">
+                            <h3 className="font-semibold text-white md:text-[16px] lg:text-xl">
                                 Temukan Kami di
                             </h3>
 
@@ -79,7 +79,7 @@ export default function Footer() {
                                     <Link
                                         key={index}
                                         href={info.href}
-                                        className="font-montserrat text-[16px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80"
+                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
                                     >
                                         {info.title}
                                     </Link>
@@ -89,7 +89,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-10 font-montserrat text-lg font-light text-white">
+                <div className="mt-10 font-montserrat text-sm font-light text-white lg:text-lg">
                     <p className="text-end">&copy; Copyright IMTEK PPLK 2024</p>
                 </div>
             </MaxWidthWrapper>
