@@ -128,7 +128,7 @@ export default function FilosofiLogo() {
                                 className="-mt-40 bg-cover"
                             />
 
-                            <div className="flex max-w-[600px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[200px]">
+                            <div className="flex max-w-[600px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[300px]">
                                 <h2 className="font-avigea text-4xl text-white">
                                     {data.title}
                                 </h2>

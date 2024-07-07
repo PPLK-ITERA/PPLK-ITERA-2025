@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Hero() {
     return (
-        <div className="min-h-screen px-[50px] py-[120px]">
+        <div className="min-h-screen px-[50px] md:py-[80px] lg:py-[120px] xl:py-[160px]">
             <p className="text-[29.5px] font-bold text-jaffa-100/80">
                 SELAMAT DATANG
             </p>
