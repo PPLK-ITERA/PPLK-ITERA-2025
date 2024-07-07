@@ -60,7 +60,7 @@ function Page({ }: Props) {
             </div>
 
                 <Card
-                        className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-2xl p-4 w-full flex justify-between"
+                        className="sticky left-1/2 -translate-x-1/2 bottom-0 max-w-2xl p-4 w-full flex justify-between"
                     >
                         <h2>{userScore.name}</h2>
                         <p>{userScore.score} pts</p>
