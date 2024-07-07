@@ -33,7 +33,7 @@ export const PaginationFAQ: React.FC<PaginationFAQProps> = ({
 
     return (
         <Pagination>
-            <PaginationContent>
+            <PaginationContent  className="mt-5">
                 <PaginationItem>
                     <button
                         onClick={handlePreviousClick}
