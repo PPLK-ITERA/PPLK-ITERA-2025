@@ -38,6 +38,8 @@ class User extends Authenticatable
       'password',
       'remember_token',
       'pilar',
+      'created_at',
+      'updated_at',
    ];
    /**
     * Get the attributes that should be cast.
@@ -73,10 +75,6 @@ class User extends Authenticatable
    {
       return $this->belongsTo(Role::class, 'role_id');
    }
-   // public function hasRole($role)
-   // {
-   //    return $this->role === $role;
-   // }
 
    public function pilar()
    {

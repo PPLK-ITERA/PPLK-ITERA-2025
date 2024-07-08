@@ -56,7 +56,9 @@ Route::middleware('auth')->group(function () {
    //melihat kelompok yang tidak masuk top 10
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
    //melihat my profile
-   Route::get('/myprofile', [UserController::class, 'myprofile']);
+   Route::get('/myprofile', [ProfileController::class, 'show']);
+   Route::get('/myprofile/edit', [ProfileController::class, 'edit']);
+   Route::patch('/myprofile/edit', [ProfileController::class, 'update']);
 
 
 
