@@ -1,5 +1,7 @@
 <?php
 //TODO: Remove the feedback and response related
+
+use App\Http\Controllers\BookletController;
 use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -28,18 +30,20 @@ Route::get('/', function () {
 })->name('welcome');
 
 //Guest Route
-Route::resource('faqs', FAQController::class);
 
-Route::get('/dashboard', function () {
-   return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/booklets', [BookletController::class, 'index']);
+Route::get('/faqs', [FAQController::class, 'index']);
 
+
+
+
+//Auth Route
 Route::middleware('auth')->group(function () {
 
-   // Profile
-   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+   // // Profile
+   // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+   // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+   // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
    // Scoreboard
    // melihat list user pada kelompok
@@ -64,15 +68,20 @@ Route::middleware('auth')->group(function () {
       Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
    });
 
-   Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
-   });
    Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
       //Presensi PPLK
       Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
+      //get Presensi Berdasarkan Kelompok
       Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
    });
+   Route::middleware(['checkRole:mamet,Admin'])->group(function () {
+      //CRUD Booklet
+      Route::resource('/booklet', [BookletController::class]);
+   })->prefix('mamet');
    Route::middleware(['checkRole:Admin'])->group(function () {
-   });
+      //CRUD FAQ
+      Route::resource('faqs', FAQController::class);
+   })->prefix('admin');
 
 
    // Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');

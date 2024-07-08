@@ -107,7 +107,4 @@ class UserController extends Controller
 
       return response()->json(['message' => 'Successfully followed the user']);
    }
-   //  public function followview(){
-   //      return view('test');
-   //  }
 }
