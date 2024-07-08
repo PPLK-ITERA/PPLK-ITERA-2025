@@ -32,7 +32,7 @@ class UserController extends Controller
 
       $users = User::where('name', 'like', "%$query%")
          ->orWhere('nim', 'like', "%$query%")
-         ->select('name', 'nim')
+         ->select('id', 'name', 'nim')
          ->get();
 
       if ($users->isEmpty()) {
@@ -106,5 +106,33 @@ class UserController extends Controller
       ]);
 
       return response()->json(['message' => 'Successfully followed the user']);
+   }
+   public function followview()
+   {
+      return view('test');
+   }
+
+   // Menampilkan profil pengguna
+   public function profile($id)
+   {
+      $user = User::withCount(['followers', 'followings'])->findOrFail($id);
+
+      // Increment view count
+      $user->increment('view_count');
+
+      // Return only the specified attributes
+      $response = [
+         'name' => $user->name,
+         'nim' => $user->nim,
+         'photo_profile_url' => $user->photo_profile_url,
+         'linkedin_url' => $user->linkedin_url,
+         'instagram_url' => $user->instagram_url,
+         'pilar' => $user->pilar,
+         'view_count' => $user->view_count,
+         'followers_count' => $user->followers_count,
+         'followings_count' => $user->followings_count,
+      ];
+
+      return response()->json($response);
    }
 }

@@ -33,6 +33,7 @@ Route::get('/', function () {
 
 Route::get('/booklets', [BookletController::class, 'index']);
 Route::get('/faqs', [FAQController::class, 'index']);
+Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
 
 
 
