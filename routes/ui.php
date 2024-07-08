@@ -12,6 +12,14 @@ Route::middleware('guest')->group(function () {
         return Inertia::render('Dev/Page');
     })->name('dev');
 
+    Route::get('scoreboard', function () {
+        return Inertia::render('Scoreboard/Page');
+    })->name('scoreboard');
+
+    Route::get('relasi', function () {
+        return Inertia::render('Relasi/Page');
+    })->name('relasi');
+
     Route::get('informasi/profil', function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');

@@ -35,7 +35,7 @@ const NavLinks = [
     },
 ];
 
-export default function Navbar() {
+export default function Navbar({isSolid = false, isFixed = false}) {
     const [isScrolled, setIsScrolled] = React.useState(false);
 
     React.useEffect(() => {
@@ -49,7 +49,7 @@ export default function Navbar() {
 
     return (
         <div
-            className={`z-50 w-full lg:fixed lg:left-0 lg:right-0 lg:top-0 ${isScrolled ? "bg-jaffa-100" : "bg-transparent"} transition duration-300 ease-in`}
+            className={`z-50 w-full ${isFixed ? "lg:fixed lg:left-0 lg:right-0 lg:top-0" : ""} ${isScrolled || isSolid ? "bg-jaffa-100" : "bg-transparent"} transition duration-300 ease-in`}
         >
             <MaxWidthWrapper className="flex w-full items-center justify-between py-2 md:px-0">
                 {/* Logo */}
@@ -63,7 +63,7 @@ export default function Navbar() {
                     />
 
                     <div
-                        className={`flex flex-col justify-center leading-[14px] ${isScrolled ? "text-[#A6680C]" : "text-jaffa-400"} transition duration-200 ease-in`}
+                        className={`flex flex-col justify-center leading-[14px] ${isScrolled || isSolid ? "text-[#A6680C]" : "text-jaffa-400"} transition duration-200 ease-in`}
                     >
                         <p>PPLK</p>
                         <p>ITERA</p>
@@ -76,7 +76,7 @@ export default function Navbar() {
                         <Link
                             key={index}
                             href={link.href}
-                            className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled ? "text-jaffa-950" : ""} transition duration-200 ease-in`}
+                            className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} transition duration-200 ease-in`}
                         >
                             {link.name}
                         </Link>
