@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\pilar;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Tugas;
 use Illuminate\Database\Seeder;
 
 
@@ -25,7 +26,8 @@ class DatabaseSeeder extends Seeder
          ScoreboardSeeder::class,
          UserSeeder::class,
          PresensiPplkSeeder::class,
-         RoleSeeder::class
+         RoleSeeder::class,
+         TugasSeeder::class,
          // Add more seeders if needed
       ]);
       Role::create(
