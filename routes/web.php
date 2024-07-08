@@ -2,6 +2,7 @@
 //TODO: Remove the feedback and response related
 use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QrcodeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -72,7 +73,7 @@ Route::middleware('auth')->group(function () {
    Route::middleware(['checkRole:Admin'])->group(function () {
    });
 
-
+   // Route::get('/generateQrcode', [QrcodeController::class, 'generateQrCode']);
    // Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
    // Route::get('/follow', [UserController::class, 'followview']);
    // Route::get('/user/feedback', [FeedbackController::class, 'showUserFeedback'])->name('user.feedback');

@@ -18,4 +18,8 @@ class Qrcode extends Model
     protected $hidden = [
         'created_at', 'updated_at'
     ];
+
+    public function user(){
+        return $this->hasOne(User::class, 'id', 'qrcode_id');
+     }
 }

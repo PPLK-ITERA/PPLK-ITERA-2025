@@ -15,7 +15,6 @@ class UserSeeder extends Seeder
       User::create([
          'name' => 'User One',
          'email' => 'user1@example.com',
-
          'password' => bcrypt('password'),
          'photo_profile_url' => 'profile1.png',
          'linkedin_url' => 'https://linkedin.com/user1',
@@ -23,6 +22,7 @@ class UserSeeder extends Seeder
          'kelompok_id' => 1,
          'pilar' => 1,
          'score' => 80,
+         'qrcode_id' => 1,
       ]);
 
       User::create([
@@ -36,6 +36,7 @@ class UserSeeder extends Seeder
          'pilar' => 1,
          'score' => 70,
          'role_id'  => 1,
+         'qrcode_id' => 2,
       ]);
 
       User::create([
@@ -49,6 +50,8 @@ class UserSeeder extends Seeder
          'pilar' => 1,
          'score' => 90,
          'role_id'  => 1,
+         'qrcode_id' => 3,
+
       ]);
 
 
@@ -63,6 +66,7 @@ class UserSeeder extends Seeder
          'pilar' => 1,
          'score' => 200,
          'role_id'  => 1,
+         'qrcode_id' => 4,
       ]);
 
 

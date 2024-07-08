@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelompok;
+use App\Models\Qrcode;
 use App\Models\PresensiPplk;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -39,17 +40,18 @@ class PresensiPplkController extends Controller
    public function store(Request $request)
    {
       $request->validate([
-         'user_id' => 'required',
-         'tanggal_presensi' => 'required',
-         'kehadiran' => 'required',
+         'code' => 'required',
       ]);
+
+      $qrcode = Qrcode::where('code', $request->code)->first();
+      $maba_id = $qrcode->user()->id;
 
       $presensi = PresensiPplk::create(
          [
-            'user_id' => $request->user_id,
+            'user_id' => $maba_id,
             'tanggal_presensi' => Carbon::today(),
-            'kehadiran' => $request->kehadiran,
-            'keterangan' => $request->keterangan
+            'kehadiran' => 'Hadir',
+            'keterangan' => null
          ]
       );
 
@@ -59,9 +61,10 @@ class PresensiPplkController extends Controller
    public function updateKehadiran(Request $request, $user_id, $tanggal_presensi)
    {
       $presensi = PresensiPplk::where('user_id', $user_id)->where('tanggal_presensi', $tanggal_presensi);
-
+      
       $presensi->update([
-         'kehadiran' => $request->kehadiran
+         'kehadiran' => $request->kehadiran,
+         'keterangan' => $request->keterangan
       ]);
 
       return response()->json($presensi, 200);

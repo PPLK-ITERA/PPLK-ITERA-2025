@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Follow;
+use App\Models\Qrcode;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -110,4 +111,6 @@ class UserController extends Controller
    //  public function followview(){
    //      return view('test');
    //  }
+
+  
 }
