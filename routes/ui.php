@@ -19,6 +19,9 @@ Route::middleware('guest')->group(function () {
     Route::get('relasi', function () {
         return Inertia::render('Relasi/Page');
     })->name('relasi');
+    Route::get('informasi/profil', function () {
+        return Inertia::render('Informasi/Profil/Page');
+    })->name('informasi/profil');
 });
 
 Route::middleware('auth')->group(function () {

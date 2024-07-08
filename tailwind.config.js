@@ -13,7 +13,6 @@ export default {
         "./resources/views/**/*.blade.php",
         "./resources/**/*.{ts,tsx,jsx}",
     ],
-
     theme: {
         container: {
             center: true,
@@ -119,6 +118,19 @@ export default {
             fontFamily: {
                 avigea: ["Avigea"],
                 fesbud: ["FestivalBudaya"],
+                tinos: ["Tinos"],
+                montserrat: ["Montserrat"],
+            },
+            backgroundImage: {
+                "hero-image": "url('./assets/hero-background.png')",
+                jumbotron: "url('./assets/jumbotron.png')",
+                desktop: "url('./assets/desktop-background.png')",
+                tablet: "url('./assets/tablet-background.png')",
+                mobile: "url('./assets/mobile-background.png')",
+                "flower-pattern": "url('./assets/patternbunga.png')",
+                "pattern-1": "url('./assets/pattern-1.png')",
+                "pattern-white": "url('./assets/pattern-white.png')",
+                "pattern-brown": "url('./assets/pattern-brown.png')",
             },
         },
     },
