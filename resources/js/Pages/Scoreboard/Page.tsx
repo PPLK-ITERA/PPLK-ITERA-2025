@@ -31,7 +31,7 @@ function Page({ }: Props) {
     useAos();
 
     return (
-        <div className="text-center w-full flex flex-col h-screen relative">
+        <div data-aos="fade-in" className="text-center w-full flex flex-col h-screen relative">
             <div>
                 <h1>Papan Skor Top Singko Kelompok</h1>
 
@@ -60,7 +60,7 @@ function Page({ }: Props) {
             </div>
 
                 <Card
-                        className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-2xl p-4 w-full flex justify-between"
+                        className="sticky left-1/2 -translate-x-1/2 bottom-0 max-w-2xl p-4 w-full flex justify-between"
                     >
                         <h2>{userScore.name}</h2>
                         <p>{userScore.score} pts</p>

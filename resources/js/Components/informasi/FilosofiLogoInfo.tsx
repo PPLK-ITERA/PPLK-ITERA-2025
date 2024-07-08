@@ -86,7 +86,7 @@ export default function FilosofiLogo() {
             </h2>
             <div className="flex"></div>
             <MaxWidthWrapper className="relative flex items-center justify-center" >
-                <div className="flex items-center justify-center mt-10 gap-20">
+                <div className="flex items-center justify-center mt-10 gap-20 max-lg:flex-col">
                     <img                        
                         src={logoPplk}
                         alt="pplk-logo"
