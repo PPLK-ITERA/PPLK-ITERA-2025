@@ -12,7 +12,6 @@ use App\Http\Controllers\FAQController;
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;
 
-Route::resource('faqs', FAQController::class);
 
 Route::get('/', function () {
    // if has auth, redirect to dashboard
@@ -27,6 +26,9 @@ Route::get('/', function () {
       'phpVersion' => PHP_VERSION,
    ]);
 })->name('welcome');
+
+//Guest Route
+Route::resource('faqs', FAQController::class);
 
 Route::get('/dashboard', function () {
    return Inertia::render('Dashboard');
