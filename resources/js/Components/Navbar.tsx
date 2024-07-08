@@ -35,7 +35,7 @@ const NavLinks = [
     },
 ];
 
-export default function Navbar({isSolid = false}) {
+export default function Navbar({isSolid = false, isFixed = false}) {
     const [isScrolled, setIsScrolled] = React.useState(false);
 
     React.useEffect(() => {
@@ -49,7 +49,7 @@ export default function Navbar({isSolid = false}) {
 
     return (
         <div
-            className={`z-50 w-full lg:fixed lg:left-0 lg:right-0 lg:top-0 ${isScrolled || isSolid ? "bg-jaffa-100" : "bg-transparent"} transition duration-300 ease-in`}
+            className={`z-50 w-full ${isFixed ? "lg:fixed lg:left-0 lg:right-0 lg:top-0" : ""} ${isScrolled || isSolid ? "bg-jaffa-100" : "bg-transparent"} transition duration-300 ease-in`}
         >
             <MaxWidthWrapper className="flex w-full items-center justify-between py-2 md:px-0">
                 {/* Logo */}
