@@ -8,8 +8,10 @@ use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TugasController;
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;
+
 
 
 
@@ -47,6 +49,14 @@ Route::middleware('auth')->group(function () {
    //melihat kelompok yang tidak masuk top 10
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
+   // Tugas
+   Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
+   Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
+   Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
+   Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
+   Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
+   Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
+   Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
 
 
    //Middleware only maba
