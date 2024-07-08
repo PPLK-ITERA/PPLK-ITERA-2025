@@ -135,4 +135,10 @@ class UserController extends Controller
 
       return response()->json($response);
    }
+
+   public function myprofile()
+   {
+      $user = User::withCount(['followers', 'followings'])->findOrFail(auth()->id());
+      return response()->json($user);
+   }
 }

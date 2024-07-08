@@ -31,9 +31,11 @@ Route::get('/', function () {
 
 //Guest Route
 
-Route::get('/booklets', [BookletController::class, 'index']);
+// Route::get('/booklets', [BookletController::class, 'index']);
 Route::get('/faqs', [FAQController::class, 'index']);
-Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
+Route::get('/dashboard', function () {
+   return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -53,6 +55,8 @@ Route::middleware('auth')->group(function () {
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
    //melihat kelompok yang tidak masuk top 10
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+   //melihat my profile
+   Route::get('/myprofile', [UserController::class, 'myprofile']);
 
 
 
@@ -67,6 +71,8 @@ Route::middleware('auth')->group(function () {
       Route::get('/list-maba', [UserController::class, 'listMaba']);
       //follow button
       Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
+      //get other user profile by id
+      Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
    });
 
    Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
@@ -77,7 +83,7 @@ Route::middleware('auth')->group(function () {
    });
    Route::middleware(['checkRole:mamet,Admin'])->group(function () {
       //CRUD Booklet
-      Route::resource('/booklet', [BookletController::class]);
+      Route::resource('/booklet', BookletController::class);
    })->prefix('mamet');
    Route::middleware(['checkRole:Admin'])->group(function () {
       //CRUD FAQ
