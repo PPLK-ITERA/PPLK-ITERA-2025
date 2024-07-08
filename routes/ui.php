@@ -22,6 +22,10 @@ Route::middleware('guest')->group(function () {
     Route::get('informasi/profil', function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');
+
+    Route::get('informasi', function () {
+        return Inertia::render('Informasi/Page');
+    })->name('informasi');
 });
 
 Route::middleware('auth')->group(function () {
