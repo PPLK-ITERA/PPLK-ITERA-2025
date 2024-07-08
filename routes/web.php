@@ -8,11 +8,11 @@ use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FAQController;
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;
 
-
-
+Route::resource('faqs', FAQController::class);
 
 Route::get('/', function () {
    // if has auth, redirect to dashboard
