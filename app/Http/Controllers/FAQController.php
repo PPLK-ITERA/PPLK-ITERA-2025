@@ -7,60 +7,62 @@ use App\Models\FAQ;
 
 class FAQController extends Controller
 {
-    // Menampilkan semua FAQ
-    public function index()
-    {
-        $faqs = FAQ::select( 'teks_pertanyaan', 'teks_jawaban')->get();
-        return response()->json($faqs);
-    }
+   // Menampilkan semua FAQ
+   public function index()
+   {
+      $faqs = FAQ::select('teks_pertanyaan', 'teks_jawaban')->get();
+      return response()->json($faqs);
+   }
 
-    // Menyimpan FAQ baru
-    public function store(Request $request)
-    {
-        $request->validate([
-            'teks_pertanyaan' => 'required|string',
-            'teks_jawaban' => 'required|string',
-        ]);
+   // Menyimpan FAQ baru
+   public function store(Request $request)
+   {
+      $request->validate([
+         'pertanyaan' => 'required|string',
+         'jawaban' => 'required|string',
+      ]);
 
-        $faq = FAQ::create($request->only('teks_pertanyaan', 'teks_jawaban'));
+      $faq = FAQ::create($request->only('teks_pertanyaan', 'teks_jawaban'));
 
-        return response()->json([
-            'message' => 'FAQ created successfully.',
-            'faq' => $faq->only('id', 'teks_pertanyaan', 'teks_jawaban')
-        ], 201);
-    }
+      if ($faq) {
+         return response()->json([
+            'message' => 'Berhasil Menambahkan FAQ',
+         ], 201);
+      }
+      return response()->json([
+         'message' => 'Gagal menambahkan FAQ.',
+      ], 500);
+   }
 
-    // Menampilkan FAQ tertentu
-    public function show(FAQ $faq)
-    {
-        return response()->json($faq->only('id', 'teks_pertanyaan', 'teks_jawaban'));
-    }
+   // Menampilkan FAQ tertentu
+   // public function show(FAQ $faq)
+   // {
+   //    return response()->json($faq->only('id', 'teks_pertanyaan', 'teks_jawaban'));
+   // }
 
-    // Memperbarui FAQ
-    public function update(Request $request, FAQ $faq)
-    {
-        $request->validate([
-            'teks_pertanyaan' => 'required|string',
-            'teks_jawaban' => 'required|string',
-        ]);
+   // Memperbarui FAQ
+   public function update(Request $request, FAQ $faq)
+   {
+      $request->validate([
+         'teks_pertanyaan' => 'required|string',
+         'teks_jawaban' => 'required|string',
+      ]);
 
-        $faq->update($request->only('teks_pertanyaan', 'teks_jawaban'));
+      $faq->update($request->only('teks_pertanyaan', 'teks_jawaban'));
 
-        return response()->json([
-            'message' => 'FAQ updated successfully.',
-            'faq' => $faq->only('id', 'teks_pertanyaan', 'teks_jawaban')
-        ]);
-    }
+      return response()->json([
+         'message' => 'FAQ updated successfully.',
+         'faq' => $faq->only('id', 'teks_pertanyaan', 'teks_jawaban')
+      ]);
+   }
 
-    // Menghapus FAQ
-    public function destroy(FAQ $faq)
-    {
-        $faq->delete();
+   // Menghapus FAQ
+   public function destroy(FAQ $faq)
+   {
+      $faq->delete();
 
-        return response()->json([
-            'message' => 'FAQ deleted successfully.'
-        ]);
-    }
+      return response()->json([
+         'message' => 'FAQ deleted successfully.'
+      ]);
+   }
 }
-
-

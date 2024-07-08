@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
          UserSeeder::class,
          PresensiPplkSeeder::class,
          RoleSeeder::class,
-         FAQSeeder::class
+         FAQSeeder::class,
+         BookletSeeder::class,
          // Add more seeders if needed
       ]);
       Role::create(
