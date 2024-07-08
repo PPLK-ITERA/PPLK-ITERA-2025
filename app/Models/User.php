@@ -82,4 +82,9 @@ class User extends Authenticatable
    {
       return $this->hasOne(pilar::class, 'pilar', 'id');
    }
+
+   public function tugas()
+   {
+      return $this->hasMany(Tugas::class, 'user_id');
+   }
 }
