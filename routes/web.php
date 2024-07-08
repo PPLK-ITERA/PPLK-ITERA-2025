@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
 
 
    //Middleware only maba
-   Route::middleware(['checkRole:maba'])->group(function () {
+   Route::middleware(['checkRole:Maba'])->group(function () {
       //Followers
       //top 3 followers
       Route::get('/top-followers', [UserController::class, 'topFollowers']);
@@ -75,13 +75,13 @@ Route::middleware('auth')->group(function () {
       Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
    });
 
-   Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
+   Route::middleware(['checkRole:Dapmen,Admin'])->group(function () {
       //Presensi PPLK
       Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
       //get Presensi Berdasarkan Kelompok
       Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
    });
-   Route::middleware(['checkRole:mamet,Admin'])->group(function () {
+   Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
       //CRUD Booklet
       Route::resource('/booklet', BookletController::class);
    })->prefix('mamet');
