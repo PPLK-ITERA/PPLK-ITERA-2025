@@ -8,7 +8,7 @@ export default function NavHero() {
     return (
         <div className="relative min-h-[150vh] bg-mobile-hero-background bg-cover bg-center md:min-h-screen md:bg-tablet-hero-background lg:bg-desktop-hero-background">
             <MaxWidthWrapper>
-                <Navbar />
+                <Navbar isFixed={true} />
                 <Hero />
             </MaxWidthWrapper>
 

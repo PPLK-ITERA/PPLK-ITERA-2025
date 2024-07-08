@@ -35,7 +35,7 @@ const NavLinks = [
     },
 ];
 
-export default function Navbar({isSolid = false, isFixed = false}) {
+export default function Navbar({ isSolid = false, isFixed = false }) {
     const [isScrolled, setIsScrolled] = React.useState(false);
 
     React.useEffect(() => {

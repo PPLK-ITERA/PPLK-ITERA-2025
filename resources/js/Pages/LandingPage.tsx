@@ -14,14 +14,19 @@ import Sponsorship from "@/Components/landing-page/Sponsorship";
 import Footer from "@/Components/Footer";
 import sponsor_overlay from "../../../public/assets/sponsor-overlay.png";
 import NavHero from "@/Components/NavHero";
+import { useAos } from "../lib/hooks/useAos";
 
 export default function LandingPage() {
+    useAos();
+
     return (
         <div className="overflow-hidden">
             <MaxWidthWrapper className="relative">
                 <img
                     src={elang}
                     alt="elang"
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
                     className="absolute right-0 top-[25rem] z-30 scale-75 md:right-10 md:top-32 md:block md:w-1/3 md:scale-100 lg:w-1/3"
                 />
             </MaxWidthWrapper>
