@@ -17,12 +17,12 @@ import NavHero from "@/Components/NavHero";
 
 export default function LandingPage() {
     return (
-        <div>
+        <div className="overflow-hidden">
             <MaxWidthWrapper className="relative">
                 <img
                     src={elang}
                     alt="elang"
-                    className="absolute right-10 top-32 md:w-1/3 lg:w-1/3"
+                    className="absolute right-0 top-[25rem] z-30 scale-75 md:right-10 md:top-32 md:block md:w-1/3 md:scale-100 lg:w-1/3"
                 />
             </MaxWidthWrapper>
 
@@ -59,7 +59,7 @@ export default function LandingPage() {
             <img
                 src={overlay_box}
                 alt="pillar_brown"
-                className="absolute -mt-[200px] w-full"
+                className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
             />
 
             <div className="bg-pattern-white pb-20 pt-40">

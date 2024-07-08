@@ -1,3 +1,21 @@
 {
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "importOrder": [
+        "^react$",
+        "^@inertiajs/inertia-react$",
+        "<THIRD_PARTY_MODULES>",
+        "^interfaces(/.*)?$",
+        "^content(/.*)?$",
+        "^api(/.*)?$",
+        "^context(/.*)?$",
+        "^mock(/.*)?$",
+        "^config(/.*)?$",
+        "^utils(/.*)?$",
+        "^hooks(/.*)?$",
+        "^components(/.*)?$",
+        "^\\.svg$",
+        "^\\.\\./(.*)$",
+        "^\\.\\/styles\\.module\\.scss$"
+    ],
+    "importOrderSeparation": true
 }

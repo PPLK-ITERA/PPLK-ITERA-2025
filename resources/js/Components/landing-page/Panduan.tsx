@@ -2,20 +2,20 @@ import React from "react";
 
 export default function Panduan() {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center py-20 lg:flex-row">
-            <div className="flex w-full flex-col items-center justify-center text-left lg:w-1/2 lg:items-start">
-                <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-4xl text-transparent">
+        <div className="flex min-h-screen w-full flex-col items-center justify-center py-20 lg:flex-row">
+            <div className="flex w-full flex-col items-center justify-center text-left lg:w-1/3 lg:items-start xl:w-1/2">
+                <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-3xl text-transparent md:text-4xl">
                     Panduan
                 </h2>
 
-                <p className="mt-5 max-w-[70%] text-center font-montserrat text-2xl font-normal lg:text-start">
+                <p className="mt-5 text-center font-montserrat text-[16px] font-normal md:text-xl lg:max-w-[90%] lg:text-start xl:max-w-[70%] xl:text-2xl">
                     Panduan PPLK berfungsi untuk menyajikan informasi terbaru
                     seputar PPLK ITERA khusus untuk teman-teman Mahasiswa Baru.
                     Jangan sampai ketinggalan informasi terbaru ya!
                 </p>
             </div>
 
-            <div className="mt-10 flex w-full flex-wrap justify-center gap-5 lg:mt-0 lg:w-1/2 lg:justify-start">
+            <div className="mt-10 flex w-full flex-wrap justify-center gap-5 lg:mt-0 lg:w-2/3 lg:justify-start xl:w-1/2">
                 <div className="flex h-[280px] w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400 shadow-2xl">
                     <div className="rounded-full bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4">
                         <svg

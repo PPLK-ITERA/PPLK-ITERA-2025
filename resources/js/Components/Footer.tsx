@@ -23,7 +23,7 @@ export default function Footer() {
     return (
         <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-10">
             <MaxWidthWrapper>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
                     <div className="text-white">
                         <img
                             src={logopplk_white}
@@ -48,7 +48,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div className="flex gap-10">
+                    <div className="mt-10 flex flex-col gap-5 md:mt-0 md:flex-row md:gap-10">
                         {/* Informasi */}
                         <div className="flex flex-col">
                             <h3 className="font-semibold text-white md:text-[16px] lg:text-xl">
@@ -60,7 +60,7 @@ export default function Footer() {
                                     <Link
                                         key={index}
                                         href={info.href}
-                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
+                                        className="font-montserrat text-[12px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
                                     >
                                         {info.title}
                                     </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
                                     <Link
                                         key={index}
                                         href={info.href}
-                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
+                                        className="font-montserrat text-[12px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
                                     >
                                         {info.title}
                                     </Link>
@@ -89,7 +89,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-10 font-montserrat text-sm font-light text-white lg:text-lg">
+                <div className="mt-10 font-montserrat text-[12px] font-light text-white md:text-sm lg:text-lg">
                     <p className="text-end">&copy; Copyright IMTEK PPLK 2024</p>
                 </div>
             </MaxWidthWrapper>

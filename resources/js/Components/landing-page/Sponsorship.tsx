@@ -7,7 +7,7 @@ import MaxWidthWrapper from "../MaxWidthWrapper";
 export default function Sponsorship() {
     return (
         <MaxWidthWrapper className="relative flex w-full flex-col items-center bg-white">
-            <h2 className="mt-20 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea text-transparent md:text-4xl lg:text-5xl">
+            <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text text-center font-avigea text-2xl text-transparent md:mt-20 md:text-4xl lg:text-5xl">
                 Terimakasih Kepada Sponsor
             </h2>
 
