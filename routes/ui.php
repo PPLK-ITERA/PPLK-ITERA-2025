@@ -27,6 +27,11 @@ Route::middleware('guest')->group(function () {
     Route::get('informasi/profil', function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');
+    
+    Route::get('booklet', function () {
+        return Inertia::render('Booklet/Page');
+    })->name('booklet');
+
 });
 
 Route::middleware('auth')->group(function () {
