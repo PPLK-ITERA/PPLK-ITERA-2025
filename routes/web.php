@@ -28,7 +28,7 @@ Route::get('/', function () {
       'laravelVersion' => Application::VERSION,
       'phpVersion' => PHP_VERSION,
    ]);
-})->name('LandingPage');
+})->name('welcome');
 
 //Guest Route
 
@@ -49,3 +49,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/ui.php';
