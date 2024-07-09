@@ -1,3 +1,5 @@
+import { useAos } from "../lib/hooks/useAos";
+
 import React from "react";
 
 import Footer from "@/Components/Footer";
@@ -16,7 +18,6 @@ import overlay_box from "!assets/overlay-box.png";
 import overlay_earth from "!assets/overlay-earth.png";
 import pillar_brown from "!assets/pillar-brown.png";
 import sponsor_overlay from "!assets/sponsor-overlay.png";
-import { useAos } from "../lib/hooks/useAos";
 
 export default function LandingPage() {
     useAos();
@@ -69,7 +70,7 @@ export default function LandingPage() {
                 className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
             />
 
-            <div className="bg-pattern-white pb-20 pt-40">
+            <div className="bg-pattern-white pt-40 pb-20">
                 <InfoSection />
             </div>
 
@@ -80,7 +81,7 @@ export default function LandingPage() {
             <img
                 src={sponsor_overlay}
                 alt="sponsor_overlay"
-                className="w-full object-cover"
+                className="object-cover w-full"
             />
 
             <Footer />

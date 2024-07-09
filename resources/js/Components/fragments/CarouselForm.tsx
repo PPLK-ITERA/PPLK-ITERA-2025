@@ -1,5 +1,8 @@
-import React from "react";
+import { DATA_FUNFACT } from "@/lib/data/funfact";
+import { Person } from "@/lib/types/FunFactType";
 import Autoplay from "embla-carousel-autoplay";
+
+import React from "react";
 
 import { Card, CardContent, CardTitle } from "@/Components/ui/card";
 import {
@@ -10,8 +13,6 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 import { type CarouselApi } from "@/Components/ui/carousel";
-import { DATA_FUNFACT } from "@/lib/data/funfact";
-import { Person } from "@/lib/types/FunFactType";
 
 const CarouselForm = () => {
     const [api, setApi] = React.useState<CarouselApi>();

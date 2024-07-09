@@ -1,12 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import { Mail, LockKeyhole, Eye, EyeOff } from "lucide-react";
 
+import { Head, Link, useForm } from "@inertiajs/react";
+
+import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
+
+import InputError from "@/Components/InputError";
 import CarouselForm from "@/Components/fragments/CarouselForm";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
-import { Head, Link, useForm } from "@inertiajs/react";
-import InputError from "@/Components/InputError";
+
+import logoPplk from "!assets/logo-pplk-2024.png";
 
 export default function Page({ auth, laravelVersion, phpVersion }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -42,13 +46,13 @@ export default function Page({ auth, laravelVersion, phpVersion }) {
             <div
                 className={`flex h-full w-full flex-col justify-center overflow-hidden font-montserrat font-medium md:flex-row`}
             >
-                <div className="flex min-h-[70px] w-full justify-center bg-[url('/assets/background-login.png')] bg-cover object-cover p-5 md:min-h-[100vh] md:w-[60%] md:items-center md:p-0">
+                <div className="flex min-h-[70px] w-full justify-center bg-[url('!assets/background-login.png')] bg-cover object-cover p-5 md:min-h-[100vh] md:w-[60%] md:items-center md:p-0">
                     <CarouselForm />
                 </div>
 
                 <div className="from-1% z-10 flex w-full flex-col items-center justify-center bg-gradient-to-tl from-jaffa-600/50 via-white via-20% to-transparent to-85% md:w-[40%]">
                     <img
-                        src="/assets/logo-pplk-2024.png"
+                        src={logoPplk}
                         className="-ml-48 h-36 w-36 lg:-ml-72 lg:-mt-[70px]"
                         alt="logo-pplk-2024"
                         width={202}
