@@ -1,12 +1,10 @@
-import logopplk_white from "../../../public/assets/logo-pplk-20204-white.png";
-import MaxWidthWrapper from "./MaxWidthWrapper";
-
 import React from "react";
 
 import { Link } from "@inertiajs/react";
 
 import { ChevronDown } from "lucide-react";
 
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -20,6 +18,9 @@ import {
     SheetHeader,
     SheetTrigger,
 } from "@/Components/ui/sheet";
+
+import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk_white from "!assets/logo-pplk-20204-white.png";
 
 const NavLinks = [
     {
@@ -451,7 +452,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                 {/* Logo */}
                 <div className="font-fesbud flex items-center justify-start -ml-4">
                     <img
-                        src="/assets/logo-pplk-2024.png"
+                        src={logopplk}
                         alt="logo-pplk-2024"
                         className="w-16 h-16"
                         width={202}
