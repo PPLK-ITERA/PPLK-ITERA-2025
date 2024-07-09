@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
    Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
    //melihat top 10
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-   //melihat kelompok yang tidak masuk top 10
+   //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
 

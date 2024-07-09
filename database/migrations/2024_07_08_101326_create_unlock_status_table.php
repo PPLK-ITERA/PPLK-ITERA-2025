@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pilar', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->string('pilar_name');
+        Schema::create('unlock_status', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('kelompok_id');
+            $table->foreignId('gedung_id');
+            $table->integer('dateOpen');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pilar');
+        Schema::dropIfExists('unlock_status');
     }
 };

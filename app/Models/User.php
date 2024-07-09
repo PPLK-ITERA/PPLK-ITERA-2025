@@ -82,4 +82,7 @@ class User extends Authenticatable
    {
       return $this->hasOne(pilar::class, 'pilar', 'id');
    }
+   public function QuizActivity(){
+      return $this->hasOne(QuizActivity::class,'user_id','id');
+   }
 }
