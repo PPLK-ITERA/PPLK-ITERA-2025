@@ -20,7 +20,7 @@ export default function LandingPage() {
     useAos();
 
     return (
-        <div className="overflow-hidden">
+        <div className="scrollbar-hide overflow-hidden">
             <MaxWidthWrapper className="relative">
                 <img
                     src={elang}
@@ -67,7 +67,7 @@ export default function LandingPage() {
                 className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
             />
 
-            <div className="bg-pattern-white pb-20 pt-40">
+            <div className="bg-pattern-white pt-40 pb-20">
                 <InfoSection />
             </div>
 
@@ -78,7 +78,7 @@ export default function LandingPage() {
             <img
                 src={sponsor_overlay}
                 alt="sponsor_overlay"
-                className="w-full object-cover"
+                className="object-cover w-full"
             />
 
             <Footer />

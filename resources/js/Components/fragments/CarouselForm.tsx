@@ -16,6 +16,7 @@ import { Person } from "@/lib/types/FunFactType";
 const CarouselForm = () => {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
+    const [randomPerson, setRandomPerson] = React.useState<Person | null>(null);
 
     React.useEffect(() => {
         if (!api) {
@@ -29,12 +30,27 @@ const CarouselForm = () => {
         });
     }, [api]);
 
-    function getRandomPerson(data: Person[]): Person {
-        const randomIndex = Math.floor(Math.random() * data.length);
-        return data[randomIndex];
-    }
+    React.useEffect(() => {
+        function getRandomPerson(data: Person[]): Person {
+            const randomIndex = Math.floor(Math.random() * data.length);
+            return data[randomIndex];
+        }
 
-    const randomPerson: Person = getRandomPerson(DATA_FUNFACT);
+        // Set initial random person
+        setRandomPerson(getRandomPerson(DATA_FUNFACT));
+
+        // Update random person every 10 seconds
+        const intervalId = setInterval(() => {
+            setRandomPerson(getRandomPerson(DATA_FUNFACT));
+        }, 10000);
+
+        // Clean up interval on component unmount
+        return () => clearInterval(intervalId);
+    }, []);
+
+    if (!randomPerson) {
+        return null; // or some loading indicator
+    }
 
     return (
         <div>
@@ -51,18 +67,18 @@ const CarouselForm = () => {
                     {randomPerson.funfact.map((item, index) => (
                         <CarouselItem key={index}>
                             <div>
-                                <Card className="flex flex-col items-center justify-center border-none bg-white/10 p-2 backdrop-blur-lg md:aspect-square lg:p-5">
+                                <Card className="bg-black/10 backdrop-blur-sm md:aspect-square lg:p-5 flex flex-col items-center justify-center p-2 border-none">
                                     <CardTitle>
-                                        <p className="text-center text-2xl font-bold text-white lg:text-4xl">
+                                        <p className="lg:text-4xl text-2xl font-bold text-center text-white">
                                             {item.title}
                                         </p>
-                                        <p className="text-center text-sm font-semibold text-white lg:text-lg">
+                                        <p className="lg:text-lg text-sm font-semibold text-center text-white">
                                             {item.subtitle}
                                         </p>
                                     </CardTitle>
 
-                                    <CardContent className="mt-5 flex items-center justify-center md:mt-20">
-                                        <span className="md:text-md text-center text-sm font-semibold text-white">
+                                    <CardContent className="md:mt-20 flex items-center justify-center mt-5">
+                                        <span className="md:text-md text-sm font-semibold text-center text-white">
                                             {item.desc}
                                         </span>
                                     </CardContent>
@@ -72,9 +88,9 @@ const CarouselForm = () => {
                     ))}
                 </CarouselContent>
 
-                <CarouselPrevious className="invisible bg-transparent text-white hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible" />
+                <CarouselPrevious className="hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible invisible text-white bg-transparent" />
 
-                <div className="text-center text-sm text-white">
+                <div className="text-sm text-center text-white">
                     {randomPerson.funfact.map((_, index) => (
                         <button
                             key={index}
@@ -88,7 +104,7 @@ const CarouselForm = () => {
                     ))}
                 </div>
 
-                <CarouselNext className="invisible bg-transparent text-white hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible" />
+                <CarouselNext className="hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible invisible text-white bg-transparent" />
             </Carousel>
         </div>
     );

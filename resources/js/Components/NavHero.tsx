@@ -15,7 +15,7 @@ export default function NavHero() {
             <img
                 src={awan}
                 alt="awan"
-                className="absolute bottom-0 hidden w-full md:block"
+                className="md:block absolute bottom-0 hidden w-full"
             />
         </div>
     );

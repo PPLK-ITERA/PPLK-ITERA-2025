@@ -20,6 +20,10 @@ Route::middleware('guest')->group(function () {
         return Inertia::render('Relasi/Page');
     })->name('relasi');
 
+    Route::get('login', function () {
+        return Inertia::render('Login/Page');
+    })->name('login');
+
     Route::get('informasi/profil', function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');
