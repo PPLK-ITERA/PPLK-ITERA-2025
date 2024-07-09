@@ -1,5 +1,6 @@
-import { Link } from "@inertiajs/react";
 import React from "react";
+
+import { Link } from "@inertiajs/react";
 
 export default function What() {
     return (
@@ -14,7 +15,7 @@ export default function What() {
                     Kampus. PPLK adalah acara yang diperuntukkan bagi mahasiswa
                     baru untuk mengenali kampus dan mempersiapkan mereka untuk
                     perjalanan baru sebagai mahasiswa.{" "}
-                    <span className="hidden md:block">
+                    <span className="md:block hidden">
                         PPLK dapat menjadi langkah awal yang penting dalam
                         membentuk mahasiswa yang cerdas secara akademis,
                         memiliki integritas, semangat sosial, dan komitmen

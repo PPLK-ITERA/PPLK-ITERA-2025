@@ -1,8 +1,10 @@
+import awan from "!/assets/awan.png";
+
 import React from "react";
-import MaxWidthWrapper from "./MaxWidthWrapper";
-import Navbar from "./Navbar";
-import Hero from "./landing-page/Hero";
-import awan from "../../../public/assets/awan.png";
+
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
+import Navbar from "@/Components/Navbar";
+import Hero from "@/Components/landing-page/Hero";
 
 export default function NavHero() {
     return (

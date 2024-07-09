@@ -1,21 +1,17 @@
 {
-    "plugins": ["prettier-plugin-tailwindcss"],
+    "plugins": [
+        "prettier-plugin-tailwindcss",
+        "@trivago/prettier-plugin-sort-imports"
+    ],
     "importOrder": [
         "^react$",
-        "^@inertiajs/inertia-react$",
-        "<THIRD_PARTY_MODULES>",
-        "^interfaces(/.*)?$",
-        "^content(/.*)?$",
-        "^api(/.*)?$",
-        "^context(/.*)?$",
-        "^mock(/.*)?$",
-        "^config(/.*)?$",
-        "^utils(/.*)?$",
-        "^hooks(/.*)?$",
-        "^components(/.*)?$",
-        "^\\.svg$",
-        "^\\.\\./(.*)$",
-        "^\\.\\/styles\\.module\\.scss$"
+        "^@inertiajs(.*)$",
+        "^@/Components(.*)$",
+        "^!assets(.*)$"
     ],
-    "importOrderSeparation": true
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "semi": true,
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
 }

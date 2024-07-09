@@ -1,10 +1,15 @@
 import React from "react";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/Components/ui/carousel";
 
 export default function Panduan() {
     return (
-        <div className="flex min-h-screen w-full flex-col items-center justify-center py-20 lg:flex-row">
-            <div className="flex w-full flex-col items-center justify-center text-left lg:w-1/3 lg:items-start xl:w-1/2">
+        <div className="lg:flex-row flex flex-col items-center justify-center w-full min-h-screen py-20">
+            <div className="lg:w-1/3 lg:items-start xl:w-1/2 flex flex-col items-center justify-center w-full text-left">
                 <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-3xl text-transparent md:text-4xl">
                     Panduan
                 </h2>
@@ -21,11 +26,11 @@ export default function Panduan() {
                     align: "start",
                     dragFree: true,
                 }}
-                className="z-30 mt-10 block w-full md:hidden"
+                className="md:hidden z-30 block w-full mt-10"
             >
                 <CarouselContent className="gap-2 px-5">
                     <CarouselItem className="-ml-0 flex max-h-[280px] min-w-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
-                        <div className="rounded-full bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4">
+                        <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="48"
@@ -43,11 +48,11 @@ export default function Panduan() {
                             </svg>
                         </div>
 
-                        <p className="mt-2 font-avigea text-4xl">Atribut</p>
+                        <p className="font-avigea mt-2 text-4xl">Atribut</p>
                     </CarouselItem>
 
                     <CarouselItem className="-ml-0 flex max-h-[280px] min-w-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800">
-                        <div className="rounded-full bg-jaffa-400 p-4">
+                        <div className="bg-jaffa-400 p-4 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="48"
@@ -71,13 +76,13 @@ export default function Panduan() {
                             </svg>
                         </div>
 
-                        <p className="mt-2 font-avigea text-4xl text-white">
+                        <p className="font-avigea mt-2 text-4xl text-white">
                             Booklet
                         </p>
                     </CarouselItem>
 
                     <CarouselItem className="-ml-0 flex max-h-[280px] min-w-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-14">
-                        <div className="rounded-full bg-jaffa-400 p-2">
+                        <div className="bg-jaffa-400 p-2 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="64"
@@ -101,13 +106,13 @@ export default function Panduan() {
                             </svg>
                         </div>
 
-                        <p className="mt-2 text-center font-avigea text-4xl text-white">
+                        <p className="font-avigea mt-2 text-4xl text-center text-white">
                             Relasi & Jaringan
                         </p>
                     </CarouselItem>
 
                     <CarouselItem className="-ml-0 flex max-h-[280px] min-w-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
-                        <div className="rounded-full bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4">
+                        <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="48"
@@ -130,14 +135,14 @@ export default function Panduan() {
                             </svg>
                         </div>
 
-                        <p className="mt-2 font-avigea text-4xl">FAQ</p>
+                        <p className="font-avigea mt-2 text-4xl">FAQ</p>
                     </CarouselItem>
                 </CarouselContent>
             </Carousel>
 
-            <div className="mt-10 hidden w-full flex-wrap justify-center gap-5 md:flex lg:mt-0 lg:w-2/3 lg:justify-start xl:w-1/2">
+            <div className="md:flex lg:mt-0 lg:w-2/3 lg:justify-start xl:w-1/2 flex-wrap justify-center hidden w-full gap-5 mt-10">
                 <div className="flex h-[280px] w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400 shadow-2xl">
-                    <div className="rounded-full bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4">
+                    <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="48"
@@ -150,11 +155,11 @@ export default function Panduan() {
                             <path d="M14.883 3.007l.095 -.007l.112 .004l.113 .017l.113 .03l6 2a1 1 0 0 1 .677 .833l.007 .116v5a1 1 0 0 1 -.883 .993l-.117 .007h-2v7a2 2 0 0 1 -1.85 1.995l-.15 .005h-10a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-7h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-5a1 1 0 0 1 .576 -.906l.108 -.043l6 -2a1 1 0 0 1 1.316 .949a2 2 0 0 0 3.995 .15l.009 -.24l.017 -.113l.037 -.134l.044 -.103l.05 -.092l.068 -.093l.069 -.08c.056 -.054 .113 -.1 .175 -.14l.096 -.053l.103 -.044l.108 -.032l.112 -.02z" />
                         </svg>
                     </div>
-                    <p className="mt-2 font-avigea text-4xl">Atribut</p>
+                    <p className="font-avigea mt-2 text-4xl">Atribut</p>
                 </div>
 
                 <div className="flex h-[280px] w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
-                    <div className="rounded-full bg-jaffa-400 p-4">
+                    <div className="bg-jaffa-400 p-4 rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="48"
@@ -173,13 +178,13 @@ export default function Panduan() {
                             <path d="M9 8h6" />
                         </svg>
                     </div>
-                    <p className="mt-2 font-avigea text-4xl text-white">
+                    <p className="font-avigea mt-2 text-4xl text-white">
                         Booklet
                     </p>
                 </div>
 
                 <div className="flex h-[280px] w-[280px] flex-col items-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-14 shadow-2xl">
-                    <div className="rounded-full bg-jaffa-400 p-2">
+                    <div className="bg-jaffa-400 p-2 rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="64"
@@ -198,13 +203,13 @@ export default function Panduan() {
                             <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
                         </svg>
                     </div>
-                    <p className="mt-2 text-center font-avigea text-4xl text-white">
+                    <p className="font-avigea mt-2 text-4xl text-center text-white">
                         Relasi & Jaringan
                     </p>
                 </div>
 
                 <div className="flex h-[280px] w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400 shadow-2xl">
-                    <div className="rounded-full bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4">
+                    <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="48"
@@ -222,7 +227,7 @@ export default function Panduan() {
                             <path d="M12 19l0 .01" />
                         </svg>
                     </div>
-                    <p className="mt-10 font-avigea text-4xl">FAQ</p>
+                    <p className="font-avigea mt-10 text-4xl">FAQ</p>
                 </div>
             </div>
         </div>

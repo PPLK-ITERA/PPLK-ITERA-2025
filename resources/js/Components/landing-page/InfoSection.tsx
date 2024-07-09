@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Link } from "@inertiajs/react";
 
 const Informasi = [
@@ -17,7 +18,7 @@ export default function InfoSection() {
                 <div className="flex flex-col rounded-md bg-flower-pattern md:h-[350px] md:rounded-[24px] lg:h-[475px]">
                     <div className="flex h-full w-full flex-col items-center justify-center rounded-md bg-gradient-to-r from-jaffa-700/90 to-jaffa-800/90 px-4 md:rounded-[24px] md:px-[10%]">
                         <div className="flex flex-col py-10">
-                            <h2 className="w-full text-start font-avigea text-2xl text-white md:text-5xl lg:text-6xl">
+                            <h2 className="text-start font-avigea md:text-5xl lg:text-6xl w-full text-2xl text-white">
                                 Tahukah Kamu?
                             </h2>
 
@@ -33,13 +34,13 @@ export default function InfoSection() {
                     </div>
                 </div>
 
-                <div className="mt-5 flex w-full flex-col items-center px-8 pb-10 md:flex-row lg:mt-16 lg:px-20 lg:pb-0 xl:pb-0">
+                <div className="md:flex-row lg:mt-16 lg:px-20 lg:pb-0 xl:pb-0 flex flex-col items-center w-full px-8 pb-10 mt-5">
                     <p className="w-full font-semibold md:w-1/4 md:text-[20px] lg:w-1/3 lg:text-2xl">
                         Mengenal <span className="font-bold">ITERA</span>{" "}
-                        <br className="hidden md:block" /> Lebih Dalam
+                        <br className="md:block hidden" /> Lebih Dalam
                     </p>
 
-                    <div className="mt-5 flex w-full flex-wrap gap-3 md:mt-0 md:w-3/4 lg:w-2/3">
+                    <div className="md:mt-0 md:w-3/4 lg:w-2/3 flex flex-wrap w-full gap-3 mt-5">
                         {Informasi.map((info, index) => (
                             <Link
                                 key={index}

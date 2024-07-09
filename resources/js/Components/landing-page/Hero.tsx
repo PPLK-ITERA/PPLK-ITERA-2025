@@ -7,7 +7,7 @@ export default function Hero() {
                 SELAMAT DATANG
             </p>
 
-            <h1 className="mt-8 flex flex-col items-start justify-center leading-7 text-jaffa-100 md:leading-10">
+            <h1 className="text-jaffa-100 md:leading-10 flex flex-col items-start justify-center mt-8 leading-7">
                 <span className="font-avigea text-[40px] md:text-[72px]">
                     PPLK
                 </span>

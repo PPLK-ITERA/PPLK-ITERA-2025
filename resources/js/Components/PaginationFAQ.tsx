@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
     Pagination,
     PaginationContent,
@@ -33,7 +34,7 @@ export const PaginationFAQ: React.FC<PaginationFAQProps> = ({
 
     return (
         <Pagination>
-            <PaginationContent  className="mt-5">
+            <PaginationContent className="mt-5">
                 <PaginationItem>
                     <button
                         onClick={handlePreviousClick}

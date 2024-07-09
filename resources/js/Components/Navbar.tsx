@@ -1,42 +1,43 @@
-import { Link } from "@inertiajs/react";
 import React from "react";
-import MaxWidthWrapper from "./MaxWidthWrapper";
-import { Button } from "@/Components/ui/button";
+
+import { Link } from "@inertiajs/react";
+
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import {
     Sheet,
     SheetContent,
     SheetFooter,
     SheetHeader,
     SheetTrigger,
-} from '@/Components/ui/sheet';
+} from "@/Components/ui/sheet";
 
-import logoPplk from '!assets/logo-pplk-2024.png';
-import logopplk_white from '!assets/logo-pplk-20204-white.png';
+import logoPplk from "!assets/logo-pplk-2024.png";
+import logopplk_white from "!assets/logo-pplk-20204-white.png";
 
 const NavLinks = [
     {
-        name: 'Beranda',
-        href: '/',
+        name: "Beranda",
+        href: "/",
     },
     {
-        name: 'Informasi',
-        href: '/Informasi',
+        name: "Informasi",
+        href: "/Informasi",
     },
     {
-        name: 'Ketentuan Atribut',
-        href: '/atribut',
+        name: "Ketentuan Atribut",
+        href: "/atribut",
     },
     {
-        name: 'Maba',
-        href: '/maba',
+        name: "Maba",
+        href: "/maba",
     },
     {
-        name: 'FAQ',
-        href: '/faq',
+        name: "FAQ",
+        href: "/faq",
     },
 ];
 
-export default function Navbar({isSolid = false, isFixed = false}) {
+export default function Navbar({ isSolid = false, isFixed = false }) {
     const [isScrolled, setIsScrolled] = React.useState(false);
 
     React.useEffect(() => {
@@ -44,8 +45,8 @@ export default function Navbar({isSolid = false, isFixed = false}) {
             setIsScrolled(window.scrollY > 700);
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
@@ -64,7 +65,8 @@ export default function Navbar({isSolid = false, isFixed = false}) {
                     />
 
                     <div
-                        className={`flex flex-col justify-center leading-[14px] ${isScrolled || isSolid ? 'text-[#A6680C]' : 'text-jaffa-400'} transition duration-200 ease-in`}>
+                        className={`flex flex-col justify-center leading-[14px] ${isScrolled || isSolid ? "text-[#A6680C]" : "text-jaffa-400"} transition duration-200 ease-in`}
+                    >
                         <p>PPLK</p>
                         <p>ITERA</p>
                     </div>
@@ -123,7 +125,8 @@ export default function Navbar({isSolid = false, isFixed = false}) {
                                     <Link
                                         key={index}
                                         href={link.href}
-                                        className={`mx-2 text-[18px] font-bold text-jaffa-100 transition duration-200 ease-in`}>
+                                        className={`mx-2 text-[18px] font-bold text-jaffa-100 transition duration-200 ease-in`}
+                                    >
                                         {link.name}
                                     </Link>
                                 ))}
@@ -133,7 +136,8 @@ export default function Navbar({isSolid = false, isFixed = false}) {
                                 <div className="flex flex-col">
                                     <Link
                                         href="/login"
-                                        className="mx-2 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm">
+                                        className="mx-2 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
+                                    >
                                         Login
                                     </Link>
                                 </div>
@@ -146,11 +150,12 @@ export default function Navbar({isSolid = false, isFixed = false}) {
                 <div className="md:flex items-center hidden">
                     <Link
                         href="/login"
-                        className="mx-2 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm">
+                        className="mx-2 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
+                    >
                         Login
                     </Link>
                 </div>
             </MaxWidthWrapper>
-        </nav>
+        </div>
     );
 }
