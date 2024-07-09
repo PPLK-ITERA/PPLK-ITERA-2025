@@ -28,7 +28,7 @@ Route::get('/', function () {
       'laravelVersion' => Application::VERSION,
       'phpVersion' => PHP_VERSION,
    ]);
-})->name('LandingPage');
+})->name('welcome');
 
 //Guest Route
 

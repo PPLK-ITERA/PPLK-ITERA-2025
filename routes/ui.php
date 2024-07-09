@@ -6,7 +6,7 @@ use Inertia\Inertia;
 Route::middleware('guest')->group(function () {
     Route::get('faq', function () {
         return Inertia::render('FAQ/Page');
-    })->name('faq');
+    })->name('ucup');
 
     Route::get('dev', function () {
         return Inertia::render('Dev/Page');

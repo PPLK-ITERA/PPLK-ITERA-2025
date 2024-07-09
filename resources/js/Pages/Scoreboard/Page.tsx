@@ -1,6 +1,8 @@
-import { Card } from "@/Components/ui/card";
 import { useAos } from "@/lib/hooks/useAos";
+
 import React, { useEffect } from "react";
+
+import { Card } from "@/Components/ui/card";
 
 type Props = {};
 
@@ -27,16 +29,19 @@ const userScore: Scoreboard = {
     score: 1100,
 };
 
-function Page({ }: Props) {
+function Page({}: Props) {
     useAos();
 
     return (
-        <div data-aos="fade-in" className="text-center w-full flex flex-col h-screen relative">
+        <div
+            data-aos="fade-in"
+            className="relative flex flex-col w-full h-screen text-center"
+        >
             <div>
                 <h1>Papan Skor Top Singko Kelompok</h1>
 
                 <div className="max-w-2xl mx-auto">
-                    <Card className="mt-8 w-full">
+                    <Card className="w-full mt-8">
                         <ul className="flex flex-col gap-2">
                             {scoreboards
                                 .sort((s) => s.score)
@@ -44,9 +49,11 @@ function Page({ }: Props) {
                                     <Card>
                                         <li
                                             key={index}
-                                            className="p-4 w-full flex justify-between"
+                                            className="flex justify-between w-full p-4"
                                             data-aos="fade-left"
-                                            data-aos-duration={(index + 1) * 200}
+                                            data-aos-duration={
+                                                (index + 1) * 200
+                                            }
                                         >
                                             <h2>{scoreboard.name}</h2>
                                             <p>{scoreboard.score} pts</p>
@@ -55,16 +62,13 @@ function Page({ }: Props) {
                                 ))}
                         </ul>
                     </Card>
-                    
                 </div>
             </div>
 
-                <Card
-                        className="sticky left-1/2 -translate-x-1/2 bottom-0 max-w-2xl p-4 w-full flex justify-between"
-                    >
-                        <h2>{userScore.name}</h2>
-                        <p>{userScore.score} pts</p>
-                    </Card>
+            <Card className="left-1/2 sticky bottom-0 flex justify-between w-full max-w-2xl p-4 -translate-x-1/2">
+                <h2>{userScore.name}</h2>
+                <p>{userScore.score} pts</p>
+            </Card>
         </div>
     );
 }
