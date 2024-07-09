@@ -1,22 +1,25 @@
-import React from "react";
-import logopplk_white from "../../../public/assets/logo-pplk-20204-white.png";
-import { Link } from "@inertiajs/react";
-import MaxWidthWrapper from "./MaxWidthWrapper";
+import React from 'react';
+
+import { Link } from '@inertiajs/react';
+
+import logopplk_white from '!assets/logo-pplk-20204-white.png';
+
+import MaxWidthWrapper from './MaxWidthWrapper';
 
 const InformasiFooter = [
-    { title: "Tentang PPLK 2024", href: "/about-pplk" },
-    { title: "Informasi Fakultas", href: "/informasi-fakultas" },
-    { title: "Informasi HMPS & PRODI", href: "/informasi-hmps-prodi" },
-    { title: "Informasi UPT", href: "/informasi-upt" },
-    { title: "Informasi KM ITERA", href: "/informasi-km" },
-    { title: "Informasi SENAT ITERA", href: "/informasi-senat" },
-    { title: "Informasi UKM ITERA", href: "/informasi-ukm" },
+    { title: 'Tentang PPLK 2024', href: '/about-pplk' },
+    { title: 'Informasi Fakultas', href: '/informasi-fakultas' },
+    { title: 'Informasi HMPS & PRODI', href: '/informasi-hmps-prodi' },
+    { title: 'Informasi UPT', href: '/informasi-upt' },
+    { title: 'Informasi KM ITERA', href: '/informasi-km' },
+    { title: 'Informasi SENAT ITERA', href: '/informasi-senat' },
+    { title: 'Informasi UKM ITERA', href: '/informasi-ukm' },
 ];
 
 const FooterLink = [
-    { title: "Instagram", href: "https://instagram.com/pplk.itera" },
-    { title: "Twitter", href: "https://twitter.com/pplkitera" },
-    { title: "Youtube", href: "https://youtube.com/pplkitera" },
+    { title: 'Instagram', href: 'https://instagram.com/pplk.itera' },
+    { title: 'Twitter', href: 'https://twitter.com/pplkitera' },
+    { title: 'Youtube', href: 'https://youtube.com/pplkitera' },
 ];
 
 export default function Footer() {
@@ -60,8 +63,7 @@ export default function Footer() {
                                     <Link
                                         key={index}
                                         href={info.href}
-                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
-                                    >
+                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]">
                                         {info.title}
                                     </Link>
                                 ))}
@@ -79,8 +81,7 @@ export default function Footer() {
                                     <Link
                                         key={index}
                                         href={info.href}
-                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
-                                    >
+                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]">
                                         {info.title}
                                     </Link>
                                 ))}
