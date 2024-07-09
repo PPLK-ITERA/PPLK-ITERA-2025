@@ -1,19 +1,21 @@
-import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import React from "react";
-import elang from "../../../public/assets/elang-hero.png";
-import overlay_earth from "../../../public/assets/overlay-earth.png";
-import pillar_brown from "../../../public/assets/pillar-brown.png";
-import overlay_box from "../../../public/assets/overlay-box.png";
-import What from "@/Components/landing-page/What";
-import Panduan from "@/Components/landing-page/Panduan";
-import VideoSection from "@/Components/landing-page/VideoSection";
-import FilosofiLogo from "@/Components/landing-page/FilosofiLogo";
-import Maskot from "@/Components/landing-page/Maskot";
-import InfoSection from "@/Components/landing-page/InfoSection";
-import Sponsorship from "@/Components/landing-page/Sponsorship";
+
 import Footer from "@/Components/Footer";
-import sponsor_overlay from "../../../public/assets/sponsor-overlay.png";
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import NavHero from "@/Components/NavHero";
+import FilosofiLogo from "@/Components/landing-page/FilosofiLogo";
+import InfoSection from "@/Components/landing-page/InfoSection";
+import Maskot from "@/Components/landing-page/Maskot";
+import Panduan from "@/Components/landing-page/Panduan";
+import Sponsorship from "@/Components/landing-page/Sponsorship";
+import VideoSection from "@/Components/landing-page/VideoSection";
+import What from "@/Components/landing-page/What";
+
+import elang from "!assets/elang-hero.png";
+import overlay_box from "!assets/overlay-box.png";
+import overlay_earth from "!assets/overlay-earth.png";
+import pillar_brown from "!assets/pillar-brown.png";
+import sponsor_overlay from "!assets/sponsor-overlay.png";
 import { useAos } from "../lib/hooks/useAos";
 
 export default function LandingPage() {
@@ -67,7 +69,7 @@ export default function LandingPage() {
                 className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
             />
 
-            <div className="bg-pattern-white pt-40 pb-20">
+            <div className="bg-pattern-white pb-20 pt-40">
                 <InfoSection />
             </div>
 
@@ -78,7 +80,7 @@ export default function LandingPage() {
             <img
                 src={sponsor_overlay}
                 alt="sponsor_overlay"
-                className="object-cover w-full"
+                className="w-full object-cover"
             />
 
             <Footer />

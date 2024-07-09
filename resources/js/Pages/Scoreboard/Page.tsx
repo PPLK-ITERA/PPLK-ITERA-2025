@@ -31,7 +31,7 @@ function Page({ }: Props) {
     useAos();
 
     return (
-        <div className="text-center w-full flex flex-col h-screen relative">
+        <div data-aos="fade-in" className="text-center w-full flex flex-col h-screen relative">
             <div>
                 <h1>Papan Skor Top Singko Kelompok</h1>
 

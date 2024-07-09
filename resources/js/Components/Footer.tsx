@@ -1,6 +1,9 @@
 import React from "react";
-import logopplk_white from "../../../public/assets/logo-pplk-20204-white.png";
+
 import { Link } from "@inertiajs/react";
+
+import logopplk_white from "!assets/logo-pplk-20204-white.png";
+
 import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const InformasiFooter = [
@@ -79,7 +82,7 @@ export default function Footer() {
                                     <Link
                                         key={index}
                                         href={info.href}
-                                        className="font-montserrat text-[12px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
+                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
                                     >
                                         {info.title}
                                     </Link>

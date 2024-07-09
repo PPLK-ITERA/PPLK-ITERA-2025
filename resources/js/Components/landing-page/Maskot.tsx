@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react";
 import React from "react";
-import maskot from "../../../../public/assets/ChaBud.gif";
+import maskot from "!assets/ChaBud.gif";
 
 export default function Maskot() {
     return (
