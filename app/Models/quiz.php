@@ -10,7 +10,9 @@ class quiz extends Model
     use HasFactory;
     protected $table ='quiz';
     protected $primaryKey ='id';
-    protected $fillable = 'quiz_question';
+    protected $fillable = [
+        'quiz_question'
+    ];
     protected $hidden = [
         'created_at', 'updated_at'
     ];

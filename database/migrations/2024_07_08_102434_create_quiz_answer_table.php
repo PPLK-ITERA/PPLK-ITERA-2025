@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('teks_jawaban');
             $table->foreignId('question_id');
-            $table->integer('nilai_jawabn');
+            $table->integer('nilai_jawaban')->default(0);
             $table->timestamps();
         });
     }

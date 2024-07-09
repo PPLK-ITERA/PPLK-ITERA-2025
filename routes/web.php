@@ -2,6 +2,8 @@
 //TODO: Remove the feedback and response related
 use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizAnswerController;
+use App\Http\Controllers\QuizController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -46,6 +48,12 @@ Route::middleware('auth')->group(function () {
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
    //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+   //kuis
+   Route::get('/quizzes', [QuizController::class, 'getAll']);
+   //jawab kuis
+   Route::post('', [QuizAnswerController::class,'']);
+   //score user
+   Route::get('/user/score', [UserController::class, 'viewScore'])->middleware('auth');
 
 
 
@@ -60,6 +68,7 @@ Route::middleware('auth')->group(function () {
       Route::get('/list-maba', [UserController::class, 'listMaba']);
       //follow button
       Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
+
    });
 
    Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
