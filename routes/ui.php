@@ -15,6 +15,10 @@ Route::middleware('guest')->group(function () {
     Route::get('informasi', function () {
         return Inertia::render('Informasi/Page');
     })->name('informasi');
+
+    Route::get('atribut', function () {
+        return Inertia::render('Atribut/Page');
+    })->name('atribut');
 });
 
 Route::middleware('auth')->group(function () {
