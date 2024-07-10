@@ -39,7 +39,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-
+//Test PresensiCUI
+// Route::get('/presensi', [PresensiCuiController::class, 'index'])->name('presensi.index');
+// Route::post('/presensi/process', [PresensiCuiController::class, 'process'])->name('presensi.process');
+// Route::get('/presensi/scan', [PresensiCuiController::class, 'scanPage'])->name('presensi.scan');
+// Route::post('/presensi/scan', [PresensiCuiController::class, 'scanQrCode'])->name('presensi.scan.qrcode');
 
 //Auth Route
 Route::middleware('auth')->group(function () {
