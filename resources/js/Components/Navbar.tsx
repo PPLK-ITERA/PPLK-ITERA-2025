@@ -445,11 +445,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
     }, []);
 
     return (
-<<<<<<< HEAD
-        <div
-=======
         <nav
->>>>>>> c935874ef9f1a911ad19a891fc7e9d70bb5cec4a
             className={`z-50 w-full ${isFixed ? "lg:fixed lg:left-0 lg:right-0 lg:top-0" : ""} ${isScrolled || isSolid ? "bg-jaffa-100" : "bg-transparent"} transition duration-300 ease-in`}
         >
             <MaxWidthWrapper className="md:px-0 flex items-center justify-between w-full py-2">
@@ -472,14 +468,6 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                 </div>
 
                 {/* NavLinks */}
-<<<<<<< HEAD
-                <div className="hidden font-tinos md:flex">
-                    {NavLinks.map((link, index) => (
-                        <Link
-                            key={index}
-                            href={link.href}
-                            className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} transition duration-200 ease-in`}
-=======
                 <div className="hidden max-w-[800px] font-tinos md:flex">
                     <Link
                         href="/"
@@ -491,7 +479,6 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                     <DropdownMenu>
                         <DropdownMenuTrigger
                             className={`mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} border-none outline-none transition duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
->>>>>>> c935874ef9f1a911ad19a891fc7e9d70bb5cec4a
                         >
                             Informasi <ChevronDown className="w-4 h-4" />
                         </DropdownMenuTrigger>
