@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,51 +14,47 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): Response
-    {
-        return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
-        ]);
-    }
+   public function show()
+   {
+      $user = User::withCount(['followers', 'followings'])->findOrFail(auth()->id());
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
+      $response = [
+         'name' => $user->name,
+         'nim' => $user->nim,
+         'role' => $user->role,
+         'photo_profile_url' => $user->photo_profile_url,
+         'linkedin_url' => $user->linkedin_url,
+         'instagram_url' => $user->instagram_url,
+         'kelompok' => $user->kelompok,
+         'pilar' => $user->pilar,
+         'view_count' => $user->view_count,
+         'followers_count' => $user->followers_count,
+         'followings_count' => $user->followings_count,
+      ];
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
-    }
+      return response()->json($response);
+   }
+   public function edit()
+   {
+      $user = User::findOrFail(auth()->id());
+      return view('test', compact('user'));
+   }
+   public function update(Request $request)
+   {
+      $user = User::findOrFail(auth()->id());
+      $request->validate([
+         'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         'linkedinURL' => 'required|url',
+         'instaURL' => 'required|url',
+      ]);
+      $update = $user->update([
+         'photo' => $request->photo->store('profile-photos', 'public'),
+         'linkedin_url' => $request->linkedinURL,
+         'instagram_url' => $request->instaURL,
+      ]);
+      if ($update) {
+         Response()->json(['message', 'Berhasil mengubah profile']);
+      }
+      Response()->json(['message', 'Gagal mengubah profile']);
+   }
 }

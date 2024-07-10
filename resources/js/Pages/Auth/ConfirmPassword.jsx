@@ -41,7 +41,7 @@ export default function ConfirmPassword() {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="block w-full mt-1"
+                        className="mt-1 block w-full"
                         isFocused={true}
                         onChange={(e) => setData("password", e.target.value)}
                     />
@@ -49,7 +49,7 @@ export default function ConfirmPassword() {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="mt-4 flex items-center justify-end">
                     <PrimaryButton className="ms-4" disabled={processing}>
                         Confirm
                     </PrimaryButton>

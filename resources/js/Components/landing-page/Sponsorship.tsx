@@ -1,13 +1,19 @@
-import React from "react";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
 import Autoplay from "embla-carousel-autoplay";
-import MaxWidthWrapper from "../MaxWidthWrapper";
+
+import React from "react";
+
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
+import { Card, CardContent } from "@/Components/ui/card";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/Components/ui/carousel";
 
 export default function Sponsorship() {
     return (
-        <MaxWidthWrapper className="relative flex w-full flex-col items-center bg-white">
-            <h2 className="mt-20 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea text-transparent md:text-4xl lg:text-5xl">
+        <MaxWidthWrapper className="relative flex flex-col items-center w-full bg-white">
+            <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea md:mt-20 md:text-4xl lg:text-5xl text-2xl text-center text-transparent">
                 Terimakasih Kepada Sponsor
             </h2>
 
@@ -17,7 +23,7 @@ export default function Sponsorship() {
                     align: "center",
                     loop: true,
                 }}
-                className="relative mt-20 w-full scroll-smooth"
+                className="scroll-smooth relative w-full mt-20"
                 plugins={[
                     Autoplay({
                         delay: 1000,
@@ -32,7 +38,7 @@ export default function Sponsorship() {
                         >
                             <div className="p-1">
                                 <Card className="p-1">
-                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                    <CardContent className="aspect-square flex items-center justify-center p-6">
                                         <span className="text-3xl font-semibold">
                                             {index + 1}
                                         </span>

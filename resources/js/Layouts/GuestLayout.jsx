@@ -5,7 +5,7 @@ import { Toaster } from "@/Components/ui/toaster";
 
 export default function Guest({ children }) {
     return (
-        <body className={`w-screen h-screen flex flex-col`}>
+        <body className={`flex h-screen w-screen flex-col`}>
             {children}
             <Toaster />
         </body>
