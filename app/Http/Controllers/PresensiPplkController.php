@@ -44,6 +44,9 @@ class PresensiPplkController extends Controller
       ]);
 
       $qrcode = Qrcode::where('code', $request->code)->first();
+      if(!$qrcode) {
+         return response()->json(['message' => 'Code tidak ditemukan'], 404);
+      }
       $maba_id = $qrcode->user()->id;
 
       $presensi = PresensiPplk::create(
@@ -62,10 +65,16 @@ class PresensiPplkController extends Controller
    {
       $presensi = PresensiPplk::where('user_id', $user_id)->where('tanggal_presensi', $tanggal_presensi);
       
-      $presensi->update([
-         'kehadiran' => $request->kehadiran,
-         'keterangan' => $request->keterangan
-      ]);
+      if($presensi->kehadiran != 'Izin') {
+         $presensi->update([
+            'kehadiran' => $request->kehadiran,
+         ]);
+      } else {
+         $presensi->update([
+            'kehadiran' => $request->kehadiran,
+            'keterangan' => $request->keterangan
+         ]);
+      }
 
       return response()->json($presensi, 200);
    }
