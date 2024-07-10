@@ -490,7 +490,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                                 >
                                     <Link
                                         href={item.href}
-                                        className={`mx-2 flex w-full items-center justify-start gap-3 px-[8px] py-[4px] text-[14px] font-semibold text-black transition duration-200 ease-in`}
+                                        className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold text-black transition duration-200 ease-in`}
                                     >
                                         <span className="bg-jaffa-300 p-1 rounded-md">
                                             {item.icon}
@@ -523,7 +523,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                                 >
                                     <Link
                                         href={item.href}
-                                        className={`mx-2 flex w-full items-center justify-start gap-3 px-[8px] py-[4px] text-[14px] font-semibold text-black transition duration-200 ease-in`}
+                                        className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold text-black transition duration-200 ease-in`}
                                     >
                                         <span className="bg-jaffa-300 p-1 rounded-md">
                                             {item.icon}
@@ -536,7 +536,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                     </DropdownMenu>
 
                     <Link
-                        href={route("ucup")}
+                        href="/faq"
                         className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} transition duration-200 ease-in`}
                     >
                         FAQ
