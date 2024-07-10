@@ -11,7 +11,8 @@ class quiz extends Model
     protected $table ='quiz';
     protected $primaryKey ='id';
     protected $fillable = [
-        'quiz_question'
+        'quiz_question',
+        'gedung_id'
     ];
     protected $hidden = [
         'created_at', 'updated_at'

@@ -10,6 +10,10 @@ class QuizActivity extends Model
     use HasFactory;
     protected $table ='quiz_activities';
     protected $primaryKey ='id';
+    protected $fillable = [
+        'user_id',
+        'question_id'
+        ];
 
     protected $hidden = [
         'created_at', 'updated_at'

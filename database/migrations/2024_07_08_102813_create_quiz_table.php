@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('quiz', function (Blueprint $table) {
             $table->id();
             $table->string('quiz_question');
+            $table->foreignId('gedung_id');
             $table->timestamps();
         });
     }

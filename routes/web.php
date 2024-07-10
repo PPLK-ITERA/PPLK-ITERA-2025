@@ -4,6 +4,7 @@ use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizAnswerController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\UnlockStatusController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,6 +35,10 @@ Route::get('/dashboard', function () {
    return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/ujangbedil', function(){
+   return csrf_token();
+});
+
 Route::middleware('auth')->group(function () {
 
    // Profile
@@ -48,10 +53,15 @@ Route::middleware('auth')->group(function () {
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
    //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
-   //kuis
-   Route::get('/quizzes', [QuizController::class, 'getAll']);
+
+   //Route game
+   //mengambil 5 pertanyaan random dan pertanyaan tidak akan keluar dua kali.
+   Route::get('/gedung/{gedungId}/questions', [QuizController::class, 'getAll']);
    //jawab kuis
-   Route::post('', [QuizAnswerController::class,'']);
+   Route::post('/quiz/{question_id}/answer/{id}', [QuizAnswerController::class,'storeAnswer']);
+   Route::get('/test', [QuizAnswerController::class,'test']);
+   //mengambil kuis berdasarkan gedung
+   Route::get('/gedung/{gedungId}/questions', [UnlockStatusController::class, 'getQuestionsByGedung']);
    //score user
    Route::get('/user/score', [UserController::class, 'viewScore'])->middleware('auth');
 

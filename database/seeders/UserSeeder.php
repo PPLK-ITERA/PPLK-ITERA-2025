@@ -22,7 +22,8 @@ class UserSeeder extends Seeder
          'instagram_url' => 'https://instagram.com/user1',
          'kelompok_id' => 1,
          'pilar' => 1,
-         'score' => 80,
+         'score' =>0,
+         'role_id'  => 1,
       ]);
 
       User::create([
@@ -34,7 +35,7 @@ class UserSeeder extends Seeder
          'instagram_url' => 'https://instagram.com/user2',
          'kelompok_id' => 1,
          'pilar' => 1,
-         'score' => 70,
+         'score' => 0,
          'role_id'  => 1,
       ]);
 
@@ -61,7 +62,7 @@ class UserSeeder extends Seeder
          'instagram_url' => 'https://instagram.com/user4',
          'kelompok_id' => 2,
          'pilar' => 1,
-         'score' => 200,
+         'score' => 0,
          'role_id'  => 1,
       ]);
 

@@ -1,4 +1,4 @@
-<form action="/follow/79" method="post">
+<form action="/quiz/3/answer/6" method="post">
     @csrf
     <button type="submit">"Follow"
 
