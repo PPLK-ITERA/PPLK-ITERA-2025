@@ -131,9 +131,20 @@ class UserController extends Controller
             'followings_count' => $user->followings_count,
         ];
     
+        // Get the IDs of users that the current user is already following
+        $followingIds = $user->followings()->pluck('followed_user_id')->toArray();
+    
+        // Find 9 users that the current user is not following yet
+        $suggestions = User::whereNotIn('id', $followingIds)
+                            ->where('id', '!=', $id) // Exclude the current user's ID
+                            ->inRandomOrder() // Randomize the results
+                            ->take(9) // Limit to 9 results
+                            ->get(['id', 'name','nim', 'photo_profile_url']);
+    
+        // Add the suggestions to the response
+        $response['suggestions'] = $suggestions;
+    
         return response()->json($response);
-    }
-    
-    
-    
+    }    
+         
 }
