@@ -37,7 +37,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                         <AccordionItem value={`item-${index}`}>
                             <AccordionTrigger
                                 onClick={() => handleClick(index)}
-                                className="flex w-full items-center px-3 py-5 text-left"
+                                className="flex w-full items-center px-3 py-5 text-left border-none"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
