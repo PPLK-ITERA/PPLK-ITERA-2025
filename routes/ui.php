@@ -30,6 +30,11 @@ Route::middleware('guest')->group(function () {
     Route::get('login', function () {
         return Inertia::render('Login/Page');
     })->name('login');
+
+    Route::get('informasi/km', function () {
+        return Inertia::render('Informasi/Km/Page');
+    })->name('informasi/km');
+
 });
 
 Route::middleware('auth')->group(function () {
