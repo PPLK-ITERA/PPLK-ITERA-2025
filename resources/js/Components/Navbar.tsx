@@ -503,7 +503,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                     </DropdownMenu>
 
                     <Link
-                        href="/ketentuan-atribut"
+                        href="/atribut"
                         className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} transition duration-200 ease-in`}
                     >
                         Ketentuan Atribut
