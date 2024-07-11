@@ -38,17 +38,17 @@ const Page: React.FC = () => {
         <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
             <div>
                 <Navbar isSolid={true} />
-                <h2 className="mt-[140px] font-avigea text-[39px] text-jaffa-900">
+                <h2 className="mt-20 md:mt-40 font-avigea text-3xl md:text-[39px] text-jaffa-900">
                     Frequently Asked Question
                 </h2>
-                <div className="mx-auto mt-[40px] max-w-2xl">
+                <div className="mx-auto mt-10 md:mt-[40px] max-w-2xl px-4 sm:px-6 md:px-0">
                     <div className="relative flex items-center">
                         <input
                             type="text"
                             placeholder="Cari pertanyaan disini..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full rounded-[10px] border border-[#864D0D] px-6 py-4 pl-12 text-[20px] placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full rounded-[10px] border border-[#864D0D] px-4 sm:px-6 py-3 sm:py-4 pl-10 sm:pl-12 text-base sm:text-lg md:text-[20px] placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const Page: React.FC = () => {
                         </svg>
                     </div>
                 </div>
-                <div className="mx-[142px] mb-[140px] mt-[56px]">
+                <div className="mx-4 sm:mx-10 md:mx-[142px] mb-10 md:mb-[140px] mt-10 md:mt-[56px]">
                     <AccordionFAQ items={currentItems} />
                     <PaginationFAQ
                         currentPage={currentPage}
