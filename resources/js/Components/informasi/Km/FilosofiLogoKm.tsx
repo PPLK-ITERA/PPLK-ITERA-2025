@@ -1,17 +1,23 @@
-import React from 'react'
-import '../../../../css/app.css'
-import { Card, CardContent } from '../../ui/card'
-import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '../../ui/carousel'
-import Autoplay from 'embla-carousel-autoplay'
-import alas_filosofi from '!assets/alas-filosofi.png'
+import "../../../../css/app.css";
+import { Card, CardContent } from "../../ui/card";
+import {
+    Carousel,
+    CarouselApi,
+    CarouselContent,
+    CarouselItem,
+} from "../../ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
-import itera from '!assets/logokm/itera.png'
-import km from '!assets/logokm/km.png'
-import kmPink from '!assets/logokm/km-tapi-pink.png'
-import sarjana from '!assets/logokm/sarjana.png'
-import swarnabumi from '!assets/logokm/swarnabumi.png'
-import tangan from '!assets/logokm/tangan.png'
-import teleskop from '!assets/logokm/teleskop.png'
+import React from "react";
+
+import alas_filosofi from "!assets/alas-filosofi.png";
+import itera from "!assets/logokm/itera.png";
+import kmPink from "!assets/logokm/km-tapi-pink.png";
+import km from "!assets/logokm/km.png";
+import sarjana from "!assets/logokm/sarjana.png";
+import swarnabumi from "!assets/logokm/swarnabumi.png";
+import tangan from "!assets/logokm/tangan.png";
+import teleskop from "!assets/logokm/teleskop.png";
 
 const DataFilosofiLogoKM = [
     {
@@ -66,69 +72,66 @@ const FilosofiLogoKm = () => {
             setCurrent(api.selectedScrollSnap() + 1);
         });
     }, [api]);
-  return (
-    <div className='pt-40'>
-        <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white pt-[250px] md:pt-[500px]">
-            <h2 className="font-avigea text-jaffa-300 text-4xl">
-                FILOSOFI LOGO
-            </h2>
+    return (
+        <div className="pt-40">
+            <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white pt-[250px] md:pt-[500px]">
+                <h2 className="font-avigea text-jaffa-300 text-4xl">
+                    FILOSOFI LOGO
+                </h2>
 
-            <Carousel
-                opts={{
-                    align: "center",
-                    loop: true,
-                }}
-                plugins={[
-                    Autoplay({
-                        delay: 3000,
-                    }),
-                ]}
-                setApi={setApi}
-                className="z-20 w-full"
-            >
-                <CarouselContent>
-                     {DataFilosofiLogoKM.map((data, index) => (
-                        <CarouselItem
-                            key={index}
-                            className="md:basis-1/2 lg:basis-1/3"
-                        >
-                            <div className="p-1 flex justify-center items-center">
-                                <Card className="bg-transparent border-none w-[374px] h-[608px]">
-                                    <CardContent className="inverted-pentagon flex flex-col items-center justify-center p-6 text-center text-white bg-white">
-                                        <img
-                                            src={data.image}
-                                            alt={data.description}
-                                            className={`${current === index + 1 ? "scale-100" : "scale-50"} transition-transform duration-300 ease-in-out`}
-                                        />
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
+                <Carousel
+                    opts={{
+                        align: "center",
+                        loop: true,
+                    }}
+                    plugins={[
+                        Autoplay({
+                            delay: 3000,
+                        }),
+                    ]}
+                    setApi={setApi}
+                    className="z-20 w-[80%]"
+                >
+                    <CarouselContent>
+                        {DataFilosofiLogoKM.map((data, index) => (
+                            <CarouselItem
+                                key={index}
+                                className="md:basis-1/2 lg:basis-1/3"
+                            >
+                                <div className="flex items-center justify-center p-1">
+                                    <Card className="bg-transparent border-none">
+                                        <CardContent
+                                            className={`inverted-pentagon flex flex-col items-center justify-center p-6 text-center text-white bg-white ${current === index + 1 ? "scale-100" : "scale-75"} transition-transform duration-300 ease-in-out w-[374px] h-[608px]`}
+                                        >
+                                            <img
+                                                src={data.image}
+                                                alt={data.description}
+                                                className=""
+                                            />
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                </Carousel>
 
-             {DataFilosofiLogoKM.map((data, index) => (
-                <>
-                    {current === index + 1 ? (
-                        <>
-
-                            <div className="flex min-h-[300px] max-w-[600px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[300px]">
-                                <h2 className="font-avigea md:text-4xl text-2xl text-white">
-                                    {data.description}
-                                </h2>
-
-                                <p className="mt-10 font-montserrat text-[16px] font-normal text-white/80 md:text-2xl">
-                                    {data.description}
-                                </p>
-                            </div>
-                        </>
-                    ) : null}
-                </>
-            ))}
+                {DataFilosofiLogoKM.map((data, index) => (
+                    <>
+                        {current === index + 1 ? (
+                            <>
+                                <div className="flex min-h-[300px] max-w-[600px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[300px]">
+                                    <p className="mt-10 font-montserrat text-[16px] font-normal text-white/80 md:text-2xl">
+                                        {data.description}
+                                    </p>
+                                </div>
+                            </>
+                        ) : null}
+                    </>
+                ))}
+            </div>
         </div>
-    </div>
-  )
-}
+    );
+};
 
-export default FilosofiLogoKm
+export default FilosofiLogoKm;
