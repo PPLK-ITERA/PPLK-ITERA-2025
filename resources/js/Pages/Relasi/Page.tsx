@@ -8,8 +8,8 @@ import { UserPlus } from "lucide-react";
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
-import { Button } from "@/Components/ui/button";
-import { Card, CardContent } from "@/Components/ui/card";
+import { Button } from "@/Components/dashboard/ui/button";
+import { Card, CardContent } from "@/Components/dashboard/ui/card";
 import {
     Carousel,
     CarouselContent,

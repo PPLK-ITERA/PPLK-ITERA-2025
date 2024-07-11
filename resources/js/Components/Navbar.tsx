@@ -10,7 +10,7 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from "@/Components/ui/dropdown-menu";
+} from "@/Components/dashboard/ui/dropdown-menu";
 import {
     Sheet,
     SheetContent,

@@ -27,6 +27,26 @@ Route::middleware('guest')->group(function () {
     Route::get('informasi/profil', function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');
+
+    Route::get('dashboard', function () {
+        return Inertia::render('Dashboard/Page');
+    })->name('dashboard');
+
+    Route::get('dashboard/employee', function () {
+        return Inertia::render('Dashboard/employee/Page');
+    })->name('dashboard/employe');
+
+    Route::get('dashboard/kanban', function () {
+        return Inertia::render('Dashboard/kanban/Page');
+    })->name('dashboard/kanban');
+
+    Route::get('dashboard/profile', function () {
+        return Inertia::render('Dashboard/profile/Page');
+    })->name('dashboard/profile');
+
+    Route::get('dashboard/user', function () {
+        return Inertia::render('Dashboard/user/Page');
+    })->name('dashboard/user');
 });
 
 Route::middleware('auth')->group(function () {

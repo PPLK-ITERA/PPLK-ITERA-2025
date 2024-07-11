@@ -4,7 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 import React from "react";
 
-import { Card, CardContent, CardTitle } from "@/Components/ui/card";
+import { Card, CardContent, CardTitle } from "@/Components/dashboard/ui/card";
 import {
     Carousel,
     CarouselContent,

@@ -2,7 +2,7 @@ import { useAos } from "@/lib/hooks/useAos";
 
 import React, { useEffect } from "react";
 
-import { Card } from "@/Components/ui/card";
+import { Card } from "@/Components/dashboard/ui/card";
 
 type Props = {};
 
