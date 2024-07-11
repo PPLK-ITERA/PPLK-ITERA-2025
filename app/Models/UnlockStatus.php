@@ -10,7 +10,11 @@ class UnlockStatus extends Model
     use HasFactory;
     protected $table ='Unlock_Status';
     protected $primaryKey ='id';
-    protected $fillable = 'dateOpen';
+    protected $fillable = [
+        'kelompok_id',
+        'gedung_id',
+        'dateOpen'
+    ];
     protected $hidden = [
         'created_at', 'updated_at'
     ];

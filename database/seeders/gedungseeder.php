@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\gedung;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class gedung extends Seeder
+class gedungSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +20,7 @@ class gedung extends Seeder
             ['nama_gedung' => 'Gedung D'],
             ['nama_gedung' => 'Gedung E'],
         ];
-        gedung::query()->insert($gedungs);
 
+        gedung::query()->insert($gedungs);
     }
 }

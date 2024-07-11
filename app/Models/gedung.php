@@ -10,7 +10,7 @@ class gedung extends Model
     use HasFactory;
     protected $table ='gedung';
     protected $primaryKey ='id';
-    protected $fillable = 'nama_gedung';
+    protected $fillable = ['nama_gedung'];
     protected $hidden = [
         'created_at', 'updated_at'
     ];

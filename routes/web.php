@@ -55,13 +55,13 @@ Route::middleware('auth')->group(function () {
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
    //Route game
-   //mengambil 5 pertanyaan random dan pertanyaan tidak akan keluar dua kali.
-   Route::get('/gedung/{gedungId}/questions', [QuizController::class, 'getAll']);
+   //mengambil pertanyaan berdasarkan geddung yang terbuka 
+   Route::get('/gedung/{gedungId}/question', [QuizController::class, 'getAll']);
    //jawab kuis
    Route::post('/quiz/{question_id}/answer/{id}', [QuizAnswerController::class,'storeAnswer']);
    Route::get('/test', [QuizAnswerController::class,'test']);
-   //mengambil kuis berdasarkan gedung
-   Route::get('/gedung/{gedungId}/questions', [UnlockStatusController::class, 'getQuestionsByGedung']);
+   //membuka status gedung
+   Route::get('/unlock-gedung', [UnlockStatusController::class, 'unlockGedung']);
    //score user
    Route::get('/user/score', [UserController::class, 'viewScore'])->middleware('auth');
 

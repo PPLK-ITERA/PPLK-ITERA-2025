@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class gedung extends Controller
+class gedungController extends Controller
 {
     /**
      * Display a listing of the resource.
