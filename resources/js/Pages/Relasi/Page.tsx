@@ -21,6 +21,7 @@ import {
 
 import instagramIcon from "!assets/svg/instagram.svg";
 import linkedinIcon from "!assets/svg/linkedin.svg";
+import { useAos } from "@/lib/hooks/useAos";
 
 const recommendedUsers: User[] = [
     ...Array.from({ length: 8 }).map((_, i) => ({
@@ -42,6 +43,8 @@ const recommendedUsers: User[] = [
 ];
 
 const Page: React.FC = () => {
+    useAos()
+
     const user = {
         id: 1,
         name: "Corneliux Linus",
@@ -67,12 +70,12 @@ const Page: React.FC = () => {
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl py-16 font-montserrat flex flex-col gap-8 mx-auto text-xl text-black px-2">
-                    <div className="flex max-md:flex-col max-md:text-center max-md:items-center gap-8 mx-auto max-w-5xl place-content-center">
+                <div className="max-w-7xl py-16 font-montserrat flex flex-col gap-8 mx-auto text-base md:text-md text-black px-2">
+                    <div className="flex max-md:flex-col max-md:text-center max-md:items-center gap-8 mx-auto max-w-5xl place-content-center w-full">
                         <div className="flex flex-col justify-between gap-4">
                             <div>
                                 <img
-                                    className="w-fit max-w-48 rounded-full select-none object-cover"
+                                    className="aspect-square max-md:w-36 w-48 rounded-full select-none object-cover"
                                     src={user.profileImageUrl}
                                     alt={user.name}
                                 />
@@ -88,7 +91,7 @@ const Page: React.FC = () => {
                                 <p className="font-bold">Ikuti</p>
                             </Button>
                         </div>
-                        <div className="flex flex-col justify-between w-[28rem]">
+                        <div className="flex flex-col justify-between w-full md:w-[28rem]">
                             <div className="flex flex-col gap-2">
                                 <div className="max-md:hidden flex gap-12">
                                     <p>
@@ -105,7 +108,7 @@ const Page: React.FC = () => {
                                     </p>
                                 </div>
                                 <h3 className="font-bold">{user.name}</h3>
-                                <div className="flex flex-col gap-1">
+                                <div className="flex flex-col md:gap-1">
                                     <p className="font-semibold">{user.nim}</p>
                                     <p className="font-semibold">
                                         {user.prodi}
@@ -119,12 +122,12 @@ const Page: React.FC = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <p className="whitespace-pre-wrap text-[16px]">
+                                <p className="whitespace-pre-wrap break-words text-wrap text-sm md:text-[16px]">
                                     “{user.quote}”
                                 </p>
                             </div>
 
-                            <div className="md:hidden flex gap-8 my-4 place-content-center">
+                            <div className="md:hidden flex gap-8 my-4 place-content-center w-full flex-wrap text-sm">
                                 <p>
                                     <span className="block font-bold">
                                         {user.viewer}
@@ -152,20 +155,14 @@ const Page: React.FC = () => {
 
                             <div className="flex gap-4">
                                 <Button className="w-full bg-white border border-[#ECAA25] text-black">
-                                    <div className="">
                                         <img
-                                            className="h-fit"
                                             src={instagramIcon}
                                         />
-                                    </div>
                                 </Button>
                                 <Button className="w-full bg-white border border-[#ECAA25] text-black">
-                                    <div className="">
                                         <img
-                                            className="h-fit"
                                             src={linkedinIcon}
                                         />
-                                    </div>
                                 </Button>
                             </div>
                         </div>
@@ -180,8 +177,8 @@ const Page: React.FC = () => {
                         <Carousel>
                             <CarouselContent className="text-sm">
                                 {recommendedUsers.map((u, i) => (
-                                    <CarouselItem className="basis-48 lg:basis-1/4 xl:basis-1/5 mb-8 mt-2 text-center">
-                                        <Card className="rounded-lg drop-shadow-xl ring-1 ring-black/10">
+                                    <CarouselItem data-aos="fade-up" data-aos-duration={500} data-aos-delay={(i+1)*100} className="basis-48 md:basis-1/4 xl:basis-1/5 mb-8 mt-2 text-center">
+                                        <Card className="rounded-md drop-shadow-xl ring-1 ring-black/10">
                                             <CardContent className="flex flex-col items-center gap-1 p-4 text-black bg-white">
                                                 <img
                                                     className="w-24 h-24 rounded-full select-none"
@@ -200,9 +197,9 @@ const Page: React.FC = () => {
                                         </Card>
                                     </CarouselItem>
                                 ))}
-                                <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 mb-8 mt-2">
-                                    <Card className="rounded-lg drop-shadow-xl h-full">
-                                        <CardContent className="h-full flex flex-col justify-between items-center gap-1 p-4 text-black bg-white border rounded-lg">
+                                <CarouselItem className="basis-1/2 md:basis-1/3 md:basis-1/4 xl:basis-1/5 mb-8 mt-2">
+                                    <Card className="rounded-md drop-shadow-xl h-full">
+                                        <CardContent className="h-full flex flex-col justify-between items-center gap-1 p-4 text-black bg-white border rounded-md">
                                             <div className="bg-gradient-to-r rounded-full w-24 h-24 grid place-content-center from-jaffa-600 to-jaffa-800 text-white">
                                                 <IconMoodSearch
                                                     size={64}
