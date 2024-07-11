@@ -15,41 +15,91 @@ use Illuminate\Support\Facades\DB;
 class QuizAnswerController extends Controller
 {
     public function storeAnswer(Request $request,$question_id,$id){
-        $userId = Auth::id(); // Assuming you have user authentication
+        // $userId = Auth::id(); // Assuming you have user authentication
 
+        // // Find the answer
+        // $answer = quiz_answer::where('id', $id)->where('question_id', $question_id)->first();
+    
+        // if (!$answer) {
+        //     return response()->json([
+        //         'message' => 'Invalid question or answer ID'
+        //     ], 404);
+        // }
+    
+        // // Count the number of attempts the user has made for this question
+        // $attemptCount = QuizActivity::where('user_id', $userId)
+        //                             ->where('question_id', $question_id)
+        //                             ->count();
+    
+        // if ($attemptCount >= 3) {
+        //     return response()->json([
+        //         'message' => 'You have exhausted your attempts for this question.'
+        //     ], 400);
+        // }
+    
+        // // Save the answer to the quiz activity
+        // QuizActivity::create([
+        //     'user_id' => $userId,
+        //     'question_id' => $question_id,
+        // ]);
+    
+        // // Update the user's score
+        // $user = User::find($userId);
+        // $user->score += $answer->nilai_jawaban;
+        // $user->save();
+    
+        // return response()->json([
+        //     'message' => 'Answer submitted successfully', 
+        //     'new_score' => $user->score,
+        // ], 200);
+
+        $userId = Auth::id(); // Assuming you have user authentication
+        $user = Auth::user();
+    
         // Find the answer
         $answer = quiz_answer::where('id', $id)->where('question_id', $question_id)->first();
-    
+        
         if (!$answer) {
             return response()->json([
                 'message' => 'Invalid question or answer ID'
             ], 404);
         }
     
+        // Check if the building associated with the question is unlocked
+        $question = quiz::find($question_id);
+        $isUnlocked = UnlockStatus::where('kelompok_id', $user->kelompok->id)
+                                  ->where('gedung_id', $question->gedung_id)
+                                  ->exists();
+    
+        if (!$isUnlocked) {
+            return response()->json([
+                'message' => 'This question is from a gedung that your group has not unlocked yet.'
+            ], 403);
+        }
+        
         // Count the number of attempts the user has made for this question
         $attemptCount = QuizActivity::where('user_id', $userId)
                                     ->where('question_id', $question_id)
                                     ->count();
-    
+        
         if ($attemptCount >= 3) {
             return response()->json([
                 'message' => 'You have exhausted your attempts for this question.'
             ], 400);
         }
-    
+        
         // Save the answer to the quiz activity
         QuizActivity::create([
             'user_id' => $userId,
             'question_id' => $question_id,
         ]);
-    
+        
         // Update the user's score
-        $user = User::find($userId);
         $user->score += $answer->nilai_jawaban;
         $user->save();
-    
+        
         return response()->json([
-            'message' => 'Answer submitted successfully', 
+            'message' => 'Answer submitted successfully',
             'new_score' => $user->score,
         ], 200);
     }
