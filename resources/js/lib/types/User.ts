@@ -8,8 +8,8 @@ export interface User {
     prodi: string;
     kelompok: number;
     namaKelompok: string;
-    batch: number;
-    quote: string;
+    bio: string;
     profileImageUrl: string;
-    socialLinks: { instagram: string; linkedin: string };
+    linkedinUrl: string;
+    instagramUrl: string;
 }

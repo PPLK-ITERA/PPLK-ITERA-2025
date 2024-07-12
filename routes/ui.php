@@ -19,6 +19,14 @@ Route::middleware('guest')->group(function () {
     Route::get('relasi', function () {
         return Inertia::render('Relasi/Page');
     })->name('relasi');
+    
+    Route::get('relasi/profil', function () {
+        return Inertia::render('Relasi/Profil/Page');
+    })->name('relasi/profil');
+    
+    Route::get('relasi/search', function () {
+        return Inertia::render('Relasi/Search/Page');
+    })->name('relasi/search');
 
     Route::get('login', function () {
         return Inertia::render('Login/Page');

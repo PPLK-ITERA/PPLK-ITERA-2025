@@ -69,23 +69,10 @@ const Page: React.FC = () => {
                             </Button>
                         </a>
                     </div>
-                    <div className="text-center">
-                        <h1 className="text-2xl font-bold font-fesbud text-jaffa-800">
-                            TOP 3 FOLLOWERS
-                        </h1>
-                    </div>
-                    <div className="w-full max-w-2xl mx-auto">
-                        <div className="flex justify-center text-center w-full">
-                            <TopUser user={top3Followers[1]} rank={2} />
-                            <TopUser user={top3Followers[0]} rank={1} />
-                            <TopUser user={top3Followers[2]} rank={3} />
-                        </div>
-                        <div className="bg-moccaccino-700 h-1 w-full"></div>
-                    </div>
                     <div className="w-full mx-auto max-w-5xl">
                         <div className="flex justify-between">
                             <h4 className="font-bold text-2xl">
-                                Profil Berdasarkan
+                                Hasil dari {}
                             </h4>
                             <SortDropdown options={sortOptions} />
                         </div>
@@ -98,6 +85,7 @@ const Page: React.FC = () => {
                         <Button className="mx-1">4</Button>
                     </div>
                 </div>
+
                 <Footer />
             </div>
         </div>
