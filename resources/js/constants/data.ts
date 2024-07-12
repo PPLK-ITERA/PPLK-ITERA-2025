@@ -9,12 +9,12 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-    {
-        title: "Dashboard",
-        href: "/dashboard",
-        icon: "dashboard",
-        label: "Dashboard",
-    },
+    // {
+    //     title: "Dashboard",
+    //     href: "/dashboard",
+    //     icon: "dashboard",
+    //     label: "Dashboard",
+    // },
     {
         title: "User",
         href: "/dashboard/user",
@@ -40,10 +40,58 @@ export const navItems: NavItem[] = [
         label: "kanban",
     },
     {
-        title: "Login",
-        href: "/login",
-        icon: "login",
-        label: "login",
+        title: "Dashboard",
+        href: "/dashboard",
+        icon: "dashboard",
+        label: "dashboard",
+    },
+    {
+        title: "Atur Maba",
+        href: "/dashboard/atur-maba",
+        icon: "user",
+        label: "atur-maba",
+    },
+    {
+        title: "Atur Dapmen",
+        href: "/dashboard/atur-dapmen",
+        icon: "user",
+        label: "atur-dapmen",
+    },
+    {
+        title: "Atur PJ Prodi",
+        href: "/dashboard/atur-pjprodi",
+        icon: "user",
+        label: "atur-pjprodi",
+    },
+    {
+        title: "Atur Korlap",
+        href: "/dashboard/atur-korlap",
+        icon: "user",
+        label: "atur-korlap",
+    },
+    {
+        title: "Absensi Maba",
+        href: "/dashboard/absensi-maba",
+        icon: "notebook",
+        label: "atur-absensi-maba",
+    },
+    {
+        title: "Booklet",
+        href: "/dashboard/booklet",
+        icon: "book",
+        label: "atur-booklet",
+    },
+    {
+        title: "FAQ",
+        href: "/dashboard/faq",
+        icon: "question",
+        label: "atur-faq",
+    },
+    {
+        title: "Mading",
+        href: "/dashboard/mading",
+        icon: "map",
+        label: "atur-mading",
     },
 ];
 

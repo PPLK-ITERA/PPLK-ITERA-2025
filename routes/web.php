@@ -18,9 +18,9 @@ use App\Http\Controllers\FAQController;
 
 Route::get('/', function () {
    // if has auth, redirect to dashboard
-   if (auth()->check()) {
-      return redirect()->route('dashboard');
-   }
+   // if (auth()->check()) {
+   //    return redirect()->route('dashboard');
+   // }
 
    return Inertia::render('LandingPage', [
       'canLogin' => Route::has('login'),
@@ -34,9 +34,9 @@ Route::get('/', function () {
 
 // Route::get('/booklets', [BookletController::class, 'index']);
 Route::get('/faqs', [FAQController::class, 'index']);
-Route::get('/dashboard', function () {
-   return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//    return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 

@@ -51,6 +51,38 @@ Route::middleware('guest')->group(function () {
     Route::get('dashboard/user', function () {
         return Inertia::render('Dashboard/user/Page');
     })->name('dashboard/user');
+
+    Route::get('dashboard/atur-maba', function () {
+        return Inertia::render('Dashboard/atur-maba/Page');
+    })->name('dashboard/atur-maba');
+
+    Route::get('dashboard/atur-dapmen', function () {
+        return Inertia::render('Dashboard/atur-dapmen/Page');
+    })->name('dashboard/atur-dapmen');
+
+    Route::get('dashboard/atur-korlap', function () {
+        return Inertia::render('Dashboard/atur-korlap/Page');
+    })->name('dashboard/atur-korlap');
+
+    Route::get('dashboard/atur-pjprodi', function () {
+        return Inertia::render('Dashboard/atur-pjprodi/Page');
+    })->name('dashboard/atur-pjprodi');
+
+    Route::get('dashboard/absensi-maba', function () {
+        return Inertia::render('Dashboard/absensi-maba/Page');
+    })->name('dashboard/absensi-maba');
+
+    Route::get('dashboard/faq', function () {
+        return Inertia::render('Dashboard/faq/Page');
+    })->name('dashboard/faq');
+
+    Route::get('dashboard/booklet', function () {
+        return Inertia::render('Dashboard/booklet/Page');
+    })->name('dashboard/booklet');
+
+    Route::get('dashboard/mading', function () {
+        return Inertia::render('Dashboard/mading/Page');
+    })->name('dashboard/mading');
 });
 
 Route::middleware('auth')->group(function () {

@@ -1,6 +1,7 @@
 import {
     AlertTriangle,
     ArrowRight,
+    Book,
     Check,
     ChevronLeft,
     ChevronRight,
@@ -17,8 +18,11 @@ import {
     LogIn,
     LucideIcon,
     LucideProps,
+    Map,
+    MessageCircleQuestion,
     Moon,
     MoreVertical,
+    NotebookPen,
     Pizza,
     Plus,
     Settings,
@@ -79,4 +83,8 @@ export const Icons = {
     ),
     twitter: Twitter,
     check: Check,
+    notebook: NotebookPen,
+    book: Book,
+    question: MessageCircleQuestion,
+    map: Map,
 };

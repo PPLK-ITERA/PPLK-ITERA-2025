@@ -1,3 +1,4 @@
+import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Employee } from "@/constants/data";
 import { cn } from "@/lib/utils";
 
@@ -40,27 +41,26 @@ export default function Page() {
     // const pageCount = Math.ceil(totalUsers / pageLimit);
     // const employee: Employee[] = employeeRes.users;
     return (
-        <>
-            <div className="md:p-8 flex-1 p-4 pt-6 space-y-4">
-                <Breadcrumbs items={breadcrumbItems} />
+        <DashboardLayout>
+            <Breadcrumbs items={breadcrumbItems} />
 
-                <div className="flex items-start justify-between">
-                    <Heading
-                        // title={`Employee (${totalUsers})`}
-                        title={`Employee (ujang)`}
-                        description="Manage employees (Server side table functionalities.)"
-                    />
+            <div className="flex items-start justify-between">
+                <Heading
+                    // title={`Employee (${totalUsers})`}
+                    title={`Employee (ujang)`}
+                    description="Manage employees (Server side table functionalities.)"
+                />
 
-                    <Link
-                        href={"/dashboard/employee/new"}
-                        className={cn(buttonVariants({ variant: "default" }))}
-                    >
-                        <Plus className="w-4 h-4 mr-2" /> Add New
-                    </Link>
-                </div>
-                <Separator />
+                <Link
+                    href={"/dashboard/employee/new"}
+                    className={cn(buttonVariants({ variant: "default" }))}
+                >
+                    <Plus className="w-4 h-4 mr-2" /> Add New
+                </Link>
+            </div>
+            <Separator />
 
-                {/* <EmployeeTable
+            {/* <EmployeeTable
           searchKey="country"
           pageNo={page}
           columns={columns}
@@ -68,7 +68,6 @@ export default function Page() {
           data={employee}
           pageCount={pageCount}
         /> */}
-            </div>
-        </>
+        </DashboardLayout>
     );
 }
