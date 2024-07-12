@@ -6,9 +6,12 @@ import BadanKM from "@/Components/informasi/Km/BadanKM";
 import FilosofiLogoKm from "@/Components/informasi/Km/FilosofiLogoKm";
 import KabinetPresma from "@/Components/informasi/Km/KabinetPresma";
 import SejarahKM from "@/Components/informasi/Km/SejarahKM";
+import PecahanLogo from "@/Components/informasi/Km/PecahanLogo";
+import SosmedKM from "@/Components/informasi/Km/SosmedKM";
 
 import awan from "!assets/awan.png";
 import gedung from "!assets/gedung-sponsor.png";
+import tiang from '!assets/tiang.png'
 
 const Page = () => {
     return (
@@ -24,7 +27,7 @@ const Page = () => {
             </div>
             <div className="bg-pattern-white">
                 <div className="pt-20 text-center">
-                    <p className="font-avigea text-[49px] text-candlelight-950">
+                    <p className="font-avigea text-[49px] text-candlelight-950 md:text-[29px]">
                         KELUARGA MAHASISWA <br />
                         INSTITUT TEKNOLOGI SUMATERA <br />
                         (KM ITERA)
@@ -36,7 +39,7 @@ const Page = () => {
                     <img src={gedung} alt="" className="w-full" />
                     <img src={awan} alt="" className="absolute w-full" />
                 </div>
-                <div className="bg-pattern-brown">
+                <div className="bg-pattern-white bg-[#170C0A]">
                     <div className="pt-20 text-center">
                         <p className="font-avigea text-[49px] text-white pt-40">
                             KABINET BESERTA PRESIDEN <br />
@@ -45,9 +48,18 @@ const Page = () => {
                     </div>
                     <KabinetPresma />
                     <FilosofiLogoKm />
+                    <PecahanLogo />
+                    <h2 className="text-white font-montserrat text-center text-[25px] mt-10">
+                        Pecahan Logo <br />
+                        KM ITERA
+                    </h2>
+                    <SosmedKM />
+                    <div className="relative overflow-hidden -mt-96" style={{ height: '70vh' }}>
+                        <img src={tiang} alt="tiang" className="w-full" />
+                    </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
         </div>
     );
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import MaxWidthWrapper from "../MaxWidthWrapper";
-import logoPplk from "../../../../resources/assets/logo-pplk-2024.png";
+import logoPplk from "!assets/logo-pplk-2024.png";
 import Visi from "./Visi";
 import Misi from "./Misi";
 import FilosofiLogoInfo from "./FilosofiLogoInfo";

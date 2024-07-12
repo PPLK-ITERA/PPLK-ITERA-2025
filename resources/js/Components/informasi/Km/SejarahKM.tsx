@@ -1,5 +1,6 @@
 import React from 'react'
-import logoPplk from '../../../../../resources/assets/logo-pplk-2024.png'
+
+import km from '!assets/logokm/km.png'
 
 const SejarahKM = () => {
   return (
@@ -7,7 +8,7 @@ const SejarahKM = () => {
         <div className='flex h-[742px] w-[1155px] flex-row rounded-[20px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] shadow-2xl'>
             <div className='flex flex-row h-[322px] w-[322px] rounded-[20px] bg-white mt-24 ml-16 p-8'>
                 <img 
-                src={logoPplk} 
+                src={km} 
                 alt="logo" 
                 className='object-cover'
                 />

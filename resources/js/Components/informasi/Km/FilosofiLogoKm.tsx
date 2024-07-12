@@ -5,12 +5,13 @@ import {
     CarouselApi,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "../../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 import React from "react";
 
-import alas_filosofi from "!assets/alas-filosofi.png";
 import itera from "!assets/logokm/itera.png";
 import kmPink from "!assets/logokm/km-tapi-pink.png";
 import km from "!assets/logokm/km.png";
@@ -22,36 +23,36 @@ import teleskop from "!assets/logokm/teleskop.png";
 const DataFilosofiLogoKM = [
     {
         image: itera,
-        description: "Helai Daun memiliki arti Keteduhan dan Kesejukan",
+        description: "ap coba",
     },
     {
         image: km,
-        description: "Angka 10 mengartikan 1 dekade PPLK ITERA",
+        description: "Hasil Akhir Logo KM ITERA",
     },
     {
         image: kmPink,
         description:
-            "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2024",
+            "pink km yeah",
     },
     {
         image: sarjana,
         description:
-            "Pulau Sumatera merepresentasikan tempat dimana Kampus ITERA berdiri dan akan menciptakan manusia terbaik di Indonesia",
+            'Sebagai ikon yang melambangkan “Pendidikan dan Pengajaran”',
     },
     {
         image: swarnabumi,
         description:
-            "Tetes Air merepresentasikan bukti dari proses dalam mencapai Indonesia Emas 2045",
+            "Swarnabhumi merupakan pedoman yang menggambarkan motivasi, semangat dan tujuan dari KM-ITERA",
     },
     {
         image: tangan,
         description:
-            "Naungan Tangan memiliki arti PPLK ITERA menjadi naungan untuk mahasiswa baru mengenal lingkungan Kampusnya",
+            "tangan pencuri",
     },
     {
         image: teleskop,
         description:
-            "Biji Emas merepresentasikan keberhasilan Indonesi Emas 2045",
+            "teleskop sherlock holmes",
     },
 ];
 
@@ -74,8 +75,8 @@ const FilosofiLogoKm = () => {
     }, [api]);
     return (
         <div className="pt-40">
-            <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white pt-[250px] md:pt-[500px]">
-                <h2 className="font-avigea text-jaffa-300 text-4xl">
+            <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white">
+                <h2 className="font-avigea text-[49px] text-white">
                     FILOSOFI LOGO
                 </h2>
 
@@ -90,7 +91,7 @@ const FilosofiLogoKm = () => {
                         }),
                     ]}
                     setApi={setApi}
-                    className="z-20 w-[80%]"
+                    className="z-20 w-[80%] mt-20"
                 >
                     <CarouselContent>
                         {DataFilosofiLogoKM.map((data, index) => (
@@ -101,7 +102,7 @@ const FilosofiLogoKm = () => {
                                 <div className="flex items-center justify-center p-1">
                                     <Card className="bg-transparent border-none">
                                         <CardContent
-                                            className={`inverted-pentagon flex flex-col items-center justify-center p-6 text-center text-white bg-white ${current === index + 1 ? "scale-100" : "scale-75"} transition-transform duration-300 ease-in-out w-[374px] h-[608px]`}
+                                            className={`rounded-md inverted-pentagon flex flex-col items-center justify-center p-6 text-center text-white bg-white ${current === index + 1 ? "scale-100" : "scale-75"} transition-transform duration-300 ease-in-out w-[374px] h-[608px]`}
                                         >
                                             <img
                                                 src={data.image}
@@ -114,6 +115,8 @@ const FilosofiLogoKm = () => {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
+                    <CarouselNext className="bg-transparent border-none text-white hover:bg-transparent hover:text-white" />
+                    <CarouselPrevious className="bg-transparent border-none text-white hover:bg-transparent hover:text-white" />
                 </Carousel>
 
                 {DataFilosofiLogoKM.map((data, index) => (

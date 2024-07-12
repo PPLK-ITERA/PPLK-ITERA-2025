@@ -1,9 +1,7 @@
 import React from "react";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
-import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
-import InfoPplk from "@/Components/informasi/InfoPplk";
-import logoPplk from "../../../../public/assets/logo-pplk-2024.png";
+import InfoPplk from "@/Components/informasi/pplk/InfoPplk";
 
 function Page() {
     return (

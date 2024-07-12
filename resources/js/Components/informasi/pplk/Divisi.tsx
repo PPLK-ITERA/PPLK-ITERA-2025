@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import frame from '../../../../resources/assets/Frame Divisi PPLK.png';
+import frame from '!assets/Frame Divisi PPLK.png';
 
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 

@@ -1,22 +1,22 @@
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import alas_filosofi from "../../../../resources/assets/alas-filosofi.png";
-import helai_daun from "../../../../resources/assets/filosofi-pilar/helai-daun.png";
-import angka_10 from "../../../../resources/assets/filosofi-pilar/angka-10.png";
-import pilar_sdgs from "../../../../resources/assets/filosofi-pilar/4-pilar-sgds.png";
-import pulau_sumatera from "../../../../resources/assets/filosofi-pilar/pulau-sumatera.png";
-import tetes_air from "../../../../resources/assets/filosofi-pilar/tetes-air.png";
-import naungan_tangan from "../../../../resources/assets/filosofi-pilar/naungan-tangan.png";
-import biji_emas from "../../../../resources/assets/filosofi-pilar/biji-emas.png";
+import alas_filosofi from "!assets/alas-filosofi.png";
+import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
+import angka_10 from "!assets/filosofi-pilar/angka-10.png";
+import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
+import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
+import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
+import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
+import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
     CarouselApi,
-} from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
-import MaxWidthWrapper from "../MaxWidthWrapper";
-import logoPplk from "../../../../resources/assets/logo-pplk-2024.png";
+} from "../../ui/carousel";
+import { Card, CardContent } from "../../ui/card";
+import MaxWidthWrapper from "../../MaxWidthWrapper";
+import logoPplk from "!assets/logo-pplk-2024.png";
 
 const DataFilosofiLogo = [
     {

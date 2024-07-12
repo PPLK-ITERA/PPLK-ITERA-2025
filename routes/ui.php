@@ -23,9 +23,9 @@ Route::middleware('guest')->group(function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');
 
-    Route::get('informasi', function () {
-        return Inertia::render('Informasi/Page');
-    })->name('informasi');
+    Route::get('informasi/pplk', function () {
+        return Inertia::render('Informasi/Pplk/Page');
+    })->name('informasi/pplk');
 
     Route::get('login', function () {
         return Inertia::render('Login/Page');
