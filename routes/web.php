@@ -11,7 +11,6 @@ use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FAQController;
-
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;
 
@@ -22,7 +21,7 @@ Route::get('/', function () {
       return redirect()->route('dashboard');
    }
 
-   return Inertia::render('LandingPage', [
+   return Inertia::render('Welcome', [
       'canLogin' => Route::has('login'),
       'canRegister' => Route::has('register'),
       'laravelVersion' => Application::VERSION,
@@ -43,10 +42,68 @@ Route::get('/dashboard', function () {
 
 //Auth Route
 Route::middleware('auth')->group(function () {
-   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+   // // Profile
+   // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+   // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+   // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+   // Scoreboard
+   // melihat list user pada kelompok
+   Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId'])->name('kelompok.list');
+   //melihat top 10
+   Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase'])->name('scoreboard.top-score');
+   //melihat kelompok yang tidak masuk top 10
+   Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore'])->name('scoreboard.kelompok');
+   //melihat my profile
+   Route::get('/myprofile', [ProfileController::class, 'show'])->name('profile.show');
+   Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+   Route::patch('/myprofile/edit', [ProfileController::class, 'update'])->name('profile.update');
+
+
+
+   //Middleware only maba
+   Route::middleware(['checkRole:Maba'])->group(function () {
+      //Followers
+      //top 3 followers
+      Route::get('/top-followers', [UserController::class, 'topFollowers'])->name('user.followers');
+      //search maba
+      Route::post('/search', [UserController::class, 'search'])->name('user.search');
+      //seluruh list maba
+      Route::get('/list-maba', [UserController::class, 'listMaba'])->name('user.list-maba');
+      //follow button
+      Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
+      //get other user profile by id
+      Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
+   });
+
+   Route::middleware(['checkRole:Dapmen,Admin'])->group(function () {
+      //Presensi PPLK
+      Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
+      //get Presensi Berdasarkan Kelompok
+      Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok'])->name('presensi.kelompok');
+   });
+   Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
+      //CRUD Booklet
+      Route::resource('/booklet', BookletController::class);
+   })->prefix('mamet');
+   Route::middleware(['checkRole:Admin'])->group(function () {
+      //CRUD FAQ
+      Route::resource('faqs', FAQController::class);
+   })->prefix('admin');
+
+
+   // Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
+   // Route::get('/follow', [UserController::class, 'followview']);
+   // Route::get('/user/feedback', [FeedbackController::class, 'showUserFeedback'])->name('user.feedback');
+   // Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedbacks.index');
+   // Route::post('/feedback/respond/{id}', [FeedbackController::class, 'respond'])->name('feedback.respond');
+   // Route::get('/admin/feedbacks', [FeedbackController::class, 'showAllFeedbacks'])->name('admin.feedbacks');
+   // Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
+   // Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
+   // Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
 });
 
+
+
 require __DIR__ . '/auth.php';
-require __DIR__ . '/ui.php';
