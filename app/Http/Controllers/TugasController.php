@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tugas;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TugasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:mahasiswa')->only(['create', 'store', 'edit', 'update', 'destroy']);
+        $this->middleware('role:admin,dapmen')->only(['index', 'show']);
+    }
+
     public function index()
     {
         $tugas = Tugas::all();
@@ -26,8 +36,15 @@ class TugasController extends Controller
             'tanggal_submit' => 'required|date',
         ]);
 
-        Tugas::create($request->all());
-        return redirect()->route('tugas.index')->with('success', 'Tugas berhasil dibuat');
+        DB::beginTransaction();
+        try {
+            Tugas::create($request->all());
+            DB::commit();
+            return redirect()->route('tugas.index')->with('success', 'Tugas berhasil dikirim.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->route('tugas.create')->with('error', 'Gagal mengirim tugas. Silakan coba lagi.');
+        }
     }
 
     public function show($id)
@@ -51,15 +68,29 @@ class TugasController extends Controller
             'tanggal_submit' => 'required|date',
         ]);
 
-        $tugas = Tugas::findOrFail($id);
-        $tugas->update($request->all());
-        return redirect()->route('tugas.index')->with('success', 'Tugas berhasil diupdate');
+        DB::beginTransaction();
+        try {
+            $tugas = Tugas::findOrFail($id);
+            $tugas->update($request->all());
+            DB::commit();
+            return redirect()->route('tugas.index')->with('success', 'Tugas berhasil diperbarui.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->route('tugas.edit', $id)->with('error', 'Gagal memperbarui tugas. Silakan coba lagi.');
+        }
     }
 
     public function destroy($id)
     {
-        $tugas = Tugas::findOrFail($id);
-        $tugas->delete();
-        return redirect()->route('tugas.index')->with('success', 'Tugas berhasil dihapus');
+        DB::beginTransaction();
+        try {
+            $tugas = Tugas::findOrFail($id);
+            $tugas->delete();
+            DB::commit();
+            return redirect()->route('tugas.index')->with('success', 'Tugas berhasil dihapus.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->route('tugas.index')->with('error', 'Gagal menghapus tugas. Silakan coba lagi.');
+        }
     }
 }
