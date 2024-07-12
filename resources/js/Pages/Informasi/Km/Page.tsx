@@ -19,15 +19,15 @@ const Page = () => {
             <Navbar isSolid={true} isFixed={true} />
             <div className="relative min-h-[150vh] bg-mobile-hero-background bg-cover bg-center md:min-h-screen md:bg-tablet-hero-background lg:bg-desktop-hero-background flex items-center justify-center">
                 <div className="flex h-[246px] w-[995px] flex-col items-center justify-center rounded-[20px] bg-white/20 backdrop-blur shadow-2xl">
-                    <p className="font-montserrat text-[61px] text-white font-semibold text-center">
+                    <p className="font-montserrat text-[39px] lg:text-[61px] text-white font-semibold text-center">
                         Keluarga Mahasiswa (KM) <br />
                         Institut Teknologi Sumatera
                     </p>
                 </div>
             </div>
-            <div className="bg-pattern-white">
+            <div className="bg-pattern-white px-10">
                 <div className="pt-20 text-center">
-                    <p className="font-avigea text-[49px] text-candlelight-950 md:text-[29px]">
+                    <p className="font-avigea text-[49px] text-candlelight-950 ">
                         KELUARGA MAHASISWA <br />
                         INSTITUT TEKNOLOGI SUMATERA <br />
                         (KM ITERA)
@@ -35,11 +35,13 @@ const Page = () => {
                 </div>
                 <SejarahKM />
                 <BadanKM />
-                <div className="flex items-center justify-center pt-40">
-                    <img src={gedung} alt="" className="w-full" />
-                    <img src={awan} alt="" className="absolute w-full" />
-                </div>
-                <div className="bg-pattern-white bg-[#170C0A]">
+                
+            </div>
+            <div className="flex items-center justify-center pt-40">
+                <img src={gedung} alt="" className="w-full" />
+                <img src={awan} alt="" className="absolute w-full" />
+            </div>
+            <div className="relative bg-pattern-white bg-[#170C0A] px-10">
                     <div className="pt-20 text-center">
                         <p className="font-avigea text-[49px] text-white pt-40">
                             KABINET BESERTA PRESIDEN <br />
@@ -54,12 +56,14 @@ const Page = () => {
                         KM ITERA
                     </h2>
                     <SosmedKM />
-                    <div className="relative overflow-hidden -mt-96" style={{ height: '70vh' }}>
+                    <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0">
+
+                    </div>
+                    <div className="absolute left-0 overflow-hidden bottom-0 xl:h-[70vh] lg:h-[40vh] md:h-[30vh] w-full">
                         <img src={tiang} alt="tiang" className="w-full" />
                     </div>
                 </div>
                 <Footer />
-            </div>
         </div>
     );
 };

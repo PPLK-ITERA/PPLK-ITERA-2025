@@ -4,17 +4,17 @@ import km from '!assets/logokm/km.png'
 
 const SejarahKM = () => {
   return (
-    <div className='flex items-center justify-center mt-10'>
-        <div className='flex h-[742px] w-[1155px] flex-row rounded-[20px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] shadow-2xl'>
-            <div className='flex flex-row h-[322px] w-[322px] rounded-[20px] bg-white mt-24 ml-16 p-8'>
+    <div className='flex items-center justify-center md:mt-10 mt-80'>
+        <div className='md:flex md:flex-row flex w-full xl:w-[1155px] flex-col items-center justify-center md:items-start rounded-[20px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] shadow-2xl md:px-10 pb-8'>
+            <div className='md:flex md:flex-row md:h-[322px] md:w-[322px] rounded-[20px] w-[131px] h-[185px] bg-white md:mt-24 p-8 -mt-40 border border-black'>
                 <img 
                 src={km} 
                 alt="logo" 
-                className='object-cover'
+                className='md:object-cover object-fill w-full'
                 />
             </div>
-            <div className='flex flex-col w-full pl-14 mt-8'>
-                <h2 className='font-avigea text-[39px] text-white'>
+            <div className='flex flex-col w-full px-14 mt-8'>
+                <h2 className='font-avigea text-[35px] md:text-[39px] text-white'>
                     SEJARAH & INFORMASI KM ITERA <br />
                 </h2>
                 <p className='font-montserrat text-[20px] text-white pr-10 font-light mt-7'>

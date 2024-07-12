@@ -9,34 +9,34 @@ import www from '!assets/sosmed/www.png'
 
 const SosmedKM = () => {
   return (
-    <div className='flex items-center justify-center mt-32'>
-        <div className='flex h-[315px] w-[600px] flex-col items-center justify-center rounded-md bg-gradient-to-r from-[#B54419] to-[#90381C] shadow-2xl'>
-          <h2 className='font-avigea text-[36px] text-white underline underline-offset-[24px] -mt-14 font-light pt-10'>SOSIAL MEDIA KM ITERA</h2>
+    <div className='flex items-center justify-center mt-32 z-20'>
+        <div className='flex md:h-[315px] md:w-[600px] h-[250px] w-[400px] flex-col items-center justify-center rounded-md bg-gradient-to-r from-[#B54419] to-[#90381C] shadow-2xl z-20'>
+          <h2 className='font-avigea md:text-[36px] text-[20px] text-white underline md:underline-offset-[24px] underline-offset-[18px] font-light md:pt-10 mt-10'>SOSIAL MEDIA KM ITERA</h2>
           <div className='flex flex-row gap-6 pt-8 pb-6'>
-            <div className='w-[70px] h-[70px] flex items-center justify-center bg-white rounded-full overflow-hidden'>
+            <div className='flex items-center justify-center bg-white rounded-full overflow-hidden'>
               <a href="https://www.instagram.com/thebugitself/" target="_blank">
-                <img src={x} alt="x" />
+                <img src={x} alt="x" className='p-3'/>
               </a>
             </div>
-            <div className='w-[70px] h-[70px] flex items-center justify-center bg-white rounded-full overflow-hidden'>
+            <div className='flex items-center justify-center bg-white rounded-full overflow-hidden'>
               <a href="https://www.instagram.com/thebugitself/" target="_blank">
-                <img src={ig} alt="instagram" />
+                <img src={ig} alt="instagram" className='p-3'/>
               </a>
             </div>
-            <div className='w-[70px] h-[70px] flex items-center justify-center bg-white rounded-full overflow-hidden'>
+            <div className='flex items-center justify-center bg-white rounded-full overflow-hidden'>
               <a href="https://www.instagram.com/thebugitself/" target="_blank">
-                <img src={yt} alt="youtube" />
+                <img src={yt} alt="youtube" className='p-2'/>
               </a>
             </div>
-            <div className='w-[70px] h-[70px] flex items-center justify-center bg-white rounded-full overflow-hidden'>
+            <div className='flex items-center justify-center bg-white rounded-full overflow-hidden'>
               <a href="https://www.instagram.com/thebugitself/" target="_blank">
-                <img src={tiktok} alt="tiktok" />
+                <img src={tiktok} alt="tiktok" className='p-3'/>
               </a>
             </div>
           </div>
 
           <p className='text-[16px] font-montserrat text-white pb-6 '>Website</p>
-          <div className='h-[40px] w-[432px] rounded-md bg-white shadow-2xl flex flex-row items-center justify-center gap-4'>
+          <div className='md:h-[40px] md:w-[432px] h-[200px] w-[370px] rounded-md bg-white shadow-2xl flex flex-row items-center justify-center gap-4 mb-10 mx-7'>
             <img src={www} alt="www" />
             <a href="https://km.itera.ac.id/" className='font-montserrat text-[16px] text-black'>https://km.itera.ac.id/</a>
           </div>
