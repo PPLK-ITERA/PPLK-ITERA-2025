@@ -25,7 +25,7 @@ const Page = () => {
                     </p>
                 </div>
             </div>
-            <div className="bg-pattern-white px-10">
+            <div className="bg-pattern-white px-5">
                 <div className="pt-20 text-center">
                     <p className="font-avigea text-[49px] text-candlelight-950 ">
                         KELUARGA MAHASISWA <br />
@@ -41,7 +41,7 @@ const Page = () => {
                 <img src={gedung} alt="" className="w-full" />
                 <img src={awan} alt="" className="absolute w-full" />
             </div>
-            <div className="relative bg-pattern-white bg-[#170C0A] px-10">
+            <div className="relative bg-pattern-white bg-[#170C0A] px-5">
                     <div className="pt-20 text-center">
                         <p className="font-avigea text-[49px] text-white pt-40">
                             KABINET BESERTA PRESIDEN <br />
