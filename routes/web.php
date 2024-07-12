@@ -49,16 +49,6 @@ Route::middleware('auth')->group(function () {
    //melihat kelompok yang tidak masuk top 10
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
-   // Tugas
-   Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
-   Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
-   Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
-   Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
-   Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
-   Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
-   Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
-
-
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {
       //Followers
@@ -72,6 +62,16 @@ Route::middleware('auth')->group(function () {
       Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
    });
 
+   //Middleware only mahasiswa
+   Route::middleware(['checkRole:mahasiswa'])->group(function () {
+      //Tugas
+      Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
+      Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
+      Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
+      Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
+      Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
+   });
+
    Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
    });
    Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
@@ -80,6 +80,9 @@ Route::middleware('auth')->group(function () {
       Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
    });
    Route::middleware(['checkRole:Admin'])->group(function () {
+      //Tugas
+      Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
+      Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
    });
 
 
