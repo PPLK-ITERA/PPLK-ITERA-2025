@@ -13,9 +13,10 @@ const SejarahKM = () => {
                 className='lg:object-fill lg:w-full object-cover w-full h-full'
                 />
             </div>
-            <div className='flex flex-col w-full px-14 mt-8'>
-                <h2 className='font-avigea text-[35px] lg:text-[39px] text-white'>
-                    SEJARAH & INFORMASI KM ITERA <br />
+            <div className='flex flex-col w-full md:px-14 px-3 mt-8'>
+                <h2 className='font-avigea text-[20px] lg:text-[39px] text-white'>
+                    SEJARAH & INFORMASI <br className='md:hidden'/>
+                    KM ITERA <br />
                 </h2>
                 <p className='font-montserrat lg:text-[20px] text-[16px] text-white font-light mt-7 text-wrap'>
                     KM-ITERA (Keluarga Mahasiswa Institut Teknologi Sumatera) merupakan organisasi kemahasiswaan intra perguruan tinggi yang diselenggarakan berdasarkan prinsip dari, oleh dan untuk mahasiswa demi menciptakan kader-kader bangsa yang berpotensi melanjutkan kesinambungan pembangunan nasional. <br /> <br />

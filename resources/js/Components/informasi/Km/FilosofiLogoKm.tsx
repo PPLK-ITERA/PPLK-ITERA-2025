@@ -76,7 +76,7 @@ const FilosofiLogoKm = () => {
     return (
         <div className="pt-40">
             <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white">
-                <h2 className="font-avigea text-[49px] text-white">
+                <h2 className="font-avigea text-[20px] md:text-[39px] lg:text-[61px] text-white text-center">
                     FILOSOFI LOGO
                 </h2>
 
@@ -97,12 +97,12 @@ const FilosofiLogoKm = () => {
                         {DataFilosofiLogoKM.map((data, index) => (
                             <CarouselItem
                                 key={index}
-                                className="basis-1/3"
+                                className="basis-1/2 sm:basis-1/3 lg:basis-1/3"
                             >
                                 <div className="flex items-center justify-center p-1">
                                     <Card className="bg-transparent border-none">
                                         <CardContent
-                                            className={`rounded-xl inverted-pentagon flex flex-col items-center justify-center p-6 text-center text-white bg-white ${current === index + 1 ? "scale-100" : "scale-75"} transition-transform duration-300 ease-in-out lg:w-[374px] lg:h-[608px] w-[115px] h-[190px] md:w-[200px] md:h-[350px]`}
+                                            className={`rounded-xl inverted-pentagon flex flex-col items-center justify-center p-6 text-center text-white bg-white ${current === index + 1 ? "scale-100" : "scale-75"} transition-transform duration-300 ease-in-out xl:w-[374px] xl:h-[608px] w-[115px] h-[190px] lg:w-[250px] lg:h-[400px] md:w-[200px] md:h-[350px]`}
                                         >
                                             <img
                                                 src={data.image}
