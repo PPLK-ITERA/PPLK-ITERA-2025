@@ -4,17 +4,17 @@ import frame from '!assets/Frame Divisi PPLK.png';
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const Divisi = () => {
-  const [visibleCount, setVisibleCount] = useState(6);
-  const itemPerLoad = 6;
+  const [visibleCount, setVisibleCount] = useState(3);
+  const itemPerLoad = 3;
 
   const loadMore = () => setVisibleCount((count) => count + itemPerLoad);
 
   return (
-    <div className='flex flex-col items-center justify-center'>
-      <h2 className="font-avigea text-3xl text-candlelight-600 mb-16">
+    <div className='flex flex-col items-center justify-center mt-10'>
+      <h2 className="font-avigea sm:text-3xl text-2xl text-candlelight-600 text-center">
         SEMUA DIVISI PPLK
       </h2>
-      <div className='flex gap-4 flex-wrap justify-center mb-10'>
+      <div className='flex gap-4 flex-wrap justify-center mb-10 mt-10'>
         {data.slice(0, visibleCount).map((item, index) => (
           <div key={index}>
             <img 

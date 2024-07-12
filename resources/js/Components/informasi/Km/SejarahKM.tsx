@@ -1,11 +1,12 @@
 import React from 'react'
+import {Card} from '@/Components/ui/card'
 
 import km from '!assets/logokm/km.png'
 
 const SejarahKM = () => {
   return (
-    <div className='flex items-center justify-center md:mt-40 mt-80'>
-        <div className='lg:flex lg:flex-row flex w-full xl:w-[1155px] flex-col items-center justify-center lg:items-start rounded-[20px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] shadow-2xl lg:px-10 pb-8'>
+    <div className='flex items-center justify-center md:mt-40 mt-48'>
+        <Card className='lg:flex lg:flex-row flex w-full xl:w-[1155px] flex-col items-center justify-center lg:items-start rounded-[20px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] shadow-2xl lg:px-10 pb-8 mx-2'>
             <div className='lg:flex lg:flex-row lg:h-[322px] lg:w-[322px] rounded-[20px] w-[150px] h-[185px] bg-white lg:mt-24 p-8 -mt-40 border border-black'>
                 <img 
                 src={km} 
@@ -13,8 +14,8 @@ const SejarahKM = () => {
                 className='lg:object-fill lg:w-full object-cover w-full h-full'
                 />
             </div>
-            <div className='flex flex-col w-full md:px-14 px-3 mt-8'>
-                <h2 className='font-avigea text-[20px] lg:text-[39px] text-white'>
+            <div className='flex flex-col w-full md:px-14 px-3 mt-8 '>
+                <h2 className='font-avigea text-[20px] lg:text-[39px] text-white text-center'>
                     SEJARAH & INFORMASI <br className='md:hidden'/>
                     KM ITERA <br />
                 </h2>
@@ -24,7 +25,7 @@ const SejarahKM = () => {
                     Dalam badan kelengkapan, Kabinet KM-ITERA memiliki fungsi sebagai lembaga pemegang kekuasaan eksekutif dalam kehidupan kemahasiswaan di Institut Teknologi Sumatera, sementara itu Senat KM-ITERA adalah dewan pemegang kekuasaan legislatif dalam kehidupan kemahasiswaan di Institut Teknologi Sumatera. Kabinet KM-ITERA memayungi HMPS (Himpunan Mahasiswa Program Studi) dan UKM (Unit Kegiatan Mahasiswa). 
                 </p>
             </div>
-        </div>
+        </Card>
     </div>
   )
 }

@@ -81,7 +81,7 @@ export default function FilosofiLogo() {
 
     return (
         <div className="relative -mt-96 flex h-full flex-col items-center pt-[500px]">
-            <h2 className="font-avigea text-3xl text-candlelight-600">
+            <h2 className="font-avigea sm:text-3xl text-2xl text-candlelight-600">
                 FILOSOFI LOGO
             </h2>
             <div className="flex"></div>
@@ -95,23 +95,24 @@ export default function FilosofiLogo() {
                         className="flex items-center"
                         />
                         <div>
-                            <div className="flex flex-col gap-9">
+                            <div className="flex flex-col sm:gap-9 gap-5">
                                 <div className="flex gap-8">
-                                    <div className="h-8 w-8 bg-gradient-to-l from-[#ECB406] to-[#FDCE12] rotate-45"></div>
-                                    <p className="font-montserrat font-bold text-[16px] w-80 text-center">Warna emas melambangkan Keberuntungan & Kesuksesan</p>
-                                </div>                                <div className="flex gap-8">
-                                    <div className="h-8 w-8 bg-[#B6ADA4] rotate-45"></div>
-                                    <p className="font-montserrat font-bold text-[16px] w-80 text-center">Warna silver melambangkan 
+                                    <div className="wajik w-8 h-8 bg-gradient-to-l from-[#ECB406] to-[#FDCE12]"></div>
+                                    <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">Warna emas melambangkan Keberuntungan & Kesuksesan</p>
+                                </div>
+                                <div className="flex gap-8">
+                                    <div className="wajik w-8 h-8 bg-[#B6ADA4]"></div>
+                                    <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">Warna silver melambangkan 
                                     Modernitas & Teknologi</p>
                                 </div>
                                 <div className="flex gap-8">
-                                    <div className="h-8 w-8 bg-[#DA5B1C] rotate-45"></div>
-                                    <p className="font-montserrat font-bold text-[16px] w-80 text-center">Warna orange melambangkan 
+                                    <div className="wajik w-8 h-8 bg-[#DA5B1C]"></div>
+                                    <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">Warna orange melambangkan 
                                     Semangat & Kreatifitas</p>
                                 </div>
                                 <div className="flex gap-8">
-                                    <div className="h-8 w-8 bg-[#00A3FF] rotate-45"></div>
-                                    <p className="font-montserrat font-bold text-[16px] w-80 text-center">Warna biru melambangkan 
+                                    <div className="wajik w-8 h-8 bg-[#00A3FF]"></div>
+                                    <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">Warna biru melambangkan 
                                     Kepercayaan & Inspirasi yang Luas</p>
                                 </div>
                             </div>
@@ -165,11 +166,11 @@ export default function FilosofiLogo() {
                             />
 
                             <div className="flex max-w-[600px] flex-col items-center p-6 text-center text-black md:h-[250px] lg:h-[300px]">
-                                <h2 className="font-avigea text-[39px] text-black">
+                                <h2 className="font-avigea sm:text-[39px] text-2xl text-black">
                                     {data.title}
                                 </h2>
 
-                                <p className="mt-10 font-montserrat text-[25px] font-normal text-black">
+                                <p className="mt-10 font-montserrat sm:text-[25px] text-[16px] font-normal text-black">
                                     {data.description}
                                 </p>
                             </div>

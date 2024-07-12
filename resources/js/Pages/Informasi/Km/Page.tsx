@@ -17,7 +17,7 @@ const Page = () => {
     return (
         <div>
             <Navbar isSolid={true} isFixed={true} />
-            <div className="relative lg:min-h-[150vh] min-h-[70vh] bg-mobile-hero-background bg-cover bg-center md:min-h-screen md:bg-tablet-hero-background lg:bg-desktop-hero-background flex items-center justify-center">
+            <div className="relative lg:min-h-[150vh] min-h-[40vh] bg-mobile-hero-background bg-cover bg-center md:min-h-screen md:bg-tablet-hero-background lg:bg-desktop-hero-background flex items-center justify-center">
                 <div className="flex md:h-[246px] md:w-[995px] h-[130px] w-[700px] flex-col items-center justify-center rounded-[20px] bg-white/20 backdrop-blur shadow-2xl mx-2 lg:-mt-96">
                     <p className="font-montserrat text-[20px] md:text-[39px] lg:text-[61px] text-white font-semibold text-center">
                         Keluarga Mahasiswa (KM) <br />
