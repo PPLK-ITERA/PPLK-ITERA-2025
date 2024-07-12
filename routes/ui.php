@@ -8,6 +8,10 @@ Route::middleware('guest')->group(function () {
         return Inertia::render('FAQ/Page');
     })->name('faq');
 
+    Route::get('atribut', function () {
+        return Inertia::render('Atribut/Page');
+    })->name('atribut');
+
     Route::get('dev', function () {
         return Inertia::render('Dev/Page');
     })->name('dev');
