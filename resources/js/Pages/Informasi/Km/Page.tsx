@@ -57,7 +57,6 @@ const Page = () => {
                     </h2>
                     <SosmedKM />
                     <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0">
-
                     </div>
                     <div className="absolute left-0 overflow-hidden bottom-0 xl:h-[70vh] lg:h-[40vh] md:h-[30vh] w-full">
                         <img src={tiang} alt="tiang" className="w-full" />

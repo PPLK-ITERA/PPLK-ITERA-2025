@@ -97,12 +97,12 @@ const FilosofiLogoKm = () => {
                         {DataFilosofiLogoKM.map((data, index) => (
                             <CarouselItem
                                 key={index}
-                                className="md:basis-1/2 lg:basis-1/3"
+                                className="basis-1/3"
                             >
                                 <div className="flex items-center justify-center p-1">
                                     <Card className="bg-transparent border-none">
                                         <CardContent
-                                            className={`rounded-md inverted-pentagon flex flex-col items-center justify-center p-6 text-center text-white bg-white ${current === index + 1 ? "scale-100" : "scale-75"} transition-transform duration-300 ease-in-out w-[374px] h-[608px]`}
+                                            className={`rounded-xl inverted-pentagon flex flex-col items-center justify-center p-6 text-center text-white bg-white ${current === index + 1 ? "scale-100" : "scale-75"} transition-transform duration-300 ease-in-out lg:w-[374px] lg:h-[608px] w-[115px] h-[190px] md:w-[200px] md:h-[350px]`}
                                         >
                                             <img
                                                 src={data.image}
