@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('user_cui', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nim');
+            $table->string('nim')->unique();
             $table->string('email')->unique();
             $table->foreignId('penyakit_id');
-            $table->foreignId('qrcode_id');
+            $table->foreignId('qrcode_id')->unique();
             $table->enum('status',['maba','civak']);
-            $table->foreignId('log_id');
+            $table->foreignId('log_id')->unique();
             $table->timestamps();
         });
     }

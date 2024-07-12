@@ -20,10 +20,14 @@ class PresensiCuiController extends Controller
         if(!$logCui){
             return response()->json(['message'=> 'Log Cui tidak ditemukan'],404);
         }
+        $userCui= $logCui->UserCui;
+        $penyakit=$userCui->penyakit;
+        $pita=$penyakit->pita;
+        $keterangan=$penyakit->ket_penyakit;
         $logCui->update([
             'status' => 'hadir', 
         ]);
-        return response()->json(['message'=> 'Berhasil Presensi'],200);
+        return response()->json(['message'=> 'Berhasil Presensi','pita' => $pita ,'keterangan' =>$keterangan],200);//nambahin pita,keterangan penyakit
     }
 
 

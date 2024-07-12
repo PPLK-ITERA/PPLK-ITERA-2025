@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserCui extends Model
 {
     use HasFactory;
-    protected $table ='usercui';
+    protected $table ='user_cui';
     protected $primaryKey = 'id';
 
     protected $fillable =[

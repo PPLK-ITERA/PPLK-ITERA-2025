@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('log_cui', function (Blueprint $table) {
             $table->id();
             $table->enum('status',['hadir','izin','tidak_hadir']);
-            $table->datetime('waktu_izin');
-            $table->string('ket_izin');
+            $table->datetime('waktu_izin')->nullable();
+            $table->string('ket_izin')->nullable();
             $table->timestamps();
         });
     }

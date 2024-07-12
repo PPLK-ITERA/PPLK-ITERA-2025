@@ -9,7 +9,7 @@ class LogCui extends Model
 {
     use HasFactory;
 
-    protected $table = 'logcui';
+    protected $table = 'log_cui';
     protected $primaryKey = 'id';
 
     protected $fillable = [
