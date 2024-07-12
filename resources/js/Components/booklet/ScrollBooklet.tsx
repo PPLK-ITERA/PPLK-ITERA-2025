@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Card, CardContent } from "@/Components/ui/card";
+import { Card, CardContent } from "../ui/card";
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "@/Components/ui/carousel";
+} from "./CarouselBooklet";
 import { DialogBooklet } from "./DialogBooklet";
+
+import { useState } from "react";
 
 export function CarouselBooklet() {
     const [openedIndex, setOpenedIndex] = useState(null);
@@ -21,13 +22,13 @@ export function CarouselBooklet() {
             opts={{
                 align: "center",
             }}
-            className="mx-auto w-full max-w-6xl"
+            className="mx-auto max-w-6xl w-4/5"
         >
             <CarouselContent className="flex">
                 {Array.from({ length: 5 }).map((_, index) => (
                     <CarouselItem
                         key={index}
-                        className={`flex-shrink-0 basis-1/3 transition-opacity duration-500 ${openedIndex !== null && openedIndex !== index ? "opacity-50" : "opacity-100"}`}
+                        className={`flex-shrink-0 basis-full sm:basis-1/3 transition-opacity duration-500 ${openedIndex !== null && openedIndex !== index ? "opacity-50" : "opacity-100"}`}
                         onClick={() => handleCardClick(index)}
                     >
                         <Card className="h-full rounded-none">
@@ -38,22 +39,23 @@ export function CarouselBooklet() {
                                     </span>
                                 </div>
                                 <div className="mb-4 h-60 w-full bg-[#D2D2D2]"></div>
-                                <div className="flex flex-grow items-start justify-between">
+                                <div className="m-2 flex flex-grow items-center justify-between">
                                     <div>
-                                        <h2 className="mb-12 ml-2 text-left text-[20px] font-semibold text-candlelight-700">
+                                        <h2 className="mb-12 text-left text-[20px] font-semibold text-candlelight-700">
                                             Booklet Motmazio
                                         </h2>
-                                        <p className="mb-1 ml-2 text-left font-montserrat text-sm font-semibold text-moccaccino-800">
+                                        <p className="mb-1 text-left font-montserrat text-sm font-semibold text-moccaccino-800">
                                             {index === 0
                                                 ? "Deadline"
                                                 : "Segera"}
                                         </p>
-                                        <p className="ml-2 text-left font-montserrat text-sm text-moccaccino-900">
+                                        <p className="text-left font-montserrat text-sm text-moccaccino-900">
                                             {index === 0
                                                 ? "08 Agustus 2024"
                                                 : ""}
                                         </p>
                                     </div>
+                                    
                                     <div className="mr-2 mt-[80px]">
                                         <DialogBooklet />
                                     </div>
@@ -63,10 +65,8 @@ export function CarouselBooklet() {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <div className="mt-4 flex justify-between">
-                <CarouselPrevious className="-mx-[45px] h-12 w-12 bg-gradient-to-t from-[#B9822F] to-[#A6680C] text-white hover:text-white focus:text-white" />
-                <CarouselNext className="-mx-[45px] h-12 w-12 bg-gradient-to-t from-[#B9822F] to-[#A6680C] text-white hover:text-white focus:text-white" />
-            </div>
+            <CarouselPrevious className="h-12 w-12" />
+            <CarouselNext className="h-12 w-12" />
         </Carousel>
     );
 }
