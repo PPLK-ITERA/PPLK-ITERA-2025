@@ -35,6 +35,10 @@ Route::middleware('guest')->group(function () {
         return Inertia::render('Informasi/Km/Page');
     })->name('informasi/km');
 
+    Route::get('informasi/ukm', function () {
+        return Inertia::render('Informasi/Ukm/Page');
+    })->name('informasi/ukm');
+
 });
 
 Route::middleware('auth')->group(function () {
