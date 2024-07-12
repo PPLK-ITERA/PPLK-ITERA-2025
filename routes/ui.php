@@ -19,18 +19,21 @@ Route::middleware('guest')->group(function () {
     Route::get('relasi', function () {
         return Inertia::render('Relasi/Page');
     })->name('relasi');
+    Route::get('informasi/profil', function () {
+        return Inertia::render('Informasi/Profil/Page');
+    })->name('informasi/profil');
+
+    Route::get('informasi', function () {
+        return Inertia::render('Informasi/Page');
+    })->name('informasi');
 
     Route::get('login', function () {
         return Inertia::render('Login/Page');
     })->name('login');
 
-    Route::get('informasi/profil', function () {
-        return Inertia::render('Informasi/Profil/Page');
-    })->name('informasi/profil');
-    
-    Route::get('booklet', function () {
-        return Inertia::render('Booklet/Page');
-    })->name('booklet');
+    Route::get('informasi/km', function () {
+        return Inertia::render('Informasi/Km/Page');
+    })->name('informasi/km');
 
 });
 
