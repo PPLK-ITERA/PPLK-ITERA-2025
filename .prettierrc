@@ -8,6 +8,7 @@
         "^@inertiajs(.*)$",
         "^lucide-react$",
         "^@/Components(.*)$",
+        "^@/constants(.*)$",
         "^!assets(.*)$"
     ],
     "tabWidth": 4,
