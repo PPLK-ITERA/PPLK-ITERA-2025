@@ -38,7 +38,7 @@ const Page: React.FC = () => {
         <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
             <div>
                 <Navbar isSolid={true} />
-                <h2 className="mt-[140px] font-avigea text-[39px] text-jaffa-900">
+                <h2 className="font-avigea text-[39px] text-jaffa-900 pt-[30px]">
                     Frequently Asked Question
                 </h2>
                 <div className="mx-auto mt-[40px] max-w-2xl">
