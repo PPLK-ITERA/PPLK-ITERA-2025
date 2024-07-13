@@ -1,28 +1,13 @@
+import NavLarge from "./NavLarge";
+
 import React from "react";
 
 import { Link } from "@inertiajs/react";
 
-import { ChevronDown } from "lucide-react";
-
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/Components/dashboard/ui/dropdown-menu";
-import {
-    Sheet,
-    SheetContent,
-    SheetFooter,
-    SheetHeader,
-    SheetTrigger,
-} from "@/Components/ui/sheet";
-
-import { InformasiDropDown, MabaDropDown, NavLinks } from "@/constants/navlink";
+import NavMobile from "@/Components/NavMobile";
 
 import logopplk from "!assets/logo-pplk-2024.png";
-import logopplk_white from "!assets/logo-pplk-20204-white.png";
 
 export default function Navbar({ isSolid = false, isFixed = false }) {
     const [isScrolled, setIsScrolled] = React.useState(false);
@@ -41,7 +26,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
             className={`z-50 w-full ${isFixed ? "lg:fixed lg:left-0 lg:right-0 lg:top-0" : ""} ${isScrolled || isSolid ? "bg-jaffa-100" : "bg-transparent"} transition duration-300 ease-in`}
         >
             <MaxWidthWrapper className="md:px-0 flex items-center justify-between w-full py-2">
-                {/* Logo */}
+                {/* Logo PPLK*/}
                 <Link
                     className="font-fesbud flex items-center justify-start -ml-4"
                     href="/"
@@ -63,141 +48,10 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                 </Link>
 
                 {/* NavLinks */}
-                <div className="hidden max-w-[800px] font-tinos md:flex">
-                    <Link
-                        href="/"
-                        className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} transition duration-200 ease-in`}
-                    >
-                        Beranda
-                    </Link>
+                <NavLarge isScrolled={isScrolled} isSolid={isSolid} />
 
-                    <DropdownMenu>
-                        <DropdownMenuTrigger
-                            className={`mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} border-none outline-none transition duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
-                        >
-                            Informasi <ChevronDown className="w-4 h-4" />
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="bg-jaffa-100 border-none outline-none">
-                            {InformasiDropDown.map((item, index) => (
-                                <DropdownMenuItem
-                                    key={index}
-                                    className="focus:bg-jaffa-200 w-full transition duration-300 ease-in-out"
-                                >
-                                    <Link
-                                        href={item.href}
-                                        className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold text-black transition duration-200 ease-in`}
-                                    >
-                                        <span className="bg-jaffa-300 p-1 rounded-md">
-                                            {item.icon}
-                                        </span>
-                                        {item.title}
-                                    </Link>
-                                </DropdownMenuItem>
-                            ))}
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-
-                    <Link
-                        href="/atribut"
-                        className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} transition duration-200 ease-in`}
-                    >
-                        Ketentuan Atribut
-                    </Link>
-
-                    <DropdownMenu>
-                        <DropdownMenuTrigger
-                            className={`mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} transition duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
-                        >
-                            Maba <ChevronDown className="w-4 h-4" />
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="bg-jaffa-100 border-none outline-none">
-                            {MabaDropDown.map((item, index) => (
-                                <DropdownMenuItem
-                                    key={index}
-                                    className="focus:bg-jaffa-200 w-full transition duration-300 ease-in-out"
-                                >
-                                    <Link
-                                        href={item.href}
-                                        className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold text-black transition duration-200 ease-in`}
-                                    >
-                                        <span className="bg-jaffa-300 p-1 rounded-md">
-                                            {item.icon}
-                                        </span>
-                                        {item.title}
-                                    </Link>
-                                </DropdownMenuItem>
-                            ))}
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-
-                    <Link
-                        href="/faq"
-                        className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-jaffa-950" : ""} transition duration-200 ease-in`}
-                    >
-                        FAQ
-                    </Link>
-                </div>
-
-                <div className="md:hidden block">
-                    <Sheet>
-                        <SheetTrigger asChild className="-mr-2">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="36"
-                                height="36"
-                                viewBox="0 0 24 24"
-                                fill="#ffffff"
-                                stroke="#ffffff"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                className="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep"
-                            >
-                                <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
-                                />
-                                <path d="M4 6h16" />
-                                <path d="M7 12h13" />
-                                <path d="M10 18h10" />
-                            </svg>
-                        </SheetTrigger>
-
-                        <SheetContent className="bg-candlelight-700 border-none">
-                            <SheetHeader>
-                                <img
-                                    src={logopplk_white}
-                                    alt="logopplk_white"
-                                    className="w-32 h-32 -ml-3"
-                                />
-                            </SheetHeader>
-
-                            <div className="font-tinos flex flex-col">
-                                {NavLinks.map((link, index) => (
-                                    <Link
-                                        key={index}
-                                        href={link.href}
-                                        className={`mx-2 text-[18px] font-bold text-jaffa-100 transition duration-200 ease-in`}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                ))}
-                            </div>
-
-                            <SheetFooter className="mt-52">
-                                <div className="flex flex-col">
-                                    <Link
-                                        href="/login"
-                                        className="mx-2 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
-                                    >
-                                        Login
-                                    </Link>
-                                </div>
-                            </SheetFooter>
-                        </SheetContent>
-                    </Sheet>
-                </div>
+                {/* NavMobile */}
+                <NavMobile isScrolled={isScrolled} isSolid={isSolid} />
 
                 {/* Auth */}
                 <div className="md:flex items-center hidden">

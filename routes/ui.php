@@ -8,9 +8,9 @@ Route::middleware('guest')->group(function () {
         return Inertia::render('FAQ/Page');
     })->name('faq');
 
-    Route::get('atribut', function () {
+    Route::get('ketentuan-atribut', function () {
         return Inertia::render('Atribut/Page');
-    })->name('atribut');
+    })->name('ketentuan-atribut');
 
     Route::get('dev', function () {
         return Inertia::render('Dev/Page');
@@ -23,11 +23,11 @@ Route::middleware('guest')->group(function () {
     Route::get('relasi', function () {
         return Inertia::render('Relasi/Page');
     })->name('relasi');
-    
+
     Route::get('relasi/profil', function () {
         return Inertia::render('Relasi/Profil/Page');
     })->name('relasi/profil');
-    
+
     Route::get('relasi/search', function () {
         return Inertia::render('Relasi/Search/Page');
     })->name('relasi/search');

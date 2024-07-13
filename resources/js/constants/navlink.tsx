@@ -9,7 +9,7 @@ export const NavLinks = [
     },
     {
         name: "Ketentuan Atribut",
-        href: "/atribut",
+        href: "/ketentuan-atribut",
     },
     {
         name: "Maba",
