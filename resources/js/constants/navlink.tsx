@@ -24,7 +24,7 @@ export const NavLinks = [
 export const InformasiDropDown = [
     {
         title: "Tentang PPLK",
-        href: "/informasi-pplk",
+        href: "/informasi/pplk",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Fakultas ITERA",
-        href: "/informasi-fakultas",
+        href: "/informasi/fakultas",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Prodi & HMPS ITERA",
-        href: "/informasi-",
+        href: "/informasi/hmpsprodi",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ export const InformasiDropDown = [
     },
     {
         title: "UPT ITERA",
-        href: "/",
+        href: "/informasi/upt",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Kabinet KM ITERA",
-        href: "/",
+        href: "/informasi/km",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Senat KM ITERA",
-        href: "/",
+        href: "/informasi/senat",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Unit Kegiatan Mahasiswa",
-        href: "/",
+        href: "/informasi/ukm",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +191,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Divisi PPLK",
-        href: "/",
+        href: "/inofrmasi/divisi",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +217,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Kenal Maskot PPLK!",
-        href: "/",
+        href: "/informasi/maskot",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -267,7 +267,7 @@ export const MabaDropDown = [
     },
     {
         title: "Relasi & Jaringan",
-        href: "/relasi-jaringan",
+        href: "/relasi",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -316,7 +316,7 @@ export const MabaDropDown = [
     },
     {
         title: "Mading",
-        href: "/",
+        href: "/mading",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
