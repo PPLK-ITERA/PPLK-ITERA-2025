@@ -1,10 +1,11 @@
+import { useState } from "react";
+
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/Components/ui/accordion";
-import { useState } from "react";
+} from "@/Components/dashboard/ui/accordion";
 
 interface FAQ {
     title: string;
@@ -37,7 +38,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                         <AccordionItem value={`item-${index}`}>
                             <AccordionTrigger
                                 onClick={() => handleClick(index)}
-                                className="flex w-full items-center px-3 py-5 text-left border-none"
+                                className="flex items-center w-full px-3 py-5 text-left border-none"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +46,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                                     height="24"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
-                                    className="mr-2 text-jaffa-600"
+                                    className="text-jaffa-600 mr-2"
                                 >
                                     <path
                                         stroke="none"

@@ -78,16 +78,16 @@
 
     @font-face {
         font-family: "Avigea";
-        src: local("Avigea-Regular"), url("./assets/fonts/Avigea/Avigea.otf");
+        src: local("Avigea-Regular"), url("!assets/fonts/Avigea/Avigea.otf");
     }
     @font-face {
         font-family: "Avigea-Italic";
         src: local("Avigea-Italic"),
-            url("./assets/fonts/Avigea/Avigea-Italic.otf");
+            url("!assets/fonts/Avigea/Avigea-Italic.otf");
     }
     @font-face {
         font-family: "FestivalBudaya";
         src: local("FestivalBudaya"),
-            url("./assets/fonts/Festival-Budaya/FestivalBudayaXXXI.otf");
+            url("!assets/fonts/Festival-Budaya/FestivalBudayaXXXI.otf");
     }
 }

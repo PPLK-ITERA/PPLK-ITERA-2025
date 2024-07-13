@@ -48,13 +48,13 @@ const HasilKuis = () => {
     }, []);
 
     return (
-        <div className="rounded-t-2xl sm:rounded-xl sm:rounde mt-8 bg-white border border-white">
-            <div className="sm:w-full w-full px-12 pb-8">
-                <div className="flex justify-center mt-2 mb-4">
-                    <div className="bg-slate-200 h-1.5 rounded-xl w-1/5 sm:hidden"></div>
+        <div className="sm:rounde mt-8 rounded-t-2xl border border-white bg-white sm:rounded-xl">
+            <div className="w-full px-12 pb-8 sm:w-full">
+                <div className="mb-4 mt-2 flex justify-center">
+                    <div className="h-1.5 w-1/5 rounded-xl bg-slate-200 sm:hidden"></div>
                 </div>
                 <div className="text-center">
-                    <p className="font-bold text-lg text-[#a36205] sm:text-2xl">
+                    <p className="text-lg font-bold text-[#a36205] sm:text-2xl">
                         Berikut Hasil Tes Kamu
                     </p>
                 </div>
@@ -109,7 +109,7 @@ const HasilKuis = () => {
                     </div>
                 </div>
 
-                <div className="text-center mt-6 sm:mt-14 mb-0.5">
+                <div className="mb-0.5 mt-6 text-center sm:mt-14">
                     <p>Terimakasih telah mengikuti asessmen PPLK!</p>
                 </div>
             </div>

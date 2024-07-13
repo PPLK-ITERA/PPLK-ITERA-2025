@@ -1,20 +1,22 @@
-import React from "react";
-import Autoplay from "embla-carousel-autoplay";
-import alas_filosofi from "../../../../public/assets/alas-filosofi.png";
-import helai_daun from "../../../../public/assets/filosofi-pilar/helai-daun.png";
-import angka_10 from "../../../../public/assets/filosofi-pilar/angka-10.png";
-import pilar_sdgs from "../../../../public/assets/filosofi-pilar/4-pilar-sgds.png";
-import pulau_sumatera from "../../../../public/assets/filosofi-pilar/pulau-sumatera.png";
-import tetes_air from "../../../../public/assets/filosofi-pilar/tetes-air.png";
-import naungan_tangan from "../../../../public/assets/filosofi-pilar/naungan-tangan.png";
-import biji_emas from "../../../../public/assets/filosofi-pilar/biji-emas.png";
+import { Card, CardContent } from "../ui/card";
 import {
     Carousel,
+    CarouselApi,
     CarouselContent,
     CarouselItem,
-    CarouselApi,
 } from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
+import Autoplay from "embla-carousel-autoplay";
+
+import React from "react";
+
+import alas_filosofi from "!assets/alas-filosofi.png";
+import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
+import angka_10 from "!assets/filosofi-pilar/angka-10.png";
+import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
+import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
+import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
+import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
+import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
 
 const DataFilosofiLogo = [
     {
@@ -78,8 +80,8 @@ export default function FilosofiLogo() {
     }, [api]);
 
     return (
-        <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white pt-[500px]">
-            <h2 className="font-avigea text-4xl text-jaffa-300">
+        <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white pt-[250px] md:pt-[500px]">
+            <h2 className="font-avigea text-jaffa-300 text-4xl">
                 Filosofi Logo PPLK
             </h2>
 
@@ -103,8 +105,8 @@ export default function FilosofiLogo() {
                             className="md:basis-1/2 lg:basis-1/3"
                         >
                             <div className="p-1">
-                                <Card className="border-none bg-transparent">
-                                    <CardContent className="flex aspect-square flex-col items-center justify-center p-6 text-center text-white">
+                                <Card className="bg-transparent border-none">
+                                    <CardContent className="aspect-square flex flex-col items-center justify-center p-6 text-center text-white">
                                         <img
                                             src={data.image}
                                             alt={data.title}
@@ -125,15 +127,15 @@ export default function FilosofiLogo() {
                             <img
                                 src={alas_filosofi}
                                 alt="alas_filosofi"
-                                className="-mt-40 bg-cover"
+                                className="-mt-28 md:-mt-40 bg-cover"
                             />
 
-                            <div className="flex max-w-[600px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[300px]">
-                                <h2 className="font-avigea text-4xl text-white">
+                            <div className="flex min-h-[300px] max-w-[600px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[300px]">
+                                <h2 className="font-avigea md:text-4xl text-2xl text-white">
                                     {data.title}
                                 </h2>
 
-                                <p className="mt-10 font-montserrat text-2xl font-normal text-white/80">
+                                <p className="mt-10 font-montserrat text-[16px] font-normal text-white/80 md:text-2xl">
                                     {data.description}
                                 </p>
                             </div>

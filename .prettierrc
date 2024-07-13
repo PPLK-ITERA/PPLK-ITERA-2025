@@ -1,3 +1,18 @@
 {
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "plugins": [
+        "prettier-plugin-tailwindcss",
+        "@trivago/prettier-plugin-sort-imports"
+    ],
+    "importOrder": [
+        "^react$",
+        "^@inertiajs(.*)$",
+        "^lucide-react$",
+        "^@/Components(.*)$",
+        "^!assets(.*)$"
+    ],
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "semi": true,
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
 }
