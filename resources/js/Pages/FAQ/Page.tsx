@@ -1,4 +1,5 @@
 import { faqs } from "@/lib/data/faq";
+import { useAos } from "@/lib/hooks/useAos";
 
 import React, { useEffect, useState } from "react";
 
@@ -6,8 +7,6 @@ import { AccordionFAQ } from "@/Components/AccordionFAQ";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import PaginationFAQ from "@/Components/PaginationFAQ";
-import { useAos } from "@/lib/hooks/useAos";
-
 
 const Page: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -37,7 +36,11 @@ const Page: React.FC = () => {
     );
 
     return (
-        <div data-aos="fade-left" data-aos-duration="3000" className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
+        <div
+            data-aos="fade-left"
+            data-aos-duration="3000"
+            className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center"
+        >
             <div>
                 <Navbar isSolid={true} />
                 <h2 className="mt-[140px] font-avigea text-[39px] text-jaffa-900">

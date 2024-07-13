@@ -1,5 +1,5 @@
 import { useAos } from "../lib/hooks/useAos";
-    
+
 import React from "react";
 
 import Footer from "@/Components/Footer";
