@@ -7,25 +7,37 @@ import React, { useEffect, useState } from "react";
 
 import crown from "!assets/svg/crown.svg";
 
-type Props = { user: User; rank: number; className?: string };
+type Props = {
+    user: User;
+    rank: number;
+    className?: string;
+    podiumHeight: number;
+};
 
-export default function TopUser({ user, rank, className }: Props) {
+export default function TopUser({
+    user,
+    rank,
+    className,
+    podiumHeight,
+}: Props) {
     useAos();
 
-    // const [translate, setTranslate] = useState(false);
+    const [translate, setTranslate] = useState(false);
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setTranslate(true);
-    //     }, 100);
-    // }, []);
+    useEffect(() => {
+        setTimeout(() => {
+            setTranslate(true);
+        }, 100);
+    }, []);
 
     return (
         <div
-            className={`flex flex-col items-center mx-4 gap-3 ${className} transition-all duration-1000 `}
-            // style={{
-            //     transform: translate ? "translateY(0)" : "translateY(100%)",
-            // }}
+            style={{
+                transform: translate
+                    ? "translateY(0)"
+                    : `translateY(${podiumHeight}px)`,
+            }}
+            className={`flex flex-col items-center gap-3 ${className} transition-all duration-1000`}
         >
             <div className="grow"></div>
             <div className="relative w-24 h-24 rounded-full shadow-lg">
@@ -44,7 +56,7 @@ export default function TopUser({ user, rank, className }: Props) {
                 <img
                     src={user.profileImageUrl}
                     alt={user.name}
-                    className="rounded-full z-0"
+                    className="rounded-full z-0 bg-gray-400"
                 />
             </div>
             <div className="text-lg font-bold">{user.name}</div>
@@ -56,8 +68,8 @@ export default function TopUser({ user, rank, className }: Props) {
                     1: (
                         <Podium
                             color="gold"
-                            maxHeightPx={192}
-                            className="w-full "
+                            maxHeightPx={podiumHeight}
+                            className="w-full"
                         >
                             <p className="font-bold text-5xl">{rank}</p>
                         </Podium>
@@ -65,7 +77,7 @@ export default function TopUser({ user, rank, className }: Props) {
                     2: (
                         <Podium
                             color="silver"
-                            maxHeightPx={160}
+                            maxHeightPx={podiumHeight}
                             className="w-full"
                         >
                             <p className="font-bold text-5xl">{rank}</p>
@@ -74,7 +86,7 @@ export default function TopUser({ user, rank, className }: Props) {
                     3: (
                         <Podium
                             color="bronze"
-                            maxHeightPx={144}
+                            maxHeightPx={podiumHeight}
                             className="w-full"
                         >
                             <p className="font-bold text-5xl">{rank}</p>

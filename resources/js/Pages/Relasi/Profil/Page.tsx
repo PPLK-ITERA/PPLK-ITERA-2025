@@ -42,7 +42,7 @@ const Page: React.FC = () => {
                         <div className="flex flex-col justify-between gap-4">
                             <div>
                                 <img
-                                    className="aspect-square max-md:w-36 w-48 rounded-full select-none object-cover"
+                                    className="aspect-square max-md:w-36 w-48 rounded-full select-none object-cover bg-gray-400"
                                     src={user.profileImageUrl}
                                     alt={user.name}
                                 />
@@ -147,7 +147,7 @@ const Page: React.FC = () => {
                     <div className="max-w-6xl w-4/5 mx-auto">
                         <Carousel>
                             <CarouselContent className="text-sm">
-                                {users.map((u, i) => (
+                                {users.slice(0, 9).map((u, i) => (
                                     <CarouselItem
                                         data-aos="fade-up"
                                         data-aos-duration={800}
@@ -169,9 +169,11 @@ const Page: React.FC = () => {
                                             <p className="text-center font-bold">
                                                 Temukan Nusantara Muda Lainnya!
                                             </p>
-                                            <Button className="w-full bg-[#ECAA25] text-black border border-black font-semibold text-xs">
-                                                Selengkapnya
-                                            </Button>
+                                            <a href={route("relasi")}>
+                                                <Button className="w-full bg-[#ECAA25] text-black border border-black font-semibold text-xs">
+                                                    Selengkapnya
+                                                </Button>
+                                            </a >
                                         </CardContent>
                                     </Card>
                                 </CarouselItem>

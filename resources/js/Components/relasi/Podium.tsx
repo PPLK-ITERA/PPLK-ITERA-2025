@@ -13,29 +13,15 @@ const colors = {
     bronze: "linear-gradient(to right, #632801, #B3773B, #7D3819, #B3773B, #7D3819)",
 };
 
-export default function Podium({
-    children,
-    className,
-    maxHeightPx,
-    color,
-}: Props) {
-    const [height, setHeight] = useState(0);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setHeight(maxHeightPx);
-        }, 100);
-    }, []);
-
+export default function Podium({ children, className, color, maxHeightPx }: Props) {
     return (
         <div className="rounded-t-lg shadow-inner w-full overflow-clip flex flex-col">
             <div
                 style={{
                     background: colors[color],
-                    maxHeight: `${height}px`,
-                    height: `${height}px`,
+                    height: `${maxHeightPx}px`,
                 }}
-                className={`${className} h-48 transition-all duration-1000`}
+                className={`${className}`}
             >
                 <div
                     className="w-full h-full grid place-content-center"

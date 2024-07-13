@@ -21,6 +21,7 @@ import GoldPodium from "@/Components/relasi/Podium";
 import ProfileCard from "@/Components/relasi/ProfileCard";
 import SortDropdown from "@/Components/relasi/SortDropdown";
 import TopUser from "@/Components/relasi/TopUser";
+import UserList from "@/Components/relasi/UserList";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
@@ -34,7 +35,6 @@ import { Input } from "@/Components/ui/input";
 
 import instagramIcon from "!assets/svg/instagram.svg";
 import linkedinIcon from "!assets/svg/linkedin.svg";
-import UserList from "@/Components/relasi/UserList";
 
 const sortOptions = [
     { label: "Viewer", value: "viewer" },

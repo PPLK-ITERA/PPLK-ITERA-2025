@@ -21,6 +21,7 @@ import GoldPodium from "@/Components/relasi/Podium";
 import ProfileCard from "@/Components/relasi/ProfileCard";
 import SortDropdown from "@/Components/relasi/SortDropdown";
 import TopUser from "@/Components/relasi/TopUser";
+import UserList from "@/Components/relasi/UserList";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
@@ -34,7 +35,6 @@ import { Input } from "@/Components/ui/input";
 
 import instagramIcon from "!assets/svg/instagram.svg";
 import linkedinIcon from "!assets/svg/linkedin.svg";
-import UserList from "@/Components/relasi/UserList";
 
 const sortOptions = [
     { label: "Viewer", value: "viewer" },
@@ -75,10 +75,22 @@ const Page: React.FC = () => {
                         </h1>
                     </div>
                     <div className="w-full max-w-2xl mx-auto">
-                        <div className="flex justify-center text-center w-full">
-                            <TopUser user={top3Followers[1]} rank={2} />
-                            <TopUser user={top3Followers[0]} rank={1} />
-                            <TopUser user={top3Followers[2]} rank={3} />
+                        <div className="flex justify-center text-center w-full overflow-y-hidden pt-4 gap-2 sm:gap-4 lg:gap-8">
+                            <TopUser
+                                user={top3Followers[1]}
+                                rank={2}
+                                podiumHeight={160}
+                            />
+                            <TopUser
+                                user={top3Followers[0]}
+                                rank={1}
+                                podiumHeight={196}
+                            />
+                            <TopUser
+                                user={top3Followers[2]}
+                                rank={3}
+                                podiumHeight={144}
+                            />
                         </div>
                         <div className="bg-moccaccino-700 h-1 w-full"></div>
                     </div>
