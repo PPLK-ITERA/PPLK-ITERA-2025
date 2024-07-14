@@ -11,37 +11,48 @@ import Sosmed from "@/Components/informasi/Ukm/DetailUkm/Sosmed";
 import gedung from "!assets/gedung-sponsor.png";
 
 function Page({ nama_ukm }) {
-    ukmData.forEach((ukm) => {
-        if (ukm.key === nama_ukm) {
-            return (
-                <div>
-                    <Navbar isFixed={true} isSolid={true} />
-                    <div className="bg-pattern-white relative flex flex-col items-center justify-center flex-grow min-h-screen p-5">
-                        <div>
-                            <Judul />
-                            <div className="my-60 flex flex-col items-center justify-center gap-10">
-                                <h2 className="font-avigea text-moccaccino-600 text-[40px]">
-                                    Prestasi & Kegiatan
-                                </h2>
-                                <Prestasi />
+    const ukm = ukmData.find((ukm) => ukm.key === nama_ukm);
 
-                                <h2 className="font-avigea text-moccaccino-600 text-[40px] mt-40">
-                                    Sosial Media UKM
-                                </h2>
-                                <Sosmed />
-                            </div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 right-0">
-                            <img src={gedung} alt="Gedung" className="w-full" />
-                        </div>
+    if (!ukm) {
+        return <div>UKM tidak ditemukan</div>;
+    }
+
+    return (
+        <div>
+            <Navbar isFixed={true} isSolid={true} />
+            <div className="bg-pattern-white relative flex flex-col items-center justify-center flex-grow min-h-screen p-5">
+                <div>
+                    <Judul
+                        title={ukm.title}
+                        sejarah={ukm.sejarah}
+                        logo={ukm.logo}
+                        fotoPembina={ukm.fotopembina}
+                        pembina={ukm.pembina}
+                        jabatan={ukm.jabatan}
+                        fotoKetum={ukm.fotoketua}
+                        ketum={ukm.ketum}
+                        prodi={ukm.prodi}
+
+                    />
+                    <div className="my-60 flex flex-col items-center justify-center gap-10">
+                        <h2 className="font-avigea text-moccaccino-600 text-[40px]">
+                            Prestasi & Kegiatan
+                        </h2>
+                        <Prestasi allprestasi={ukm.allprestasi} />
+
+                        <h2 className="font-avigea text-moccaccino-600 text-[40px] mt-40">
+                            Sosial Media UKM
+                        </h2>
+                        <Sosmed allsosmed={ukm.allsosmed} />
                     </div>
-                    <Footer />
                 </div>
-            );
-        } else {
-            return null;
-        }
-    });
+                <div className="absolute bottom-0 left-0 right-0">
+                    <img src={gedung} alt="Gedung" className="w-full" />
+                </div>
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
 export default Page;

@@ -29,8 +29,9 @@ export const CarouselUkm: React.FC<CarouselUkmProps> = ({ items }) => {
                                 <div className="my-10 flex items-center justify-center w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gray-50 rounded-full shadow-inner">
                                     <img
                                         src={item.logo}
-                                        alt=""
+                                        alt="Logo UKM"
                                         className="rounded-full w-full h-full"
+                                        
                                     />
                                 </div>
                                 <span className="text-[16px] font-montserrat font-semibold text-jaffa-600">
