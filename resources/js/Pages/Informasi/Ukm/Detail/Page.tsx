@@ -1,4 +1,5 @@
 import { ukmData } from "@/lib/data/ukm";
+import { useAos } from "@/lib/hooks/useAos";
 
 import React from "react";
 
@@ -11,6 +12,7 @@ import Sosmed from "@/Components/informasi/Ukm/DetailUkm/Sosmed";
 import gedung from "!assets/gedung-sponsor.png";
 
 function Page({ nama_ukm }) {
+    useAos();
     const ukm = ukmData.find((ukm) => ukm.key === nama_ukm);
 
     if (!ukm) {
@@ -32,15 +34,22 @@ function Page({ nama_ukm }) {
                         fotoKetum={ukm.fotoketua}
                         ketum={ukm.ketum}
                         prodi={ukm.prodi}
-
                     />
                     <div className="my-60 flex flex-col items-center justify-center gap-10">
-                        <h2 className="font-avigea text-moccaccino-600 text-[40px]">
+                        <h2
+                            data-aos="fade-down"
+                            data-aos-duration="1000"
+                            className="font-avigea text-moccaccino-600 text-[25px] sm:text-[36px] md:text-[40px]"
+                        >
                             Prestasi & Kegiatan
                         </h2>
                         <Prestasi allprestasi={ukm.allprestasi} />
 
-                        <h2 className="font-avigea text-moccaccino-600 text-[40px] mt-40">
+                        <h2
+                            data-aos="fade-down"
+                            data-aos-duration="1000"
+                            className="font-avigea text-moccaccino-600 text-[25px] sm:text-[36px] md:text-[40px] mt-40"
+                        >
                             Sosial Media UKM
                         </h2>
                         <Sosmed allsosmed={ukm.allsosmed} />

@@ -1,18 +1,23 @@
+import { useAos } from "@/lib/hooks/useAos";
 import React from "react";
 
 const icons = {
     instagram: (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="82"
-            height="82"
             viewBox="0 0 24 24"
-            className="text-gradient"
+            className="text-gradient w-14 h-14 sm:w-20 sm:h-20"
         >
             <defs>
                 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style={{ stopColor: "#B9822F", stopOpacity: 1 }} />
-                    <stop offset="100%" style={{ stopColor: "#B9822F", stopOpacity: 1 }} />
+                    <stop
+                        offset="0%"
+                        style={{ stopColor: "#B9822F", stopOpacity: 1 }}
+                    />
+                    <stop
+                        offset="100%"
+                        style={{ stopColor: "#B9822F", stopOpacity: 1 }}
+                    />
                 </linearGradient>
             </defs>
             <path
@@ -24,10 +29,8 @@ const icons = {
     youtube: (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="82"
-            height="82"
             viewBox="0 0 20 20"
-            className="text-gradient"
+            className="text-gradient w-14 h-14 sm:w-20 sm:h-20"
         >
             <path
                 fill="url(#grad1)"
@@ -38,10 +41,8 @@ const icons = {
     website: (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="82"
-            height="82"
             viewBox="0 0 24 24"
-            className="text-gradient"
+            className="text-gradient w-14 h-14 sm:w-20 sm:h-20"
         >
             <path
                 fill="url(#grad1)"
@@ -52,10 +53,8 @@ const icons = {
     tiktok: (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="82"
-            height="82"
             viewBox="0 0 24 24"
-            className="text-gradient"
+            className="text-gradient w-14 h-14 sm:w-20 sm:h-20"
         >
             <path
                 fill="url(#grad1)"
@@ -63,22 +62,30 @@ const icons = {
             />
         </svg>
     ),
-
 };
 
 export default function Sosmed({ allsosmed }) {
     const sosmedLinks = allsosmed[0];
-
+    useAos()
     return (
-        <div className="flex flex-col justify-center items-center">
-            <div className="flex space-x-4 -mt-6 mb-40 gap-5">
-                {Object.entries(sosmedLinks).map(([type, url]) => (
+        <div
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            className="flex flex-col justify-center items-center"
+        >
+            <div className="flex space-x-4 -mt-1 mb-40 gap-1 sm:gap-5">
+                {Object.entries(sosmedLinks).map(([type, url]) =>
                     url ? (
-                        <a key={type} href={url} target="_blank" rel="noopener noreferrer">
+                        <a
+                            key={type}
+                            href={url as string}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             {icons[type] || <span>Icon not found</span>}
                         </a>
-                    ) : null
-                ))}
+                    ) : null,
+                )}
             </div>
         </div>
     );

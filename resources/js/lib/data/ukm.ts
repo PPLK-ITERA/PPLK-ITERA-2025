@@ -38,7 +38,7 @@ export const ukmData = [
         fotoketua: fotodefault,
         ketum: "M. Abdul Jabbar As Salam",
         prodi: "Perencanaan Wilayah dan Kota '21",
-        sejarah:"MADANI ITERA adalah unit kegiatan mahasiswa yang berbasis Agama Islam di Institut Teknologi Sumatera. Peran dan fungsi MADANI atau Mahasiswa Peradaban Islam adalah merangkul Mahasiswa Muslim ITERA dari berbagai ras, suku, dan budaya, membina serta menyebarkan nilai-nilai Islam di lingkungan kampus. MADANI didirikan untuk mencetak mahasiswa yang berilmu, beriman, dan sebagai Lembaga Dakwah Kampus (LDK) yang ada di Institut Teknologi Sumatera",
+        sejarah:"MADANI ITERA adalah unit kegiatan mahasiswa yang berbasis Agama Islam di Institut Teknologi Sumatera. Peran dan fungsi MADANI atau Mahasiswa Peradaban Islam adalah merangkul Mahasiswa Muslim ITERA dari berbagai ras, suku, dan budaya, membina serta menyebarkan nilai-nilai Islam di lingkungan kampus. MADANI didirikan untuk mencetak mahasiswa yang berilmu, beriman, dan sebagai Lembaga Dakwah Kampus (LDK) yang ada di Institut Teknologi Sumatera. MADANI ITERA dirintis sejak 2012 di kampus ITB Jatinangor dan didirikan di Bandung pada Hari Kamis tanggal 04 Juni 2015 bertepatan dengan 17 Sya’ban 1436 Hijriah. Kemudian ditetapkan sebagai Unit Kegiatan Mahasiswa (UKM) resmi di kampus Institut Teknologi Sumatera pada 06 Oktober 2015 / 22 Dzulhijjah 1436 H. ",
         allprestasi: [
           {
              prestasi:kegiatanmadani1,
@@ -76,7 +76,7 @@ export const ukmData = [
       fotoketua: fotodefault,
       ketum: "Muhammad Iqbal",
       prodi: "Teknik Geomatika '21",
-      sejarah:"UKM HIMALAYA atau Perhimpunan Mahasiswa Lampung Raya adalah organisasi mahasiswa yang bergerak dibidang kebudayaan yang menghimpun mahasiswa lampung dan mahasiswa dari daerah lainnya untuk belajar dan mengembangkan budaya Lampung.",
+      sejarah:"UKM HIMALAYA atau Perhimpunan Mahasiswa Lampung Raya adalah organisasi mahasiswa yang bergerak dibidang kebudayaan yang menghimpun mahasiswa lampung dan mahasiswa dari daerah lainnya untuk belajar dan mengembangkan budaya Lampung. HIMALAYA ITERA diresmikan pada tanggal 25 September 2013 di Bandung, sehingga tanggal tersebut dijadikan sebagai Dies Natalis HIMALAYA. ",
       allprestasi: [
         {
            prestasi:kegiatanhimalaya1,
@@ -114,7 +114,7 @@ export const ukmData = [
         fotoketua: fotodefault,
         ketum: "Nama Ketua Umum",
         prodi: "Prodi '21",
-        sejarah:"UKM IKM ITERA adalah sebuah organisasi mahasiswa berbasis kebudayaan. IKM-ITERA ini berasaskan musyawarah dan kekeluargaan, yang sesuai dengan asas Institut Teknologi Sumatera dan tidak bertentangan dengan Adat Basandi Syarak, Syarak basandi kitabullah. Tujuannya untuk merangkul dan menghimpun mahasiswa minang yang ada di itera",
+        sejarah:"UKM IKM ITERA adalah sebuah organisasi mahasiswa berbasis kebudayaan. IKM-ITERA ini berasaskan musyawarah dan kekeluargaan, yang sesuai dengan asas Institut Teknologi Sumatera dan tidak bertentangan dengan Adat Basandi Syarak, Syarak basandi kitabullah. Tujuannya untuk merangkul dan menghimpun mahasiswa minang yang ada di itera. Unit Kegiatan Mahasiswa yang bernama ‘Ikatan Keluarga Minangkabau - Institut Teknologi Sumatera’ disingkat IKM-ITERA didirikan pada tanggal 20 Oktober 2015 di Lampung Selatan Provinsi Lampung.",
         allprestasi: [
           {
              prestasi:kegiatanikm1,
