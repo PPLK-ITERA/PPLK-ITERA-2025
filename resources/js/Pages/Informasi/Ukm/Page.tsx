@@ -1,9 +1,83 @@
-import React from 'react'
+import { ukmData } from "@/lib/data/ukm";
+import { useAos } from "@/lib/hooks/useAos";
 
-function Page() {
-  return (
-    <div className="text-[150px] text-center ">COOMING SOON UKM ITEGHA 2024</div>
-  )
-}
+import React, { useEffect, useState } from "react";
 
-export default Page
+import Footer from "@/Components/Footer";
+import Navbar from "@/Components/Navbar";
+import { CarouselUkm } from "@/Components/informasi/Ukm/CarouselUkm";
+import PaginationInformasi from "@/Components/informasi/Ukm/PaginationUkm";
+
+import gedung from "!assets/gedung-sponsor.png";
+
+const Page: React.FC = () => {
+    useAos();
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+
+    const updateItemsPerPage = () => {
+        if (window.innerWidth >= 1024) {
+            setItemsPerPage(10);
+        } else {
+            setItemsPerPage(6);
+        }
+    };
+
+    useEffect(() => {
+        updateItemsPerPage();
+        window.addEventListener("resize", updateItemsPerPage);
+        return () => {
+            window.removeEventListener("resize", updateItemsPerPage);
+        };
+    }, []);
+
+    const totalPages = Math.ceil(ukmData.length / itemsPerPage);
+    const currentItems = ukmData.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage,
+    );
+
+    return (
+        <div>
+            <Navbar isSolid={true} isFixed={true} />
+            <div className="p-5 relative bg-cover bg-center min-h-screen bg-desktop-hero-background flex items-center justify-center -mb-20">
+                <div
+                    data-aos="zoom-in"
+                    data-aos-duration="1000"
+                    className="flex max-w-[640px] max-h-[640px] sm:max-h-fit sm:max-w-3xl md:max-h-2xl md:max-w-7xl flex-col items-center justify-center rounded-[20px] bg-white/20 backdrop-blur shadow-2xl text-white"
+                >
+                    <div className="flex flex-col p-5 items-start text-left">
+                        <h1 className="font-montserrat-4xl text-[31px] sm:text-[40px] md:text-[61px] font-semibold">
+                            UNIT KEGIATAN MAHASISWA (UKM)
+                        </h1>
+                        <p className="font-montserrat-2xl text-[20px] md:text-[25px] mt-5">
+                            Unit Kegiatan Mahasiswa adalah sebuah organisasi
+                            yang mewadahi berbagai minat & bakat mahasiswa di
+                            Institut Teknologi Sumatera. UKM hadir untuk bisa
+                            memfasilitasi semua minat & bakat dari seluruh
+                            Mahasiswa Institut Teknologi Sumatera.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div className="flex flex-col py-20 items-center bg-pattern-white">
+                    <CarouselUkm items={currentItems} />
+                    <PaginationInformasi
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={setCurrentPage}
+                    />
+                    <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0"></div>
+                </div>
+            </div>
+
+            <div className="flex items-center justify-center -mt-20">
+                <img src={gedung} alt="" className="w-full" />
+            </div>
+            <Footer />
+        </div>
+    );
+};
+
+export default Page;

@@ -23,7 +23,7 @@ export default function LandingPage() {
     useAos();
 
     return (
-        <div className="scrollbar-hide overflow-hidden">
+        <div className="scrollbar-hide overflow-hidden text-ca">
             <MaxWidthWrapper className="relative">
                 <img
                     src={elang}
