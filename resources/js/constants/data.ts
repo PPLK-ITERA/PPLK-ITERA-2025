@@ -6,6 +6,7 @@ export interface NavItem {
     icon?: string;
     label?: string;
     description?: string;
+    role_id: number[];
 }
 
 export const navItems: NavItem[] = [
@@ -20,78 +21,91 @@ export const navItems: NavItem[] = [
         href: "/dashboard/user",
         icon: "user",
         label: "user",
+        role_id: [1, 2, 3],
     },
     {
         title: "Employee",
         href: "/dashboard/employee",
         icon: "employee",
         label: "employee",
+        role_id: [1, 2],
     },
     {
         title: "Profile",
         href: "/dashboard/profile",
         icon: "profile",
         label: "profile",
+        role_id: [1],
     },
     {
         title: "Kanban",
         href: "/dashboard/kanban",
         icon: "kanban",
         label: "kanban",
+        role_id: [2],
     },
     {
         title: "Dashboard",
         href: "/dashboard",
         icon: "dashboard",
         label: "dashboard",
+        role_id: [2],
     },
     {
         title: "Atur Maba",
         href: "/dashboard/atur-maba",
         icon: "user",
         label: "atur-maba",
+        role_id: [2],
     },
     {
         title: "Atur Dapmen",
         href: "/dashboard/atur-dapmen",
         icon: "user",
         label: "atur-dapmen",
+        role_id: [2],
     },
     {
         title: "Atur PJ Prodi",
         href: "/dashboard/atur-pjprodi",
         icon: "user",
         label: "atur-pjprodi",
+        role_id: [2],
     },
     {
         title: "Atur Korlap",
         href: "/dashboard/atur-korlap",
         icon: "user",
         label: "atur-korlap",
+        role_id: [2],
     },
     {
         title: "Absensi Maba",
         href: "/dashboard/absensi-maba",
         icon: "notebook",
         label: "atur-absensi-maba",
+        role_id: [2],
     },
     {
         title: "Booklet",
         href: "/dashboard/booklet",
         icon: "book",
         label: "atur-booklet",
+        role_id: [2],
     },
     {
         title: "FAQ",
         href: "/dashboard/faq",
         icon: "question",
         label: "atur-faq",
+        role_id: [2],
     },
     {
         title: "Mading",
         href: "/dashboard/mading",
         icon: "map",
         label: "atur-mading",
+        role_id: [2],
     },
 ];
 

@@ -1,5 +1,4 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { Employee } from "@/constants/data";
 import { cn } from "@/lib/utils";
 
 // import Link from 'next/link';
@@ -14,6 +13,8 @@ import { buttonVariants } from "@/Components/dashboard/ui/button";
 import { Heading } from "@/Components/dashboard/ui/heading";
 import { Separator } from "@/Components/dashboard/ui/separator";
 
+import { Employee } from "@/constants/data";
+
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
     { title: "Employee", link: "/dashboard/employee" },
@@ -26,7 +27,7 @@ type paramsProps = {
 };
 
 // export default async function Page({ searchParams }: paramsProps) {
-export default function Page() {
+export default function Page({ auth }) {
     // const page = Number(searchParams.page) || 1;
     // const pageLimit = Number(searchParams.limit) || 10;
     // const country = searchParams.search || null;
@@ -41,7 +42,7 @@ export default function Page() {
     // const pageCount = Math.ceil(totalUsers / pageLimit);
     // const employee: Employee[] = employeeRes.users;
     return (
-        <DashboardLayout>
+        <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
 
             <div className="flex items-start justify-between">

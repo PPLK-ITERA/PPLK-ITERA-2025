@@ -8,15 +8,18 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "./ui/tooltip";
-import { NavItem } from "@/constants/data";
 import { useSidebar } from "@/lib/hooks/useSidebar";
+import { User } from "@/lib/types/User";
 import { cn } from "@/lib/utils";
+import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import { Dispatch, SetStateAction } from "react";
 
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 import { Icons } from "@/Components/dashboard/icons";
+
+import { NavItem } from "@/constants/data";
 
 interface DashboardNavProps {
     items: NavItem[];
@@ -31,7 +34,12 @@ export function DashboardNav({
 }: DashboardNavProps) {
     // const path = usePathname();
     const { isMinimized } = useSidebar();
-
+    type MyPage = PageProps<{
+        auth: {
+            user: User;
+        };
+    }>;
+    const { auth } = usePage<MyPage>().props;
     if (!items?.length) {
         return null;
     }
@@ -44,7 +52,8 @@ export function DashboardNav({
                 {items.map((item, index) => {
                     const Icon = Icons[item.icon || "arrowRight"];
                     return (
-                        item.href && (
+                        item.href &&
+                        item.role_id.includes(auth.user.role_id) && (
                             <Tooltip key={index}>
                                 <TooltipTrigger asChild>
                                     <Link
