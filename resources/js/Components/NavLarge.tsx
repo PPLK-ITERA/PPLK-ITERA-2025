@@ -63,7 +63,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
 
             <DropdownMenu>
                 <DropdownMenuTrigger
-                    className={`mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
+                    className={`mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} border-none outline-none transition-all duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
                 >
                     Maba <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>

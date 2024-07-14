@@ -15,7 +15,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
 
     React.useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 700);
+            setIsScrolled(window.scrollY > 150);
         };
 
         window.addEventListener("scroll", handleScroll);
