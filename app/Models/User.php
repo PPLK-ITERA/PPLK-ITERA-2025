@@ -26,6 +26,8 @@ class User extends Authenticatable
       'instagram_url',
       'kelompok_id',
       'pilar',
+      'qrcode_id',
+      'prodi_id',
       'score',
       'role',
    ];
@@ -85,5 +87,9 @@ class User extends Authenticatable
 
    public function qrcode(){
       return $this->belongsTo(Qrcode::class, 'qrcode_id', 'id');
+   }
+
+   public function prodi(){
+      return $this->belongsTo(Prodi::class, 'prodi_id', 'id');
    }
 }

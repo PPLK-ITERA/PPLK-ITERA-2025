@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
          $table->integer('score')->default(0);
          $table->unsignedBigInteger('view_count')->default(0);
          $table->foreignId('qrcode_id')->nullable();
+         $table->foreignId('prodi_id')->nullable();
          $table->timestamps();
       });
       Schema::create('sessions', function (Blueprint $table) {

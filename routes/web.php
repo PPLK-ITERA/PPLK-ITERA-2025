@@ -72,7 +72,9 @@ Route::middleware('auth')->group(function () {
    });
    Route::middleware(['checkRole:Admin'])->group(function () {
    });
-
+   
+   
+   // Route::post('/storepresensi', [PresensiPplkController::class,'store'])->name('presensi.store');
    // Route::get('/generateQrcode', [QrcodeController::class, 'generateQrCode']);
    // Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
    // Route::get('/follow', [UserController::class, 'followview']);

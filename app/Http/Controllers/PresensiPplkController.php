@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 
 class PresensiPplkController extends Controller
 {
-   //
+   // tambah berdasarkan prodi filter bydate
+   // user menambahkan prodi_id
+   // tambah table prodi dan fakultas
+   // Booklet tambahkan deadline
    public function getAllPresensi()
    {
       $presensi = PresensiPplk::all();
