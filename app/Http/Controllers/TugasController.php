@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class TugasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('role:mahasiswa')->only(['create', 'store', 'edit', 'update', 'destroy']);
-        $this->middleware('role:admin,dapmen')->only(['index', 'show']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('role:mahasiswa')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    //     $this->middleware('role:admin,dapmen')->only(['index', 'show']);
+    // }
 
     public function index()
     {
