@@ -36,7 +36,9 @@ export default function LandingPage() {
 
             <NavHero />
 
-            <div className="bg-pattern-white">
+            <div className="bg-pattern-white relative">
+                <div className="bg-gradient-to-b from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
+
                 <MaxWidthWrapper>
                     <What />
                     <Panduan />

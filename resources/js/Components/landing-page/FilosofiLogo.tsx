@@ -81,7 +81,7 @@ export default function FilosofiLogo() {
 
     return (
         <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white pt-[250px] md:pt-[500px]">
-            <h2 className="font-avigea text-jaffa-300 text-4xl">
+            <h2 className="text-jaffa-300 font-avigea md:text-4xl text-3xl">
                 Filosofi Logo PPLK
             </h2>
 

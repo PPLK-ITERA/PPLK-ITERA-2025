@@ -204,3 +204,19 @@ export const users: User[] = [
         status: "Active",
     },
 ];
+
+export const InformasiFooter = [
+    { title: "Tentang PPLK 2024", href: "/about-pplk" },
+    { title: "Informasi Fakultas", href: "/informasi-fakultas" },
+    { title: "Informasi HMPS & PRODI", href: "/informasi-hmps-prodi" },
+    { title: "Informasi UPT", href: "/informasi-upt" },
+    { title: "Informasi KM ITERA", href: "/informasi-km" },
+    { title: "Informasi SENAT ITERA", href: "/informasi-senat" },
+    { title: "Informasi UKM ITERA", href: "/informasi-ukm" },
+];
+
+export const FooterLink = [
+    { title: "Instagram", href: "https://instagram.com/pplk.itera" },
+    { title: "Twitter", href: "https://twitter.com/pplkitera" },
+    { title: "Youtube", href: "https://youtube.com/pplkitera" },
+];
