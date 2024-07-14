@@ -40,13 +40,13 @@ const Page: React.FC = () => {
     return (
         <div>
             <Navbar isSolid={true} isFixed={true} />
-            <div className="p-5 relative bg-cover bg-center min-h-screen bg-desktop-hero-background flex items-center justify-center -mb-20">
+            <div className="bg-desktop-hero-background relative flex items-center justify-center min-h-screen p-5 -mb-20 bg-center bg-cover">
                 <div
                     data-aos="zoom-in"
                     data-aos-duration="1000"
                     className="flex max-w-[640px] max-h-[640px] sm:max-h-fit sm:max-w-3xl md:max-h-2xl md:max-w-7xl flex-col items-center justify-center rounded-[20px] bg-white/20 backdrop-blur shadow-2xl text-white"
                 >
-                    <div className="flex flex-col p-5 items-start text-left">
+                    <div className="flex flex-col items-start p-5 text-left">
                         <h1 className="font-montserrat-4xl text-[31px] sm:text-[40px] md:text-[61px] font-semibold">
                             UNIT KEGIATAN MAHASISWA (UKM)
                         </h1>
@@ -61,7 +61,7 @@ const Page: React.FC = () => {
                 </div>
             </div>
             <div>
-                <div className="flex flex-col py-20 items-center bg-pattern-white">
+                <div className="bg-pattern-white flex flex-col items-center py-20">
                     <CarouselUkm items={currentItems} />
                     <PaginationInformasi
                         currentPage={currentPage}
