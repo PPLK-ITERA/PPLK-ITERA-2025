@@ -73,13 +73,13 @@ const KabinetPresma: React.FC = () => {
   return (
     <div className=''>
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className='flex justify-center items-center flex-row gap-16 pt-16'>
+        <div key={rowIndex} className='flex justify-center items-center md:flex-row gap-16 pt-16 flex-col'>
           {row.map((kabinet, index) => (
-            <div key={index} className='flex h-[203px] w-[441px] flex-col rounded-lg bg-white overflow-hidden'>
-              <h2 className='bg-gradient-to-r from-[#B54419] to-[#90381C] py-4 font-avigea text-[28px] text-center text-white'>
-                {kabinet.kabinet} {kabinet.year}
+            <div key={index} className='flex h-[240px] md:w-[441px] md:h-[260px] w-[300px] flex-col rounded-2xl bg-white overflow-hidden'>
+              <h2 className='bg-gradient-to-r from-[#B54419] to-[#90381C] py-4 font-avigea md:text-[28px] text-[20px] text-center text-white'>
+                {kabinet.kabinet} <br />{kabinet.year}
               </h2>
-              <p className='text-center font-montserrat text-[24px] pt-6'>
+              <p className='text-center font-montserrat md:text-[24px] text-[20px] py-6'>
                 {kabinet.name} <br />
                 ({kabinet.department})
               </p>

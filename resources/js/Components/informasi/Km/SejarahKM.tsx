@@ -1,28 +1,31 @@
 import React from 'react'
-import logoPplk from '../../../../../resources/assets/logo-pplk-2024.png'
+import {Card} from '@/Components/ui/card'
+
+import km from '!assets/logokm/km.png'
 
 const SejarahKM = () => {
   return (
-    <div className='flex items-center justify-center mt-10'>
-        <div className='flex h-[742px] w-[1155px] flex-row rounded-[20px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] shadow-2xl'>
-            <div className='flex flex-row h-[322px] w-[322px] rounded-[20px] bg-white mt-24 ml-16 p-8'>
+    <div className='flex items-center justify-center md:mt-40 mt-48'>
+        <Card className='lg:flex lg:flex-row flex w-full xl:w-[1155px] flex-col items-center justify-center lg:items-start rounded-[20px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] shadow-2xl lg:px-10 pb-8 mx-2'>
+            <div className='lg:flex lg:flex-row lg:h-[322px] lg:w-[322px] rounded-[20px] w-[150px] h-[185px] bg-white lg:mt-24 p-8 -mt-40 border border-black'>
                 <img 
-                src={logoPplk} 
+                src={km} 
                 alt="logo" 
-                className='object-cover'
+                className='lg:object-fill lg:w-full object-cover w-full h-full'
                 />
             </div>
-            <div className='flex flex-col w-full pl-14 mt-8'>
-                <h2 className='font-avigea text-[39px] text-white'>
-                    SEJARAH & INFORMASI KM ITERA <br />
+            <div className='flex flex-col w-full md:px-14 px-3 mt-8 '>
+                <h2 className='font-avigea text-[20px] lg:text-[39px] text-white text-center'>
+                    SEJARAH & INFORMASI <br className='md:hidden'/>
+                    KM ITERA <br />
                 </h2>
-                <p className='font-montserrat text-[20px] text-white pr-10 font-light mt-7'>
+                <p className='font-montserrat lg:text-[20px] text-[16px] text-white font-light mt-7 text-wrap'>
                     KM-ITERA (Keluarga Mahasiswa Institut Teknologi Sumatera) merupakan organisasi kemahasiswaan intra perguruan tinggi yang diselenggarakan berdasarkan prinsip dari, oleh dan untuk mahasiswa demi menciptakan kader-kader bangsa yang berpotensi melanjutkan kesinambungan pembangunan nasional. <br /> <br />
                     Organisasi kemahasiswaan tertinggi di ITERA diwadahi dalam Keluarga Mahasiswa (KM) ITERA. Pada tanggal 16 Mei 2015 Badan Pendiri Keluarga Mahasiswa (BPKM) Itera telah menyelenggarakan forum mahasiswa yang menghasilkan pengesahan Anggaran Dasar dan Anggaran Rumah Tangga (AD/ART) Keluarga Mahasiswa (KM) Itera. <br /> <br />
                     Dalam badan kelengkapan, Kabinet KM-ITERA memiliki fungsi sebagai lembaga pemegang kekuasaan eksekutif dalam kehidupan kemahasiswaan di Institut Teknologi Sumatera, sementara itu Senat KM-ITERA adalah dewan pemegang kekuasaan legislatif dalam kehidupan kemahasiswaan di Institut Teknologi Sumatera. Kabinet KM-ITERA memayungi HMPS (Himpunan Mahasiswa Program Studi) dan UKM (Unit Kegiatan Mahasiswa). 
                 </p>
             </div>
-        </div>
+        </Card>
     </div>
   )
 }

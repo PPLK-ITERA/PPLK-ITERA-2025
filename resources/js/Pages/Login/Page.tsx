@@ -6,9 +6,9 @@ import { Head, Link, useForm } from "@inertiajs/react";
 import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
 
 import InputError from "@/Components/InputError";
+import { Button } from "@/Components/dashboard/ui/button";
+import { Input } from "@/Components/dashboard/ui/input";
 import CarouselForm from "@/Components/fragments/CarouselForm";
-import { Button } from "@/Components/ui/button";
-import { Input } from "@/Components/ui/input";
 
 import logoPplk from "!assets/logo-pplk-2024.png";
 
@@ -64,10 +64,7 @@ export default function Page({ auth, laravelVersion, phpVersion }) {
                         className="md:items-start flex flex-col items-center justify-start p-2"
                     >
                         <h1 className="w-[300px] text-2xl font-bold text-jaffa-800 sm:w-[300px] sm:text-3xl md:mb-8 lg:mt-10 lg:w-96 lg:text-4xl">
-                            Selamat Datang
-                            <br className="lg:block hidden" /> Di Kuis
-                            Personality
-                            <br className="lg:block hidden" /> PPLK
+                            Masuk ke Website <br /> PPLK ITERA 2024
                         </h1>
 
                         <div>
@@ -139,7 +136,7 @@ export default function Page({ auth, laravelVersion, phpVersion }) {
                         <Button
                             type="submit"
                             disabled={processing}
-                            className="mb-4 h-12 w-[300px] rounded-md border bg-jaffa-600 px-4 font-bold text-black transition duration-300 ease-out hover:bg-white hover:text-jaffa-600 hover:shadow-md focus:ring-2 focus:ring-jaffa-600 sm:w-[300px] lg:w-96"
+                            className="mb-4 h-12 w-[300px] rounded-md border bg-jaffa-600 px-4 font-bold text-white transition duration-300 ease-out hover:bg-white hover:text-jaffa-600 hover:shadow-md focus:ring-2 focus:ring-jaffa-600 sm:w-[300px] lg:w-96"
                         >
                             Masuk
                         </Button>

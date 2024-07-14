@@ -7,7 +7,9 @@
         "^react$",
         "^@inertiajs(.*)$",
         "^lucide-react$",
+        "^@tabler/icons-react$",
         "^@/Components(.*)$",
+        "^@/constants(.*)$",
         "^!assets(.*)$"
     ],
     "tabWidth": 4,

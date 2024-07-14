@@ -3,7 +3,7 @@ import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
-import { Card, CardContent } from "@/Components/ui/card";
+import { Card, CardContent } from "@/Components/dashboard/ui/card";
 import {
     Carousel,
     CarouselContent,

@@ -5,7 +5,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/Components/ui/accordion";
+} from "@/Components/dashboard/ui/accordion";
 
 interface FAQ {
     title: string;

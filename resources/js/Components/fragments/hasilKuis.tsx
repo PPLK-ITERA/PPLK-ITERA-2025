@@ -1,12 +1,14 @@
 "use client";
 
-import Pilar from "@/Components/ui/pilar";
-import PilarKeBerapa from "@/Components/ui/pilarKeBerapa";
+import { useToast } from "../ui/use-toast";
 import { getResult } from "@/lib/data/result";
 import { Result } from "@/lib/types/Result";
+
 import { useEffect, useState } from "react";
-import { useToast } from "../ui/use-toast";
 import React from "react";
+
+import Pilar from "@/Components/ui/pilar";
+import PilarKeBerapa from "@/Components/ui/pilarKeBerapa";
 
 const HasilKuis = () => {
     const { toast } = useToast();
@@ -48,9 +50,9 @@ const HasilKuis = () => {
     }, []);
 
     return (
-        <div className="sm:rounde mt-8 rounded-t-2xl border border-white bg-white sm:rounded-xl">
-            <div className="w-full px-12 pb-8 sm:w-full">
-                <div className="mb-4 mt-2 flex justify-center">
+        <div className="sm:rounde rounded-t-2xl sm:rounded-xl mt-8 bg-white border border-white">
+            <div className="sm:w-full w-full px-12 pb-8">
+                <div className="flex justify-center mt-2 mb-4">
                     <div className="h-1.5 w-1/5 rounded-xl bg-slate-200 sm:hidden"></div>
                 </div>
                 <div className="text-center">

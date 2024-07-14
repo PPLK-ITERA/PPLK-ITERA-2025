@@ -6,7 +6,7 @@ import React from "react";
 
 import { Link } from "@inertiajs/react";
 
-import { Button } from "@/Components/ui/button";
+import { Button } from "@/Components/dashboard/ui/button";
 
 const Navbar = ({ user }) => {
     // const navigate = useNavigate();
