@@ -62,6 +62,10 @@ Route::middleware('guest')->group(function () {
         return Inertia::render('Booklet/Page');
     })->name('booklet');
 
+    Route::get('maskot', function () {
+        return Inertia::render('Maskot/Page');
+    })->name('maskot');
+
     Route::get('informasi/profil', function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');
