@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('prodis', function (Blueprint $table) {
             $table->id();
             $table->string('nama_prodi');
-            $table->foreignId('fakultas_id');
+            $table->foreignId('fakultas_id')->nullable();
             $table->timestamps();
         });
     }

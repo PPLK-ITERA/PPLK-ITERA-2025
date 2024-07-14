@@ -69,10 +69,10 @@ Route::middleware('auth')->group(function () {
       //Presensi PPLK
       Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
       Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
+      Route::get('/presensi/{prodi_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByProdi']);
    });
    Route::middleware(['checkRole:Admin'])->group(function () {
    });
-   
    
    // Route::post('/storepresensi', [PresensiPplkController::class,'store'])->name('presensi.store');
    // Route::get('/generateQrcode', [QrcodeController::class, 'generateQrCode']);

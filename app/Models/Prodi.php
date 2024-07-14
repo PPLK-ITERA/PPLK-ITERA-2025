@@ -24,6 +24,6 @@ class Prodi extends Model
     }
 
     public function user(){
-        return $this->hasMany(User::class, 'id', 'prodi_id');
+        return $this->hasMany(User::class, 'prodi_id', 'id');
     }
 }

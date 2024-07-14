@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
          UserSeeder::class,
          PresensiPplkSeeder::class,
          RoleSeeder::class,
-         QrcodeSeeder::class
+         QrcodeSeeder::class,
+         ProdiSeeder::class,
          // Add more seeders if needed
       ]);
       Role::create(

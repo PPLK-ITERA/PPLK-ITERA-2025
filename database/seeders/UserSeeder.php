@@ -23,8 +23,9 @@ class UserSeeder extends Seeder
          'pilar' => 1,
          'score' => 80,
          'qrcode_id' => 1,
+         'prodi_id' => 1,
       ]);
-
+      
       User::create([
          'name' => 'User Two',
          'email' => 'user2@example.com',
@@ -37,6 +38,7 @@ class UserSeeder extends Seeder
          'score' => 70,
          'role_id'  => 1,
          'qrcode_id' => 2,
+         'prodi_id' => 1,
       ]);
 
       User::create([
@@ -51,7 +53,7 @@ class UserSeeder extends Seeder
          'score' => 90,
          'role_id'  => 1,
          'qrcode_id' => 3,
-
+         'prodi_id' => 2,
       ]);
 
 
@@ -67,6 +69,7 @@ class UserSeeder extends Seeder
          'score' => 200,
          'role_id'  => 1,
          'qrcode_id' => 4,
+         'prodi_id' => 2,
       ]);
 
 
