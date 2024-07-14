@@ -59,7 +59,11 @@ importers:
         version: 0.5.7(tailwindcss@3.4.4)
       '@vitejs/plugin-react':
         specifier: ^4.2.0
+<<<<<<< HEAD
         version: 4.3.1(vite@5.3.3)
+=======
+        version: 4.3.1(vite@5.3.2)
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
       autoprefixer:
         specifier: ^10.4.12
         version: 10.4.19(postcss@8.4.39)
@@ -68,7 +72,11 @@ importers:
         version: 1.7.2
       laravel-vite-plugin:
         specifier: ^1.0
+<<<<<<< HEAD
         version: 1.0.4(vite@5.3.3)
+=======
+        version: 1.0.4(vite@5.3.2)
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
       postcss:
         specifier: ^8.4.31
         version: 8.4.39
@@ -83,7 +91,11 @@ importers:
         version: 3.4.4
       vite:
         specifier: ^5.0
+<<<<<<< HEAD
         version: 5.3.3
+=======
+        version: 5.3.2
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
 
 packages:
 
@@ -812,8 +824,13 @@ packages:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
 
+<<<<<<< HEAD
   caniuse-lite@1.0.30001640:
     resolution: {integrity: sha512-lA4VMpW0PSUrFnkmVuEKBUovSWKhj7puyCg8StBChgu298N1AtuF1sKWEvfDuimSEDbhlb/KqPKC3fs1HbuQUA==}
+=======
+  caniuse-lite@1.0.30001639:
+    resolution: {integrity: sha512-eFHflNTBIlFwP2AIKaYuBQN/apnUoKNhBdza8ZnW/h2di4LCZ4xFqYlxUxo+LQ76KFI1PGcC1QDxMbxTZpSCAg==}
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
 
   chalk@2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -1424,8 +1441,13 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
+<<<<<<< HEAD
   update-browserslist-db@1.1.0:
     resolution: {integrity: sha512-EdRAaAyk2cUE1wOf2DkEhzxqOQvFOoRJFNS6NeyJ01Gp2beMRpBAINjM2iDXE3KCuKhwnvHIQCJm6ThL2Z+HzQ==}
+=======
+  update-browserslist-db@1.0.16:
+    resolution: {integrity: sha512-KVbTxlBYlckhF5wgfyZXTWnMn7MMZjMu9XG8bPlliUOP9ThaF4QnhP8qrjrH7DRzHfSk0oQv1wToW+iA5GajEQ==}
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
@@ -1436,8 +1458,13 @@ packages:
   vite-plugin-full-reload@1.1.0:
     resolution: {integrity: sha512-3cObNDzX6DdfhD9E7kf6w2mNunFpD7drxyNgHLw+XwIYAgb+Xt16SEXo0Up4VH+TMf3n+DSVJZtW2POBGcBYAA==}
 
+<<<<<<< HEAD
   vite@5.3.3:
     resolution: {integrity: sha512-NPQdeCU0Dv2z5fu+ULotpuq5yfCS1BzKUIPhNbP3YBfAMGJXbt2nS+sbTFu+qchaqWTD+H3JK++nRwr6XIcp6A==}
+=======
+  vite@5.3.2:
+    resolution: {integrity: sha512-6lA7OBHBlXUxiJxbO5aAY2fsHHzDr1q7DvXYnyZycRs2Dz+dXBWuhpWHvmljTRTpQC2uvGmUFFkSHF2vGo90MA==}
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -2040,14 +2067,22 @@ snapshots:
 
   '@types/estree@1.0.5': {}
 
+<<<<<<< HEAD
   '@vitejs/plugin-react@4.3.1(vite@5.3.3)':
+=======
+  '@vitejs/plugin-react@4.3.1(vite@5.3.2)':
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
     dependencies:
       '@babel/core': 7.24.7
       '@babel/plugin-transform-react-jsx-self': 7.24.7(@babel/core@7.24.7)
       '@babel/plugin-transform-react-jsx-source': 7.24.7(@babel/core@7.24.7)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
+<<<<<<< HEAD
       vite: 5.3.3
+=======
+      vite: 5.3.2
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
     transitivePeerDependencies:
       - supports-color
 
@@ -2079,7 +2114,11 @@ snapshots:
   autoprefixer@10.4.19(postcss@8.4.39):
     dependencies:
       browserslist: 4.23.1
+<<<<<<< HEAD
       caniuse-lite: 1.0.30001640
+=======
+      caniuse-lite: 1.0.30001639
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -2108,10 +2147,17 @@ snapshots:
 
   browserslist@4.23.1:
     dependencies:
+<<<<<<< HEAD
       caniuse-lite: 1.0.30001640
       electron-to-chromium: 1.4.816
       node-releases: 2.0.14
       update-browserslist-db: 1.1.0(browserslist@4.23.1)
+=======
+      caniuse-lite: 1.0.30001639
+      electron-to-chromium: 1.4.816
+      node-releases: 2.0.14
+      update-browserslist-db: 1.0.16(browserslist@4.23.1)
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
 
   call-bind@1.0.7:
     dependencies:
@@ -2123,7 +2169,11 @@ snapshots:
 
   camelcase-css@2.0.1: {}
 
+<<<<<<< HEAD
   caniuse-lite@1.0.30001640: {}
+=======
+  caniuse-lite@1.0.30001639: {}
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
 
   chalk@2.4.2:
     dependencies:
@@ -2381,10 +2431,17 @@ snapshots:
 
   json5@2.2.3: {}
 
+<<<<<<< HEAD
   laravel-vite-plugin@1.0.4(vite@5.3.3):
     dependencies:
       picocolors: 1.0.1
       vite: 5.3.3
+=======
+  laravel-vite-plugin@1.0.4(vite@5.3.2):
+    dependencies:
+      picocolors: 1.0.1
+      vite: 5.3.2
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
       vite-plugin-full-reload: 1.1.0
 
   lilconfig@2.1.0: {}
@@ -2709,7 +2766,11 @@ snapshots:
 
   tslib@2.6.3: {}
 
+<<<<<<< HEAD
   update-browserslist-db@1.1.0(browserslist@4.23.1):
+=======
+  update-browserslist-db@1.0.16(browserslist@4.23.1):
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
     dependencies:
       browserslist: 4.23.1
       escalade: 3.1.2
@@ -2722,7 +2783,11 @@ snapshots:
       picocolors: 1.0.1
       picomatch: 2.3.1
 
+<<<<<<< HEAD
   vite@5.3.3:
+=======
+  vite@5.3.2:
+>>>>>>> b02222815f30232ef8338d44823ee08649bb9cd6
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.39

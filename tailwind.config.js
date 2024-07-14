@@ -1,5 +1,5 @@
-import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
@@ -13,7 +13,6 @@ export default {
         "./resources/views/**/*.blade.php",
         "./resources/**/*.{ts,tsx,jsx}",
     ],
-
     theme: {
         container: {
             center: true,
@@ -119,9 +118,23 @@ export default {
             fontFamily: {
                 avigea: ["Avigea"],
                 fesbud: ["FestivalBudaya"],
+                tinos: ["Tinos"],
+                montserrat: ["Montserrat"],
+            },
+            backgroundImage: {
+                "hero-image": "url('!assets/hero-background.png')",
+                "desktop-hero-background":
+                    "url('!assets/desktop-hero-background.png')",
+                "mobile-hero-background":
+                    "url('!assets/mobile-hero-background.png')",
+                "tablet-hero-background":
+                    "url('!assets/tablet-hero-background.png')",
+                "flower-pattern": "url('!assets/patternbunga.png')",
+                "pattern-1": "url('!assets/pattern-1.png')",
+                "pattern-white": "url('!assets/pattern-white.png')",
+                "pattern-brown": "url('!assets/pattern-brown.png')",
             },
         },
     },
-
     plugins: [require("tailwindcss-animate"), forms],
 };
