@@ -19,6 +19,9 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
         };
 
         window.addEventListener("scroll", handleScroll);
+        // Check scroll position on initial render
+        handleScroll();
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
