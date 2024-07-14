@@ -124,7 +124,7 @@ export default function NavMobile() {
                         <div className="flex flex-col">
                             <Link
                                 href="/login"
-                                className={`mx-2 rounded-lg bg-white text-jaffa-800 px-4 py-[10px] font-montserrat text-[16px] font-semibold shadow-sm`}
+                                className={`mx-2 rounded-[6px] bg-white text-jaffa-800 px-4 py-[10px] font-montserrat text-[16px] font-semibold shadow-sm`}
                             >
                                 Login
                             </Link>

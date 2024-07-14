@@ -1,5 +1,3 @@
-import { useAos } from "../lib/hooks/useAos";
-
 import React from "react";
 
 import Footer from "@/Components/Footer";
@@ -12,6 +10,8 @@ import Panduan from "@/Components/landing-page/Panduan";
 import Sponsorship from "@/Components/landing-page/Sponsorship";
 import VideoSection from "@/Components/landing-page/VideoSection";
 import What from "@/Components/landing-page/What";
+
+import { useAos } from "@/lib/hooks/useAos";
 
 import elang from "!assets/elang-hero.png";
 import overlay_box from "!assets/overlay-box.png";

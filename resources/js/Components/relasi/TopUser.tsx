@@ -1,9 +1,10 @@
 import GoldPodium from "./Podium";
 import Podium from "./Podium";
-import { useAos } from "@/lib/hooks/useAos";
-import { User } from "@/lib/types/User";
 
 import React, { useEffect, useState } from "react";
+
+import { useAos } from "@/lib/hooks/useAos";
+import { User } from "@/lib/types/User";
 
 import crown from "!assets/svg/crown.svg";
 
@@ -42,7 +43,7 @@ export default function TopUser({
             <div className="grow"></div>
             <div className="relative w-24 h-24 rounded-full shadow-lg">
                 {rank == 1 ? (
-                    <div className="w-12 h-12 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    <div className="left-1/2 absolute z-10 w-12 h-12 -translate-x-1/2 -translate-y-1/2">
                         <img
                             data-aos="zoom-in"
                             data-aos-duration="700"
@@ -56,11 +57,11 @@ export default function TopUser({
                 <img
                     src={user.profileImageUrl}
                     alt={user.name}
-                    className="rounded-full z-0 bg-gray-400"
+                    className="z-0 bg-gray-400 rounded-full"
                 />
             </div>
             <div className="text-lg font-bold">{user.name}</div>
-            <p className="rounded-full text-sm bg-gray-400/50 px-2">
+            <p className="bg-gray-400/50 px-2 text-sm rounded-full">
                 <span className="font-bold">{user.followers}</span> Followers
             </p>
             {
@@ -71,7 +72,7 @@ export default function TopUser({
                             maxHeightPx={podiumHeight}
                             className="w-full"
                         >
-                            <p className="font-bold text-5xl">{rank}</p>
+                            <p className="text-5xl font-bold">{rank}</p>
                         </Podium>
                     ),
                     2: (
@@ -80,7 +81,7 @@ export default function TopUser({
                             maxHeightPx={podiumHeight}
                             className="w-full"
                         >
-                            <p className="font-bold text-5xl">{rank}</p>
+                            <p className="text-5xl font-bold">{rank}</p>
                         </Podium>
                     ),
                     3: (
@@ -89,7 +90,7 @@ export default function TopUser({
                             maxHeightPx={podiumHeight}
                             className="w-full"
                         >
-                            <p className="font-bold text-5xl">{rank}</p>
+                            <p className="text-5xl font-bold">{rank}</p>
                         </Podium>
                     ),
                 }[rank]

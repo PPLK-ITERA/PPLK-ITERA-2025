@@ -25,7 +25,7 @@ export default function What() {
 
                 <Link
                     href="/informasi/pplk"
-                    className="mx-2 mt-10 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
+                    className="mx-2 mt-10 rounded-[6px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
                 >
                     Informasi PPLK
                 </Link>

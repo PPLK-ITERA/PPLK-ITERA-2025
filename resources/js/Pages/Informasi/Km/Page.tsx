@@ -5,13 +5,13 @@ import Navbar from "@/Components/Navbar";
 import BadanKM from "@/Components/informasi/Km/BadanKM";
 import FilosofiLogoKm from "@/Components/informasi/Km/FilosofiLogoKm";
 import KabinetPresma from "@/Components/informasi/Km/KabinetPresma";
-import SejarahKM from "@/Components/informasi/Km/SejarahKM";
 import PecahanLogo from "@/Components/informasi/Km/PecahanLogo";
+import SejarahKM from "@/Components/informasi/Km/SejarahKM";
 import SosmedKM from "@/Components/informasi/Km/SosmedKM";
 
 import awan from "!assets/awan.png";
 import gedung from "!assets/gedung-sponsor.png";
-import tiang from '!assets/tiang.png'
+import tiang from "!assets/tiang.png";
 
 const Page = () => {
     return (
@@ -35,10 +35,9 @@ const Page = () => {
                 </div>
                 <SejarahKM />
                 <BadanKM />
-                <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0">
-                </div>
+                <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0"></div>
             </div>
-            
+
             <div className="flex items-center justify-center -mt-20">
                 <img src={gedung} alt="" className="w-full" />
                 <img src={awan} alt="" className="absolute w-full" />
@@ -58,8 +57,7 @@ const Page = () => {
                     KM ITERA
                 </h2>
                 <SosmedKM />
-                <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0">
-                </div>
+                <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0"></div>
                 <div className="absolute left-0 overflow-hidden bottom-0 xl:h-[70vh] lg:h-[40vh] md:h-[30vh] w-full">
                     <img src={tiang} alt="tiang" className="w-full" />
                 </div>
