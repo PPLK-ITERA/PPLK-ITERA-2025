@@ -51,6 +51,15 @@ Route::middleware('guest')->group(function () {
     Route::get('informasi/profil', function () {
         return Inertia::render('Informasi/Profil/Page');
     })->name('informasi/profil');
+    
+    Route::get('informasi/prodi', function () {
+        return Inertia::render('Informasi/Prodi/Page');
+    })->name('informasi/prodi');
+    
+    Route::get('informasi/prodi/detail', function () {
+        return Inertia::render('Informasi/Prodi/Detail/Page');
+    })->name('informasi/prodi/detail');
+    
 
     Route::get('dashboard', function () {
         return Inertia::render('Dashboard/Page');
@@ -103,6 +112,8 @@ Route::middleware('guest')->group(function () {
     Route::get('dashboard/mading', function () {
         return Inertia::render('Dashboard/mading/Page');
     })->name('dashboard/mading');
+
+
 });
 
 Route::middleware('auth')->group(function () {
