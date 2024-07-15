@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
          $table->string('instagram_url')->nullable();
          $table->foreignId('pilar')->nullable();
          $table->foreignId('kelompok_id')->nullable();
+         $table->boolean('is_ketua_kelompok')->default(false);
          $table->integer('score')->default(0);
          $table->unsignedBigInteger('view_count')->default(0);
          $table->timestamps();

@@ -12,7 +12,7 @@ class UserController extends Controller
    // Menampilkan top 3 follower
    public function topFollowers()
    {
-      $users = User::select('name', 'nim')
+      $users = User::select('name', 'nim', 'is_ketua_kelompok')
          ->withCount('followers')
          ->orderBy('followers_count', 'desc')
          ->take(3)
@@ -32,7 +32,7 @@ class UserController extends Controller
 
       $users = User::where('name', 'like', "%$query%")
          ->orWhere('nim', 'like', "%$query%")
-         ->select('name', 'nim')
+         ->select('name', 'nim', 'is_ketua_kelompok')
          ->get();
 
       if ($users->isEmpty()) {
@@ -53,7 +53,7 @@ class UserController extends Controller
          return response()->json(['error' => 'Invalid order_by parameter'], 400);
       }
 
-      $query = User::where('role', 'maba')->select('name', 'nim');
+      $query = User::where('role', 'maba')->select('name', 'nim', 'is_ketua_kelompok');
 
       switch ($orderBy) {
          case 'followers':

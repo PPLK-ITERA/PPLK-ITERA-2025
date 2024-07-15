@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
          'kelompok_id' => 1,
          'pilar' => 1,
          'score' => 80,
+         'is_ketua_kelompok' => false,
       ]);
 
       User::create([
@@ -36,6 +37,7 @@ class UserSeeder extends Seeder
          'pilar' => 1,
          'score' => 70,
          'role_id'  => 1,
+         'is_ketua_kelompok' => true,
       ]);
 
       User::create([
@@ -49,6 +51,7 @@ class UserSeeder extends Seeder
          'pilar' => 1,
          'score' => 90,
          'role_id'  => 1,
+         'is_ketua_kelompok' => true,
       ]);
 
 
@@ -63,6 +66,7 @@ class UserSeeder extends Seeder
          'pilar' => 1,
          'score' => 200,
          'role_id'  => 1,
+         'is_ketua_kelompok' => false,
       ]);
 
 
@@ -73,6 +77,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin User',
             'password' => bcrypt('password'),
             'role_id' => 1,
+            'is_ketua_kelompok' => false,
          ]
       );
 
@@ -83,6 +88,7 @@ class UserSeeder extends Seeder
             'name' => 'Dapmen User',
             'password' => bcrypt('password'),
             'role_id' => 1,
+            'is_ketua_kelompok' => false,
          ]
       );
 
@@ -93,6 +99,7 @@ class UserSeeder extends Seeder
             'name' => 'Mahasiswa User',
             'password' => bcrypt('password'),
             'role_id' => 1,
+            'is_ketua_kelompok' => false,
          ]
       );
    }

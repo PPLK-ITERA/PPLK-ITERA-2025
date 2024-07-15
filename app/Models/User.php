@@ -25,6 +25,7 @@ class User extends Authenticatable
       'linkedin_url',
       'instagram_url',
       'kelompok_id',
+      'is_ketua_kelompok',
       'pilar',
       'score',
       'role',
