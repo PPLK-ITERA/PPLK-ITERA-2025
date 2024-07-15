@@ -70,8 +70,8 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                 {/* Auth */}
                 <div className="md:flex items-center hidden">
                     <Link
-                        href="/login"
-                        className={`mx-2 rounded-[6px] bg-transparent ${isScrolled || isSolid ? "bg-white text-jaffa-800" : "bg-gradient-to-t from-[#A6680C] to-[#B9822F] text-white"} px-4 py-[10px] font-montserrat text-[16px] font-semibold shadow-sm transition-all duration-500 ease-in-out`}
+                        href={route("login")}
+                        className="mx-2 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
                     >
                         Login
                     </Link>

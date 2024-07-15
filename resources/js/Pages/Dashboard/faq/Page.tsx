@@ -9,7 +9,7 @@ const breadcrumbItems = [
     { title: "Faq", link: "/dashboard/faq" },
 ];
 
-export default function Page() {
+export default function Page({auth}) {
     return (
         <DashboardLayout>
             <Breadcrumbs items={breadcrumbItems} />

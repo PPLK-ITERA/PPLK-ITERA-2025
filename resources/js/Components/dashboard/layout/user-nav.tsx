@@ -1,5 +1,7 @@
 "use client";
 
+import { Link } from "@inertiajs/react";
+
 import {
     Avatar,
     AvatarFallback,
@@ -18,9 +20,13 @@ import {
     DropdownMenuTrigger,
 } from "@/Components/dashboard/ui/dropdown-menu";
 
-export function UserNav() {
+export function UserNav({ name }) {
     // const { data: session } = useSession();
     const session = true;
+    const signOut = (e) => {
+        e.preventDefault();
+        Inertia.post("/logout");
+    };
     if (session) {
         return (
             <DropdownMenu>
@@ -29,7 +35,7 @@ export function UserNav() {
                         variant="ghost"
                         className="relative w-8 h-8 rounded-full"
                     >
-                        ujang
+                        {name}
                         {/* <Avatar className="w-8 h-8">
                             <AvatarImage
                                 src={session.user?.image ?? ""}
@@ -71,7 +77,9 @@ export function UserNav() {
                     <DropdownMenuSeparator />
                     {/* <DropdownMenuItem onClick={() => signOut()}> */}
                     <DropdownMenuItem>
-                        Log out
+                        <Link href={route("logout")} method="post">
+                            Log out
+                        </Link>
                         <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuContent>

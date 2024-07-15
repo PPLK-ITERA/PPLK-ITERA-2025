@@ -23,12 +23,12 @@ import {
     TabsTrigger,
 } from "@/Components/dashboard/ui/tabs";
 
-export default function Page() {
+export default function Page({ auth }) {
     return (
-        <DashboardLayout>
+        <DashboardLayout user={auth.user}>
             <div className="flex items-center justify-between space-y-2">
                 <h2 className="text-3xl font-bold tracking-tight">
-                    Hi, Welcome back 👋
+                    Hi, Welcome back👋
                 </h2>
                 <div className="md:flex items-center hidden space-x-2">
                     <CalendarDateRangePicker />
