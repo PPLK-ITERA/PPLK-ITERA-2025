@@ -13,7 +13,6 @@ import {
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { IconAdjustmentsHorizontal } from "@tabler/icons-react";
 
 import React from "react";
 
@@ -34,6 +33,8 @@ import {
     Users,
 } from "lucide-react";
 
+import { IconAdjustmentsHorizontal } from "@tabler/icons-react";
+
 type Props = { options: { label: string; value: string }[] };
 
 export default function SortDropdown({ options }: Props) {
@@ -45,11 +46,16 @@ export default function SortDropdown({ options }: Props) {
                     <IconAdjustmentsHorizontal />
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 rounded-lg bg-jaffa-100">
+            <DropdownMenuContent className="bg-jaffa-100 w-56 rounded-lg">
                 <DropdownMenuGroup>
                     {options.map((option) => (
-                        <DropdownMenuItem key={option.value} className="place-content-center hover:bg-jaffa-200">
-                            <span className="font-semibold">Sort by {option.label}</span>
+                        <DropdownMenuItem
+                            key={option.value}
+                            className="place-content-center hover:bg-jaffa-200"
+                        >
+                            <span className="font-semibold">
+                                Sort by {option.label}
+                            </span>
                         </DropdownMenuItem>
                     ))}
                 </DropdownMenuGroup>

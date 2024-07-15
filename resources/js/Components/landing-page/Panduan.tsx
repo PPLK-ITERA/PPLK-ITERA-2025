@@ -14,7 +14,7 @@ export default function Panduan() {
                     Panduan
                 </h2>
 
-                <p className="mt-5 text-center font-montserrat text-[16px] font-normal md:text-xl lg:max-w-[90%] lg:text-start xl:max-w-[70%] xl:text-2xl">
+                <p className="mt-5 text-center font-montserrat text-[16px] font-normal md:text-xl lg:text-2xl lg:max-w-[90%] lg:text-start xl:max-w-[70%] xl:text-2xl">
                     Panduan PPLK berfungsi untuk menyajikan informasi terbaru
                     seputar PPLK ITERA khusus untuk teman-teman Mahasiswa Baru.
                     Jangan sampai ketinggalan informasi terbaru ya!

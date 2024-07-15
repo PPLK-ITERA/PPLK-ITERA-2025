@@ -1,7 +1,3 @@
-import { users } from "@/lib/data/user";
-import { useAos } from "@/lib/hooks/useAos";
-import { User } from "@/lib/types/User";
-import { IconMoodAngry, IconMoodSearch } from "@tabler/icons-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import React from "react";
@@ -9,6 +5,8 @@ import React from "react";
 import { Link } from "@inertiajs/react";
 
 import { UserPlus } from "lucide-react";
+
+import { IconMoodAngry, IconMoodSearch } from "@tabler/icons-react";
 
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
@@ -24,6 +22,10 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 
+import { users } from "@/lib/data/user";
+import { useAos } from "@/lib/hooks/useAos";
+import { User } from "@/lib/types/User";
+
 import instagramIcon from "!assets/svg/instagram.svg";
 import linkedinIcon from "!assets/svg/linkedin.svg";
 
@@ -37,16 +39,16 @@ const Page: React.FC = () => {
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl py-16 font-montserrat flex flex-col gap-8 mx-auto text-base md:text-md text-black px-2">
-                    <div className="flex max-md:flex-col max-md:text-center max-md:items-center gap-8 mx-auto max-w-5xl place-content-center w-full">
+                <div className="max-w-7xl font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 mx-auto text-base text-black">
+                    <div className="max-md:flex-col max-md:text-center max-md:items-center place-content-center flex w-full max-w-5xl gap-8 mx-auto">
                         <div className="flex flex-col justify-between gap-4">
                             <div>
                                 <img
-                                    className="aspect-square max-md:w-36 w-48 rounded-full select-none object-cover bg-gray-400"
+                                    className="aspect-square max-md:w-36 object-cover w-48 bg-gray-400 rounded-full select-none"
                                     src={user.profileImageUrl}
                                     alt={user.name}
                                 />
-                                <p className="max-md:hidden text-center mt-2">
+                                <p className="max-md:hidden mt-2 text-center">
                                     <span className="font-bold">
                                         {user.viewer}
                                     </span>{" "}
@@ -75,12 +77,12 @@ const Page: React.FC = () => {
                                     </p>
                                 </div>
                                 <h3 className="font-bold">{user.name}</h3>
-                                <div className="flex flex-col md:gap-1">
+                                <div className="md:gap-1 flex flex-col">
                                     <p className="font-semibold">{user.nim}</p>
                                     <p className="font-semibold">
                                         {user.prodi}
                                     </p>
-                                    <div className="flex gap-2 max-md:place-content-center">
+                                    <div className="max-md:place-content-center flex gap-2">
                                         <p className="font-semibold">
                                             {user.namaKelompok}
                                         </p>
@@ -94,7 +96,7 @@ const Page: React.FC = () => {
                                 </p>
                             </div>
 
-                            <div className="md:hidden flex gap-8 my-4 place-content-center w-full flex-wrap text-sm">
+                            <div className="md:hidden place-content-center flex flex-wrap w-full gap-8 my-4 text-sm">
                                 <p>
                                     <span className="block font-bold">
                                         {user.viewer}
@@ -144,7 +146,7 @@ const Page: React.FC = () => {
                         ini!
                     </p>
 
-                    <div className="max-w-6xl w-4/5 mx-auto">
+                    <div className="w-4/5 max-w-6xl mx-auto">
                         <Carousel>
                             <CarouselContent className="text-sm">
                                 {users.slice(0, 9).map((u, i) => (
@@ -152,28 +154,28 @@ const Page: React.FC = () => {
                                         data-aos="fade-up"
                                         data-aos-duration={800}
                                         data-aos-delay={(i + 1) * 100}
-                                        className="basis-48 md:basis-1/4 xl:basis-1/5 mb-8 mt-2 text-center"
+                                        className="basis-48 md:basis-1/4 xl:basis-1/5 mt-2 mb-8 text-center"
                                     >
                                         <ProfileCard user={u} />
                                     </CarouselItem>
                                 ))}
-                                <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 mb-8 mt-2">
-                                    <Card className="rounded-md drop-shadow-xl h-full">
-                                        <CardContent className="h-full flex flex-col justify-between items-center gap-1 p-4 text-black bg-white border rounded-md">
-                                            <div className="bg-gradient-to-r rounded-full w-24 h-24 grid place-content-center from-jaffa-600 to-jaffa-800 text-white">
+                                <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 mt-2 mb-8">
+                                    <Card className="drop-shadow-xl h-full rounded-md">
+                                        <CardContent className="flex flex-col items-center justify-between h-full gap-1 p-4 text-black bg-white border rounded-md">
+                                            <div className="bg-gradient-to-r place-content-center from-jaffa-600 to-jaffa-800 grid w-24 h-24 text-white rounded-full">
                                                 <IconMoodSearch
                                                     size={64}
                                                     className=""
                                                 />
                                             </div>
-                                            <p className="text-center font-bold">
+                                            <p className="font-bold text-center">
                                                 Temukan Nusantara Muda Lainnya!
                                             </p>
                                             <a href={route("relasi")}>
                                                 <Button className="w-full bg-[#ECAA25] text-black border border-black font-semibold text-xs">
                                                     Selengkapnya
                                                 </Button>
-                                            </a >
+                                            </a>
                                         </CardContent>
                                     </Card>
                                 </CarouselItem>

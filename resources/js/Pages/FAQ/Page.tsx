@@ -1,11 +1,11 @@
-import { faqs } from "@/lib/data/faq";
-
 import React, { useEffect, useState } from "react";
 
 import { AccordionFAQ } from "@/Components/AccordionFAQ";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import PaginationFAQ from "@/Components/PaginationFAQ";
+
+import { faqs } from "@/lib/data/faq";
 
 const Page: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState<string>("");

@@ -8,22 +8,26 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import NavMobile from "@/Components/NavMobile";
 
 import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk_white from "!assets/logo-pplk-20204-white.png";
 
 export default function Navbar({ isSolid = false, isFixed = false }) {
     const [isScrolled, setIsScrolled] = React.useState(false);
 
     React.useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 700);
+            setIsScrolled(window.scrollY > 150);
         };
 
         window.addEventListener("scroll", handleScroll);
+        // Check scroll position on initial render
+        handleScroll();
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
         <nav
-            className={`z-50 w-full ${isFixed ? "lg:fixed lg:left-0 lg:right-0 lg:top-0" : ""} ${isScrolled || isSolid ? "bg-jaffa-100" : "bg-transparent"} transition duration-300 ease-in`}
+            className={`z-50 w-full ${isFixed ? "lg:fixed lg:left-0 lg:right-0 lg:top-0" : ""} ${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-transparent"} transition duration-300 ease-in`}
         >
             <MaxWidthWrapper className="md:px-0 flex items-center justify-between w-full py-2">
                 {/* Logo PPLK*/}
@@ -31,16 +35,26 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                     className="font-fesbud flex items-center justify-start -ml-4"
                     href="/"
                 >
-                    <img
-                        src={logopplk}
-                        alt="logo-pplk-2024"
-                        className="w-16 h-16"
-                        width={202}
-                        height={202}
-                    />
-
+                    {isScrolled || isSolid ? (
+                        <img
+                            src={logopplk_white}
+                            alt="logo-pplk-2024"
+                            className="w-16 h-16"
+                            width={202}
+                            height={202}
+                        />
+                    ) : (
+                        <img
+                            src={logopplk}
+                            alt="logo-pplk-2024"
+                            className="w-16 h-16"
+                            width={202}
+                            height={202}
+                        />
+                    )}
+                    {/* text-[#A6680C] */}
                     <div
-                        className={`flex flex-col justify-center leading-[14px] ${isScrolled || isSolid ? "text-[#A6680C]" : "text-jaffa-400"} transition duration-200 ease-in`}
+                        className={`flex flex-col justify-center leading-[14px] ${isScrolled || isSolid ? " text-white" : "text-jaffa-400"} transition duration-500 ease-in-out`}
                     >
                         <p>PPLK</p>
                         <p>ITERA</p>
@@ -51,7 +65,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                 <NavLarge isScrolled={isScrolled} isSolid={isSolid} />
 
                 {/* NavMobile */}
-                <NavMobile isScrolled={isScrolled} isSolid={isSolid} />
+                <NavMobile />
 
                 {/* Auth */}
                 <div className="md:flex items-center hidden">

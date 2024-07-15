@@ -2,14 +2,7 @@ import React from "react";
 
 import { Link } from "@inertiajs/react";
 
-const Informasi = [
-    { title: "Informasi Fakultas", href: "/informasi-fakultas" },
-    { title: "Informasi HMPS & PRODI", href: "/informasi-hmps-prodi" },
-    { title: "Informasi UPT", href: "/informasi-upt" },
-    { title: "Informasi KM ITERA", href: "/informasi-km" },
-    { title: "Informasi SENAT ITERA", href: "/informasi-senat" },
-    { title: "Informasi UKM ITERA", href: "/informasi-ukm" },
-];
+import { InformasiInfoSection } from "@/constants/data";
 
 export default function InfoSection() {
     return (
@@ -41,11 +34,11 @@ export default function InfoSection() {
                     </p>
 
                     <div className="md:mt-0 md:w-3/4 lg:w-2/3 flex flex-wrap w-full gap-3 mt-5">
-                        {Informasi.map((info, index) => (
+                        {InformasiInfoSection.map((info, index) => (
                             <Link
                                 key={index}
                                 href={info.href}
-                                className="rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[12px] font-semibold uppercase text-white shadow-sm md:text-[14px]"
+                                className="rounded-[6px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[12px] font-semibold uppercase text-white shadow-sm md:text-[14px]"
                             >
                                 {info.title}
                             </Link>

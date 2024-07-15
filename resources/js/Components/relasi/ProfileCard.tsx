@@ -1,20 +1,21 @@
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
-import { type User } from "@/lib/types/User";
 import PropTypes from "prop-types";
 
 import React from "react";
 
+import { type User } from "@/lib/types/User";
+
 function ProfileCard({ user }: { user: User }) {
     return (
-        <Card className="rounded-md drop-shadow-xl ring-1 ring-black/10 h-full">
-            <CardContent className="h-full flex flex-col items-center gap-1 p-4 text-black bg-white font-medium text-sm text-center">
+        <Card className="drop-shadow-xl ring-1 ring-black/10 h-full rounded-md">
+            <CardContent className="flex flex-col items-center h-full gap-1 p-4 text-sm font-medium text-center text-black bg-white">
                 <img
-                    className="w-24 h-24 rounded-full select-none bg-gray-400"
+                    className="w-24 h-24 bg-gray-400 rounded-full select-none"
                     src={user.profileImageUrl}
                     alt={user.name}
                 />
-                <h3 className="mt-4 font-bold line-clamp-1 text-ellipsis">
+                <h3 className="line-clamp-1 text-ellipsis mt-4 font-bold">
                     {user.name}
                 </h3>
                 <p>{user.prodi}</p>

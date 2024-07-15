@@ -13,9 +13,14 @@ const colors = {
     bronze: "linear-gradient(to right, #632801, #B3773B, #7D3819, #B3773B, #7D3819)",
 };
 
-export default function Podium({ children, className, color, maxHeightPx }: Props) {
+export default function Podium({
+    children,
+    className,
+    color,
+    maxHeightPx,
+}: Props) {
     return (
-        <div className="rounded-t-lg shadow-inner w-full overflow-clip flex flex-col">
+        <div className="overflow-clip flex flex-col w-full rounded-t-lg shadow-inner">
             <div
                 style={{
                     background: colors[color],
@@ -24,7 +29,7 @@ export default function Podium({ children, className, color, maxHeightPx }: Prop
                 className={`${className}`}
             >
                 <div
-                    className="w-full h-full grid place-content-center"
+                    className="place-content-center grid w-full h-full"
                     data-aos="zoom-in"
                     data-aos-duration="1000"
                 >
