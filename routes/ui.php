@@ -103,6 +103,10 @@ Route::middleware('guest')->group(function () {
     Route::get('dashboard/mading', function () {
         return Inertia::render('Dashboard/mading/Page');
     })->name('dashboard/mading');
+
+    Route::get('informasi/fakultas', function () {
+        return Inertia::render('Informasi/Fakultas/Page');
+    })->name('informasi/fakultas');
 });
 
 Route::middleware('auth')->group(function () {
