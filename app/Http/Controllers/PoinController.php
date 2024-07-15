@@ -26,7 +26,7 @@ class PoinController extends Controller
 
         DB::beginTransaction();
         try {
-            $user->score = $request->point;
+            $user->score += $request->point;
             $user->save();
             DB::commit();
             return response()->json(['message' => 'Poin berhasil ditambahkan'], 201);
