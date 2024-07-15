@@ -39,7 +39,11 @@ export function DashboardNav({
             user: User;
         };
     }>;
+
     const { auth } = usePage<MyPage>().props;
+
+    console.log(auth.user);
+
     if (!items?.length) {
         return null;
     }

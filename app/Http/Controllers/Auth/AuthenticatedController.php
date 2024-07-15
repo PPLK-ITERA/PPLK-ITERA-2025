@@ -20,10 +20,10 @@ class AuthenticatedController extends Controller
    {
       // if has auth, redirect to dashboard
       if (Auth::check()) {
-         return redirect()->route('welcome');
+         return Inertia::render('LandingPage');
       }
 
-      return Inertia::render('Login', [
+      return Inertia::render('Login/Page', [
          'canResetPassword' => Route::has('password.request'),
          'status' => session('status'),
       ]);
@@ -38,7 +38,7 @@ class AuthenticatedController extends Controller
 
       $request->session()->regenerate();
 
-      return redirect()->intended(route('welcome', absolute: false));
+      return redirect()->intended(route('dashboard', absolute: false));
    }
 
    /**

@@ -56,7 +56,7 @@ export default function Navbar({ isSolid = false, isFixed = false }) {
                 {/* Auth */}
                 <div className="md:flex items-center hidden">
                     <Link
-                        href="/login"
+                        href={route("login")}
                         className="mx-2 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
                     >
                         Login

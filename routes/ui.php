@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
 
    Route::get('dashboard/profile', function () {
       return Inertia::render('Dashboard/profile/Page');
-   })->name('dashboard/profile');
+   })->middleware('checkRole:Admin', 'checkRole:Maba')->name('dashboard/profile');
 
    Route::get('dashboard/user', function () {
       return Inertia::render('Dashboard/user/Page');
