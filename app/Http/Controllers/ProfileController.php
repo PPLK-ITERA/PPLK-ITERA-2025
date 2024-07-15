@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -47,14 +48,18 @@ class ProfileController extends Controller
          'linkedinURL' => 'required|url',
          'instaURL' => 'required|url',
       ]);
-      $update = $user->update([
-         'photo' => $request->photo->store('profile-photos', 'public'),
-         'linkedin_url' => $request->linkedinURL,
-         'instagram_url' => $request->instaURL,
-      ]);
-      if ($update) {
-         Response()->json(['message', 'Berhasil mengubah profile']);
+      DB::beginTransaction();
+      try {
+         $update = $user->update([
+            'photo' => $request->photo->store('profile-photos', 'public'),
+            'linkedin_url' => $request->linkedinURL,
+            'instagram_url' => $request->instaURL,
+         ]);
+         DB::commit();
+         return response()->json(['message', 'Berhasil mengubah profile']);
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json(['message', 'Gagal mengubah profile']);
       }
-      Response()->json(['message', 'Gagal mengubah profile']);
    }
 }
