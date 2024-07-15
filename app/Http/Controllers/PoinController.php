@@ -14,26 +14,26 @@ class PoinController extends Controller
 {
     public function index($user_id)
     {
-        $user = User::find($user_id);
-        if (!$user) {
+        $ketua_kelompok = User::find($user_id);
+        if (!$ketua_kelompok) {
             return response()->json(['message' => 'User not found'], 404);
         }
-        return view('testing', compact('user'));
+        return view('testing', compact('ketua_kelompok'));
     }
 
     public function store(Request $request, $user_id)
     {
-        $user = User::find($user_id);
-        if (!$user) {
+        $ketua_kelompok = User::find($user_id);
+        if (!$ketua_kelompok) {
             return response()->json(['message' => 'User not found'], 404);
         }
 
         DB::beginTransaction();
         try {
-            $user->score += $request->point;
-            $user->save();
+            $ketua_kelompok->score += $request->point;
+            $ketua_kelompok->save();
             DB::commit();
-            return response()->json(['message' => 'Poin berhasil ditambahkan', 'user' => $user], 201);
+            return response()->json(['message' => 'Poin berhasil ditambahkan', 'ketua_kelompok' => $ketua_kelompok], 201);
         } catch (\Throwable $th) {
             DB::rollBack();
             return response()->json(['message' => $th], 500);
