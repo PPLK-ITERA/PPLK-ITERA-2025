@@ -34,6 +34,7 @@ class TugasController extends Controller
             'user_id' => 'required|exists:users,id',
             'materi' => 'required|in:materi1, materi2, materi3',
             'tanggal_submit' => 'required|date',
+            'kategori_tugas' => 'required|in:individu,kelompok',
         ]);
 
         DB::beginTransaction();
@@ -66,6 +67,7 @@ class TugasController extends Controller
             'user_id' => 'required|exists:users,id',
             'materi' => 'required|in:materi1, materi2, materi3',
             'tanggal_submit' => 'required|date',
+            'kategori_tugas' => 'required|in:individu,kelompok',
         ]);
 
         DB::beginTransaction();

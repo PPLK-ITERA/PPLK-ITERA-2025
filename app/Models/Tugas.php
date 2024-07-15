@@ -9,6 +9,14 @@ class Tugas extends Model
 {
     use HasFactory;
 
+    protected $fillable =[
+        'link',
+        'user_id',
+        'materi',
+        'tanggal_submit',
+        'kategori_tugas',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

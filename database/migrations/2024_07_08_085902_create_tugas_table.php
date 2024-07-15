@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('link');
             $table->unsignedBigInteger('user_id');
             $table->enum('materi', ['materi1', 'materi2', 'materi3']);
+            $table->enum('kategori_tugas', ['individu', 'kelompok']);
             $table->date('tanggal_submit');
             $table->timestamps();
 
