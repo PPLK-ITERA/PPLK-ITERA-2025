@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PoinQrCode;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -14,6 +15,9 @@ class PoinController extends Controller
     public function index($user_id)
     {
         $user = User::find($user_id);
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
         return view('testing', compact('user'));
     }
 
@@ -29,19 +33,19 @@ class PoinController extends Controller
             $user->score += $request->point;
             $user->save();
             DB::commit();
-            return response()->json(['message' => 'Poin berhasil ditambahkan'], 201);
+            return response()->json(['message' => 'Poin berhasil ditambahkan', 'user' => $user], 201);
         } catch (\Throwable $th) {
             DB::rollBack();
-            return response()->json(['message' => 'Gagal menambahkan poin'], 500);
+            return response()->json(['message' => $th], 500);
         }
     }
 
     public function generateQrCode($user_id)
     {
-        $code = PoinQrCode::where('code', strval($user_id) . '-prapplk')->first();
-        if (!$code) {
-            PoinQrCode::create([
-                'code' => strval($user_id) . '-prapplk',
+        $code = PoinQrCode::where('code', strval($user_id) . '-prapplk-' . Carbon::now()->toDateString())->first();
+        if (!$code || $code->expired_at->isPast()) {
+            $code = PoinQrCode::create([
+                'code' => strval($user_id) . '-prapplk-' . Carbon::now()->toDateString(),
                 'user_id' => $user_id,
                 'expired_at' => now()->addDay(),
             ]);
