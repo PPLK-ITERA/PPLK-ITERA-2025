@@ -1,10 +1,5 @@
-import { faqs } from "@/lib/data/faq";
-
 import React, { useEffect, useState } from "react";
-
 import { AccordionFAQ } from "@/Components/AccordionFAQ";
-import Footer from "@/Components/Footer";
-import Navbar from "@/Components/Navbar";
 import PaginationFAQ from "@/Components/PaginationFAQ";
 import { faqs } from "@/lib/data/faq";
 import Navbar from "@/Components/Navbar";
@@ -42,7 +37,7 @@ const Page: React.FC = () => {
     return (
         <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
             <div>
-                <Navbar isSolid={true} />
+                <Navbar isSolid={true} isFixed={true}/>
                 <h2
                     data-aos="fade-down"
                     data-aos-duration="1000"

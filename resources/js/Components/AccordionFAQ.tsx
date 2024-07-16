@@ -46,7 +46,13 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                                     height="24"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
-                                    className="mr-2 text-jaffa-600"
+                                    className={`icon icon-tabler icons-tabler-filled icon-tabler-info-square-rounded mr-2 text-jaffa-600`}
+                                    style={{
+                                        transform:
+                                            clickedIndex === index
+                                                ? "none"
+                                                : "rotate(0deg)",
+                                    }}
                                 >
                                     <path
                                         stroke="none"
