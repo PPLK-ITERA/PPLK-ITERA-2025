@@ -49,12 +49,12 @@ export default function Navbar({
 
     return (
         <nav
-            className={`z-50 w-full ${isFixed ? "lg:fixed lg:left-0 lg:right-0 lg:top-0" : ""} ${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-transparent"} transition duration-300 ease-in`}
+            className={`z-50 ${isFixed ? "fixed left-0 right-0 top-0" : ""} ${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800 md:fixed md:rounded-lg md:left-2 md:right-2 md:top-2 md:shadow-lg" : "bg-transparent"} transition-all duration-300 ease-in`}
         >
-            <MaxWidthWrapper className="md:px-0 flex items-center justify-between w-full py-2">
+            <MaxWidthWrapper className="flex items-center justify-between w-full py-2">
                 {/* Logo PPLK*/}
                 <Link
-                    className="font-fesbud flex items-center justify-start -ml-4"
+                    className="font-fesbud flex items-center justify-start -ml-4 transition duration-300 ease-in-out"
                     href="/"
                 >
                     {isScrolled || isSolid ? (
@@ -136,6 +136,7 @@ export default function Navbar({
                                 >
                                     <Link
                                         href={route("logout")}
+                                        method="post"
                                         className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                                     >
                                         <span

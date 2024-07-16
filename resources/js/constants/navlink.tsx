@@ -122,7 +122,7 @@ export const InformasiDropDown = [
         ),
     },
     {
-        title: "Kabinet KM ITERA",
+        title: "KM ITERA",
         href: "/informasi/km",
         icon: (
             <svg

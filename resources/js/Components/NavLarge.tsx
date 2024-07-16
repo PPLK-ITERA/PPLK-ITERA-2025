@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Link } from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
 
 import { ChevronDown } from "lucide-react";
 
@@ -19,11 +20,13 @@ type NavLargeProps = {
 };
 
 export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
+    const router = usePage().url;
+
     return (
         <div className="hidden max-w-[800px] font-tinos md:flex">
             <Link
                 href="/"
-                className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
+                className={`mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
             >
                 Beranda
             </Link>
@@ -60,7 +63,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
 
             <Link
                 href="/ketentuan-atribut"
-                className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
+                className={`mx-2 text-[18px] ${router === "/ketentuan-atribut" ? "underline underline-offset-2" : ""} font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
             >
                 Ketentuan Atribut
             </Link>
@@ -97,7 +100,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
 
             <Link
                 href="/faq"
-                className={`mx-2 text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in-out`}
+                className={`mx-2 ${router === "/faq" ? "underline underline-offset-2" : ""} text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in-out`}
             >
                 FAQ
             </Link>
