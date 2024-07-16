@@ -1,7 +1,5 @@
 <?php
 //TODO: Remove the feedback and response related
-
-use App\Http\Controllers\BookletController;
 use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QrcodeController;
@@ -11,10 +9,10 @@ use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\FAQController;
-
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;
+
+
 
 
 Route::get('/', function () {
@@ -23,7 +21,7 @@ Route::get('/', function () {
       return redirect()->route('dashboard');
    }
 
-   return Inertia::render('LandingPage', [
+   return Inertia::render('Welcome', [
       'canLogin' => Route::has('login'),
       'canRegister' => Route::has('register'),
       'laravelVersion' => Application::VERSION,
@@ -31,23 +29,13 @@ Route::get('/', function () {
    ]);
 })->name('welcome');
 
-//Guest Route
-
-// Route::get('/booklets', [BookletController::class, 'index']);
-Route::get('/faqs', [FAQController::class, 'index']);
 Route::get('/dashboard', function () {
    return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
-//Test PresensiCUI
-// Route::get('/presensi', [PresensiCuiController::class, 'index'])->name('presensi.index');
-// Route::post('/presensi/process', [PresensiCuiController::class, 'process'])->name('presensi.process');
-// Route::get('/presensi/scan', [PresensiCuiController::class, 'scanPage'])->name('presensi.scan');
-// Route::post('/presensi/scan', [PresensiCuiController::class, 'scanQrCode'])->name('presensi.scan.qrcode');
-
-//Auth Route
 Route::middleware('auth')->group(function () {
+
+   // Profile
    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
