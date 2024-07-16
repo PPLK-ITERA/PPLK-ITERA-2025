@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\KelompokController;
+use App\Http\Controllers\PresensiCuiController;
 use App\Http\Controllers\UserController;
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;
@@ -20,8 +21,7 @@ Route::get('/', function () {
    if (auth()->check()) {
       return redirect()->route('dashboard');
    }
-
-   return Inertia::render('Welcome', [
+   return Inertia::render('LandingPage', [
       'canLogin' => Route::has('login'),
       'canRegister' => Route::has('register'),
       'laravelVersion' => Application::VERSION,
@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
    //melihat kelompok yang tidak masuk top 10
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
+   Route::post('qrcode/scan', [PresensiCuiController::class, 'QRScan']);
 
 
    //Middleware only maba
@@ -76,18 +77,6 @@ Route::middleware('auth')->group(function () {
 
    // Route::post('/storepresensi', [PresensiPplkController::class,'store'])->name('presensi.store');
    // Route::get('/generateQrcode', [QrcodeController::class, 'generateQrCode']);
-   // Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
-   // Route::get('/follow', [UserController::class, 'followview']);
-   // Route::get('/user/feedback', [FeedbackController::class, 'showUserFeedback'])->name('user.feedback');
-   // Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedbacks.index');
-   // Route::post('/feedback/respond/{id}', [FeedbackController::class, 'respond'])->name('feedback.respond');
-   // Route::get('/admin/feedbacks', [FeedbackController::class, 'showAllFeedbacks'])->name('admin.feedbacks');
-   // Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
-   // Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
-   // Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
 });
-
-
-
 require __DIR__ . '/auth.php';
 require __DIR__ . '/ui.php';

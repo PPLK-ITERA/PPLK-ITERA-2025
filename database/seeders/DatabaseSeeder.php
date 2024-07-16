@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
          PresensiPplkSeeder::class,
          RoleSeeder::class,
          QrcodeSeeder::class,
-         ProdiSeeder::class,,
+         ProdiSeeder::class,
          FAQSeeder::class,
          BookletSeeder::class,
          // Add more seeders if needed

@@ -6,22 +6,23 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PresensiCui;
 use App\Models\LogCui;
+use App\Models\Qrcode;
 
 class PresensiCuiController extends Controller
 {
    public function QRScan(Request $request)
    {
-      $request->validate([
+      $validated = $request->validate([
          'qr_code' => 'required|string',
       ]);
 
-      $logCui = LogCui::where('qr_code', $request->qr_code)->first();
-
-      if (!$logCui) {
+      $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
+      if (!$qrcode) {
          return response()->json(['message' => 'QR Code tidak ditemukan'], 404);
       }
+      $userid = $qrcode->usercui()->id;
 
-      return response()->json(['message' => 'Berhasil mendapatkan data', 'data' => $logCui], 200);
+      return response()->json(['message' => 'Berhasil mendapatkan data', 'id' => $userid], 201);
    }
 
    public function UpdateHadir(Request $request)
