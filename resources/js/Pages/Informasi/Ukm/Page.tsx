@@ -62,7 +62,7 @@ const Page: React.FC = () => {
             </div>
             <div>
                 <div className="bg-pattern-white flex flex-col items-center py-20">
-                    <CarouselUkm items={currentItems} />
+                    <CarouselUkm items={currentItems}  />
                     <PaginationInformasi
                         currentPage={currentPage}
                         totalPages={totalPages}

@@ -22,6 +22,9 @@ import kegiatanbatavia1 from "!assets/logoukm/kegiatanbatavia1.jpg";
 import kegiatanbatavia2 from "!assets/logoukm/kegiatanbatavia2.jpg";
 import kegiatanbatavia3 from "!assets/logoukm/kegiatanbatavia3.jpg";
 
+import lancangkuning from "!assets/logoukm/logolancangkuning.png";
+import kegiatanlancangkuning1 from "!assets/logoukm/kegiatanlancangkuning1.png";
+
 
 
 import urotera from "!assets/logoukm/urotera.png";
@@ -30,6 +33,7 @@ import urotera from "!assets/logoukm/urotera.png";
 export const ukmData = [
     {
         key: "madani",
+        link: "/informasi/ukm/madani",
         logo: madani,
         title: "MADANI",
         fotopembina: fotodefault,
@@ -68,6 +72,7 @@ export const ukmData = [
         ]},
     {
       key: "himalaya",
+      link: "/informasi/ukm/himalaya",
       logo: himalaya,
       title: "HIMALAYA",
       fotopembina: fotodefault,
@@ -106,6 +111,7 @@ export const ukmData = [
       ]},
       {
         key: "ikm",
+        link: "/informasi/ukm/ikm",
         logo: ikm,
         title: "IKM",
         fotopembina: fotodefault,
@@ -145,6 +151,7 @@ export const ukmData = [
     
         {
           key: "batavia",
+          link: "/informasi/ukm/batavia",
           logo: batavia,
           title: "BATAVIA",
           fotopembina: fotodefault,
@@ -180,9 +187,33 @@ export const ukmData = [
           ]},
     
     {
-        logo: madani,
-        title: "MADANI",
-    },
+      key: "lancangkuning",
+      link: "/informasi/ukm/lancangkuning",
+      logo: fotodefault,
+      title: "LANCANG KUNING",
+      fotopembina: fotodefault,
+      pembina: "Nama PEMBINA",
+      jabatan: "Jabatan Pembina",
+      fotoketua: fotodefault,
+      ketum: "Vania Kahana Lie H",
+      prodi: "Farmasi '21",
+      sejarah:"UKM Lancang Kuning ITERA merupakan unit kegiatan mahasiswa yang bergerak dibidang sosial, kekeluargaan, kesenian, dan kebudaayan. UKM Lancang Kuning ITERA menjadi wadah kekeluargaan bagi mahasiswa ITERA yang berasal dari Riau dan Kepulauan Riau. UKM Lancang Kuning ITERA membawa ciri khas kebudayaan melayu dan memiliki pepatah yang mengatakan “takkan  melayu  hilang di bumi”, artinya kebudayaan melayu tidak akan hilang di bumi nusantara ini. UKM Lancang Kuning ITERA merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera tepatnya di Provinsi Lampung. Diresmikan sesuai keputusan rektor Institut Teknologi Sumatera Nomor 214/A/SK/KM/X/2016. Terbentuknya UKM Lancang Kuning ITERA disepakati pada 10 September 2015.",
+      allprestasi: [
+        {
+           prestasi:kegiatanlancangkuning1,
+           deskripsi:"Lancang Kuning Berlayar",
+        }
+
+      ],
+
+      allsosmed: [
+        {
+            instagram: "https://www.instagram.com/lancangkuningitera/",
+            youtube: "",
+            website: "", 
+            tiktok: "",
+        }
+      ]},
     {
         logo: urotera,
         title: "UROTERA",
