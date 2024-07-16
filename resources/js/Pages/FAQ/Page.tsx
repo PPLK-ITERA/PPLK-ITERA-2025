@@ -1,5 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { faqs } from "@/lib/data/faq";
+
+import React, { useEffect, useState } from "react";
+
 import { AccordionFAQ } from "@/Components/AccordionFAQ";
+import Footer from "@/Components/Footer";
+import Navbar from "@/Components/Navbar";
 import PaginationFAQ from "@/Components/PaginationFAQ";
 import { faqs } from "@/lib/data/faq";
 import Navbar from "@/Components/Navbar";
@@ -35,7 +40,7 @@ const Page: React.FC = () => {
     );
 
     return (
-        <div className="relative flex min-h-screen w-full flex-col bg-pattern-white text-center">
+        <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
             <div>
                 <Navbar isSolid={true} />
                 <h2
@@ -68,7 +73,7 @@ const Page: React.FC = () => {
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            className="absolute left-3 text-black"
+                            className="left-3 absolute text-black"
                         >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />

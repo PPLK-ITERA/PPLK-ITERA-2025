@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Mail, LockKeyhole, Eye, EyeOff } from "lucide-react";
 
-import CarouselForm from "@/Components/fragments/CarouselForm";
-import { Button } from "@/Components/ui/button";
-import { Input } from "@/Components/ui/input";
-import { useToast } from "@/Components/ui/use-toast";
 import { Head, Link, useForm } from "@inertiajs/react";
-import TextInput from "@/Components/TextInput";
+
+import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
+
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
+import TextInput from "@/Components/TextInput";
+import { Button } from "@/Components/dashboard/ui/button";
+import { Input } from "@/Components/dashboard/ui/input";
+import { useToast } from "@/Components/dashboard/ui/use-toast";
+import CarouselForm from "@/Components/fragments/CarouselForm";
 
 export default function Login({ auth, laravelVersion, phpVersion }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -60,21 +62,21 @@ export default function Login({ auth, laravelVersion, phpVersion }) {
 
                     <form
                         onSubmit={submit}
-                        className="flex flex-col items-center justify-start p-2 md:items-start"
+                        className="md:items-start flex flex-col items-center justify-start p-2"
                     >
                         <h1 className="w-[300px] text-2xl font-bold text-jaffa-800 sm:w-[300px] sm:text-3xl md:mb-8 lg:mt-10 lg:w-96 lg:text-4xl">
                             Selamat Datang
-                            <br className="hidden lg:block" /> Di Kuis
+                            <br className="lg:block hidden" /> Di Kuis
                             Personality
-                            <br className="hidden lg:block" /> PPLK
+                            <br className="lg:block hidden" /> PPLK
                         </h1>
 
                         <div>
                             <label htmlFor="email">Email</label>
                             <div className="relative w-[300px] sm:w-[300px] lg:w-96">
-                                <Mail className="absolute left-2 top-3 text-jaffa-600" />
+                                <Mail className="left-2 top-3 text-jaffa-600 absolute" />
                                 <Input
-                                    className="mb-4 h-12 rounded-md border border-jaffa-600 pl-10 ring-jaffa-600 focus:ring-2"
+                                    className="border-jaffa-600 ring-jaffa-600 focus:ring-2 h-12 pl-10 mb-4 border rounded-md"
                                     name="email"
                                     type="email"
                                     autoComplete="email"
@@ -96,12 +98,12 @@ export default function Login({ auth, laravelVersion, phpVersion }) {
                                 <div className="relative">
                                     <LockKeyhole
                                         strokeWidth={1.5}
-                                        className="absolute left-2 top-3 text-jaffa-600"
+                                        className="left-2 top-3 text-jaffa-600 absolute"
                                     />
                                 </div>
 
                                 <Input
-                                    className="mb-4 h-12 rounded-md border border-jaffa-600 bg-transparent pl-10 ring-jaffa-600 focus:ring-2"
+                                    className="border-jaffa-600 ring-jaffa-600 focus:ring-2 h-12 pl-10 mb-4 bg-transparent border rounded-md"
                                     type={showPassword ? "text" : "password"}
                                     placeholder="Password anda"
                                     value={data.password}
@@ -116,7 +118,7 @@ export default function Login({ auth, laravelVersion, phpVersion }) {
                                 {showPassword ? (
                                     <Eye
                                         strokeWidth={1.5}
-                                        className="absolute right-2 top-3 cursor-pointer text-jaffa-600"
+                                        className="right-2 top-3 text-jaffa-600 absolute cursor-pointer"
                                         onClick={() => {
                                             setShowPassword(!showPassword);
                                             handleTogglePassword();
@@ -125,7 +127,7 @@ export default function Login({ auth, laravelVersion, phpVersion }) {
                                 ) : (
                                     <EyeOff
                                         strokeWidth={1.5}
-                                        className="absolute right-2 top-3 cursor-pointer text-jaffa-600"
+                                        className="right-2 top-3 text-jaffa-600 absolute cursor-pointer"
                                         onClick={() => {
                                             setShowPassword(!showPassword);
                                             handleTogglePassword();

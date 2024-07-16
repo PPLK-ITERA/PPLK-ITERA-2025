@@ -1,28 +1,36 @@
-import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
+import { useAos } from "../lib/hooks/useAos";
+
 import React from "react";
-import elang from "../../../public/assets/elang-hero.png";
-import overlay_earth from "../../../public/assets/overlay-earth.png";
-import pillar_brown from "../../../public/assets/pillar-brown.png";
-import overlay_box from "../../../public/assets/overlay-box.png";
-import What from "@/Components/landing-page/What";
-import Panduan from "@/Components/landing-page/Panduan";
-import VideoSection from "@/Components/landing-page/VideoSection";
-import FilosofiLogo from "@/Components/landing-page/FilosofiLogo";
-import Maskot from "@/Components/landing-page/Maskot";
-import InfoSection from "@/Components/landing-page/InfoSection";
-import Sponsorship from "@/Components/landing-page/Sponsorship";
+
 import Footer from "@/Components/Footer";
-import sponsor_overlay from "../../../public/assets/sponsor-overlay.png";
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import NavHero from "@/Components/NavHero";
+import FilosofiLogo from "@/Components/landing-page/FilosofiLogo";
+import InfoSection from "@/Components/landing-page/InfoSection";
+import Maskot from "@/Components/landing-page/Maskot";
+import Panduan from "@/Components/landing-page/Panduan";
+import Sponsorship from "@/Components/landing-page/Sponsorship";
+import VideoSection from "@/Components/landing-page/VideoSection";
+import What from "@/Components/landing-page/What";
+
+import elang from "!assets/elang-hero.png";
+import overlay_box from "!assets/overlay-box.png";
+import overlay_earth from "!assets/overlay-earth.png";
+import pillar_brown from "!assets/pillar-brown.png";
+import sponsor_overlay from "!assets/sponsor-overlay.png";
 
 export default function LandingPage() {
+    useAos();
+
     return (
-        <div>
+        <div className="scrollbar-hide overflow-hidden">
             <MaxWidthWrapper className="relative">
                 <img
                     src={elang}
                     alt="elang"
-                    className="absolute right-10 top-32 md:w-1/3 lg:w-1/3"
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                    className="absolute right-0 top-[25rem] z-30 scale-75 md:right-10 md:top-32 md:block md:w-1/3 md:scale-100 lg:w-1/3"
                 />
             </MaxWidthWrapper>
 
@@ -59,10 +67,10 @@ export default function LandingPage() {
             <img
                 src={overlay_box}
                 alt="pillar_brown"
-                className="absolute -mt-[200px] w-full"
+                className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
             />
 
-            <div className="bg-pattern-white pb-20 pt-40">
+            <div className="bg-pattern-white pt-40 pb-20">
                 <InfoSection />
             </div>
 
@@ -73,7 +81,7 @@ export default function LandingPage() {
             <img
                 src={sponsor_overlay}
                 alt="sponsor_overlay"
-                className="w-full object-cover"
+                className="object-cover w-full"
             />
 
             <Footer />

@@ -12,10 +12,10 @@ const Pilar = ({
     return (
         <div>
             <div className="flex justify-between">
-                <p className={`${className} font-bold text-lg`}>
+                <p className={`${className} text-lg font-bold`}>
                     Pilar {angka} :{" "}
                 </p>
-                <p className="text-[#432005] text-xs self-end">{hasil}/18</p>
+                <p className="self-end text-xs text-[#432005]">{hasil}/18</p>
             </div>
         </div>
     );

@@ -1,18 +1,20 @@
-import { Link } from "@inertiajs/react";
 import React from "react";
-import maskot from "../../../../public/assets/ChaBud.gif";
+
+import { Link } from "@inertiajs/react";
+
+import maskot from "!assets/ChaBud.gif";
 
 export default function Maskot() {
     return (
-        <div className="flex min-h-[100vh] items-center justify-center lg:min-h-[150vh]">
-            <div className="flex w-2/3 flex-col items-start justify-center px-10 text-left lg:w-3/5">
-                <h2 className="font-avigea text-white md:text-2xl lg:text-4xl">
+        <div className="flex min-h-[100vh] flex-col-reverse items-center justify-center gap-10 pb-20 md:flex-row md:gap-0 md:pb-10 lg:min-h-[150vh] lg:pb-0">
+            <div className="md:w-2/3 md:items-start md:text-left lg:w-3/5 flex flex-col items-center justify-center w-full px-10 text-center">
+                <h2 className="font-avigea md:text-2xl lg:text-4xl w-full text-xl text-white">
                     Kenalan Sama
                     <br />
                     Maskot PPLK 2024!
                 </h2>
 
-                <p className="mt-5 font-montserrat font-normal text-white/80 md:text-lg lg:max-w-[80%] lg:text-2xl">
+                <p className="mt-5 font-montserrat text-[16px] font-normal text-white/80 md:text-lg lg:max-w-[80%] lg:text-2xl">
                     Hai, Aku ChaBud, Maskot PPLK 2024, Barang siapa ? barang
                     gwehh! Aku hadir untuk memberikan informasi seputar PPLK
                     2024 nih, yuk kenalan lebih jauh sama aku!
@@ -26,7 +28,7 @@ export default function Maskot() {
                 </Link>
             </div>
 
-            <div className="flex h-full w-1/3 items-center justify-center text-white lg:w-2/5">
+            <div className="md:w-1/3 lg:w-2/5 flex items-center justify-center w-full h-full text-white">
                 <img
                     src={maskot}
                     alt="maskot"

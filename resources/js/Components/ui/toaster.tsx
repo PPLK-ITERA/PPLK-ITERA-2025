@@ -1,5 +1,8 @@
 "use client";
 
+import React from "react";
+
+import { useToast } from "@/Components/dashboard/ui/use-toast";
 import {
     Toast,
     ToastClose,
@@ -8,8 +11,6 @@ import {
     ToastTitle,
     ToastViewport,
 } from "@/Components/ui/toast";
-import { useToast } from "@/Components/ui/use-toast";
-import React from "react";
 
 export function Toaster() {
     const { toasts } = useToast();

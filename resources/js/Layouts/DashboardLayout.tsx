@@ -1,0 +1,27 @@
+import React from "react";
+
+import Header from "@/Components/dashboard/layout/header";
+import Sidebar from "@/Components/dashboard/layout/sidebar";
+import { ScrollArea } from "@/Components/dashboard/ui/scroll-area";
+
+export default function DashboardLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <>
+            <Header />
+            <div className="flex h-screen overflow-hidden">
+                <Sidebar />
+                <main className="flex-1 pt-16 overflow-hidden">
+                    <ScrollArea className="h-full">
+                        <div className="md:p-8 flex-1 p-4 pt-6 space-y-4">
+                            {children}
+                        </div>
+                    </ScrollArea>
+                </main>
+            </div>
+        </>
+    );
+}

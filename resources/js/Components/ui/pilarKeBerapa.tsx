@@ -16,7 +16,7 @@ const PilarKeBerapa = ({
               <div className={`rounded-xl  w-1/2 h-4 ${className}`}></div>
             </div> */}
                     <Progress value={angka} />
-                    <div className="mt-2 text-xs text-center">
+                    <div className="mt-2 text-center text-xs">
                         <p>{angka}%</p>
                     </div>
                 </div>
