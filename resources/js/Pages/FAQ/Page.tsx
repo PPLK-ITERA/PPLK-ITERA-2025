@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import { AccordionFAQ } from "@/Components/AccordionFAQ";
-import PaginationFAQ from "@/Components/PaginationFAQ";
-import { faqs } from "@/lib/data/faq";
-import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
-import { useAos } from "@/lib/hooks/useAos";
+import Navbar from "@/Components/Navbar";
+import PaginationFAQ from "@/Components/PaginationFAQ";
 
 import { faqs } from "@/lib/data/faq";
+import { useAos } from "@/lib/hooks/useAos";
 
 const Page: React.FC = () => {
     useAos();
@@ -39,12 +39,12 @@ const Page: React.FC = () => {
     return (
         <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
             <div>
-                <Navbar isSolid={true} isFixed={true}/>
+                <Navbar isSolid={true} isFixed={true} />
                 <h2
-                  data-aos="fade-down"
-                  data-aos-duration="1000"
-                  className="font-avigea text-jaffa-900 pt-[30px] text-3xl md:text-5xl"
-                 >
+                    data-aos="fade-down"
+                    data-aos-duration="1000"
+                    className="font-avigea text-jaffa-900 pt-[30px] text-3xl md:text-5xl"
+                >
                     Frequently Asked Question
                 </h2>
                 <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 md:mt-[40px] md:px-0">
