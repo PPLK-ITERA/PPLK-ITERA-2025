@@ -4,13 +4,15 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
 import Hero from "@/Components/landing-page/Hero";
 
+import { User } from "@/lib/types/User";
+
 import awan from "!assets/awan.png";
 
-export default function NavHero() {
+export default function NavHero({ user }: { user?: User }) {
     return (
         <div className="relative min-h-[150vh] bg-mobile-hero-background bg-cover bg-center md:min-h-screen md:bg-tablet-hero-background lg:bg-desktop-hero-background">
             <MaxWidthWrapper>
-                <Navbar isFixed={true} />
+                <Navbar isFixed={true} user={user} />
                 <Hero />
             </MaxWidthWrapper>
 

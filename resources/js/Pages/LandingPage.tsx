@@ -19,7 +19,7 @@ import overlay_earth from "!assets/overlay-earth.png";
 import pillar_brown from "!assets/pillar-brown.png";
 import sponsor_overlay from "!assets/sponsor-overlay.png";
 
-export default function LandingPage() {
+export default function LandingPage({ auth }) {
     useAos();
 
     return (
@@ -34,7 +34,7 @@ export default function LandingPage() {
                 />
             </MaxWidthWrapper>
 
-            <NavHero />
+            <NavHero user={auth.user} />
 
             <div className="bg-pattern-white relative">
                 <div className="bg-gradient-to-b from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
