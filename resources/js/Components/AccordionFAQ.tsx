@@ -5,24 +5,20 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/Components/dashboard/ui/accordion";
+} from "@/Components/ui/accordion";
 
 interface FAQ {
     title: string;
     content: string;
 }
-
 interface AccordionFAQProps {
     items: FAQ[];
 }
-
 export function AccordionFAQ({ items }: AccordionFAQProps) {
     const [clickedIndex, setClickedIndex] = useState<number | null>(null);
-
     const handleClick = (index: number) => {
         setClickedIndex(clickedIndex === index ? null : index);
     };
-
     return (
         <div className="w-full">
             <Accordion type="single" collapsible className="w-full">
@@ -38,7 +34,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                         <AccordionItem value={`item-${index}`}>
                             <AccordionTrigger
                                 onClick={() => handleClick(index)}
-                                className="flex items-center w-full px-3 py-5 text-left border-none"
+                                className="flex w-full items-center border-none px-3 py-5 text-left"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
