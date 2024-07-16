@@ -49,9 +49,11 @@ Route::middleware('auth')->group(function () {
    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
    //Poin
-   Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index')->middleware('checkRole:Korlap');
-   Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store')->middleware('checkRole:Korlap');
-   Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect')->middleware('checkRole:Korlap');
+   Route::middleware('checkRole:Korlap')->group(function () {
+      Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
+      Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store');
+      Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect');
+   });
    Route::get('/poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('poin.qrcode')->middleware('checkRole:Dapmen');
 });
 
