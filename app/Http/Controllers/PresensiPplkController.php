@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelompok;
+use App\Models\Prodi;
+use App\Models\Qrcode;
 use App\Models\PresensiPplk;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PresensiPplkController extends Controller
 {
-   //
+   // tambah berdasarkan prodi filter bydate
    public function getAllPresensi()
    {
       $presensi = PresensiPplk::all();
@@ -20,6 +22,20 @@ class PresensiPplkController extends Controller
    {
       $presensi = PresensiPplk::where('user_id', $user_id)->get();
       return response()->json($presensi, 200);
+   }
+
+   function getUserPresensiByProdi($prodi_id, $tanggal_presensi = null){
+      if(!$prodi_id) {
+         return response()->json(['message' => 'Prodi tidak ditemukan'], 404);
+      }
+      if(!$tanggal_presensi) {
+         $tanggal_presensi = Carbon::today();
+      }
+
+      $prodi = Prodi::find($prodi_id);
+      $users = $prodi->user()->get();
+      $presensi = PresensiPplk::whereIn('user_id', $users->pluck('id')->toArray())->get()->where('tanggal_presensi', $tanggal_presensi);
+      return response()->json(['prodi' => $prodi->nama_prodi, 'presensi' => $presensi]);
    }
 
    public function getUserPresensiByKelompok($tanggal_presensi = null)
@@ -39,17 +55,21 @@ class PresensiPplkController extends Controller
    public function store(Request $request)
    {
       $request->validate([
-         'user_id' => 'required',
-         'tanggal_presensi' => 'required',
-         'kehadiran' => 'required',
+         'code' => 'required',
       ]);
+
+      $qrcode = Qrcode::where('code', $request->code)->first();
+      if(!$qrcode) {
+         return response()->json(['message' => 'Code tidak ditemukan'], 404);
+      }
+      $maba_id = $qrcode->user()->id;
 
       $presensi = PresensiPplk::create(
          [
-            'user_id' => $request->user_id,
+            'user_id' => $maba_id,
             'tanggal_presensi' => Carbon::today(),
-            'kehadiran' => $request->kehadiran,
-            'keterangan' => $request->keterangan
+            'kehadiran' => 'Hadir',
+            'keterangan' => null
          ]
       );
 
@@ -59,10 +79,17 @@ class PresensiPplkController extends Controller
    public function updateKehadiran(Request $request, $user_id, $tanggal_presensi)
    {
       $presensi = PresensiPplk::where('user_id', $user_id)->where('tanggal_presensi', $tanggal_presensi);
-
-      $presensi->update([
-         'kehadiran' => $request->kehadiran
-      ]);
+      
+      if($presensi->kehadiran != 'Izin') {
+         $presensi->update([
+            'kehadiran' => $request->kehadiran,
+         ]);
+      } else {
+         $presensi->update([
+            'kehadiran' => $request->kehadiran,
+            'keterangan' => $request->keterangan
+         ]);
+      }
 
       return response()->json($presensi, 200);
    }

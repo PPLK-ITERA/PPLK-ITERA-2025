@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Follow;
+use App\Models\Qrcode;
 use App\Models\User;
 use Illuminate\Http\Request;
 
