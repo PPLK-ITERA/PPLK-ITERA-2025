@@ -1,5 +1,6 @@
-import { Toaster } from "@/Components/ui/toaster";
 import Navbar from "./Navbar";
+
+import { Toaster } from "@/Components/ui/toaster";
 
 export default function Authenticated({ user, header, children }) {
     return (

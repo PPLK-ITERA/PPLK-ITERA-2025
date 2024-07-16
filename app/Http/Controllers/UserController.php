@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Follow;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -99,17 +100,19 @@ class UserController extends Controller
          return response()->json(['message' => 'Successfully unfollowed the user']);
       }
 
-      // Otherwise, create the follow relationship
-      Follow::create([
-         'following_user_id' => $followingUserId,
-         'followed_user_id' => $followedUserId
-      ]);
-
-      return response()->json(['message' => 'Successfully followed the user']);
-   }
-   public function followview()
-   {
-      return view('test');
+      DB::beginTransaction();
+      try {
+         // If not following, follow the user
+         Follow::create([
+            'following_user_id' => $followingUserId,
+            'followed_user_id' => $followedUserId
+         ]);
+         DB::commit();
+         return response()->json(['message' => 'Successfully followed the user']);
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json(['message' => 'Failed to follow the user'], 500);
+      }
    }
 
    // Menampilkan profil pengguna

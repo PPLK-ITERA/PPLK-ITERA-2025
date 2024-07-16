@@ -6,6 +6,7 @@ use App\Models\Kelompok;
 use App\Models\PresensiPplk;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PresensiPplkController extends Controller
 {
@@ -44,14 +45,24 @@ class PresensiPplkController extends Controller
          'kehadiran' => 'required',
       ]);
 
-      $presensi = PresensiPplk::create(
-         [
-            'user_id' => $request->user_id,
-            'tanggal_presensi' => Carbon::today(),
-            'kehadiran' => $request->kehadiran,
-            'keterangan' => $request->keterangan
-         ]
-      );
+      DB::beginTransaction();
+      try {
+         $presensi = PresensiPplk::create(
+            [
+               'user_id' => $request->user_id,
+               'tanggal_presensi' => Carbon::today(),
+               'kehadiran' => $request->kehadiran,
+               'keterangan' => $request->keterangan
+            ]
+         );
+         DB::commit();
+         return response()->json($presensi, 201);
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json(['message' => 'Gagal menambahkan presensi'], 500);
+      }
+
+
 
       return response()->json($presensi, 200);
    }
@@ -59,11 +70,16 @@ class PresensiPplkController extends Controller
    public function updateKehadiran(Request $request, $user_id, $tanggal_presensi)
    {
       $presensi = PresensiPplk::where('user_id', $user_id)->where('tanggal_presensi', $tanggal_presensi);
-
-      $presensi->update([
-         'kehadiran' => $request->kehadiran
-      ]);
-
-      return response()->json($presensi, 200);
+      DB::beginTransaction();
+      try {
+         $presensi->update([
+            'kehadiran' => $request->kehadiran
+         ]);
+         DB::commit();
+         return response()->json($presensi, 200);
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json(['message' => 'Gagal mengubah kehadiran'], 500);
+      }
    }
 }

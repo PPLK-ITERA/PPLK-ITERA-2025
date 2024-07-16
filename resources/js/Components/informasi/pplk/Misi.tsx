@@ -1,0 +1,56 @@
+import React from "react";
+
+function Page() {
+    return (
+        <div className="flex items-center justify-center mt-4">
+            <div className="flex flex-col items-center justify-center text-center">
+                <h2 className="bg-gradient-to-t font-avigea bg-clip-text sm:text-3xl text-2xl text-candlelight-600">
+                    MISI
+                </h2>
+                <div className="flex gap-10 mt-5  max-lg:flex-col items-center justify-center">
+                    <div className="flex h-[116px] sm:w-[412px] w-[315px] flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
+                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white">
+                        Mampu mengenal dan memahami lingkungan baru serta meninggikan rasa tanggung jawab
+                        </p>
+                    </div>
+                    <div className="flex h-[116px] sm:w-[412px] w-[315px] flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
+                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white">
+                        Mengedepankan karakter mahasiswa berintelektual dengan acuan tri
+                        dharma perguruan tinggi
+                        </p>
+                    </div>
+                </div>
+                <div className="flex gap-10 mt-10 max-lg:flex-col">
+                    <div className="flex h-[116px] sm:w-[412px] w-[315px] flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
+                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white">
+                        Menanamkan kepribadian mahasiswa sebagai agent of change dengan berpikir kritis dan inovatif
+                        </p>
+                    </div>
+                    <div className="flex h-[116px] sm:w-[412px] w-[315px] flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
+                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white">
+                        Menjadikan mahasiswa yang berintegritas dalam mengetahui peran penting dari pendidikan
+                        untuk menuju indonesia emas
+                        </p>
+                    </div>
+                </div>
+                <div className="flex gap-10 mt-16 max-lg:flex-col">
+                    <div className="flex sm:h-[439px] sm:w-[330px] h-[315px] w-[200px] flex-col items-center rounded-[3px] bg-white shadow-2xl">
+                        <p className="font-avigea mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">PEMBINA</p>
+                        <div className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7"></div>
+                        <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">Nama</p>
+                        <p className="font-montserrat text-[16px]">Jabatan</p>
+                    </div>
+                    <div className="flex sm:h-[439px] sm:w-[330px] h-[315px] w-[200px] flex-col items-center rounded-[3px] bg-white shadow-2xl">
+                        <p className="font-avigea mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">KETUA PELAKSANA</p>
+                        <div className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7"></div>
+                        <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">Nama</p>
+                        <p className="font-montserrat text-[16px]">Jabatan</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    );
+}
+
+export default Page;

@@ -1,17 +1,18 @@
-import React from "react";
+import { User } from "@/lib/types/User";
+
+import React, { PropsWithChildren, ReactNode } from "react";
 
 import Header from "@/Components/dashboard/layout/header";
 import Sidebar from "@/Components/dashboard/layout/sidebar";
 import { ScrollArea } from "@/Components/dashboard/ui/scroll-area";
 
 export default function DashboardLayout({
+    user,
     children,
-}: {
-    children: React.ReactNode;
-}) {
+}: PropsWithChildren<{ user: User }>) {
     return (
         <>
-            <Header />
+            <Header user={user} />
             <div className="flex h-screen overflow-hidden">
                 <Sidebar />
                 <main className="flex-1 pt-16 overflow-hidden">

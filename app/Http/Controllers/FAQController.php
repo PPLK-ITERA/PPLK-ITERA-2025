@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FAQ;
+use Illuminate\Support\Facades\DB;
 
 class FAQController extends Controller
 {
@@ -17,52 +18,52 @@ class FAQController extends Controller
    // Menyimpan FAQ baru
    public function store(Request $request)
    {
-      $request->validate([
+      $validated = $request->validate([
          'pertanyaan' => 'required|string',
          'jawaban' => 'required|string',
       ]);
 
-      $faq = FAQ::create($request->only('teks_pertanyaan', 'teks_jawaban'));
-
-      if ($faq) {
-         return response()->json([
-            'message' => 'Berhasil Menambahkan FAQ',
-         ], 201);
+      DB::beginTransaction();
+      try {
+         $faq = FAQ::create($validated);
+         DB::commit();
+         return response()->json(['message' => 'Berhasil menambahkan FAQ'], 201);
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json([' message' => 'Gagal menambahkan FAQ'], 500);
       }
-      return response()->json([
-         'message' => 'Gagal menambahkan FAQ.',
-      ], 500);
    }
-
-   // Menampilkan FAQ tertentu
-   // public function show(FAQ $faq)
-   // {
-   //    return response()->json($faq->only('id', 'teks_pertanyaan', 'teks_jawaban'));
-   // }
 
    // Memperbarui FAQ
    public function update(Request $request, FAQ $faq)
    {
-      $request->validate([
+      $validated = $request->validate([
          'teks_pertanyaan' => 'required|string',
          'teks_jawaban' => 'required|string',
       ]);
 
-      $faq->update($request->only('teks_pertanyaan', 'teks_jawaban'));
-
-      return response()->json([
-         'message' => 'FAQ updated successfully.',
-         'faq' => $faq->only('id', 'teks_pertanyaan', 'teks_jawaban')
-      ]);
+      DB::beginTransaction();
+      try {
+         $faq->update($validated);
+         DB::commit();
+         return response()->json(['message' => 'Berhasil mengubah FAQ'], 200);
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json(['message' => 'Gagal mengubah FAQ'], 500);
+      }
    }
 
    // Menghapus FAQ
    public function destroy(FAQ $faq)
    {
-      $faq->delete();
-
-      return response()->json([
-         'message' => 'FAQ deleted successfully.'
-      ]);
+      DB::beginTransaction();
+      try {
+         $faq->delete();
+         DB::commit();
+         return response()->json(['message' => 'Berhasil menghapus FAQ'], 200);
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json(['message' => 'Gagal menghapus FAQ'], 500);
+      }
    }
 }

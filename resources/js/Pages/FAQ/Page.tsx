@@ -6,6 +6,8 @@ import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import { useAos } from "@/lib/hooks/useAos";
 
+import { faqs } from "@/lib/data/faq";
+
 const Page: React.FC = () => {
     useAos();
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -39,10 +41,10 @@ const Page: React.FC = () => {
             <div>
                 <Navbar isSolid={true} isFixed={true}/>
                 <h2
-                    data-aos="fade-down"
-                    data-aos-duration="1000"
-                    className="mt-20 font-avigea text-3xl text-jaffa-900 md:mt-40 md:text-[39px]"
-                >
+                  data-aos="fade-down"
+                  data-aos-duration="1000"
+                  className="font-avigea text-jaffa-900 pt-[30px] text-3xl md:text-5xl"
+                 >
                     Frequently Asked Question
                 </h2>
                 <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 md:mt-[40px] md:px-0">

@@ -1,15 +1,29 @@
+import { users } from "@/lib/data/user";
+import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
+import {
+    IconAdjustmentsHorizontal,
+    IconFilter,
+    IconMoodAngry,
+    IconMoodSearch,
+    IconSearch,
+} from "@tabler/icons-react";
 import Autoplay from "embla-carousel-autoplay";
 
-import React from "react";
+import React, { useState } from "react";
 
 import { UserPlus } from "lucide-react";
 
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
-import { Button } from "@/Components/dashboard/ui/button";
-import { Card, CardContent } from "@/Components/dashboard/ui/card";
+import GoldPodium from "@/Components/relasi/Podium";
+import ProfileCard from "@/Components/relasi/ProfileCard";
+import SortDropdown from "@/Components/relasi/SortDropdown";
+import TopUser from "@/Components/relasi/TopUser";
+import UserList from "@/Components/relasi/UserList";
+import { Button } from "@/Components/ui/button";
+import { Card, CardContent } from "@/Components/ui/card";
 import {
     Carousel,
     CarouselContent,
@@ -17,221 +31,85 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/Components/ui/carousel";
+import { Input } from "@/Components/ui/input";
 
-const users: User[] = [
-    {
-        id: 1,
-        name: "Corneliux Linus",
-        followers: 100,
-        following: 100,
-        nim: 1221400,
-        prodi: "Teknik Informatika",
-        batch: 73,
-        quote: "Nothing last forever, we can change the future",
-        profileImageUrl:
-            "https://s3-alpha-sig.figma.com/img/0534/1881/46c486ea235ee639cfdff88a15dfc047?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=d3nyJ5ePHK7Q3A59bjZxYAz3TjU460V1oRjsyJVIFuHgiIpgMeXGz3L5we0eFvSWwFi-OQrln4Bhw9sKewR1lhqjMoZCtLQ5HKDTXJMzqnRmyPEmykxgG9VlPPYLdM2NKWfWfEEsHMJbK5T9-1liNdQvKZS-yABqeUUAa4wPAe8jkMXdViz1bTsKZRj3if5Mfsm9H9nGWyYOH510ebzR8cIv6IOWWYS4yJRfDueS5MVp19p3Ig1N1xx~E4sOhTQFND8h-44TR0QPQsUjC-p90vQOGqc-q7Ku9Z1xL2HuXioj4gC0Luhtqn8b4jn18qYQRgsxf-goybhIsTnfB6lIVQ__",
-        socialLinks: {
-            instagram: "https://instagram.com/corneliux",
-            linkedin: "https://linkedin.com/in/corneliux",
-        },
-    },
-    {
-        id: 2,
-        name: "Rahmat Aldi Nasda",
-        followers: 80,
-        following: 150,
-        nim: 1000000,
-        prodi: "Teknik Informatika",
-        batch: 73,
-        quote: "",
-        profileImageUrl:
-            "https://s3-alpha-sig.figma.com/img/fe8b/f7a6/2d772475e6d62c28d9a18f469bcee494?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZMKIg2P3rK5WVuDokZD2Gn0exB3Zoc7GLm8QeUnmd~aal-shS23m8rBzUDiPPTIla29C2OskM-MALS1Wktkd7wIrBwsUHmHb1IJnv-~ZcFJtDFs7ne1n9id8aBS-mzg1qCZbHjQay-CwfKu-7RTP0G3iWBFreh95Qdw54hEhWN6qWdLH-00BPvetAd7WUnFQl26vW~QeHoC85msotufDe6Ss~DAIkdCnfVLYoyQNALJI1a~FlMx9dYJBx7t0xdBGMteFdibe8jogIgT4clUpdoHozkaVupWSAlTbNITlwH7bKyQ6V~LjPcN82qpVMnK3I-aUbFrlwv1dEEMOb7ZGrQ__",
-        socialLinks: { instagram: "", linkedin: "" },
-    },
+import instagramIcon from "!assets/svg/instagram.svg";
+import linkedinIcon from "!assets/svg/linkedin.svg";
+
+const sortOptions = [
+    { label: "Viewer", value: "viewer" },
+    { label: "Follower", value: "follower" },
+    { label: "Following", value: "following" },
+    { label: "Nama", value: "nama" },
 ];
 
 const Page: React.FC = () => {
-    const user = users[0];
+    useAos();
+
+    const top3Followers = users
+        .sort((user1, user2) => user2.followers - user1.followers)
+        .slice(0, 3);
+    const [sort, setSort] = useState(sortOptions[0]);
 
     return (
         <div className="bg-pattern-white flex flex-col w-full min-h-screen">
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl font-montserrat flex flex-col gap-8 p-24 mx-auto text-xl text-black">
-                    <div className="flex gap-8">
-                        <img
-                            className="w-56 h-56 rounded-full select-none"
-                            src={user.profileImageUrl}
-                            alt={user.name}
+                <div className="max-w-7xl font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 mx-auto text-base text-black">
+                    <div className="relative w-full max-w-3xl mx-auto">
+                        <Input
+                            type="text"
+                            placeholder="Cari Nusantara Muda yang Lain"
+                            className="p-4 border rounded-full"
                         />
-                        <div className="flex flex-col gap-2">
-                            <div className="flex gap-12">
-                                <p>
-                                    <span className="font-bold">
-                                        {user.followers}
-                                    </span>{" "}
-                                    Followers
-                                </p>
-                                <p>
-                                    <span className="font-bold">
-                                        {user.following}
-                                    </span>{" "}
-                                    Following
-                                </p>
-                            </div>
-                            <h3 className="font-bold">{user.name}</h3>
-                            <p className="font-semibold">{user.nim}</p>
-                            <p className="font-semibold">{user.prodi}</p>
-                            <p className="font-semibold">{user.batch}</p>
-                            <p className="">“{user.quote}”</p>
+                        <a href={route("relasi/search")} target="_blank">
+                            <Button className="absolute top-1/2 -translate-y-1/2 right-2 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-full p-0 w-8 h-8">
+                                <IconSearch size={14} />
+                            </Button>
+                        </a>
+                    </div>
+                    <div className="text-center">
+                        <h1 className="font-fesbud text-jaffa-800 text-2xl font-bold">
+                            TOP 3 FOLLOWERS
+                        </h1>
+                    </div>
+                    <div className="w-full max-w-2xl mx-auto">
+                        <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
+                            <TopUser
+                                user={top3Followers[1]}
+                                rank={2}
+                                podiumHeight={160}
+                            />
+                            <TopUser
+                                user={top3Followers[0]}
+                                rank={1}
+                                podiumHeight={196}
+                            />
+                            <TopUser
+                                user={top3Followers[2]}
+                                rank={3}
+                                podiumHeight={144}
+                            />
                         </div>
+                        <div className="bg-moccaccino-700 w-full h-1"></div>
                     </div>
-
-                    <div className=" flex justify-between w-full">
-                        <Button className="w-48 bg-[#ECAA25] border border-black text-black">
-                            <UserPlus className="w-6 h-6 mr-2" />
-                            Ikuti
-                        </Button>
-                        <Button className="w-48 bg-white border border-[#ECAA25] text-black">
-                            <UserPlus className="w-6 h-6 mr-2" />
-                            Instagram
-                        </Button>
-                        <Button className="w-48 bg-white border border-[#ECAA25] text-black">
-                            <UserPlus className="w-6 h-6 mr-2" />
-                            LinkedIn
-                        </Button>
+                    <div className="w-full max-w-5xl mx-auto">
+                        <div className="flex justify-between">
+                            <h4 className="text-2xl font-bold">
+                                Profil Berdasarkan
+                            </h4>
+                            <SortDropdown options={sortOptions} />
+                        </div>
+                        <UserList users={users} />
                     </div>
-
-                    <p className="mx-auto font-[500]">
-                        Yuk, kunjungi profile Nusantara Muda yang lain di bawah
-                        ini!
-                    </p>
-
-                    <div>
-                        <Carousel>
-                            <CarouselContent className="text-sm">
-                                <CarouselItem className=" basis-1/5">
-                                    <Card className="shadow-lg">
-                                        <CardContent className="flex flex-col items-center gap-1 p-4 text-black bg-white border rounded-lg">
-                                            <img
-                                                className="w-24 h-24 rounded-full select-none"
-                                                src={users[1].profileImageUrl}
-                                                alt={users[1].name}
-                                            />
-                                            <h3 className="mt-4 font-bold">
-                                                {users[1].name}
-                                            </h3>
-                                            <p className="">{users[1].prodi}</p>
-                                            <p className="">{users[1].batch}</p>
-                                            <Button className="w-full mt-6 bg-[#ECAA25] text-black border border-black font-semibold text-xs">
-                                                Kunjungi Profil
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                </CarouselItem>
-                                <CarouselItem className=" basis-1/5">
-                                    <Card className="shadow-lg">
-                                        <CardContent className="flex flex-col items-center gap-1 p-4 text-black bg-white border rounded-lg">
-                                            <img
-                                                className="w-24 h-24 rounded-full select-none"
-                                                src={users[1].profileImageUrl}
-                                                alt={users[1].name}
-                                            />
-                                            <h3 className="mt-4 font-bold">
-                                                {users[1].name}
-                                            </h3>
-                                            <p className="">{users[1].prodi}</p>
-                                            <p className="">{users[1].batch}</p>
-                                            <Button className="w-full mt-6 bg-[#ECAA25] text-black border border-black font-semibold text-xs">
-                                                Kunjungi Profil
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                </CarouselItem>
-                                <CarouselItem className=" basis-1/5">
-                                    <Card className="shadow-lg">
-                                        <CardContent className="flex flex-col items-center gap-1 p-4 text-black bg-white border rounded-lg">
-                                            <img
-                                                className="w-24 h-24 rounded-full select-none"
-                                                src={users[1].profileImageUrl}
-                                                alt={users[1].name}
-                                            />
-                                            <h3 className="mt-4 font-bold">
-                                                {users[1].name}
-                                            </h3>
-                                            <p className="">{users[1].prodi}</p>
-                                            <p className="">{users[1].batch}</p>
-                                            <Button className="w-full mt-6 bg-[#ECAA25] text-black border border-black font-semibold text-xs">
-                                                Kunjungi Profil
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                </CarouselItem>
-                                <CarouselItem className=" basis-1/5">
-                                    <Card className="shadow-lg">
-                                        <CardContent className="flex flex-col items-center gap-1 p-4 text-black bg-white border rounded-lg">
-                                            <img
-                                                className="w-24 h-24 rounded-full select-none"
-                                                src={users[1].profileImageUrl}
-                                                alt={users[1].name}
-                                            />
-                                            <h3 className="mt-4 font-bold">
-                                                {users[1].name}
-                                            </h3>
-                                            <p className="">{users[1].prodi}</p>
-                                            <p className="">{users[1].batch}</p>
-                                            <Button className="w-full mt-6 bg-[#ECAA25] text-black border border-black font-semibold text-xs">
-                                                Kunjungi Profil
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                </CarouselItem>
-                                <CarouselItem className=" basis-1/5">
-                                    <Card className="shadow-lg">
-                                        <CardContent className="flex flex-col items-center gap-1 p-4 text-black bg-white border rounded-lg">
-                                            <img
-                                                className="w-24 h-24 rounded-full select-none"
-                                                src={users[1].profileImageUrl}
-                                                alt={users[1].name}
-                                            />
-                                            <h3 className="mt-4 font-bold">
-                                                {users[1].name}
-                                            </h3>
-                                            <p className="">{users[1].prodi}</p>
-                                            <p className="">{users[1].batch}</p>
-                                            <Button className="w-full mt-6 bg-[#ECAA25] text-black border border-black font-semibold text-xs">
-                                                Kunjungi Profil
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                </CarouselItem>
-                                <CarouselItem className=" basis-1/5">
-                                    <Card className="shadow-lg">
-                                        <CardContent className="flex flex-col items-center gap-1 p-4 text-black bg-white border rounded-lg">
-                                            <img
-                                                className="w-24 h-24 rounded-full select-none"
-                                                src={users[1].profileImageUrl}
-                                                alt={users[1].name}
-                                            />
-                                            <h3 className="mt-4 font-bold">
-                                                {users[1].name}
-                                            </h3>
-                                            <p className="">{users[1].prodi}</p>
-                                            <p className="">{users[1].batch}</p>
-                                            <Button className="w-full mt-6 bg-[#ECAA25] text-black border border-black font-semibold text-xs">
-                                                Kunjungi Profil
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                </CarouselItem>
-                            </CarouselContent>
-                            <CarouselPrevious />
-                            <CarouselNext />
-                        </Carousel>
+                    <div className="flex justify-center">
+                        <Button className="mx-1">1</Button>
+                        <Button className="mx-1">2</Button>
+                        <Button className="mx-1">3</Button>
+                        <Button className="mx-1">4</Button>
                     </div>
                 </div>
-
                 <Footer />
             </div>
         </div>
