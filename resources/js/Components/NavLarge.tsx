@@ -34,17 +34,21 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
                 >
                     Informasi <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 border-none outline-none">
+                <DropdownMenuContent
+                    className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
+                >
                     {InformasiDropDown.map((item, index) => (
                         <DropdownMenuItem
                             key={index}
-                            className="focus:bg-jaffa-600 w-full transition-all duration-300 ease-in-out"
+                            className={`${isScrolled || isSolid ? "focus:bg-jaffa-600" : "focus:bg-jaffa-200"} w-full transition-all duration-300 ease-in-out`}
                         >
                             <Link
                                 href={item.href}
-                                className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat text-white transition-all duration-200 ease-in`}
+                                className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                             >
-                                <span className="bg-jaffa-500 p-1 rounded-md">
+                                <span
+                                    className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                                >
                                     {item.icon}
                                 </span>
                                 {item.title}
@@ -67,17 +71,21 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
                 >
                     Maba <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 border-none outline-none">
+                <DropdownMenuContent
+                    className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
+                >
                     {MabaDropDown.map((item, index) => (
                         <DropdownMenuItem
                             key={index}
-                            className="focus:bg-jaffa-600 w-full transition-all duration-300 ease-in-out"
+                            className={`${isScrolled || isSolid ? "focus:bg-jaffa-600" : "focus:bg-jaffa-200"} w-full transition-all duration-300 ease-in-out`}
                         >
                             <Link
                                 href={item.href}
-                                className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat text-white transition-all duration-200 ease-in`}
+                                className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                             >
-                                <span className="bg-jaffa-500 p-1 rounded-md">
+                                <span
+                                    className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                                >
                                     {item.icon}
                                 </span>
                                 {item.title}

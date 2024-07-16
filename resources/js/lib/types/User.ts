@@ -12,5 +12,5 @@ export interface User {
     profileImageUrl: string;
     linkedinUrl: string;
     instagramUrl: string;
-    role_id: number;
+    role_id?: number;
 }

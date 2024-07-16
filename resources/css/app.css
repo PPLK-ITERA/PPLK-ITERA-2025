@@ -102,12 +102,12 @@
 
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 0px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f3f3f3;
+    background: #ffffff;
 }
 
 /* Handle */
