@@ -4,8 +4,10 @@ import PaginationFAQ from "@/Components/PaginationFAQ";
 import { faqs } from "@/lib/data/faq";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import { useAos } from "@/lib/hooks/useAos";
 
 const Page: React.FC = () => {
+    useAos();
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [debouncedSearchTerm, setDebouncedSearchTerm] =
         useState<string>(searchTerm);
@@ -36,17 +38,25 @@ const Page: React.FC = () => {
         <div className="relative flex min-h-screen w-full flex-col bg-pattern-white text-center">
             <div>
                 <Navbar isSolid={true} />
-                <h2 className="mt-20 md:mt-40 font-avigea text-3xl md:text-[39px] text-jaffa-900">
+                <h2
+                    data-aos="fade-down"
+                    data-aos-duration="1000"
+                    className="mt-20 font-avigea text-3xl text-jaffa-900 md:mt-40 md:text-[39px]"
+                >
                     Frequently Asked Question
                 </h2>
-                <div className="mx-auto mt-10 md:mt-[40px] max-w-2xl px-4 sm:px-6 md:px-0">
-                    <div className="relative flex items-center">
+                <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 md:mt-[40px] md:px-0">
+                    <div
+                        data-aos="fade-down"
+                        data-aos-duration="1000"
+                        className="relative flex items-center"
+                    >
                         <input
                             type="text"
                             placeholder="Cari pertanyaan disini..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full rounded-[10px] border border-[#864D0D] px-4 sm:px-6 py-3 sm:py-4 pl-10 sm:pl-12 text-base sm:text-lg md:text-[20px] placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full rounded-[10px] border border-[#864D0D] px-4 py-3 pl-10 text-base placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500 sm:px-6 sm:py-4 sm:pl-12 sm:text-lg md:text-[20px]"
                         />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +76,11 @@ const Page: React.FC = () => {
                         </svg>
                     </div>
                 </div>
-                <div className="mx-4 sm:mx-10 md:mx-[142px] mb-10 md:mb-[140px] mt-10 md:mt-[56px]">
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    className="mx-4 mb-10 mt-10 sm:mx-10 md:mx-[142px] md:mb-[140px] md:mt-[56px]"
+                >
                     <AccordionFAQ items={currentItems} />
                     <PaginationFAQ
                         currentPage={currentPage}

@@ -37,7 +37,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                         <AccordionItem value={`item-${index}`}>
                             <AccordionTrigger
                                 onClick={() => handleClick(index)}
-                                className="flex w-full items-center px-3 py-5 text-left border-none"
+                                className="flex w-full items-center border-none px-3 py-5 text-left"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,8 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                                     height="24"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
-                                    className="mr-2 text-jaffa-600"
+                                    className={`icon icon-tabler icons-tabler-filled icon-tabler-info-square-rounded mr-2 text-jaffa-600`}
+                                    style={{ transform: clickedIndex === index ? 'none' : 'rotate(0deg)' }}
                                 >
                                     <path
                                         stroke="none"
