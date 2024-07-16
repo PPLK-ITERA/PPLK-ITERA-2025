@@ -30,7 +30,7 @@ export default function StrukturOrganisasi() {
     }, [api]);
 
     return (
-        <div>
+        <div className="mt-16">
             <div className="text-start md:text-center px-4 md:px-0">
                 <p className="font-bold tracking-widest font-avigea text-moccaccino-500 text-2xl md:text-5xl">
                     Struktur Organisasi

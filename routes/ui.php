@@ -105,8 +105,16 @@ Route::middleware('guest')->group(function () {
     })->name('dashboard/mading');
 
     Route::get('informasi/fakultas', function () {
-        return Inertia::render('Informasi/Fakultas/Page');
-    })->name('informasi/fakultas');
+        return Inertia::render('Informasi/Fakultas/Sains');
+    })->name('informasi/fakultas/Sains');
+
+    Route::get('informasi/fakultas/Ftik', function () {
+        return Inertia::render('Informasi/Fakultas/Ftik');
+    })->name('informasi/fakultas/Ftik');
+
+    Route::get('informasi/fakultas/Fti', function () {
+        return Inertia::render('Informasi/Fakultas/Fti');
+    })->name('informasi/fakultas/Fti');
 });
 
 Route::middleware('auth')->group(function () {

@@ -71,7 +71,7 @@ export default function KegiatanUnggulan() {
             <div className="mt-36">
                 <div className="mx-auto max-w-sm md:max-w-md">
                     <div className="text-center">
-                        <p className="font-bold text-jaffa-50 font-avigea tracking-widest text-2xl">
+                        <p className="font-bold text-jaffa-50 font-avigea tracking-widest text-xl md:text-3xl">
                             SOSIAL MEDIA FAKULTAS
                         </p>
                     </div>
