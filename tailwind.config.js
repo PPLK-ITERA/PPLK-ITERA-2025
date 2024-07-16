@@ -133,6 +133,7 @@ export default {
                 "pattern-1": "url('!assets/pattern-1.png')",
                 "pattern-white": "url('!assets/pattern-white.png')",
                 "pattern-brown": "url('!assets/pattern-brown.png')",
+                "pattern-black": "url('!assets/pattern-black.png')",
             },
         },
     },
