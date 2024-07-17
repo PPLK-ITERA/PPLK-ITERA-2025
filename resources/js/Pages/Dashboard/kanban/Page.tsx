@@ -10,9 +10,9 @@ const breadcrumbItems = [
     { title: "Kanban", link: "/dashboard/kanban" },
 ];
 
-export default function Page() {
+export default function Page({ auth }) {
     return (
-        <DashboardLayout>
+        <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
             <div className="flex items-start justify-between">
                 <Heading title={`Kanban`} description="Manage tasks by dnd" />

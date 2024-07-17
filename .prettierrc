@@ -10,11 +10,14 @@
         "^@tabler/icons-react$",
         "^@/Components(.*)$",
         "^@/constants(.*)$",
+        "^@/hookform(.*)$",
+        "^@/lib(.*)$",
         "^!assets(.*)$"
     ],
     "tabWidth": 4,
     "trailingComma": "all",
     "semi": true,
     "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true
+    "importOrderSortSpecifiers": true,
+    "tailwindConfig": "./tailwind.config.js"
 }

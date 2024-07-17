@@ -1,7 +1,8 @@
 import ProfileCard from "./ProfileCard";
-import { User } from "@/lib/types/User";
 
 import React from "react";
+
+import { User } from "@/lib/types/User";
 
 type Props = { users: User[]; className?: string };
 

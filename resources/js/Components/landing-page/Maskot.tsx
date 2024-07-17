@@ -22,7 +22,7 @@ export default function Maskot() {
 
                 <Link
                     href="/login"
-                    className="mt-10 rounded-lg bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
+                    className="mt-10 rounded-[6px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm"
                 >
                     Informasi Maskot &#x2192;
                 </Link>

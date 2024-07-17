@@ -7,22 +7,19 @@ import {
     AccordionTrigger,
 } from "@/Components/ui/accordion";
 
-interface FAQ {
-    title: string;
-    content: string;
-}
-interface AccordionFAQProps {
-    items: FAQ[];
-}
-export function AccordionFAQ({ items }: AccordionFAQProps) {
+import { DataAtribut } from "@/constants/data";
+
+export function AccordionAtribut() {
     const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+
     const handleClick = (index: number) => {
         setClickedIndex(clickedIndex === index ? null : index);
     };
+
     return (
         <div className="w-full max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
-                {items.map((item, index) => (
+                {DataAtribut.map((item, index) => (
                     <div
                         key={index}
                         className={`mb-4 rounded-lg shadow-xl ${
@@ -58,11 +55,27 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                                     <path d="M12 2l.642 .005l.616 .017l.299 .013l.579 .034l.553 .046c4.687 .455 6.65 2.333 7.166 6.906l.03 .29l.046 .553l.041 .727l.006 .15l.017 .617l.005 .642l-.005 .642l-.017 .616l-.013 .299l-.034 .579l-.046 .553c-.455 4.687 -2.333 6.65 -6.906 7.166l-.29 .03l-.553 .046l-.727 .041l-.15 .006l-.617 .017l-.642 .005l-.642 -.005l-.616 -.017l-.299 -.013l-.579 -.034l-.553 -.046c-4.687 -.455 -6.65 -2.333 -7.166 -6.906l-.03 -.29l-.046 -.553l-.041 -.727l-.006 -.15l-.017 -.617l-.004 -.318v-.648l.004 -.318l.017 -.616l.013 -.299l.034 -.579l.046 -.553c.455 -4.687 2.333 -6.65 6.906 -7.166l.29 -.03l.553 -.046l.727 -.041l.15 -.006l.617 -.017c.21 -.003 .424 -.005 .642 -.005zm0 9h-1l-.117 .007a1 1 0 0 0 0 1.986l.117 .007v3l.007 .117a1 1 0 0 0 .876 .876l.117 .007h1l.117 -.007a1 1 0 0 0 .876 -.876l.007 -.117l-.007 -.117a1 1 0 0 0 -.764 -.857l-.112 -.02l-.117 -.006v-3l-.007 -.117a1 1 0 0 0 -.876 -.876l-.117 -.007zm.01 -3l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z" />
                                 </svg>
                                 <span className="flex-1 truncate font-montserrat text-[16px] font-semibold">
-                                    {item.title}
+                                    {item.day}
                                 </span>
                             </AccordionTrigger>
-                            <AccordionContent className="-mt-1 ml-[15px] text-left">
-                                {item.content}
+
+                            <AccordionContent className="md:flex-row flex flex-col items-center justify-center gap-5 text-left">
+                                {item.options.map((option, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex flex-col items-center justify-center"
+                                    >
+                                        <img
+                                            src={option.image}
+                                            alt={option.gender}
+                                            className="bg-slate-400 object-cover rounded-lg"
+                                        />
+
+                                        <p className="mt-2 font-semibold text-center">
+                                            {option.gender}
+                                        </p>
+                                    </div>
+                                ))}
                             </AccordionContent>
                         </AccordionItem>
                     </div>

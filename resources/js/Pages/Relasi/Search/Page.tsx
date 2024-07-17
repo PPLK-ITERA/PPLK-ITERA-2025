@@ -1,6 +1,9 @@
-import { users } from "@/lib/data/user";
-import { useAos } from "@/lib/hooks/useAos";
-import { User } from "@/lib/types/User";
+import Autoplay from "embla-carousel-autoplay";
+
+import React, { useState } from "react";
+
+import { UserPlus } from "lucide-react";
+
 import {
     IconAdjustmentsHorizontal,
     IconFilter,
@@ -8,11 +11,6 @@ import {
     IconMoodSearch,
     IconSearch,
 } from "@tabler/icons-react";
-import Autoplay from "embla-carousel-autoplay";
-
-import React, { useState } from "react";
-
-import { UserPlus } from "lucide-react";
 
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
@@ -32,6 +30,10 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 import { Input } from "@/Components/ui/input";
+
+import { users } from "@/lib/data/user";
+import { useAos } from "@/lib/hooks/useAos";
+import { User } from "@/lib/types/User";
 
 import instagramIcon from "!assets/svg/instagram.svg";
 import linkedinIcon from "!assets/svg/linkedin.svg";
@@ -56,7 +58,7 @@ const Page: React.FC = () => {
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl py-16 font-montserrat flex flex-col gap-8 mx-auto text-base md:text-md text-black px-2">
+                <div className="max-w-7xl font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 mx-auto text-base text-black">
                     <div className="relative w-full max-w-3xl mx-auto">
                         <Input
                             type="text"
@@ -69,9 +71,9 @@ const Page: React.FC = () => {
                             </Button>
                         </a>
                     </div>
-                    <div className="w-full mx-auto max-w-5xl">
+                    <div className="w-full max-w-5xl mx-auto">
                         <div className="flex justify-between">
-                            <h4 className="font-bold text-2xl">
+                            <h4 className="text-2xl font-bold">
                                 Hasil dari {}
                             </h4>
                             <SortDropdown options={sortOptions} />
