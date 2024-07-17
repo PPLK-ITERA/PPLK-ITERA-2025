@@ -24,20 +24,27 @@ import { Card, CardContent } from "@/Components/ui/card";
 import { programStudies } from "@/lib/data/programStudi";
 
 import accreditation_a from "!assets/accreditation-a.png";
+import awan from "!assets/awan.png";
 import banpt from "!assets/banpt.png";
 
 function Page() {
     const prodi = programStudies.at(0)!;
 
     return (
-        <div className=" min-h-screen font-montserrat">
+        <div className=" min-h-screen font-montserrat overflow-x-hidden">
             <Navbar isSolid={true} isFixed={true} />
 
-            <div className="bg-pattern-white">
+            <div className="relative bg-pattern-white px-8">
                 <Prodi prodi={prodi} className="max-w-6xl mx-auto" />
+                {/* <img
+                    src={awan}
+                    alt=""
+                    className="absolute w-full bg-gradient-to-t"
+                    style={{ transform: "rotateX(180deg)" }}
+                /> */}
             </div>
             <div className="bg-pattern-black text-gray-200">
-                <Hmps prodi={prodi} className="max-w-6xl mx-auto" />
+                <Hmps prodi={prodi} className="mx-auto" />
             </div>
 
             <Footer />

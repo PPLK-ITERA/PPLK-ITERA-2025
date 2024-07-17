@@ -21,6 +21,7 @@ interface ProgramStudi {
     description: string;
     history: string;
     accreditation: string;
+    accreditationNo: string;
     vision: string;
     mission: string;
     coordinatorName: string;

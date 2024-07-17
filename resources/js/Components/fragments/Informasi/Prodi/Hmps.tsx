@@ -9,24 +9,31 @@ import {
 
 import { AccordionKk } from "@/Components/informasi/prodi/AccordionKk";
 import AchievementList from "@/Components/informasi/prodi/AchievementList";
+import HmpsActivities from "@/Components/informasi/prodi/HmpsActivities";
 import { Card, CardContent } from "@/Components/ui/card";
 
 import accreditation_a from "!assets/accreditation-a.png";
 import banpt from "!assets/banpt.png";
+import box from "!assets/overlay-box2.png";
+import pillar from "!assets/pillar-brown2.png";
 
 type Props = { prodi: ProgramStudi; className?: string };
 
 const Hmps = ({ prodi, className }: Props) => {
     return (
         <div className={className}>
-            <div className="w-full flex flex-col gap-4 place-content-center mt-24 ">
-                <div className="text-center flex flex-col gap-4">
+            <div className="w-full flex flex-col gap-24 place-content-center py-16">
+                <div
+                    className="mx-auto w-full max-w-6xl px-4 text-center flex flex-col gap-12"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                >
                     <img
                         src="https://gcdnb.pbrd.co/images/QfWO8MCZ1xmx.png?o=1"
                         alt="Prodi"
-                        className="mx-auto h-64"
+                        className="mx-auto h-56 lg:h-80 border"
                     />
-                    <h1 className="max-w-2xl mx-auto font-avigea text-4xl">
+                    <h1 className="max-w-2xl mx-auto font-avigea text-2xl lg:text-4xl">
                         {prodi.hmpsName}
                     </h1>
                     <p className="max-w-2xl mx-auto font-medium ">
@@ -34,95 +41,96 @@ const Hmps = ({ prodi, className }: Props) => {
                     </p>
                 </div>
 
-                <Card className="rounded-lg bg-jaffa-300">
-                    <CardContent className="p-4 px-12">
-                        <div className="w-full h-full flex font-avigea place-content-center">
-                            <div className="flex flex-col grow text-left place-content-center">
-                                <p className="font-bold mb-4 text-2xl">
-                                    Akreditasi {prodi.accreditation}
-                                </p>
-                                <p className="font-tinos">{prodi.name}</p>
-                                <p className="font-tinos">
-                                    harusnya disini SK tapi ga ada datanya
+                <div>
+                    <Card
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        className="lg:mx-auto w-full max-w-6xl rounded-lg flex flex-col gap-6 bg-gradient-to-r shadow-xl shadow-jaffa-300/20 from-jaffa-600 to-jaffa-700 p-4 lg:p-8 text-left lg:px-32 border-0"
+                    >
+                        <div className="flex place-content-center mx-16">
+                            <div className="text-center lg:text-left place-content-center flex flex-col text-white">
+                                <p className="max-lg:text-xs">Ketua {prodi.hmpsName} 2024-2025</p>
+                                <p className="text-xl lg:text-3xl">
+                                    {prodi.hmpsCoordinatorName}
                                 </p>
                             </div>
-                            <div className="flex gap-2 place-content-center">
-                                <img src={accreditation_a} alt="akreditasi" />
-                                <img src={banpt} alt="ban-pt" />
-                            </div>
                         </div>
-                    </CardContent>
-                </Card>
+                    </Card>
+                </div>
 
-                <div className="flex gap-8 mt-8">
-                    <div className="relative basis-1/2">
-                        <h1 className="absolute top-0 -translate-y-1/2 -translate-x-4 bg-white rounded-full border-2 border-jaffa-600 font-bold text-jaffa-600 p-2 px-8">
-                            Visi
-                        </h1>
-                        <p className="rounded-xl text-left bg-gradient-to-br h-full from-jaffa-600 to-jaffa-700 text-white p-8">
-                            {prodi.vision}
-                        </p>
+                <div className="relative">
+                    <img
+                        src={pillar}
+                        alt=""
+                        className="absolute bottom-0 left-0 h-[300px] lg:h-[700px]"
+                    />
+                    <img
+                        src={box}
+                        alt=""
+                        className="absolute bottom-0 left-0 -translate-x-24 translate-y-[26%] w-44 lg:w-96"
+                    />
+                    <div className="flex place-content-center place-items-center">
+                        <div className="h-[1px] bg-white grow"></div>
+                        <h4 className="p-2 lg:p-6 lg:px-12 bg-gradient-to-r from-[#864D0D] to-[#432005] rounded-2xl border text-sm lg:text-3xl">
+                            KEGIATAN UNGGULAN
+                        </h4>
+                        <div className="h-[1px] bg-white grow"></div>
                     </div>
-                    <div className="relative basis-1/2">
-                        <h1 className="absolute top-0 -translate-y-1/2 -translate-x-4 bg-white rounded-full border-2 border-jaffa-600 font-bold text-jaffa-600 p-2 px-8">
-                            Misi
-                        </h1>
-                        <p className="rounded-xl text-left bg-gradient-to-br h-full from-jaffa-600 to-jaffa-700 text-white p-8 whitespace-pre-wrap">
-                            {prodi.mission}
-                        </p>
-                    </div>
+                    <img
+                        src={pillar}
+                        alt=""
+                        style={{
+                            transform: "rotateY(180deg)",
+                        }}
+                        className="absolute bottom-0 right-0 h-[300px] lg:h-[700px]"
+                    />
+                    <img
+                        src={box}
+                        alt=""
+                        style={{
+                            transform:
+                                "rotateY(180deg) translateX(-6rem) translateY(26%)",
+                        }}
+                        className="absolute bottom-0 right-0 rotate-0 w-44 lg:w-96"
+                    />
                 </div>
 
-                <div className="rounded-lg flex flex-col gap-6 bg-moccaccino-50 p-8 text-left px-32">
-                    <h1 className="font-avigea text-3xl text-moccaccino-500">
-                        Koordinator Program Studi
-                    </h1>
-                    <div className="flex gap-6 mt-4">
-                        <img
-                            src="https://placeholder.pics/svg/100x100"
-                            alt="Koordinator"
-                            className="h-28 w-28 rounded-full"
-                        />
-                        <div className="text-left place-content-center flex flex-col">
-                            <p className="text-2xl">{prodi.coordinatorName}</p>
-                            <p className="text-gray-500 text-sm">
-                                Koordinator Program Studi {prodi.name}
-                            </p>
-                        </div>
-                    </div>
+                <div className="mx-auto w-full max-w-6xl px-4">
+                    <HmpsActivities hmpsActivities={prodi.hmpsActivities} />
                 </div>
 
-                <div>
-                    <h1 className="font-avigea text-3xl text-moccaccino-500">
-                        Kelompok Keahlian
+                <div
+                    className="mx-auto w-full max-w-6xl px-4  text-center"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                >
+                    <h1 className="font-avigea text-xl lg:text-3xl text-moccaccino-500">
+                        Sosial Media {prodi.hmpsAcronym}
                     </h1>
-                    <AccordionKk kk={prodi.kk} />
-                </div>
+                    <div className="flex gap-8 place-content-center text-jaffa-200 mt-4">
+                        {prodi.hmpsInstagramUrl && (
+                            <a href={prodi.hmpsInstagramUrl} target="_blank">
+                                <IconBrandInstagram className="h-12 w-12 lg:h-16 lg:w-16 hover:text-jaffa-300 transition" />
+                            </a>
+                        )}
 
-                <div>
-                    <h1 className="font-avigea text-3xl text-moccaccino-500">
-                        Prestasi
-                    </h1>
-                    <AchievementList achievements={prodi.achievements} />
-                </div>
+                        {prodi.hmpsYoutubeUrl && (
+                            <a href={prodi.hmpsYoutubeUrl} target="_blank">
+                                <IconBrandYoutubeFilled className="h-12 w-12 lg:h-16 lg:w-16 hover:text-jaffa-300 transition" />
+                            </a>
+                        )}
 
-                <div className="text-center">
-                    <h1 className="font-avigea text-3xl text-moccaccino-500">
-                        Sosial Media {prodi.name}
-                    </h1>
-                    <div className="flex gap-8 place-content-center text-candlelight-500 mt-4">
-                        <a href={prodi.instagramUrl} target="_blank">
-                            <IconBrandInstagram className="h-16 w-16 hover:text-candlelight-600 transition" />
-                        </a>
-                        <a href={prodi.youtubeUrl} target="_blank">
-                            <IconBrandYoutubeFilled className="h-16 w-16 hover:text-candlelight-600 transition" />
-                        </a>
-                        <a href={prodi.websiteUrl} target="_blank">
-                            <IconWorld className="h-16 w-16 hover:text-candlelight-600 transition" />
-                        </a>
-                        <a href={prodi.tiktokUrl} target="_blank">
-                            <IconBrandTiktok className="h-16 w-16 hover:text-candlelight-600 transition" />
-                        </a>
+                        {prodi.hmpsWebsiteUrl && (
+                            <a href={prodi.hmpsWebsiteUrl} target="_blank">
+                                <IconWorld className="h-12 w-12 lg:h-16 lg:w-16 hover:text-jaffa-300 transition" />
+                            </a>
+                        )}
+
+                        {prodi.hmpsTiktokUrl && (
+                            <a href={prodi.hmpsTiktokUrl} target="_blank">
+                                <IconBrandTiktok className="h-12 w-12 lg:h-16 lg:w-16 hover:text-jaffa-300 transition" />
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>
