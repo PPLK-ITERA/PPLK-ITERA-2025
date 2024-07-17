@@ -7,20 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Penyakit extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    protected $table = 'penyakit';
-    protected $primaryKey = 'id';
+   protected $table = 'penyakit';
+   protected $primaryKey = 'id';
 
-    protected $fillable =[
-        'pita' , 'ket_penyakit'
-    ];
+   protected $fillable = [
+      'pita', 'ket_penyakit'
+   ];
 
-    protected $hidden = [
-        'id', 'created_at', 'updated_at',
-     ];
+   protected $hidden = [
+      'id', 'created_at', 'updated_at',
+   ];
 
-     public function UserCui(){
-        return $this->hasOne(UserCui::class);
-    }
+   public function User()
+   {
+      return $this->hasOne(User::class);
+   }
 }

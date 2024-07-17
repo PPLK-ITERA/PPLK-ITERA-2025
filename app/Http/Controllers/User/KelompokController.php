@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\Kelompok;
 use App\Models\Scoreboard;
 use Illuminate\Http\Request;

@@ -90,6 +90,10 @@ class User extends Authenticatable
 
    public function prodi()
    {
-      return $this->hasOne(Prodi::class);
+      return $this->belongsTo(Prodi::class, 'prodi_id', 'id');
+   }
+   public function penyakit()
+   {
+      return $this->belongsTo(Penyakit::class, 'penyakit_id', 'id');
    }
 }

@@ -23,6 +23,7 @@ class UserFactory extends Factory
          'instagram_url' => $this->faker->url(),
          'pilar' => $this->faker->numberBetween(1, 4),
          'penyakit_id' => $this->faker->numberBetween(1, 4),
+         'prodi_id' => $this->faker->numberBetween(1, 2),
          'created_at' => now(),
          'updated_at' => now(),
       ];
