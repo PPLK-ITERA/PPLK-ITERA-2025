@@ -118,6 +118,10 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/mading', function () {
         return Inertia::render('Dashboard/mading/Page');
     })->name('dashboard/mading');
+
+    Route::get('dashboard/cui', function () {
+        return Inertia::render('Dashboard/cui/Page');
+    })->name('dashboard/cui');
 });
 
 Route::middleware('auth')->group(function () {

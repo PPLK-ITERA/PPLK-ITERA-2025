@@ -1,6 +1,6 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { CreateProfileOne } from "@/Components/dashboard/forms/user-profile-stepper/create-profile";
 import { ScrollArea } from "@/Components/dashboard/ui/scroll-area";
 

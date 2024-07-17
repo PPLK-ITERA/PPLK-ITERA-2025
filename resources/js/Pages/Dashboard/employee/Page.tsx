@@ -6,7 +6,7 @@ import { Link } from "@inertiajs/react";
 
 import { Plus } from "lucide-react";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { columns } from "@/Components/dashboard/tables/employee-tables/columns";
 // import { EmployeeTable } from '@/Components/dashboard/tables/employee-tables/employee-table';
 import { buttonVariants } from "@/Components/dashboard/ui/button";
