@@ -138,4 +138,26 @@ class PresensiCuiController extends Controller
       ];
       return response()->json($response);
    }
+
+   public function show(Request $request)
+   {
+      $validated = $request->validate([
+         'nim' => 'required|string',
+      ]);
+      $user = User::where('nim', $validated['nim'])->first();
+      if (!$user) {
+         return response()->json(['message' => 'NIM tidak ditemukan'], 404);
+      }
+      $log = LogCui::where('user_id', $user->id)->latest('created_at');
+      $response = [
+         'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
+         'nama' => $user->name,
+         'nim' => $user->nim,
+         'prodi' => $user->prodi->nama_prodi,
+         'pita' => $user->penyakit->pita ?? null,
+         'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+         'status' => $log->first()->status ?? null,
+      ];
+      return response()->json($response);
+   }
 }
