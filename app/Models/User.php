@@ -83,11 +83,13 @@ class User extends Authenticatable
       return $this->hasOne(pilar::class, 'pilar', 'id');
    }
 
-   public function qrcode(){
+   public function qrcode()
+   {
       return $this->belongsTo(Qrcode::class, 'qrcode_id', 'id');
    }
 
-   public function prodi(){
-      return $this->belongsTo(Prodi::class, 'prodi_id', 'id');
+   public function prodi()
+   {
+      return $this->hasOne(Prodi::class);
    }
 }
