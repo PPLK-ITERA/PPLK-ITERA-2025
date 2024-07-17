@@ -13,15 +13,16 @@ class UserFactory extends Factory
    public function definition()
    {
       return [
+         'name' => $this->faker->name,
+         'nim' => $this->faker->unique()->numerify('########'),
          'email' => $this->faker->unique()->safeEmail,
-         'password' => bcrypt('password'), // password
-         'role_id' => $this->faker->numberBetween(1, 4), // or other roles if needed
+         'password' => bcrypt('password'),
+         'role_id' => $this->faker->numberBetween(1, 4),
          'photo_profile_url' => $this->faker->imageUrl(),
          'linkedin_url' => $this->faker->url(),
          'instagram_url' => $this->faker->url(),
          'pilar' => $this->faker->numberBetween(1, 4),
-         'name' => $this->faker->name,
-         'nim' => $this->faker->unique()->numerify('##########'),
+         'penyakit_id' => $this->faker->numberBetween(1, 4),
          'created_at' => now(),
          'updated_at' => now(),
       ];
