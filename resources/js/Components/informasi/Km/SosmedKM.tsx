@@ -22,6 +22,7 @@ const SosmedKM = () => {
                             <img src={x} alt="x" className="p-3" />
                         </a>
                     </div>
+
                     <div className="flex items-center justify-center overflow-hidden bg-white rounded-full">
                         <a
                             href="https://www.instagram.com/thebugitself/"
@@ -30,6 +31,7 @@ const SosmedKM = () => {
                             <img src={ig} alt="instagram" className="p-3" />
                         </a>
                     </div>
+
                     <div className="flex items-center justify-center overflow-hidden bg-white rounded-full">
                         <a
                             href="https://www.instagram.com/thebugitself/"
@@ -38,6 +40,7 @@ const SosmedKM = () => {
                             <img src={yt} alt="youtube" className="p-2" />
                         </a>
                     </div>
+
                     <div className="flex items-center justify-center overflow-hidden bg-white rounded-full">
                         <a
                             href="https://www.instagram.com/thebugitself/"

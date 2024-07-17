@@ -66,16 +66,17 @@ const kabinetData: Kabinet[] = [
 
 const KabinetPresma: React.FC = () => {
     const rows: Kabinet[][] = [];
+
     for (let i = 0; i < kabinetData.length; i += 2) {
         rows.push(kabinetData.slice(i, i + 2));
     }
 
     return (
-        <div className="">
+        <div className="mt-10">
             {rows.map((row, rowIndex) => (
                 <div
                     key={rowIndex}
-                    className="md:flex-row flex flex-col items-center justify-center gap-16 pt-16"
+                    className="md:flex-row flex flex-col items-center justify-center gap-8 pt-8"
                 >
                     {row.map((kabinet, index) => (
                         <div
@@ -86,6 +87,7 @@ const KabinetPresma: React.FC = () => {
                                 {kabinet.kabinet} <br />
                                 {kabinet.year}
                             </h2>
+
                             <p className="text-center font-montserrat md:text-[24px] text-[20px] py-6">
                                 {kabinet.name} <br />({kabinet.department})
                             </p>

@@ -60,7 +60,6 @@ const DataFilosofiLogoKM = [
 const FilosofiLogoKm = () => {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
-    const [view, setView] = React.useState<boolean>(false);
 
     React.useEffect(() => {
         if (!api) {
@@ -68,16 +67,16 @@ const FilosofiLogoKm = () => {
         }
 
         setCurrent(api.selectedScrollSnap() + 1);
-        setView(true);
 
         api.on("select", () => {
             setCurrent(api.selectedScrollSnap() + 1);
         });
     }, [api]);
+
     return (
         <div className="pt-40">
             <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white">
-                <h2 className="font-avigea text-[20px] md:text-[39px] lg:text-[61px] text-white text-center">
+                <h2 className="font-avigea md:text-5xl z-40 text-3xl text-center text-white">
                     FILOSOFI LOGO
                 </h2>
 
@@ -88,7 +87,7 @@ const FilosofiLogoKm = () => {
                     }}
                     plugins={[
                         Autoplay({
-                            delay: 3000,
+                            delay: 2000,
                         }),
                     ]}
                     setApi={setApi}
@@ -116,6 +115,7 @@ const FilosofiLogoKm = () => {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
+
                     <CarouselNext className="hover:bg-transparent hover:text-white text-white bg-transparent border-none" />
                     <CarouselPrevious className="hover:bg-transparent hover:text-white text-white bg-transparent border-none" />
                 </Carousel>

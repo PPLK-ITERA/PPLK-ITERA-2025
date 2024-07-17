@@ -5,6 +5,7 @@ import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
 import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
 import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
 import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
+import logopplk from "!assets/logo-pplk-2024.png";
 
 export interface NavItem {
     title: string;
@@ -293,4 +294,92 @@ export const FooterLink = [
     { title: "Instagram", href: "https://instagram.com/pplk.itera" },
     { title: "Twitter", href: "https://twitter.com/pplkitera" },
     { title: "Youtube", href: "https://youtube.com/pplkitera" },
+];
+
+export const DataAtribut = [
+    {
+        day: "Atribut Hari Pertama",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
+    {
+        day: "Atribut Hari Kedua",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
+    {
+        day: "Atribut Hari Ketiga",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
+    {
+        day: "Atribut Hari Keempat",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
+    {
+        day: "Atribut Hari Kelima",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
 ];

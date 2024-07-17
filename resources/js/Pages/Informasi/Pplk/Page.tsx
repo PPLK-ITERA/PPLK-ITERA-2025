@@ -8,7 +8,7 @@ function Page() {
     return (
         <div className="bg-pattern-white min-h-screen">
             <Navbar isSolid={true} isFixed={true} />
-            <div className="sm:pt-28 pt-10">
+            <div className="md:pt-20 lg:pt-32 pt-24">
                 <div className="font-avigea text-jaffa-600 sm:text-4xl sm:px-8 text-2xl text-center">
                     <h2 className="">
                         PROGRAM PENGENALAN LINGKUNGAN KAMPUS ITERA 2024
