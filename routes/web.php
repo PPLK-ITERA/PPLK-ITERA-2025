@@ -48,8 +48,14 @@ Route::middleware('auth')->group(function () {
    //melihat kelompok yang tidak masuk top 10
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
-   Route::post('qrcode/scan', [PresensiCuiController::class, 'QRScan']);
-
+   //Presensi CUI
+   Route::group(['prefix' => 'cui'], function () {
+      Route::post('qrcode/scan', [PresensiCuiController::class, 'QRScan'])->name('cui.scan');
+      Route::get('status/{code}', [PresensiCuiController::class, 'status'])->name('cui.status');
+      Route::get('izin/{code}')->name('cui.izinform');
+      Route::patch('izin/{code}', [PresensiCuiController::class, 'storeIzin'])->name('cui.izin');
+      Route::patch('izin/{code}/destroy', [PresensiCuiController::class, 'destroyIzin'])->name('cui.destroy');
+   });;
 
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {
