@@ -1,70 +1,22 @@
-import { Card, CardContent } from "../ui/card";
+import Autoplay from "embla-carousel-autoplay";
+
+import React from "react";
+
+import { Card, CardContent } from "@/Components/ui/card";
 import {
     Carousel,
     CarouselApi,
     CarouselContent,
     CarouselItem,
-} from "../ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+} from "@/Components/ui/carousel";
 
-import React from "react";
+import { DataFilosofiLogo } from "@/constants/data";
 
 import alas_filosofi from "!assets/alas-filosofi.png";
-import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
-import angka_10 from "!assets/filosofi-pilar/angka-10.png";
-import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
-import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
-import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
-import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
-import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
-
-const DataFilosofiLogo = [
-    {
-        image: helai_daun,
-        title: "Helai Daun",
-        description: "Helai Daun memiliki arti Keteduhan dan Kesejukan",
-    },
-    {
-        image: angka_10,
-        title: "Angka 10",
-        description: "Angka 10 mengartikan 1 dekade PPLK ITERA",
-    },
-    {
-        image: pilar_sdgs,
-        title: "4 Pilar SDG's",
-        description:
-            "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2024",
-    },
-    {
-        image: pulau_sumatera,
-        title: "Pulau Sumatera",
-        description:
-            "Pulau Sumatera merepresentasikan tempat dimana Kampus ITERA berdiri dan akan menciptakan manusia terbaik di Indonesia",
-    },
-    {
-        image: tetes_air,
-        title: "Tetes Air",
-        description:
-            "Tetes Air merepresentasikan bukti dari proses dalam mencapai Indonesia Emas 2045",
-    },
-    {
-        image: naungan_tangan,
-        title: "Naungan Tangan",
-        description:
-            "Naungan Tangan memiliki arti PPLK ITERA menjadi naungan untuk mahasiswa baru mengenal lingkungan Kampusnya",
-    },
-    {
-        image: biji_emas,
-        title: "Biji Emas",
-        description:
-            "Biji Emas merepresentasikan keberhasilan Indonesi Emas 2045",
-    },
-];
 
 export default function FilosofiLogo() {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
-    const [view, setView] = React.useState<boolean>(false);
 
     React.useEffect(() => {
         if (!api) {
@@ -72,7 +24,6 @@ export default function FilosofiLogo() {
         }
 
         setCurrent(api.selectedScrollSnap() + 1);
-        setView(true);
 
         api.on("select", () => {
             setCurrent(api.selectedScrollSnap() + 1);
@@ -81,7 +32,7 @@ export default function FilosofiLogo() {
 
     return (
         <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white pt-[250px] md:pt-[500px]">
-            <h2 className="font-avigea text-jaffa-300 text-4xl">
+            <h2 className="text-jaffa-300 font-avigea md:text-4xl text-3xl">
                 Filosofi Logo PPLK
             </h2>
 
