@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
          $table->unsignedBigInteger('view_count')->default(0);
          $table->foreignId('qrcode_id')->nullable();
          $table->foreignId('prodi_id')->nullable();
+         $table->foreignId('penyakit_id')->nullable();
          $table->timestamps();
       });
       Schema::create('sessions', function (Blueprint $table) {
