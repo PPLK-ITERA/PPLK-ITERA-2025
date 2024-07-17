@@ -58,9 +58,9 @@ Route::get('booklet', function () {
     return Inertia::render('Booklet/Page');
 })->name('booklet');
 
-Route::get('maskot', function () {
+Route::get('informasi/maskot', function () {
     return Inertia::render('Maskot/Page');
-})->name('maskot');
+})->name('informasi/maskot');
 
 Route::get('informasi/profil', function () {
     return Inertia::render('Informasi/Profil/Page');
