@@ -18,7 +18,7 @@ class QrcodeSeeder extends Seeder
       for ($i = 0; $i < $n; $i++) {
          Qrcode::create([
             'user_id' => $i + 1,
-            'qrcode' => string::random(10)
+            'code' => str()->random(10)
          ]);
       }
    }
