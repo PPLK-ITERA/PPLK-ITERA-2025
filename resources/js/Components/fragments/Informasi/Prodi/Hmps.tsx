@@ -49,7 +49,9 @@ const Hmps = ({ prodi, className }: Props) => {
                     >
                         <div className="flex place-content-center mx-16">
                             <div className="text-center lg:text-left place-content-center flex flex-col text-white">
-                                <p className="max-lg:text-xs">Ketua {prodi.hmpsName} 2024-2025</p>
+                                <p className="max-lg:text-xs">
+                                    Ketua {prodi.hmpsName} 2024-2025
+                                </p>
                                 <p className="text-xl lg:text-3xl">
                                     {prodi.hmpsCoordinatorName}
                                 </p>
