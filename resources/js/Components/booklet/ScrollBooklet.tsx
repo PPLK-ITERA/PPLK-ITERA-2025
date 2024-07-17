@@ -55,7 +55,7 @@ export function CarouselBooklet() {
                                                 : ""}
                                         </p>
                                     </div>
-                                    
+
                                     <div className="mr-2 mt-[80px]">
                                         <DialogBooklet />
                                     </div>

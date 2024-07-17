@@ -6,7 +6,7 @@ import { CarouselBooklet } from "@/Components/booklet/ScrollBooklet";
 
 function Page() {
     return (
-        <div className="bg-pattern-white flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-pattern-white">
             <Navbar isSolid={true} />
 
             <div className="md:pt-20 lg:pt-28 flex flex-col items-center justify-start flex-grow min-h-screen p-4 pt-10 pb-24 text-center">

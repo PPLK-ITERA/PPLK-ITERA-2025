@@ -4,6 +4,8 @@ import { AccordionFAQ } from "@/Components/AccordionFAQ";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import PaginationFAQ from "@/Components/PaginationFAQ";
+import { useAos } from "@/lib/hooks/useAos";
+
 
 import { faqs } from "@/lib/data/faq";
 import { useAos } from "@/lib/hooks/useAos";
@@ -37,7 +39,7 @@ const Page: React.FC = () => {
     );
 
     return (
-        <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
+        <div data-aos="fade-left" data-aos-duration="3000" className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
             <div>
                 <Navbar isSolid={true} isFixed={true} />
                 <div className="md:pt-20 lg:pt-24 pt-20">
