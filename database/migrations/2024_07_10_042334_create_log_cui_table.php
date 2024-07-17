@@ -13,9 +13,10 @@ return new class extends Migration
    {
       Schema::create('log_cui', function (Blueprint $table) {
          $table->id();
-         $table->foreignId('user_cui_id')->constraint('user_cui')->onDelete('cascade');
+         $table->foreignId('user_id')->constraint('users')->onDelete('cascade');
          $table->enum('status', ['hadir', 'izin', 'tidak hadir']);
          $table->datetime('waktu_izin')->nullable();
+         $table->datetime('waktu_selesai')->nullable();
          $table->string('ket_izin')->nullable();
          $table->timestamps();
       });
