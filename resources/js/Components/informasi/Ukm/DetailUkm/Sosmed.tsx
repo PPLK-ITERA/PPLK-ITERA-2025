@@ -71,7 +71,7 @@ export default function Sosmed({ allsosmed }) {
         <div
             data-aos="fade-up"
             data-aos-duration="1000"
-            className="flex flex-col justify-center items-center"
+            className="flex flex-col justify-center items-center flex-wrap"
         >
             <div className="flex space-x-4 -mt-1 mb-40 gap-1 sm:gap-5">
                 {Object.entries(sosmedLinks).map(([type, url]) =>

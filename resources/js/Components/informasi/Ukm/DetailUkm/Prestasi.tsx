@@ -14,35 +14,31 @@ import {
 export function Prestasi({ allprestasi }) {
     useAos();
     return (
-        <Carousel
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            className="w-1/4 sm:max-w-[480px] h-[400px] px-2"
-        >
-            <CarouselContent>
-                {allprestasi.map((prestasi, index) => (
-                    <CarouselItem key={index}>
-                        <div className="">
-                            <Card className="h-[400px] flex flex-col text-center shadow-md rounded-sm">
-                                <div className="flex-1">
+        <div className="w-full max-w-md px-12">
+            <Carousel data-aos="fade-up" data-aos-duration="1000" >
+                <CarouselContent>
+                    {allprestasi.map((prestasi, index) => (
+                        <CarouselItem key={index} className="basis-full">
+                            <Card className="flex flex-col text-center shadow-md rounded-sm">
+                                <CardContent className="p-0">
                                     <img
                                         src={prestasi.prestasi}
                                         alt={prestasi.deskripsi}
-                                        className="w-full h-52 object-cover rounded-sm"
+                                        className="w-full object-cover rounded-sm h-52"
                                     />
-                                </div>
-                                <CardContent className="p-4 h-40 ">
-                                    <span className="text-xl font-semibold">
+                                    <div className="className=text-xl font-semibold min-h-36 p-4 grid place-content-center">
+                                        <p>
                                         {prestasi.deskripsi}
-                                    </span>
+                                    </p>
+                                    </div>
                                 </CardContent>
                             </Card>
-                        </div>
-                    </CarouselItem>
-                ))}
-            </CarouselContent >
-            <CarouselPrevious />
-            <CarouselNext />
-        </Carousel>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
+        </div>
     );
 }
