@@ -1,3 +1,5 @@
+import { IconLogout } from "@tabler/icons-react";
+
 export const NavLinks = [
     {
         name: "Beranda",
@@ -32,7 +34,7 @@ export const InformasiDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -55,7 +57,7 @@ export const InformasiDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -82,7 +84,7 @@ export const InformasiDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -104,7 +106,7 @@ export const InformasiDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -120,7 +122,7 @@ export const InformasiDropDown = [
         ),
     },
     {
-        title: "Kabinet KM ITERA",
+        title: "KM ITERA",
         href: "/informasi/km",
         icon: (
             <svg
@@ -129,7 +131,7 @@ export const InformasiDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -138,31 +140,6 @@ export const InformasiDropDown = [
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 22l4 -4l-2.5 -11l.993 -2.649a1 1 0 0 0 -.936 -1.351h-3.114a1 1 0 0 0 -.936 1.351l.993 2.649l-2.5 11l4 4z" />
                 <path d="M10.5 7h3l5 5.5" />
-            </svg>
-        ),
-    },
-    {
-        title: "Senat KM ITERA",
-        href: "/informasi/senat",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#da5b1c"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-gavel"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M13 10l7.383 7.418c.823 .82 .823 2.148 0 2.967a2.11 2.11 0 0 1 -2.976 0l-7.407 -7.385" />
-                <path d="M6 9l4 4" />
-                <path d="M13 10l-4 -4" />
-                <path d="M3 21h7" />
-                <path d="M6.793 15.793l-3.586 -3.586a1 1 0 0 1 0 -1.414l2.293 -2.293l.5 .5l3 -3l-.5 -.5l2.293 -2.293a1 1 0 0 1 1.414 0l3.586 3.586a1 1 0 0 1 0 1.414l-2.293 2.293l-.5 -.5l-3 3l.5 .5l-2.293 2.293a1 1 0 0 1 -1.414 0z" />
             </svg>
         ),
     },
@@ -176,7 +153,7 @@ export const InformasiDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -199,7 +176,7 @@ export const InformasiDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -225,7 +202,7 @@ export const InformasiDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -252,7 +229,7 @@ export const MabaDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -275,7 +252,7 @@ export const MabaDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -299,7 +276,7 @@ export const MabaDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -324,7 +301,7 @@ export const MabaDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -347,7 +324,7 @@ export const MabaDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -370,7 +347,7 @@ export const MabaDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -395,7 +372,7 @@ export const MabaDropDown = [
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#da5b1c"
+                stroke="#fcedd8"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -403,6 +380,56 @@ export const MabaDropDown = [
             >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" />
+            </svg>
+        ),
+    },
+];
+
+export const UserDropdown = [
+    {
+        title: "Profil Kamu",
+        href: "/profil",
+        icon: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fcedd8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-user-circle"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+            </svg>
+        ),
+    },
+    {
+        title: "Relasi & Jaringan",
+        href: "/relasi",
+        icon: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fcedd8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-users"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
             </svg>
         ),
     },

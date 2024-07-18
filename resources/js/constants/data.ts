@@ -1,3 +1,12 @@
+import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
+import angka_10 from "!assets/filosofi-pilar/angka-10.png";
+import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
+import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
+import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
+import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
+import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
+import logopplk from "!assets/logo-pplk-2024.png";
+
 export interface NavItem {
     title: string;
     href?: string;
@@ -6,6 +15,7 @@ export interface NavItem {
     icon?: string;
     label?: string;
     description?: string;
+    role_id: number[];
 }
 
 export const navItems: NavItem[] = [
@@ -20,78 +30,91 @@ export const navItems: NavItem[] = [
         href: "/dashboard/user",
         icon: "user",
         label: "user",
+        role_id: [1, 2, 3],
     },
     {
         title: "Employee",
         href: "/dashboard/employee",
         icon: "employee",
         label: "employee",
+        role_id: [1, 2],
     },
     {
         title: "Profile",
         href: "/dashboard/profile",
         icon: "profile",
         label: "profile",
+        role_id: [1],
     },
     {
         title: "Kanban",
         href: "/dashboard/kanban",
         icon: "kanban",
         label: "kanban",
+        role_id: [2],
     },
     {
         title: "Dashboard",
         href: "/dashboard",
         icon: "dashboard",
         label: "dashboard",
+        role_id: [2],
     },
     {
         title: "Atur Maba",
         href: "/dashboard/atur-maba",
         icon: "user",
         label: "atur-maba",
+        role_id: [2],
     },
     {
         title: "Atur Dapmen",
         href: "/dashboard/atur-dapmen",
         icon: "user",
         label: "atur-dapmen",
+        role_id: [2],
     },
     {
         title: "Atur PJ Prodi",
         href: "/dashboard/atur-pjprodi",
         icon: "user",
         label: "atur-pjprodi",
+        role_id: [2],
     },
     {
         title: "Atur Korlap",
         href: "/dashboard/atur-korlap",
         icon: "user",
         label: "atur-korlap",
+        role_id: [2],
     },
     {
         title: "Absensi Maba",
         href: "/dashboard/absensi-maba",
         icon: "notebook",
         label: "atur-absensi-maba",
+        role_id: [2],
     },
     {
         title: "Booklet",
         href: "/dashboard/booklet",
         icon: "book",
         label: "atur-booklet",
+        role_id: [2],
     },
     {
         title: "FAQ",
         href: "/dashboard/faq",
         icon: "question",
         label: "atur-faq",
+        role_id: [2, 1],
     },
     {
         title: "Mading",
         href: "/dashboard/mading",
         icon: "map",
         label: "atur-mading",
+        role_id: [2],
     },
 ];
 
@@ -202,5 +225,161 @@ export const users: User[] = [
         role: "Data Analyst",
         verified: false,
         status: "Active",
+    },
+];
+
+export const DataFilosofiLogo = [
+    {
+        image: helai_daun,
+        title: "Helai Daun",
+        description: "Helai Daun memiliki arti Keteduhan dan Kesejukan",
+    },
+    {
+        image: angka_10,
+        title: "Angka 10",
+        description: "Angka 10 mengartikan 1 dekade PPLK ITERA",
+    },
+    {
+        image: pilar_sdgs,
+        title: "4 Pilar SDG's",
+        description:
+            "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2024",
+    },
+    {
+        image: pulau_sumatera,
+        title: "Pulau Sumatera",
+        description:
+            "Pulau Sumatera merepresentasikan tempat dimana Kampus ITERA berdiri dan akan menciptakan manusia terbaik di Indonesia",
+    },
+    {
+        image: tetes_air,
+        title: "Tetes Air",
+        description:
+            "Tetes Air merepresentasikan bukti dari proses dalam mencapai Indonesia Emas 2045",
+    },
+    {
+        image: naungan_tangan,
+        title: "Naungan Tangan",
+        description:
+            "Naungan Tangan memiliki arti PPLK ITERA menjadi naungan untuk mahasiswa baru mengenal lingkungan Kampusnya",
+    },
+    {
+        image: biji_emas,
+        title: "Biji Emas",
+        description:
+            "Biji Emas merepresentasikan keberhasilan Indonesi Emas 2045",
+    },
+];
+
+export const InformasiInfoSection = [
+    { title: "Informasi Fakultas", href: "/informasi-fakultas" },
+    { title: "Informasi HMPS & PRODI", href: "/informasi-hmps-prodi" },
+    { title: "Informasi UPT", href: "/informasi-upt" },
+    { title: "Informasi KM ITERA", href: "/informasi-km" },
+    { title: "Informasi SENAT ITERA", href: "/informasi-senat" },
+    { title: "Informasi UKM ITERA", href: "/informasi-ukm" },
+];
+
+export const InformasiFooter = [
+    { title: "Tentang PPLK 2024", href: "/about-pplk" },
+    { title: "Informasi Fakultas", href: "/informasi-fakultas" },
+    { title: "Informasi HMPS & PRODI", href: "/informasi-hmps-prodi" },
+    { title: "Informasi UPT", href: "/informasi-upt" },
+    { title: "Informasi KM ITERA", href: "/informasi-km" },
+    { title: "Informasi SENAT ITERA", href: "/informasi-senat" },
+    { title: "Informasi UKM ITERA", href: "/informasi-ukm" },
+];
+
+export const FooterLink = [
+    { title: "Instagram", href: "https://instagram.com/pplk.itera" },
+    { title: "Twitter", href: "https://twitter.com/pplkitera" },
+    { title: "Youtube", href: "https://youtube.com/pplkitera" },
+];
+
+export const DataAtribut = [
+    {
+        day: "Atribut Hari Pertama",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
+    {
+        day: "Atribut Hari Kedua",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
+    {
+        day: "Atribut Hari Ketiga",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
+    {
+        day: "Atribut Hari Keempat",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
+    },
+    {
+        day: "Atribut Hari Kelima",
+        options: [
+            {
+                gender: "Laki-Laki",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan",
+                image: logopplk,
+            },
+            {
+                gender: "Perempuan Hijab",
+                image: logopplk,
+            },
+        ],
     },
 ];
