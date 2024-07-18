@@ -1,8 +1,9 @@
 <?php
 //TODO: Remove the feedback and response related
+use App\Http\Controllers\BookletController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\QrcodeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -10,6 +11,7 @@ use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\PresensiCuiController;
 use App\Http\Controllers\UserController;
+
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;
 
@@ -100,7 +102,8 @@ Route::middleware('auth')->group(function () {
       Route::get('izin/{code}')->name('cui.izinform');
       Route::patch('izin/{code}', [PresensiCuiController::class, 'storeIzin'])->name('cui.izin');
       Route::patch('izin/{code}/destroy', [PresensiCuiController::class, 'destroyIzin'])->name('cui.destroy');
-   });;
+   });
+   ;
 
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {

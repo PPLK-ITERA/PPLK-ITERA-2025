@@ -61,7 +61,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                                     {item.title}
                                 </span>
                             </AccordionTrigger>
-                            <AccordionContent className="-mt-1 ml-[15px] text-left">
+                            <AccordionContent className="-mt-1 px-[15px] text-left">
                                 {item.content}
                             </AccordionContent>
                         </AccordionItem>
