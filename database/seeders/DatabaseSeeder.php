@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Penyakit;
 use App\Models\pilar;
 use App\Models\User;
 use App\Models\Role;
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
          FAQSeeder::class,
          BookletSeeder::class,
          QrcodeSeeder::class,
+         PenyakitSeeder::class,
          // Add more seeders if needed
       ]);
    }

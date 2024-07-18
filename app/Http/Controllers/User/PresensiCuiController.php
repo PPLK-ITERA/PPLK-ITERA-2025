@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -110,22 +110,53 @@ class PresensiCuiController extends Controller
 
    public function status($code)
    {
+      if (Qrcode::where('code', $code)->doesntExist()) {
+         return response()->json(['message' => 'QR Code tidak ditemukan'], 404);
+      }
       $userid = Qrcode::where('code', $code)->first()->user_id;
       $user = User::find($userid);
       $log = LogCui::where('user_id', $userid)->latest('created_at');
+      if (!$user->exists()) {
+         return response()->json(['message' => 'User tidak ditemukan'], 404);
+      }
+      if (!$log->exists()) {
+         return response()->json(['message' => 'Belum Melakukan Presensi'], 404);
+      }
 
       $response = [
          'message' => 'Sudah Melakukan Presensi',
          'nama' => $user->name,
          'nim' => $user->nim,
          'prodi' => $user->prodi->nama_prodi,
-         'pita' => $user->penyakit->pita,
+         'pita' => $user->penyakit->pita ?? null,
          'riwayat' => $user->penyakit->ket_penyakit ?? "-",
          'status' => $log->first()->status,
          'qrcode' => $code,
          'waktu' => $log->first()->created_at ?? null,
          'waktu_izin' => $log->first()->waktu_izin ?? null,
          'ket_izin' => $log->first()->ket_izin ?? null,
+      ];
+      return response()->json($response);
+   }
+
+   public function show(Request $request)
+   {
+      $validated = $request->validate([
+         'nim' => 'required|string',
+      ]);
+      $user = User::where('nim', $validated['nim'])->first();
+      if (!$user) {
+         return response()->json(['message' => 'NIM tidak ditemukan'], 404);
+      }
+      $log = LogCui::where('user_id', $user->id)->latest('created_at');
+      $response = [
+         'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
+         'nama' => $user->name,
+         'nim' => $user->nim,
+         'prodi' => $user->prodi->nama_prodi,
+         'pita' => $user->penyakit->pita ?? null,
+         'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+         'status' => $log->first()->status ?? null,
       ];
       return response()->json($response);
    }
