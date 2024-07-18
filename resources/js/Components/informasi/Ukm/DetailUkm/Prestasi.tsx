@@ -17,21 +17,21 @@ export function Prestasi({ allprestasi }) {
         <Carousel
             data-aos="fade-up"
             data-aos-duration="1000"
-            className="max-w-[250px] md:max-w-md"
+            className="w-1/4 sm:max-w-[480px] h-[400px] px-2"
         >
             <CarouselContent>
                 {allprestasi.map((prestasi, index) => (
                     <CarouselItem key={index}>
                         <div className="">
-                            <Card className="h-80 flex flex-col text-center shadow-md rounded-sm">
+                            <Card className="h-[400px] flex flex-col text-center shadow-md rounded-sm">
                                 <div className="flex-1">
                                     <img
                                         src={prestasi.prestasi}
                                         alt={prestasi.deskripsi}
-                                        className="w-full h-48 object-cover rounded-sm"
+                                        className="w-full h-52 object-cover rounded-sm"
                                     />
                                 </div>
-                                <CardContent className="p-4 h-32">
+                                <CardContent className="p-4 h-40 ">
                                     <span className="text-xl font-semibold">
                                         {prestasi.deskripsi}
                                     </span>
@@ -40,7 +40,7 @@ export function Prestasi({ allprestasi }) {
                         </div>
                     </CarouselItem>
                 ))}
-            </CarouselContent>
+            </CarouselContent >
             <CarouselPrevious />
             <CarouselNext />
         </Carousel>

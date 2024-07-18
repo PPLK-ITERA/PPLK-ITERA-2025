@@ -15,11 +15,11 @@ export const CarouselUkm: React.FC<CarouselUkmProps> = ({ items }) => {
                         <a href={item.link} className="block py-2">
                             <Card>
                                 <CardContent className="flex flex-col items-center justify-center p-6 border-4 border-moccaccino-800 rounded-lg">
-                                    <div className="my-10 flex items-center justify-center md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gray-50  rounded-full  shadow-inner border border-red-500 overflow-hidden">
+                                    <div className="my-10 flex items-center justify-center md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gray-50  rounded-full  shadow-inner overflow-hidden">
                                         <img
                                             src={item.logo}
                                             alt="Logo UKM"
-                                            className="bg-cover bg-center w-[100px] h-[100px]"
+                                            className="bg-cover bg-center w-[100px] h-[100px] object-contain"
                                         />
                                     </div>
                                     <span className="text-[16px] font-montserrat font-semibold text-jaffa-600">

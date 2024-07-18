@@ -27,28 +27,28 @@ function Page({ nama_ukm }) {
                     <Judul
                         title={ukm.title}
                         sejarah={ukm.sejarah}
-                        logo={ukm.logo}
-                        fotoPembina={ukm.fotopembina}
-                        pembina={ukm.pembina}
-                        jabatan={ukm.jabatan}
-                        fotoKetum={ukm.fotoketua}
+                        logo={ukm.logo}                       
                         ketum={ukm.ketum}
                         prodi={ukm.prodi}
+                        visi={ukm.visi}
+                        misi={ukm.misi}
                     />
                     <div className="my-60 flex flex-col items-center justify-center gap-10">
                         <h2
                             data-aos="fade-down"
                             data-aos-duration="1000"
-                            className="font-avigea text-moccaccino-600 text-[25px] sm:text-[36px] md:text-[40px]"
+                            className="font-avigea text-moccaccino-600 text-[25px] sm:text-[36px] md:text-[40px] -mt-40 "
                         >
                             Prestasi & Kegiatan
                         </h2>
+                    
                         <Prestasi allprestasi={ukm.allprestasi} />
+                        
 
                         <h2
                             data-aos="fade-down"
                             data-aos-duration="1000"
-                            className="font-avigea text-moccaccino-600 text-[25px] sm:text-[36px] md:text-[40px] mt-40"
+                            className="font-avigea text-moccaccino-600 text-[25px] sm:text-[36px] md:text-[40px] "
                         >
                             Sosial Media UKM
                         </h2>
