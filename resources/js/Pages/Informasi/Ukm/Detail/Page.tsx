@@ -23,7 +23,7 @@ function Page({ nama_ukm }) {
     return (
         <div>
             <Navbar isFixed={true} isSolid={true} />
-            <div className="bg-pattern-white py-36">
+            <div className="bg-pattern-white py-36 pb-64">
                 <div className="max-w-7xl px-4 mx-auto flex flex-col gap-36">
                     <Judul
                         title={ukm.title}
