@@ -77,16 +77,15 @@ Route::get('informasi/fakultas/Fti', function () {
     return Inertia::render('Informasi/Fakultas/Fti');
 })->name('informasi/fakultas/Fti');
 
-Route::middleware('auth')->group(function () {
-    Route::get('informasi/prodi', function () {
-        return Inertia::render('Informasi/Prodi/Page');
-    })->name('informasi/prodi');
+Route::get('informasi/prodi', function () {
+    return Inertia::render('Informasi/Prodi/Page');
+})->name('informasi/prodi');
     
-    Route::get('informasi/prodi/detail', function () {
-        return Inertia::render('Informasi/Prodi/Detail/Page');
-    })->name('informasi/prodi/detail');
-    
+Route::get('informasi/prodi/detail', function () {
+    return Inertia::render('Informasi/Prodi/Detail/Page');
+})->name('informasi/prodi/detail');
 
+Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('Dashboard/Page');
     })->name('dashboard');
@@ -138,8 +137,6 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/mading', function () {
         return Inertia::render('Dashboard/mading/Page');
     })->name('dashboard/mading');
-
-
 });
 
 Route::middleware('auth')->group(function () {
