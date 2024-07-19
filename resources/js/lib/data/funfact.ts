@@ -38,7 +38,7 @@ export const DATA_FUNFACT = [
             {
                 title: "Akun Menfess ITERA",
                 subtitle: "Wadah Aspirasi dan Informasi",
-                desc: "ITERA memiliki akun menfess di X yang berfungsi sebagai wadah bertanya, menyampaikan informasi, promosi jualan, sampai ajang untuk confess loh! Akun ini juga sudah pernah di suspend 2x.",
+                desc: "ITERA memiliki akun menfess di X yang berfungsi sebagai wadah bertanya, menyampaikan informasi, promosi jualan, sampai ajang untuk confess loh!",
             },
         ],
     },
@@ -239,7 +239,7 @@ export const DATA_FUNFACT = [
             {
                 title: "Rumah Ibadah Multi Agama (RIMA)",
                 subtitle: "Fasilitas untuk Berbagai Agama di ITERA",
-                desc: "ITERA memiliki fasilitas RIMA (Rumah Ibadah Multi Agama) Fasilitas ini terdiri dari 2 area utama, yaitu area aula dan area agama yang terdiri dari 6 ruangan agama yaitu Islam, Protestan, Katolik, Hindu, Buddha, dan Konghucu.",
+                desc: "ITERA memiliki fasilitas RIMA (Rumah Ibadah Multi Agama) yang terdiri dari 6 ruangan agama yaitu Islam, Protestan, Katolik, Hindu, Buddha, dan Konghucu.",
             },
         ],
     },

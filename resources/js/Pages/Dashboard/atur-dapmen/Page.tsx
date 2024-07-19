@@ -9,9 +9,9 @@ const breadcrumbItems = [
     { title: "Atur Dapmen", link: "/dashboard/atur-dapmen" },
 ];
 
-export default function Page() {
+export default function Page({auth}) {
     return (
-        <DashboardLayout>
+        <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
             <h2 className="text-3xl font-bold tracking-tight">Atur Dapmen</h2>
         </DashboardLayout>

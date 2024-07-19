@@ -3,55 +3,81 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::middleware('guest')->group(function () {
-    Route::get('faq', function () {
-        return Inertia::render('FAQ/Page');
-    })->name('faq');
+Route::get('faq', function () {
+    return Inertia::render('FAQ/Page');
+})->name('faq');
 
-    Route::get('ketentuan-atribut', function () {
-        return Inertia::render('Atribut/Page');
-    })->name('ketentuan-atribut');
+Route::get('ketentuan-atribut', function () {
+    return Inertia::render('Atribut/Page');
+})->name('ketentuan-atribut');
 
-    Route::get('dev', function () {
-        return Inertia::render('Dev/Page');
-    })->name('dev');
+Route::get('dev', function () {
+    return Inertia::render('Dev/Page');
+})->name('dev');
 
-    Route::get('scoreboard', function () {
-        return Inertia::render('Scoreboard/Page');
-    })->name('scoreboard');
+Route::get('scoreboard', function () {
+    return Inertia::render('Scoreboard/Page');
+})->name('scoreboard');
 
-    Route::get('relasi', function () {
-        return Inertia::render('Relasi/Page');
-    })->name('relasi');
+Route::get('relasi', function () {
+    return Inertia::render('Relasi/Page');
+})->name('relasi');
 
-    Route::get('relasi/profil', function () {
-        return Inertia::render('Relasi/Profil/Page');
-    })->name('relasi/profil');
+Route::get('relasi/profil', function () {
+    return Inertia::render('Relasi/Profil/Page');
+})->name('relasi/profil');
 
-    Route::get('relasi/search', function () {
-        return Inertia::render('Relasi/Search/Page');
-    })->name('relasi/search');
+Route::get('relasi/search', function () {
+    return Inertia::render('Relasi/Search/Page');
+})->name('relasi/search');
 
-    Route::get('informasi/km', function () {
-        return Inertia::render('Informasi/Km/Page');
-    })->name('informasi/km');
+Route::get('informasi/km', function () {
+    return Inertia::render('Informasi/Km/Page');
+})->name('informasi/km');
 
-    Route::get('informasi/pplk', function () {
-        return Inertia::render('Informasi/Pplk/Page');
-    })->name('informasi/pplk');
+Route::get('informasi/ukm', function () {
+    return Inertia::render('Informasi/Ukm/Page');
+})->name('informasi/ukm');
 
-    Route::get('login', function () {
-        return Inertia::render('Login/Page');
-    })->name('login');
+Route::get('informasi/ukm/detail', function () {
+    return Inertia::render('Informasi/Ukm/Detail/Page');
+})->name('informasi/ukm/detail');
 
-    Route::get('booklet', function () {
-        return Inertia::render('Booklet/Page');
-    })->name('booklet');
+Route::get('informasi/ukm/{nama_ukm}', function (string $nama_ukm) {
+    return Inertia::render('Informasi/Ukm/Detail/Page', [
+        'nama_ukm' => $nama_ukm
+    ]);
 
-    Route::get('informasi/profil', function () {
-        return Inertia::render('Informasi/Profil/Page');
-    })->name('informasi/profil');
+})->name('informasi/ukm/{nama_ukm}');
+Route::get('informasi/pplk', function () {
+    return Inertia::render('Informasi/Pplk/Page');
+})->name('informasi/pplk');
+
+Route::get('booklet', function () {
+    return Inertia::render('Booklet/Page');
+})->name('booklet');
+
+Route::get('informasi/maskot', function () {
+    return Inertia::render('Maskot/Page');
+})->name('informasi/maskot');
+
+Route::get('informasi/profil', function () {
+    return Inertia::render('Informasi/Profil/Page');
+})->name('informasi/profil');
     
+Route::get('informasi/fakultas', function () {
+    return Inertia::render('Informasi/Fakultas/Page');
+})->name('informasi/fakultas/Sains');
+
+Route::get('informasi/fakultas/Ftik', function () {
+    return Inertia::render('Informasi/Fakultas/Ftik');
+})->name('informasi/fakultas/Ftik');
+
+Route::get('informasi/fakultas/Fti', function () {
+    return Inertia::render('Informasi/Fakultas/Fti');
+})->name('informasi/fakultas/Fti');
+
+Route::middleware('auth')->group(function () {
     Route::get('informasi/prodi', function () {
         return Inertia::render('Informasi/Prodi/Page');
     })->name('informasi/prodi');
@@ -75,7 +101,7 @@ Route::middleware('guest')->group(function () {
 
     Route::get('dashboard/profile', function () {
         return Inertia::render('Dashboard/profile/Page');
-    })->name('dashboard/profile');
+    })->middleware('checkRole:Admin', 'checkRole:Maba')->name('dashboard/profile');
 
     Route::get('dashboard/user', function () {
         return Inertia::render('Dashboard/user/Page');
