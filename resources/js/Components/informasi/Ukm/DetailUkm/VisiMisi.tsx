@@ -40,7 +40,7 @@ function VisiMisi({ ketum, prodi, visi, misi }) {
                     <p className="font-avigea text-candlelight-600 text-lg sm:text-2xl md:text-[25px]">
                         VISI
                     </p>
-                    <p className="p-2 font-montserrat text-sm sm:text-[16px]">{visi}</p>
+                    <p className="p-2 font-montserrat text-sm sm:text-[16px]">{renderWithBreaks(visi)}</p>
                 </div>
                 <div className="py-4 sm:py-8 px-2 md:p-8 flex flex-col gap-4 items-center text-center rounded-lg bg-white shadow-2xl">
                     <p className="font-avigea text-candlelight-600 text-lg sm:text-2xl md:text-[25px]">

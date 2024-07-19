@@ -1,4 +1,3 @@
-import fotodefault from "!assets/logoukm/fotodefault.png"
 import defaultimage from "!assets/logoukm/defaultimage.jpg"
 
 import madani from "!assets/logoukm/logomadani.png";
@@ -75,15 +74,11 @@ import kegiatangamahira2 from "!assets/logoukm/kegiatangamahira2.jpg";
 
 import ibt from "!assets/logoukm/logoibt.png";
 import kegiatanibt1 from "!assets/logoukm/kegiatanibt1.jpg";
-import kegiatanibt2 from "!assets/logoukm/kegiatanibt2.jpg";
-import kegiatanibt3 from "!assets/logoukm/kegiatanibt3.jpg";
-import kegiatanibt4 from "!assets/logoukm/kegiatanibt4.jpg";
 
 import ibc from "!assets/logoukm/logoibc.png";
 import kegiatanibc1 from "!assets/logoukm/kegiatanibc1.jpg";
 import kegiatanibc2 from "!assets/logoukm/kegiatanibc2.jpg";
 import kegiatanibc3 from "!assets/logoukm/kegiatanibc3.jpg";
-import kegiatanibc4 from "!assets/logoukm/kegiatanibc4.jpg";
 
 import icc from "!assets/logoukm/logoicc.png";
 import kegiatanicc1 from "!assets/logoukm/kegiatanicc1.png";
@@ -223,10 +218,10 @@ export const ukmData = [
       logo: himalaya,
       title: "HIMALAYA",
       ketum: "Muhammad Iqbal",
-      prodi: "Teknik Geomatika '21",
+      prodi: "Teknik Geomatika'21",
       sejarah:"UKM HIMALAYA atau Perhimpunan Mahasiswa Lampung Raya adalah organisasi mahasiswa yang bergerak dibidang kebudayaan yang menghimpun mahasiswa lampung dan mahasiswa dari daerah lainnya untuk belajar dan mengembangkan budaya Lampung. HIMALAYA ITERA diresmikan pada tanggal 25 September 2013 di Bandung, sehingga tanggal tersebut dijadikan sebagai Dies Natalis HIMALAYA. ",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Mengembangkan dan meningkatkan HIMALAYA ITERA yang berlandaskan kekeluargaan Sang Bumi Ruwai Jurai",
+      misi: "1. Menjadi wadah mahasiswa/i ITERA yang ingin mengembangkan dan meningkatkan Kebudayaan Lampung. \n2. Meningkatkan kualitas wawasan sumber daya anggota dengan pengenalan dan pelatihan kesenian budaya lampung. \n3. Menjalin silaturahmi dan kerja sama antar anggota guna meningkatkan rasa kekeluargaan.",
       allprestasi: [
         {
            prestasi:kegiatanhimalaya1,
@@ -259,11 +254,11 @@ export const ukmData = [
         link: "/informasi/ukm/ikm",
         logo: ikm,
         title: "IKM",
-        ketum: "Nama Ketua Umum",
-        prodi: "Prodi '21",
+        ketum: "Rollan chandra",
+        prodi: "Teknik Material'22",
         sejarah:"UKM IKM ITERA adalah sebuah organisasi mahasiswa berbasis kebudayaan. IKM-ITERA ini berasaskan musyawarah dan kekeluargaan, yang sesuai dengan asas Institut Teknologi Sumatera dan tidak bertentangan dengan Adat Basandi Syarak, Syarak basandi kitabullah. Tujuannya untuk merangkul dan menghimpun mahasiswa minang yang ada di itera. Unit Kegiatan Mahasiswa yang bernama ‘Ikatan Keluarga Minangkabau - Institut Teknologi Sumatera’ disingkat IKM-ITERA didirikan pada tanggal 20 Oktober 2015 di Lampung Selatan Provinsi Lampung.",
-        visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-        misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+        visi: "Menjadikan UKM Ikatan Keluarga Minangkabau sebagai tempat paguyuban, pengembangan budaya, dan sebagai sarana penampung kreativitas, inspirasi, dan aspirasi mahasiswa minangkabau",
+        misi: "1. Mengaktifkan dan memajukan kebudayaan yang ada di dalam UKM Ikatan Keluarga Minangkabau. \n2. Menjalin hubungan yang harmonis dengan semua anggota atau keluarga yang ada di dalam UKM Ikatan Keluarga Minangkabau. \n3. Melaksanakan program-program yang telah ada dan meningkatkan program yang telah tersusun sesuai rencana. \n4. Meningkatkan kemajuan UKM Ikatan Keluarga Minangkabau menjadi yang lebih baik. \n4. Mengadakan kegiatan-kegiatan di bidang kebudayaan, pendidikan, dan keagamaan",
         
         allprestasi: [
           {
@@ -298,11 +293,11 @@ export const ukmData = [
           link: "/informasi/ukm/batavia",
           logo: batavia,
           title: "BATAVIA",
-          ketum: "Nama Ketua Umum",
-          prodi: "Prodi '21",
+          ketum: "Najwan Putra Ramadhan",
+          prodi: "Teknik Pertambangan'21",
           sejarah:"UKM Batavia ITERA adalah sebuah organisasi mahasiswa yang ada di ITERA dengan berlandaskan kebudayaan dan kekeluargaan yang menaungi mahasiswa ITERA yang berasal dari JADETABEK maupun di luar JADETABEK yang ingin mempelajari terkait kebudayaan adat betawi. UKM Batavia ITERA adalah organisasi mahasiswa yang berada di Institut Teknologi Sumatera yang berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No. 169/IT9/KM.04.01/2024. Awal mula nama organisasi BATAVIA sendiri adalah JAVATERA yang setelah itu JAVATERA dipecah menjadi 2 yaitu BATAVIA dan Bumi Pasundan yang dimana BATAVIA menjadi komunitas yang menaungi mahasiswa JADETABEK. Hari jadi UKM Batavia ITERA adalah 19 September 2020. Selain menaungi mahasiswa yang berasal dari JADETABEK, tugas pokok dari UKM Batavia ITERA sendiri adalah mewadahi mahasiswa ITERA yang ingin belajar lebih dalam mengenai adat kebudayaan Betawi. ",
-          visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-          misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+          visi: "Batavia ITERA sebagai wadah mahasiswa/i baik di dalam maupun di luar JABODETABEK dengan berlandaskan kebudayaan Betawi.",
+          misi: "1. Mengenalkan budaya Betawi kepada civitas akademika Institut Teknologi Sumatera \n2. Mengembangkan potensi minat dan bakat anggota Batavia ITERA \n3. Meningkatkan rasa kekeluargaan antar anggota Batavia ITERA \n4. Menjalin kerjasama yang baik dengan Organisasi Mahasiswa baik di dalam kampus maupun luar kampus",
           
           allprestasi: [
             {
@@ -337,8 +332,8 @@ export const ukmData = [
       ketum: "Vania Kahana Lie H",
       prodi: "Farmasi '21",
       sejarah:"UKM Lancang Kuning ITERA merupakan unit kegiatan mahasiswa yang bergerak dibidang sosial, kekeluargaan, kesenian, dan kebudaayan. UKM Lancang Kuning ITERA menjadi wadah kekeluargaan bagi mahasiswa ITERA yang berasal dari Riau dan Kepulauan Riau. UKM Lancang Kuning ITERA membawa ciri khas kebudayaan melayu dan memiliki pepatah yang mengatakan “takkan  melayu  hilang di bumi”, artinya kebudayaan melayu tidak akan hilang di bumi nusantara ini. UKM Lancang Kuning ITERA merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera tepatnya di Provinsi Lampung. Diresmikan sesuai keputusan rektor Institut Teknologi Sumatera Nomor 214/A/SK/KM/X/2016. Terbentuknya UKM Lancang Kuning ITERA disepakati pada 10 September 2015.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "1. Sebagai wadah berkumpulnya mahasiswa dan mahasiswi yang berasal dari Provinsi Riau dan Kepulauan Riau. \n2. Sebagai wadah pembinaan dan pengembangan potensi anggota untuk mempererat tali persaudaraan dan kebersamaan..",
+      misi: "1. Mempererat tali persaudaraan dan kebersamaan antar mahasiswa yang berasal dari Provinsi Riau dan Kepualauan Riau. \n2. Mengembangkan potensi anggota dalam memperkenalkan budaya asal yaitu Riau dan Kepulauan Riau di Institut Teknologi Sumatera.",
      
       allprestasi: [
         {
@@ -363,10 +358,10 @@ export const ukmData = [
         logo: umpasa,
         title: "UMPASA",
         ketum: "Usmar Andoyo Sianturi",
-        prodi: "Prodi '21",
+        prodi: "Teknik Pertambangan'21",
         sejarah:"UKM UMPASA ITERA merupakan organisasi mahasiswa yang terdiri dari 8 etnis sumatera Utara yaitu batak Toba, simalungun, karo, pakpak, mandailing, nias, Melayu dan angkola yang bertujuan untuk mengembangkan serta melestarikan kedelapan etnis tersebut serta dapat megembangkan minat dan bakat anggotanya, tidak hanya yang berasal dari Sumatera utara, UMPASA ITERA juga memberikan kesempatan bagi mahasiswa yang berasal dari luar Sumatera Utara yang ingin belajar dan mengenal budaya Sumatera Utara. Berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No. 072/A/SK/KM/IV/2016. Hari jadi UMPASA ITERA disepakati jatuh pada 27 Oktober 2016",
-        visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-        misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+        visi: "Sebagai wadah untuk membina anggota dalam mengemban, melestarikan serta mengembangkan Seni dan Budaya Sumatera Utara.",
+        misi: "1.Menghimpun segenap mahasiswa Institut Teknologi Sumatera yang tertarik dan cinta terhadap budaya Sumatera Utara tanpa membedakan SARA. \n2. Mengenalkan, mengembangkan, serta melestarikan seni dan budaya Sumatera Utara di Institut Teknologi Sumatera dan Indonesia. \n3.Membina rasa persaudaraan dan kekeluargaan sesama anggota yang bersifat kritis, bertanggung jawab, dan bermasyarakat.",
         
         allprestasi: [
           {
@@ -402,10 +397,10 @@ export const ukmData = [
           logo: sriwijaya,
           title: "SRIWIJAYA",
           ketum: "Wahyu Imam Triatmojo",
-          prodi: "Prodi '21",
+          prodi: "Teknik Pertambangan'21",
           sejarah:"UKM Sriwijaya ITERA adalah sebuah organisasi mahasiswa yang bertujuan untuk melestarikan, mengembangkan, dan mempromosikan serta belajar beragam aspek kebudayaan yang berasal dari daerah Sumatera Selatan kepada seluruh mahasiswa Institut Teknologi Sumatera. UKM Sriwijaya resmi terbentuk pada tanggal 16 Januari 2016 dan diresmikan berdasarkan SK Rektor pada tanggal 1 April 2016. Hingga saat ini, UKM Sriwijaya terus berupaya mengembangkan diri menuju arah yang lebih baik. ",
-          visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-          misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+          visi: "Menjadikan SRIWIJAYA ITERA sebagai wadah mahasiswa/i ITERA untuk meciptakan kekeluargaan yang harmonis, menkonservasi kebudayaan sumatera selatan agar tetap terjaga eksistensinya dan menjadi wadah pengembangkan softskill khususnya bagi mahasiswa yang berada di daerah Sumatera Selatan",
+          misi: "1. Memperkenalkan kebudayaan sumatera selatan di internal dan eksternalITERA . \n2. ⁠Menjaga keharmonisan antar anggota UKM SRIWIJAYA ITERA. \n3. ⁠Mengaplikasikan program kerja secara sistematis guna mencapai tujuan dariUKM SRIWIJAYA ITERA \n4. ⁠Meningkatkan kualitas sumber daya manusia UKM SRIWIJAYA ITERA dengan mengadakan kegiatan berlandaskan kekeluargaan. \n5. ⁠Mengembangkan minat dan bakat anggota UKM SRIWIJAYA ITERA",
           
           allprestasi: [
             {
@@ -441,10 +436,10 @@ export const ukmData = [
             logo: ukmbsm,
             title: "UKMBSM",
             ketum: "Rhenald Melki Kastanja",
-            prodi: "Prodi '21",
+            prodi: "Teknik Elektro'21",
             sejarah:"UKMBSM ITERA merupakan oraganisasi yang berada dibawah naungan Institut Teknologi Sumatera yang bergerak di bidang seni musik. UKMBSM ITERA ditunjang dengan adanya studio musik yang terletak di gedung D lantai 3 sebagai wadah untuk menyalurkan dan mengembangkan minat bakat yang dimiliki anggotanya. UKMBSM ITERA memiliki acara yang rutin digelar setiap tahunnya antara lain Hi-Klas, Mantaru, Choaching Clinic, ArtCall, dan banyak acara lainnya yang gak kalah seru. UKMBSM ITERA didirikan pada tanggal 15 Oktober 2016",
-            visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-            misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+            visi: "UKMBSM ITERA sebagai wadah dalam menyalurkan dan mengembangkan minat, bakat, serta kreativitas di bidang seni musik secara mandiri dan profesional.",
+            misi: "1. Optimalisasi kualitas sistem internal.\n2. Mewadahi anggota UKMBSM ITERA dalam bidang seni musik.\n3. Menyelenggarakan kegiatan yang meningkatkan kreativitas dan produktivitas anggota.\n4. Membangun keharmonisan di internal dan eksternal UKMBSM ITERA.\n5. Memperluas jaringan kerja sama dan kolaborasi dengan mitra industri musik.",
             
             allprestasi: [
               {
@@ -480,10 +475,10 @@ export const ukmData = [
               logo: kraken,
               title: "KRAKEN",
               ketum: "Hadiana Rochman",
-              prodi: "Prodi '21",
+              prodi: "Teknik Perkeretaapian'21",
               sejarah:"Unit Kegiatan Mahasiswa KRAKEN Institut Teknologi Sumatera atau bila disingkat menjadi UKM KRAKEN ITERA adalah sebuah organisasi yang memiliki fungsi untuk menyatukan seluruh mahasiswa ITERA yang memiliki minat dan bakat dalam olahraga Baseball dan Softball sebagai sarana penyaluran bakat seluruh mahasiswa Institut Teknologi Sumatera. Didirikan di Lampung Selatan pada 22 November 2017.",
-              visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-              misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+              visi: "Menjadikan KRAKEN ITERA (Baseball – Softball) sebagai Unit Kegiatan Mahasiswa yang mampu berperan aktif dan produktif dalam menyalurkan minat dan bakat mahasiswa ITERA dalam bidang olahraga baseball dan softball.",
+              misi: "1. Mengembangkan dan menyalurkan wawasan seputar olahraga baseball dan softball melalui kegiatan berorganisasi.\n2. Sebagai sarana untuk melatih mahasiswa dalam berpikir, mengontrol diri dan bekerjasama serta mengambil keputusan secara cepat. \n3. Sebagai delegasi Perguruan Tinggi dalam berbagai Kejuaraan. \n4. Menumbuhkan budaya gemar berolahraga.",
               
               allprestasi: [
                 {
@@ -507,10 +502,10 @@ export const ukmData = [
         logo: kmpa,
         title: "KMPA",
         ketum: "Azizul Qadhri Khairi",
-        prodi: "Prodi '21",
+        prodi: "Teknik Pertambangan'22",
         sejarah:"UKM KMPA ITERA (keluarga mahasiswa pecinta alam) ITERA adalah organisasi mahasiswa berTujuan dibentuknya KMPA ITERA antara lain sebagai wadah penyaluran hobi berkegiatan outdoor, interaksi dan bertukar pikiran seputar organisasi serta pelestarian alam dan konservasi  alam. Organisasi ini di bentuk pada tahun 2013 di Jatinangor dengan nama awal Adventure Club ITERA (ACI). Pada pertengahan tahun 2013 berubah menjadi KMPA, dan pada 6 Oktober 2015 KMPA diresmikan",
-        visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-        misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+        visi: "KMPA ITERA sebagai organisasi yang mengembangkan rasa kekeluargaan dengan tujuan membentuk manusia yang memiliki intelektualitas,cinta tanah air, dan menghargai setiap ciptaan tuhan di bumi Indonesia.",
+        misi: "1. Menjalankan organisasi dengan asas kekeluargaan yang mengikat. \n2. Mengembangkan kemampuan teknis, organisasi, dan pelestarian alam. \n3. Memiliki kemampuan untuk berhubungan baik dengan tuhan, manusia dan lingkungan. \n4.Menjunjung tinggi kejujuran dengan menjadi diri sendiri dalam keadaan apapun.",
         
         allprestasi: [
           {
@@ -546,10 +541,10 @@ export const ukmData = [
         logo: handball,
         title: "HANDBALL",
         ketum: "Alfariz Bakhtari",
-        prodi: "Teknik Pertambangan '21",
+        prodi: "Teknik Pertambangan'21",
         sejarah:"Unit Kegiatan Mahasiswa Olahraga Handball 'Handball ITERA' adalah wadah bagi mahasiswa Institut Teknologi Sumatera yang memiliki minat dan bakat dalam olahraga handball. Di sini, anggota dapat mengasah kemampuan bermain handball, belajar strategi permainan, dan berpartisipasi dalam kompetisi. Dengan semangat sportivitas dan kerjasama tim, Hanball ITERA tidak hanya fokus pada prestasi olahraga tetapi juga membangun karakter dan mempererat persaudaraan antar anggota. Berdiri secara resmi sesuai dengan keputusan rektor Institut Teknologi Sumatera No. 162/ IT9/ KM.04.00/ 2024 ",
-        visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-        misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+        visi: "Cakap berolahraga, mengembangkan kreatifitas, meningkatkan softskill berorganisasi, serta seni dan bakat dalam kekeluargaan",
+        misi: "1. Menumbuhkan rasa kekeluargaan dalam bidang olahraga bagi mahasiswa ITERA. \n2. Memperkenalkan serta mempopulerkan olahraga Handball di ITERA maupun di luar ITERA. \n3. Membantu dan melatih para atlet dan calon atlet yang berpotensi di olahraga bola tangan. \n4. Mengaktifkan peran olahraga HANDBALL ITERA untuk menjadi wadah minat dan bakat mahasiswa dalam berorganisasi dan kegiatan mahasiswa di ITERA. \n5. Membentuk kompetisi olahraga HANDBALL untuk memajukan dan mengembangkan olahraga HANDBALL di ITERA dan Provinsi Lampung.",
         
         allprestasi: [
          {
@@ -577,10 +572,10 @@ export const ukmData = [
       logo: kukang,
       title: "KUKANG EV",
       ketum: "Rangga Andhika Fadillah",
-      prodi: "Teknik Elektro '21",
+      prodi: "Teknik Elektro'21",
       sejarah:"Kukang EV adalah sebuah komunitas mahasiswa yang berasal dari berbagai prodi dengan bertujuan untuk meriset, mengembangkan, dan mengaplikasikan hal-hal mengenai kendaraan listrik kepada kendaraan listrik yang sedang kami buat dengan berlandaskan efisiensi energi ataupun kecepatan. Kukang EV merupakan sebuah komunitas yang berada di Institut Teknologi Sumatera, Lampung. Terbentuk dan memiliki anggota pada tahun 2022",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Menjadi komunitas mahasiswa dalam pengembangan kendaraan listrik yang efisien dan berkelanjutan dari Institut Teknologi Sumatera untuk Indonesia.",
+      misi: "1. Melakukan riset dan pengembangan teknologi kendaraan listrik yang inovatif dan efisien. \n2. Mengembangkan prototipe kendaraan listrik yang ramah lingkungan dan terjangkau. \n3. Menjadi wadah bagi para mahasiswa untuk berkarya dan berinovasi dalam bidang kendaraan listrik.",
       
       allprestasi: [
       {
@@ -608,10 +603,10 @@ export const ukmData = [
       logo: aksara,
       title: "AKSARA",
       ketum: "Afiqa Najla Sifana",
-      prodi: "Farmasi  '21",
+      prodi: "Farmasi'20",
       sejarah:"Aspirasi Kepeminatan Sastra ITERA adalah sebuah komunitas yang berfokus dalam pengembangan sastra di ITERA yang bertujuan untuk menciptakan antusisas terhadap wawasan kesusastraan dan literasi sastrawi pada lingkup mahasiswa/i ITERA guna mendukung Pengembangan, Pembinaan, dan Pelindungan Bahasa dan Sastra, serta Peningkatan Fungsi Bahasa Indonesia. Aspirasi Kepeminatan Sastra ITERA (AKSARA ITERA) telah berdiri sejak tahun 2018.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "1. Menciptakan mahasiswa yang antusias terhadap wawasan kesusastraan serta literasi sastrawi. \n2. Memberi nilai tambah kepeminatan, pengetahuan, serta keterampilan di bidang sastra kepada mahasiswa Institut Teknologi Sumatera baik yang ikut andil dalam keanggotaan komunitas maupun di luar komunitas.",
+      misi: "1. Meningkatkan wawasan sastra dengan kegiatan-kegiatan edukatif baik  berupa bimbingan maupun diskusi antar anggota. \n 2. Memberikan pemahaman dan pengalaman yang menyenangkan tentang  sastra melalui kegiatan partisipatif seperti malam sastra.",
       
       allprestasi: [
       {
@@ -635,10 +630,10 @@ export const ukmData = [
          logo: gamahira,
          title: "GAMAHIRA",
          ketum: "I Gede Riyan Oka Saputra",
-         prodi: "Prodi  '21",
+         prodi: "Teknik Mesin'21",
          sejarah:"UKM GAMAHIRA adalah GAMAHIRA, singkatan dari “Keluarga Mahasiswa Hindu Institut Teknologi Sumatera”, didirikan untuk memfasilitasi mahasiswa Hindu di Itera dalam memperkuat kerohanian dan keterampilan beragama mereka. Organisasi ini memahami bahwa bimbingan rohani dan kecerdasan spiritual adalah aspek penting bagi setiap mahasiswa. Tujuan GAMAHIRA adalah membantu mahasiswa mengimplementasikan pembelajaran dan nilai-nilai rohani ke tingkat yang lebih tinggi. Setelah perjalanan yang panjang, Gamahira akhirnya berhasil menjadi UKM resmi dan menerima SK Kepengurusan pertama pada tahun 2021",
-         visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-         misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+         visi: "Membangun solidaritas dan integritas Mahasiswa Hindu yang berlandaskan Tri  Kaya  Parisudha  serta  mampu  menyeimbangkan  konsep  Tri  Hita Karana demi terwujudnya organisasi yang produktif dan harmonis.  ",
+         misi: "1. Meningkatkan ketaqwaan kepada Ida Sang Hyang Widhi Wasa (Tuhan Yang Maha Esa). \n2. Taat dan patuh dalam menjalankan ajaran agama. \n3. Menjaga dan melestarikan nilai-nilai luhur, adat dan budaya.",
          
          allprestasi: [
          {
@@ -666,14 +661,14 @@ export const ukmData = [
       logo: ibt,
       title: "IBT",
       ketum: "Natanael Yabes Marcelino M.",
-      prodi: "Prodi  '21",
+      prodi: "Teknik Mesin'21",
       sejarah:"UKM Itera Basketball Team adalah UKM yang berlandaskan kekeluargaan, UKM ini juga merupakan wadah bagi para mahasiswa maupun mahasiswi yang ingin berorganisasi dan mempunyai minat bakat di bidang olahraga basket dengan tujuan mengembangkan bakat para mahasiswa agar bisa melestarikan nama kampus di cabang olahraga basket. UKM ITERA Basketball Team terbentuk pada tanggal 5 september 2014 di Institut Teknologi Bandung ",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "1. Menghimpun atau mewadahi segenap mahasiswa ITERA pada olahraga basket. \n2. Mengembangkan minat dan bakat untuk anggota ITERA Basketball Team. \n3. Membentuk rasa persaudaraan serta kekeluargaan sesama anggota ITERA Basketball Team dan alumni serta Keluarga Mahasiswa ITERA. \n4. Membentuk anggota-anggota menjadi mahasiswa yang kritis, analitis, bertanggung jawab, dan berwawasan dalam berorganisasi",
+      misi: "1. Menghimpun atau mewadahi segenap mahasiswa ITERA pada olahraga basket. \n2. Mengembangkan minat dan bakat untuk anggota ITERA Basketball Team. \n3. Membentuk rasa persaudaraan serta kekeluargaan sesama anggota ITERA Basketball Team dan alumni serta Keluarga Mahasiswa ITERA. \n4. Membentuk anggota-anggota menjadi mahasiswa yang kritis, analitis, bertanggung jawab, dan berwawasan dalam berorganisasi",
       
       allprestasi: [
       {
-         prestasi:defaultimage,
+         prestasi:kegiatanibt1,
          deskripsi:"Juara 3 pada event siger basketball competition 2024",
       },
       {
@@ -697,11 +692,10 @@ export const ukmData = [
       logo: ibc,
       title: "IBC",
       ketum: "Dimas Amiruliantaka Prameshwara",
-      prodi: "Prodi  '21",
+      prodi: "Teknik Pertambangan'21",
       sejarah:"UKM Itera Badminton Club (IBC) merupakan sebuah komunitas olahraga badminton yang bertujuan untuk mewadahi dan mengembangkan minat bakat bulu tangkis mahasiswa ITERA. Itera Badminton Club (IBC) merupakan komunitas olahraga badminton yang berada di Institut Teknologi Sumatera yang telah berdiri pada tahun 2015 dan diresmikan  pada 13 Februari 2016.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
-      
+      visi:"-",
+      misi:"-",
       allprestasi: [
       {
          prestasi:kegiatanibc1,
@@ -732,11 +726,10 @@ export const ukmData = [
       logo: icc,
       title: "ICC",
       ketum: "M. Gathan Hibrizi",
-      prodi: "Prodi  '21",
+      prodi: "Teknik Elektro'20",
       sejarah:"Ukm itera chess club adalah sebuah organisasi mahasiswa yang bertujuan untuk  belajar, mengembangkan bakat, meningkatkan kemampuan dalam hal bermain catur",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
-      
+      visi:"-",
+      misi:"-",
       allprestasi: [
       {
          prestasi:kegiatanicc1,
@@ -771,11 +764,10 @@ export const ukmData = [
       logo: ipsitera,
       title: "IPSITERA",
       ketum: "Addira Suharuddin",
-      prodi: "Teknik Telekomunikasi '21",
+      prodi: "Teknik Telekomunikasi'22",
       sejarah:"Organisasi ini bernama Unit Kegiatan Mahasiswa Ikatan Pencak Silat Institut Teknologi Sumatera disingkat UKM IPSITERA, UKM IPSITERA bertujuan untuk mempersatukan dan membina persaudaraan antar UKM/Komunitas Pencak Silat yang ada di Institut Teknologi Sumatera, UKM IPSITERA bertujuan untuk mempersatukan dan membina persaudaraan antar UKM/Komunitas Pencak Silat yang ada di Institut Teknologi Sumatera. Organisasi UKM IPSITERA resmi didirikan pada 9 September 2016",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
-      
+      visi:"-",
+      misi:"-",
       allprestasi: [
       {
          prestasi:kegiatanipsitera1,
@@ -810,10 +802,10 @@ export const ukmData = [
       logo: karate,
       title: "KARATE",
       ketum: "Fathurahman Faisal",
-      prodi: "Teknik Kimia '21",
+      prodi: "Teknik Kimia'21",
       sejarah:"UKM Karate ITERA adalah organisasi mahasiswa di Institut Teknologi Sumatera yang berfokus pada pengembangan kemampuan seni bela diri karate. UKM ini menawarkan wadah bagi mahasiswa yang memiliki minat dalam karate untuk berlatih dan mengembangkan keterampilan mereka, baik untuk tujuan kesehatan, hobi, maupun prestasi. UKM Karate di bentuk pada tahun 2014 bersamaan dengan pembentukan UKM lainya.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Mewujudkan suatu badan yang berfungsi sebagai wadah atau tempat mahasiswa menempa diri baik dalam organisasi Unit Kegiatan Mahasiswa, maupun didalam kepelatihan bela diri karate.",
+      misi: "1. Memperjuangkan nilai-nilai, prinsip, dan semangat UKM Karate dalam ruang lingkup internal maupun eksternal. \n2. Menjadi wadah aspirasi, koordinasi, dan komunikasi antar Anggota Karate. \n3. Menjadi wadah untuk memperjuangkan kepentingan maupun hak-hak anggota Karate khususnya dan mahasiswa umumnya. \n4. Menjadi wadah pengembangan ilmu keorganisasian, kepelatihan, dan prestasi",
       
       allprestasi: [
       {
@@ -849,10 +841,10 @@ export const ukmData = [
       logo: teraesport,
       title: "TERA ESPORT",
       ketum: "Muhammad Ikhwan Habib Arifi",
-      prodi: "Teknik Kimia '21",
+      prodi: "Teknik Geofisika'21",
       sejarah:"Unit Kegiatan Mahasiswa Tera Esports merupakan wadah untuk mahasiswa Institut Teknologi Sumatera yang memiliki minat di bidang olahraga elektronik, dengan harapan dapat mengembangkan skill dan prestasi. Serta menghasilkan kepribadian yang memiliki jiwa kompetitif dan solidaritas yang tinggi. ",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Memajukan kualitas Tera Esports dengan mengedepankan kebersamaan, perjuangan serta keberhasilan yang memuaskan.",
+      misi: "1.Menjadi wadah mahasiswa Itera yang hobi dalam bidang Esports. \n2.Mengenalkan E-sports sebagai sarana prestasi yang dapat digapai di lingkungan kampus dan luar kampus \n3.Membantu dan mengarahkan para atlet dan calon atlet yang berpotensi di bidang esports \n4.Menjadikan Tera Esports lebih dikenal oleh public kampus dan di luar kampus \n5.Berperan dalam mengikuti perkembangan dunia Esports dan menerapkannya dilingkungan ITERA.",
       
       allprestasi: [
       {
@@ -888,10 +880,10 @@ export const ukmData = [
       logo: archery,
       title: "ARCHERY",
       ketum: "Esta Widarma Susila",
-      prodi: "Arsitektur Lanskap '21",
+      prodi: "Arsitektur Lanskap'22",
       sejarah:"ITERA Archery adalah menjadi salah satu wadah yang dapat menghimpun kreatifitas serta bakat mahasiswa ITERA dalam mengekspresikan diri atau kemampuannya ke dalam suatu bidang atau hobi yang diminatinya terutama pada bidang olahraga khususnya panahan. ITERA Archery merupakan organisasi yang bergerak dalam bidang panahan yang dibentuk sejak tahun 2017 dan resmi menjadi UKM pada 2 Januari 2023 ",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Menjadi wadah yang dapat menghimpun kreatifitas serta bakat mahasiswa ITERA dalam mengekspresikan diri atau kemampuanya dalam bidang panahan",
+      misi: "1. Melaksanakan ibadah sunnah bagi yang beragama Islam. \n2. menyelenggarakan kegiatan latihan memanah guna meningkatkan fokus, kepercayaan diri, dan kesabaran dalam anggota secara khusus dan civitas akademika ITERA secara umum. \n3. mengasah kemampuan dan bakat mahasiswa dalam memanah, serta mempererat tali persaudaraan antar mahasiswa ITERA",
       
       allprestasi: [
       {
@@ -929,8 +921,8 @@ export const ukmData = [
       ketum: "Hizkia Maratur Nababan ",
       prodi: "Teknik Material'21",
       sejarah:"Komunitas SAIBATIN ITERA merupakan sebuah wadah yang dibentuk untuk menyalurkan hobby atau ketertarikan pada bidang remote control terkhusus pada kapal. Selain itu, SAIBATIN ITERA juga mempunyai misi untuk menaikkan nama ITERA di tingkat nasional dan internasional serta mendukung penuh anggota yang bergabung didalamnya untuk meningkatkan skill dan prestasi yang dimiliki. SAIBATIN ITERA terbentuk pada 9 Mei 2023.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "-",
+      misi: "-",
       
       allprestasi: [
       {
@@ -966,10 +958,10 @@ export const ukmData = [
       logo: unitselam,
       title: "UNIT SELAM",
       ketum: "Muhamad Zidan Arrasyid",
-      prodi: "Prodi'21",
+      prodi: "Sains Lingkungan Kelautan'21",
       sejarah:"UKM Unit Selam Itera adalah sebuah organisasi mahasiswa yang ada di itera, yang bertujuan untuk mengenal dan mempelajari lebih jauh tentang alam bawah laut, Untuk mencapai tujuan Unit Selam ITERA sesuai dengan bentuk dan sifatnya, maka adapun kegiatannya seperti Pelatihan, Edukasi, Konservasi, Riset, Pengabdian Masyarakat. Hari jadi USI ITERA disepakati jatuh pada 20 Maret 2024.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Mewujudkan organisasi mahasiswa yang berkualitas di Institut Teknologi Sumatera, yang menonjolkan keunggulan, integritas, serta kemandirian sebagai salah satu pusat pengembang keterampilan selam dan pusat data keanekaragaman hayati dan kemaritiman Sumatera.",
+      misi: "Memberdayakan potensi pendidikan, penelitian, konservasi, dan pelatihan mahasiswa di lingkungan Institut Teknologi Sumatera yang berfokus pada keunggulan pengkajian hayati pada zona intertidal, litoral, dan pelagik.",
       
       allprestasi: [
       {
@@ -984,7 +976,7 @@ export const ukmData = [
 
       allsosmed: [
       {
-            instagram: "",
+            instagram: "https://www.instagram.com/unitselamitera_/",
             youtube: "",
             website: "", 
             tiktok: "",
@@ -996,11 +988,11 @@ export const ukmData = [
       link: "/informasi/ukm/pramuka",
       logo: pramuka,
       title: "PRAMUKA",
-      ketum: "Joni Effendi & Sindy evitasari",
-      prodi: "Prodi'21",
+      ketum: "Joni Efendi & Sindy Evitasari",
+      prodi: "Desain Komunikasi Visual'21 & Arsitektur'21",
       sejarah:"Nama Pramuka Itera sendiri diambil dari 2 kata, yaitu “Racana Itera” yang dimana artinya pada tingkatan anggota dewasa muda dan anggota muda di naungan sebuah Racana yang ada di Institut Teknologi Sumatera. Adapun nama racana putra adalah Musannif Ryacudu, dimana tokoh pahlawan laki-laki tersebut berasal dari Provinsi Lampung  dan letak kampus Itera yang berada di jalan terusan ryacudu. Kiranya dengan racana putra mengambil nama tokoh tersebut adalah agar semangat tinggi jiwa muda racana putra yang bergejolak mengantarkan kedepan untuk memajukan Indonesia lebih baik melalui apresiasi, inspirasi serta peduli dengan lingkungan sekitar. Adapun nama racana putri adalah Martha Christina Tiahahu, dimana tokoh pahlawan wanita tersebut berasal dari maluku. Ia adalah lambang keberanian wanita Indonesia, maka dari itu kiranya racana putri sebagai wanita harus mencontoh dirinya yang berani langsung berjuang di medan pertempuran dan dapat memberi semangat kepada kaum wanita yang lain. Dalam hal ini racana putri harus memiliki jiwa yang pantang mundur, pemberani, konsekuen terhadap cita-citanya, serta ikut ambil bagian di setiap kegiatan. Racana musannif ryacudu dan martha christina tiahahu berdiri pada tanggal 6 Oktober 2016 melalui keputusan rektor",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Mewujudkan Racana Itera menjadi organisasi yang mampu melahirkan generasi muda penerus bangsa yang memiliki mental kuat, berkarakterkan satya dan dharma pramuka, serta mempunyai keterampilan dalam manajemen organisasi dengan berasaskan Tri Bina Pramuka dan Tri Dharma Perguruan Tinggi",
+      misi: "1. Menyelenggarakan kepramukaan bagi anggota dewasa muda dan anggota muda gerakan pramuka sesuai dengan prinsip dasar dan metode kepramukaan. \n2. Melaksanakan penelitian dan pengabdian pada masyarakat sebagai pelaksanaan Tri Bina Pramuka dan Tri Dharma Perguruan Tinggi. \n3. Memberdayakan sumber daya manusia dengan peningkatan kualitas pendidikan pelatihan, pengalaman, serta pengembangan intelektualitas, kreativitas, minat dan bakat. \n. 4.Menjalin hubungan yang erat dengan pihak internal kampus dan purnawarga maupun eksternal, khususnya masyarakat sekitar.",
       
       allprestasi: [
       {
@@ -1036,10 +1028,10 @@ export const ukmData = [
       logo: akai,
       title: "AKAI",
       ketum: "Adit Setiawan ",
-      prodi: "Prodi'21",
+      prodi: "Teknik Telekomunikasi'21",
       sejarah:"UKM ATTARASHII SEKAI ITERA adalah sebuah organisasi mahasiswa yang menampung setiap mahasiswa itera yang memiliki ketertarikan mempelajari  bahasa dan budaya  Jepang , serta mengembangkan berbagai minat bakat untuk kemajuan dan perkembangan anggota. UKM ATTARASHII SEKAI ITERA (Akai ITERA) merupakan organisasi mahasiswa yang berada di institut teknologi Sumatera, Lampung yang berdiri pada 24 September 2016 dan di resmikan oleh institut teknologi Sumatera sesuai keputusan rektor ITERA. Hari jadi Atarashii Sekai Itera di sepakati jatuh pada  24 September 2016",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Sebagai wadah untuk mengembangkan  minat bakat mahasiswa Institut Teknologi Sumatera (Itera) yang terorganisir dan berkesinambungan dalam bidang bahasa dan kebudayaan Negara Jepang.",
+      misi: "1.Menghimpun segenap Mahasiswa Itera yang tertarik untuk mempelajari bahasa dan kebudayaan Jepang. \n2. Memperkenalkan dan mempelajari bahasa dan kebudayaan Jepang khususnya di Itera dan Indonesia pada umumnya. \n3.membina persaudaraan serta kekeluargaan sesama anggota. \n4. Membina anggota-anggota menjadi mahasiswa yang kritis, analitis, bertanggung jawab, dan berwawasan masyarakat global.",
       
       allprestasi: [
       {
@@ -1077,8 +1069,8 @@ export const ukmData = [
       ketum: "Nawi Rastoko",
       prodi: "Teknik Fisika'21",
       sejarah:"UKM Korps sukarela PMI unit itera adalah sebuah organisasi mahasiswa yang bertujuan untuk Membina dan mengembangkan jiwa serta semangat kemanusian dikalangan  mahasiswa agar memilki rasa tanggung jawab dalam hidup bermasyarakat,   berbangsa dan bernegara berlandaskan gerakan kepalangmerahan. UKM KSR PMI Unit ITERA di resmikan pada tahun 2016, dengan hari jadi yang di sepakati pada tanggal 18 November 2016",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Mewujudkan KSR PMI Unit Institut Teknologi Sumatera sebagai organisasi  kemanusiaan yang berlandaskan Pancasila dan Prinsip Prinsip Dasar Gerakan Palang Merah Dan Bulan Sabit Merah Internasional.",
+      misi: "1.Menyiapkan mahasiswa sebagai kader PMI yang ikut berperan aktif dalam kegiatan Kepalangmerahan baik di dalam maupun di luar lingkungan kampus Institut Teknologi Sumatera. \n2.Melaksanakan peningkatan keterampilan dan partisipasi anggota tentang kepalangmerahan. \n3.Menerapkan prinsip-prinsip dasar gerakan palang merah dan bulan sabit merah internasional baik di dalam maupun di luar lingkungan kampus Institut Teknologi Sumatera.",
       
       allprestasi: [
       {
@@ -1116,8 +1108,8 @@ export const ukmData = [
       ketum: "Ahmad Farhan",
       prodi: "Teknik Kimia'21",
       sejarah:"Lembaga Pers ITERA merupakan unit kegiatan mahasiswa di Institut Teknologi Sumatera yang bergerak di bidang media Informasi. Organisasi ini bertujuan untuk mempublikasikan informasi terkini, transparan, dan menarik di kalangan mahasiswa. Selain itu, Lembaga Pers juga memiliki tujuan untuk mengembangkan kompetensi dan menyatukan minat para mahasiswa yang tertarik di bidang jurnalistik, fotografi, videografi, dan desain. Organisasi ini sebelumnya bernama Dimensi ITERA, didirikan pada tanggal 4 November 2013 di Jatinangor, Sumedang.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "1. Meningkatkan minat mengeksplorasi ilmu dan berkarya di kalangan mahasiswa Institut Teknologi Sumatera. \n2. Memberikan informasi aktual, cerdas, transparan, dan berselera kemahasiswaan. \n3. Sebagai tempat untuk memperluas relasi berdasarkan minat dan bakat yang sama. \n4. Sebagai wadah untuk menyalurkan hobi di bidang fotografi, videografi, jurnalistik, dan desain.",
+      misi: "1. Menjadi wadah aspirasi, ekspresi dan gagasan mahasiswa Institut Teknologi Sumatera.\n2. Melatih dan meningkatkan kemampuan dalam bidang terkait fotografi, videografi, jurnalistik, dan desain.\n3. Mempublikasikan aktivitas dan kreativitas mahasiswa ITERA serta perkembangan seputar kampus ITERA.",
       
       allprestasi: [
       {
@@ -1148,11 +1140,11 @@ export const ukmData = [
       link: "/informasi/ukm/pmk",
       logo: pmk,
       title: "PMK",
-      ketum: "Andreas Anada Situmorang",
+      ketum: "Andreas Ananda Situmorang",
       prodi: "Teknik pertambangan'21",
       sejarah:"PMK ITERA adalah wadah untuk memfasilitasi kebutuhan spiritual mahasiswa Kristen Protes an dalam menjalankan ibadah, memperkuat ikatan antar umat beragama, dan menjadi 'keluarga' dalam menumbuhkan nilai-nilai Kristen yang diajarkan oleh Tuhan Yesus Kristus di dalam kehidupan mahasiswa Kristen Protestan Institut Teknologi Sumatera.Untuk mendukung tujuan tersebut, PMK ITERA didirikan sebagai UKM di ITERA.Ini menjadi wadah bagi mahasiswa Kristen Protestan untuk mengembangkan sikap yang sesuai dengan ajaran Firman Tuhan dan meneladani Yesus Kristus dalam kehidupan mereka.Diharapkan bahwa UKM ini akan tumbuh dan memiliki dampak yang lebih besar seiring berjalannya waktu. Dahulu bernama KMKK kemudian berubah pada tanggal 14 Febuari 2020 sesuai keputusan rektor",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Menjadikan mahasiswa ITERA garam dan terang dunia, rajin melakukan kegiatan-kegiatan positif, dan dapat berkembang dalam hal spiritual, intelektual, serta kedewasaan dalam iman seperti Yesus Kristus.",
+      misi: "Melaksanakan misi pembekalan, pelatihan, pengutusan PMK, dan dalam memasuki kehidupan masyarakat dan profesi. \n Prinsip-prinsip keorganisasian PMK ITERA:\n1. Interdenominasi. \n2. Tidak menginduk pada lembaga, gereja dan organisasi apapun. \n3. Tidak berpolitik praktis.",
       
       allprestasi: [
       {
@@ -1188,10 +1180,10 @@ export const ukmData = [
       logo: kmk,
       title: "KMK",
       ketum: "Pahala Tua Saragih",
-      prodi: "Rekayasa Kehutanan '21",
+      prodi: "Rekayasa Kehutanan'21",
       sejarah:"KMK St.Thomas Aquinas ITERA merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera,Lampung.Berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No.Hari jadi KMK St Thomas Aquinas ITERA disepakati jatuh pada tanggal 30 November 2019. ",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Terwujudnya mahasiswa katolik yang berintegritas, berjiwa solidaritas, cerdas jasmani dan rohani dengan berlandaskan iman katolik dan teladan St. Thomas Aquinas.",
+      misi: "1.Meningkatkan ketakwaan kepada Tuhan Yang Maha Esa. \n2.Meningkatkan jiwa kekeluargaan antar mahasiswa katolik ITERA. \n3.Memfasilitasi dan mendukung minat, bakat, serta menampung aspirasi seluruh mahasiswa Katolik ITERA. \n4.Meningkatkan semangat mahasiswa katolik ITERA dalam pelayanan. \n5.Menjalin hubungan yang harmonis didalam maupun diluar kampus ITERA.",
       
       allprestasi: [
       {
@@ -1219,10 +1211,10 @@ export const ukmData = [
       logo: menwa,
       title: "MENWA",
       ketum: "Muhammad Giar Falih ",
-      prodi: "Teknik Kelautan'21",
+      prodi: "Teknik Kelautan'22",
       sejarah:"UKM Resimen Mahasiswa (menwa) adalah sebuah organisasi yang dipersiapkan sebagai kekuatan sipil yang dilatih untuk mempertahankan NKRI sebagai perwujudan Sistem Pertahanan dan Keamanan Rakyat Semesta (Sishankamrata).Menwa diberikan wewenang dan tanggung jawab yang berbeda dengan UKM lain dan berada langsung dibawah rektorat. Berdiri secara resmi sesuai keputusan rektor pada tanggal 24 Maret 2016",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Menciptakan SDM Menwa yang Berkualitas serta Berkarakter Unggul, Mandiri, dan Berbudaya.",
+      misi: "1. Menjalin kerjasama internal dan eksternal dalam rangka pengembangan SDM. \n2. Melaksanakan pendidikan berjenjang dan berkelanjutan bagi personil. \n3. Kaderisasi sesuai dengan potensi bidang keahlian personil.  \n4. Optimalisasi potensi dan pengembangan kemampuan personil untuk kemajuanorganisasi. \n5. Pengembangan wirausaha sebagai modal pergerakan organisasi",
       
       allprestasi: [
       {
@@ -1258,10 +1250,10 @@ export const ukmData = [
       logo: psm,
       title: "PSM",
       ketum: "Natanael Frisco",
-      prodi: "Prodi'21",
+      prodi: "Teknik Lingkungan'21",
       sejarah:"UKM PSM Lipphu Ghesa ITERA merupakan organisasi kebudayaan yang bergerak atas landasan yang sama yaitu harmonisasi suara. Menciptakan dan mengembangkan kemampuan serta minat anggota dalam paduan suara serta ikut mendukung seluruh kegiatan kebudayaan yang ada di Institut Teknologi Sumatera. Lipphu Ghesa ITERA didirikan pada tanggal 29 Maret 2013 di Bandung dan disahkan pada tanggal 6 Oktober 2015 di Lampung Selatan.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Menjadikan paduan suara mahasiswa ITERA sebagai unit yang kreatif, berprestasi, dan bersolidaritas tinggi serta membangun organisasi yang berkompeten untuk paduan suara mahasiswa. ",
+      misi: "1. Membangun hubungan harmonis antar anggota PSM.  \n2. Mengebangkan bakat yang ada pada setiap anggota PSM.  \n3. Meningkatkan solidaritas keluarga PSM yang menjunjung tinggi nilai dan komitmen tanggung jawab.  \n4. Menciptakan budaya tersendiri terhadap anggota psm",
       
       allprestasi: [
       {
@@ -1285,10 +1277,10 @@ export const ukmData = [
       logo: dancecover,
       title: "DANCE COVER",
       ketum: "Jenni Bunga Enjelita S",
-      prodi: "Prodi'21",
+      prodi: "Teknik Biomedis'20",
       sejarah:"Didirikan dengan kecintaan bersama pada K-pop dan seni tari, DC ITERA bukan hanya komunitas; ini adalah keluarga erat penggemar tari. Sejak didirikan pada 2017, kami berkomitmen untuk menyatukan individu yang mencintai ritme K-pop. DC ITERA lebih dari sekadar tari; ini adalah platform untuk ekspresi diri, pertumbuhan pribadi, dan menjalin persahabatan abadi. Kami berkomitmen untuk meningkatkan keterampilan tari anggota, kepercayaan diri, dan keterampilan hidup mereka, sambil merayakan keindahan budaya K-pop. Jangan lewatkan proyek cover dance K-pop dan pertunjukan live kami. Saksikan pesonanya di Instagram kami, @dc_itera, dan jadi bagian dari perjalanan kami yang selalu berkembang dalam dunia tari dan budaya K-pop yang memikat. DC Terbentuk di tahun 2017, debut dengan lagu 'Fire' by BTS di Itera Got Talent pada tanggal 22 April 2018.",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Menjadi komunitas dance yang menginspirasi dan memajukan seni tari melalui kerjasama, inovasi, dan kreativitas, serta memperkuat ikatan sosial di antara para anggotanya.",
+      misi: "Menjadi komunitas dance yang menginspirasi dan memajukan seni tari melalui kerjasama, inovasi, dan kreativitas, serta memperkuat ikatan sosial di antara para anggotanya.",
       
       allprestasi: [
       {
@@ -1353,8 +1345,8 @@ export const ukmData = [
       ketum: "Frenklyn Fenuel Febe",
       prodi: "Matematika'21",
       sejarah:"IDENSITY merupakan sebuah komunitas dance mahasiswa itera yang bergenre kan hiphop dan pop, komunitas ini juga bertujuan untuk menyalurkan dan mengembangkan bakat para mahasiswanya untuk lebih mendalami basic dance dan proses pembuatan choreo itu sendiri. IDENSITY adalah komunitas mahasiswa yang beda di Institut Teknologi Sumatera, Lampung yang dibentuk sejak 16 Oktober 2016",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Menjadi tempat bagi Mahasiswa Institut Teknologi Sumatera untuk mengembangkan bakat mereka dalam seni dance modern.",
+      misi: "1. Mendorong pengembangan kreativitas individu untuk memperkuat bakat mereka. \n2. Mengembangkan rasa percaya diri yang tinggi pada individu.  \n3. Membangun kemampuan bekerja sama dalam tim. \n4. Menyempurnakan kemampuan organisasi bagi anggotanya.",
       
       allprestasi: [
       {
@@ -1385,11 +1377,11 @@ export const ukmData = [
       link: "/informasi/ukm/petanque",
       logo: petanque,
       title: "PETANQUE",
-      ketum: "Nama Ketua",
-      prodi: "prodi'21",
+      ketum: "Rasti Fatika Sari",
+      prodi: "Teknik Perkeretaapian'21",
       sejarah:"UKM Petanque ITERA adalah wadah bagi mahasiswa yang berminat dan berbakat dalam olahraga petanque. Dibentuk untuk mengembangkan keterampilan dan prestasi, UKM ini rutin mengadakan latihan, serta berpartisipasi dalam berbagai turnamen eksternal. Selain meningkatkan teknik bermain, UKM Petanque ITERA juga menekankan kerjasama tim, sportivitas, dan pengembangan soft skills seperti manajemen waktu dan kepemimpinan. Bergabung dengan UKM ini membuka peluang untuk memperluas jaringan sosial dan komunitas petanque di dalam dan luar kampus. Pada Desember 2023, komunitas petanque ITERA secara resmi diakui sebagai Unit Kegiatan Mahasiswa (UKM) oleh pihak kampus. Dengan status resmi sebagai UKM",
-      visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-      misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+      visi: "Menjadi  wadah  unggulan  bagi  mahasiswa  ITERA  dalammengembangkan  bakat dan  keterampilan  dalam  olahraga  Petanque,  serta mendorong semangat kompetitif dan sportivitas yang tinggi.",
+      misi: "1. Menjadi wadah mahasiswa itera dalam bidang olahraga petanque. \n2. Mengembangkan Keahlian Petanque: Memfasilitasi mahasiswa ITERA  dalam  memperoleh  keterampilan  teknis  dan  strategis yang diperlukan untuk berkompetisi dalam olahraga Petanque. \n3. Membangun  atmosfer  inklusif  dan  mendukung  bagi  anggota  UKM Petanque, di mana kolaborasi dan kebersamaan menjadi nilai inti. \n4. Memberikan  kesempatan  dan  dukungan  kepada  mahasiswa  yang memiliki potensi  untuk  meraih  prestasi  dalam  kompetisi  Petanque tingkat regional, nasional, dan internasional.  \n5. Aktif berkontribusi dalam mengembangkan dan memajukan olahraga Petanque di tingkat lokal maupun nasional. ",
       
       allprestasi: [
       {
