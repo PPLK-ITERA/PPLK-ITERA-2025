@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PoinQrCode;
 use App\Models\User;
 use Carbon\Carbon;
-use Cron\HoursField;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -50,7 +50,7 @@ class PoinController extends Controller
 
         if (!$code || $code->expired_at->isPast()) {
             $code = PoinQrCode::create([
-                'code' => strval($user_id) . '-prapplk-' . Carbon::now()->format('Y-m-d-H-i'),
+                'code' => Crypt::encryptString(strval($user_id) . '-prapplk-' . Carbon::now()->format('Y-m-d-H-i')),
                 'user_id' => $user_id,
                 'expired_at' => Carbon::now()->addMinutes(10)->toDateTimeString(),
             ]);
