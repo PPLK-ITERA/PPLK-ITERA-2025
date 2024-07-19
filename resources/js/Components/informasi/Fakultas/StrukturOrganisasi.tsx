@@ -31,19 +31,19 @@ export default function StrukturOrganisasi() {
 
     return (
         <div className="mt-16">
-            <div className="text-start md:text-center px-4 md:px-0">
-                <p className="font-bold tracking-widest font-avigea text-moccaccino-500 text-2xl md:text-5xl">
+            <div className="text-start md:text-center md:px-0 px-4">
+                <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-bold tracking-widest">
                     Struktur Organisasi
                 </p>
             </div>
-            <div className="md:mt-16 mt-8 mx-auto flex justify-center items-center">
+            <div className="md:mt-16 flex items-center justify-center mx-auto mt-8">
                 <div>
                     <Carousel setApi={setApi} className="w-full max-w-xs">
                         <CarouselContent>
                             {Array.from({ length: 5 }).map((_, index) => (
                                 <CarouselItem key={index}>
                                     <Card>
-                                        <CardContent className="flex aspect-square items-center justify-center p-6">
+                                        <CardContent className="aspect-square flex items-center justify-center p-6">
                                             <span className="text-4xl font-semibold">
                                                 {index + 1}
                                             </span>
@@ -52,8 +52,8 @@ export default function StrukturOrganisasi() {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                    </Carousel> 
-                    <div className="flex justify-center space-x-2 mt-4">
+                    </Carousel>
+                    <div className="flex justify-center mt-4 space-x-2">
                         {Array.from({ length: count }).map((_, index) => (
                             <div
                                 key={index}

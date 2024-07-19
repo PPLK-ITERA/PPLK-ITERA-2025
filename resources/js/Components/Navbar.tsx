@@ -152,7 +152,7 @@ export default function Navbar({
                     ) : (
                         <Link
                             href={route("login")}
-                            className={`mx-2 rounded-lg  px-4 py-[10px] font-montserrat text-[16px] font-semibold  shadow-sm ${isScrolled || isSolid ? "bg-white text-jaffa-950" : "bg-gradient-to-t from-[#A6680C] to-[#B9822F] text-white"} transition duration-300 ease-in-out`}
+                            className={`mx-2 rounded-[6px] px-4 py-[10px] font-montserrat text-[16px] font-semibold  shadow-sm ${isScrolled || isSolid ? "bg-white text-jaffa-950" : "bg-gradient-to-t from-[#A6680C] to-[#B9822F] text-white"} transition duration-300 ease-in-out`}
                         >
                             Login
                         </Link>

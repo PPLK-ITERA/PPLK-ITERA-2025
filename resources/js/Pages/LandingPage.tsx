@@ -55,7 +55,7 @@ export default function LandingPage() {
 
             <FilosofiLogo />
 
-            <div className="relative -mt-5 bg-[#170C0A] bg-pattern-white">
+            <div className="relative bg-[#170C0A] bg-pattern-white">
                 <MaxWidthWrapper>
                     <Maskot />
                 </MaxWidthWrapper>
@@ -63,7 +63,7 @@ export default function LandingPage() {
                 <img
                     src={pillar_brown}
                     alt="pillar_brown"
-                    className="absolute bottom-0 w-full"
+                    className="absolute bottom-0 z-0 w-full"
                 />
             </div>
 

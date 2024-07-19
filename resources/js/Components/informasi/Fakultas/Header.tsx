@@ -1,29 +1,39 @@
-const Header = ({ fakultas }) => {
-  const dataFakultas = {
-      "fakultas-sains": {
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aperiam expedita odit corporis, ipsam ut praesentium, in nostrum laudantium reprehenderit labore repudiandae dignissimos sequi dolorum adipisci animi dolor dicta repellendus.",
-      },
-      "fakultas-teknologi-industri": {
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aperiam expedita odit corporis, ipsam ut praesentium, in nostrum laudantium reprehenderit labore repudiandae dignissimos sequi dolorum adipisci animi dolor dicta repellendus.",
-      },
-      "Teknologi-Infrastruktur-dan-Kewilayahan": {
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aperiam expedita odit corporis, ipsam ut praesentium, in nostrum laudantium reprehenderit labore repudiandae dignissimos sequi dolorum adipisci animi dolor dicta repellendus.",
-      },
-  };
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 
-  const selectedFakultas = dataFakultas[fakultas] || {};
+import { HeaderFakultasData } from "@/constants/fakultas";
 
-  return (
-      <div className="bg-white/20 backdrop-blur shadow-2xl space-y-5 max-w-xs md:max-w-6xl mx-auto rounded-lg p-6">
-          <p className="text-white font-bold text-6xl">Fakultas</p>
-          <p className="text-white">
-              {selectedFakultas.description}
-          </p>
-          <p className="text-white">
-              Berikut adalah fakultas-fakultas yang terdapat di ITERA:
-          </p>
-      </div>
-  );
+type HeaderProps = {
+    fakultas: string;
+};
+
+const Header = ({ fakultas }: HeaderProps) => {
+    const selectedFakultas = HeaderFakultasData[fakultas];
+
+    return (
+        <MaxWidthWrapper className="md:justify-start flex flex-col items-center justify-center">
+            <div className="w-full px-2.5 pt-[96px] md:pt-[80px] lg:pt-[120px] xl:pt-[160px] text-center md:text-start">
+                <p className="text-[20px] font-semibold text-jaffa-100/80 md:text-[29.5px]">
+                    Informasi
+                </p>
+
+                <h1 className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-7">
+                    <span className="font-avigea text-[40px] md:text-[60px] max-w-xl">
+                        {selectedFakultas.title}
+                    </span>
+                    <br />
+                    <span className="font-avigea text-[64px] md:text-[60px]">
+                        ITERA
+                    </span>
+                </h1>
+
+                <p className="mt-10 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em] max-w-lg">
+                    <span className="text-[18px] md:text-[25px]">
+                        {selectedFakultas.description}
+                    </span>
+                </p>
+            </div>
+        </MaxWidthWrapper>
+    );
 };
 
 export default Header;

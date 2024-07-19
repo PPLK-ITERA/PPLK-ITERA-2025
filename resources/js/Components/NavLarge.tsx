@@ -43,7 +43,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
                     {InformasiDropDown.map((item, index) => (
                         <DropdownMenuItem
                             key={index}
-                            className={`${isScrolled || isSolid ? "focus:bg-jaffa-600" : "focus:bg-jaffa-200"} w-full transition-all duration-300 ease-in-out`}
+                            className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
                         >
                             <Link
                                 href={item.href}
@@ -80,7 +80,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
                     {MabaDropDown.map((item, index) => (
                         <DropdownMenuItem
                             key={index}
-                            className={`${isScrolled || isSolid ? "focus:bg-jaffa-600" : "focus:bg-jaffa-200"} w-full transition-all duration-300 ease-in-out`}
+                            className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
                         >
                             <Link
                                 href={item.href}

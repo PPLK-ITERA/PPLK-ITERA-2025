@@ -14,14 +14,14 @@ const Fti = () => {
     return (
         <div className="relative">
             <Navbar isSolid={true} isFixed={true} />
-            <div className="bg-mobile-hero-background bg-cover bg-center md:min-h-screen md:bg-tablet-hero-background lg:bg-desktop-hero-background flex items-center justify-center">
+            <div className="bg-mobile-hero-background md:min-h-screen md:bg-tablet-hero-background lg:bg-desktop-hero-background flex items-center justify-center bg-center bg-cover">
                 <div className="relative lg:min-h-[70vh] min-h-[2h-[20vh]0vh] mt-10 md:mt-0 lg:mt-10 md:px-8 lg:px-0">
                     <Header fakultas="fakultas-teknologi-industri" />
 
-                    <div className="w-full mt-44 translate-y-10 md:translate-y-0">
+                    <div className="mt-44 md:translate-y-0 w-full translate-y-10">
                         <div className="md:max-w-3xl md:mx-auto flex justify-between gap-3">
                             <a
-                                className="bg-jaffa-200 hover:bg-jaffa-700  rounded-xl shadow-lg flex justify-center items-center md:py-4 md:px-20 px-8 py-4"
+                                className="bg-jaffa-200 hover:bg-jaffa-700 rounded-xl md:py-4 md:px-20 flex items-center justify-center px-8 py-4 shadow-lg"
                                 href="/informasi/fakultas"
                             >
                                 <img
@@ -31,7 +31,7 @@ const Fti = () => {
                                 />
                             </a>
                             <a
-                                className="bg-jaffa-200 hover:bg-jaffa-700   rounded-xl shadow-lg flex justify-center items-center md:py-4 md:px-20 px-4"
+                                className="bg-jaffa-200 hover:bg-jaffa-700 rounded-xl md:py-4 md:px-20 flex items-center justify-center px-4 shadow-lg"
                                 href="/informasi/fakultas/Ftik"
                             >
                                 <img
@@ -41,7 +41,7 @@ const Fti = () => {
                                 />
                             </a>
                             <a
-                                className="bg-jaffa-700  rounded-xl shadow-lg flex justify-center items-center md:py-4 md:px-20 px-8 py-4"
+                                className="bg-jaffa-700 rounded-xl md:py-4 md:px-20 flex items-center justify-center px-8 py-4 shadow-lg"
                                 href="/informasi/fakultas/Fti"
                             >
                                 <img
@@ -55,18 +55,18 @@ const Fti = () => {
                 </div>
             </div>
 
-            <div className="bg-pattern-white lg:-translate-y-12 pt-20 ">
+            <div className="bg-pattern-white lg:-translate-y-12 pt-20">
                 <div className=" max-w-6xl mx-auto">
-                    <div className="w-full md:flex">
+                    <div className="md:flex w-full">
                         <Hero fakultas="fakultas-teknologi-industri" />
                     </div>
 
                     <div className="p-6 mt-16">
-                        <div className="bg-jaffa-700 rounded-md p-6 relative">
+                        <div className="bg-jaffa-700 relative p-6 rounded-md">
                             <div className="text-xl font-bold absolute top-0 -mt-6 left-4 bg-white text-jaffa-700 py-2 rounded-full border border-[#B9822F] px-14">
                                 VISI
                             </div>
-                            <p className="text-white mt-6">
+                            <p className="mt-6 text-white">
                                 “Menjadikan Jurusan Sains ITERA sebagai lembaga
                                 pendidikan tinggi yang menghasilkan sumber daya
                                 manusia di bidang sains mencakup pengembangan
@@ -77,12 +77,12 @@ const Fti = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="p-6  mt-16">
-                        <div className="bg-jaffa-700 rounded-md p-6 relative">
+                    <div className="p-6 mt-16">
+                        <div className="bg-jaffa-700 relative p-6 rounded-md">
                             <div className="text-xl font-bold absolute top-0 -mt-6 left-4 bg-white text-jaffa-700 py-2 rounded-full border border-[#B9822F] px-14">
                                 MISI
                             </div>
-                            <p className="text-white mt-6 space-y-3">
+                            <p className="mt-6 space-y-3 text-white">
                                 <div className="flex gap-2">
                                     <p>1.</p>
                                     <p>
@@ -116,7 +116,7 @@ const Fti = () => {
                             </p>
                         </div>
                     </div>
-                    <ProgramStudi prodi="fakultas-teknologi-industri" />
+                    <ProgramStudi fakultas="fakultas-teknologi-industri" />
                     <div className="mt-16">
                         <StrukturOrganisasi />
                     </div>
