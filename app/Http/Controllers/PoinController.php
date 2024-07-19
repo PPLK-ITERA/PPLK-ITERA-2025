@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PoinQrCode;
 use App\Models\User;
 use Carbon\Carbon;
+use Cron\HoursField;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -42,15 +43,21 @@ class PoinController extends Controller
 
     public function generateQrCode($user_id)
     {
-        $code = PoinQrCode::where('code', strval($user_id) . '-prapplk-' . Carbon::now()->toDateString())->first();
+        $code = PoinQrCode::where('user_id', $user_id)
+            ->where('created_at', '>=', Carbon::now()->subMinutes(10))
+            ->orderBy('created_at', 'desc')
+            ->first();
+
         if (!$code || $code->expired_at->isPast()) {
             $code = PoinQrCode::create([
-                'code' => strval($user_id) . '-prapplk-' . Carbon::now()->toDateString(),
+                'code' => strval($user_id) . '-prapplk-' . Carbon::now()->format('Y-m-d-H-i'),
                 'user_id' => $user_id,
-                'expired_at' => now()->addDay(),
+                'expired_at' => Carbon::now()->addMinutes(10)->toDateTimeString(),
             ]);
         }
+
         $qrUrl = URL::route('poin.redirect', ['code' => $code->code]);
+
         $qrcodeImage = QrCode::size(300)->generate($qrUrl);
 
         return response($qrcodeImage, 200);

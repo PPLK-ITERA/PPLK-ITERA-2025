@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id');
             $table->string('code')->unique();
-            $table->date('expired_at');
+            $table->dateTime('expired_at');
             $table->timestamps();
         });
     }
