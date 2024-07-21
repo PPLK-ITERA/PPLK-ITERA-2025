@@ -89,7 +89,7 @@ export default function Footer() {
             <img
                 src={logopplkfooter}
                 alt="logopplk"
-                className="mix-blend-multiply opacity-40 absolute bottom-0 right-0 w-[400px] h-full md:visible invisible"
+                className="mix-blend-multiply absolute bottom-0 right-0 md:w-[300px] lg:w-[400px] h-[40%] md:h-[90%] lg:h-full visible"
             />
         </div>
     );

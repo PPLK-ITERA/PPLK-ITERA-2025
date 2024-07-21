@@ -1,8 +1,9 @@
-import { Button } from "../ui/button";
-import { Card, CardContent } from "../ui/card";
 import PropTypes from "prop-types";
 
 import React from "react";
+
+import { Button } from "@/Components/ui/button";
+import { Card, CardContent } from "@/Components/ui/card";
 
 import { type User } from "@/lib/types/User";
 

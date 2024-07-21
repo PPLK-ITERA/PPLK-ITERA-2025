@@ -5,26 +5,22 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/Components/dashboard/ui/accordion";
+} from "@/Components/ui/accordion";
 
 interface FAQ {
     title: string;
     content: string;
 }
-
 interface AccordionFAQProps {
     items: FAQ[];
 }
-
 export function AccordionFAQ({ items }: AccordionFAQProps) {
     const [clickedIndex, setClickedIndex] = useState<number | null>(null);
-
     const handleClick = (index: number) => {
         setClickedIndex(clickedIndex === index ? null : index);
     };
-
     return (
-        <div className="w-full">
+        <div className="w-full max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
                 {items.map((item, index) => (
                     <div
@@ -38,7 +34,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                         <AccordionItem value={`item-${index}`}>
                             <AccordionTrigger
                                 onClick={() => handleClick(index)}
-                                className="flex items-center w-full px-3 py-5 text-left"
+                                className="flex items-center w-full px-3 py-5 text-left border-none"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +42,13 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                                     height="24"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
-                                    className="text-jaffa-600 mr-2"
+                                    className={`icon icon-tabler icons-tabler-filled icon-tabler-info-square-rounded mr-2 text-jaffa-600`}
+                                    style={{
+                                        transform:
+                                            clickedIndex === index
+                                                ? "none"
+                                                : "rotate(0deg)",
+                                    }}
                                 >
                                     <path
                                         stroke="none"
@@ -59,7 +61,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                                     {item.title}
                                 </span>
                             </AccordionTrigger>
-                            <AccordionContent className="-mt-1 ml-[15px] text-left">
+                            <AccordionContent className="-mt-1 px-[15px] text-left">
                                 {item.content}
                             </AccordionContent>
                         </AccordionItem>

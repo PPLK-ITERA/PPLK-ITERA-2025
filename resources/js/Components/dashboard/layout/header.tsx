@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 // import Link from 'next/link';
 
-export default function Header() {
+export default function Header({ user }) {
     return (
         <div className="supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur fixed top-0 left-0 right-0 z-20 border-b">
             <nav className="h-14 flex items-center justify-between px-4">
@@ -34,7 +34,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <UserNav />
+                    <UserNav name={user.name} />
                     {/* <ThemeToggle /> */}
                 </div>
             </nav>
