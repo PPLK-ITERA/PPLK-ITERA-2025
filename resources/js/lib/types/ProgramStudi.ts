@@ -32,6 +32,7 @@ interface ProgramStudi {
     websiteUrl: string;
     tiktokUrl: string;
     hmpsName: string;
+    hmpsImageUrl: string;
     hmpsAcronym: string;
     hmpsDescrption: string;
     hmpsCoordinatorName: string;

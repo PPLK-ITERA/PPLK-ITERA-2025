@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
     IconBrandInstagram,
@@ -29,9 +29,9 @@ const Hmps = ({ prodi, className }: Props) => {
                     data-aos-duration="800"
                 >
                     <img
-                        src="https://gcdnb.pbrd.co/images/QfWO8MCZ1xmx.png?o=1"
+                        src={prodi.hmpsImageUrl}
                         alt="Prodi"
-                        className="mx-auto h-56 lg:h-80 border"
+                        className="mx-auto h-56 lg:h-80"
                     />
                     <h1 className="max-w-2xl mx-auto font-avigea text-2xl lg:text-4xl">
                         {prodi.hmpsName}
@@ -45,14 +45,14 @@ const Hmps = ({ prodi, className }: Props) => {
                     <Card
                         data-aos="fade-up"
                         data-aos-duration="800"
-                        className="lg:mx-auto w-full max-w-6xl rounded-lg flex flex-col gap-6 bg-gradient-to-r shadow-xl shadow-jaffa-300/20 from-jaffa-600 to-jaffa-700 p-4 lg:p-8 text-left lg:px-32 border-0"
+                        className="lg:mx-auto w-full max-w-6xl rounded-lg flex flex-col gap-6 bg-gradient-to-r shadow-xl shadow-jaffa-300/20 from-jaffa-600 to-jaffa-700 p-4 lg:p-8 text-left lg:px-16 border-0"
                     >
-                        <div className="flex place-content-center mx-16">
-                            <div className="text-center lg:text-left place-content-center flex flex-col text-white">
+                        <div className="flex place-content-center">
+                            <div className="text-center lg:text-left flex flex-col text-white">
                                 <p className="max-lg:text-xs">
                                     Ketua {prodi.hmpsName} 2024-2025
                                 </p>
-                                <p className="text-xl lg:text-3xl">
+                                <p className="text-xl lg:text-3xl text-center">
                                     {prodi.hmpsCoordinatorName}
                                 </p>
                             </div>

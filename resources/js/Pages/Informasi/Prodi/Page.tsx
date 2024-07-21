@@ -1,7 +1,8 @@
 import DefaultLayout from "@/Layouts/DefaultLayout";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
+import PaginationFAQ from "@/Components/PaginationFAQ";
 import Hero from "@/Components/informasi/Fakultas/Hero";
 import KegiatanUnggulan from "@/Components/informasi/Fakultas/KegiatanUnggulan";
 import ProgramStudi from "@/Components/informasi/Fakultas/ProgramStudi";
@@ -10,7 +11,9 @@ import Header from "@/Components/informasi/prodi/Header";
 import { Button } from "@/Components/ui/button";
 import { Card } from "@/Components/ui/card";
 
-import { DataProdiFakultas, VisiMisiFakultas } from "@/constants/fakultas";
+import { DataProdiFakultas } from "@/constants/fakultas";
+
+import { useAos } from "@/lib/hooks/useAos";
 
 import fakultasSains from "!assets/fakultas-sains.png";
 import fakultasTeknologiIndustri from "!assets/fakultas-teknologi-industri.png";
@@ -18,13 +21,47 @@ import fakultasTeknologiInfrastruktur from "!assets/fakultas-teknologi-infrastru
 import patternBrown from "!assets/pattern-brown.png";
 
 export default function Page() {
+    useAos();
+    const itemsPerPage = 8;
+
+    const [currentPage, setCurrentPage] = useState<number>(1);
     const [selectedFakultas, setSelectedFakultas] = React.useState(
         localStorage.getItem("selectedFakultas") || "fakultas-sains",
     );
 
+    let currentDataProdiFakultas = DataProdiFakultas[selectedFakultas];
+    const totalPages = Math.ceil(
+        currentDataProdiFakultas.length / itemsPerPage,
+    );
+
+    function updateDisplayedItems() {
+        setDisplayedItems(
+            currentDataProdiFakultas.slice(
+                (currentPage - 1) * itemsPerPage,
+                currentPage * itemsPerPage,
+            ),
+        );
+    }
+
+    const [displayedItems, setDisplayedItems] = useState(
+        currentDataProdiFakultas.slice(0, itemsPerPage),
+    );
+
+    useEffect(() => {
+        setCurrentPage(1);
+        updateDisplayedItems();
+    }, [selectedFakultas]);
+
     useEffect(() => {
         localStorage.setItem("selectedFakultas", selectedFakultas);
-    }, [selectedFakultas]);
+        currentDataProdiFakultas = DataProdiFakultas[selectedFakultas];
+        setDisplayedItems(
+            currentDataProdiFakultas.slice(
+                (currentPage - 1) * itemsPerPage,
+                currentPage * itemsPerPage,
+            ),
+        );
+    }, [selectedFakultas, currentPage]);
 
     return (
         <DefaultLayout>
@@ -71,7 +108,7 @@ export default function Page() {
 
             <div className="bg-pattern-white py-16">
                 <div className="max-w-6xl w-full mx-auto flex flex-wrap place-content-center gap-8">
-                    {DataProdiFakultas[selectedFakultas].map((prodi, index) => (
+                    {displayedItems.map((prodi, index) => (
                         <Card className="w-64 h-48 rounded-sm overflow-hidden">
                             <div className="flex flex-col place-content-center place-items-center">
                                 <div className="h-32 relative overflow-hidden group w-full">
@@ -89,13 +126,21 @@ export default function Page() {
                                             data-aos-duration="1000"
                                         />
                                     </div>
-                                    <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition bg-white/50 grid place-content-center">
+
+                                    {/* detail on hover */}
+                                    <div className="text-sm absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition bg-white/70 backdrop-blur p-2 flex flex-col justify-between place-content-center place-items-center">
+                                        <p>{prodi}</p>
                                         <a
                                             href={route(
                                                 "informasi/prodi/detail",
                                             )}
                                         >
-                                            <Button>Selengkapnya</Button>
+                                            <Button
+                                                className="bg-white rounded-sm text-black"
+                                                size={"sm"}
+                                            >
+                                                Selengkapnya
+                                            </Button>
                                         </a>
                                     </div>
                                 </div>
@@ -106,6 +151,12 @@ export default function Page() {
                         </Card>
                     ))}
                 </div>
+
+                <PaginationFAQ
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                />
             </div>
         </DefaultLayout>
     );

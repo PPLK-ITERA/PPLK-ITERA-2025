@@ -43,6 +43,8 @@ export const programStudies: ProgramStudi[] = [
         websiteUrl: "https://website.com",
         tiktokUrl: "https://tiktok.com",
         hmpsName: "Himpunan Mahasiswa Teknik Informatika",
+        hmpsImageUrl:
+            "https://s3-alpha-sig.figma.com/img/8344/d08c/b23154db2069e2f27397999c614c8455?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qKI9p44oRMCHeRfvcPqaejsoxjCbIYl5ZGpe0P3ARFB84ofAtiKL-5MW4FG4cVoQT8WL5UadF2UYeHB7EVx7OFpz2GWSmcgpxks0fTJEpprurVgQDFURVd0PzFaT4z3XIgPr~Fff5ZWgfUVTpqXqqp7Pa1VzzNg8EPGRMjpz2u5LkgMfVvH4EAqlngjMVMsN8Tqrtx34tX8YdXq62JhrUBJcN3vBPnMsG79Wemb2y-P6aMaxj1fzHZ9Hzob3yFhDO0Yrywo4SAVIkf3lEeNZzoAVf2478xHVE9hIqaJoAGq~kA4j2e0kx61zZITcbFPijTFgkTDPK3dpcb2qvKj9vw__",
         hmpsAcronym: "HMIF",
         hmpsDescrption:
             "HMIF adalah organisasi mahasiswa yang bergerak di bidang teknologi informasi.",
