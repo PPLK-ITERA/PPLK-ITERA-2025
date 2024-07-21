@@ -161,6 +161,7 @@ class PresensiCuiController extends Controller
          'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
          'nama' => $user->name,
          'nim' => $user->nim,
+         'profil_url' => $user->photo_profile_url,
          'prodi' => $user->prodi->nama_prodi,
          'pita' => $user->penyakit->pita ?? null,
          'riwayat' => $user->penyakit->ket_penyakit ?? "-",
