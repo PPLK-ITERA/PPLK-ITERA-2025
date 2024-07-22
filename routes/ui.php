@@ -4,6 +4,10 @@ use App\Http\Controllers\BookletController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+Route::get('profile', function () {
+    return Inertia::render('Profile/Page');
+})->name('profile');
+
 Route::get('faq', function () {
     return Inertia::render('FAQ/Page');
 })->name('faq');
