@@ -4,21 +4,23 @@ namespace Database\Seeders;
 
 use App\Models\Qrcode;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class QrcodeSeeder extends Seeder
 {
    /**
     * Run the database seeds.
+    *
+    * @return void
     */
-   public function run(): void
+   public function run()
    {
-      $n = User::count();
-      for ($i = 0; $i < $n; $i++) {
+      $users = User::all();
+      foreach ($users as $user) {
          Qrcode::create([
-            'user_id' => $i + 1,
-            'code' => str()->random(10)
+            'user_id' => $user->id,
+            'code' => Str::random(10),
          ]);
       }
    }

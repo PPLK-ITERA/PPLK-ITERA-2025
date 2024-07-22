@@ -3,127 +3,105 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Follow;
-use App\Models\Qrcode;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
-   // Menampilkan top 3 follower
-   public function topFollowers()
+   /**
+    * Display a listing of the resource.
+    */
+   public function index()
    {
-      $users = User::select('name', 'nim')
-         ->withCount('followers')
-         ->orderBy('followers_count', 'desc')
-         ->take(3)
-         ->get();
+      $user = User::with('role')->get();
 
-      return response()->json($users);
+      $data = $user->map(function ($item) {
+         return [
+            'name' => $item->name,
+            'nim' => $item->nim,
+            'role' => $item->role->name,
+         ];
+      });
+      return Inertia::view(
+         'Dashboard/user/Page',
+         [
+            'response' => [
+               'status' => 200,
+               'message' => 'Berhasil mendapatkan data',
+               'data' => $user
+            ]
+         ]
+      );
    }
 
-   // Search bar untuk mencari user berdasarkan nama atau email
-   public function search(Request $request)
+   /**
+    * Show the form for creating a new resource.
+    */
+   public function create()
    {
-      $request->validate([
-         'query' => 'required|string|max:255'
+      //
+   }
+
+   /**
+    * Store a newly created resource in storage.
+    */
+   public function store(Request $request)
+   {
+      $validated = $request->validate([
+         'name' => 'required|string',
+         'email' => 'required|email',
+         'password' => 'required|string',
+         'role_id' => 'required|number|default:1',
+         'nim' => 'required|string',
+         'photo_profile_url' => 'string',
+         'linkedin_url' => 'string',
+         'instagram_url' => 'string',
+         'kelompok_id' => 'integer',
+         'pilar_id' => 'integer',
+         'view_count' => 'integer|default:0',
+         'followers_count' => 'integer|default:0',
+         'followings_count' => 'integer|default:0',
       ]);
-
-      $query = $request->input('query');
-
-      $users = User::where('name', 'like', "%$query%")
-         ->orWhere('nim', 'like', "%$query%")
-         ->select('id', 'name', 'nim')
-         ->get();
-
-      if ($users->isEmpty()) {
-         return response()->json(['message' => 'No users found'], 404);
-      }
-
-      return response()->json($users);
-   }
-
-   // Menampilkan list mahasiswa baru yang bisa diurutkan
-   public function listMaba(Request $request)
-   {
-      $validOrders = ['viewer', 'followers', 'followings', 'nim'];
-      $orderBy = $request->input('order_by', 'nim');
-      $direction = $request->input('direction', 'asc');
-
-      if (!in_array($orderBy, $validOrders)) {
-         return response()->json(['error' => 'Invalid order_by parameter'], 400);
-      }
-
-      $query = User::where('role', 'maba')->select('name', 'nim');
-
-      switch ($orderBy) {
-         case 'followers':
-            $query->withCount('followers')->orderBy('followers_count', $direction);
-            break;
-         case 'followings':
-            $query->withCount('followings')->orderBy('followings_count', $direction);
-            break;
-         case 'viewer':
-            $query->addSelect('view_count')->orderBy('view_count', $direction);
-            break;
-         default:
-            $query->orderBy($orderBy, $direction);
-      }
-
-      $users = $query->get();
-
-      if ($users->isEmpty()) {
-         return response()->json(['message' => 'No maba found'], 404);
-      }
-
-      return response()->json($users);
-   }
-
-
-   // Follow a user
-   public function follow($id)
-   {
-      $followingUserId = auth()->id();  // Assuming you use Laravel's auth system
-      $followedUserId = $id;
-
-      // Validate that the user exists
-      User::findOrFail($followedUserId);
-
-      // Check if already following
-      $follow = Follow::where('following_user_id', $followingUserId)
-         ->where('followed_user_id', $followedUserId)
-         ->first();
-
-      if ($follow) {
-         // If already following, unfollow the user
-         $follow->delete();
-         return response()->json(['message' => 'Successfully unfollowed the user']);
-      }
 
       DB::beginTransaction();
       try {
-         // If not following, follow the user
-         Follow::create([
-            'following_user_id' => $followingUserId,
-            'followed_user_id' => $followedUserId
-         ]);
+         $user = User::create($validated);
          DB::commit();
-         return response()->json(['message' => 'Successfully followed the user']);
+         return Inertia::view(
+            'Dashboard/user/Page',
+            [
+               'response' => [
+                  'status' => 201,
+                  'message' => 'Berhasil menambahkan user',
+                  'data' => $user
+               ]
+            ]
+         );
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Failed to follow the user'], 500);
+         return Inertia::view(
+            'Dashboard/user/Page',
+            [
+               'response' => [
+                  'status' => 500,
+                  'message' => 'Gagal menambahkan user',
+               ]
+            ]
+         );
       }
    }
 
-   // Menampilkan profil pengguna
-   public function profile($id)
+   /**
+    * Display the specified resource.
+    */
+   public function show(string $id)
    {
       $user = User::withCount(['followers', 'followings'])->findOrFail($id);
 
       // Increment view count
       $user->increment('view_count');
-
       // Return only the specified attributes
       $response = [
          'name' => $user->name,
@@ -137,6 +115,127 @@ class UserController extends Controller
          'followings_count' => $user->followings_count,
       ];
 
-      return response()->json($response);
+      return Inertia::view(
+         'Dashboard/user/Page',
+         [
+            'response' => [
+               'status' => 200,
+               'message' => 'Berhasil mendapatkan data',
+               'data' => $response
+            ]
+         ]
+      );
+   }
+
+   /**
+    * Show the form for editing the specified resource.
+    */
+   public function edit(string $id)
+   {
+      //
+   }
+
+   /**
+    * Update the specified resource in storage.
+    */
+   public function update(Request $request, string $id)
+   {
+      $validated = $request->validate([
+         'name' => 'required|string',
+         'email' => 'required|email',
+         'password' => 'required|string',
+         'role_id' => 'required|number|default:1',
+         'nim' => 'required|string',
+         'photo_profile_url' => 'string',
+         'linkedin_url' => 'string',
+         'instagram_url' => 'string',
+         'kelompok_id' => 'integer',
+         'pilar_id' => 'integer',
+         'view_count' => 'integer|default:0',
+         'followers_count' => 'integer|default:0',
+         'followings_count' => 'integer|default:0',
+      ]);
+      DB::beginTransaction();
+      try {
+         $user = User::find($id);
+         if (!$user) {
+            return Inertia::view(
+               'Dashboard/user/Page',
+               [
+                  'response' => [
+                     'status' => 404,
+                     'message' => 'User not found',
+                  ]
+               ]
+            );
+         }
+         $user->update($validated);
+         DB::commit();
+         return Inertia::view(
+            'Dashboard/user/Page',
+            [
+               'response' => [
+                  'status' => 201,
+                  'message' => 'Berhasil mengubah user',
+                  'data' => $user
+               ]
+            ]
+         );
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return Inertia::view(
+            'Dashboard/user/Page',
+            [
+               'response' => [
+                  'status' => 500,
+                  'message' => 'Gagal mengubah user',
+               ]
+            ]
+         );
+      }
+   }
+
+   /**
+    * Remove the specified resource from storage.
+    */
+   public function destroy(string $id)
+   {
+      $user = User::find($id);
+      if (!$user) {
+         return Inertia::view(
+            'Dashboard/user/Page',
+            [
+               'response' => [
+                  'status' => 404,
+                  'message' => 'User not found',
+               ]
+            ]
+         );
+      }
+      DB::beginTransaction();
+      try {
+         $user->delete();
+         DB::commit();
+         return Inertia::view(
+            'Dashboard/user/Page',
+            [
+               'response' => [
+                  'status' => 200,
+                  'message' => 'Berhasil menghapus user',
+               ]
+            ]
+         );
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return Inertia::view(
+            'Dashboard/user/Page',
+            [
+               'response' => [
+                  'status' => 500,
+                  'message' => 'Gagal menghapus user',
+               ]
+            ]
+         );
+      }
    }
 }

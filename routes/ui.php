@@ -95,9 +95,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/profile/Page');
    })->middleware('checkRole:Admin', 'checkRole:Maba')->name('dashboard/profile');
 
-   Route::get('dashboard/user', function () {
-      return Inertia::render('Dashboard/user/Page');
-   })->name('dashboard/user');
+   // Route::get('dashboard/user', function () {
+   //    return Inertia::render('Dashboard/user/Page');
+   // })->name('dashboard/user');
 
    Route::get('dashboard/atur-maba', function () {
       return Inertia::render('Dashboard/atur-maba/Page');
@@ -123,9 +123,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/faq/Page');
    })->name('dashboard/faq');
 
-   Route::get('dashboard/booklet', function () {
-      return Inertia::render('Dashboard/booklet/Page');
-   })->name('dashboard/booklet');
+   // Route::get('dashboard/booklet', function () {
+   //    return Inertia::render('Dashboard/booklet/Page');
+   // })->name('dashboard/booklet');
 
    Route::get('dashboard/mading', function () {
       return Inertia::render('Dashboard/mading/Page');
