@@ -32,10 +32,21 @@ class BookletController extends Controller
       try {
          $booklet = Booklet::create($validated);
          DB::commit();
-         return response()->json(['message' => 'Berhasil menambahkan booklet'], 201);
+         return Inertia::render('Booklet/Page', [
+            'response' => [
+               'status' => 201,
+               'message' => 'Berhasil menambahkan booklet',
+               'data' => $booklet
+            ]
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal menambahkan booklet'], 500);
+         return Inertia::render('Booklet/Page', [
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal menambahkan booklet',
+            ]
+         ]);
       }
    }
 
@@ -55,7 +66,13 @@ class BookletController extends Controller
       try {
          $booklet->update($validated);
          DB::commit();
-         return response()->json(['message' => 'Berhasil mengubah booklet'], 200);
+         return Inertia::render('Booklet/CarouselBooklet', [
+            'response' => [
+               'status' => 201,
+               'message' => 'Berhasil menambahkan booklet',
+               'data' => $booklet
+            ]
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
          return response()->json(['message' => 'Gagal mengubah booklet'], 500);
@@ -64,18 +81,26 @@ class BookletController extends Controller
 
    public function delete($id)
    {
-      $booklet = Booklet::find($id);
-      if (!$booklet) {
-         return response()->json(['message' => 'Booklet not found'], 404);
-      }
       DB::beginTransaction();
       try {
-         $booklet->delete();
+         $booklet = Booklet::find($id)->delete();
          DB::commit();
-         return response()->json(['message' => 'Berhasil menghapus booklet'], 200);
-      } catch (\Throwable $th) {
+         if ($booklet) {
+            return Inertia::render('Booklet/Page', [
+               'response' => [
+                  'status' => 201,
+                  'message' => 'Berhasil menghapus booklet',
+               ]
+            ]);
+         }
+      } catch (\Exception $e) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal menghapus booklet'], 500);
+         return Inertia::render('Booklet/Page', [
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal menghapus booklet',
+            ]
+         ]);
       }
    }
 }
