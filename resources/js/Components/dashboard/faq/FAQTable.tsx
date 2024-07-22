@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useForm } from "@inertiajs/react";
+
 import {
     AlertDialog,
     AlertDialogAction,
@@ -41,6 +43,12 @@ export type dataFAQS = {
 };
 
 export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
+    const [currentFAQ, setCurrentFAQ] = useState<dataFAQS | null>(null);
+    const { data, setData, put, processing, errors, reset } = useForm({
+        pertanyaan: "",
+        jawaban: "",
+    });
+
     return (
         <Table className="border">
             <TableCaption>A list of your recent invoices.</TableCaption>
@@ -98,7 +106,13 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
 
                                             <Input
                                                 id="question"
-                                                value=""
+                                                value={faq.teks_pertanyaan}
+                                                onChange={(e) =>
+                                                    setData(
+                                                        "pertanyaan",
+                                                        e.target.value,
+                                                    )
+                                                }
                                                 placeholder="Pertanyaan"
                                                 className="mt-1"
                                             />
@@ -114,7 +128,13 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
 
                                             <Textarea
                                                 id="asnwer"
-                                                value=""
+                                                value={faq.teks_jawaban}
+                                                onChange={(e) =>
+                                                    setData(
+                                                        "jawaban",
+                                                        e.target.value,
+                                                    )
+                                                }
                                                 placeholder="Jawaban dari pertanyaan"
                                                 className="mt-1"
                                             />

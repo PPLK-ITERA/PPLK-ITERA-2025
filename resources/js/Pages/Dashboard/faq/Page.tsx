@@ -28,14 +28,12 @@ const breadcrumbItems = [
 ];
 
 export default function Page({ auth, response }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const dataFAQS = response.data;
+
+    const { data, setData, post, put, processing, errors, reset } = useForm({
         pertanyaan: "",
         jawaban: "",
     });
-
-    console.log(response);
-
-    const dataFAQS = response.data;
 
     const addFAQ = () => {
         post(route("faqs.store"));
