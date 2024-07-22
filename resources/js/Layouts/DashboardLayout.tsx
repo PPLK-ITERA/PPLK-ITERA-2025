@@ -1,10 +1,10 @@
-import { User } from "@/lib/types/User";
-
 import React, { PropsWithChildren, ReactNode } from "react";
 
 import Header from "@/Components/dashboard/layout/header";
 import Sidebar from "@/Components/dashboard/layout/sidebar";
 import { ScrollArea } from "@/Components/dashboard/ui/scroll-area";
+
+import { User } from "@/lib/types/User";
 
 export default function DashboardLayout({
     user,
