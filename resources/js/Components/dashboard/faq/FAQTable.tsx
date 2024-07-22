@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { DialogClose } from "@radix-ui/react-dialog";
 
 import { useForm } from "@inertiajs/react";
 
@@ -36,18 +36,60 @@ import {
     TableRow,
 } from "@/Components/dashboard/ui/table";
 import { Textarea } from "@/Components/dashboard/ui/textarea";
+import { useToast } from "@/Components/ui/use-toast";
 
 export type dataFAQS = {
+    id: number;
     teks_pertanyaan: string;
     teks_jawaban: string;
 };
 
 export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
-    const [currentFAQ, setCurrentFAQ] = useState<dataFAQS | null>(null);
-    const { data, setData, put, processing, errors, reset } = useForm({
-        pertanyaan: "",
-        jawaban: "",
+    const { toast } = useToast();
+    const {
+        data,
+        setData,
+        put,
+        delete: destroy,
+        processing,
+        errors,
+        reset,
+    } = useForm({
+        teks_pertanyaan: "",
+        teks_jawaban: "",
     });
+
+    const changeData = (faq: dataFAQS) => {
+        setData({
+            teks_pertanyaan: faq.teks_pertanyaan,
+            teks_jawaban: faq.teks_jawaban,
+        });
+    };
+
+    const editFAQ = (faq: dataFAQS) => {
+        put(
+            route("faqs.update", faq, {
+                onSuccess: () => {
+                    toast({
+                        title: "FAQ berhasil diubah.",
+                        variant: "default",
+                    });
+                },
+            }),
+        );
+    };
+
+    // Todo: Add toaster for success and error message
+    const deleteFAQ = (faq: dataFAQS) => {
+        destroy(route("faqs.destroy", faq), {
+            onSuccess: () => {
+                toast({
+                    title: "FAQ berhasil dihapus.",
+                    variant: "default",
+                });
+            },
+        });
+    };
 
     return (
         <Table className="border">
@@ -84,7 +126,12 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
                         <TableCell className="flex gap-2 text-right">
                             <Dialog>
                                 <DialogTrigger asChild>
-                                    <Button className="gap-2">Edit</Button>
+                                    <Button
+                                        className="gap-2"
+                                        onClick={() => changeData(faq)}
+                                    >
+                                        Edit
+                                    </Button>
                                 </DialogTrigger>
 
                                 <DialogContent className="sm:max-w-[425px]">
@@ -106,10 +153,10 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
 
                                             <Input
                                                 id="question"
-                                                value={faq.teks_pertanyaan}
+                                                value={data.teks_pertanyaan}
                                                 onChange={(e) =>
                                                     setData(
-                                                        "pertanyaan",
+                                                        "teks_pertanyaan",
                                                         e.target.value,
                                                     )
                                                 }
@@ -128,10 +175,10 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
 
                                             <Textarea
                                                 id="asnwer"
-                                                value={faq.teks_jawaban}
+                                                value={data.teks_jawaban}
                                                 onChange={(e) =>
                                                     setData(
-                                                        "jawaban",
+                                                        "teks_jawaban",
                                                         e.target.value,
                                                     )
                                                 }
@@ -141,10 +188,23 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
                                         </div>
                                     </div>
                                     <DialogFooter>
-                                        <Button variant={"outline"}>
-                                            Batalkan
-                                        </Button>
-                                        <Button type="submit">Simpan</Button>
+                                        <DialogClose asChild>
+                                            <Button
+                                                variant={"outline"}
+                                                disabled={processing}
+                                            >
+                                                Batalkan
+                                            </Button>
+                                        </DialogClose>
+                                        <DialogClose asChild>
+                                            <Button
+                                                type="submit"
+                                                onClick={() => editFAQ(faq)}
+                                                disabled={processing}
+                                            >
+                                                Simpan
+                                            </Button>
+                                        </DialogClose>
                                     </DialogFooter>
                                 </DialogContent>
                             </Dialog>
@@ -153,7 +213,7 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
                                 <AlertDialogTrigger asChild>
                                     <Button
                                         variant={"outline"}
-                                        className="text-red-500 border border-red-500"
+                                        className="hover:text-red-500 hover:opacity-90 text-red-500 border border-red-500"
                                     >
                                         Delete
                                     </Button>
@@ -173,7 +233,9 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
                                         <AlertDialogCancel>
                                             Cancel
                                         </AlertDialogCancel>
-                                        <AlertDialogAction>
+                                        <AlertDialogAction
+                                            onClick={() => deleteFAQ(faq)}
+                                        >
                                             Continue
                                         </AlertDialogAction>
                                     </AlertDialogFooter>
