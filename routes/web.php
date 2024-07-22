@@ -27,6 +27,8 @@ Route::get('/', function () {
    ]);
 })->name('welcome');
 
+// All routes
+Route::get('faq', [FAQController::class, 'guestIndex'])->name('faq.guestIndex');
 
 //Auth Route
 Route::middleware('auth')->group(function () {
@@ -53,7 +55,11 @@ Route::middleware('auth')->group(function () {
    //dashboard
    Route::prefix('dashboard')->group(function () {
       Route::prefix('user')->group(function () {
-         route::get('/', [UserController::class, 'index'])->name('user.index');
+         Route::get('/', [UserController::class, 'index'])->name('user.index');
+      });
+
+      Route::prefix('booklets')->group(function () {
+         Route::resource('/', BookletController::class);
       });
    });
 

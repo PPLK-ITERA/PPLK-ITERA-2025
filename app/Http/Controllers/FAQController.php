@@ -10,10 +10,21 @@ use Inertia\Inertia;
 class FAQController extends Controller
 {
    // Menampilkan semua FAQ
-   public function index()
+   public function guestIndex()
    {
       $faqs = FAQ::select('teks_pertanyaan', 'teks_jawaban')->get();
       return Inertia::render('FAQ/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Success',
+            'data' => $faqs
+         ]
+      ]);
+   }
+   public function index()
+   {
+      $faqs = FAQ::select('teks_pertanyaan', 'teks_jawaban')->get();
+      return Inertia::render('Dashboard/faq/Page', [
          'response' => [
             'status' => 200,
             'message' => 'Success',
@@ -37,7 +48,7 @@ class FAQController extends Controller
       try {
          FAQ::create($validated);
          DB::commit();
-         return Inertia::render('FAQ/Page', [
+         return Inertia::render('Dashboard/faq/Page', [
             'response' => [
                'status' => 201,
                'message' => 'Berhasil menambahkan data',
@@ -45,7 +56,7 @@ class FAQController extends Controller
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('FAQ/Page', [
+         return Inertia::render('Dashboard/faq/Page', [
             'response' => [
                'status' => 500,
                'message' => 'Kesalahan server internal',
@@ -70,7 +81,7 @@ class FAQController extends Controller
       try {
          $faq->update($validated);
          DB::commit();
-         return Inertia::render('FAQ/Page', [
+         return Inertia::render('Dashboard/faq/Page', [
             'response' => [
                'status' => 201,
                'message' => 'Berhasil mengubah data',
@@ -78,7 +89,7 @@ class FAQController extends Controller
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('FAQ/Page', [
+         return Inertia::render('Dashboard/faq/Page', [
             'response' => [
                'status' => 500,
                'message' => 'Kesalahan server internal',
@@ -95,7 +106,7 @@ class FAQController extends Controller
       try {
          $faq->delete();
          DB::commit();
-         return Inertia::render('FAQ/Page', [
+         return Inertia::render('Dashboard/faq/Page', [
             'response' => [
                'status' => 201,
                'message' => 'Berhasil mengapus data',
@@ -103,7 +114,7 @@ class FAQController extends Controller
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('FAQ/Page', [
+         return Inertia::render('Dashboard/faq/Page', [
             'response' => [
                'status' => 500,
                'message' => 'Gagal menghapus data',

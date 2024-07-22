@@ -123,9 +123,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/faq/Page');
    })->name('dashboard/faq');
 
-   Route::get('dashboard/booklet', function () {
-      return Inertia::render('Dashboard/booklet/Page');
-   })->name('dashboard/booklet');
+   // Route::get('dashboard/booklet', function () {
+   //    return Inertia::render('Dashboard/booklet/Page');
+   // })->name('dashboard/booklet');
 
    Route::get('dashboard/mading', function () {
       return Inertia::render('Dashboard/mading/Page');

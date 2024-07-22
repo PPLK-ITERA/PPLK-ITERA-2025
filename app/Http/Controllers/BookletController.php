@@ -12,7 +12,7 @@ class BookletController extends Controller
    public function index()
    {
       $booklets = Booklet::all();
-      return Inertia::render('Booklet/Page', [
+      return Inertia::render('Dashboard/booklet/Page', [
          'response' => [
             'status' => 200,
             'message' => 'Success',
@@ -32,7 +32,7 @@ class BookletController extends Controller
       try {
          $booklet = Booklet::create($validated);
          DB::commit();
-         return Inertia::render('Booklet/Page', [
+         return Inertia::render('Dashboard/booklet/Page', [
             'response' => [
                'status' => 201,
                'message' => 'Berhasil menambahkan booklet',
@@ -41,7 +41,7 @@ class BookletController extends Controller
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('Booklet/Page', [
+         return Inertia::render('Dashboard/booklet/Page', [
             'response' => [
                'status' => 500,
                'message' => 'Gagal menambahkan booklet',
@@ -66,7 +66,7 @@ class BookletController extends Controller
       try {
          $booklet->update($validated);
          DB::commit();
-         return Inertia::render('Booklet/CarouselBooklet', [
+         return Inertia::render('Dashboard/booklet/Page', [
             'response' => [
                'status' => 201,
                'message' => 'Berhasil menambahkan booklet',
@@ -75,7 +75,12 @@ class BookletController extends Controller
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal mengubah booklet'], 500);
+         return Inertia::render('Dashboard/booklet/Page', [
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal menghapus booklet',
+            ]
+         ]);
       }
    }
 
@@ -86,7 +91,7 @@ class BookletController extends Controller
          $booklet = Booklet::find($id)->delete();
          DB::commit();
          if ($booklet) {
-            return Inertia::render('Booklet/Page', [
+            return Inertia::render('Dashboard/booklet/Page', [
                'response' => [
                   'status' => 201,
                   'message' => 'Berhasil menghapus booklet',
