@@ -23,8 +23,4 @@ class Qrcode extends Model
    {
       return $this->hasOne(User::class, 'id', 'qrcode_id');
    }
-   public function usercui()
-   {
-      return $this->hasOne(UserCui::class, 'id', 'qrcode_id');
-   }
 }
