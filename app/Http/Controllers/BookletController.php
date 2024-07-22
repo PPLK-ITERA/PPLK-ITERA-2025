@@ -12,7 +12,7 @@ class BookletController extends Controller
    public function index()
    {
       $booklets = Booklet::all();
-      return Inertia::render('Booklet/Page', [
+      return Inertia::render('Dashboard/Booklet/Page', [
          'response' => [
             'status' => 200,
             'message' => 'Success',
