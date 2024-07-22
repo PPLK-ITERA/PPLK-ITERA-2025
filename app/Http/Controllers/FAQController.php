@@ -46,22 +46,27 @@ class FAQController extends Controller
 
       DB::beginTransaction();
       try {
-         FAQ::create($validated);
-         DB::commit();
-         return Inertia::render('Dashboard/faq/Page', [
-            'response' => [
-               'status' => 201,
-               'message' => 'Berhasil menambahkan data',
-            ]
+         FAQ::create([
+            'teks_pertanyaan' => $validated['pertanyaan'],
+            'teks_jawaban' => $validated['jawaban'],
          ]);
+         DB::commit();
+         return redirect()->route('faq.index')->with('message', 'Berhasil menambahkan data');
+         // return Inertia::render('Dashboard/faq/Page', [
+         //    'response' => [
+         //       'status' => 201,
+         //       'message' => 'Berhasil menambahkan data',
+         //    ]
+         // ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('Dashboard/faq/Page', [
-            'response' => [
-               'status' => 500,
-               'message' => 'Kesalahan server internal',
-            ]
-         ]);
+         return redirect()->route('faq.index')->with('message', 'Gagal menambahkan data');
+         // return Inertia::render('Dashboard/faq/Page', [
+         //    'response' => [
+         //       'status' => 500,
+         //       'message' => 'Kesalahan server internal',
+         //    ]
+         // ]);
       }
    }
 
