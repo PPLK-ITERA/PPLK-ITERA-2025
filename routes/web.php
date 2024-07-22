@@ -62,6 +62,10 @@ Route::middleware('auth')->group(function () {
       Route::prefix('booklets')->group(function () {
          Route::resource('/', BookletController::class);
       });
+
+      Route::prefix('faq')->group(function () {
+         Route::resource('/', FAQController::class);
+      });
    });
 
    //Presensi CUI
