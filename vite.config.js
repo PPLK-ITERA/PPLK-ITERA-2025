@@ -16,4 +16,16 @@ export default defineConfig({
             "!assets": path.resolve(__dirname, "./resources/assets"),
         },
     },
+    build: {
+        sourcemap: true,
+        rollupOptions: {
+            onwarn(warning, defaultHandler) {
+                if (warning.code === "SOURCEMAP_ERROR") {
+                    return;
+                }
+
+                defaultHandler(warning);
+            },
+        },
+    },
 });

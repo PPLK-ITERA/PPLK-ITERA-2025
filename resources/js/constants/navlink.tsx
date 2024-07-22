@@ -270,7 +270,7 @@ export const MabaDropDown = [
 export const UserDropdown = [
     {
         title: "Profil Kamu",
-        href: "/profil",
+        href: route("my-profile"),
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
