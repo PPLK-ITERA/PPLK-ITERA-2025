@@ -7,12 +7,13 @@ import Hero from "@/Components/informasi/Fakultas/Hero";
 import KegiatanUnggulan from "@/Components/informasi/Fakultas/KegiatanUnggulan";
 import ProgramStudi from "@/Components/informasi/Fakultas/ProgramStudi";
 import StrukturOrganisasi from "@/Components/informasi/Fakultas/StrukturOrganisasi";
-
-import { VisiMisiFakultas } from "@/constants/fakultas";
+import VisiMisi from "@/Components/informasi/Fakultas/VisiMisi";
 
 import fakultasSains from "!assets/fakultas-sains.png";
 import fakultasTeknologiIndustri from "!assets/fakultas-teknologi-industri.png";
 import fakultasTeknologiInfrastruktur from "!assets/fakultas-teknologi-infrastruktur-dan-kewilayahan.png";
+import overlay_box from "!assets/overlay-box.png";
+import pillar_brown from "!assets/pillar-brown.png";
 
 export default function Page() {
     const [selectedFakultas, setSelectedFakultas] = React.useState(
@@ -66,51 +67,30 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className="bg-pattern-white lg:-translate-y-12 pt-20">
-                <div className="max-w-5xl mx-auto">
+            <div className="bg-pattern-white lg:-translate-y-12 relative pt-20">
+                <div className="relative max-w-5xl mx-auto">
                     <div className="md:flex w-full">
                         <Hero fakultas={selectedFakultas} />
                     </div>
 
-                    <div className="max-w-4xl p-6 mx-auto mt-16">
-                        <div className="bg-flower-pattern rounded-lg">
-                            <div className="bg-gradient-to-r from-jaffa-700/90 to-jaffa-800/90 font-montserrat relative p-6 rounded-lg">
-                                <div className="text-xl font-bold absolute top-0 -mt-6 -left-2 bg-white text-jaffa-700 py-2 rounded-full border-4 border-[#B9822F] px-14">
-                                    VISI
-                                </div>
+                    <VisiMisi fakultas={selectedFakultas} />
+                </div>
 
-                                <p className="mt-6 text-white">
-                                    “{VisiMisiFakultas[selectedFakultas].visi}”
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div className="top-1/4 absolute flex flex-col w-full">
+                    <img
+                        src={pillar_brown}
+                        alt="pillar_brown"
+                        className="w-full"
+                    />
 
-                    <div className="max-w-4xl p-6 mx-auto mt-16">
-                        <div className="bg-flower-pattern rounded-lg">
-                            <div className="bg-gradient-to-r from-jaffa-700/90 to-jaffa-800/90 font-montserrat relative p-6 rounded-lg">
-                                <div className="text-xl font-bold absolute top-0 -mt-6 -left-2 bg-white text-jaffa-700 py-2 rounded-full border-4 border-[#B9822F] px-14">
-                                    MISI
-                                </div>
-                                <p className=" mt-6 space-y-3 text-white">
-                                    {VisiMisiFakultas[
-                                        selectedFakultas
-                                    ].misi.map(
-                                        (misi: string, index: number) => (
-                                            <div
-                                                key={index}
-                                                className="flex gap-2"
-                                            >
-                                                <p>{index + 1}.</p>
-                                                <p>{misi}</p>
-                                            </div>
-                                        ),
-                                    )}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <img
+                        src={overlay_box}
+                        alt="pillar_brown"
+                        className="z-20 w-full -mt-[200px]"
+                    />
+                </div>
 
+                <div className="max-w-5xl mx-auto">
                     <ProgramStudi fakultas={selectedFakultas} />
 
                     <div className="mt-16">

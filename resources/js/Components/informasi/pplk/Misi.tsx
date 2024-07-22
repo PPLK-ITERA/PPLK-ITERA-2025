@@ -10,13 +10,14 @@ function Page() {
 
                 <div className="max-lg:flex-col md:gap-10 md:mt-10 flex items-center justify-center gap-5 mt-5">
                     <div className="flex h-[116px] sm:w-[412px] w-[315px] flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
-                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white">
+                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white max-w-[80%]">
                             Mampu mengenal dan memahami lingkungan baru serta
                             meninggikan rasa tanggung jawab
                         </p>
                     </div>
+
                     <div className="flex h-[116px] sm:w-[412px] w-[315px] flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
-                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white">
+                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white max-w-[80%]">
                             Mengedepankan karakter mahasiswa berintelektual
                             dengan acuan tri dharma perguruan tinggi
                         </p>
@@ -25,16 +26,16 @@ function Page() {
 
                 <div className="max-lg:flex-col md:gap-10 md:mt-10 flex gap-5 mt-5">
                     <div className="flex h-[116px] sm:w-[412px] w-[315px] flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
-                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white">
+                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white max-w-[80%]">
                             Menanamkan kepribadian mahasiswa sebagai agent of
                             change dengan berpikir kritis dan inovatif
                         </p>
                     </div>
+
                     <div className="flex h-[116px] sm:w-[412px] w-[315px] flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
-                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white">
-                            Menjadikan mahasiswa yang berintegritas dalam
-                            mengetahui peran penting dari pendidikan untuk
-                            menuju indonesia emas
+                        <p className="font-montserrat sm:text-[16px] text-[14px] text-white max-w-[80%]">
+                            Menumbuhkan Integritas Mahasiswa melalui Pendidikan
+                            untuk Mewujudkan Indonesia Emas
                         </p>
                     </div>
                 </div>
@@ -50,6 +51,7 @@ function Page() {
                         </p>
                         <p className="font-montserrat text-[16px]">Jabatan</p>
                     </div>
+
                     <div className="flex sm:h-[439px] sm:w-[330px] h-[315px] w-[200px] flex-col items-center rounded-[3px] bg-white shadow-2xl">
                         <p className="font-avigea mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">
                             KETUA PELAKSANA

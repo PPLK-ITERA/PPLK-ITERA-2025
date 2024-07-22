@@ -1,20 +1,19 @@
 import React from "react";
+
 import {
     Pagination,
     PaginationContent,
-    PaginationEllipsis,
     PaginationItem,
     PaginationLink,
-    PaginationNext,
 } from "@/Components/ui/pagination";
 
-interface PaginationInformasiProps {
+interface PaginationUKMProps {
     currentPage: number;
     totalPages: number;
     onPageChange: (page: number) => void;
 }
 
-export const PaginationInformasi: React.FC<PaginationInformasiProps> = ({
+export const PaginationUKM: React.FC<PaginationUKMProps> = ({
     currentPage,
     totalPages,
     onPageChange,
@@ -33,7 +32,7 @@ export const PaginationInformasi: React.FC<PaginationInformasiProps> = ({
 
     return (
         <Pagination>
-            <PaginationContent className="mt-5">
+            <PaginationContent className="md:mt-10 mt-5">
                 <PaginationItem>
                     <button
                         onClick={handlePreviousClick}
@@ -57,17 +56,19 @@ export const PaginationInformasi: React.FC<PaginationInformasiProps> = ({
                         </svg>
                     </button>
                 </PaginationItem>
+
                 {[...Array(totalPages)].map((_, index) => (
                     <PaginationItem key={index}>
                         <PaginationLink
                             onClick={() => onPageChange(index + 1)}
                             isActive={currentPage === index + 1}
-                            className={`rounded-[10px] border px-5 py-5 ${currentPage === index + 1 ? "bg-jaffa-600 text-white" : "bg-white text-black"}`}
+                            className={`rounded-[10px] border px-3 py-1 ${currentPage === index + 1 ? "bg-jaffa-600 text-white hover:bg-jaffa-600 hover:text-white pointer-events-none" : "bg-white text-black cursor-pointer"}`}
                         >
                             {index + 1}
                         </PaginationLink>
                     </PaginationItem>
                 ))}
+
                 <PaginationItem>
                     <button
                         onClick={handleNextClick}
@@ -95,4 +96,4 @@ export const PaginationInformasi: React.FC<PaginationInformasiProps> = ({
     );
 };
 
-export default PaginationInformasi;
+export default PaginationUKM;

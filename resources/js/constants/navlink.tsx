@@ -168,7 +168,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Divisi PPLK",
-        href: "/inofrmasi/divisi",
+        href: "/informasi/pplk#divisi-pplk",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -220,6 +220,55 @@ export const InformasiDropDown = [
 
 export const MabaDropDown = [
     {
+        title: "Ketentuan Atribut",
+        href: "/ketentuan-atribut",
+        icon: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fcedd8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-shirt"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 4l6 2v5h-3v8a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-8h-3v-5l6 -2a3 3 0 0 0 6 0" />
+            </svg>
+        ),
+    },
+    {
+        title: "Booklet PPLK",
+        href: "/booklet",
+        icon: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fcedd8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-book"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                <path d="M3 6l0 13" />
+                <path d="M12 6l0 13" />
+                <path d="M21 6l0 13" />
+            </svg>
+        ),
+    },
+];
+
+export const UserDropdown = [
+    {
         title: "Profil Kamu",
         href: "/profil",
         icon: (
@@ -263,31 +312,6 @@ export const MabaDropDown = [
                 <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-            </svg>
-        ),
-    },
-    {
-        title: "Booklet PPLK",
-        href: "/booklet",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-book"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                <path d="M3 6l0 13" />
-                <path d="M12 6l0 13" />
-                <path d="M21 6l0 13" />
             </svg>
         ),
     },
@@ -380,56 +404,6 @@ export const MabaDropDown = [
             >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" />
-            </svg>
-        ),
-    },
-];
-
-export const UserDropdown = [
-    {
-        title: "Profil Kamu",
-        href: "/profil",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-user-circle"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
-            </svg>
-        ),
-    },
-    {
-        title: "Relasi & Jaringan",
-        href: "/relasi",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-users"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
             </svg>
         ),
     },

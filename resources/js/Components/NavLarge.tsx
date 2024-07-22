@@ -23,7 +23,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
     const router = usePage().url;
 
     return (
-        <div className="hidden max-w-[800px] font-tinos md:flex gap-2">
+        <div className="hidden max-w-[800px] font-tinos md:flex gap-2 xl:-ml-20 -ml-10">
             <Link
                 href="/"
                 className={`lg:mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
@@ -61,18 +61,18 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
                 </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link
+            {/* <Link
                 href="/ketentuan-atribut"
                 className={`lg:mx-2 text-[18px] ${router === "/ketentuan-atribut" ? "underline underline-offset-2" : ""} font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
             >
                 Ketentuan Atribut
-            </Link>
+            </Link> */}
 
             <DropdownMenu>
                 <DropdownMenuTrigger
                     className={`lg:mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} border-none outline-none transition-all duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
                 >
-                    Maba <ChevronDown className="w-4 h-4" />
+                    Mahasiswa Baru <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                     className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}

@@ -1,3 +1,4 @@
+import CountUp from "react-countup";
 import Marquee from "react-fast-marquee";
 
 import React from "react";
@@ -40,19 +41,19 @@ export default function ProgramStudi({ fakultas }) {
 
             <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 rounded-xl md:px-10 flex justify-between px-3 py-4 mt-24 text-xl text-center text-white">
                 <div>
-                    <p>{selectedProdi.length}</p>
+                    <CountUp end={selectedProdi.length} enableScrollSpy />
                     <p>Prodi</p>
                 </div>
                 <div>
-                    <p>3,210</p>
+                    <CountUp end={3210} enableScrollSpy />
                     <p>Mahasiswa</p>
                 </div>
                 <div>
-                    <p>146</p>
+                    <CountUp end={146} enableScrollSpy />
                     <p>Dosen</p>
                 </div>
                 <div>
-                    <p>38</p>
+                    <CountUp end={38} enableScrollSpy />
                     <p>Tendik</p>
                 </div>
             </div>

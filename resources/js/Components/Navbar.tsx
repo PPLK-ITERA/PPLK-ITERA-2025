@@ -2,8 +2,7 @@ import NavLarge from "./NavLarge";
 
 import React from "react";
 
-import { usePage } from "@inertiajs/react";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 import { IconLogout, IconUserCircle } from "@tabler/icons-react";
 
@@ -19,8 +18,10 @@ import {
 
 import { UserDropdown } from "@/constants/navlink";
 
+import logodiesnat from "!assets/logo-diesnat.png";
 import logopplk from "!assets/logo-pplk-2024.png";
 import logopplk_white from "!assets/logo-pplk-20204-white.png";
+import logodiesnat_white from "!assets/logo-tendiesnat-white.png";
 
 interface NavbarProps {
     isSolid?: boolean;
@@ -54,9 +55,27 @@ export default function Navbar({
             <MaxWidthWrapper className="flex items-center justify-between w-full py-2">
                 {/* Logo PPLK*/}
                 <Link
-                    className="font-fesbud flex items-center justify-start -ml-4 transition duration-300 ease-in-out"
+                    className="font-fesbud md:-ml-4 flex items-center justify-start transition duration-300 ease-in-out"
                     href="/"
                 >
+                    {isScrolled || isSolid ? (
+                        <img
+                            src={logodiesnat_white}
+                            alt="logo-pplk-2024"
+                            className="w-14 h-14"
+                            width={202}
+                            height={202}
+                        />
+                    ) : (
+                        <img
+                            src={logodiesnat}
+                            alt="logo-pplk-2024"
+                            className="w-14 h-14"
+                            width={202}
+                            height={202}
+                        />
+                    )}
+
                     {isScrolled || isSolid ? (
                         <img
                             src={logopplk_white}

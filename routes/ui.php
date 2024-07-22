@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookletController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -47,15 +48,27 @@ Route::get('informasi/ukm/{nama_ukm}', function (string $nama_ukm) {
     return Inertia::render('Informasi/Ukm/Detail/Page', [
         'nama_ukm' => $nama_ukm
     ]);
-
 })->name('informasi/ukm/{nama_ukm}');
+
+Route::get('informasi/upt', function () {
+    return Inertia::render('Informasi/Upt/Page');
+})->name('informasi/upt');
+
+Route::get('informasi/upt/detail', function () {
+    return Inertia::render('Informasi/Upt/Detail/Page');
+})->name('informasi/upt/detail');
+
+Route::get('informasi/upt/{nama_upt}', function (string $nama_upt) {
+    return Inertia::render('Informasi/Upt/Detail/Page', [
+        'nama_upt' => $nama_upt
+    ]);
+})->name('informasi/upt/{nama_ukm}');
+
 Route::get('informasi/pplk', function () {
     return Inertia::render('Informasi/Pplk/Page');
 })->name('informasi/pplk');
 
-Route::get('booklet', function () {
-    return Inertia::render('Booklet/Page');
-})->name('booklet');
+Route::get('booklet', [BookletController::class, 'index'])->name('booklet');
 
 Route::get('informasi/maskot', function () {
     return Inertia::render('Maskot/Page');

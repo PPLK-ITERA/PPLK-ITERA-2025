@@ -21,23 +21,15 @@ export default function Page() {
 
             <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background flex items-center justify-center md:justify-start">
                 <MaxWidthWrapper>
-                    {/* <div className="flex md:h-[246px] md:w-[995px] h-[130px] w-[700px] flex-col items-center justify-center rounded-[20px] bg-white/20 backdrop-blur shadow-2xl mx-2">
-                    <h1 className="font-montserrat text-[20px] md:text-[39px] lg:text-[61px] text-white font-semibold text-center">
-                        Keluarga Mahasiswa (KM) <br />
-                        Institut Teknologi Sumatera
-                    </h1>
-                </div> */}
-
                     <div className="h-screen px-2.5 py-[96px] md:py-[80px] lg:py-[120px] xl:py-[160px] text-center md:text-start">
                         <p className="text-[20px] font-semibold text-jaffa-100/80 md:text-[29.5px]">
                             Informasi
                         </p>
 
-                        <h1 className="text-jaffa-100 md:leading-10 md:items-start flex flex-col items-center justify-center mt-8 leading-7">
+                        <h1 className="text-jaffa-100 md:leading-[5rem] md:items-start flex flex-col items-center justify-center mt-8 leading-7">
                             <span className="font-avigea text-[40px] md:text-[72px]">
                                 Keluarga Mahasiswa
                             </span>
-                            <br />
                             <span className="font-avigea text-[64px] md:text-[72px]">
                                 (KM ITERA)
                             </span>

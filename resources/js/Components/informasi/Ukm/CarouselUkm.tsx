@@ -1,6 +1,6 @@
-import { useAos } from "@/lib/hooks/useAos";
-
 import * as React from "react";
+
+import { Link } from "@inertiajs/react";
 
 import { Card, CardContent } from "@/Components/ui/card";
 import {
@@ -9,37 +9,44 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
+import { useAos } from "@/lib/hooks/useAos";
+
 interface CarouselUkmProps {
-    items: { logo: string; title: string }[];
+    items: {
+        key: string;
+        logo: string;
+        title: string;
+    }[];
 }
 
 export const CarouselUkm: React.FC<CarouselUkmProps> = ({ items }) => {
     useAos();
     return (
         <Carousel
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-            className="w-full max-w-7xl"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+            className="max-w-7xl w-full"
         >
-            <CarouselContent className="grid gap-1 p-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+            <CarouselContent className="sm:grid-cols-3 lg:grid-cols-4 gap-y-[14px] grid grid-cols-2">
                 {items.map((item, index) => (
-                    <CarouselItem key={index} >
-                        <Card>
-                            <CardContent className="flex flex-col items-center justify-center p-6 border-4 border-moccaccino-800 rounded-lg">
-                                <div className="my-10 flex items-center justify-center w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gray-50 rounded-full shadow-inner">
-                                    <img
-                                        src={item.logo}
-                                        alt="Logo UKM"
-                                        className="rounded-full w-full h-full"
-                                        
-                                    />
-                                </div>
-                                <span className="text-[16px] font-montserrat font-semibold text-jaffa-600">
-                                    {item.title}
-                                </span>
-                            </CardContent>
-                        </Card>
-                    </CarouselItem>
+                    <Link href={`/informasi/ukm/${item.key}`} key={index}>
+                        <CarouselItem>
+                            <Card>
+                                <CardContent className="border-moccaccino-800 flex flex-col items-center justify-center p-6 border-[3px] rounded-lg">
+                                    <div className="md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gray-50 flex items-center justify-center w-24 h-24 my-10 rounded-full shadow-inner">
+                                        <img
+                                            src={item.logo}
+                                            alt="Logo UKM"
+                                            className="object-contain object-center w-full h-full scale-75"
+                                        />
+                                    </div>
+                                    <span className="text-[16px] font-montserrat font-semibold text-jaffa-600">
+                                        {item.title}
+                                    </span>
+                                </CardContent>
+                            </Card>
+                        </CarouselItem>
+                    </Link>
                 ))}
             </CarouselContent>
         </Carousel>

@@ -7,21 +7,19 @@ export default function Hero() {
                 Selamat Datang
             </p>
 
-            <h1 className="text-jaffa-100 md:leading-10 md:items-start flex flex-col items-center justify-center mt-8">
+            <h1 className="text-jaffa-100 md:leading-[5rem] md:items-start flex flex-col items-center justify-center mt-8">
                 <span className="font-avigea text-[40px] md:text-[72px]">
                     PPLK
                 </span>
-                <br />
                 <span className="font-avigea text-[64px] md:text-[108px]">
                     ITERA
                 </span>
-                <br />
                 <span className="font-avigea text-[40px] md:text-[72px]">
                     2024
                 </span>
             </h1>
 
-            <p className="mt-5 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.2em]">
+            <p className="mt-5 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em]">
                 <span className="text-[18px] md:text-[25px]">
                     Program Pengenalan
                     <br />
