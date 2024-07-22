@@ -55,7 +55,7 @@ class UserController extends Controller
          return response()->json(['error' => 'Invalid order_by parameter'], 400);
       }
 
-      $query = User::where('role', 'maba')->select('name', 'nim');
+      $query = User::where('role_id', '2')->select('name', 'nim');
 
       switch ($orderBy) {
          case 'followers':

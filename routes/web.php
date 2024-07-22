@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\KelompokController;
-use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\UserController;
-
 
 
 
@@ -21,7 +19,7 @@ Route::get('/', function () {
    //    return redirect()->route('dashboard');
    // }
 
-   return Inertia::render('LandingPage', [
+   return Inertia::render('Welcome', [
       'canLogin' => Route::has('login'),
       'canRegister' => Route::has('register'),
       'laravelVersion' => Application::VERSION,
@@ -135,4 +133,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-require __DIR__ . '/ui.php';
