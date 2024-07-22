@@ -1,13 +1,11 @@
-import {
-    IconBrandInstagram,
-    IconBrandTiktok,
-    IconBrandYoutube,
-    IconWorldWww,
-} from "@tabler/icons-react";
+import { IconBrandInstagram, IconBrandTiktok, IconBrandYoutube, IconWorldWww } from "@tabler/icons-react";
+
+
 
 import fakultasSains from "!assets/fakultas-sains.png";
 import fakultasTeknologiIndustri from "!assets/fakultas-teknologi-industri.png";
 import fakultasTeknologiInfrastruktur from "!assets/fakultas-teknologi-infrastruktur-dan-kewilayahan.png";
+
 
 export const HeaderFakultasData = {
     "fakultas-sains": {
@@ -21,6 +19,23 @@ export const HeaderFakultasData = {
     },
     "fakultas-ftik": {
         title: "Fakultas Teknologi Infrastruktur dan Kewilayahan",
+        description:
+            "Pemberdaya IPTEKS Infrastruktur dan Wilayah Sumatera Mendunia",
+    },
+};
+
+export const HeaderFakultasProdiData = {
+    "fakultas-sains": {
+        title: "Program Studi Fakultas Sains (Science)",
+        description: "Wadah Inovasi dan Pengetahuan Berkembang",
+    },
+    "fakultas-fti": {
+        title: "Program Studi Fakultas Teknologi Industri",
+        description:
+            "Pengembang SDM dan Inovasi Teknologi Industri Berbasis SDA",
+    },
+    "fakultas-ftik": {
+        title: "Program Studi  Fakultas Teknologi Infrastruktur dan Kewilayahan",
         description:
             "Pemberdaya IPTEKS Infrastruktur dan Wilayah Sumatera Mendunia",
     },

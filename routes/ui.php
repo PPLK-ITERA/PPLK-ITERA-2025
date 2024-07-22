@@ -77,7 +77,7 @@ Route::get('informasi/maskot', function () {
 Route::get('informasi/profil', function () {
     return Inertia::render('Informasi/Profil/Page');
 })->name('informasi/profil');
-
+    
 Route::get('informasi/fakultas', function () {
     return Inertia::render('Informasi/Fakultas/Page');
 })->name('informasi/fakultas/Sains');
@@ -89,6 +89,14 @@ Route::get('informasi/fakultas/Ftik', function () {
 Route::get('informasi/fakultas/Fti', function () {
     return Inertia::render('Informasi/Fakultas/Fti');
 })->name('informasi/fakultas/Fti');
+
+Route::get('informasi/prodi', function () {
+    return Inertia::render('Informasi/Prodi/Page');
+})->name('informasi/prodi');
+    
+Route::get('informasi/prodi/detail', function () {
+    return Inertia::render('Informasi/Prodi/Detail/Page');
+})->name('informasi/prodi/detail');
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {
