@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FAQ;
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class FAQController extends Controller
 {
@@ -12,9 +13,18 @@ class FAQController extends Controller
    public function index()
    {
       $faqs = FAQ::select('teks_pertanyaan', 'teks_jawaban')->get();
-      return response()->json($faqs);
+      return Inertia::render('FAQ/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Success',
+            'data' => $faqs
+         ]
+      ]);
    }
-
+   public function create()
+   {
+      //
+   }
    // Menyimpan FAQ baru
    public function store(Request $request)
    {
@@ -25,13 +35,27 @@ class FAQController extends Controller
 
       DB::beginTransaction();
       try {
-         $faq = FAQ::create($validated);
+         FAQ::create($validated);
          DB::commit();
-         return response()->json(['message' => 'Berhasil menambahkan FAQ'], 201);
+         return Inertia::render('FAQ/Page', [
+            'response' => [
+               'status' => 201,
+               'message' => 'Berhasil menambahkan data',
+            ]
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json([' message' => 'Gagal menambahkan FAQ'], 500);
+         return Inertia::render('FAQ/Page', [
+            'response' => [
+               'status' => 500,
+               'message' => 'Kesalahan server internal',
+            ]
+         ]);
       }
+   }
+
+   public function edit(string $id)
+   {
    }
 
    // Memperbarui FAQ
@@ -46,10 +70,21 @@ class FAQController extends Controller
       try {
          $faq->update($validated);
          DB::commit();
-         return response()->json(['message' => 'Berhasil mengubah FAQ'], 200);
+         return Inertia::render('FAQ/Page', [
+            'response' => [
+               'status' => 201,
+               'message' => 'Berhasil mengubah data',
+            ]
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal mengubah FAQ'], 500);
+         return Inertia::render('FAQ/Page', [
+            'response' => [
+               'status' => 500,
+               'message' => 'Kesalahan server internal',
+               'data' => $faq
+            ]
+         ]);
       }
    }
 
@@ -60,10 +95,20 @@ class FAQController extends Controller
       try {
          $faq->delete();
          DB::commit();
-         return response()->json(['message' => 'Berhasil menghapus FAQ'], 200);
+         return Inertia::render('FAQ/Page', [
+            'response' => [
+               'status' => 201,
+               'message' => 'Berhasil mengapus data',
+            ]
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal menghapus FAQ'], 500);
+         return Inertia::render('FAQ/Page', [
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal menghapus data',
+            ]
+         ]);
       }
    }
 }
