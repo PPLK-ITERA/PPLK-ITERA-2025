@@ -1,0 +1,69 @@
+<?php
+namespace App\Helpers;
+
+use Inertia\Inertia;
+
+class PoinResponseHelper
+{
+    public function poinSuccess($ketua_kelompok)
+    {
+        return Inertia::render('Poin/Page', [
+            'response' => [
+                'status' => 200,
+                'message' => 'success',
+                'data' => [
+                    'ketua_kelompok' => $ketua_kelompok
+                ]
+            ]
+        ]);
+    }
+    public function poinError($message, $status)
+    {
+        return Inertia::render('Poin/Page', [
+            'response' => [
+                'status' => $status,
+                'message' => 'failed',
+                'data' => [
+                    'error' => $message
+                ]
+            ]
+        ]);
+    }
+
+    public function createQr()
+    {
+        return Inertia::render('Poin/Generate/Page', [
+            'response' => [
+                'status' => 200,
+                'message' => 'success',
+                'data' => []
+            ]
+        ]);
+    }
+    public function qrError($message, $status)
+    {
+        return Inertia::render('Poin/Generate/Page', [
+            'response' => [
+                'status' => $status,
+                'message' => 'failed',
+                'data' => [
+                    'error' => $message
+                ]
+            ]
+        ]);
+    }
+
+    public function qrSuccess($qrcode, $qrUrl)
+    {
+        return Inertia::render('Poin/Qrcode/Page', [
+            'response' => [
+                'status' => 200,
+                'message' => 'success',
+                'data' => [
+                    'qrcode' => 'data:image/png;base64,' . $qrcode,
+                    'qrUrl' => $qrUrl
+                ]
+            ]
+        ]);
+    }
+}
