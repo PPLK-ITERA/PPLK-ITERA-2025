@@ -160,4 +160,9 @@ class PresensiCuiController extends Controller
       ];
       return response()->json($response);
    }
+   public function getLogbookData()
+   {
+      $logbook = LogCui::all();
+      return response()->json($logbook);
+   }
 }
