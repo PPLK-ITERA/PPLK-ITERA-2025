@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,7 +30,7 @@ Route::get('/', function () {
 
 // All routes
 Route::get('faq', [FAQController::class, 'guestIndex'])->name('faq.guestIndex');
-Route::get('booklets', [BookletController::class, 'guestIndex'])->name('faq.guestIndex');
+Route::get('booklets', [BookletController::class, 'guestIndex'])->name('booklets.guestIndex');
 
 //Auth Route
 Route::middleware('auth')->group(function () {
@@ -64,7 +65,7 @@ Route::middleware('auth')->group(function () {
       });
 
       Route::prefix('faq')->group(function () {
-         Route::resource('/', FAQController::class);
+         Route::resource('/', FAQController::class)->names('faq');
       });
    });
 

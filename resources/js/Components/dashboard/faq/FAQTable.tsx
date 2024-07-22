@@ -35,140 +35,12 @@ import {
 } from "@/Components/dashboard/ui/table";
 import { Textarea } from "@/Components/dashboard/ui/textarea";
 
-const invoices = [
-    {
-        num_faq: "1",
-        paymentStatus: "Paid",
-        totalAmount: "$250.00",
-        paymentMethod: "Credit Card",
-    },
-    {
-        num_faq: "2",
-        paymentStatus: "Pending",
-        totalAmount: "$150.00",
-        paymentMethod: "PayPal",
-    },
-    {
-        num_faq: "3",
-        paymentStatus: "Unpaid",
-        totalAmount: "$350.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        num_faq: "4",
-        paymentStatus: "Paid",
-        totalAmount: "$450.00",
-        paymentMethod: "Credit Card",
-    },
-    {
-        num_faq: "5",
-        paymentStatus: "Paid",
-        totalAmount: "$550.00",
-        paymentMethod: "PayPal",
-    },
-    {
-        num_faq: "6",
-        paymentStatus: "Pending",
-        totalAmount: "$200.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        num_faq: "7",
-        paymentStatus: "Unpaid",
-        totalAmount: "$300.00",
-        paymentMethod: "Credit Card",
-    },
-];
+export type dataFAQS = {
+    teks_pertanyaan: string;
+    teks_jawaban: string;
+};
 
-export const faqData = [
-    {
-        num_faq: "1",
-        question: "Apa itu PPLK ITERA?",
-        answer: "PPLK ITERA adalah Program Pengenalan Lingkungan Kampus Institut Teknologi Sumatera (ITERA), sebuah acara penyambutan untuk mahasiswa baru",
-    },
-    {
-        num_faq: "1",
-        question: "Seberapa Imut cii aku?",
-        answer: "You can contact support by emailing support@example.com.",
-    },
-    {
-        num_faq: "1",
-        question: "Dah macaan belumm?",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "Bingung ga cii kamu?",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "LENOONGSSS!!",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "Seberapa Imut cii aku?",
-        answer: "You can contact support by emailing support@example.com.",
-    },
-    {
-        num_faq: "1",
-        question: "Dah macaan belumm?",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "Bingung ga cii kamu?",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "LENOONGSSS!!",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "Seberapa Imut cii aku?",
-        answer: "You can contact support by emailing support@example.com.",
-    },
-    {
-        num_faq: "1",
-        question: "Dah macaan belumm?",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "Bingung ga cii kamu?",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "LENOONGSSS!!",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "Seberapa Imut cii aku?",
-        answer: "You can contact support by emailing support@example.com.",
-    },
-    {
-        num_faq: "1",
-        question: "Dah macaan belumm?",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "Bingung ga cii kamu?",
-        answer: "The user manual is available on the help page of our website.",
-    },
-    {
-        num_faq: "1",
-        question: "LENOONGSSS!!",
-        answer: "The user manual is available on the help page of our website.",
-    },
-];
-
-export function FAQTable() {
+export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
     return (
         <Table className="border">
             <TableCaption>A list of your recent invoices.</TableCaption>
@@ -185,18 +57,20 @@ export function FAQTable() {
                 </TableRow>
             </TableHeader>
             <TableBody>
-                {faqData.map((faq) => (
-                    <TableRow key={faq.num_faq}>
+                {dataFAQS.map((faq, index) => (
+                    <TableRow key={index}>
                         <TableCell className="font-medium">
-                            {faq.num_faq}
+                            {index + 1}
                         </TableCell>
 
                         <TableCell>
-                            <p className="line-clamp-1">{faq.question}</p>
+                            <p className="line-clamp-1">
+                                {faq.teks_pertanyaan}
+                            </p>
                         </TableCell>
 
                         <TableCell>
-                            <p className="line-clamp-1">{faq.answer}</p>
+                            <p className="line-clamp-1">{faq.teks_jawaban}</p>
                         </TableCell>
 
                         <TableCell className="flex gap-2 text-right">
@@ -289,12 +163,6 @@ export function FAQTable() {
                     </TableRow>
                 ))}
             </TableBody>
-            {/* <TableFooter>
-                <TableRow>
-                    <TableCell colSpan={3}>Total</TableCell>
-                    <TableCell className="text-right">$2,500.00</TableCell>
-                </TableRow>
-            </TableFooter> */}
         </Table>
     );
 }

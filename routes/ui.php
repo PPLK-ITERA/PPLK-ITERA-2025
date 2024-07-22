@@ -4,9 +4,9 @@ use App\Http\Controllers\BookletController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('faq', function () {
-   return Inertia::render('FAQ/Page');
-})->name('faq');
+// Route::get('faq', function () {
+//    return Inertia::render('FAQ/Page');
+// })->name('faq');
 
 Route::get('ketentuan-atribut', function () {
    return Inertia::render('Atribut/Page');
@@ -44,7 +44,7 @@ Route::get('informasi/pplk', function () {
    return Inertia::render('Informasi/Pplk/Page');
 })->name('informasi/pplk');
 
-Route::get('booklet', [BookletController::class, 'index'])->name('booklet');
+// Route::get('booklet', [BookletController::class, 'index'])->name('booklet');
 
 Route::get('informasi/maskot', function () {
    return Inertia::render('Maskot/Page');
@@ -119,9 +119,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/absensi-maba/Page');
    })->name('dashboard/absensi-maba');
 
-   Route::get('dashboard/faq', function () {
-      return Inertia::render('Dashboard/faq/Page');
-   })->name('dashboard/faq');
+   // Route::get('dashboard/faq', function () {
+   //    return Inertia::render('Dashboard/faq/Page');
+   // })->name('dashboard/faq');
 
    // Route::get('dashboard/booklet', function () {
    //    return Inertia::render('Dashboard/booklet/Page');

@@ -2,6 +2,8 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import React from "react";
 
+import { useForm } from "@inertiajs/react";
+
 import { IconPlus, IconSearch } from "@tabler/icons-react";
 
 import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
@@ -25,7 +27,20 @@ const breadcrumbItems = [
     { title: "Faq", link: "/dashboard/faq" },
 ];
 
-export default function Page({ auth }) {
+export default function Page({ auth, response }) {
+    const { data, setData, post, processing, errors, reset } = useForm({
+        pertanyaan: "",
+        jawaban: "",
+    });
+
+    console.log(response);
+
+    const dataFAQS = response.data;
+
+    const addFAQ = () => {
+        post(route("faqs.store"));
+    };
+
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
@@ -45,6 +60,7 @@ export default function Page({ auth }) {
                             Tambahkan pertanyaan dan jawaban FAQ baru.
                         </DialogDescription>
                     </DialogHeader>
+
                     <div className="grid gap-4 py-4">
                         <div className="flex flex-col">
                             <Label htmlFor="question" className="text-left">
@@ -53,7 +69,10 @@ export default function Page({ auth }) {
 
                             <Input
                                 id="question"
-                                value=""
+                                value={data.pertanyaan}
+                                onChange={(e) =>
+                                    setData("pertanyaan", e.target.value)
+                                }
                                 placeholder="Pertanyaan"
                                 className="mt-1"
                             />
@@ -65,17 +84,36 @@ export default function Page({ auth }) {
                             </Label>
 
                             <Textarea
-                                id="asnwer"
-                                value=""
+                                id="answer"
+                                value={data.jawaban}
+                                onChange={(e) =>
+                                    setData("jawaban", e.target.value)
+                                }
                                 placeholder="Jawaban dari pertanyaan"
                                 className="mt-1"
                             />
                         </div>
                     </div>
+
                     <DialogFooter>
                         <Button variant={"outline"}>Batalkan</Button>
-                        <Button type="submit">Tambah</Button>
+                        <Button
+                            type="submit"
+                            onClick={addFAQ}
+                            disabled={processing}
+                        >
+                            Tambah
+                        </Button>
                     </DialogFooter>
+
+                    {processing && <p>Sending data...</p>}
+                    {errors && (
+                        <ul>
+                            {Object.keys(errors).map((key) => (
+                                <li key={key}>{errors[key]}</li>
+                            ))}
+                        </ul>
+                    )}
                 </DialogContent>
             </Dialog>
 
@@ -99,7 +137,7 @@ export default function Page({ auth }) {
                 </div>
             </div>
 
-            <FAQTable />
+            <FAQTable dataFAQS={dataFAQS} />
         </DashboardLayout>
     );
 }
