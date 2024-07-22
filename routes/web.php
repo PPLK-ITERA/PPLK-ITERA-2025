@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\KelompokController;
+use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\UserController;
 
 
