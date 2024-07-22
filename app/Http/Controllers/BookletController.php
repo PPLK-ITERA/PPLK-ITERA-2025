@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Booklet;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class BookletController extends Controller
 {
    public function index()
    {
       $booklet = Booklet::all();
-      return response()->json($booklet, 200);
+      return Inertia::render('Booklet/CarouselBooklet', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Berhasil mengambil booklet',
+            'data' => $booklet
+         ]
+      ]);
    }
 
    public function store(Request $request)
@@ -28,12 +35,21 @@ class BookletController extends Controller
       );
 
       if ($booklet) {
-         return response()->json(['message' => 'Berhasil menambahkan booklet'], 201);
+         return Inertia::render('Booklet/CarouselBooklet', [
+            'response' => [
+               'status' => 201,
+               'message' => 'Berhasil menambahkan booklet',
+               'data' => $booklet
+            ]
+         ]);
       }
 
-      return response()->json([
-         'message' => 'Gagal menambahkan booklet',
-      ], 500);
+      return Inertia::render('Booklet/CarouselBooklet', [
+         'response' => [
+            'status' => 500,
+            'message' => 'Gagal menambahkan booklet',
+         ]
+      ]);
    }
 
    public function update(Request $request, $id)
@@ -53,12 +69,21 @@ class BookletController extends Controller
       );
 
       if ($booklet) {
-         return response()->json(['message' => 'Berhasil mengubah booklet'], 201);
+         return Inertia::render('Booklet/CarouselBooklet', [
+            'response' => [
+               'status' => 201,
+               'message' => 'Berhasil menambahkan booklet',
+               'data' => $booklet
+            ]
+         ]);
       }
 
-      return response()->json([
-         'message' => 'Gagal mengubah booklet',
-      ], 500);
+      return Inertia::render('Booklet/CarouselBooklet', [
+         'response' => [
+            'status' => 500,
+            'message' => 'Gagal mengubah booklet',
+         ]
+      ]);
    }
 
    public function delete($id)
@@ -66,11 +91,19 @@ class BookletController extends Controller
       $booklet = Booklet::find($id)->delete();
 
       if ($booklet) {
-         return response()->json(['message' => 'Berhasil menghapus booklet'], 201);
+         return Inertia::render('Booklet/CarouselBooklet', [
+            'response' => [
+               'status' => 201,
+               'message' => 'Berhasil menghapus booklet',
+            ]
+         ]);
       }
 
-      return response()->json([
-         'message' => 'Gagal menghapus booklet',
-      ], 500);
+      return Inertia::render('Booklet/CarouselBooklet', [
+         'response' => [
+            'status' => 500,
+            'message' => 'Gagal menghapus booklet',
+         ]
+      ]);
    }
 }
