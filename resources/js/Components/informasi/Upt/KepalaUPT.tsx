@@ -11,7 +11,7 @@ export default function KepalaUPT() {
                 Kepala UPT Perpustakaan 2024
             </div>
 
-            <div className="flex py-8 mt-10 px-8 w-[840px] items-center justify-center text-center rounded-[32px] bg-jaffa-300 mx-auto">
+            <div className="flex py-8 mt-10 px-8 flex-col md:flex-row max-w-[800px] items-center justify-center text-center rounded-[32px] bg-jaffa-300 mx-auto">
                 <img
                     src={maskot}
                     alt="Kepala UPT Perpus"

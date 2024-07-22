@@ -5,13 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Booklet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class BookletController extends Controller
 {
    public function index()
    {
       $booklets = Booklet::all();
-      return response()->json($booklets, 200);
+      return Inertia::render('Booklet/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Success',
+            'data' => $booklets
+         ]
+      ]);
    }
 
    public function store(Request $request)

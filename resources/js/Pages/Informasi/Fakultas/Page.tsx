@@ -30,7 +30,7 @@ export default function Page() {
                 <Header fakultas={selectedFakultas} />
 
                 <div className="absolute bottom-0 z-10 w-full">
-                    <div className="md:max-w-3xl md:mx-auto flex justify-between gap-3">
+                    <div className="md:max-w-3xl flex justify-between max-w-sm gap-3 mx-auto">
                         <button
                             className={`${selectedFakultas == "fakultas-sains" ? "bg-jaffa-700" : "bg-jaffa-200"} hover:bg-jaffa-700 rounded-xl md:py-4 md:px-20 flex items-center justify-center px-8 py-4 shadow-lg transition-all duration-300 ease-in-out`}
                             onClick={() =>
@@ -76,7 +76,7 @@ export default function Page() {
                     <VisiMisi fakultas={selectedFakultas} />
                 </div>
 
-                <div className="top-1/4 absolute flex flex-col w-full">
+                <div className="top-1/4 xl:visible absolute flex flex-col invisible w-full">
                     <img
                         src={pillar_brown}
                         alt="pillar_brown"

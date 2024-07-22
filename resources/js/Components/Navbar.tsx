@@ -62,7 +62,7 @@ export default function Navbar({
                         <img
                             src={logodiesnat_white}
                             alt="logo-pplk-2024"
-                            className="w-14 h-14"
+                            className="w-12 h-12"
                             width={202}
                             height={202}
                         />
@@ -70,7 +70,7 @@ export default function Navbar({
                         <img
                             src={logodiesnat}
                             alt="logo-pplk-2024"
-                            className="w-14 h-14"
+                            className="w-12 h-12"
                             width={202}
                             height={202}
                         />
@@ -93,7 +93,7 @@ export default function Navbar({
                             height={202}
                         />
                     )}
-                    {/* text-[#A6680C] */}
+
                     <div
                         className={`flex flex-col justify-center leading-[14px] ${isScrolled || isSolid ? " text-white" : "text-jaffa-400"} transition duration-300 ease-in-out`}
                     >

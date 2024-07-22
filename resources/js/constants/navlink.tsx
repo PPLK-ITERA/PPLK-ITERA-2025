@@ -76,7 +76,7 @@ export const InformasiDropDown = [
     },
     {
         title: "Prodi & HMPS ITERA",
-        href: "/informasi/hmpsprodi",
+        href: "/informasi/prodi",
         icon: (
             <svg
                 xmlns="http://www.w3.org/2000/svg"

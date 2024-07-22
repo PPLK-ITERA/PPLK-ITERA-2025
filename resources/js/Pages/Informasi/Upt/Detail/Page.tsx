@@ -39,13 +39,13 @@ function Page({ nama_upt }) {
                 <img
                     src={pillar_brown}
                     alt="pillar_brown"
-                    className="absolute bottom-0 z-20 w-full"
+                    className="lg:visible absolute bottom-0 z-20 invisible w-full"
                 />
 
                 <img
                     src={overlay_box}
                     alt="pillar_brown"
-                    className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px] z-20"
+                    className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px] z-20 invisible lg:visible"
                 />
             </div>
 

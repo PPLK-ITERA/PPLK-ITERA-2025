@@ -2,12 +2,12 @@ import React from "react";
 
 export default function Hero() {
     return (
-        <div className="h-screen px-2.5 py-[96px] md:py-[80px] lg:py-[120px] xl:py-[160px] text-center md:text-start">
+        <div className="h-screen px-2.5 py-[200px] md:py-[80px] lg:py-[120px] xl:py-[160px] text-center md:text-start">
             <p className="text-[20px] font-semibold text-jaffa-100/80 md:text-[29.5px]">
                 Selamat Datang
             </p>
 
-            <h1 className="text-jaffa-100 md:leading-[5rem] md:items-start flex flex-col items-center justify-center mt-8">
+            <h1 className="text-jaffa-100 md:leading-[5rem] leading-[3rem] md:items-start flex flex-col items-center justify-center mt-8">
                 <span className="font-avigea text-[40px] md:text-[72px]">
                     PPLK
                 </span>

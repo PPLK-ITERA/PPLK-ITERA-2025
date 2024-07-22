@@ -69,7 +69,7 @@ export default function Page() {
                 <Header fakultas={selectedFakultas} />
 
                 <div className="absolute bottom-0 z-10 w-full">
-                    <div className="md:max-w-3xl md:mx-auto flex justify-between gap-3">
+                    <div className="md:max-w-3xl flex justify-between max-w-sm gap-3 mx-auto">
                         <button
                             className={`${selectedFakultas == "fakultas-sains" ? "bg-jaffa-700" : "bg-jaffa-200"} hover:bg-jaffa-700 rounded-xl md:py-4 md:px-20 flex items-center justify-center px-8 py-4 shadow-lg transition-all duration-300 ease-in-out`}
                             onClick={() =>
@@ -107,17 +107,17 @@ export default function Page() {
             </div>
 
             <div className="bg-pattern-white py-16">
-                <div className="max-w-6xl w-full mx-auto flex flex-wrap place-content-center gap-8">
+                <div className="place-content-center flex flex-wrap w-full max-w-6xl gap-8 mx-auto">
                     {displayedItems.map((prodi, index) => (
-                        <Card className="w-64 h-48 rounded-sm overflow-hidden">
-                            <div className="flex flex-col place-content-center place-items-center">
-                                <div className="h-32 relative overflow-hidden group w-full">
+                        <Card className="w-64 h-48 overflow-hidden rounded-sm">
+                            <div className="place-content-center place-items-center flex flex-col">
+                                <div className="group relative w-full h-32 overflow-hidden">
                                     <img
-                                        className="w-full object-cover"
+                                        className="object-cover w-full"
                                         src={patternBrown}
                                         alt=""
                                     />
-                                    <div className="absolute p-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto h-2/3 bg-white rounded-full">
+                                    <div className="top-1/2 left-1/2 h-2/3 absolute p-1 mx-auto -translate-x-1/2 -translate-y-1/2 bg-white rounded-full">
                                         <img
                                             src="https://gcdnb.pbrd.co/images/QfWO8MCZ1xmx.png?o=1"
                                             alt="Prodi"
@@ -128,7 +128,7 @@ export default function Page() {
                                     </div>
 
                                     {/* detail on hover */}
-                                    <div className="text-sm absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition bg-white/70 backdrop-blur p-2 flex flex-col justify-between place-content-center place-items-center">
+                                    <div className="group-hover:opacity-100 bg-white/70 backdrop-blur place-content-center place-items-center absolute top-0 left-0 flex flex-col justify-between w-full h-full p-2 text-sm transition opacity-0">
                                         <p>{prodi}</p>
                                         <a
                                             href={route(
@@ -136,7 +136,7 @@ export default function Page() {
                                             )}
                                         >
                                             <Button
-                                                className="bg-white rounded-sm text-black"
+                                                className="text-black bg-white rounded-sm"
                                                 size={"sm"}
                                             >
                                                 Selengkapnya
@@ -144,7 +144,7 @@ export default function Page() {
                                         </a>
                                     </div>
                                 </div>
-                                <p className="text-center font-semibold p-2 h-full">
+                                <p className="h-full p-2 font-semibold text-center">
                                     {prodi}
                                 </p>
                             </div>
