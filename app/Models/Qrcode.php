@@ -7,19 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Qrcode extends Model
 {
-    use HasFactory;
-    protected $table = 'qrcodes';
-    protected $primaryKey = 'id';
-    
-    protected $fillable = [
-        'code'
-    ];
+   use HasFactory;
+   protected $table = 'qrcodes';
+   protected $primaryKey = 'id';
 
-    protected $hidden = [
-        'created_at', 'updated_at'
-    ];
+   protected $fillable = [
+      'code'
+   ];
 
-    public function user(){
-        return $this->hasOne(User::class, 'id', 'qrcode_id');
-     }
+   protected $hidden = [
+      'created_at', 'updated_at'
+   ];
+
+   public function user()
+   {
+      return $this->hasOne(User::class, 'id', 'qrcode_id');
+   }
 }

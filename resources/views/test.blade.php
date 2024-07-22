@@ -1,6 +1,4 @@
-<form action="/follow/79" method="post">
-    @csrf
-    <button type="submit">"Follow"
-
-    </button>
+<form action="{{ route('scanqrcui') }}">
+    <input type="text" name="name" id="name">
+    <input type="submit" value="Submit">
 </form>
