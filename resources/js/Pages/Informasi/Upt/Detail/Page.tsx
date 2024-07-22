@@ -2,6 +2,8 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import React from "react";
 
+import { router } from "@inertiajs/react";
+
 import DescriptionHistory from "@/Components/informasi/Upt/DescriptionHistory";
 import Header from "@/Components/informasi/Upt/Header";
 import KegiatanUnggulan from "@/Components/informasi/Upt/KegiatanUnggulan";
@@ -17,7 +19,7 @@ function Page({ nama_upt }) {
     const upt = uptData.find((upt) => upt.key === nama_upt);
 
     if (!upt) {
-        return <div>UPT tidak ditemukan</div>;
+        router.replace(route("informasi/upt"));
     }
 
     return (

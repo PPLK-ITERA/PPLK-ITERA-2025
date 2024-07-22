@@ -12,25 +12,9 @@ Route::get('ketentuan-atribut', function () {
    return Inertia::render('Atribut/Page');
 })->name('ketentuan-atribut');
 
-Route::get('dev', function () {
+Route::get('dev-team', function () {
    return Inertia::render('Dev/Page');
-})->name('dev');
-
-Route::get('scoreboard', function () {
-   return Inertia::render('Scoreboard/Page');
-})->name('scoreboard');
-
-Route::get('relasi', function () {
-   return Inertia::render('Relasi/Page');
-})->name('relasi');
-
-Route::get('relasi/profil', function () {
-   return Inertia::render('Relasi/Profil/Page');
-})->name('relasi/profil');
-
-Route::get('relasi/search', function () {
-   return Inertia::render('Relasi/Search/Page');
-})->name('relasi/search');
+})->name('dev-team');
 
 Route::get('informasi/km', function () {
    return Inertia::render('Informasi/Km/Page');
@@ -39,10 +23,6 @@ Route::get('informasi/km', function () {
 Route::get('informasi/ukm', function () {
    return Inertia::render('Informasi/Ukm/Page');
 })->name('informasi/ukm');
-
-Route::get('informasi/ukm/detail', function () {
-   return Inertia::render('Informasi/Ukm/Detail/Page');
-})->name('informasi/ukm/detail');
 
 Route::get('informasi/ukm/{nama_ukm}', function (string $nama_ukm) {
    return Inertia::render('Informasi/Ukm/Detail/Page', [
@@ -53,10 +33,6 @@ Route::get('informasi/ukm/{nama_ukm}', function (string $nama_ukm) {
 Route::get('informasi/upt', function () {
    return Inertia::render('Informasi/Upt/Page');
 })->name('informasi/upt');
-
-Route::get('informasi/upt/detail', function () {
-   return Inertia::render('Informasi/Upt/Detail/Page');
-})->name('informasi/upt/detail');
 
 Route::get('informasi/upt/{nama_upt}', function (string $nama_upt) {
    return Inertia::render('Informasi/Upt/Detail/Page', [
@@ -154,13 +130,20 @@ Route::middleware('auth')->group(function () {
    Route::get('dashboard/mading', function () {
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');
-});
 
-Route::middleware('auth')->group(function () {
-   // Route::get('dev', function () {
-   //     return Inertia::render('Dev/Page', [
-   //         'username' => auth()->user()->name,
-   //         'password' => auth()->user()->password
-   //     ]);
-   // })->name('dev');
+   Route::get('scoreboard', function () {
+      return Inertia::render('Scoreboard/Page');
+   })->name('scoreboard');
+
+   Route::get('relasi', function () {
+      return Inertia::render('Relasi/Page');
+   })->name('relasi');
+
+   Route::get('relasi/search', function () {
+      return Inertia::render('Relasi/Search/Page');
+   })->name('relasi/search');
+
+   Route::get('relasi/profil', function () {
+      return Inertia::render('Relasi/Profil/Page');
+   })->name('relasi/profil');
 });

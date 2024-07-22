@@ -68,7 +68,7 @@ export default function Page() {
             <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background">
                 <Header fakultas={selectedFakultas} />
 
-                <div className="absolute bottom-0 z-10 w-full">
+                <div className="bottom-20 md:bottom-0 absolute z-10 w-full">
                     <div className="md:max-w-3xl flex justify-between max-w-sm gap-3 mx-auto">
                         <button
                             className={`${selectedFakultas == "fakultas-sains" ? "bg-jaffa-700" : "bg-jaffa-200"} hover:bg-jaffa-700 rounded-xl md:py-4 md:px-20 flex items-center justify-center px-8 py-4 shadow-lg transition-all duration-300 ease-in-out`}
