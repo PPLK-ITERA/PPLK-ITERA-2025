@@ -149,11 +149,13 @@ class PresensiCuiController extends Controller
       if (!$user) {
          return Inertia::render(
             'Dashboard/cui/Page',
-            ['response' => [
-               'status' => 404,
-               'message' => 'NIM ' . $validated['nim'] . ' tidak ditemukan',
-               'data' => null
-            ]]
+            [
+               'response' => [
+                  'status' => 404,
+                  'message' => 'NIM ' . $validated['nim'] . ' tidak ditemukan',
+                  'data' => null
+               ]
+            ]
          );
       }
       $log = LogCui::where('user_id', $user->id)->latest('created_at');
@@ -181,5 +183,10 @@ class PresensiCuiController extends Controller
    public function index()
    {
       return Inertia::render('Dashboard/cui/Page');
+   }
+
+   public function absensi()
+   {
+      return Inertia::render('Dashboard/cui/absensi/Page');
    }
 }

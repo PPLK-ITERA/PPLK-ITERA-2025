@@ -126,6 +126,7 @@ export default function Page({ auth, response }) {
                     <TabsTrigger value="logbook">Log Book</TabsTrigger>
                 </TabsList>
                 <TabsContent value="presensi" className="space-y-4">
+
                     <div className="grid-cols-2 lg:grid-cols-4 grid gap-4">
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
@@ -204,11 +205,23 @@ export default function Page({ auth, response }) {
                             </CardContent>
                         </Card>
                     </div>
-
+                    <Card className="">
+                        <CardHeader className="flex flex-row w-full items-center justify-between pb-2 space-y-0">
+                            <CardTitle className="text-center w-full text-lg font-bold">
+                                Absensi CUI Maba
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex justify-center items-center mt-2">
+                            <Button>
+                                Mulai Absen Maba
+                            </Button>
+                        </CardContent>
+                    </Card>
                     <Input
                         disabled={processing}
                         value={data.nim}
                         onChange={handleSubmit}
+                        placeholder="Cari mahasiswa berdasarkan NIM. cth: "
                     />
 
                     {/* Jika data tidak ditemukan */}
