@@ -1,5 +1,7 @@
 <?php
+
 use App\Http\Controllers\BookletController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -125,26 +127,11 @@ Route::middleware('auth')->group(function () {
       Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
    });
 
-   Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
-   });
    Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
       //Presensi PPLK
       Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
       Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
    });
-   Route::middleware(['checkRole:Admin'])->group(function () {
-   });
-
-
-   // Route::post('/feedback', [FeedbackController::class, 'submit'])->name('feedback.submit');
-   // Route::get('/follow', [UserController::class, 'followview']);
-   // Route::get('/user/feedback', [FeedbackController::class, 'showUserFeedback'])->name('user.feedback');
-   // Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedbacks.index');
-   // Route::post('/feedback/respond/{id}', [FeedbackController::class, 'respond'])->name('feedback.respond');
-   // Route::get('/admin/feedbacks', [FeedbackController::class, 'showAllFeedbacks'])->name('admin.feedbacks');
-   // Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
-   // Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
-   // Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
 });
 
 require __DIR__ . '/auth.php';
