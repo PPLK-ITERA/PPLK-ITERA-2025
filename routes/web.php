@@ -49,12 +49,13 @@ Route::middleware('auth')->group(function () {
    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
    //Poin
-   Route::middleware('checkRole:Korlap')->group(function () {
-      Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
-      Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store');
+   Route::middleware('checkRole:Korlap,Admin')->group(function () {
+      Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin');
+      Route::post('/poin/{user_id}', [PoinController::class, 'store']);
       Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect');
    });
-   Route::get('/poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('poin.qrcode')->middleware('checkRole:Dapmen');
+   Route::get('/poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('poin.generate-qrcode')->middleware('checkRole:Dapmen,Admin');
+   Route::get('/poin-qrcode', [PoinController::class, 'createQrCode'])->name('poin.qrcode')->middleware('checkRole:Dapmen,Admin');
 });
 
 require __DIR__ . '/auth.php';
