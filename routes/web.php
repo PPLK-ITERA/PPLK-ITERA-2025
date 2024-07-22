@@ -29,6 +29,7 @@ Route::get('/', function () {
 
 // All routes
 Route::get('faq', [FAQController::class, 'guestIndex'])->name('faq.guestIndex');
+Route::get('booklets', [BookletController::class, 'guestIndex'])->name('faq.guestIndex');
 
 //Auth Route
 Route::middleware('auth')->group(function () {

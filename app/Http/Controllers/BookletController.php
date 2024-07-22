@@ -9,6 +9,17 @@ use Inertia\Inertia;
 
 class BookletController extends Controller
 {
+   public function guestIndex()
+   {
+      $booklets = Booklet::all();
+      return Inertia::render('Booklet/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Success',
+            'data' => $booklets
+         ]
+      ]);
+   }
    public function index()
    {
       $booklets = Booklet::all();
