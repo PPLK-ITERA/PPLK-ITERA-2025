@@ -1,5 +1,5 @@
 <?php
-//TODO: Remove the feedback and response related
+use App\Http\Controllers\BookletController;
 use App\Http\Controllers\PresensiPplkController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -82,8 +82,6 @@ Route::middleware('auth')->group(function () {
    })->prefix('mamet');
 
 
-
-
    //Middleware only maba
    Route::middleware(['checkRole:Maba'])->group(function () {
       //Followers
@@ -100,7 +98,6 @@ Route::middleware('auth')->group(function () {
    });
 
 
-
    Route::middleware(['checkRole:Admin'])->group(function () {
       //CRUD FAQ
       Route::resource('faqs', FAQController::class);
@@ -113,7 +110,6 @@ Route::middleware('auth')->group(function () {
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
    //melihat kelompok yang tidak masuk top 10
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
-
 
 
    //Middleware only maba
@@ -150,8 +146,6 @@ Route::middleware('auth')->group(function () {
    // Route::get('/kelompok/{id}/total-score', [KelompokController::class, 'getKelompokScore']);
    // Route::get('/scoreboard/top-scores', [ScoreboardController::class, 'getTopScores']);
 });
-
-
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/ui.php';
