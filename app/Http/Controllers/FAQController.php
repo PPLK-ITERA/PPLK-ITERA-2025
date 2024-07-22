@@ -23,7 +23,7 @@ class FAQController extends Controller
    }
    public function index()
    {
-      $faqs = FAQ::select('teks_pertanyaan', 'teks_jawaban')->get();
+      $faqs = FAQ::all();
       return Inertia::render('Dashboard/faq/Page', [
          'response' => [
             'status' => 200,
