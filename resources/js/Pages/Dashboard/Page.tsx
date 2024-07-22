@@ -4,9 +4,6 @@ import { AreaGraph } from "@/Components/dashboard/charts/area-graph";
 import { BarGraph } from "@/Components/dashboard/charts/bar-graph";
 import { PieGraph } from "@/Components/dashboard/charts/pie-graph";
 import { CalendarDateRangePicker } from "@/Components/dashboard/date-range-picker";
-import Header from "@/Components/dashboard/layout/header";
-import Sidebar from "@/Components/dashboard/layout/sidebar";
-import { Overview } from "@/Components/dashboard/overview";
 import { RecentSales } from "@/Components/dashboard/recent-sales";
 import { Button } from "@/Components/dashboard/ui/button";
 import {
@@ -23,12 +20,12 @@ import {
     TabsTrigger,
 } from "@/Components/dashboard/ui/tabs";
 
-export default function Page() {
+export default function Page({ auth }) {
     return (
-        <DashboardLayout>
+        <DashboardLayout user={auth.user}>
             <div className="flex items-center justify-between space-y-2">
                 <h2 className="text-3xl font-bold tracking-tight">
-                    Hi, Welcome back 👋
+                    Hi, Welcome back👋
                 </h2>
                 <div className="md:flex items-center hidden space-x-2">
                     <CalendarDateRangePicker />

@@ -8,9 +8,9 @@ const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
     { title: "Profile", link: "/dashboard/profile" },
 ];
-export default function Page() {
+export default function Page({ auth }) {
     return (
-        <DashboardLayout>
+        <DashboardLayout user={auth.user}>
             {/* <ScrollArea className="h-full"> */}
             <Breadcrumbs items={breadcrumbItems} />
             <CreateProfileOne categories={[]} initialData={null} />

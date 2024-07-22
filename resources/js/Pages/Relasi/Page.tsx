@@ -1,6 +1,9 @@
-import { users } from "@/lib/data/user";
-import { useAos } from "@/lib/hooks/useAos";
-import { User } from "@/lib/types/User";
+import Autoplay from "embla-carousel-autoplay";
+
+import React, { useState } from "react";
+
+import { UserPlus } from "lucide-react";
+
 import {
     IconAdjustmentsHorizontal,
     IconFilter,
@@ -8,11 +11,6 @@ import {
     IconMoodSearch,
     IconSearch,
 } from "@tabler/icons-react";
-import Autoplay from "embla-carousel-autoplay";
-
-import React, { useState } from "react";
-
-import { UserPlus } from "lucide-react";
 
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
@@ -32,6 +30,10 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 import { Input } from "@/Components/ui/input";
+
+import { users } from "@/lib/data/user";
+import { useAos } from "@/lib/hooks/useAos";
+import { User } from "@/lib/types/User";
 
 import instagramIcon from "!assets/svg/instagram.svg";
 import linkedinIcon from "!assets/svg/linkedin.svg";
@@ -56,24 +58,27 @@ const Page: React.FC = () => {
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 mx-auto text-base text-black">
+                <div className="max-w-7xl md:pt-24 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 pt-10 mx-auto text-base text-black">
                     <div className="relative w-full max-w-3xl mx-auto">
                         <Input
                             type="text"
                             placeholder="Cari Nusantara Muda yang Lain"
-                            className="p-4 border rounded-full"
+                            className="p-4 border rounded-[10px]"
                         />
+
                         <a href={route("relasi/search")} target="_blank">
                             <Button className="absolute top-1/2 -translate-y-1/2 right-2 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-full p-0 w-8 h-8">
                                 <IconSearch size={14} />
                             </Button>
                         </a>
                     </div>
+
                     <div className="text-center">
-                        <h1 className="font-fesbud text-jaffa-800 text-2xl font-bold">
+                        <h1 className="font-avigea text-jaffa-800 text-2xl font-bold">
                             TOP 3 FOLLOWERS
                         </h1>
                     </div>
+
                     <div className="w-full max-w-2xl mx-auto">
                         <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
                             <TopUser

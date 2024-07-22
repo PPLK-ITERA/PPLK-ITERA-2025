@@ -18,5 +18,6 @@
     "trailingComma": "all",
     "semi": true,
     "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true
+    "importOrderSortSpecifiers": true,
+    "tailwindConfig": "./tailwind.config.js"
 }
