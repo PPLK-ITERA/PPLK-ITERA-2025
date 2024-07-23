@@ -43,20 +43,15 @@ class BookletController extends Controller
       try {
          $booklet = Booklet::create($validated);
          DB::commit();
-         return Inertia::render('Dashboard/booklet/Page', [
-            'response' => [
-               'status' => 201,
-               'message' => 'Berhasil menambahkan booklet',
-               'data' => $booklet
-            ]
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 201,
+            'message' => 'Berhasil menambahkan data',
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('Dashboard/booklet/Page', [
-            'response' => [
-               'status' => 500,
-               'message' => 'Gagal menambahkan booklet',
-            ]
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menambahkan data',
          ]);
       }
    }
@@ -70,27 +65,25 @@ class BookletController extends Controller
 
       $booklet = Booklet::find($id);
       if (!$booklet) {
-         return response()->json(['message' => 'Booklet not found'], 404);
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 404,
+            'message' => 'Data tidak ditemukan',
+         ]);
       }
 
       DB::beginTransaction();
       try {
          $booklet->update($validated);
          DB::commit();
-         return Inertia::render('Dashboard/booklet/Page', [
-            'response' => [
-               'status' => 201,
-               'message' => 'Berhasil menambahkan booklet',
-               'data' => $booklet
-            ]
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 201,
+            'message' => 'Berhasil mengubah data',
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('Dashboard/booklet/Page', [
-            'response' => [
-               'status' => 500,
-               'message' => 'Gagal menghapus booklet',
-            ]
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah data',
          ]);
       }
    }
@@ -102,20 +95,16 @@ class BookletController extends Controller
          $booklet = Booklet::find($id)->delete();
          DB::commit();
          if ($booklet) {
-            return Inertia::render('Dashboard/booklet/Page', [
-               'response' => [
-                  'status' => 201,
-                  'message' => 'Berhasil menghapus booklet',
-               ]
+            return redirect()->route('booklet.index')->with('response', [
+               'status' => 201,
+               'message' => 'Berhasil menghapus data',
             ]);
          }
       } catch (\Exception $e) {
          DB::rollBack();
-         return Inertia::render('Booklet/Page', [
-            'response' => [
-               'status' => 500,
-               'message' => 'Gagal menghapus booklet',
-            ]
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menghapus data',
          ]);
       }
    }

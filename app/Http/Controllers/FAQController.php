@@ -51,7 +51,10 @@ class FAQController extends Controller
             'teks_jawaban' => $validated['jawaban'],
          ]);
          DB::commit();
-         return redirect()->route('faq.index')->with('message', 'Berhasil menambahkan data');
+         return redirect()->route('faq.index')->with('response', [
+            'status' => 201,
+            'message' => 'Berhasil menambahkan data',
+         ]);
          // return Inertia::render('Dashboard/faq/Page', [
          //    'response' => [
          //       'status' => 201,
@@ -60,13 +63,10 @@ class FAQController extends Controller
          // ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return redirect()->route('faq.index')->with('message', 'Gagal menambahkan data');
-         // return Inertia::render('Dashboard/faq/Page', [
-         //    'response' => [
-         //       'status' => 500,
-         //       'message' => 'Kesalahan server internal',
-         //    ]
-         // ]);
+         return redirect()->route('faq.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menambahkan data',
+         ]);
       }
    }
 
@@ -86,20 +86,15 @@ class FAQController extends Controller
       try {
          $faq->update($validated);
          DB::commit();
-         return Inertia::render('Dashboard/faq/Page', [
-            'response' => [
-               'status' => 201,
-               'message' => 'Berhasil mengubah data',
-            ]
+         return redirect()->route('faq.index')->with('response', [
+            'status' => 201,
+            'message' => 'Berhasil mengubah data',
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('Dashboard/faq/Page', [
-            'response' => [
-               'status' => 500,
-               'message' => 'Kesalahan server internal',
-               'data' => $faq
-            ]
+         return redirect()->route('faq.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah data',
          ]);
       }
    }
@@ -111,19 +106,15 @@ class FAQController extends Controller
       try {
          $faq->delete();
          DB::commit();
-         return Inertia::render('Dashboard/faq/Page', [
-            'response' => [
-               'status' => 201,
-               'message' => 'Berhasil mengapus data',
-            ]
+         return redirect()->route('faq.index')->with('response', [
+            'status' => 201,
+            'message' => 'Gagal menghapus data',
          ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return Inertia::render('Dashboard/faq/Page', [
-            'response' => [
-               'status' => 500,
-               'message' => 'Gagal menghapus data',
-            ]
+         return redirect()->route('faq.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menghapus data',
          ]);
       }
    }
