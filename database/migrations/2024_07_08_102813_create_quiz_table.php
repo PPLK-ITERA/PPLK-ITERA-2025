@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pilar', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->string('pilar_name');
+        Schema::create('quiz', function (Blueprint $table) {
+            $table->id();
+            $table->string('quiz_question');
+            $table->foreignId('gedung_id');
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pilar');
+        Schema::dropIfExists('quiz');
     }
 };

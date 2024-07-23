@@ -3,6 +3,9 @@
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizAnswerController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\UnlockStatusController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -46,7 +49,7 @@ Route::middleware('auth')->group(function () {
    Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
    //melihat top 10
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-   //melihat kelompok yang tidak masuk top 10
+   //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
    //melihat my profile
    Route::get('/myprofile', [ProfileController::class, 'show']);
@@ -97,6 +100,17 @@ Route::middleware('auth')->group(function () {
       //CRUD Booklet
       Route::resource('/booklet', BookletController::class);
    })->prefix('mamet');
+   //Route game
+   //mengambil pertanyaan berdasarkan geddung yang terbuka
+   Route::get('/gedung/{gedungId}/question', [QuizController::class, 'getAll']);
+   //jawab kuis
+   Route::post('/quiz/{question_id}/answer/{id}', [QuizAnswerController::class, 'storeAnswer']);
+   Route::get('/test', [QuizAnswerController::class, 'test']);
+   //membuka status gedung
+   Route::get('/unlock-gedung', [UnlockStatusController::class, 'unlockGedung']);
+   //score user
+   Route::get('/user/score', [UserController::class, 'viewScore'])->middleware('auth');
+
 
 
    //Middleware only maba
