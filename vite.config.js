@@ -16,4 +16,7 @@ export default defineConfig({
             "!assets": path.resolve(__dirname, "./resources/assets"),
         },
     },
+    optimizeDeps: {
+        include: ['@zxing/library'],
+    },
 });

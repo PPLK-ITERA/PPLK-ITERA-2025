@@ -3,7 +3,7 @@ import { useDebouncedCallback } from "use-debounce";
 
 import { useState } from "react";
 
-import { useForm } from "@inertiajs/react";
+import { router, useForm } from "@inertiajs/react";
 
 import { Check, CheckCircle2Icon, ChevronsUpDown } from "lucide-react";
 
@@ -212,7 +212,7 @@ export default function Page({ auth, response }) {
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="flex justify-center items-center mt-2">
-                            <Button>
+                            <Button onClick={() => router.get(route('dashboard.cui.absensi'))}>
                                 Mulai Absen Maba
                             </Button>
                         </CardContent>
