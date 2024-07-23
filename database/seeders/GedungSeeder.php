@@ -6,7 +6,7 @@ use App\Models\gedung;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class gedungSeeder extends Seeder
+class GedungSeeder extends Seeder
 {
     /**
      * Run the database seeds.

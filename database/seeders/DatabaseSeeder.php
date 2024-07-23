@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
          PresensiPplkSeeder::class,
          QuizSeeder::class,
          QuizAnswerSeeder::class,
-         gedungSeeder::class,
+         GedungSeeder::class,
          UnlockStatusSeeder::class,
          QrcodeSeeder::class,
          ProdiSeeder::class,
