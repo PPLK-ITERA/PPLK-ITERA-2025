@@ -22,6 +22,10 @@ export default {
             },
         },
         extend: {
+            aspectRatio: {
+                '4/3': '4 / 3',
+                '3/4': '3 / 4',
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -113,7 +117,7 @@ export default {
                 scan: {
                     '0%': { transform: 'translateY(-100%)' },
                     '100%': { transform: 'translateY(100%)' },
-                  },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",

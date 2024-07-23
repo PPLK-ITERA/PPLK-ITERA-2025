@@ -1,7 +1,7 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { useDebouncedCallback } from "use-debounce";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { router, useForm } from "@inertiajs/react";
 
@@ -50,12 +50,19 @@ const breadcrumbItems = [
 export default function Page({ auth, response }) {
     const { data, setData, post, processing } = useForm({
         nim: "",
+        qr_code: ""
     });
+
     console.log(response);
+
     const handleSubmit = (e) => {
         setData("nim", e.target.value);
         debounced(e.target.value);
     };
+
+    const handlePresensi = (qr_code: string) => {
+        setData('qr_code', qr_code);
+    }
 
     const debounced = useDebouncedCallback(
         // function
@@ -65,6 +72,12 @@ export default function Page({ auth, response }) {
         // delay in ms
         500,
     );
+
+    useEffect(() => {
+        if (data.qr_code) {
+            post(route('cui.scan'));
+        }
+    }, [data.qr_code])
 
     return (
         <DashboardLayout user={auth.user}>
@@ -279,7 +292,7 @@ export default function Page({ auth, response }) {
                                         <p>{response.data.prodi}</p>
                                         <p>{response.data.nim}</p>
                                     </div>
-                                    <Button className="w-full mt-2">
+                                    <Button onClick={() => handlePresensi(response.data.qr_code)} className="w-full mt-2">
                                         Presensi
                                     </Button>
                                 </div>

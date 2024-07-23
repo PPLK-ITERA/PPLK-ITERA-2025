@@ -118,13 +118,16 @@ Route::middleware('auth')->group(function () {
    Route::get('dashboard/mading', function () {
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');
-   
+
    Route::get('dashboard/cui/absensi', [PresensiCuiController::class, 'absensi'])
       ->name('dashboard.cui.absensi');
 
+   Route::get('dashboard/cui/absensi/result', [PresensiCuiController::class, 'result'])
+      ->name('dashboard.cui.result');
+
    Route::get('dashboard/cui', [PresensiCuiController::class, 'index'])
       ->name('dashboard.cui');
-   
+
    Route::post('dashboard/cui', [PresensiCuiController::class, 'getMabaByNim']);
 });
 

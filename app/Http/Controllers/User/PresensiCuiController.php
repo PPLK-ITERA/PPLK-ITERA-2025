@@ -125,7 +125,6 @@ class PresensiCuiController extends Controller
       }
 
       $response = [
-         'message' => 'Sudah Melakukan Presensi',
          'nama' => $user->name,
          'nim' => $user->nim,
          'prodi' => $user->prodi->nama_prodi,
@@ -137,7 +136,14 @@ class PresensiCuiController extends Controller
          'waktu_izin' => $log->first()->waktu_izin ?? null,
          'ket_izin' => $log->first()->ket_izin ?? null,
       ];
-      return response()->json($response);
+
+      return Inertia::render('Dashboard/cui/absensi/result/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Sudah Melakukan Presensi',
+            'data' => $response
+         ] 
+      ]);
    }
 
    public function getMabaByNim(Request $request)
@@ -159,6 +165,7 @@ class PresensiCuiController extends Controller
          );
       }
       $log = LogCui::where('user_id', $user->id)->latest('created_at');
+      $qrcode = Qrcode::where('user_id', $user->id)->first()->code; 
       $response = [
          'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
          'nama' => $user->name,
@@ -167,6 +174,7 @@ class PresensiCuiController extends Controller
          'prodi' => $user->prodi->nama_prodi,
          'pita' => $user->penyakit->pita ?? null,
          'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+         'qr_code' => $qrcode,
          'status' => $log->first()->status ?? null,
       ];
       return Inertia::render(

@@ -13,7 +13,7 @@ class LogCui extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'status' , 'waktu_izin' , 'ket_izin'
+        'user_id', 'status' , 'waktu_izin' , 'ket_izin'
     ];
 
     protected $hidden = [
