@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
          'instagram_url' => 'https://instagram.com/user1',
          'kelompok_id' => 1,
          'pilar' => 1,
-         'score' =>0,
+         'score' =>10,
          'role_id'  => 1,
       ]);
 
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
          'instagram_url' => 'https://instagram.com/user2',
          'kelompok_id' => 1,
          'pilar' => 1,
-         'score' => 0,
+         'score' => 11,
          'role_id'  => 1,
       ]);
 

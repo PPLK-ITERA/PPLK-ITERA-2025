@@ -64,6 +64,8 @@ Route::middleware('auth')->group(function () {
    Route::get('/unlock-gedung', [UnlockStatusController::class, 'unlockGedung']);
    //score user
    Route::get('/user/score', [UserController::class, 'viewScore'])->middleware('auth');
+   //Melihat score kelompok user
+   Route::get('/kelompok-score', [UserController::class, 'getKelompokScore']);
 
 
 

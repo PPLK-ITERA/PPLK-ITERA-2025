@@ -118,7 +118,30 @@ class UserController extends Controller
 
       return response()->json(['message' => 'Successfully followed the user']);
    }
-   //  public function followview(){
-   //      return view('test');
-   //  }
+   public function getKelompokScore()
+   {
+       $user = Auth::user();
+       $kelompok_id = $user->kelompok_id;
+
+       if (!$kelompok_id) {
+           return response()->json(['message' => 'User tidak termasuk dalam kelompok manapun.'], 400);
+       }
+
+       $kelompokScores = User::select('kelompok_id', \DB::raw('SUM(score) as total_score'))
+           ->groupBy('kelompok_id')
+           ->orderBy('total_score', 'desc')
+           ->get();
+
+       $topTenIds = $kelompokScores->take(10)->pluck('kelompok_id');
+       $kelompokInTopTen = $topTenIds->contains($kelompok_id);
+
+       $kelompokScore = $kelompokScores->where('kelompok_id', $kelompok_id)->first();
+
+       $response = [
+           'kelompok_id' => $kelompokScore->kelompok_id,
+           'total_score' => $kelompokScore->total_score,
+       ];
+
+       return response()->json($response);
+   }
 }
