@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
          Route::get('/', [UserController::class, 'index'])->name('user.index');
       });
 
-      Route::prefix('booklets')->group(function () {
+      Route::prefix('booklet')->group(function () {
          Route::resource('/', BookletController::class);
       });
    });

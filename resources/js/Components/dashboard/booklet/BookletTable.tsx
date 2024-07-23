@@ -13,33 +13,7 @@ import {
 
 import { Booklet } from "@/lib/types/Booklet";
 
-const booklets: Booklet[] = [
-    {
-        id: 1,
-        nama_booklet: "Panduan Pemula",
-        url_booklet: "https://example.com/panduan-pemula",
-        deadline: "2024-12-31",
-        created_at: "2024-07-01T12:00:00Z",
-        updated_at: "2024-07-01T12:00:00Z",
-    },
-    {
-        id: 2,
-        nama_booklet: "Buku Panduan Mahasiswa",
-        url_booklet: "https://example.com/panduan-mahasiswa",
-        created_at: "2024-07-05T12:00:00Z",
-        updated_at: "2024-07-05T12:00:00Z",
-    },
-    {
-        id: 3,
-        nama_booklet: "Buku Panduan Dosen",
-        url_booklet: "https://example.com/panduan-dosen",
-        deadline: "2024-11-30",
-        created_at: "2024-07-10T12:00:00Z",
-        updated_at: "2024-07-10T12:00:00Z",
-    },
-];
-
-export function BookletTable() {
+export function BookletTable({ booklets }: { booklets: Booklet[] }) {
     return (
         <Table className="border">
             <TableCaption>A list of your recent invoices.</TableCaption>

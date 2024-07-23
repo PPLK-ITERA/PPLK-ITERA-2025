@@ -12,7 +12,7 @@ class BookletController extends Controller
    public function guestIndex()
    {
       $booklets = Booklet::all();
-      return Inertia::render('Dashboard/Booklet/Page', [
+      return Inertia::render('Booklet/Page', [
          'response' => [
             'status' => 200,
             'message' => 'Success',
