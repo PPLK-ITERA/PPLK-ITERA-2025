@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\Game\GameController;
@@ -11,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\UserController;
-use App\Http\Controllers\User\KelompokController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Http\Controllers\User\ProfileController;
@@ -46,8 +46,6 @@ Route::middleware('auth')->group(function () {
    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
    // Scoreboard
-   // melihat list user pada kelompok
-   Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
    //melihat top 10
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
    //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
@@ -69,6 +67,10 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('faq')->group(function () {
          Route::resource('/', FAQController::class)->names('faq');
+      });
+
+      Route::prefix('kelompok')->group(function () {
+         Route::resource('/', KelompokController::class)->names('kelompok');
       });
    });
 

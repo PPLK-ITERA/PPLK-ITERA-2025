@@ -131,9 +131,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');
 
-   Route::get('dashboard/informasi-kelompok', function () {
-      return Inertia::render('Dashboard/informasi-kelompok/Page');
-   })->name('dashboard/informasi-kelompok');
+   // Route::get('dashboard/informasi-kelompok', function () {
+   //    return Inertia::render('Dashboard/informasi-kelompok/Page');
+   // })->name('dashboard/informasi-kelompok');
 
    Route::get('scoreboard', function () {
       return Inertia::render('Scoreboard/Page');

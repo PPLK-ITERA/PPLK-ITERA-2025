@@ -14,7 +14,8 @@ const breadcrumbItems = [
     { title: "Informasi Kelompok", link: "/dashboard/informasi-kelompok" },
 ];
 
-export default function Page({ auth }) {
+export default function Page({ auth, response }) {
+    console.log(response);
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />

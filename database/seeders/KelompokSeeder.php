@@ -16,41 +16,12 @@ class KelompokSeeder extends Seeder
     */
    public function run(): void
    {
-      $kelompokData = [];
-      $userData = [];
-      $output = new ConsoleOutput();
-      $totalUsers = 5 * 5;
-      $progress = new ProgressBar($output, $totalUsers);
-      $progress->start();
-
-      DB::beginTransaction();
-      try {
-         for ($i = 1; $i <= 5; $i++) {
-            $kelompokData[] = [
-               'no_kelompok' => $i,
-               'nama_kelompok' => 'Kelompok ' . $i,
-            ];
-
-            for ($j = 1; $j <= 5; $j++) {
-               $userData[] = User::factory()->make([
-                  'kelompok_id' => $i,
-               ])->toArray();
-               $progress->advance();
-            }
-
-            if ($i % 10 == 0 || $i == 140) {
-               Kelompok::insert($kelompokData);
-               User::insert($userData);
-
-               $kelompokData = [];
-               $userData = [];
-            }
-         }
-         DB::commit();
-      } catch (\Exception $e) {
-         DB::rollback();
-         throw $e;
+      for ($i = 0; $i < 10; $i++) {
+         Kelompok::create([
+            'no_kelompok' => $i + 1,
+            'nama_kelompok' => 'Kelompok ' . ($i + 1),
+            'logo_kelompok' => 'kelompok' . ($i + 1) . '.png',
+         ]);
       }
-      $progress->finish();
    }
 }
