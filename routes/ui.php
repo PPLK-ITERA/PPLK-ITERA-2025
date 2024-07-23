@@ -245,7 +245,7 @@ Route::middleware('auth')->group(function () {
    //         'password' => auth()->user()->password
    //     ]);
    // })->name('dev');
-   
+
 
    // =====================================
    // Scoreboard (Auth)

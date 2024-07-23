@@ -44,7 +44,7 @@ export const navItems: NavItem[] = [
         href: "/dashboard/profile",
         icon: "profile",
         label: "profile",
-        role_id: [1],
+        role_id: [1, 3],
     },
     {
         title: "Kanban",
@@ -93,7 +93,7 @@ export const navItems: NavItem[] = [
         href: "/dashboard/absensi-maba",
         icon: "notebook",
         label: "atur-absensi-maba",
-        role_id: [2],
+        role_id: [2, 3],
     },
     {
         title: "Booklet",
@@ -114,7 +114,14 @@ export const navItems: NavItem[] = [
         href: "/dashboard/mading",
         icon: "map",
         label: "atur-mading",
-        role_id: [2],
+        role_id: [2, 3],
+    },
+    {
+        title: "Informasi Kelompok",
+        href: "/dashboard/informasi-kelompok",
+        icon: "map",
+        label: "atur-informasi-kelompok",
+        role_id: [3],
     },
     {
         title: "CUI",
