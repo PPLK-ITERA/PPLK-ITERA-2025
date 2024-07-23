@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Game\GameController;
 use App\Http\Controllers\QuizAnswerController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UnlockStatusController;
@@ -14,6 +14,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\KelompokController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\RelasiController;
 
 Route::get('/', function () {
@@ -22,7 +23,7 @@ Route::get('/', function () {
    //    return redirect()->route('dashboard');
    // }
 
-   return Inertia::render('Welcome', [
+   return Inertia::render('LandingPage', [
       'canLogin' => Route::has('login'),
       'canRegister' => Route::has('register'),
       'laravelVersion' => Application::VERSION,
@@ -62,12 +63,12 @@ Route::middleware('auth')->group(function () {
          Route::get('/', [UserController::class, 'index'])->name('user.index');
       });
 
-      Route::prefix('booklets')->group(function () {
-         Route::resource('/', BookletController::class);
+      Route::prefix('booklet')->group(function () {
+         Route::resource('/', BookletController::class)->names('booklet');
       });
 
       Route::prefix('faq')->group(function () {
-         Route::resource('/', FAQController::class);
+         Route::resource('/', FAQController::class)->names('faq');
       });
    });
 
@@ -98,7 +99,7 @@ Route::middleware('auth')->group(function () {
    //Booklet
    Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
       //CRUD Booklet
-      Route::resource('/booklet', BookletController::class);
+      // Route::resource('/booklet', BookletController::class);
    })->prefix('mamet');
    //Route game
    //mengambil pertanyaan berdasarkan geddung yang terbuka
@@ -129,10 +130,10 @@ Route::middleware('auth')->group(function () {
    });
 
 
-   Route::middleware(['checkRole:Admin'])->group(function () {
-      //CRUD FAQ
-      Route::resource('faqs', FAQController::class);
-   })->prefix('admin');
+   // Route::middleware(['checkRole:Admin'])->group(function () {
+   //    //CRUD FAQ
+   //    Route::resource('faqs', FAQController::class);
+   // })->prefix('admin');
 
    // Scoreboard
    // melihat list user pada kelompok
@@ -160,6 +161,11 @@ Route::middleware('auth')->group(function () {
       //Presensi PPLK
       Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
       Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
+   });
+
+   Route::prefix('api')->group(function () {
+      Route::get('kelompok/score', [GameController::class, 'getScoreKelompok']);
+      Route::get('user/score', [GameController::class, 'getUserScore']);
    });
 });
 
