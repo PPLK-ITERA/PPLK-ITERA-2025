@@ -22,9 +22,12 @@ class CreateUsersTable extends Migration
          $table->string('linkedin_url')->nullable();
          $table->string('instagram_url')->nullable();
          $table->foreignId('pilar')->nullable();
+         $table->string('bio')->nullable();
+         $table->string('link_sertif')->nullable();
          $table->foreignId('kelompok_id')->nullable();
          $table->integer('score')->default(0);
          $table->unsignedBigInteger('view_count')->default(0);
+
          $table->foreignId('prodi_id')->nullable();
          $table->foreignId('penyakit_id')->nullable();
          $table->foreignId('role_id')->default(1);

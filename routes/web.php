@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\Game\GameController;
@@ -10,7 +11,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
-use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\KelompokController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
    //dashboard
    Route::prefix('dashboard')->group(function () {
       Route::prefix('user')->group(function () {
-         Route::get('/', [UserController::class, 'index'])->name('user.index');
+         Route::resource('/', UserController::class)->names('user');
       });
 
       Route::prefix('booklet')->group(function () {
