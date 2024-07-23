@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Follow;
 use App\Models\Qrcode;
 use App\Models\User;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class RelasiController extends Controller
@@ -25,13 +25,13 @@ class RelasiController extends Controller
    }
    public function viewScore()
    {
-       // Retrieve the authenticated user
-       $user = Auth::user();
+      // Retrieve the authenticated user
+      $user = Auth::user();
 
-       // Return the user's score
-       return response()->json([
-           'score' => $user->score,
-       ]);
+      // Return the user's score
+      return response()->json([
+         'score' => $user->score,
+      ]);
    }
 
    // Search bar untuk mencari user berdasarkan nama atau email
