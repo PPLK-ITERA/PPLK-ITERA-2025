@@ -1,6 +1,6 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { UserClient } from "@/Components/dashboard/tables/user-tables/client";
 
 import { users } from "@/constants/data";

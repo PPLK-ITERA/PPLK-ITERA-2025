@@ -116,6 +116,13 @@ export const navItems: NavItem[] = [
         label: "atur-mading",
         role_id: [2],
     },
+    {
+        title: "CUI",
+        href: "/dashboard/cui",
+        icon: "ticket",
+        label: "atur-cui",
+        role_id: [1],
+    },
 ];
 
 export type Employee = {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,22 +25,15 @@ Route::get('informasi/ukm', function () {
    return Inertia::render('Informasi/Ukm/Page');
 })->name('informasi/ukm');
 
+Route::get('informasi/ukm/detail', function () {
+    return Inertia::render('Informasi/Ukm/Detail/Page');
+})->name('informasi/ukm/detail');
+
 Route::get('informasi/ukm/{nama_ukm}', function (string $nama_ukm) {
    return Inertia::render('Informasi/Ukm/Detail/Page', [
       'nama_ukm' => $nama_ukm
    ]);
 })->name('informasi/ukm/{nama_ukm}');
-
-Route::get('informasi/upt', function () {
-   return Inertia::render('Informasi/Upt/Page');
-})->name('informasi/upt');
-
-Route::get('informasi/upt/{nama_upt}', function (string $nama_upt) {
-   return Inertia::render('Informasi/Upt/Detail/Page', [
-      'nama_upt' => $nama_upt
-   ]);
-})->name('informasi/upt/{nama_ukm}');
-
 Route::get('informasi/pplk', function () {
    return Inertia::render('Informasi/Pplk/Page');
 })->name('informasi/pplk');
@@ -53,26 +47,6 @@ Route::get('informasi/maskot', function () {
 Route::get('informasi/profil', function () {
    return Inertia::render('Informasi/Profil/Page');
 })->name('informasi/profil');
-
-Route::get('informasi/fakultas', function () {
-   return Inertia::render('Informasi/Fakultas/Page');
-})->name('informasi/fakultas/Sains');
-
-Route::get('informasi/fakultas/Ftik', function () {
-   return Inertia::render('Informasi/Fakultas/Ftik');
-})->name('informasi/fakultas/Ftik');
-
-Route::get('informasi/fakultas/Fti', function () {
-   return Inertia::render('Informasi/Fakultas/Fti');
-})->name('informasi/fakultas/Fti');
-
-Route::get('informasi/prodi', function () {
-   return Inertia::render('Informasi/Prodi/Page');
-})->name('informasi/prodi');
-
-Route::get('informasi/prodi/detail', function () {
-   return Inertia::render('Informasi/Prodi/Detail/Page');
-})->name('informasi/prodi/detail');
 
 Route::middleware('auth')->group(function () {
    Route::get('profile', function () {
@@ -95,9 +69,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/profile/Page');
    })->middleware('checkRole:Admin', 'checkRole:Maba')->name('dashboard/profile');
 
-   // Route::get('dashboard/user', function () {
-   //    return Inertia::render('Dashboard/user/Page');
-   // })->name('dashboard/user');
+    Route::get('dashboard/user', function () {
+        return Inertia::render('Dashboard/user/Page');
+    })->name('dashboard/user');
 
    Route::get('dashboard/atur-maba', function () {
       return Inertia::render('Dashboard/atur-maba/Page');
@@ -123,10 +97,33 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/faq/Page');
    })->name('dashboard/faq');
 
-   // Route::get('dashboard/booklet', function () {
-   //    return Inertia::render('Dashboard/booklet/Page');
-   // })->name('dashboard/booklet');
+    Route::get('dashboard/booklet', function () {
+        return Inertia::render('Dashboard/booklet/Page');
+    })->name('dashboard/booklet');
 
+   Route::get('dashboard/mading', function () {
+      return Inertia::render('Dashboard/mading/Page');
+   })->name('dashboard/mading');
+
+   Route::get('dashboard/cui/absensi', [PresensiCuiController::class, 'absensi'])
+      ->name('dashboard.cui.absensi');
+
+   Route::get('dashboard/cui/absensi/result', [PresensiCuiController::class, 'result'])
+      ->name('dashboard.cui.result');
+
+   Route::get('dashboard/cui', [PresensiCuiController::class, 'index'])
+      ->name('dashboard.cui');
+
+   Route::post('dashboard/cui', [PresensiCuiController::class, 'getMabaByNim']);
+});
+
+Route::middleware('auth')->group(function () {
+   // Route::get('dev', function () {
+   //     return Inertia::render('Dev/Page', [
+   //         'username' => auth()->user()->name,
+   //         'password' => auth()->user()->password
+   //     ]);
+   // })->name('dev');
    Route::get('dashboard/mading', function () {
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');

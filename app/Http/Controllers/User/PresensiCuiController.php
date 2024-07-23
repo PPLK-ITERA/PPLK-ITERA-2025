@@ -9,6 +9,7 @@ use App\Models\LogCui;
 use App\Models\Qrcode;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class PresensiCuiController extends Controller
 {
@@ -124,7 +125,6 @@ class PresensiCuiController extends Controller
       }
 
       $response = [
-         'message' => 'Sudah Melakukan Presensi',
          'nama' => $user->name,
          'nim' => $user->nim,
          'prodi' => $user->prodi->nama_prodi,
@@ -136,29 +136,66 @@ class PresensiCuiController extends Controller
          'waktu_izin' => $log->first()->waktu_izin ?? null,
          'ket_izin' => $log->first()->ket_izin ?? null,
       ];
-      return response()->json($response);
+
+      return Inertia::render('Dashboard/cui/absensi/result/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Sudah Melakukan Presensi',
+            'data' => $response
+         ] 
+      ]);
    }
 
-   public function show(Request $request)
+   public function getMabaByNim(Request $request)
    {
       $validated = $request->validate([
          'nim' => 'required|string',
       ]);
       $user = User::where('nim', $validated['nim'])->first();
       if (!$user) {
-         return response()->json(['message' => 'NIM tidak ditemukan'], 404);
+         return Inertia::render(
+            'Dashboard/cui/Page',
+            [
+               'response' => [
+                  'status' => 404,
+                  'message' => 'NIM ' . $validated['nim'] . ' tidak ditemukan',
+                  'data' => null
+               ]
+            ]
+         );
       }
       $log = LogCui::where('user_id', $user->id)->latest('created_at');
+      $qrcode = Qrcode::where('user_id', $user->id)->first()->code; 
       $response = [
          'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
          'nama' => $user->name,
          'nim' => $user->nim,
+         'profil_url' => $user->photo_profile_url,
          'prodi' => $user->prodi->nama_prodi,
          'pita' => $user->penyakit->pita ?? null,
          'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+         'qr_code' => $qrcode,
          'status' => $log->first()->status ?? null,
       ];
-      return response()->json($response);
+      return Inertia::render(
+         'Dashboard/cui/Page',
+         [
+            'response' => [
+               'status' => 200,
+               'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
+               'data' => $response
+            ]
+         ]
+      );
+   }
+   public function index()
+   {
+      return Inertia::render('Dashboard/cui/Page');
+   }
+
+   public function absensi()
+   {
+      return Inertia::render('Dashboard/cui/absensi/Page');
    }
    public function getLogbookData()
    {

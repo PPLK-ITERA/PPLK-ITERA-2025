@@ -2,7 +2,7 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import React from "react";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
