@@ -37,17 +37,22 @@ export default function Hero() {
                         perkuliahan dengan lebih baik.
                     </p>
                 </div>
+
                 <img
                     src={logoPplk}
                     alt="pplk-logo"
                     width={390}
                     height={390}
-                    className="sm:w-80 sm:h-80 flex items-center"
+                    className="sm:w-80 sm:h-80 z-20 flex items-center"
                 />
             </div>
+
             <Visi />
+
             <Misi />
+
             <FilosofiLogoInfo />
+
             <Divisi />
         </div>
     );

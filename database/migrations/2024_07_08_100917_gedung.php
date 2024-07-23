@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('feedback', function (Blueprint $table) {
-            if (!Schema::hasColumn('feedback', 'response')) {
-                $table->text('response')->nullable();
-            }
+        Schema::create('gedung', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_gedung');
+            $table->timestamps();
         });
     }
 
@@ -23,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('feedback', function (Blueprint $table) {
-            $table->dropColumn('response');
-        });
+        Schema::dropIfExists('gedung');
     }
 };

@@ -6,6 +6,8 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 
 import { FooterLink, InformasiFooter } from "@/constants/data";
 
+import logodiesnat_white from "!assets/logo-diesnat-white.png";
+import logokm_white from "!assets/logo-km-white.png";
 import logopplk_white from "!assets/logo-pplk-20204-white.png";
 import logopplkfooter from "!assets/logo-pplk-footer.png";
 
@@ -15,13 +17,27 @@ export default function Footer() {
             <MaxWidthWrapper>
                 <div className="md:flex-row md:items-center z-10 flex flex-col items-start justify-between">
                     <div className="text-white">
-                        <img
-                            src={logopplk_white}
-                            alt="logopplk_white"
-                            className="w-32 h-32 -ml-5"
-                        />
+                        <div className="flex items-center justify-center">
+                            <img
+                                src={logodiesnat_white}
+                                alt="logopplk_white"
+                                className="xl:w-48 xl:h-32 md:w-40 md:h-28 h-16 w-[125px] -mt-2 lg:-mt-0 object-contain"
+                            />
 
-                        <h3 className="font-fesbud md:text-[20px] lg:text-[28px]">
+                            <img
+                                src={logokm_white}
+                                alt="logopplk_white"
+                                className="xl:w-32 xl:h-24 md:w-28 md:h-20 md:-ml-5 h-14 object-contain w-20"
+                            />
+
+                            <img
+                                src={logopplk_white}
+                                alt="logopplk_white"
+                                className="md:-ml-5 md:w-[110px] md:-mt-1 lg:-mt-0 md:h-[108px] lg:w-32 lg:h-32 object-contain w-20 h-20"
+                            />
+                        </div>
+
+                        <h3 className="font-fesbud md:text-[20px] mt-5 lg:text-[28px]">
                             PPLK ITERA 2024
                         </h3>
 

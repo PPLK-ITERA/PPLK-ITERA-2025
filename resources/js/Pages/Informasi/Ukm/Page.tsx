@@ -1,12 +1,13 @@
-import { ukmData } from "@/lib/data/ukm";
-import { useAos } from "@/lib/hooks/useAos";
+import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import React, { useEffect, useState } from "react";
 
-import Footer from "@/Components/Footer";
-import Navbar from "@/Components/Navbar";
 import { CarouselUkm } from "@/Components/informasi/Ukm/CarouselUkm";
-import PaginationInformasi from "@/Components/informasi/Ukm/PaginationUkm";
+import Header from "@/Components/informasi/Ukm/Header";
+import PaginationUKM from "@/Components/informasi/Ukm/PaginationUkm";
+
+import { ukmData } from "@/lib/data/ukm";
+import { useAos } from "@/lib/hooks/useAos";
 
 import gedung from "!assets/gedung-sponsor.png";
 
@@ -17,7 +18,7 @@ const Page: React.FC = () => {
 
     const updateItemsPerPage = () => {
         if (window.innerWidth >= 1024) {
-            setItemsPerPage(10);
+            setItemsPerPage(8);
         } else {
             setItemsPerPage(6);
         }
@@ -38,36 +39,21 @@ const Page: React.FC = () => {
     );
 
     return (
-        <div>
-            <Navbar isSolid={true} isFixed={true} />
-            <div className="bg-desktop-hero-background relative flex items-center justify-center min-h-screen p-5 -mb-20 bg-center bg-cover">
-                <div
-                    data-aos="zoom-in"
-                    data-aos-duration="1000"
-                    className="flex max-w-[640px] max-h-[640px] sm:max-h-fit sm:max-w-3xl md:max-h-2xl md:max-w-7xl flex-col items-center justify-center rounded-[20px] bg-white/20 backdrop-blur shadow-2xl text-white"
-                >
-                    <div className="flex flex-col items-start p-5 text-left">
-                        <h1 className="font-montserrat-4xl text-[31px] sm:text-[40px] md:text-[61px] font-semibold">
-                            UNIT KEGIATAN MAHASISWA (UKM)
-                        </h1>
-                        <p className="font-montserrat-2xl text-[20px] md:text-[25px] mt-5">
-                            Unit Kegiatan Mahasiswa adalah sebuah organisasi
-                            yang mewadahi berbagai minat & bakat mahasiswa di
-                            Institut Teknologi Sumatera. UKM hadir untuk bisa
-                            memfasilitasi semua minat & bakat dari seluruh
-                            Mahasiswa Institut Teknologi Sumatera.
-                        </p>
-                    </div>
-                </div>
+        <DefaultLayout>
+            <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background">
+                <Header />
             </div>
+
             <div>
-                <div className="bg-pattern-white flex flex-col items-center py-20">
+                <div className="bg-pattern-white md:px-4 flex flex-col items-center py-20">
                     <CarouselUkm items={currentItems} />
-                    <PaginationInformasi
+
+                    <PaginationUKM
                         currentPage={currentPage}
                         totalPages={totalPages}
                         onPageChange={setCurrentPage}
                     />
+
                     <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0"></div>
                 </div>
             </div>
@@ -75,8 +61,7 @@ const Page: React.FC = () => {
             <div className="flex items-center justify-center -mt-20">
                 <img src={gedung} alt="" className="w-full" />
             </div>
-            <Footer />
-        </div>
+        </DefaultLayout>
     );
 };
 

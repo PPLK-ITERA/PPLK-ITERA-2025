@@ -4,6 +4,8 @@ import { Link } from "@inertiajs/react";
 
 import { InformasiInfoSection } from "@/constants/data";
 
+const dataInfoSection = [{}];
+
 export default function InfoSection() {
     return (
         <div className="flex h-full items-center justify-center px-2.5 lg:min-h-screen">

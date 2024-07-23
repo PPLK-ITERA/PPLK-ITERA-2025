@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "@inertiajs/react";
+
 import {
     Carousel,
     CarouselContent,
@@ -29,7 +31,7 @@ export default function Panduan() {
                 className="md:hidden z-30 block w-full mt-10"
             >
                 <CarouselContent className="gap-2 px-5">
-                    <CarouselItem className="-ml-0 flex max-h-[280px] min-w-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
+                    <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
                         <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +53,7 @@ export default function Panduan() {
                         <p className="font-avigea mt-2 text-4xl">Atribut</p>
                     </CarouselItem>
 
-                    <CarouselItem className="-ml-0 flex max-h-[280px] min-w-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800">
+                    <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800">
                         <div className="bg-jaffa-400 p-4 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +83,7 @@ export default function Panduan() {
                         </p>
                     </CarouselItem>
 
-                    <CarouselItem className="-ml-0 flex max-h-[280px] min-w-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-14">
+                    <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-14">
                         <div className="bg-jaffa-400 p-2 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +113,7 @@ export default function Panduan() {
                         </p>
                     </CarouselItem>
 
-                    <CarouselItem className="-ml-0 flex max-h-[280px] min-w-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
+                    <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
                         <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -140,8 +142,11 @@ export default function Panduan() {
                 </CarouselContent>
             </Carousel>
 
-            <div className="md:flex lg:mt-0 lg:w-2/3 lg:justify-start xl:w-1/2 flex-wrap justify-center hidden w-full gap-5 mt-10">
-                <div className="flex h-[280px] w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400 shadow-2xl">
+            <div className="md:flex lg:mt-0 lg:w-2/3 xl:w-1/2 flex-wrap justify-center hidden w-full gap-5 mt-10">
+                <Link
+                    href="/ketentuan-atribut"
+                    className="flex max-h-[270px] min-h-[240px] w-[250px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400 shadow-2xl hover:opacity-90 duration-300 transition-all ease-in-out"
+                >
                     <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -156,9 +161,12 @@ export default function Panduan() {
                         </svg>
                     </div>
                     <p className="font-avigea mt-2 text-4xl">Atribut</p>
-                </div>
+                </Link>
 
-                <div className="flex h-[280px] w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl">
+                <Link
+                    href="/booklet"
+                    className="flex max-h-[270px] min-h-[240px] w-[250px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 shadow-2xl hover:opacity-90 duration-300 transition-all ease-in-out"
+                >
                     <div className="bg-jaffa-400 p-4 rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -181,9 +189,12 @@ export default function Panduan() {
                     <p className="font-avigea mt-2 text-4xl text-white">
                         Booklet
                     </p>
-                </div>
+                </Link>
 
-                <div className="flex h-[280px] w-[280px] flex-col items-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-14 shadow-2xl">
+                <Link
+                    href="/relasi"
+                    className="flex max-h-[270px] min-h-[240px] w-[250px] flex-col items-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-14 shadow-2xl hover:opacity-90 duration-300 transition-all ease-in-out"
+                >
                     <div className="bg-jaffa-400 p-2 rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -206,9 +217,12 @@ export default function Panduan() {
                     <p className="font-avigea mt-2 text-4xl text-center text-white">
                         Relasi & Jaringan
                     </p>
-                </div>
+                </Link>
 
-                <div className="flex h-[280px] w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400 shadow-2xl">
+                <Link
+                    href="/faq"
+                    className="flex max-h-[270px] min-h-[240px] w-[250px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400 shadow-2xl hover:opacity-90 duration-300 transition-all ease-in-out"
+                >
                     <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -228,7 +242,7 @@ export default function Panduan() {
                         </svg>
                     </div>
                     <p className="font-avigea mt-10 text-4xl">FAQ</p>
-                </div>
+                </Link>
             </div>
         </div>
     );

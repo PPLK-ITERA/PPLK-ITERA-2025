@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import useEmblaCarousel, {
     type UseEmblaCarouselType,
 } from "embla-carousel-react";
@@ -10,6 +9,8 @@ import * as React from "react";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
 import { Button } from "@/Components/dashboard/ui/button";
+
+import { cn } from "@/lib/utils";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -209,7 +210,7 @@ const CarouselPrevious = React.forwardRef<
             variant={variant}
             size={size}
             className={cn(
-                "absolute h-12 w-12 rounded-full bg-gradient-to-r from-[#B9822F] to-[#A6680C]",
+                "absolute h-12 w-12 rounded-full flex justify-center items-center bg-gradient-to-r from-[#B9822F] to-[#A6680C]",
                 orientation === "horizontal"
                     ? "left-4 top-1/2 -translate-y-1/2"
                     : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -220,7 +221,7 @@ const CarouselPrevious = React.forwardRef<
             onClick={scrollPrev}
             {...props}
         >
-            <IconChevronLeft className="h-10 w-10" color="white" />
+            <IconChevronLeft className="w-10 h-10 mr-[3px]" color="white" />
             <span className="sr-only">Previous slide</span>
         </Button>
     );
@@ -239,7 +240,7 @@ const CarouselNext = React.forwardRef<
             variant={variant}
             size={size}
             className={cn(
-                "absolute h-12 w-12 rounded-full bg-gradient-to-r from-[#B9822F] to-[#A6680C]",
+                "absolute h-12 w-12 rounded-full bg-gradient-to-r flex justify-center items-center from-[#B9822F] to-[#A6680C]",
                 orientation === "horizontal"
                     ? "right-4 top-1/2 -translate-y-1/2"
                     : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -250,7 +251,10 @@ const CarouselNext = React.forwardRef<
             onClick={scrollNext}
             {...props}
         >
-            <IconChevronRight className="h-10 w-10" color="white" />
+            <IconChevronRight
+                className="place-content-center w-10 h-10 ml-[3px]"
+                color="white"
+            />
             <span className="sr-only">Next slide</span>
         </Button>
     );

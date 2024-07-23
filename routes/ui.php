@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\User\PresensiCuiController;
+use App\Http\Controllers\BookletController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -12,25 +13,9 @@ Route::get('ketentuan-atribut', function () {
    return Inertia::render('Atribut/Page');
 })->name('ketentuan-atribut');
 
-Route::get('dev', function () {
+Route::get('dev-team', function () {
    return Inertia::render('Dev/Page');
-})->name('dev');
-
-Route::get('scoreboard', function () {
-   return Inertia::render('Scoreboard/Page');
-})->name('scoreboard');
-
-Route::get('relasi', function () {
-   return Inertia::render('Relasi/Page');
-})->name('relasi');
-
-Route::get('relasi/profil', function () {
-   return Inertia::render('Relasi/Profil/Page');
-})->name('relasi/profil');
-
-Route::get('relasi/search', function () {
-   return Inertia::render('Relasi/Search/Page');
-})->name('relasi/search');
+})->name('dev-team');
 
 Route::get('informasi/km', function () {
    return Inertia::render('Informasi/Km/Page');
@@ -41,7 +26,7 @@ Route::get('informasi/ukm', function () {
 })->name('informasi/ukm');
 
 Route::get('informasi/ukm/detail', function () {
-   return Inertia::render('Informasi/Ukm/Detail/Page');
+    return Inertia::render('Informasi/Ukm/Detail/Page');
 })->name('informasi/ukm/detail');
 
 Route::get('informasi/ukm/{nama_ukm}', function (string $nama_ukm) {
@@ -53,10 +38,7 @@ Route::get('informasi/pplk', function () {
    return Inertia::render('Informasi/Pplk/Page');
 })->name('informasi/pplk');
 
-
-Route::get('booklet', function () {
-   return Inertia::render('Booklet/Page');
-})->name('booklet');
+Route::get('booklet', [BookletController::class, 'index'])->name('booklet');
 
 Route::get('informasi/maskot', function () {
    return Inertia::render('Maskot/Page');
@@ -67,6 +49,10 @@ Route::get('informasi/profil', function () {
 })->name('informasi/profil');
 
 Route::middleware('auth')->group(function () {
+   Route::get('profile', function () {
+      return Inertia::render('Profile/Page');
+   })->name('my-profile');
+
    Route::get('dashboard', function () {
       return Inertia::render('Dashboard/Page');
    })->name('dashboard');
@@ -83,9 +69,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/profile/Page');
    })->middleware('checkRole:Admin', 'checkRole:Maba')->name('dashboard/profile');
 
-   Route::get('dashboard/user', function () {
-      return Inertia::render('Dashboard/user/Page');
-   })->name('dashboard/user');
+    Route::get('dashboard/user', function () {
+        return Inertia::render('Dashboard/user/Page');
+    })->name('dashboard/user');
 
    Route::get('dashboard/atur-maba', function () {
       return Inertia::render('Dashboard/atur-maba/Page');
@@ -111,9 +97,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/faq/Page');
    })->name('dashboard/faq');
 
-   Route::get('dashboard/booklet', function () {
-      return Inertia::render('Dashboard/booklet/Page');
-   })->name('dashboard/booklet');
+    Route::get('dashboard/booklet', function () {
+        return Inertia::render('Dashboard/booklet/Page');
+    })->name('dashboard/booklet');
 
    Route::get('dashboard/mading', function () {
       return Inertia::render('Dashboard/mading/Page');
@@ -138,4 +124,23 @@ Route::middleware('auth')->group(function () {
    //         'password' => auth()->user()->password
    //     ]);
    // })->name('dev');
+   Route::get('dashboard/mading', function () {
+      return Inertia::render('Dashboard/mading/Page');
+   })->name('dashboard/mading');
+
+   Route::get('scoreboard', function () {
+      return Inertia::render('Scoreboard/Page');
+   })->name('scoreboard');
+
+   Route::get('relasi', function () {
+      return Inertia::render('Relasi/Page');
+   })->name('relasi');
+
+   Route::get('relasi/search', function () {
+      return Inertia::render('Relasi/Search/Page');
+   })->name('relasi/search');
+
+   Route::get('relasi/profil', function () {
+      return Inertia::render('Relasi/Profil/Page');
+   })->name('relasi/profil');
 });

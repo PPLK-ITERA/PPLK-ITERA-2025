@@ -30,7 +30,7 @@ export default function LandingPage() {
                     alt="elang"
                     data-aos="fade-left"
                     data-aos-duration="1000"
-                    className="absolute right-5 top-[25rem] hidden z-30 scale-75 md:right-10 md:top-28 lg:top-20 md:block md:w-1/3 md:scale-100 lg:w-1/3"
+                    className="absolute right-1 hidden top-[25rem] z-30 md:right-10 md:top-28 lg:top-20 md:block md:w-1/3 md:scale-100 lg:w-1/3"
                 />
             </MaxWidthWrapper>
 
@@ -55,7 +55,7 @@ export default function LandingPage() {
 
             <FilosofiLogo />
 
-            <div className="relative -mt-5 bg-[#170C0A] bg-pattern-white">
+            <div className="relative bg-[#170C0A] bg-pattern-white">
                 <MaxWidthWrapper>
                     <Maskot />
                 </MaxWidthWrapper>
@@ -63,7 +63,7 @@ export default function LandingPage() {
                 <img
                     src={pillar_brown}
                     alt="pillar_brown"
-                    className="absolute bottom-0 w-full"
+                    className="absolute bottom-0 z-0 w-full"
                 />
             </div>
 

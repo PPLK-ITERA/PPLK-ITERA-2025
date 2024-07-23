@@ -279,22 +279,20 @@ export const DataFilosofiLogo = [
 ];
 
 export const InformasiInfoSection = [
-    { title: "Informasi Fakultas", href: "/informasi-fakultas" },
-    { title: "Informasi HMPS & PRODI", href: "/informasi-hmps-prodi" },
-    { title: "Informasi UPT", href: "/informasi-upt" },
-    { title: "Informasi KM ITERA", href: "/informasi-km" },
-    { title: "Informasi SENAT ITERA", href: "/informasi-senat" },
-    { title: "Informasi UKM ITERA", href: "/informasi-ukm" },
+    { title: "Informasi Fakultas", href: "/informasi/fakultas" },
+    { title: "Informasi HMPS & PRODI", href: "/informasi/hmpsprodi" },
+    { title: "Informasi UPT", href: "/informasi/upt" },
+    { title: "Informasi KM ITERA", href: "/informasi/km" },
+    { title: "Informasi UKM ITERA", href: "/informasi/ukm" },
 ];
 
 export const InformasiFooter = [
-    { title: "Tentang PPLK 2024", href: "/about-pplk" },
-    { title: "Informasi Fakultas", href: "/informasi-fakultas" },
-    { title: "Informasi HMPS & PRODI", href: "/informasi-hmps-prodi" },
-    { title: "Informasi UPT", href: "/informasi-upt" },
-    { title: "Informasi KM ITERA", href: "/informasi-km" },
-    { title: "Informasi SENAT ITERA", href: "/informasi-senat" },
-    { title: "Informasi UKM ITERA", href: "/informasi-ukm" },
+    { title: "Tentang PPLK 2024", href: "/informasi/pplk" },
+    { title: "Informasi Fakultas", href: "/informasi/fakultas" },
+    { title: "Informasi HMPS & PRODI", href: "/informasi/hmpsprodi" },
+    { title: "Informasi UPT", href: "/informasi/upt" },
+    { title: "Informasi KM ITERA", href: "/informasi/km" },
+    { title: "Informasi UKM ITERA", href: "/informasi/ukm" },
 ];
 
 export const FooterLink = [

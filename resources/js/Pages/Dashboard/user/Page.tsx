@@ -9,11 +9,12 @@ const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
     { title: "User", link: "/dashboard/user" },
 ];
-export default function Page({ auth }) {
+export default function Page({ auth, response }) {
+    console.log(response);
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
-            <UserClient data={users} />
+            <UserClient data={response} />
         </DashboardLayout>
     );
 }

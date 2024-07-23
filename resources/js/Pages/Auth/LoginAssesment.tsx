@@ -47,7 +47,7 @@ export default function Login({ auth, laravelVersion, phpVersion }) {
             <div
                 className={`flex h-full w-full flex-col justify-center overflow-hidden font-fesbud font-medium md:flex-row`}
             >
-                <div className="flex min-h-[70px] w-full justify-center bg-[url('/assets/background-login.png')] bg-cover object-cover p-5 md:min-h-[100vh] md:w-[60%] md:items-center md:p-0">
+                <div className="flex min-h-[70px] w-full justify-center bg-[url('!assets/background-login.png')] bg-cover object-cover p-5 md:min-h-[100vh] md:w-[60%] md:items-center md:p-0">
                     <CarouselForm />
                 </div>
 

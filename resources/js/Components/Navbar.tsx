@@ -2,8 +2,7 @@ import NavLarge from "./NavLarge";
 
 import React from "react";
 
-import { usePage } from "@inertiajs/react";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 import { IconLogout, IconUserCircle } from "@tabler/icons-react";
 
@@ -19,8 +18,10 @@ import {
 
 import { UserDropdown } from "@/constants/navlink";
 
+import logodiesnat from "!assets/logo-diesnat.png";
 import logopplk from "!assets/logo-pplk-2024.png";
 import logopplk_white from "!assets/logo-pplk-20204-white.png";
+import logodiesnat_white from "!assets/logo-tendiesnat-white.png";
 
 interface NavbarProps {
     isSolid?: boolean;
@@ -54,9 +55,27 @@ export default function Navbar({
             <MaxWidthWrapper className="flex items-center justify-between w-full py-2">
                 {/* Logo PPLK*/}
                 <Link
-                    className="font-fesbud flex items-center justify-start -ml-4 transition duration-300 ease-in-out"
+                    className="font-fesbud md:-ml-4 flex items-center justify-start transition duration-300 ease-in-out"
                     href="/"
                 >
+                    {isScrolled || isSolid ? (
+                        <img
+                            src={logodiesnat_white}
+                            alt="logo-pplk-2024"
+                            className="w-12 h-12"
+                            width={202}
+                            height={202}
+                        />
+                    ) : (
+                        <img
+                            src={logodiesnat}
+                            alt="logo-pplk-2024"
+                            className="w-12 h-12"
+                            width={202}
+                            height={202}
+                        />
+                    )}
+
                     {isScrolled || isSolid ? (
                         <img
                             src={logopplk_white}
@@ -74,7 +93,7 @@ export default function Navbar({
                             height={202}
                         />
                     )}
-                    {/* text-[#A6680C] */}
+
                     <div
                         className={`flex flex-col justify-center leading-[14px] ${isScrolled || isSolid ? " text-white" : "text-jaffa-400"} transition duration-300 ease-in-out`}
                     >
@@ -152,7 +171,7 @@ export default function Navbar({
                     ) : (
                         <Link
                             href={route("login")}
-                            className={`mx-2 rounded-lg  px-4 py-[10px] font-montserrat text-[16px] font-semibold  shadow-sm ${isScrolled || isSolid ? "bg-white text-jaffa-950" : "bg-gradient-to-t from-[#A6680C] to-[#B9822F] text-white"} transition duration-300 ease-in-out`}
+                            className={`mx-2 rounded-[6px] px-4 py-[10px] font-montserrat text-[16px] font-semibold  shadow-sm ${isScrolled || isSolid ? "bg-white text-jaffa-950" : "bg-gradient-to-t from-[#A6680C] to-[#B9822F] text-white"} transition duration-300 ease-in-out`}
                         >
                             Login
                         </Link>

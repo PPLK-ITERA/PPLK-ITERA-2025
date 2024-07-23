@@ -197,4 +197,9 @@ class PresensiCuiController extends Controller
    {
       return Inertia::render('Dashboard/cui/absensi/Page');
    }
+   public function getLogbookData()
+   {
+      $logbook = LogCui::all();
+      return response()->json($logbook);
+   }
 }

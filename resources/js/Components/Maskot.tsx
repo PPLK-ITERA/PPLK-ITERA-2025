@@ -44,7 +44,7 @@ export function CarouselMaskot() {
                 align: "center",
                 loop: true,
             }}
-            className="relative mx-auto w-[350px] sm:w-3/4 pt-5"
+            className="relative mx-auto w-[320px] sm:w-3/4 pt-5"
         >
             <CarouselContent>
                 {maskots.map((maskot, index) => (

@@ -1,21 +1,21 @@
 <?php
-//TODO: Remove the feedback and response related
 
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
-use App\Http\Controllers\User\PresensiPplkController;
-use App\Http\Controllers\User\ProfileController;
-use App\Http\Controllers\User\QrcodeController;
+use App\Http\Controllers\Game\GameController;
+use App\Http\Controllers\QuizAnswerController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\UnlockStatusController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
+use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\KelompokController;
 use App\Http\Controllers\User\PresensiCuiController;
-use App\Http\Controllers\User\UserController;
-
-
-
+use App\Http\Controllers\User\PresensiPplkController;
+use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\RelasiController;
 
 Route::get('/', function () {
    // if has auth, redirect to dashboard
@@ -31,6 +31,9 @@ Route::get('/', function () {
    ]);
 })->name('welcome');
 
+// All routes
+Route::get('faq', [FAQController::class, 'guestIndex'])->name('faq.guestIndex');
+Route::get('booklets', [BookletController::class, 'guestIndex'])->name('faq.guestIndex');
 
 //Auth Route
 Route::middleware('auth')->group(function () {
@@ -47,7 +50,7 @@ Route::middleware('auth')->group(function () {
    Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
    //melihat top 10
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-   //melihat kelompok yang tidak masuk top 10
+   //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
    //melihat my profile
    Route::get('/myprofile', [ProfileController::class, 'show']);
@@ -55,6 +58,19 @@ Route::middleware('auth')->group(function () {
    Route::patch('/myprofile/edit', [ProfileController::class, 'update']);
 
    //dashboard
+   Route::prefix('dashboard')->group(function () {
+      Route::prefix('user')->group(function () {
+         Route::get('/', [UserController::class, 'index'])->name('user.index');
+      });
+
+      Route::prefix('booklet')->group(function () {
+         Route::resource('/', BookletController::class)->names('booklet');
+      });
+
+      Route::prefix('faq')->group(function () {
+         Route::resource('/', FAQController::class)->names('faq');
+      });
+   });
 
    //Presensi CUI
    Route::prefix('cui')->group(function () {
@@ -63,6 +79,7 @@ Route::middleware('auth')->group(function () {
       Route::get('izin/{code}')->name('cui.izinform');
       Route::patch('izin/{code}', [PresensiCuiController::class, 'storeIzin'])->name('cui.izin');
       Route::patch('izin/{code}/destroy', [PresensiCuiController::class, 'destroyIzin'])->name('cui.destroy');
+      Route::get('logbook', [PresensiCuiController::class, 'getLogbookData'])->name('cui.logbook');
    });
 
    //Presensi PPLK
@@ -82,9 +99,18 @@ Route::middleware('auth')->group(function () {
    //Booklet
    Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
       //CRUD Booklet
-      Route::resource('/booklet', BookletController::class);
+      // Route::resource('/booklet', BookletController::class);
    })->prefix('mamet');
-
+   //Route game
+   //mengambil pertanyaan berdasarkan geddung yang terbuka
+   Route::get('/gedung/{gedungId}/question', [QuizController::class, 'getAll']);
+   //jawab kuis
+   Route::post('/quiz/{question_id}/answer/{id}', [QuizAnswerController::class, 'storeAnswer']);
+   Route::get('/test', [QuizAnswerController::class, 'test']);
+   //membuka status gedung
+   Route::get('/unlock-gedung', [UnlockStatusController::class, 'unlockGedung']);
+   //score user
+   Route::get('/user/score', [UserController::class, 'viewScore'])->middleware('auth');
 
 
 
@@ -104,11 +130,10 @@ Route::middleware('auth')->group(function () {
    });
 
 
-
-   Route::middleware(['checkRole:Admin'])->group(function () {
-      //CRUD FAQ
-      Route::resource('faqs', FAQController::class);
-   })->prefix('admin');
+   // Route::middleware(['checkRole:Admin'])->group(function () {
+   //    //CRUD FAQ
+   //    Route::resource('faqs', FAQController::class);
+   // })->prefix('admin');
 
    // Scoreboard
    // melihat list user pada kelompok
@@ -119,25 +144,30 @@ Route::middleware('auth')->group(function () {
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
 
-
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {
       //Followers
       //top 3 followers
-      Route::get('/top-followers', [UserController::class, 'topFollowers']);
+      Route::get('/top-followers', [RelasiController::class, 'topFollowers']);
       //search maba
-      Route::post('/search', [UserController::class, 'search']);
+      Route::post('/search', [RelasiController::class, 'search']);
       //seluruh list maba
-      Route::get('/list-maba', [UserController::class, 'listMaba']);
+      Route::get('/list-maba', [RelasiController::class, 'listMaba']);
       //follow button
-      Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
+      Route::post('/follow/{id}', [RelasiController::class, 'follow'])->name('follow');
    });
 
-   Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
+   Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
+      //Presensi PPLK
+      Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
+      Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
    });
 
-   Route::middleware(['checkRole:Admin'])->group(function () {
+   Route::prefix('api')->group(function () {
+      Route::get('kelompok/score', [GameController::class, 'getScoreKelompok']);
+      Route::get('user/score', [GameController::class, 'getUserScore']);
    });
 });
+
 require __DIR__ . '/auth.php';
 require __DIR__ . '/ui.php';

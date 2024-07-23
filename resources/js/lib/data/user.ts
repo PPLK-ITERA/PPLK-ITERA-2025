@@ -17,5 +17,6 @@ export const users: User[] = [
         profileImageUrl: logopplk,
         instagramUrl: "https://www.instagram.com/radhinka.bagaskara/",
         linkedinUrl: "https://www.linkedin.com/in/cewe-anime-764572286/",
+        role_id: 1,
     })),
 ];
