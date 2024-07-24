@@ -128,7 +128,15 @@ class PresensiCuiController extends Controller
    public function status($code)
    {
       if (Qrcode::where('code', $code)->doesntExist()) {
-         return response()->json(['message' => 'QR Code tidak ditemukan'], 404);
+         return Inertia::render("Dashboard/cui/absensi/result/Page", [
+            "response" => [
+               "status" => 404,
+               "message" => "User tidak ditemukan",
+               "data" => [
+                  'result' => $code
+               ]
+            ]
+         ]);
       }
       $userid = Qrcode::where('code', $code)->first()->user_id;
       $user = User::find($userid);

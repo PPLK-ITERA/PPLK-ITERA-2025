@@ -4,8 +4,8 @@ import React from "react";
 
 import { IconPencil } from "@tabler/icons-react";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
-import { Button } from "@/Components/dashboard/ui/button";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
+import { Button } from "@/Components/ui/button";
 
 import logopplk from "!assets/logo-pplk-2024.png";
 

@@ -9,7 +9,7 @@ function Page({ auth, response }) {
         <DashboardLayout user={auth.user}>
             {response && response.status === 404 ? (
                 <ResultCardNotFound
-                    result={response.data.qr_code}
+                    result={response.data.result}
                     routeBack={'dashboard.cui'}
                     routeScan={'dashboard.cui.absensi'}
                     message={response.message}
