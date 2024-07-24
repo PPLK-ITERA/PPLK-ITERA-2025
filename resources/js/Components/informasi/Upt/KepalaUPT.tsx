@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SocialMediaData } from "@/constants/upt";
+import { SocialMediaData } from "@/lib/data/upt";
 
 import maskot from "!assets/maskot.png";
 

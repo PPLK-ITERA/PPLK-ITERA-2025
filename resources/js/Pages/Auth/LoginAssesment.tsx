@@ -8,10 +8,10 @@ import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import { Button } from "@/Components/dashboard/ui/button";
-import { Input } from "@/Components/dashboard/ui/input";
-import { useToast } from "@/Components/dashboard/ui/use-toast";
 import CarouselForm from "@/Components/fragments/CarouselForm";
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
+import { useToast } from "@/Components/ui/use-toast";
 
 export default function Login({ auth, laravelVersion, phpVersion }) {
     const { data, setData, post, processing, errors, reset } = useForm({

@@ -1,14 +1,10 @@
 "use client";
 
-import { Link } from "@inertiajs/react";
+import { Link, router } from "@inertiajs/react";
 
-import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-} from "@/Components/dashboard/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 // import { signOut, useSession } from "next-auth/react";
-import { Button } from "@/Components/dashboard/ui/button";
+import { Button } from "@/Components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -18,14 +14,14 @@ import {
     DropdownMenuSeparator,
     DropdownMenuShortcut,
     DropdownMenuTrigger,
-} from "@/Components/dashboard/ui/dropdown-menu";
+} from "@/Components/ui/dropdown-menu";
 
 export function UserNav({ name }) {
     // const { data: session } = useSession();
     const session = true;
     const signOut = (e) => {
         e.preventDefault();
-        Inertia.post("/logout");
+        router.post("/logout");
     };
     if (session) {
         return (

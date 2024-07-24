@@ -10,7 +10,7 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
-import { DataFilosofiLogo } from "@/constants/data";
+import { DataFilosofiLogo } from "@/lib/data/data";
 
 import alas_filosofi from "!assets/alas-filosofi.png";
 

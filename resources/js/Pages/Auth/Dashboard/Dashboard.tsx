@@ -9,10 +9,10 @@ import { Head } from "@inertiajs/react";
 
 import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/Components/dashboard/ui/button";
-import { useToast } from "@/Components/dashboard/ui/use-toast";
 import { QuizSkeleton } from "@/Components/fragments/QuizSkeleton";
+import { Button } from "@/Components/ui/button";
 import { Progress } from "@/Components/ui/progress";
+import { useToast } from "@/Components/ui/use-toast";
 
 export default function Dashboard({ auth }) {
     const { toast } = useToast();

@@ -9,7 +9,6 @@
         "^lucide-react$",
         "^@tabler/icons-react$",
         "^@/Components(.*)$",
-        "^@/constants(.*)$",
         "^@/hookform(.*)$",
         "^@/lib(.*)$",
         "^!assets(.*)$"

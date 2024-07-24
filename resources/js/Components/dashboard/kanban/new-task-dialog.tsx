@@ -1,9 +1,6 @@
 "use client";
 
-import { Textarea } from "../ui/textarea";
-import { useTaskStore } from "@/lib/store";
-
-import { Button } from "@/Components/dashboard/ui/button";
+import { Button } from "@/Components/ui/button";
 import {
     Dialog,
     DialogContent,
@@ -12,8 +9,11 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/Components/dashboard/ui/dialog";
-import { Input } from "@/Components/dashboard/ui/input";
+} from "@/Components/ui/dialog";
+import { Input } from "@/Components/ui/input";
+import { Textarea } from "@/Components/ui/textarea";
+
+import { useTaskStore } from "@/lib/store";
 
 export default function NewTaskDialog() {
     const addTask = useTaskStore((state) => state.addTask);

@@ -27,16 +27,16 @@
 
 // import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
-// import { Button } from "@/Components/dashboard/ui/button";
-// import { Input } from "@/Components/dashboard/ui/input";
-// import { ScrollArea, ScrollBar } from "@/Components/dashboard/ui/scroll-area";
+// import { Button } from "@/Components/ui/button";
+// import { Input } from "@/Components/ui/input";
+// import { ScrollArea, ScrollBar } from "@/Components/ui/scroll-area";
 // import {
 //     Select,
 //     SelectContent,
 //     SelectItem,
 //     SelectTrigger,
 //     SelectValue,
-// } from "@/Components/dashboard/ui/select";
+// } from "@/Components/ui/select";
 
 // interface DataTableProps<TData, TValue> {
 //     columns: ColumnDef<TData, TValue>[];
