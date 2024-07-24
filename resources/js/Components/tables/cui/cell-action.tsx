@@ -1,21 +1,21 @@
 "use client";
 
-import { User } from "@/constants/data";
-
 // import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 
+import { AlertModal } from "@/Components/dashboard/modal/alert-modal";
+import { Button } from "@/Components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuTrigger,
-} from "@/Components/dashboard/ui/dropdown-menu";
-import { AlertModal } from "@/Components/dashboard/modal/alert-modal";
-import { Button } from "@/Components/ui/button";
+} from "@/Components/ui/dropdown-menu";
+
+import { User } from "@/lib/data/data";
 import { LogBookCui } from "@/lib/types/LogBookCui";
 
 interface CellActionProps {
@@ -38,12 +38,8 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                 loading={loading}
             />
             <div className="flex gap-1 p-2">
-                <Button size="sm">
-                    Atur Izin
-                </Button>
-                <Button size="sm">
-                    Edit
-                </Button>
+                <Button size="sm">Atur Izin</Button>
+                <Button size="sm">Edit</Button>
             </div>
         </>
     );

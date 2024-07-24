@@ -23,14 +23,15 @@ class FAQController extends Controller
    }
    public function index()
    {
-      $faqs = FAQ::all();
-      return Inertia::render('Dashboard/faq/Page', [
-         'response' => [
-            'status' => 200,
-            'message' => 'Success',
-            'data' => $faqs
-         ]
-      ]);
+      // $faqs = FAQ::all();
+      // return Inertia::render('Dashboard/faq/Page', [
+      //    'response' => [
+      //       'status' => 200,
+      //       'message' => 'Success',
+      //       'data' => $faqs
+      //    ]
+      // ]);
+      return Inertia::render('Dashboard/faq/Page');
    }
    public function create()
    {
@@ -51,10 +52,10 @@ class FAQController extends Controller
             'teks_jawaban' => $validated['jawaban'],
          ]);
          DB::commit();
-         return redirect()->route('faq.index')->with('message', 'Berhasil menambahkan data');
+         return redirect()->route('dashboard.faq')->with('message', 'Berhasil menambahkan data');
       } catch (\Throwable $th) {
          DB::rollBack();
-         return redirect()->route('faq.index')->with('message', 'Gagal menambahkan data');
+         return redirect()->route('dashboard.faq')->with('message', 'Gagal menambahkan data');
       }
    }
 
@@ -63,38 +64,83 @@ class FAQController extends Controller
    }
 
    // Memperbarui FAQ
-   public function update(Request $request, FAQ $faq)
+   // public function update(Request $request)
+   // {
+   //    $validated = $request->validate([
+   //       'id' => 'required|integer',
+   //       'teks_pertanyaan' => 'required|string',
+   //       'teks_jawaban' => 'required|string',
+   //    ]);
+
+   //    DB::beginTransaction();
+   //    try {
+   //       $faq = FAQ::find($validated['id']);
+   //       $faq->update($validated);
+   //       DB::commit();
+   //       return redirect()->route('dashboard.faq')->with('message', 'Berhasil mengubah data');
+   //    } catch (\Throwable $th) {
+   //       DB::rollBack();
+   //       return Inertia::render('Dashboard/faq/Page', [
+   //          'response' => [
+   //             'status' => 500,
+   //             'message' => $th,
+   //             'data' => $faq
+   //          ]
+   //       ]);
+   //    }
+   // }
+   public function update(Request $request)
    {
       $validated = $request->validate([
+         'id' => 'required|integer',
          'teks_pertanyaan' => 'required|string',
          'teks_jawaban' => 'required|string',
       ]);
 
       DB::beginTransaction();
       try {
+         $faq = FAQ::find($validated['id']);
+
+         if (!$faq) {
+            return redirect()->route('dashboard.faq')->with('error', 'Data not found');
+         }
+
          $faq->update($validated);
          DB::commit();
-         return redirect()->route('faq.index')->with('message', 'Berhasil mengubah data');
+
+         return redirect()->route('dashboard.faq')->with('message', 'Berhasil mengubah data');
       } catch (\Throwable $th) {
          DB::rollBack();
+
          return Inertia::render('Dashboard/faq/Page', [
             'response' => [
                'status' => 500,
-               'message' => 'Kesalahan server internal',
-               'data' => $faq
+               'message' => 'Internal Server Error',
+               'data' => $validated // Include validated data for context
             ]
          ]);
       }
    }
 
+
    // Menghapus FAQ
-   public function destroy(FAQ $faq)
+   public function destroy(Request $request)
    {
+      $validated = $request->validate([
+         'id' => 'required|integer',
+      ]);
+
       DB::beginTransaction();
       try {
+         $faq = FAQ::find($validated['id']);
+
+         if (!$faq) {
+            return redirect()->route('dashboard.faq')->with('error', 'Data not found');
+         }
+
          $faq->delete();
          DB::commit();
-         return redirect()->route('faq.index')->with('message', 'Berhasil menghapus data');
+         return redirect()->route('dashboard.faq')->with('message', 'Berhasil menghapus data');
       } catch (\Throwable $th) {
          DB::rollBack();
          return Inertia::render('Dashboard/faq/Page', [
@@ -104,5 +150,34 @@ class FAQController extends Controller
             ]
          ]);
       }
+   }
+
+   public function getAllFAQ(Request $request)
+   {
+      // return Inertia::render('Dashboard/faq/Page');
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+
+      $query = FAQ::query()
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->where('teks_pertanyaan', 'like', '%' . $searchTerm . '%')
+               ->orWhere('teks_jawaban', 'like', '%' . $searchTerm . '%');
+         });
+
+      $faqs = $query->paginate($perPage);
+
+      $currentPage = $faqs->currentPage(); // Halaman saat ini
+      $perPage = $faqs->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $faqs->getCollection()->transform(function ($faq) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex, // Nomor urut
+            'faq' => $faq
+         ];
+      });
+
+      return response()->json($faqs);
    }
 }

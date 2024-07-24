@@ -1,4 +1,5 @@
 import { Button } from "./button";
+import { Heading } from "./heading";
 import { Input } from "./input";
 // Asumsi Button dan Input ada di path ini
 import { ScrollArea, ScrollBar } from "./scroll-area";
@@ -20,7 +21,6 @@ import {
     TableHeader,
     TableRow,
 } from "@/Components/ui/table";
-import { Heading } from "./heading";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -35,7 +35,7 @@ export function DataTable<TData, TValue>({
     searchKey,
     apiEndpoint,
     title,
-    description
+    description,
 }: DataTableProps<TData, TValue>) {
     const [data, setData] = useState<TData[]>([]);
     const [loading, setLoading] = useState(false);
@@ -44,7 +44,6 @@ export function DataTable<TData, TValue>({
     const [totalRows, setTotalRows] = useState(0);
     const [search, setSearch] = useState("");
 
-    console.log(data);
     const fetchTableData = async () => {
         setLoading(true);
         const response = await fetch(
@@ -99,7 +98,7 @@ export function DataTable<TData, TValue>({
             />
 
             <ScrollArea className="max-w-6xl h-[calc(80vh-220px)] rounded-md border">
-                <Table className="relative md:w-full">
+                <Table className="md:w-full relative">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -109,10 +108,10 @@ export function DataTable<TData, TValue>({
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
-                                                    header.column.columnDef
-                                                        .header,
-                                                    header.getContext(),
-                                                )}
+                                                      header.column.columnDef
+                                                          .header,
+                                                      header.getContext(),
+                                                  )}
                                         </TableHead>
                                     );
                                 })}
@@ -134,10 +133,12 @@ export function DataTable<TData, TValue>({
                                 <TableRow key={row.id}>
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>
-                                            {flexRender(
-                                                cell.column.columnDef.cell,
-                                                cell.getContext(),
-                                            )}
+                                            <div className="line-clamp-2">
+                                                {flexRender(
+                                                    cell.column.columnDef.cell,
+                                                    cell.getContext(),
+                                                )}
+                                            </div>
                                         </TableCell>
                                     ))}
                                 </TableRow>

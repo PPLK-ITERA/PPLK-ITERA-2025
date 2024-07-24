@@ -40,7 +40,7 @@ export function MobileSidebar({ className }: SidebarProps) {
                         </div>
                     </SheetClose>
 
-                    <div className="py-4 space-y-4">
+                    <div className="relative py-4 space-y-4">
                         <div className="px-3 py-2">
                             <h2 className="px-4 mb-2 text-lg font-semibold tracking-tight">
                                 Overview

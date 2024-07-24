@@ -9,12 +9,12 @@ import { LogBookCui } from "@/lib/types/LogBookCui";
 
 export const columns: ColumnDef<LogBookCui>[] = [
     {
-        id: 'no',
+        id: "no",
         header: "No",
         cell: ({ row }) => row.original.no,
     },
     {
-        id: 'photo_profile',
+        id: "photo_profile",
         accessorKey: "user.photo_profile_url",
         header: "Foto Profil",
         enableResizing: true, //disable resizing for just this column
@@ -27,7 +27,7 @@ export const columns: ColumnDef<LogBookCui>[] = [
         ),
     },
     {
-        id: 'qrcode',
+        id: "qrcode",
         accessorKey: "user.qrcode",
         header: "QR Code",
         cell: ({ row }) => (
@@ -69,7 +69,7 @@ export const columns: ColumnDef<LogBookCui>[] = [
         ),
     },
     {
-        id: 'waktu_hadir',
+        id: "waktu_hadir",
         accessorKey: "waktu_hadir",
         header: "Waktu Masuk",
         cell: ({ row }) => (
@@ -81,7 +81,7 @@ export const columns: ColumnDef<LogBookCui>[] = [
         ),
     },
     {
-        id: 'waktu_izin',
+        id: "waktu_izin",
         accessorKey: "waktu_izin",
         header: "Waktu Izin",
         cell: ({ row }) => (
@@ -93,7 +93,7 @@ export const columns: ColumnDef<LogBookCui>[] = [
         ),
     },
     {
-        id: 'waktu_selesai',
+        id: "waktu_selesai",
         accessorKey: "waktu_selesai",
         header: "Waktu Selesai izin",
         cell: ({ row }) => (
@@ -105,7 +105,7 @@ export const columns: ColumnDef<LogBookCui>[] = [
         ),
     },
     {
-        id: 'ket_izin',
+        id: "ket_izin",
         accessorKey: "ket_izin",
         header: "Alasan Izin Terakhir",
         cell: ({ row }) => (

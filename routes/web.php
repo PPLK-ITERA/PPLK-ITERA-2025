@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
       });
 
       Route::resource('booklet', BookletController::class)->names('booklet');
-      Route::resource('faq', FAQController::class)->names('faq');
+      // Route::resource('faq', FAQController::class)->names('faq');
 
       // Route::prefix('kelompok')->group(function () {
       //    Route::resource('/', UserKelompokController::class)->names('kelompok');
