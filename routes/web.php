@@ -12,6 +12,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
+use App\Http\Controllers\User\KelompokController as UserKelompokController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
@@ -62,12 +63,11 @@ Route::middleware('auth')->group(function () {
       });
 
       Route::resource('booklet', BookletController::class)->names('booklet');
-
       Route::resource('faq', FAQController::class)->names('faq');
 
-      Route::prefix('kelompok')->group(function () {
-         Route::resource('/', KelompokController::class)->names('kelompok');
-      });
+      // Route::prefix('kelompok')->group(function () {
+      //    Route::resource('/', UserKelompokController::class)->names('kelompok');
+      // });
    });
 
    //Presensi CUI
