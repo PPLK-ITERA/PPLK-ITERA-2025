@@ -205,9 +205,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard FAQ (Auth)
    // =====================================
-   Route::get('dashboard/faq', function () {
-      return Inertia::render('Dashboard/faq/Page');
-   })->name('dashboard/faq');
+   // Route::get('dashboard/faq', function () {
+   //    return Inertia::render('Dashboard/faq/Page');
+   // })->name('dashboard/faq');
 
 
    // =====================================
