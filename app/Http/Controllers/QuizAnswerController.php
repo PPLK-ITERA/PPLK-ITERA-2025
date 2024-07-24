@@ -44,7 +44,7 @@ class QuizAnswerController extends Controller
 
     $score = 0;
     foreach ($answers as $answer) {
-        $correctAnswer = QuizAnswer::where('question_id', $answer['question_id'])
+        $correctAnswer = quiz_answer::where('question_id', $answer['question_id'])
                                    ->where('id', $answer['answer_id'])
                                    ->where('is_correct', 1)
                                    ->exists();
@@ -82,8 +82,6 @@ class QuizAnswerController extends Controller
         'data' => null
     ]);
 }
-
-    
 
     public function test(){
         return view("test");
