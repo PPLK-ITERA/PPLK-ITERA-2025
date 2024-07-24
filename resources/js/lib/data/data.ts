@@ -107,7 +107,7 @@ export const navItems: NavItem[] = [
         href: "/dashboard/faq",
         icon: "question",
         label: "atur-faq",
-        role_id: [2, 1],
+        role_id: [2, 1, 3],
     },
     {
         title: "Mading",

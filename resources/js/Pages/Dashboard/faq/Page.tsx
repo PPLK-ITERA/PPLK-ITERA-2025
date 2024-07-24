@@ -36,7 +36,7 @@ export default function Page({ auth, response }) {
     });
 
     const addFAQ = () => {
-        post(route("faqs.store"));
+        post(route("faq.store"));
     };
 
     return (

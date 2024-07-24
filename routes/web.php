@@ -7,6 +7,7 @@ use App\Http\Controllers\Game\GameController;
 use App\Http\Controllers\QuizAnswerController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UnlockStatusController;
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;

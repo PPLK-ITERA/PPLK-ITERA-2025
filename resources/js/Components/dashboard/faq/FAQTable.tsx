@@ -12,8 +12,8 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
-} from "@/Components/dashboard/ui/alert-dialog";
-import { Button } from "@/Components/dashboard/ui/button";
+} from "@/Components/ui/alert-dialog";
+import { Button } from "@/Components/ui/button";
 import {
     Dialog,
     DialogContent,
@@ -22,9 +22,9 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/Components/dashboard/ui/dialog";
-import { Input } from "@/Components/dashboard/ui/input";
-import { Label } from "@/Components/dashboard/ui/label";
+} from "@/Components/ui/dialog";
+import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
 import {
     Table,
     TableBody,
@@ -34,8 +34,8 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/Components/dashboard/ui/table";
-import { Textarea } from "@/Components/dashboard/ui/textarea";
+} from "@/Components/ui/table";
+import { Textarea } from "@/Components/ui/textarea";
 import { useToast } from "@/Components/ui/use-toast";
 
 export type dataFAQS = {
@@ -68,7 +68,7 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
 
     const editFAQ = (faq: dataFAQS) => {
         put(
-            route("faqs.update", faq, {
+            route("faq.update", faq, {
                 onSuccess: () => {
                     toast({
                         title: "FAQ berhasil diubah.",
@@ -81,7 +81,7 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
 
     // Todo: Add toaster for success and error message
     const deleteFAQ = (faq: dataFAQS) => {
-        destroy(route("faqs.destroy", faq), {
+        destroy(route("faq.destroy", faq), {
             onSuccess: () => {
                 toast({
                     title: "FAQ berhasil dihapus.",
