@@ -14,7 +14,6 @@ use Inertia\Inertia;
 
 class UserController extends Controller
 {
-   //TODO: CRUD nya belom
    /**
     * Display a listing of the resource.
     */
@@ -22,13 +21,15 @@ class UserController extends Controller
    {
       return Inertia::render('Dashboard/user/Page');
    }
-   public function getUsers(Request $request)
+
+   public function getUsersMaba(Request $request)
    {
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
       $query = User::query()
-         ->with(['user', 'user.penyakit', 'user.kelompok']) // Memastikan semua data yang diperlukan di eager load
+         ->where('role_id', 1) // Hanya user dengan role Maba
+         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
          ->when($searchTerm, function ($query) use ($searchTerm) {
             return $query->whereHas('user', function ($q) use ($searchTerm) {
                $q->where('name', 'like', '%' . $searchTerm . '%')
@@ -52,20 +53,165 @@ class UserController extends Controller
                'name' => $user->name,
                'nim' => $user->nim,
                'email' => $user->email,
-               'photo_profile_url' => $user->photo_profile_url,
-               'qrcode' => $user->qrcode->code,
-               'nama_kelompok' => $user->kelompok->nama_kelompok,
-               'penyakit' => [
-                  'pita' => $user->penyakit->pita,
-                  'ket_penyakit' => $user->penyakit->ket_penyakit,
-               ],
+               'role' => $user->role->role,
             ],
          ];
       });
 
       return response()->json($users);
    }
+   public function getUsersDapmen(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
 
+      $query = User::query()
+         ->whereIn('role_id', [2, 4]) // Hanya user dengan role Maba
+         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->whereHas('user', function ($q) use ($searchTerm) {
+               $q->where('name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
+            });
+         });
+
+      $users = $query->paginate($perPage);
+
+      $currentPage = $users->currentPage(); // Halaman saat ini
+      $perPage = $users->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $users->getCollection()->transform(function ($user) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex, // Nomor urut
+            'id' => $user->id,
+            'user' => [
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'email' => $user->email,
+               'role' => $user->role->role,
+            ],
+         ];
+      });
+
+      return response()->json($users);
+   }
+   public function getUsersPjprodi(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+
+      $query = User::query()
+         ->where('role_id', 5) // Hanya user dengan role Maba
+         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->whereHas('user', function ($q) use ($searchTerm) {
+               $q->where('name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
+            });
+         });
+
+      $users = $query->paginate($perPage);
+
+      $currentPage = $users->currentPage(); // Halaman saat ini
+      $perPage = $users->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $users->getCollection()->transform(function ($user) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex, // Nomor urut
+            'id' => $user->id,
+            'user' => [
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'email' => $user->email,
+               'role' => $user->role->role,
+            ],
+         ];
+      });
+
+      return response()->json($users);
+   }
+   public function getUsersKorlap(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+
+      $query = User::query()
+         ->where('role_id', 6) // Hanya user dengan role Maba
+         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->whereHas('user', function ($q) use ($searchTerm) {
+               $q->where('name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
+            });
+         });
+
+      $users = $query->paginate($perPage);
+
+      $currentPage = $users->currentPage(); // Halaman saat ini
+      $perPage = $users->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $users->getCollection()->transform(function ($user) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex, // Nomor urut
+            'id' => $user->id,
+            'user' => [
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'email' => $user->email,
+               'role' => $user->role->role,
+            ],
+         ];
+      });
+
+      return response()->json($users);
+   }
+   public function getUsersMamet(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+
+      $query = User::query()
+         ->where('role_id', 7) // Hanya user dengan role Maba
+         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->whereHas('user', function ($q) use ($searchTerm) {
+               $q->where('name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
+            });
+         });
+
+      $users = $query->paginate($perPage);
+
+      $currentPage = $users->currentPage(); // Halaman saat ini
+      $perPage = $users->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $users->getCollection()->transform(function ($user) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex, // Nomor urut
+            'id' => $user->id,
+            'user' => [
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'email' => $user->email,
+               'role' => $user->role->role,
+            ],
+         ];
+      });
+
+      return response()->json($users);
+   }
    /**
     * Show the form for creating a new resource.
     */
