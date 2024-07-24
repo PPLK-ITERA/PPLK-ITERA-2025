@@ -55,12 +55,14 @@ export function FAQTable({ dataFAQS }: { dataFAQS: dataFAQS[] }) {
         errors,
         reset,
     } = useForm({
+        id: 0,
         teks_pertanyaan: "",
         teks_jawaban: "",
     });
 
     const changeData = (faq: dataFAQS) => {
         setData({
+            id: faq.id,
             teks_pertanyaan: faq.teks_pertanyaan,
             teks_jawaban: faq.teks_jawaban,
         });

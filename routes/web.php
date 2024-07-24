@@ -61,13 +61,9 @@ Route::middleware('auth')->group(function () {
          Route::get('/', [UserController::class, 'index'])->name('user.index');
       });
 
-      Route::prefix('booklet')->group(function () {
-         Route::resource('/', BookletController::class)->names('booklet');
-      });
+      Route::resource('booklet', BookletController::class)->names('booklet');
 
-      Route::prefix('faq')->group(function () {
-         Route::resource('/', FAQController::class)->names('faq');
-      });
+      Route::resource('faq', FAQController::class)->names('faq');
 
       Route::prefix('kelompok')->group(function () {
          Route::resource('/', KelompokController::class)->names('kelompok');
