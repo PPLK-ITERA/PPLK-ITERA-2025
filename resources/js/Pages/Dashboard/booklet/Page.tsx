@@ -1,7 +1,8 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { format } from "date-fns";
+import { useDebouncedCallback } from "use-debounce";
 
-import React from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 
 import { CalendarIcon } from "lucide-react";
 
@@ -29,6 +30,8 @@ import {
 } from "@/Components/ui/dialog";
 
 import { cn } from "@/lib/utils";
+import { useForm } from "@inertiajs/react";
+import BookletForm from "@/Components/dashboard/booklet/BookletForm";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
@@ -36,12 +39,16 @@ const breadcrumbItems = [
 ];
 
 export default function Page({ auth, response }) {
-    const [date, setDate] = React.useState<Date>();
-    const [isValidUrl, setIsValidUrl] = React.useState(false);
+    const { data, setData, post, processing } = useForm({
+        nama_booklet: "",
+        url_booklet: "",
+    });
 
-    function validateUrl(url: string) {
-        // https://www.googleapis.com/drive/v2/files/1MZJncNc6-fz-NiF7qfZigUEVcEmjAD7O?key=AIzaSyB4-JCqVpt3dC5MlC0Q6yQOSYG0uysdvwc
-        setIsValidUrl(/^https:\/\/(www\.)?drive\.google\.com\/.*$/g.test(url));
+    function submit(e: FormEvent) {
+        const data = new FormData(e.target as HTMLFormElement);
+        setData("nama_booklet", data.get("nama_booklet") as string);
+        setData("url_booklet", data.get("url_booklet") as string);
+        post(route())
     }
 
     return (
@@ -62,90 +69,12 @@ export default function Page({ auth, response }) {
                         <DialogHeader>
                             <DialogTitle>Tambah Booklet</DialogTitle>
                         </DialogHeader>
-                        <form className="grid gap-4 py-4">
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label
-                                    htmlFor="nama_booklet"
-                                    className="text-right"
-                                >
-                                    Nama Booklet
-                                </Label>
-                                <Input
-                                    id="nama_booklet"
-                                    required
-                                    type="text"
-                                    maxLength={500}
-                                    className="col-span-3"
-                                />
-                            </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label
-                                    htmlFor="url_booklet"
-                                    className="text-right"
-                                    onchange={(e) => validateUrl(e.target.value)}
-                                >
-                                    Link Google Drive Booklet
-                                </Label>
-                                <Input
-                                    id="url_booklet"
-                                    required
-                                    type="text"
-                                    maxLength={500}
-                                    className="col-span-3"
-                                />
-                            </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="name" className="text-right">
-                                    Deadline
-                                </Label>
-                                <Input
-                                    id="deadline"
-                                    required
-                                    type="date"
-                                    value={
-                                        date ? format(date, "yyyy-MM-dd") : ""
-                                    }
-                                    maxLength={500}
-                                    className="hidden col-span-3"
-                                    hidden
-                                />
-                                <Popover>
-                                    <PopoverTrigger asChild>
-                                        <Button
-                                            variant={"outline"}
-                                            className={cn(
-                                                "w-[280px] justify-start text-left font-normal",
-                                                !date &&
-                                                    "text-muted-foreground",
-                                            )}
-                                        >
-                                            <CalendarIcon className="mr-2 h-4 w-4" />
-                                            {date ? (
-                                                format(date, "PPP")
-                                            ) : (
-                                                <span>Pick a date</span>
-                                            )}
-                                        </Button>
-                                    </PopoverTrigger>
-                                    <PopoverContent className="w-auto p-0">
-                                        <Calendar
-                                            mode="single"
-                                            selected={date}
-                                            onSelect={setDate}
-                                            initialFocus
-                                        />
-                                    </PopoverContent>
-                                </Popover>
-                            </div>
-                        </form>
-                        <DialogFooter>
-                            <Button type="submit">Save changes</Button>
-                        </DialogFooter>
+                        <BookletForm onSubmit={submit} />
                     </DialogContent>
                 </Dialog>
             </div>
 
-            <BookletTable booklets={response.data} />
+            <BookletTable booklets={response.data} onsubmi />
         </DashboardLayout>
     );
 }
