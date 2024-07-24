@@ -225,6 +225,18 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');
 
+
+   // =====================================
+   // Dashboard Dapmen Menu (Auth)
+   // =====================================
+   Route::get('dashboard/informasi-kelompok', function () {
+      return Inertia::render('Dashboard/informasi-kelompok/Page');
+   })->name('dashboard/informasi-kelompok');
+
+   Route::get('dashboard/informasi-kelompok/edit-maba', function () {
+      return Inertia::render('Dashboard/informasi-kelompok/detail-maba/Page');
+   })->name('dashboard/informasi-kelompok/edit-maba');
+
    // =====================================
    // Dashboard CUI(Auth)
    // =====================================

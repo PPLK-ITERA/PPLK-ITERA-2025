@@ -122,7 +122,7 @@ export function KelompokTable() {
                         <TableCell className="flex gap-2 text-right">
                             <Link
                                 className={`${buttonVariants()} gap-2`}
-                                href="/informasi-kelompok/edit-maba"
+                                href="/dashboard/informasi-kelompok/edit-maba"
                             >
                                 Edit
                             </Link>
