@@ -29,7 +29,7 @@ export default function Page({ auth }) {
 
             <div className="flex items-center justify-start gap-2 font-semibold">
                 <p className="text-lg">Kelompok 73 Nawasena</p>
-                <IconPencil className="-mt-[2px]" />
+                <IconPencil className="-mt-[1px] cursor-pointer" />
             </div>
 
             <div className="flex max-w-sm gap-2">

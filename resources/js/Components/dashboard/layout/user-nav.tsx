@@ -1,29 +1,22 @@
 "use client";
 
-import { Link, router } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
+
+import { IconLayoutNavbarFilled, IconLogout } from "@tabler/icons-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
-// import { signOut, useSession } from "next-auth/react";
 import { Button } from "@/Components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
 export function UserNav({ name }) {
-    // const { data: session } = useSession();
-    const session = true;
-    const signOut = (e) => {
-        e.preventDefault();
-        router.post("/logout");
-    };
-    if (session) {
+    if (name) {
         return (
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -31,52 +24,30 @@ export function UserNav({ name }) {
                         variant="ghost"
                         className="relative w-8 h-8 rounded-full"
                     >
-                        {name}
-                        {/* <Avatar className="w-8 h-8">
-                            <AvatarImage
-                                src={session.user?.image ?? ""}
-                                alt={session.user?.name ?? ""}
-                            />
+                        <Avatar className="w-8 h-8">
+                            <AvatarImage />
                             <AvatarFallback>
-                                {session.user?.name?.[0]}
+                                {name.charAt(0).toUpperCase()}
                             </AvatarFallback>
-                        </Avatar> */}
+                        </Avatar>
                     </Button>
                 </DropdownMenuTrigger>
+
                 <DropdownMenuContent className="w-56" align="end" forceMount>
                     <DropdownMenuLabel className="font-normal">
-                        <div className="flex flex-col space-y-1">
-                            {/* <p className="text-sm font-medium leading-none">
-                                {session.user?.name}
-                            </p>
-                            <p className="text-muted-foreground text-xs leading-none">
-                                {session.user?.email}
-                            </p> */}
-                        </div>
+                        <div className="flex flex-col space-y-1">{name}</div>
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuGroup>
-                        <DropdownMenuItem>
-                            Profile
-                            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            Billing
-                            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            Settings
-                            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>New Team</DropdownMenuItem>
-                    </DropdownMenuGroup>
+                    <DropdownMenuItem className="flex items-center justify-between w-full">
+                        <Link href="/">Landing Page</Link>
+                        <IconLayoutNavbarFilled className="mr-[2px]" />
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    {/* <DropdownMenuItem onClick={() => signOut()}> */}
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="flex items-center justify-between w-full">
                         <Link href={route("logout")} method="post">
                             Log out
                         </Link>
-                        <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                        <IconLogout />
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>

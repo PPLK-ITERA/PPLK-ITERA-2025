@@ -30,7 +30,7 @@ const breadcrumbItems = [
 export default function Page({ auth, response }) {
     const dataFAQS = response.data;
 
-    const { data, setData, post, put, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         pertanyaan: "",
         jawaban: "",
     });
