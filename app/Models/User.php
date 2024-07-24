@@ -88,7 +88,7 @@ class User extends Authenticatable
    }
    public function qrcode()
    {
-      return $this->belongsTo(Qrcode::class, 'qrcode_id', 'id');
+      return $this->hasOne(Qrcode::class, 'user_id', 'id');
    }
    public function prodi()
    {

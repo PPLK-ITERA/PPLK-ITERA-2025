@@ -51,9 +51,9 @@ Route::middleware('auth')->group(function () {
    //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
    //melihat my profile
-   Route::get('/myprofile', [ProfileController::class, 'show']);
-   Route::get('/myprofile/edit', [ProfileController::class, 'edit']);
-   Route::patch('/myprofile/edit', [ProfileController::class, 'update']);
+   Route::get('/myprofile', [ProfileController::class, 'show'])->name('my-profile');
+   Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+   Route::patch('/myprofile/edit', [ProfileController::class, 'update'])->name('profile.update');
 
    //dashboard
    Route::prefix('dashboard')->group(function () {
