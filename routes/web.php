@@ -47,15 +47,17 @@ Route::middleware('auth')->group(function () {
    //dashboard
    Route::prefix('dashboard')->group(function () {
       //User
-      Route::middleware(['checkRole' : 'Admin'])->group(function () {
-
+      Route::middleware(['checkRole : Admin'])->group(function () {
+         Route::get('user/data', [UserController::class, 'getUsers'])->name('user.data');
+         Route::get('user/dapmen/data', [UserController::class, 'getUsersDapmen'])->name('user.dapmen.data');
+         Route::get('user/pjprodi/data', [UserController::class, 'getUsersPjprodi'])->name('user.pjprodi.data');
+         Route::get('user/korlap/data', [UserController::class, 'getUsersKorlap'])->name('user.korlap.data');
+         Route::get('user/mamet/data', [UserController::class, 'getUsersMamet'])->name('user.mamet.data');
       });
-      Route::get('user/data', [UserController::class, 'getUsers'])->name('user.data');
-      Route::get('user/dapmen/data', [UserController::class, 'getUsersDapmen'])->name('user.dapmen.data');
-      Route::get('user/pjprodi/data', [UserController::class, 'getUsersPjprodi'])->name('user.pjprodi.data');
-      Route::get('user/korlap/data', [UserController::class, 'getUsersKorlap'])->name('user.korlap.data');
-      Route::get('user/mamet/data', [UserController::class, 'getUsersMamet'])->name('user.mamet.data');
-      Route::get('user/maba/data', [UserController::class, 'getUsersMaba'])->name('user.maba.data');
+      Route::middleware(['checkRole: Daplok,Mentor,Admin'])->group(function () {
+         Route::get('user/maba/data', [UserController::class, 'getUsersMaba'])->name('user.maba.data');
+      });
+
       Route::resource('user', UserController::class)->names('user');
 
       //Etc
