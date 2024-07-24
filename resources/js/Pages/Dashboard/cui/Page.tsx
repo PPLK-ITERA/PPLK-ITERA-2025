@@ -3,21 +3,10 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { useState } from "react";
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/Components/dashboard/ui/card";
-import {
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-} from "@/Components/dashboard/ui/tabs";
 import { LogBookClient } from "@/Components/tables/cui/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
+import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },

@@ -9,7 +9,7 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
-import { DataKegiatanFakultas, SocialMediaData } from "@/constants/fakultas";
+import { DataKegiatanFakultas, SocialMediaData } from "@/lib/data/fakultas";
 
 import gunung from "!assets/gunung.png";
 

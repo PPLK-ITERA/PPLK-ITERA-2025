@@ -7,7 +7,7 @@ import {
     AccordionTrigger,
 } from "@/Components/ui/accordion";
 
-import { DataAtribut } from "@/constants/data";
+import { DataAtribut } from "@/lib/data/data";
 
 export function AccordionAtribut() {
     const [clickedIndex, setClickedIndex] = useState<number | null>(null);

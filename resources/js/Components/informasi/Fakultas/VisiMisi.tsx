@@ -1,6 +1,6 @@
 import React from "react";
 
-import { VisiMisiFakultas } from "@/constants/fakultas";
+import { VisiMisiFakultas } from "@/lib/data/fakultas";
 
 export default function VisiMisi({ fakultas }: { fakultas: string }) {
     return (

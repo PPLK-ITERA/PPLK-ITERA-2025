@@ -4,8 +4,6 @@ import type { Column } from "./board-column";
 import { BoardColumn, BoardContainer } from "./board-column";
 import NewSectionDialog from "./new-section-dialog";
 import { TaskCard } from "./task-card";
-import { Task, useTaskStore } from "@/lib/store";
-import { hasDraggableData } from "@/lib/utils";
 import {
     Announcements,
     DndContext,
@@ -23,6 +21,9 @@ import { SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { createPortal } from "react-dom";
 
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+
+import { Task, useTaskStore } from "@/lib/store";
+import { hasDraggableData } from "@/lib/utils";
 
 // import { coordinateGetter } from "./multipleContainersKeyboardPreset";
 

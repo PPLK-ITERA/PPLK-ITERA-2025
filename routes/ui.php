@@ -44,7 +44,7 @@ Route::get('informasi/upt/{nama_upt}', function (string $nama_upt) {
    return Inertia::render('Informasi/Upt/Detail/Page', [
       'nama_upt' => $nama_upt
    ]);
-});
+})->name('informasi/upt/{nama_upt}');
 
 
 // =====================================
@@ -117,9 +117,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Profile (Auth)
    // =====================================
-   Route::get('profile', function () {
-      return Inertia::render('Profile/Page');
-   })->name('my-profile');
+   // Route::get('profile', function () {
+   //    return Inertia::render('Profile/Page');
+   // })->name('my-profile');
 
 
    // =====================================
@@ -205,9 +205,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard FAQ (Auth)
    // =====================================
-   Route::get('dashboard/faq', function () {
-      return Inertia::render('Dashboard/faq/Page');
-   })->name('dashboard/faq');
+   // Route::get('dashboard/faq', function () {
+   //    return Inertia::render('Dashboard/faq/Page');
+   // })->name('dashboard/faq');
 
 
    // =====================================
@@ -224,6 +224,18 @@ Route::middleware('auth')->group(function () {
    Route::get('dashboard/mading', function () {
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');
+
+
+   // =====================================
+   // Dashboard Dapmen Menu (Auth)
+   // =====================================
+   Route::get('dashboard/informasi-kelompok', function () {
+      return Inertia::render('Dashboard/informasi-kelompok/Page');
+   })->name('dashboard/informasi-kelompok');
+
+   Route::get('dashboard/informasi-kelompok/edit-maba', function () {
+      return Inertia::render('Dashboard/informasi-kelompok/detail-maba/Page');
+   })->name('dashboard/informasi-kelompok/edit-maba');
 
    // =====================================
    // Dashboard CUI(Auth)

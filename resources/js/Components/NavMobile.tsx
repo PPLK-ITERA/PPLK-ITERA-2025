@@ -30,7 +30,7 @@ import {
     InformasiDropDown,
     MabaDropDown,
     UserDropdown,
-} from "@/constants/navlink";
+} from "@/lib/data/navlink";
 
 import logopplk_white from "!assets/logo-pplk-20204-white.png";
 

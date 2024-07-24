@@ -4,6 +4,7 @@ import React from "react";
 
 import { IconPencil } from "@tabler/icons-react";
 
+import { KelompokTable } from "@/Components/dashboard/informasi-kelompok/KelompokTable";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
 
@@ -14,8 +15,7 @@ const breadcrumbItems = [
     { title: "Informasi Kelompok", link: "/dashboard/informasi-kelompok" },
 ];
 
-export default function Page({ auth, response }) {
-    console.log(response);
+export default function Page({ auth }) {
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
@@ -29,11 +29,11 @@ export default function Page({ auth, response }) {
 
             <div className="flex items-center justify-start gap-2 font-semibold">
                 <p className="text-lg">Kelompok 73 Nawasena</p>
-                <IconPencil className="-mt-[2px]" />
+                <IconPencil className="-mt-[1px] cursor-pointer" />
             </div>
 
-            <div className="flex gap-2">
-                <div className="px-2 py-3 border-2 rounded-md min-w-[150px]">
+            <div className="flex max-w-sm gap-2">
+                <div className="w-full px-2 py-3 border-2 rounded-md">
                     <h2 className="font-bold">Daplok</h2>
 
                     <div className="mt-5">
@@ -42,7 +42,7 @@ export default function Page({ auth, response }) {
                     </div>
                 </div>
 
-                <div className="px-2 py-3 border-2 rounded-md min-w-[150px]">
+                <div className="w-full px-2 py-3 border-2 rounded-md">
                     <h2 className="font-bold">Mentor</h2>
 
                     <div className="mt-5">
@@ -52,11 +52,13 @@ export default function Page({ auth, response }) {
                 </div>
             </div>
 
-            <div className="px-10 py-5 border-2 rounded-md">
-                <h2>Absensi Maba</h2>
+            <div className="flex flex-col items-center justify-center max-w-sm px-10 py-5 border-2 rounded-md">
+                <h2 className="font-semibold">Absensi Maba</h2>
 
-                <Button>Mulai Absen Maba</Button>
+                <Button className="mt-3">Mulai Absen Maba</Button>
             </div>
+
+            <KelompokTable />
         </DashboardLayout>
     );
 }

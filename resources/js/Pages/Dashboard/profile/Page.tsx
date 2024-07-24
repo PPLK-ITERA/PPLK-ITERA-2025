@@ -1,8 +1,8 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { CreateProfileOne } from "@/Components/dashboard/forms/user-profile-stepper/create-profile";
-import { ScrollArea } from "@/Components/dashboard/ui/scroll-area";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
+import { ScrollArea } from "@/Components/ui/scroll-area";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },

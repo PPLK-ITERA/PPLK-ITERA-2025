@@ -11,14 +11,22 @@ interface QRScannerProps {
     pause: boolean;
 }
 
-const QRScanner: React.FC<QRScannerProps> = ({ onScan, onError, scanDelay, onBack, pause }) => {
+const QRScanner: React.FC<QRScannerProps> = ({
+    onScan,
+    onError,
+    scanDelay,
+    onBack,
+    pause,
+}) => {
     const webcamRef = useRef<Webcam>(null);
     const audioRef = useRef<HTMLAudioElement>(null);
     const [codeReader, setCodeReader] = useState<any>(null);
     const [notFoundException, setNotFoundException] = useState<any>(null);
     const [scanning, setScanning] = useState(true);
     const [devices, setDevices] = useState<MediaDeviceInfo[]>([]);
-    const [selectedDeviceId, setSelectedDeviceId] = useState<string | undefined>(undefined);
+    const [selectedDeviceId, setSelectedDeviceId] = useState<
+        string | undefined
+    >(undefined);
 
     useEffect(() => {
         const loadCodeReader = async () => {
@@ -33,10 +41,15 @@ const QRScanner: React.FC<QRScannerProps> = ({ onScan, onError, scanDelay, onBac
     useEffect(() => {
         const getDevices = async () => {
             const devices = await navigator.mediaDevices.enumerateDevices();
-            const videoDevices = devices.filter(device => device.kind === 'videoinput');
+            const videoDevices = devices.filter(
+                (device) => device.kind === "videoinput",
+            );
             setDevices(videoDevices);
-            const savedDeviceId = localStorage.getItem('selectedDeviceId');
-            if (savedDeviceId && videoDevices.some(device => device.deviceId === savedDeviceId)) {
+            const savedDeviceId = localStorage.getItem("selectedDeviceId");
+            if (
+                savedDeviceId &&
+                videoDevices.some((device) => device.deviceId === savedDeviceId)
+            ) {
                 setSelectedDeviceId(savedDeviceId);
             } else if (videoDevices.length > 0) {
                 setSelectedDeviceId(videoDevices[0].deviceId);
@@ -52,7 +65,10 @@ const QRScanner: React.FC<QRScannerProps> = ({ onScan, onError, scanDelay, onBac
                 const imageSrc = webcamRef.current.getScreenshot();
                 if (imageSrc) {
                     try {
-                        const result = await codeReader.decodeFromImage(undefined, imageSrc);
+                        const result = await codeReader.decodeFromImage(
+                            undefined,
+                            imageSrc,
+                        );
                         if (audioRef.current) {
                             audioRef.current.play();
                         }
@@ -65,7 +81,7 @@ const QRScanner: React.FC<QRScannerProps> = ({ onScan, onError, scanDelay, onBac
                         } else if (err instanceof Error) {
                             onError(err);
                         } else {
-                            onError(new Error('Unknown error occurred.'));
+                            onError(new Error("Unknown error occurred."));
                         }
                     }
                 }
@@ -78,25 +94,29 @@ const QRScanner: React.FC<QRScannerProps> = ({ onScan, onError, scanDelay, onBac
 
     const handleDeviceChange = (deviceId: string) => {
         setSelectedDeviceId(deviceId);
-        localStorage.setItem('selectedDeviceId', deviceId);
+        localStorage.setItem("selectedDeviceId", deviceId);
     };
 
     return (
-        <div className="relative h-full flex flex-col items-center">
+        <div className="relative flex flex-col items-center h-full">
             {devices.length > 1 && (
                 <select
                     onChange={(e) => handleDeviceChange(e.target.value)}
                     value={selectedDeviceId}
-                    className="hidden mb-4 md:block"
+                    className="md:block hidden mb-4"
                 >
                     {devices.map((device, index) => (
-                        <option className='hidden md:block' key={index} value={device.deviceId}>
+                        <option
+                            className="md:block hidden"
+                            key={index}
+                            value={device.deviceId}
+                        >
                             {device.label || `Camera ${index + 1}`}
                         </option>
                     ))}
                 </select>
             )}
-            <div className="relative w-screen px-2 h-full md:w-full">
+            <div className="md:w-full relative w-screen h-full px-2">
                 <Webcam
                     audio={false}
                     ref={webcamRef}
@@ -105,18 +125,20 @@ const QRScanner: React.FC<QRScannerProps> = ({ onScan, onError, scanDelay, onBac
                     className="w-screen brightness-50 h-[calc(100vh-120px)] md:h-auto border-2 border-black object-cover  md:object-contain"
                 />
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                    <div className='flex flex-col items-center mt-2 gap-1 font-bold text-white'>
+                    <div className="flex flex-col items-center gap-1 mt-2 font-bold text-white">
                         <h1>ABSEN C.U.I</h1>
                         <h2>ini deskripsi</h2>
                     </div>
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-white/50 to-transparent animate-scan"></div>
-                    <Button onClick={onBack} className='absolute bottom-5 left-1/2 -translate-x-1/2'>
+                    <div className="bg-gradient-to-t from-white/50 to-transparent animate-scan absolute top-0 left-0 w-full h-full"></div>
+                    <Button
+                        onClick={onBack}
+                        className="bottom-5 left-1/2 absolute -translate-x-1/2"
+                    >
                         Absensi Manual
                     </Button>
                 </div>
             </div>
             <audio ref={audioRef} src={beep} />
-
         </div>
     );
 };
