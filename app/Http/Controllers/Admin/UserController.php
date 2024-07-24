@@ -9,6 +9,7 @@ use App\Models\Penyakit;
 use App\Models\Qrcode;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
@@ -27,8 +28,25 @@ class UserController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
-      $query = User::query()
-         ->where('role_id', 1) // Hanya user dengan role Maba
+      if (Auth::user()->role_id == 2 || Auth::user()->role_id == 4) {
+         $kelompok_id = Auth::user()->kelompok_id;
+         $query = User::query()->where('kelompok_id', $kelompok_id);
+      } elseif (Auth::user()->role_id == 5) {
+         $prodi_id = Auth::user()->prodi_id;
+         $query = User::query()->where('prodi_id', $prodi_id);
+      } elseif (Auth::user()->role_id == 3) {
+         $query = User::query();
+      } else {
+         return response()->json([
+            'response' => [
+               'status' => 403,
+               'message' => 'Anda tidak memiliki akses',
+            ]
+         ], 403);
+      }
+
+      $query
+         ->where('role_id', 1)
          ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
          ->when($searchTerm, function ($query) use ($searchTerm) {
             return $query->whereHas('user', function ($q) use ($searchTerm) {
