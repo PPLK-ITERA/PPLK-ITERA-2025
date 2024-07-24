@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('quiz_activities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('question_id');
+            $table->foreignId('gedung_id');
+            $table->boolean('selesai')->default(false);
             $table->timestamps();
         });
     }

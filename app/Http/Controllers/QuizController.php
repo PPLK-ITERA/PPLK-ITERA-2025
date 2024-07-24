@@ -2,62 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\quiz;
-use App\Models\UnlockStatus;
-use Auth;
+use Cache;
 use Illuminate\Http\Request;
+use App\Models\UnlockStatus;
+use App\Models\quiz;
+use App\Models\QuizActivity;
+use App\Models\quiz_answer;
+use Illuminate\Support\Facades\Auth;
 
 class QuizController extends Controller
 {
-    public function getAll($gedung_id)
+    public function getQuestionsByGedung($gedung_id)
     {
-    // // Mendapatkan ID pertanyaan yang sudah ditampilkan dari session
-    // $excludedIds = session()->get('id', []);
+        $user = Auth::user();
 
-    // // Fetch 5 random quiz questions yang belum ditampilkan
-    // $questions = quiz::select('id', 'quiz_question','gedung_id')
-    //                  ->whereNotIn('id', $excludedIds) 
-    //                  ->inRandomOrder()  
-    //                  ->limit(5)         
-    //                  ->get();
-
-    // // Menambahkan ID pertanyaan baru ke dalam session
-    // $newExcludedIds = array_merge($excludedIds, $questions->pluck('id')->toArray());
-    // session()->put('id', $newExcludedIds);
-
-    // return response()->json($questions);
-    // }
+        // Cek apakah gedung yang diminta sudah dibuka oleh user
+        if (!UnlockStatus::where('user_id', $user->id)->where('gedung_id', $gedung_id)->exists()) {
+            return response()->json(['message' => 'Gedung ini belum dibuka oleh Anda.'], 403);
+        }
     
-    $user = Auth::user();
-    $kelompok = $user->kelompok;
-
-    if (!$kelompok) {
-        return response()->json(['message' => 'User tidak termasuk dalam kelompok manapun.'], 400);
-    }
-
-    // Periksa apakah gedung telah dibuka oleh kelompok
-    $isGedungUnlocked = UnlockStatus::where('kelompok_id', $kelompok->id)
-                        ->where('gedung_id', $gedung_id)
-                        ->exists();
-
-    if (!$isGedungUnlocked) {
-        return response()->json([
-            'message' => 'This building has not been unlocked by your group.'
-        ], 403); // Forbidden access
-    }
-
-    // Retrieve the quiz questions based on the gedung_id
-    $questions = quiz::where('gedung_id', $gedung_id)->get();
-
-    // Check if any questions are found
-    if ($questions->isEmpty()) {
-        return response()->json([
-            'message' => 'No questions found for the selected gedung.'
-        ], 404);
-    }
-
-    // Return the questions
-    return response()->json($questions, 200);
+        // Ambil 5 pertanyaan acak dari gedung yang diminta
+        $questions = Quiz::where('gedung_id', $gedung_id)
+                         ->inRandomOrder()
+                         ->take(5)
+                         ->get();
+    
+        if ($questions->isEmpty()) {
+            return response()->json(['message' => 'Tidak ada pertanyaan yang ditemukan untuk gedung ini.'], 404);
+        }
+    
+        // Ambil jawaban untuk setiap pertanyaan
+        $result = $questions->map(function ($question) {
+            $answers = quiz_answer::where('question_id', $question->id)->get();
+            return [
+                'id' => $question->id,
+                'question' => $question->quiz_question,
+                'answers' => $answers->map(function ($answer) {
+                    return [
+                        'id' => $answer->id,
+                        'answer' => $answer->teks_jawaban
+                    ];
+                })
+            ];
+        });
+    
+        // Return the questions with answers
+        return response()->json($result, 200);
     }
 }
 

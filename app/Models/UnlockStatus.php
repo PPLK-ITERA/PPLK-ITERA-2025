@@ -11,7 +11,7 @@ class UnlockStatus extends Model
     protected $table ='Unlock_Status';
     protected $primaryKey ='id';
     protected $fillable = [
-        'kelompok_id',
+        'user_id',
         'gedung_id',
         'dateOpen'
     ];
@@ -23,8 +23,8 @@ class UnlockStatus extends Model
         return $this->hasMany(gedung::class,'gedung_id','id');
     }
 
-    public function kelompok(){
-        return $this->hasMany(kelompok::class,'kelompok_id','id');
+    public function user(){
+        return $this->hasMany(User::class,'user_id','id');
     }
 }
 

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('unlock_status', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kelompok_id');
+            $table->foreignId('user_id');
             $table->foreignId('gedung_id');
             $table->integer('dateOpen');
             $table->timestamps();
