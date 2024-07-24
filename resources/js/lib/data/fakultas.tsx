@@ -1,11 +1,13 @@
-import { IconBrandInstagram, IconBrandTiktok, IconBrandYoutube, IconWorldWww } from "@tabler/icons-react";
-
-
+import {
+    IconBrandInstagram,
+    IconBrandTiktok,
+    IconBrandYoutube,
+    IconWorldWww,
+} from "@tabler/icons-react";
 
 import fakultasSains from "!assets/fakultas-sains.png";
 import fakultasTeknologiIndustri from "!assets/fakultas-teknologi-industri.png";
 import fakultasTeknologiInfrastruktur from "!assets/fakultas-teknologi-infrastruktur-dan-kewilayahan.png";
-
 
 export const HeaderFakultasData = {
     "fakultas-sains": {

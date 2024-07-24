@@ -44,7 +44,7 @@ Route::get('informasi/upt/{nama_upt}', function (string $nama_upt) {
    return Inertia::render('Informasi/Upt/Detail/Page', [
       'nama_upt' => $nama_upt
    ]);
-});
+})->name('informasi/upt/{nama_upt}');
 
 
 // =====================================

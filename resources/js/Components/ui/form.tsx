@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import {
@@ -12,7 +11,9 @@ import {
 
 import * as React from "react";
 
-import { Label } from "@/Components/dashboard/ui/label";
+import { Label } from "@/Components/ui/label";
+
+import { cn } from "@/lib/utils";
 
 const Form = FormProvider;
 

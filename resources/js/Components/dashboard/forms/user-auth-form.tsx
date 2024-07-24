@@ -1,6 +1,6 @@
 "use client";
 
-import GoogleSignInButton from "../github-auth-button";
+// import GoogleSignInButton from "../github-auth-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 // import { signIn } from "next-auth/react";
 // import { useSearchParams } from "next/navigation";
@@ -9,7 +9,7 @@ import * as z from "zod";
 
 import { useState } from "react";
 
-import { Button } from "@/Components/dashboard/ui/button";
+import { Button } from "@/Components/ui/button";
 import {
     Form,
     FormControl,
@@ -17,8 +17,8 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/Components/dashboard/ui/form";
-import { Input } from "@/Components/dashboard/ui/input";
+} from "@/Components/ui/form";
+import { Input } from "@/Components/ui/input";
 
 const formSchema = z.object({
     email: z.string().email({ message: "Enter a valid email address" }),
@@ -90,7 +90,7 @@ export default function UserAuthForm() {
                     </span>
                 </div>
             </div>
-            <GoogleSignInButton />
+            {/* <GoogleSignInButton /> */}
         </>
     );
 }

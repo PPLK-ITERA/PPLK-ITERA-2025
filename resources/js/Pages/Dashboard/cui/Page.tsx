@@ -7,22 +7,16 @@ import { router, useForm } from "@inertiajs/react";
 
 import { Check, CheckCircle2Icon, ChevronsUpDown } from "lucide-react";
 
+import { UserClient } from "@/Components/tables/user-tables/client";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
+import { Button } from "@/Components/ui/button";
 import {
     Card,
     CardContent,
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/Components/dashboard/ui/card";
-import {
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-} from "@/Components/dashboard/ui/tabs";
-import { UserClient } from "@/Components/tables/user-tables/client";
-import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
-import { Button } from "@/Components/ui/button";
+} from "@/Components/ui/card";
 import {
     Command,
     CommandEmpty,
@@ -37,9 +31,9 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/Components/ui/popover";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
 
-import { users } from "@/constants/data";
-
+import { users } from "@/lib/data/data";
 import { cn } from "@/lib/utils";
 
 const breadcrumbItems = [
@@ -50,7 +44,7 @@ const breadcrumbItems = [
 export default function Page({ auth, response }) {
     const { data, setData, post, processing } = useForm({
         nim: "",
-        qr_code: ""
+        qr_code: "",
     });
 
     console.log(response);
@@ -61,8 +55,8 @@ export default function Page({ auth, response }) {
     };
 
     const handlePresensi = (qr_code: string) => {
-        setData('qr_code', qr_code);
-    }
+        setData("qr_code", qr_code);
+    };
 
     const debounced = useDebouncedCallback(
         // function
@@ -75,9 +69,9 @@ export default function Page({ auth, response }) {
 
     useEffect(() => {
         if (data.qr_code) {
-            post(route('cui.scan'));
+            post(route("cui.scan"));
         }
-    }, [data.qr_code])
+    }, [data.qr_code]);
 
     return (
         <DashboardLayout user={auth.user}>
@@ -139,7 +133,6 @@ export default function Page({ auth, response }) {
                     <TabsTrigger value="logbook">Log Book</TabsTrigger>
                 </TabsList>
                 <TabsContent value="presensi" className="space-y-4">
-
                     <div className="grid-cols-2 lg:grid-cols-4 grid gap-4">
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
@@ -225,7 +218,11 @@ export default function Page({ auth, response }) {
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="flex justify-center items-center mt-2">
-                            <Button onClick={() => router.get(route('dashboard.cui.absensi'))}>
+                            <Button
+                                onClick={() =>
+                                    router.get(route("dashboard.cui.absensi"))
+                                }
+                            >
                                 Mulai Absen Maba
                             </Button>
                         </CardContent>
@@ -292,7 +289,14 @@ export default function Page({ auth, response }) {
                                         <p>{response.data.prodi}</p>
                                         <p>{response.data.nim}</p>
                                     </div>
-                                    <Button onClick={() => handlePresensi(response.data.qr_code)} className="w-full mt-2">
+                                    <Button
+                                        onClick={() =>
+                                            handlePresensi(
+                                                response.data.qr_code,
+                                            )
+                                        }
+                                        className="w-full mt-2"
+                                    >
                                         Presensi
                                     </Button>
                                 </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { VisiMisiUPT } from "@/constants/upt";
+import { VisiMisiUPT } from "@/lib/data/upt";
 
 export default function VisiMisi() {
     return (

@@ -9,7 +9,7 @@ import {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
-} from "@/Components/dashboard/ui/breadcrumb";
+} from "@/Components/ui/breadcrumb";
 
 type BreadcrumbItemProps = {
     title: string;

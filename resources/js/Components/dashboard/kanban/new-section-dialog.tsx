@@ -1,8 +1,6 @@
 "use client";
 
-import { useTaskStore } from "@/lib/store";
-
-import { Button } from "@/Components/dashboard/ui/button";
+import { Button } from "@/Components/ui/button";
 import {
     Dialog,
     DialogContent,
@@ -11,8 +9,10 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/Components/dashboard/ui/dialog";
-import { Input } from "@/Components/dashboard/ui/input";
+} from "@/Components/ui/dialog";
+import { Input } from "@/Components/ui/input";
+
+import { useTaskStore } from "@/lib/store";
 
 export default function NewSectionDialog() {
     const addCol = useTaskStore((state) => state.addCol);

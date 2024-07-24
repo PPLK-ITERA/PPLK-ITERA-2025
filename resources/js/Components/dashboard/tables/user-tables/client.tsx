@@ -1,15 +1,16 @@
 "use client";
 
 import { columns } from "./columns";
-import { User } from "@/constants/data";
 
 // import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
 
-import { Button } from "@/Components/dashboard/ui/button";
-import { DataTable } from "@/Components/dashboard/ui/data-table";
-import { Heading } from "@/Components/dashboard/ui/heading";
-import { Separator } from "@/Components/dashboard/ui/separator";
+import { Button } from "@/Components/ui/button";
+import { DataTable } from "@/Components/ui/data-table";
+import { Heading } from "@/Components/ui/heading";
+import { Separator } from "@/Components/ui/separator";
+
+import { User } from "@/lib/data/data";
 
 interface ProductsClientProps {
     data: User[];

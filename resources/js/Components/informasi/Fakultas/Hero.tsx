@@ -1,6 +1,6 @@
 import React from "react";
 
-import { HeroFakultasData } from "@/constants/fakultas";
+import { HeroFakultasData } from "@/lib/data/fakultas";
 
 const Hero = ({ fakultas }) => {
     const selectedFakultas = HeroFakultasData[fakultas];

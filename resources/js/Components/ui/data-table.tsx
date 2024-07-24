@@ -18,7 +18,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/Components/dashboard/ui/table";
+} from "@/Components/ui/table";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -68,10 +68,10 @@ export function DataTable<TData, TValue>({
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
-                                                    header.column.columnDef
-                                                        .header,
-                                                    header.getContext(),
-                                                )}
+                                                      header.column.columnDef
+                                                          .header,
+                                                      header.getContext(),
+                                                  )}
                                         </TableHead>
                                     );
                                 })}
@@ -109,7 +109,7 @@ export function DataTable<TData, TValue>({
                         )}
                     </TableBody>
                 </Table>
-                <ScrollBar orientation="horizontal"/>
+                <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
             <div className="flex items-center justify-end py-4 space-x-2">
