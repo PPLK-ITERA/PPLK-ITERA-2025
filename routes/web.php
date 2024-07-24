@@ -93,14 +93,11 @@ Route::middleware('auth')->group(function () {
          Route::get('/{prodi_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByProdi']);
       });
    });
-   // Route::post('/storepresensi', [PresensiPplkController::class, 'store'])->name('presensi.store');
-   // Route::get('/generateQrcode', [QrcodeController::class, 'generateQrCode']);
 
-   //Booklet
-   Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
-      //CRUD Booklet
-      // Route::resource('/booklet', BookletController::class);
-   })->prefix('mamet');
+
+
+
+
    //Route game
    //mengambil pertanyaan berdasarkan geddung yang terbuka
    Route::get('/gedung/{gedungId}/question', [QuizController::class, 'getAll']);

@@ -15,6 +15,9 @@ class UserController extends Controller
     */
    public function index()
    {
+      return Inertia::render(
+         'Dashboard/user/Page'
+      );
    }
 
    /**

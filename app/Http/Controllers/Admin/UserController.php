@@ -20,25 +20,50 @@ class UserController extends Controller
     */
    public function index()
    {
-      $user = User::with('role')->get();
+      return Inertia::render('Dashboard/user/Page');
+   }
+   public function getUsers(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
 
-      $data = $user->map(function ($item) {
+      $query = User::query()
+         ->with(['user', 'user.penyakit', 'user.kelompok']) // Memastikan semua data yang diperlukan di eager load
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->whereHas('user', function ($q) use ($searchTerm) {
+               $q->where('name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
+            });
+         });
+
+      $users = $query->paginate($perPage);
+
+      $currentPage = $users->currentPage(); // Halaman saat ini
+      $perPage = $users->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $users->getCollection()->transform(function ($user) use (&$currentIndex) {
          return [
-            'name' => $item->name,
-            'nim' => $item->nim,
-            'role' => $item->role->name,
+            'no' => ++$currentIndex, // Nomor urut
+            'id' => $user->id,
+            'user' => [
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'email' => $user->email,
+               'photo_profile_url' => $user->photo_profile_url,
+               'qrcode' => $user->qrcode->code,
+               'nama_kelompok' => $user->kelompok->nama_kelompok,
+               'penyakit' => [
+                  'pita' => $user->penyakit->pita,
+                  'ket_penyakit' => $user->penyakit->ket_penyakit,
+               ],
+            ],
          ];
       });
-      return Inertia::render(
-         'Dashboard/user/Page',
-         [
-            'response' => [
-               'status' => 200,
-               'message' => 'Berhasil mendapatkan data',
-               'data' => $user
-            ]
-         ]
-      );
+
+      return response()->json($users);
    }
 
    /**
