@@ -17,7 +17,7 @@ export default defineConfig({
         },
     },
     optimizeDeps: {
-        include: ['@zxing/library'],
+        include: ["@zxing/library", "react-qr-code"],
     },
     build: {
         sourcemap: true,

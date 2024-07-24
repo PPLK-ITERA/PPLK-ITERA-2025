@@ -128,7 +128,7 @@ export const navItems: NavItem[] = [
         href: "/dashboard/cui",
         icon: "ticket",
         label: "atur-cui",
-        role_id: [1],
+        role_id: [3],
     },
 ];
 

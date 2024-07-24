@@ -13,15 +13,20 @@ class LogCui extends Model
    protected $primaryKey = 'id';
 
    protected $fillable = [
-      'user_id', 'status', 'waktu_izin', 'ket_izin'
+      'user_id',
+      'status',
+      'waktu_izin',
+      'ket_izin'
    ];
 
    protected $hidden = [
-      'id', 'created_at', 'updated_at',
+      'id',
+      'created_at',
+      'updated_at',
    ];
 
-   public function UserCui()
+   public function user()
    {
-      return $this->hasOne(UserCui::class);
+      return $this->belongsTo(User::class, 'user_id', 'id');
    }
 }

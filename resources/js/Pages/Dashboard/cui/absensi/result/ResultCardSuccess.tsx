@@ -20,7 +20,7 @@ interface ResultCardProps {
 }
 
 
-export const ResultCard: FC<ResultCardProps> = ({
+export const ResultCardSuccess: FC<ResultCardProps> = ({
     nama,
     prodi,
     nim,
@@ -103,4 +103,4 @@ export const ResultCard: FC<ResultCardProps> = ({
     )
 }
 
-export default ResultCard
+export default ResultCardSuccess
