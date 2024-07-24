@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Webcam from 'react-webcam';
-import beep from '!assets/music/beep.mp3';
-import { Button } from '@/Components/ui/button';
-import NotFoundException from '@zxing/library/esm/core/NotFoundException';
+import NotFoundException from "@zxing/library/esm/core/NotFoundException";
+import Webcam from "react-webcam";
+
+import React, { useEffect, useRef, useState } from "react";
+
+import { Button } from "@/Components/ui/button";
+
+import beep from "!assets/music/beep.mp3";
 
 interface QRScannerProps {
     onScan: (result: string) => void;
@@ -30,7 +33,7 @@ const QRScanner: React.FC<QRScannerProps> = ({
 
     useEffect(() => {
         const loadCodeReader = async () => {
-            const { BrowserMultiFormatReader } = await import('@zxing/library');
+            const { BrowserMultiFormatReader } = await import("@zxing/library");
             setCodeReader(new BrowserMultiFormatReader());
         };
 
@@ -76,7 +79,7 @@ const QRScanner: React.FC<QRScannerProps> = ({
                         setTimeout(() => setScanning(true), scanDelay);
                     } catch (err) {
                         if (err instanceof NotFoundException) {
-                            onError(new Error('No QR code found.'));
+                            onError(new Error("No QR code found."));
                         } else if (err instanceof Error) {
                             onError(err);
                         } else {
@@ -102,14 +105,10 @@ const QRScanner: React.FC<QRScannerProps> = ({
                 <select
                     onChange={(e) => handleDeviceChange(e.target.value)}
                     value={selectedDeviceId}
-                    className="md:block hidden mb-4"
+                    className="mb-4"
                 >
                     {devices.map((device, index) => (
-                        <option
-                            className="md:block hidden"
-                            key={index}
-                            value={device.deviceId}
-                        >
+                        <option key={index} value={device.deviceId}>
                             {device.label || `Camera ${index + 1}`}
                         </option>
                     ))}
@@ -120,7 +119,14 @@ const QRScanner: React.FC<QRScannerProps> = ({
                     audio={false}
                     ref={webcamRef}
                     screenshotFormat="image/jpeg"
-                    videoConstraints={{ deviceId: selectedDeviceId }}
+                    videoConstraints={{
+                        deviceId: selectedDeviceId
+                            ? { exact: selectedDeviceId }
+                            : undefined,
+                        facingMode: selectedDeviceId
+                            ? undefined
+                            : { exact: "environment" },
+                    }}
                     className="w-screen brightness-50 h-[calc(100vh-120px)] md:h-auto border-2 border-black object-cover  md:object-contain"
                 />
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
