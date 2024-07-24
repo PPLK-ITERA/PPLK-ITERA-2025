@@ -166,6 +166,7 @@ class PresensiCuiController extends Controller
       }
       $log = LogCui::where('user_id', $user->id)->latest('created_at');
       $qrcode = Qrcode::where('user_id', $user->id)->first()->code; 
+
       $response = [
          'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
          'nama' => $user->name,
