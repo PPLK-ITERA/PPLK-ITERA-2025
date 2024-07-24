@@ -1,11 +1,7 @@
-import { NotFoundException } from "@zxing/library";
-import Webcam from "react-webcam";
-
-import React, { useEffect, useRef, useState } from "react";
-
-import { Button } from "@/Components/ui/button";
-
-import beep from "!assets/music/beep.mp3";
+import React, { useEffect, useRef, useState } from 'react';
+import Webcam from 'react-webcam';
+import beep from '!assets/music/beep.mp3';
+import { Button } from '@/Components/ui/button';
 
 interface QRScannerProps {
     onScan: (result: string) => void;
@@ -25,6 +21,7 @@ const QRScanner: React.FC<QRScannerProps> = ({
     const webcamRef = useRef<Webcam>(null);
     const audioRef = useRef<HTMLAudioElement>(null);
     const [codeReader, setCodeReader] = useState<any>(null);
+    const [notFoundException, setNotFoundException] = useState<any>(null);
     const [scanning, setScanning] = useState(true);
     const [devices, setDevices] = useState<MediaDeviceInfo[]>([]);
     const [selectedDeviceId, setSelectedDeviceId] = useState<
@@ -33,8 +30,9 @@ const QRScanner: React.FC<QRScannerProps> = ({
 
     useEffect(() => {
         const loadCodeReader = async () => {
-            const { BrowserMultiFormatReader } = await import("@zxing/library");
+            const { BrowserMultiFormatReader, NotFoundException } = await import('@zxing/library');
             setCodeReader(new BrowserMultiFormatReader());
+            setCodeReader(new NotFoundException());
         };
 
         loadCodeReader();
@@ -78,8 +76,8 @@ const QRScanner: React.FC<QRScannerProps> = ({
                         setScanning(false);
                         setTimeout(() => setScanning(true), scanDelay);
                     } catch (err) {
-                        if (err instanceof NotFoundException) {
-                            onError(new Error("No QR code found."));
+                        if (err instanceof notFoundException) {
+                            onError(new Error('No QR code found.'));
                         } else if (err instanceof Error) {
                             onError(err);
                         } else {

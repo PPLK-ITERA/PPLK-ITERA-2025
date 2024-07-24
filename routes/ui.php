@@ -248,6 +248,9 @@ Route::middleware('auth')->group(function () {
 
    Route::get('dashboard/cui', [PresensiCuiController::class, 'index'])
       ->name('dashboard.cui');
+      
+   Route::get('dashboard/cui/data', [PresensiCuiController::class, 'getLogBook'])
+      ->name('dashboard.cui.data');
 
    Route::post('dashboard/cui', [PresensiCuiController::class, 'getMabaByNim']);
 
