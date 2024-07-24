@@ -5,20 +5,15 @@ import { BarGraph } from "@/Components/dashboard/charts/bar-graph";
 import { PieGraph } from "@/Components/dashboard/charts/pie-graph";
 import { CalendarDateRangePicker } from "@/Components/dashboard/date-range-picker";
 import { RecentSales } from "@/Components/dashboard/recent-sales";
-import { Button } from "@/Components/dashboard/ui/button";
+import { Button } from "@/Components/ui/button";
 import {
     Card,
     CardContent,
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/Components/dashboard/ui/card";
-import {
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-} from "@/Components/dashboard/ui/tabs";
+} from "@/Components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
 
 export default function Page({ auth }) {
     return (

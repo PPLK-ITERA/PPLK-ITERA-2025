@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 import React from "react";
 
-import { DataProdiFakultas } from "@/constants/fakultas";
+import { DataProdiFakultas } from "@/lib/data/fakultas";
 
 const Prodi = ({ text, className }) => (
     <div

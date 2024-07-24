@@ -6,9 +6,9 @@ import { useForm } from "@inertiajs/react";
 
 import { IconPlus, IconSearch } from "@tabler/icons-react";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
 import { FAQTable } from "@/Components/dashboard/faq/FAQTable";
-import { Button } from "@/Components/dashboard/ui/button";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
+import { Button } from "@/Components/ui/button";
 import {
     Dialog,
     DialogContent,
@@ -17,10 +17,10 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/Components/dashboard/ui/dialog";
-import { Input } from "@/Components/dashboard/ui/input";
-import { Label } from "@/Components/dashboard/ui/label";
-import { Textarea } from "@/Components/dashboard/ui/textarea";
+} from "@/Components/ui/dialog";
+import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
+import { Textarea } from "@/Components/ui/textarea";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },

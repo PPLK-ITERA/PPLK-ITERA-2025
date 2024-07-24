@@ -3,13 +3,13 @@
 // import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 // import { useTheme } from "next-themes";
 
-// import { Button } from "@/Components/dashboard/ui/button";
+// import { Button } from "@/Components/ui/button";
 // import {
 //     DropdownMenu,
 //     DropdownMenuContent,
 //     DropdownMenuItem,
 //     DropdownMenuTrigger,
-// } from "@/Components/dashboard/ui/dropdown-menu";
+// } from "@/Components/ui/dropdown-menu";
 
 // type CompProps = {};
 // export default function ThemeToggle({}: CompProps) {

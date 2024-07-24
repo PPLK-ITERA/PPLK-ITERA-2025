@@ -3,7 +3,7 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import {
     HeaderFakultasData,
     HeaderFakultasProdiData,
-} from "@/constants/fakultas";
+} from "@/lib/data/fakultas";
 
 type HeaderProps = {
     fakultas: string;
@@ -31,7 +31,8 @@ const Header = ({ fakultas }: HeaderProps) => {
 
                 <p className="mt-10 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em] max-w-lg">
                     <span className="text-[18px] md:text-[25px]">
-                        Daftar program studi yang ada di {selectedFakultas.title} ITERA
+                        Daftar program studi yang ada di{" "}
+                        {selectedFakultas.title} ITERA
                     </span>
                 </p>
             </div>

@@ -1,13 +1,14 @@
-import { Badge } from "../ui/badge";
-import { Task } from "@/lib/store";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { cva } from "class-variance-authority";
 
 import { GripVertical } from "lucide-react";
 
-import { Button } from "@/Components/dashboard/ui/button";
-import { Card, CardContent, CardHeader } from "@/Components/dashboard/ui/card";
+import { Badge } from "@/Components/ui/badge";
+import { Button } from "@/Components/ui/button";
+import { Card, CardContent, CardHeader } from "@/Components/ui/card";
+
+import { Task } from "@/lib/store";
 
 // export interface Task {
 //   id: UniqueIdentifier;

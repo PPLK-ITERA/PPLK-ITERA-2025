@@ -1,9 +1,9 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
 import { UserClient } from "@/Components/dashboard/tables/user-tables/client";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 
-import { users } from "@/constants/data";
+import { users } from "@/lib/data/data";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },

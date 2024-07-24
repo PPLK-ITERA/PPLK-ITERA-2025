@@ -82,12 +82,14 @@ class User extends Authenticatable
    {
       return $this->hasOne(pilar::class, 'pilar', 'id');
    }
-
+   public function QuizActivity()
+   {
+      return $this->hasOne(QuizActivity::class, 'user_id', 'id');
+   }
    public function qrcode()
    {
       return $this->belongsTo(Qrcode::class, 'qrcode_id', 'id');
    }
-
    public function prodi()
    {
       return $this->belongsTo(Prodi::class, 'prodi_id', 'id');

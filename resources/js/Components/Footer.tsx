@@ -4,7 +4,7 @@ import { Link } from "@inertiajs/react";
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 
-import { FooterLink, InformasiFooter } from "@/constants/data";
+import { FooterLink, InformasiFooter } from "@/lib/data/data";
 
 import logodiesnat_white from "!assets/logo-diesnat-white.png";
 import logokm_white from "!assets/logo-km-white.png";

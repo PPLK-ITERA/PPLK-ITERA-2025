@@ -1,19 +1,19 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { cn } from "@/lib/utils";
 
 // import Link from 'next/link';
 import { Link } from "@inertiajs/react";
 
 import { Plus } from "lucide-react";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
 import { columns } from "@/Components/dashboard/tables/employee-tables/columns";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 // import { EmployeeTable } from '@/Components/dashboard/tables/employee-tables/employee-table';
-import { buttonVariants } from "@/Components/dashboard/ui/button";
-import { Heading } from "@/Components/dashboard/ui/heading";
-import { Separator } from "@/Components/dashboard/ui/separator";
+import { buttonVariants } from "@/Components/ui/button";
+import { Heading } from "@/Components/ui/heading";
+import { Separator } from "@/Components/ui/separator";
 
-import { Employee } from "@/constants/data";
+import { Employee } from "@/lib/data/data";
+import { cn } from "@/lib/utils";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },

@@ -1,17 +1,13 @@
 "use client";
 
-import { navItems } from "@/constants/data";
-
 import { useState } from "react";
 
 import { MenuIcon } from "lucide-react";
 
 import { DashboardNav } from "@/Components/dashboard/dashboard-nav";
-import {
-    Sheet,
-    SheetContent,
-    SheetTrigger,
-} from "@/Components/dashboard/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet";
+
+import { navItems } from "@/lib/data/data";
 
 // import { Playlist } from "../data/playlists";
 

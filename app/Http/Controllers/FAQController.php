@@ -52,21 +52,9 @@ class FAQController extends Controller
          ]);
          DB::commit();
          return redirect()->route('faq.index')->with('message', 'Berhasil menambahkan data');
-         // return Inertia::render('Dashboard/faq/Page', [
-         //    'response' => [
-         //       'status' => 201,
-         //       'message' => 'Berhasil menambahkan data',
-         //    ]
-         // ]);
       } catch (\Throwable $th) {
          DB::rollBack();
          return redirect()->route('faq.index')->with('message', 'Gagal menambahkan data');
-         // return Inertia::render('Dashboard/faq/Page', [
-         //    'response' => [
-         //       'status' => 500,
-         //       'message' => 'Kesalahan server internal',
-         //    ]
-         // ]);
       }
    }
 
@@ -86,12 +74,6 @@ class FAQController extends Controller
       try {
          $faq->update($validated);
          DB::commit();
-         // return Inertia::render('Dashboard/faq/Page', [
-         //    'response' => [
-         //       'status' => 201,
-         //       'message' => 'Berhasil mengubah data',
-         //    ]
-         // ]);
          return redirect()->route('faq.index')->with('message', 'Berhasil mengubah data');
       } catch (\Throwable $th) {
          DB::rollBack();
@@ -112,12 +94,6 @@ class FAQController extends Controller
       try {
          $faq->delete();
          DB::commit();
-         // return Inertia::render('Dashboard/faq/Page', [
-         //    'response' => [
-         //       'status' => 201,
-         //       'message' => 'Berhasil mengapus data',
-         //    ]
-         // ]);
          return redirect()->route('faq.index')->with('message', 'Berhasil menghapus data');
       } catch (\Throwable $th) {
          DB::rollBack();
