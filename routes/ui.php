@@ -117,9 +117,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Profile (Auth)
    // =====================================
-   Route::get('profile', function () {
-      return Inertia::render('Profile/Page');
-   })->name('my-profile');
+   // Route::get('profile', function () {
+   //    return Inertia::render('Profile/Page');
+   // })->name('my-profile');
 
 
    // =====================================
