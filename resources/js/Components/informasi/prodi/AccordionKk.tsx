@@ -5,7 +5,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/Components/dashboard/ui/accordion";
+} from "@/Components/ui/accordion";
 
 interface Props {
     kk: Kk[];

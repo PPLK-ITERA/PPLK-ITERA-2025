@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "@inertiajs/react";
 
-import { InformasiInfoSection } from "@/constants/data";
+import { InformasiInfoSection } from "@/lib/data/data";
 
 const dataInfoSection = [{}];
 

@@ -8,9 +8,9 @@ import { Head, Link, useForm } from "@inertiajs/react";
 import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
 
 import InputError from "@/Components/InputError";
-import { Button } from "@/Components/dashboard/ui/button";
-import { Input } from "@/Components/dashboard/ui/input";
 import CarouselForm from "@/Components/fragments/CarouselForm";
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
 
 import logoPplk from "!assets/logo-pplk-2024.png";
 

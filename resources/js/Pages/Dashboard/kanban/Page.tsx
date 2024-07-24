@@ -1,9 +1,9 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
 import { KanbanBoard } from "@/Components/dashboard/kanban/kanban-board";
 import NewTaskDialog from "@/Components/dashboard/kanban/new-task-dialog";
-import { Heading } from "@/Components/dashboard/ui/heading";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
+import { Heading } from "@/Components/ui/heading";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },

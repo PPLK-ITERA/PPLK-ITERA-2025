@@ -1,14 +1,14 @@
 "use client";
 
-import { navItems } from "@/constants/data";
-import { useSidebar } from "@/lib/hooks/useSidebar";
-import { cn } from "@/lib/utils";
-
 import React, { useState } from "react";
 
 import { ChevronLeft } from "lucide-react";
 
 import { DashboardNav } from "@/Components/dashboard/dashboard-nav";
+
+import { navItems } from "@/lib/data/data";
+import { useSidebar } from "@/lib/hooks/useSidebar";
+import { cn } from "@/lib/utils";
 
 type SidebarProps = {
     className?: string;

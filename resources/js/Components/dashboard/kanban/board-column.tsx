@@ -1,8 +1,5 @@
-import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader } from "../ui/card";
 import { ColumnActions } from "./column-action";
 import { TaskCard } from "./task-card";
-import { Task } from "@/lib/store";
 import { type UniqueIdentifier, useDndContext } from "@dnd-kit/core";
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -11,6 +8,11 @@ import { cva } from "class-variance-authority";
 import { useMemo } from "react";
 
 import { GripVertical } from "lucide-react";
+
+import { Button } from "@/Components/ui/button";
+import { Card, CardContent, CardHeader } from "@/Components/ui/card";
+
+import { Task } from "@/lib/store";
 
 export interface Column {
     id: UniqueIdentifier;

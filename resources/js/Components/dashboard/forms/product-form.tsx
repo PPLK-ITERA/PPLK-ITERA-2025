@@ -1,6 +1,6 @@
 "use client";
 
-import FileUpload from "../file-upload";
+// import FileUpload from "../file-upload";
 // import FileUpload from "@/components/FileUpload";
 import { useToast } from "../ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,8 +12,8 @@ import { useState } from "react";
 
 import { Trash } from "lucide-react";
 
-import { Button } from "@/Components/dashboard/ui/button";
-import { Checkbox } from "@/Components/dashboard/ui/checkbox";
+import { Button } from "@/Components/ui/button";
+import { Checkbox } from "@/Components/ui/checkbox";
 import {
     Form,
     FormControl,
@@ -22,17 +22,17 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/Components/dashboard/ui/form";
-import { Heading } from "@/Components/dashboard/ui/heading";
-import { Input } from "@/Components/dashboard/ui/input";
+} from "@/Components/ui/form";
+import { Heading } from "@/Components/ui/heading";
+import { Input } from "@/Components/ui/input";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/Components/dashboard/ui/select";
-import { Separator } from "@/Components/dashboard/ui/separator";
+} from "@/Components/ui/select";
+import { Separator } from "@/Components/ui/separator";
 
 const ImgSchema = z.object({
     fileName: z.string(),
@@ -173,11 +173,11 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                             <FormItem>
                                 <FormLabel>Images</FormLabel>
                                 <FormControl>
-                                    <FileUpload
+                                    {/* <FileUpload
                                         onChange={field.onChange}
                                         value={field.value}
                                         onRemove={field.onChange}
-                                    />
+                                    /> */}
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

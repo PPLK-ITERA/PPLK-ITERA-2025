@@ -27,6 +27,7 @@ import {
     Plus,
     Settings,
     SunMedium,
+    TicketPercent,
     Trash,
     Twitter,
     User,
@@ -87,4 +88,5 @@ export const Icons = {
     book: Book,
     question: MessageCircleQuestion,
     map: Map,
+    ticket: TicketPercent
 };

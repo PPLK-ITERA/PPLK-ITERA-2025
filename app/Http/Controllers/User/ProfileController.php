@@ -19,7 +19,7 @@ class ProfileController extends Controller
    public function show()
    {
       $user = User::withCount(['followers', 'followings'])->findOrFail(auth()->id());
-
+      $code = $user->qrcode->code;
       $response = [
          'name' => $user->name,
          'nim' => $user->nim,
@@ -32,9 +32,16 @@ class ProfileController extends Controller
          'view_count' => $user->view_count,
          'followers_count' => $user->followers_count,
          'followings_count' => $user->followings_count,
+         'qrcode' => $code,
       ];
 
-      return response()->json($response);
+      return Inertia::render('Profile/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Berhasil melihat profile',
+            'data' => $response
+         ]
+      ]);
    }
    public function edit()
    {
@@ -57,10 +64,16 @@ class ProfileController extends Controller
             'instagram_url' => $request->instaURL,
          ]);
          DB::commit();
-         return response()->json(['message', 'Berhasil mengubah profile']);
+         return redirect()->route('my-profile')->with('response', [
+            'status' => 201,
+            'message' => 'Berhasil mengubah profile',
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message', 'Gagal mengubah profile']);
+         return redirect()->route('my-profile')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah profile',
+         ]);
       }
    }
 }

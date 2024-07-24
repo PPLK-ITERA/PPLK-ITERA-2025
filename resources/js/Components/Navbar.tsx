@@ -16,7 +16,7 @@ import {
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
-import { UserDropdown } from "@/constants/navlink";
+import { UserDropdown } from "@/lib/data/navlink";
 
 import logodiesnat from "!assets/logo-diesnat.png";
 import logopplk from "!assets/logo-pplk-2024.png";
