@@ -17,6 +17,10 @@ class UserSeeder extends Seeder
 
       $groups = Kelompok::all();
       foreach ($groups as $group) {
+         User::factory()->count(1)->create([
+            'kelompok_id' => $group->id,
+            'isKetua' => true,
+         ]);
          User::factory()->count(5)->create([
             'kelompok_id' => $group->id,
          ]);
