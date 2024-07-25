@@ -61,7 +61,6 @@ class PoinResponseHelper
             'status' => 200,
             'message' => 'success',
             'data' => [
-               'qrcode' => 'data:image/png;base64,' . $qrcode,
                'qrUrl' => $qrUrl,
                'code' => $code
             ]

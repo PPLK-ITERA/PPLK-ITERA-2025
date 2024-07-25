@@ -125,11 +125,7 @@ class PoinController extends Controller
       $qrUrl = URL::route('poin.redirect', ['code' => $code->code]);
       $qrcodetext = $code->code;
 
-      $qrcodeImage = QrCode::format('png')->size(300)->generate($qrUrl);
-      $qrcodeBase64 = base64_encode($qrcodeImage);
-
-
-      return $this->helper->qrSuccess($qrcodeBase64, $qrUrl, $qrcodetext);
+      return $this->helper->qrSuccess($qrUrl, $qrcodetext);
    }
 
    /**
