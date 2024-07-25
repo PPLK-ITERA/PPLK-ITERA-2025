@@ -314,4 +314,12 @@ Route::middleware('auth')->group(function () {
    Route::get('relasi/profil', function () {
       return Inertia::render('Relasi/Profil/Page');
    })->name('relasi/profil');
+
+
+   // =====================================
+   // Game Offline (Auth)
+   // =====================================
+   Route::get('dashboard/game-offline', function () {
+      return Inertia::render('Dashboard/game-offline/Page');
+   })->name('dashboard/game-offline');
 });
