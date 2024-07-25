@@ -54,7 +54,7 @@ class PoinResponseHelper
       ]);
    }
 
-   public function qrSuccess($qrcode, $qrUrl)
+   public function qrSuccess($qrcode, $qrUrl, $code)
    {
       return Inertia::render('Poin/Qrcode/Page', [
          'response' => [
@@ -62,7 +62,8 @@ class PoinResponseHelper
             'message' => 'success',
             'data' => [
                'qrcode' => 'data:image/png;base64,' . $qrcode,
-               'qrUrl' => $qrUrl
+               'qrUrl' => $qrUrl,
+               'code' => $code
             ]
          ]
       ]);
