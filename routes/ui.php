@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
 use Illuminate\Support\Facades\Route;
@@ -205,9 +206,31 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard FAQ (Auth)
    // =====================================
-   // Route::get('dashboard/faq', function () {
-   //    return Inertia::render('Dashboard/faq/Page');
-   // })->name('dashboard/faq');
+   Route::get('dashboard/faq', [
+      FAQController::class,
+      'index'
+   ])->name('dashboard.faq');
+
+   Route::post('dashboard/faq', [
+      FAQController::class,
+      'store'
+   ])->name('dashboard.faq.store');
+
+   Route::put('dashboard/faq', [
+      FAQController::class,
+      'update'
+   ])->name('dashboard.faq.update');
+
+   Route::delete('dashboard/faq', [
+      FAQController::class,
+      'destroy'
+   ])->name('dashboard.faq.destroy');
+
+   Route::get('dashboard/faqs', [
+      FAQController::class,
+      'getAllFAQ'
+   ])->name('dashboard.faq.data');
+
 
 
    // =====================================
@@ -248,6 +271,9 @@ Route::middleware('auth')->group(function () {
 
    Route::get('dashboard/cui', [PresensiCuiController::class, 'index'])
       ->name('dashboard.cui');
+
+   Route::get('dashboard/cui/data', [PresensiCuiController::class, 'getLogBook'])
+      ->name('dashboard.cui.data');
 
    Route::post('dashboard/cui', [PresensiCuiController::class, 'getMabaByNim']);
 

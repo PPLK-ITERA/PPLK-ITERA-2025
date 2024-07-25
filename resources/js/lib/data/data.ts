@@ -19,24 +19,11 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-    // {
-    //     title: "Dashboard",
-    //     href: "/dashboard",
-    //     icon: "dashboard",
-    //     label: "Dashboard",
-    // },
     {
-        title: "User",
-        href: "/dashboard/user",
-        icon: "user",
-        label: "user",
-        role_id: [1, 2, 3, 4, 5, 6, 7],
-    },
-    {
-        title: "Employee",
-        href: "/dashboard/employee",
-        icon: "employee",
-        label: "employee",
+        title: "Dashboard",
+        href: "/dashboard",
+        icon: "dashboard",
+        label: "dashboard",
         role_id: [1, 2, 3, 4, 5, 6, 7],
     },
     {
@@ -44,20 +31,6 @@ export const navItems: NavItem[] = [
         href: "/dashboard/profile",
         icon: "profile",
         label: "profile",
-        role_id: [1, 2, 3, 4, 5, 6, 7],
-    },
-    {
-        title: "Kanban",
-        href: "/dashboard/kanban",
-        icon: "kanban",
-        label: "kanban",
-        role_id: [1, 2, 3, 4, 5, 6, 7],
-    },
-    {
-        title: "Dashboard",
-        href: "/dashboard",
-        icon: "dashboard",
-        label: "dashboard",
         role_id: [1, 2, 3, 4, 5, 6, 7],
     },
     {

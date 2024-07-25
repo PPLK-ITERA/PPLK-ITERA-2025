@@ -7,6 +7,7 @@ import { useForm } from "@inertiajs/react";
 import { IconPlus, IconSearch } from "@tabler/icons-react";
 
 import { FAQTable } from "@/Components/dashboard/faq/FAQTable";
+import { FAQClient } from "@/Components/tables/faq/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
 import {
@@ -28,15 +29,15 @@ const breadcrumbItems = [
 ];
 
 export default function Page({ auth, response }) {
-    const dataFAQS = response.data;
+    // const dataFAQS = response.data;
 
-    const { data, setData, post, put, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         pertanyaan: "",
         jawaban: "",
     });
 
     const addFAQ = () => {
-        post(route("faq.store"));
+        post(route("dashboard.faq.store"));
     };
 
     return (
@@ -97,7 +98,10 @@ export default function Page({ auth, response }) {
                         <Button variant={"outline"}>Batalkan</Button>
                         <Button
                             type="submit"
-                            onClick={addFAQ}
+                            onClick={() => {
+                                addFAQ();
+                                window.location.reload();
+                            }}
                             disabled={processing}
                         >
                             Tambah
@@ -115,27 +119,8 @@ export default function Page({ auth, response }) {
                 </DialogContent>
             </Dialog>
 
-            <div className="flex flex-col">
-                <Label htmlFor="searchFAQ" className="text-left">
-                    Cari FAQ
-                </Label>
-
-                <div className="relative max-w-sm mt-2">
-                    <Input
-                        id="searchFAQ"
-                        value=""
-                        placeholder="Pertanyaan"
-                        className="pl-8"
-                    />
-
-                    <IconSearch
-                        className="left-1 top-1/2 absolute rotate-90 -translate-y-1/2"
-                        size={18}
-                    />
-                </div>
-            </div>
-
-            <FAQTable dataFAQS={dataFAQS} />
+            {/* <FAQTable dataFAQS={dataFAQS} /> */}
+            <FAQClient />
         </DashboardLayout>
     );
 }

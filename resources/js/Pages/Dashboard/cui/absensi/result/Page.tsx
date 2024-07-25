@@ -1,29 +1,34 @@
-import { Button } from '@/Components/ui/button'
-import { Card, CardContent } from '@/Components/ui/card'
 import DashboardLayout from '@/Layouts/DashboardLayout'
-import { Link } from '@inertiajs/react'
-import { ArrowLeft } from 'lucide-react'
 import React from 'react'
-import ResultCard from './ResultCard'
+import { ResultCardNotFound } from './ResultCardNotFound'
+import ResultCardSuccess from './ResultCardSuccess'
 
 
-function Page({ auth, response}) {
-    console.log(response)
+function Page({ auth, response }) {
     return (
         <DashboardLayout user={auth.user}>
-            <ResultCard
-                nama={response.data.nama}
-                prodi={response.data.prodi}
-                nim={response.data.nim}
-                status={response.data.status}
-                waktu={new Date(response.data.waktu)}
-                pita={response.data.pita}
-                riwayatPenyakit={response.data.riwayat}
-                keterangan={response.data.ket_izin}
-                imgUrl={'https://kelulusan.sman10-semarang.sch.id/img/profile/default-pas-photo.jpeg'} 
-                routeBack='dashboard.cui'     
-                routeScan='dashboard.cui.absensi'
+            {response && response.status === 404 ? (
+                <ResultCardNotFound
+                    result={response.data.result}
+                    routeBack={'dashboard.cui'}
+                    routeScan={'dashboard.cui.absensi'}
+                    message={response.message}
                 />
+            ) : (
+                <ResultCardSuccess
+                    nama={response.data.nama}
+                    prodi={response.data.prodi}
+                    nim={response.data.nim}
+                    status={response.data.status.charAt(0).toUpperCase() + response.data.status.slice(1)}
+                    waktu={new Date(response.data.waktu)}
+                    pita={response.data.pita}
+                    riwayatPenyakit={response.data.riwayat}
+                    keterangan={response.data.ket_izin}
+                    imgUrl={response.data.photo_profile_url}
+                    routeBack='dashboard.cui'
+                    routeScan='dashboard.cui.absensi'
+                />
+            )}
         </DashboardLayout>
     )
 }

@@ -1,15 +1,17 @@
-"use client";
-
 import { Button } from "./button";
+import { Heading } from "./heading";
 import { Input } from "./input";
+// Asumsi Button dan Input ada di path ini
 import { ScrollArea, ScrollBar } from "./scroll-area";
 import {
     ColumnDef,
     flexRender,
     getCoreRowModel,
-    getFilteredRowModel,
     useReactTable,
 } from "@tanstack/react-table";
+import { useDebouncedCallback } from "use-debounce";
+
+import React, { useEffect, useState } from "react";
 
 import {
     Table,
@@ -22,43 +24,81 @@ import {
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
-    data: TData[];
     searchKey: string;
+    apiEndpoint: string;
+    title: string;
+    description: string;
 }
 
 export function DataTable<TData, TValue>({
     columns,
-    data,
     searchKey,
+    apiEndpoint,
+    title,
+    description,
 }: DataTableProps<TData, TValue>) {
+    const [data, setData] = useState<TData[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(10);
+    const [totalRows, setTotalRows] = useState(0);
+    const [search, setSearch] = useState("");
+
+    const fetchTableData = async () => {
+        setLoading(true);
+        const response = await fetch(
+            `${apiEndpoint}?page=${page}&perPage=${perPage}&search=${search}`,
+        );
+        const json = await response.json();
+        setData(json.data);
+        setTotalRows(json.total);
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        fetchTableData();
+    }, [page, perPage, search]);
+
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
-        getFilteredRowModel: getFilteredRowModel(),
+        state: {
+            pagination: {
+                pageIndex: page - 1,
+                pageSize: perPage,
+            },
+        },
     });
 
-    /* this can be used to get the selectedrows 
-  console.log("value", table.getFilteredSelectedRowModel()); */
+    const handleSubmit = (e) => {
+        debounced(e.target.value);
+    };
+
+    const debounced = useDebouncedCallback(
+        // function
+        (value) => {
+            setSearch(value);
+        },
+        // delay in ms0
+        500,
+    );
 
     return (
         <>
-            <Input
-                placeholder={`Search ${searchKey}...`}
-                value={
-                    (table.getColumn(searchKey)?.getFilterValue() as string) ??
-                    ""
-                }
-                onChange={(event) =>
-                    table
-                        .getColumn(searchKey)
-                        ?.setFilterValue(event.target.value)
-                }
-                className="md:max-w-sm w-full"
+            <Heading
+                title={`${title} (${totalRows})`}
+                description={description}
             />
 
-            <ScrollArea className="w-full h-[calc(80vh-220px)] rounded-md border">
-                <Table className="relative w-[1000px] md:w-full">
+            <Input
+                placeholder={`Search ${searchKey}...`}
+                onChange={(e) => handleSubmit(e)}
+                className="md:max-w-sm w-full my-2"
+            />
+
+            <ScrollArea className="max-w-6xl h-[calc(80vh-220px)] rounded-md border">
+                <Table className="md:w-full relative">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -79,20 +119,26 @@ export function DataTable<TData, TValue>({
                         ))}
                     </TableHeader>
                     <TableBody>
-                        {table.getRowModel().rows?.length ? (
-                            table.getRowModel().rows.map((row) => (
-                                <TableRow
-                                    key={row.id}
-                                    data-state={
-                                        row.getIsSelected() && "selected"
-                                    }
+                        {loading ? (
+                            <TableRow>
+                                <TableCell
+                                    colSpan={columns.length}
+                                    className="text-center"
                                 >
+                                    Loading...
+                                </TableCell>
+                            </TableRow>
+                        ) : table.getRowModel().rows.length > 0 ? (
+                            table.getRowModel().rows.map((row) => (
+                                <TableRow key={row.id}>
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>
-                                            {flexRender(
-                                                cell.column.columnDef.cell,
-                                                cell.getContext(),
-                                            )}
+                                            <div className="line-clamp-2">
+                                                {flexRender(
+                                                    cell.column.columnDef.cell,
+                                                    cell.getContext(),
+                                                )}
+                                            </div>
                                         </TableCell>
                                     ))}
                                 </TableRow>
@@ -101,7 +147,7 @@ export function DataTable<TData, TValue>({
                             <TableRow>
                                 <TableCell
                                     colSpan={columns.length}
-                                    className="h-24 text-center"
+                                    className="text-center"
                                 >
                                     No results.
                                 </TableCell>
@@ -112,25 +158,25 @@ export function DataTable<TData, TValue>({
                 <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
-            <div className="flex items-center justify-end py-4 space-x-2">
-                <div className="text-muted-foreground flex-1 text-sm">
-                    {table.getFilteredSelectedRowModel().rows.length} of{" "}
-                    {table.getFilteredRowModel().rows.length} row(s) selected.
+            <div className="flex items-center justify-between py-4">
+                <div className="text-sm text-gray-700">
+                    Showing {(page - 1) * perPage + 1} to{" "}
+                    {Math.min(page * perPage, totalRows)} of {totalRows} entries
                 </div>
-                <div className="space-x-2">
+                <div className="flex space-x-1">
                     <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => table.previousPage()}
-                        disabled={!table.getCanPreviousPage()}
+                        onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+                        disabled={page === 1}
                     >
                         Previous
                     </Button>
                     <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => table.nextPage()}
-                        disabled={!table.getCanNextPage()}
+                        onClick={() =>
+                            setPage((prev) =>
+                                prev * perPage < totalRows ? prev + 1 : prev,
+                            )
+                        }
+                        disabled={page * perPage >= totalRows}
                     >
                         Next
                     </Button>

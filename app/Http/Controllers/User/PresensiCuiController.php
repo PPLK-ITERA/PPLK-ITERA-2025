@@ -21,11 +21,27 @@ class PresensiCuiController extends Controller
 
       $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
       if (!$qrcode) {
-         return response()->json(['message' => 'QR Code tidak ditemukan'], 404);
+         return Inertia::render("Dashboard/cui/absensi/result/Page", [
+            "response" => [
+               "status" => 404,
+               "message" => "QR Code tidak ditemukan",
+               "data" => [
+                  'qr_code' => $validated['qr_code']
+               ]
+            ]
+         ]);
       }
       $user = User::findorfail($qrcode->user_id);
       if (!$user) {
-         return response()->json(['message' => 'User tidak ditemukan'], 404);
+         return Inertia::render("Dashboard/cui/absensi/result/Page", [
+            "response" => [
+               "status" => 404,
+               "message" => "User tidak ditemukan",
+               "data" => [
+                  $validated['qr_code']
+               ]
+            ]
+         ]);
       }
       $log = LogCui::where('user_id', $user->id);
       if (!$log->exists()) {
@@ -112,7 +128,15 @@ class PresensiCuiController extends Controller
    public function status($code)
    {
       if (Qrcode::where('code', $code)->doesntExist()) {
-         return response()->json(['message' => 'QR Code tidak ditemukan'], 404);
+         return Inertia::render("Dashboard/cui/absensi/result/Page", [
+            "response" => [
+               "status" => 404,
+               "message" => "User tidak ditemukan",
+               "data" => [
+                  'result' => $code
+               ]
+            ]
+         ]);
       }
       $userid = Qrcode::where('code', $code)->first()->user_id;
       $user = User::find($userid);
@@ -131,6 +155,7 @@ class PresensiCuiController extends Controller
          'pita' => $user->penyakit->pita ?? null,
          'riwayat' => $user->penyakit->ket_penyakit ?? "-",
          'status' => $log->first()->status,
+         'photo_profile_url' => $user->photo_profile_url,
          'qrcode' => $code,
          'waktu' => $log->first()->created_at ?? null,
          'waktu_izin' => $log->first()->waktu_izin ?? null,
@@ -142,7 +167,7 @@ class PresensiCuiController extends Controller
             'status' => 200,
             'message' => 'Sudah Melakukan Presensi',
             'data' => $response
-         ] 
+         ]
       ]);
    }
 
@@ -165,7 +190,7 @@ class PresensiCuiController extends Controller
          );
       }
       $log = LogCui::where('user_id', $user->id)->latest('created_at');
-      $qrcode = Qrcode::where('user_id', $user->id)->first()->code; 
+      $qrcode = Qrcode::where('user_id', $user->id)->first()->code;
 
       $response = [
          'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
@@ -189,18 +214,71 @@ class PresensiCuiController extends Controller
          ]
       );
    }
-   public function index()
+   public function index(Request $request)
    {
-      return Inertia::render('Dashboard/cui/Page');
+      return Inertia::render('Dashboard/cui/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => "Berhasil load dashboard CUI",
+            'data' => [
+               'tab' => $request->tab
+            ]
+         ]
+      ]);
+   }
+
+   public function getLogBook(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+
+      $query = LogCui::query()
+         ->with(['user', 'user.penyakit', 'user.kelompok']) // Memastikan semua data yang diperlukan di eager load
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->whereHas('user', function ($q) use ($searchTerm) {
+               $q->where('name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
+            });
+         });
+
+      $logbooks = $query->paginate($perPage);
+
+      $currentPage = $logbooks->currentPage(); // Halaman saat ini
+      $perPage = $logbooks->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $logbooks->getCollection()->transform(function ($logbook) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex, // Nomor urut
+            'id' => $logbook->id,
+            'user_id' => $logbook->user_id,
+            'status' => $logbook->status,
+            'waktu_izin' => $logbook->waktu_izin,
+            'waktu_selesai' => $logbook->waktu_selesai,
+            'waktu_hadir' => $logbook->created_at,
+            'ket_izin' => $logbook->ket_izin,
+            'user' => [
+               'name' => $logbook->user->name,
+               'nim' => $logbook->user->nim,
+               'email' => $logbook->user->email,
+               'photo_profile_url' => $logbook->user->photo_profile_url,
+               'qrcode' => $logbook->user->qrcode->code,
+               'nama_kelompok' => $logbook->user->kelompok->nama_kelompok,
+               'penyakit' => [
+                  'pita' => $logbook->user->penyakit->pita,
+                  'ket_penyakit' => $logbook->user->penyakit->ket_penyakit,
+               ],
+            ],
+         ];
+      });
+
+      return response()->json($logbooks);
    }
 
    public function absensi()
    {
       return Inertia::render('Dashboard/cui/absensi/Page');
-   }
-   public function getLogbookData()
-   {
-      $logbook = LogCui::all();
-      return response()->json($logbook);
    }
 }

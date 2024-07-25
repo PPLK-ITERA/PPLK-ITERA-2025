@@ -2,6 +2,7 @@ import react from "@vitejs/plugin-react";
 import laravel from "laravel-vite-plugin";
 import path from "path";
 import { defineConfig } from "vite";
+import compression from "vite-plugin-compression2";
 
 export default defineConfig({
     plugins: [
@@ -10,6 +11,7 @@ export default defineConfig({
             refresh: true,
         }),
         react(),
+        compression(),
     ],
     resolve: {
         alias: {
@@ -17,11 +19,21 @@ export default defineConfig({
         },
     },
     optimizeDeps: {
-        include: ['@zxing/library'],
+        include: ["@zxing/library", "react-qr-code"],
     },
     build: {
-        sourcemap: true,
+        minify: "terser",
+        sourcemap: false,
+        manifest: true,
         rollupOptions: {
+            output: {
+                // Template untuk nama asset yang menambahkan hash
+                assetFileNames: `assets/[hash].[ext]`,
+                // Template untuk nama chunks yang menambahkan hash
+                chunkFileNames: `assets/[hash].js`,
+                // Template untuk nama entry files yang menambahkan hash
+                entryFileNames: `assets/[hash].js`,
+            },
             onwarn(warning, defaultHandler) {
                 if (warning.code === "SOURCEMAP_ERROR") {
                     return;
