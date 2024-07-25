@@ -5,12 +5,12 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "./CarouselBooklet";
-import { DialogBooklet } from "./DialogBooklet";
+} from "./CarouselMateri";
+import { DialogMateri } from "./DialogMateri";
 
 import { useState } from "react";
 
-export function CarouselBooklet() {
+export function CarouselMateri() {
     const [openedIndex, setOpenedIndex] = useState(null);
 
     const handleCardClick = (index) => {
@@ -57,7 +57,7 @@ export function CarouselBooklet() {
                                     </div>
 
                                     <div className="mr-2 mt-[80px]">
-                                        <DialogBooklet />
+                                        <DialogMateri />
                                     </div>
                                 </div>
                             </CardContent>

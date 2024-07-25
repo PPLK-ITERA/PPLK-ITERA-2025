@@ -108,6 +108,13 @@ Route::get('booklet', [BookletController::class, 'guestIndex'])->name('booklet')
 
 
 // =====================================
+// Materi (Guest)
+// =====================================
+Route::get('materi', function () {
+   return Inertia::render('Materi/Page');
+})->name('materi');
+
+// =====================================
 // Maskot (Guest)
 // =====================================
 Route::get('informasi/maskot', function () {
