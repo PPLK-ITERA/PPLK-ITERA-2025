@@ -54,16 +54,24 @@ class PoinResponseHelper
       ]);
    }
 
-   public function qrSuccess($qrcode, $qrUrl, $code)
+   public function qrSuccess($qrUrl, $code)
    {
-      return Inertia::render('Poin/Qrcode/Page', [
-         'response' => [
-            'status' => 200,
-            'message' => 'success',
-            'data' => [
-               'qrUrl' => $qrUrl,
-               'code' => $code
-            ]
+      // return Inertia::render('Dashboard/game-offline/Page', [
+      //    'response' => [
+      //       'status' => 200,
+      //       'message' => 'success',
+      //       'data' => [
+      //          'qrUrl' => $qrUrl,
+      //          'code' => $code
+      //       ]
+      //    ]
+      // ]);
+      return response()->json([
+         'status' => 200,
+         'message' => 'success',
+         'data' => [
+            'qrUrl' => $qrUrl,
+            'code' => $code
          ]
       ]);
    }

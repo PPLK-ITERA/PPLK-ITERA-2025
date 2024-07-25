@@ -334,4 +334,15 @@ Route::middleware('auth')->group(function () {
    Route::get('mading/kumpul', function () {
       return Inertia::render('Mading/Kumpul/Page');
    })->name('mading/kumpul');
+
+   // =====================================
+   // Manage Tugas (Auth)
+   // =====================================
+   Route::get('/dashboard/manage-tugas', function () {
+      return Inertia::render('Dashboard/manage-tugas/Page');
+   })->name('/dashboard/manage-tugas');
+
+   Route::get('manage-tugas/detail', function () {
+      return Inertia::render('ManageTugas/Detail/Page');
+   })->name('manage-tugas/detail');
 });

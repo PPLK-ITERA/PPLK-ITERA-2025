@@ -63,6 +63,15 @@ Route::middleware('auth')->group(function () {
          Route::get('/', [UserController::class, 'index'])->name('user.index');
       });
 
+      Route::middleware('checkRole:Korlap')->group(function () {
+         Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
+         Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store');
+         Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect');
+      });
+
+      Route::get('poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('poin.qrcode');
+      // ->middleware('checkRole:Dapmen');
+
       Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
          Route::get('booklet', [BookletController::class, 'index'])->name('dashboard.booklet.index');
          Route::get('booklet/data', [BookletController::class, 'getAllBooklets'])->name('dashboard.booklet.data');
@@ -158,12 +167,6 @@ Route::middleware('auth')->group(function () {
       Route::get('kelompok/score', [GameController::class, 'getScoreKelompok']);
       Route::get('user/score', [GameController::class, 'getUserScore']);
    });
-   Route::middleware('checkRole:Korlap')->group(function () {
-      Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
-      Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store');
-      Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect');
-   });
-   Route::get('/poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('poin.qrcode')->middleware('checkRole:Dapmen');
 });
 
 require __DIR__ . '/auth.php';

@@ -1,9 +1,14 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
+import { IDetectedBarcode, Scanner, outline } from "@yudiel/react-qr-scanner";
+import QRCode from "react-qr-code";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
+import { Link, useForm } from "@inertiajs/react";
+
+import Dapmen from "@/Components/dashboard/game-offline/Dapmen";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
-import { Button } from "@/Components/ui/button";
+import { Button, buttonVariants } from "@/Components/ui/button";
 
 import logopplk from "!assets/logo-pplk-2024.png";
 
@@ -12,8 +17,24 @@ const breadcrumbItems = [
     { title: "Game Offline", link: "/dashboard/game-offline" },
 ];
 
-export default function Page({ auth }) {
-    console.log(auth.user);
+export default function Page({ auth, response }) {
+    const { data, setData, post, processing } = useForm({
+        qr_code: "",
+    });
+    const [loading, setLoading] = useState(false);
+
+    const handleScan = (data: string) => {
+        if (data) {
+            setData("qr_code", data);
+        }
+    };
+
+    useEffect(() => {
+        if (data.qr_code) {
+            post(route("cui.scan"));
+        }
+    }, [data.qr_code]);
+
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
@@ -21,34 +42,10 @@ export default function Page({ auth }) {
 
             {auth.user.role_id === 2 ? (
                 <>
-                    <p>
-                        Gunakan fitur ini untuk generate QR kelompok anda untuk
-                        di scan oleh <span className="font-bold">Korlap</span>
-                    </p>
-
-                    <div className="w-fit p-2 text-white bg-green-600 rounded-md">
-                        <p>Score Kelompok : 800</p>
-                    </div>
-
-                    <div className="flex flex-col items-center w-full gap-10">
-                        <div className="w-fit">
-                            <p className="text-center">
-                                Tunjukkan QR Code ini ke{" "}
-                                <span className="font-bold">Korlap</span>
-                            </p>
-
-                            <div className="aspect-square bg-transparent border flex justify-center items-center mt-5 w-[300px] h-[300px] rounded-md">
-                                <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/220px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                                    alt="qrcode"
-                                />
-                            </div>
-                        </div>
-
-                        <Button>Generate QR Kelompok</Button>
-                    </div>
+                    <Dapmen userId={auth.user.id} />
                 </>
             ) : null}
+
             {auth.user.role_id === 3 ? (
                 <>
                     <p>
@@ -57,7 +54,35 @@ export default function Page({ auth }) {
                         pada game offline
                     </p>
 
-                    <Button>Scan QR Kelompok</Button>
+                    <div className="flex flex-col items-center justify-center w-full">
+                        <div className="md:w-96 border">
+                            <Scanner
+                                onScan={function (
+                                    detectedCodes: IDetectedBarcode[],
+                                ): void {
+                                    handleScan(
+                                        detectedCodes.at(-1)?.rawValue || "",
+                                    );
+                                }}
+                                components={{
+                                    finder: true,
+                                    tracker: outline,
+                                    zoom: true,
+                                    torch: true,
+                                }}
+                                allowMultiple={true}
+                                scanDelay={2000}
+                                paused={loading}
+                                styles={{
+                                    container: {
+                                        width: "100%",
+                                    },
+                                }}
+                            />
+                        </div>
+
+                        <Button className="mt-5">Scan QR Kelompok</Button>
+                    </div>
                 </>
             ) : null}
         </DashboardLayout>
