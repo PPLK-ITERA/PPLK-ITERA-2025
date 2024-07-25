@@ -14,13 +14,12 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\KelompokController as UserKelompokController;
-use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Http\Controllers\User\RelasiController;
-use App\Http\Controllers\KelompokController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\TugasController;
+use App\Http\Controllers\User\UserController;
+
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;
 
@@ -71,6 +70,12 @@ Route::middleware('auth')->group(function () {
       Route::prefix('user')->group(function () {
          Route::get('/', [UserController::class, 'index'])->name('user.index');
       });
+      Route::middleware('checkRole:Korlap,Admin')->group(function () {
+         Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
+         Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store');
+         Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect');
+      });
+      Route::get('/poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('poin.qrcode')->middleware('checkRole:Dapmen');
 
       Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
          Route::get('booklet', [BookletController::class, 'index'])->name('dashboard.booklet.index');
@@ -165,23 +170,12 @@ Route::middleware('auth')->group(function () {
       Route::post('/follow/{id}', [RelasiController::class, 'follow'])->name('follow');
    });
 
-   //Middleware only mahasiswa
-   Route::middleware(['checkRole:mahasiswa'])->group(function () {
-   });
 
    Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
       //Presensi PPLK
       Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
       Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
    });
-
-
-   Route::middleware('checkRole:Korlap,Admin')->group(function () {
-      Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
-      Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store');
-      Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect');
-   });
-   Route::get('/poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('poin.qrcode')->middleware('checkRole:Dapmen');
 });
 
 require __DIR__ . '/auth.php';
