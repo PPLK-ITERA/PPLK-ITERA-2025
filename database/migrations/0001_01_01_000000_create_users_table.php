@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
          $table->foreignId('prodi_id')->nullable();
          $table->foreignId('penyakit_id')->nullable();
          $table->foreignId('role_id')->default(1);
+         $table->boolean('isKetua')->default(false);
          $table->rememberToken();
          $table->timestamps();
       });

@@ -43,18 +43,25 @@ class PoinResponseHelper
    }
    public function qrError($message, $status)
    {
-      return Inertia::render('Poin/Generate/Page', [
-         'response' => [
-            'status' => $status,
-            'message' => 'failed',
-            'data' => [
-               'error' => $message
-            ]
+      // return Inertia::render('Poin/Generate/Page', [
+      //    'response' => [
+      //       'status' => $status,
+      //       'message' => 'failed',
+      //       'data' => [
+      //          'error' => $message
+      //       ]
+      //    ]
+      // ]);
+      return response()->json([
+         'status' => $status,
+         'message' => 'failed',
+         'data' => [
+            'error' => $message
          ]
       ]);
    }
 
-   public function qrSuccess($qrcode, $qrUrl, $code)
+   public function qrSuccess($qrUrl, $code)
    {
       return Inertia::render('Poin/Qrcode/Page', [
          'response' => [

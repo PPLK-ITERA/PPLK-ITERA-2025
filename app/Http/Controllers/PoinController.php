@@ -54,23 +54,25 @@ class PoinController extends Controller
     * @return \Inertia\Response Inertia response with success or error data.
     */
 
-   public function store(Request $request, $user_id)
+   public function store(Request $request)
    {
-      $ketua_kelompok = User::findorFail($user_id);
-      if (!$request->poin) {
-         return $this->helper->poinError('Poin is required', 400);
-      }
-      $qrCode = PoinQrCode::where('user_id', $user_id)
+      $validated = $request->validate([
+         'code' => 'required|string',
+      ]);
+      $poinqrcode = PoinQrCode::where('code', $validated['code'])->first();
+      $qrCode = PoinQrCode::where('user_id', $poinqrcode->user_id)
          ->where('created_at', '>=', Carbon::now()->subMinutes(10))
          ->orderBy('created_at', 'desc')
          ->first();
+      $kelompok_id = User::where('user_id', $poinqrcode->user_id)->first()->kelompok_id;
+      $ketua_kelompok = User::where('kelompok_id', $kelompok_id)->where('isKetua', true)->first();
 
       if (!$qrCode || $qrCode->expired_at->isPast()) {
          return $this->helper->qrError('QR code expired', 400);
       }
       DB::beginTransaction();
       try {
-         $ketua_kelompok->score += $request->poin;
+         $ketua_kelompok->poin += 500;
          $ketua_kelompok->save();
          DB::commit();
          return $this->helper->poinSuccess($ketua_kelompok);
