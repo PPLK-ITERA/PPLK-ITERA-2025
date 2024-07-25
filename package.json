@@ -64,6 +64,7 @@
         "embla-carousel-react": "^8.1.5",
         "framer-motion": "^11.2.12",
         "lucide-react": "^0.399.0",
+        "react-circular-progressbar": "^2.1.0",
         "react-countup": "^6.5.3",
         "react-day-picker": "^8.10.1",
         "react-fast-marquee": "^1.6.5",

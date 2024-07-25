@@ -62,12 +62,13 @@ Route::middleware('auth')->group(function () {
          Route::get('/', [UserController::class, 'index'])->name('user.index');
       });
 
-      Route::resource('booklet', BookletController::class)->names('booklet');
-      // Route::resource('faq', FAQController::class)->names('faq');
-
-      // Route::prefix('kelompok')->group(function () {
-      //    Route::resource('/', UserKelompokController::class)->names('kelompok');
-      // });
+      Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
+         Route::get('booklet', [BookletController::class, 'index'])->name('dashboard.booklet.index');
+         Route::get('booklet/data', [BookletController::class, 'getAllBooklets'])->name('dashboard.booklet.data');
+         Route::get('booklet', [BookletController::class, 'store'])->name('dashboard.booklet.store');
+         Route::put('booklet', [BookletController::class, 'update'])->name('dashboard.booklet.update');
+         Route::delete('booklet', [BookletController::class, 'destroy'])->name('dashboard.booklet.destroy');
+      });
    });
 
    //Presensi CUI

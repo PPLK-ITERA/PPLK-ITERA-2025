@@ -108,6 +108,13 @@ Route::get('booklet', [BookletController::class, 'guestIndex'])->name('booklet')
 
 
 // =====================================
+// Materi (Guest)
+// =====================================
+Route::get('materi', function () {
+   return Inertia::render('Materi/Page');
+})->name('materi');
+
+// =====================================
 // Maskot (Guest)
 // =====================================
 Route::get('informasi/maskot', function () {
@@ -307,4 +314,24 @@ Route::middleware('auth')->group(function () {
    Route::get('relasi/profil', function () {
       return Inertia::render('Relasi/Profil/Page');
    })->name('relasi/profil');
+
+
+   // =====================================
+   // Game Offline (Auth)
+   // =====================================
+   Route::get('dashboard/game-offline', function () {
+      return Inertia::render('Dashboard/game-offline/Page');
+   })->name('dashboard/game-offline');
+
+
+   // =====================================
+   // Mading (Auth)
+   // =====================================
+   Route::get('mading', function () {
+      return Inertia::render('Mading/Page');
+   })->name('mading');
+
+   Route::get('mading/kumpul', function () {
+      return Inertia::render('Mading/Kumpul/Page');
+   })->name('mading/kumpul');
 });
