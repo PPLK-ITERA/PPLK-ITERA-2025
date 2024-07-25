@@ -1,24 +1,28 @@
-import { Label } from "@headlessui/react";
 import { useDebouncedCallback } from "use-debounce";
 
 import React, { FormEvent, useEffect, useState } from "react";
 
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
 
 import { Booklet } from "@/lib/types/Booklet";
 
-type Props = { booklet?: Booklet; onSubmit: (e: FormEvent) => void };
+type Props = {
+    booklet?: Booklet;
+    onSubmit: (e: FormEvent) => void;
+    setData: any;
+};
 
-function BookletForm({ booklet, onSubmit }: Props) {
-    const [url, setUrl] = useState("");
-    const [name, setName] = useState("");
+function BookletForm({ booklet, onSubmit, setData }: Props) {
+    const [url, setUrl] = useState(booklet ? booklet.url_booklet : "");
+    const [name, setName] = useState(booklet ? booklet.nama_booklet : ""    );
     const [error, setError] = useState<string | null>(null);
     const [urlError, setUrlError] = useState<string | null>(null);
 
     const validateUrl = useDebouncedCallback(async (url: string) => {
         if (!/^https:\/\/(www\.)?\w+\.google\.com\/.*$/g.test(url)) {
-            setUrlError("link harus hari Google Drive");
+            setUrlError("link harus dari Google Drive");
             return;
         }
 
@@ -43,10 +47,21 @@ function BookletForm({ booklet, onSubmit }: Props) {
         else setError("");
     }, [name]);
 
+    useEffect(() => {
+        setData({
+            nama_booklet: name,
+            url_booklet: url,
+        });
+    }, [name, url]);
+
+    if (booklet) {
+        validateUrl(booklet.url_booklet);
+    }
+
     return (
         <form
             className="grid gap-4 py-4"
-            onSubmit={(e) => {
+            onSubmit={(e: FormEvent) => {
                 e.preventDefault();
                 onSubmit(e);
             }}
@@ -57,10 +72,12 @@ function BookletForm({ booklet, onSubmit }: Props) {
                 </Label>
                 <Input
                     id="nama_booklet"
+                    name="nama_booklet"
                     required
                     type="text"
                     maxLength={500}
                     className="col-span-3"
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
             </div>
@@ -70,10 +87,12 @@ function BookletForm({ booklet, onSubmit }: Props) {
                 </Label>
                 <Input
                     id="url_booklet"
+                    name="url_booklet"
                     required
                     type="text"
                     maxLength={500}
                     className="col-span-3"
+                    value={url}
                     onChange={(e) => setUrl(e.target.value)}
                 />
             </div>
@@ -91,14 +110,14 @@ function BookletForm({ booklet, onSubmit }: Props) {
                     <p className="text-green-500 text-sm">Link valid</p>
                 ) : null}
             </div>
-            <div className="flex gap-4 place-content-center justify-between items-center text-right">
+            <div className="mt-4 flex gap-4 place-content-center justify-between items-center text-right">
                 <Button
                     size={"sm"}
                     type={"submit"}
-                    className={`w-1/2 bg-orange-500 ${error === null ? "hidden" : ""}`}
+                    className={`w-full ${error === null ? "hidden" : ""}`}
                     disabled={!!urlError}
                 >
-                    Submit
+                    Tambahkan Booklet
                 </Button>
             </div>
         </form>

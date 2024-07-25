@@ -213,9 +213,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard Booklet (Auth)
    // =====================================
-   Route::get('dashboard/booklet', function () {
-      return Inertia::render('Dashboard/booklet/Page');
-   })->name('dashboard/booklet');
+   // Route::get('dashboard/booklet', function () {
+   //    return Inertia::render('Dashboard/booklet/Page');
+   // })->name('dashboard/booklet');
 
 
    // =====================================

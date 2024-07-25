@@ -56,20 +56,23 @@ class BookletController extends Controller
       }
    }
 
-   public function update(Request $request, $id)
+   public function update(Request $request)
    {
       $validated = $request->validate([
+         'id' => 'required|integer',
          'nama_booklet' => 'required|string',
          'url_booklet' => 'required|string',
       ]);
 
-      $booklet = Booklet::find($id);
+      $booklet = Booklet::find($validated['id']);
       if (!$booklet) {
          return redirect()->route('booklet.index')->with('response', [
             'status' => 404,
             'message' => 'Data tidak ditemukan',
          ]);
       }
+
+      dd($booklet);
 
       DB::beginTransaction();
       try {
@@ -88,18 +91,16 @@ class BookletController extends Controller
       }
    }
 
-   public function delete($id)
+   public function destroy(Booklet $booklet)
    {
       DB::beginTransaction();
       try {
-         $booklet = Booklet::find($id)->delete();
+         $booklet->delete();
          DB::commit();
-         if ($booklet) {
-            return redirect()->route('booklet.index')->with('response', [
-               'status' => 201,
-               'message' => 'Berhasil menghapus data',
-            ]);
-         }
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 201,
+            'message' => 'Berhasil menghapus data',
+         ]);
       } catch (\Exception $e) {
          DB::rollBack();
          return redirect()->route('booklet.index')->with('response', [

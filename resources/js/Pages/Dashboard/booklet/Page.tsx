@@ -2,36 +2,32 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import { format } from "date-fns";
 import { useDebouncedCallback } from "use-debounce";
 
+
+
 import React, { FormEvent, useEffect, useState } from "react";
+
+
+
+import { useForm } from "@inertiajs/react";
+
+
 
 import { CalendarIcon } from "lucide-react";
 
+
+
 import { IconPlus } from "@tabler/icons-react";
 
-import { BookletTable } from "@/Components/dashboard/booklet/BookletTable";
-import { Breadcrumbs } from "@/Components/dashboard/breadcrumbs";
-import { Button } from "@/Components/dashboard/ui/button";
-import { Calendar } from "@/Components/dashboard/ui/calendar";
-import { Input } from "@/Components/dashboard/ui/input";
-import { Label } from "@/Components/dashboard/ui/label";
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/Components/dashboard/ui/popover";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/Components/ui/dialog";
 
-import { cn } from "@/lib/utils";
-import { useForm } from "@inertiajs/react";
+
 import BookletForm from "@/Components/dashboard/booklet/BookletForm";
+import { BookletTable } from "@/Components/dashboard/booklet/BookletTable";
+import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
+import { Button } from "@/Components/ui/button";
+import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
+import { Toaster } from "@/Components/ui/toaster";
+import { toast } from "@/Components/ui/use-toast";
+
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
@@ -39,16 +35,26 @@ const breadcrumbItems = [
 ];
 
 export default function Page({ auth, response }) {
-    const { data, setData, post, processing } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         nama_booklet: "",
         url_booklet: "",
     });
 
     function submit(e: FormEvent) {
-        const data = new FormData(e.target as HTMLFormElement);
-        setData("nama_booklet", data.get("nama_booklet") as string);
-        setData("url_booklet", data.get("url_booklet") as string);
-        post(route())
+        post(route("booklet.store"), {
+            onError: () => {
+                toast({
+                    title: "Uh oh! Gagal mengupload Booklet.",
+                    description: errors.nama_booklet || errors.url_booklet,
+                });
+            },
+            onSuccess: () => {
+                toast({
+                    title: "Berhasil mengupload Booklet!",
+                    description: "Booklet berhasil diupload.",
+                });
+            },
+        });
     }
 
     return (
@@ -69,12 +75,13 @@ export default function Page({ auth, response }) {
                         <DialogHeader>
                             <DialogTitle>Tambah Booklet</DialogTitle>
                         </DialogHeader>
-                        <BookletForm onSubmit={submit} />
+                        <BookletForm onSubmit={submit} setData={setData} />
                     </DialogContent>
                 </Dialog>
             </div>
 
-            <BookletTable booklets={response.data} onsubmi />
+            <BookletTable booklets={response.data} />
+            <Toaster />
         </DashboardLayout>
     );
 }
