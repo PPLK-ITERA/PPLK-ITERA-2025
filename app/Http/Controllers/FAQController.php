@@ -154,7 +154,6 @@ class FAQController extends Controller
 
    public function getAllFAQ(Request $request)
    {
-      // return Inertia::render('Dashboard/faq/Page');
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
