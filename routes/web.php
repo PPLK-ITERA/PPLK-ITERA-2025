@@ -38,7 +38,7 @@ Route::get('/dashboard', function () {
 Route::get('/ujangbedil', function(){
    return csrf_token();
 });
-
+Route::post('check-answers/{id}', [QuizAnswerController::class, 'checkAnswers']);
 Route::middleware('auth')->group(function () {
 
    // Profile
@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
    //mengambil pertanyaan berdasarkan geddung yang terbuka sebanyak 5 dari 10 soal
    Route::get('/pertanyaan/{gedung_id}', [QuizController::class, 'getQuestionsByGedung']);
    //jawab kuis
-   Route::post('/check-answers', [QuizAnswerController::class, 'checkAnswers']);
+
    Route::get('/test', [QuizAnswerController::class,'test']);
    //membuka status gedung
    Route::get('/unlock-gedung', [UnlockStatusController::class, 'unlockGedung']);
