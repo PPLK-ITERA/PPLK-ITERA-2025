@@ -1,13 +1,46 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import react from '@vitejs/plugin-react';
+import react from "@vitejs/plugin-react";
+import laravel from "laravel-vite-plugin";
+import path from "path";
+import { defineConfig } from "vite";
+import compression from "vite-plugin-compression2";
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: 'resources/js/app.jsx',
+            input: "resources/js/app.jsx",
             refresh: true,
         }),
         react(),
+        compression(),
     ],
+    resolve: {
+        alias: {
+            "!assets": path.resolve(__dirname, "./resources/assets"),
+        },
+    },
+    optimizeDeps: {
+        include: ["@zxing/library", "react-qr-code"],
+    },
+    build: {
+        minify: "terser",
+        sourcemap: false,
+        manifest: true,
+        rollupOptions: {
+            output: {
+                // Template untuk nama asset yang menambahkan hash
+                assetFileNames: `assets/[hash].[ext]`,
+                // Template untuk nama chunks yang menambahkan hash
+                chunkFileNames: `assets/[hash].js`,
+                // Template untuk nama entry files yang menambahkan hash
+                entryFileNames: `assets/[hash].js`,
+            },
+            onwarn(warning, defaultHandler) {
+                if (warning.code === "SOURCEMAP_ERROR") {
+                    return;
+                }
+
+                defaultHandler(warning);
+            },
+        },
+    },
 });

@@ -16,11 +16,8 @@ class CreateUsersTable extends Migration
          $table->string('name');
          $table->string('nim')->nullable();
          $table->string('email')->unique();
-         $table->timestamp('email_verified_at')->nullable();
          $table->string('password');
-         $table->foreignId('role_id')->default(1);
          $table->boolean('isFirstTime')->default(true);
-         $table->rememberToken();
          $table->string('photo_profile_url')->nullable();
          $table->string('linkedin_url')->nullable();
          $table->string('instagram_url')->nullable();
@@ -28,6 +25,10 @@ class CreateUsersTable extends Migration
          $table->foreignId('kelompok_id')->nullable();
          $table->integer('score')->default(0);
          $table->unsignedBigInteger('view_count')->default(0);
+         $table->foreignId('prodi_id')->nullable();
+         $table->foreignId('penyakit_id')->nullable();
+         $table->foreignId('role_id')->default(1);
+         $table->rememberToken();
          $table->timestamps();
       });
       Schema::create('sessions', function (Blueprint $table) {

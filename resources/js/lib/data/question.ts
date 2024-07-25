@@ -1,4 +1,4 @@
-import { Question } from "../types/Question"
+import { Question } from "../types/Question";
 
 export async function getQuestions(token: string): Promise<Question[]> {
     const response = await fetch(`http://localhost:8000/api/v1/questions`, {
@@ -9,13 +9,17 @@ export async function getQuestions(token: string): Promise<Question[]> {
             "ngrok-skip-browser-warning": "69420",
         },
         method: "GET",
-    })
+    });
 
-    const data: Question[] = Object.values(await response.json())
-    return data
+    const data: Question[] = Object.values(await response.json());
+    return data;
 }
 
-export async function answerQuestion(token: string, questionId: number, answerId: number): Promise<void> {
+export async function answerQuestion(
+    token: string,
+    questionId: number,
+    answerId: number,
+): Promise<void> {
     const response = await fetch(
         `http://localhost:8000/api/v1/question/${questionId}/answer/${answerId}`,
         {
@@ -26,6 +30,6 @@ export async function answerQuestion(token: string, questionId: number, answerId
                 "ngrok-skip-browser-warning": "69420",
             },
             method: "POST",
-        }
-    )
+        },
+    );
 }
