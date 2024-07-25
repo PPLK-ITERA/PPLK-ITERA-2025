@@ -154,11 +154,8 @@ Route::middleware('auth')->group(function () {
       Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
    });
 
-   Route::prefix('api')->group(function () {
-      Route::get('kelompok/score', [GameController::class, 'getScoreKelompok']);
-      Route::get('user/score', [GameController::class, 'getUserScore']);
-   });
-   Route::middleware('checkRole:Korlap')->group(function () {
+
+   Route::middleware('checkRole:Korlap,Admin')->group(function () {
       Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
       Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store');
       Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect');
