@@ -78,6 +78,7 @@ class UserController extends Controller
 
       return response()->json($users);
    }
+
    public function getUsersDapmen(Request $request)
    {
       $perPage = $request->input('perPage', 10);
@@ -116,6 +117,7 @@ class UserController extends Controller
 
       return response()->json($users);
    }
+
    public function getUsersPjprodi(Request $request)
    {
       $perPage = $request->input('perPage', 10);
@@ -154,6 +156,7 @@ class UserController extends Controller
 
       return response()->json($users);
    }
+
    public function getUsersKorlap(Request $request)
    {
       $perPage = $request->input('perPage', 10);
@@ -192,6 +195,7 @@ class UserController extends Controller
 
       return response()->json($users);
    }
+
    public function getUsersMamet(Request $request)
    {
       $perPage = $request->input('perPage', 10);
@@ -230,6 +234,7 @@ class UserController extends Controller
 
       return response()->json($users);
    }
+
    /**
     * Show the form for creating a new resource.
     */
@@ -261,7 +266,7 @@ class UserController extends Controller
             ]
          );
       } catch (\Exception $e) {
-         return response()->json([
+         return redirect()->route('dashboard.users.index')->with([
             'response' => [
                'status' => 500,
                'message' => 'Gagal menambahkan user',
@@ -269,6 +274,12 @@ class UserController extends Controller
             ]
          ]);
       }
+      return redirect()->route('users.index')->with([
+         'response' => [
+            'status' => 201,
+            'message' => 'Berhasil menambahkan user',
+         ]
+      ]);
    }
 
    /**
@@ -290,9 +301,10 @@ class UserController extends Controller
    /**
     * Update the specified resource in storage.
     */
-   public function update(UserUpdateRequest $request, string $id)
+   public function update(UserUpdateRequest $request)
    {
-      $user = User::find($id);
+
+      $user = User::find($request->id);
       DB::beginTransaction();
       try {
          $penyakit = Penyakit::find($user->penyakit_id);
@@ -333,9 +345,14 @@ class UserController extends Controller
    /**
     * Remove the specified resource from storage.
     */
-   public function destroy(string $id)
+   public function destroy(Request $request)
    {
-      $user = User::find($id);
+      $validated = $request->validated(
+         [
+            'id' => ['required', 'integer'],
+         ]
+      );
+      $user = User::find($validated['id']);
       DB::beginTransaction();
       try {
          $penyakit = Penyakit::find($user->penyakit_id);
@@ -349,14 +366,14 @@ class UserController extends Controller
          return redirect()->route('users.index')->with([
             'response' => [
                'status' => 500,
-               'message' => 'Gagal mengubah user',
+               'message' => 'Gagal menghapus user',
             ]
          ]);
       }
       return redirect()->route('users.index')->with([
          'response' => [
             'status' => 201,
-            'message' => 'Berhasil mengubah user',
+            'message' => 'Berhasil menghapus user',
          ]
       ]);
    }

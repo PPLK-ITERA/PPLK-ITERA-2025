@@ -53,12 +53,16 @@ Route::middleware('auth')->group(function () {
          Route::get('user/pjprodi/data', [UserController::class, 'getUsersPjprodi'])->name('user.pjprodi.data');
          Route::get('user/korlap/data', [UserController::class, 'getUsersKorlap'])->name('user.korlap.data');
          Route::get('user/mamet/data', [UserController::class, 'getUsersMamet'])->name('user.mamet.data');
+
+         //CRUD
+         Route::get('user/store', [UserController::class, 'store'])->name('dashboard.user.store');
+         Route::put('user/update', [UserController::class, 'update'])->name('dashboard.user.update');
+         Route::delete('user/delete', [UserController::class, 'delete'])->name('dashboard.user.destroy');
       });
       Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
          Route::get('user/maba/data', [UserController::class, 'getUsersMaba'])->name('user.maba.data');
       });
 
-      Route::resource('user', UserController::class)->names('user');
 
       //Etc
       Route::resource('booklet', BookletController::class)->names('booklet');
