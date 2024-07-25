@@ -18,6 +18,15 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Http\Controllers\User\RelasiController;
+use App\Http\Controllers\KelompokController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TugasController;
+// use App\Http\Controllers\ResponseController;
+// use App\Http\Controllers\FeedbackController;
+
+
+
+
 
 Route::get('/', function () {
    // if has auth, redirect to dashboard
@@ -134,6 +143,14 @@ Route::middleware('auth')->group(function () {
    //melihat kelompok yang tidak masuk top 10
    Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
+   // Tugas
+   Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
+   Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
+   Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
+   Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
+   Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
+   Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
+   Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
 
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {
@@ -146,6 +163,10 @@ Route::middleware('auth')->group(function () {
       Route::get('/list-maba', [RelasiController::class, 'listMaba']);
       //follow button
       Route::post('/follow/{id}', [RelasiController::class, 'follow'])->name('follow');
+   });
+
+   //Middleware only mahasiswa
+   Route::middleware(['checkRole:mahasiswa'])->group(function () {
    });
 
    Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
