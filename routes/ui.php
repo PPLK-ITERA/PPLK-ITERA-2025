@@ -322,4 +322,16 @@ Route::middleware('auth')->group(function () {
    Route::get('dashboard/game-offline', function () {
       return Inertia::render('Dashboard/game-offline/Page');
    })->name('dashboard/game-offline');
+
+
+   // =====================================
+   // Mading (Auth)
+   // =====================================
+   Route::get('mading', function () {
+      return Inertia::render('Mading/Page');
+   })->name('mading');
+
+   Route::get('mading/kumpul', function () {
+      return Inertia::render('Mading/Kumpul/Page');
+   })->name('mading/kumpul');
 });
