@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\Game\GameController;
@@ -13,7 +12,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ScoreboardController;
-use App\Http\Controllers\User\KelompokController as UserKelompokController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Http\Controllers\User\RelasiController;
@@ -26,6 +24,7 @@ use App\Http\Controllers\User\UserController;
 
 
 
+use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', function () {
    // if has auth, redirect to dashboard
@@ -41,19 +40,9 @@ Route::get('/', function () {
    ]);
 })->name('welcome');
 
-// All routes
-Route::get('faq', [FAQController::class, 'guestIndex'])->name('faq.guestIndex');
-Route::get('booklets', [BookletController::class, 'guestIndex'])->name('booklets.guestIndex');
 
 //Auth Route
 Route::middleware('auth')->group(function () {
-
-   // Profile
-
-   // // Profile
-   // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-   // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-   // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
    // Scoreboard
    //melihat top 10
@@ -67,8 +56,21 @@ Route::middleware('auth')->group(function () {
 
    //dashboard
    Route::prefix('dashboard')->group(function () {
-      Route::prefix('user')->group(function () {
-         Route::get('/', [UserController::class, 'index'])->name('user.index');
+      //User
+      Route::middleware(['checkRole:Admin'])->group(function () {
+         Route::get('user/data', [UserController::class, 'getUsers'])->name('user.data');
+         Route::get('user/dapmen/data', [UserController::class, 'getUsersDapmen'])->name('user.dapmen.data');
+         Route::get('user/pjprodi/data', [UserController::class, 'getUsersPjprodi'])->name('user.pjprodi.data');
+         Route::get('user/korlap/data', [UserController::class, 'getUsersKorlap'])->name('user.korlap.data');
+         Route::get('user/mamet/data', [UserController::class, 'getUsersMamet'])->name('user.mamet.data');
+
+         //CRUD
+         Route::get('user/store', [UserController::class, 'store'])->name('dashboard.user.store');
+         Route::put('user/update', [UserController::class, 'update'])->name('dashboard.user.update');
+         Route::delete('user/delete', [UserController::class, 'delete'])->name('dashboard.user.destroy');
+      });
+      Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+         Route::get('user/maba/data', [UserController::class, 'getUsersMaba'])->name('user.maba.data');
       });
       Route::middleware('checkRole:Korlap,Admin')->group(function () {
          Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
@@ -142,7 +144,7 @@ Route::middleware('auth')->group(function () {
 
    // Scoreboard
    // melihat list user pada kelompok
-   Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
+   // Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
    //melihat top 10
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
    //melihat kelompok yang tidak masuk top 10
@@ -181,3 +183,4 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 require __DIR__ . '/ui.php';
 require __DIR__ . '/game.php';
+require __DIR__ . '/guest.php';
