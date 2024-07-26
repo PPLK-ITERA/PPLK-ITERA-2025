@@ -114,4 +114,49 @@ class UnlockStatusController extends Controller
 
       return response()->json($response, 200);
    }
+
+   public function unlockGedungForMaba(Request $request, $id)
+   {
+       $admin = User::findOrFail($id);
+   
+       // Verifikasi bahwa user adalah admin
+       if ($admin->role_id != 3) {
+           return response()->json(['message' => 'Hanya admin yang dapat melakukan ini.'], 403);
+       }
+   
+       $today = Carbon::today();
+       $startOfPeriod = Carbon::now()->startOfWeek();
+       $dayOfPeriod = $today->diffInDays($startOfPeriod) % 7 + 1;
+       $numGedungsToUnlock = $dayOfPeriod <= 4 ? 7 : 5;
+   
+       // Mengambil semua Maba
+       $mabaUsers = User::where('role_id', 1)->get();
+   
+       // Mengambil semua gedung yang belum terkunci hari ini
+       $unlockedGedungs = UnlockStatus::whereDate('created_at', $today)->pluck('gedung_id')->toArray();
+       $availableGedungs = Gedung::whereNotIn('id', $unlockedGedungs)->get();
+   
+       if ($availableGedungs->isEmpty()) {
+           return response()->json(['message' => 'Tidak ada gedung yang tersedia untuk dibuka hari ini.'], 400);
+       }
+   
+       // Randomize gedung untuk dibuka
+       $gedungsToUnlock = $availableGedungs->random(min($numGedungsToUnlock, $availableGedungs->count()));
+   
+       foreach ($mabaUsers as $user) {
+           foreach ($gedungsToUnlock as $gedung) {
+               UnlockStatus::create([
+                   'user_id' => $user->id,
+                   'gedung_id' => $gedung->id,
+                   'dateOpen' => Carbon::now()->timestamp,
+               ]);
+           }
+       }
+   
+       return response()->json([
+           'message' => 'Gedung berhasil dibuka untuk Maba.',
+           'gedung_terbuka' => $gedungsToUnlock->pluck('nama_gedung')->toArray()
+       ]);
+   }
+
 }

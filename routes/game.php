@@ -13,7 +13,8 @@ Route::middleware('auth')->group(function () {
 Route::prefix('api')->group(function () {
    Route::get('kelompok/score/{id}', [GameController::class, 'getScoreKelompok']);//ini done
    Route::get('user/score/{id}', [GameController::class, 'getUserScore']);//ini done
-
+   //admin membuka gedung
+   Route::post('unlockgedungadmin/{id}', [UnlockStatusController::class, 'unlockGedungForMaba']);
    //Route game
    //mengambil pertanyaan berdasarkan geddung yang terbuka
    // Route::get('/gedung/{gedungId}/question', [QuizController::class, 'getAll']);
@@ -26,7 +27,7 @@ Route::prefix('api')->group(function () {
    Route::post('check-answers/{id}', [QuizAnswerController::class, 'checkAnswers']);
    Route::get('/test', [QuizAnswerController::class, 'test']);
    //membuka status gedung
-   Route::get('/unlock-gedung/{id}', [UnlockStatusController::class, 'unlockGedung']);//ini done
+   // Route::get('/unlock-gedung/{id}', [UnlockStatusController::class, 'unlockGedung']);//ini done
    //melihat gedung yang terbuka dan tertutup
    Route::get('/gedung/{id}', [UnlockStatusController::class, 'getGedungAvailable']);//ini done
    // //score user
