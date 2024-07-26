@@ -25,7 +25,6 @@ class CreateUsersTable extends Migration
          $table->string('bio')->nullable();
          $table->string('link_sertif')->nullable();
          $table->foreignId('kelompok_id')->nullable();
-         $table->boolean('is_ketua_kelompok')->default(false);
          $table->integer('score')->default(0);
          $table->unsignedBigInteger('view_count')->default(0);
 

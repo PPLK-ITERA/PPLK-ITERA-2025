@@ -37,6 +37,7 @@ Route::get('/', function () {
 //Auth Route
 Route::middleware('auth')->group(function () {
 
+
    // Scoreboard
    //melihat top 10
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
