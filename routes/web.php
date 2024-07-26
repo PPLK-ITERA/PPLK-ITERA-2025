@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\Game\GameController;
@@ -16,14 +17,6 @@ use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Http\Controllers\User\RelasiController;
 use App\Http\Controllers\TugasController;
-use App\Http\Controllers\User\UserController;
-
-// use App\Http\Controllers\ResponseController;
-// use App\Http\Controllers\FeedbackController;
-
-
-
-
 use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', function () {
@@ -69,14 +62,17 @@ Route::middleware('auth')->group(function () {
          Route::put('user/update', [UserController::class, 'update'])->name('dashboard.user.update');
          Route::delete('user/delete', [UserController::class, 'delete'])->name('dashboard.user.destroy');
       });
+
       Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
          Route::get('user/maba/data', [UserController::class, 'getUsersMaba'])->name('user.maba.data');
       });
+
       Route::middleware('checkRole:Korlap,Admin')->group(function () {
          Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('poin.index');
          Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('poin.store');
          Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('poin.redirect');
       });
+
       Route::get('/poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('poin.qrcode')->middleware('checkRole:Dapmen');
 
       Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
@@ -85,6 +81,12 @@ Route::middleware('auth')->group(function () {
          Route::get('booklet', [BookletController::class, 'store'])->name('dashboard.booklet.store');
          Route::put('booklet', [BookletController::class, 'update'])->name('dashboard.booklet.update');
          Route::delete('booklet', [BookletController::class, 'destroy'])->name('dashboard.booklet.destroy');
+      });
+
+      //Kelompok
+      Route::prefix('kelompok')->group(function () {
+         Route::get('data', [KelompokController::class, 'index'])->name('dashboard.kelompok.data');
+         Route::put('update', [KelompokController::class, 'update'])->name('dashboard.kelompok.update');
       });
    });
 
