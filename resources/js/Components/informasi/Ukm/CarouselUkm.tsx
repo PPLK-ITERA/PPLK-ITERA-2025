@@ -1,25 +1,42 @@
 import * as React from "react";
+
+import { Link } from "@inertiajs/react";
+
 import { Card, CardContent } from "@/Components/ui/card";
-import { Carousel, CarouselContent, CarouselItem } from "@/Components/ui/carousel";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/Components/ui/carousel";
+
+import { useAos } from "@/lib/hooks/useAos";
 
 interface CarouselUkmProps {
-    items: { logo: string; title: string; link: string }[];
+    items: {
+        key: string;
+        logo: string;
+        title: string;
+    }[];
 }
 
 export const CarouselUkm: React.FC<CarouselUkmProps> = ({ items }) => {
     return (
-        <Carousel data-aos="zoom-in" data-aos-duration="1500" className="w-full max-w-7xl">
-            <CarouselContent className="grid gap-1 p-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        <Carousel
+            data-aos="fade-in"
+            data-aos-duration="1000"
+            className="max-w-7xl w-full"
+        >
+            <CarouselContent className="sm:grid-cols-3 lg:grid-cols-4 gap-y-[14px] grid grid-cols-2">
                 {items.map((item, index) => (
-                    <CarouselItem key={index}>
-                        <a href={item.link} className="block py-2">
+                    <Link href={`/informasi/ukm/${item.key}`} key={index}>
+                        <CarouselItem key={index}>
                             <Card>
-                                <CardContent className="flex flex-col items-center justify-center p-6 border-4 border-moccaccino-800 rounded-lg">
-                                    <div className="my-10 flex items-center justify-center md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gray-50  rounded-full  shadow-inner overflow-hidden">
+                                <CardContent className="border-moccaccino-800 flex flex-col items-center justify-center p-6 border-4 rounded-lg">
+                                    <div className="md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gray-50 flex items-center justify-center w-24 h-24 my-10 rounded-full shadow-inner">
                                         <img
                                             src={item.logo}
                                             alt="Logo UKM"
-                                            className="bg-cover bg-center w-[100px] h-[100px] object-contain"
+                                            className="w-full h-full rounded-full"
                                         />
                                     </div>
                                     <span className="text-[16px] font-montserrat font-semibold text-jaffa-600">
@@ -27,8 +44,8 @@ export const CarouselUkm: React.FC<CarouselUkmProps> = ({ items }) => {
                                     </span>
                                 </CardContent>
                             </Card>
-                        </a>
-                    </CarouselItem>
+                        </CarouselItem>
+                    </Link>
                 ))}
             </CarouselContent>
         </Carousel>

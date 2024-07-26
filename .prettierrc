@@ -7,12 +7,16 @@
         "^react$",
         "^@inertiajs(.*)$",
         "^lucide-react$",
+        "^@tabler/icons-react$",
         "^@/Components(.*)$",
+        "^@/hookform(.*)$",
+        "^@/lib(.*)$",
         "^!assets(.*)$"
     ],
     "tabWidth": 4,
     "trailingComma": "all",
     "semi": true,
     "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true
+    "importOrderSortSpecifiers": true,
+    "tailwindConfig": "./tailwind.config.js"
 }

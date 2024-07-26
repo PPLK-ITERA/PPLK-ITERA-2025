@@ -25,7 +25,10 @@ class User extends Authenticatable
       'linkedin_url',
       'instagram_url',
       'kelompok_id',
+      'is_ketua_kelompok',
       'pilar',
+      'qrcode_id',
+      'prodi_id',
       'score',
       'role',
    ];
@@ -79,5 +82,26 @@ class User extends Authenticatable
    public function pilar()
    {
       return $this->hasOne(pilar::class, 'pilar', 'id');
+   }
+
+   public function tugas()
+   {
+      return $this->hasMany(Tugas::class, 'user_id');
+   }
+   public function QuizActivity()
+   {
+      return $this->hasOne(QuizActivity::class, 'user_id', 'id');
+   }
+   public function qrcode()
+   {
+      return $this->hasOne(Qrcode::class, 'user_id', 'id');
+   }
+   public function prodi()
+   {
+      return $this->belongsTo(Prodi::class, 'prodi_id', 'id');
+   }
+   public function penyakit()
+   {
+      return $this->belongsTo(Penyakit::class, 'penyakit_id', 'id');
    }
 }

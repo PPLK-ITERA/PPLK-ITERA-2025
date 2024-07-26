@@ -1,6 +1,3 @@
-import { ukmData } from "@/lib/data/ukm";
-import { useAos } from "@/lib/hooks/useAos";
-
 import React from "react";
 
 import Footer from "@/Components/Footer";
@@ -10,11 +7,14 @@ import { Prestasi } from "@/Components/informasi/Ukm/DetailUkm/Prestasi";
 import Sosmed from "@/Components/informasi/Ukm/DetailUkm/Sosmed";
 import VisiMisi from "@/Components/informasi/Ukm/DetailUkm/VisiMisi";
 
+import { ukmData, ukmDataArip } from "@/lib/data/ukm";
+import { useAos } from "@/lib/hooks/useAos";
+
 import gedung from "!assets/gedung-sponsor.png";
 
 function Page({ nama_ukm }) {
     useAos();
-    const ukm = ukmData.find((ukm) => ukm.key === nama_ukm);
+    const ukm = ukmDataArip.find((ukm) => ukm.key === nama_ukm);
 
     if (!ukm) {
         return <div>UKM tidak ditemukan</div>;
@@ -24,7 +24,7 @@ function Page({ nama_ukm }) {
         <div>
             <Navbar isFixed={true} isSolid={true} />
             <div className="bg-pattern-white py-36 pb-64">
-                <div className="max-w-7xl px-4 mx-auto flex flex-col gap-36">
+                <div className="max-w-7xl gap-36 flex flex-col px-4 mx-auto">
                     <Judul
                         title={ukm.title}
                         sejarah={ukm.sejarah}
@@ -38,11 +38,11 @@ function Page({ nama_ukm }) {
                         misi={ukm.misi}
                     />
 
-                    <div className="flex flex-col place-content-center place-items-center gap-10">
+                    <div className="place-items-center flex flex-col gap-10">
                         <h2
                             data-aos="fade-down"
                             data-aos-duration="1000"
-                            className="text-center font-avigea text-moccaccino-600 text-2xl md:text-4xl"
+                            className="font-avigea text-moccaccino-600 md:text-4xl text-2xl text-center"
                         >
                             Prestasi & Kegiatan
                         </h2>
@@ -50,11 +50,11 @@ function Page({ nama_ukm }) {
                         <Prestasi allprestasi={ukm.allprestasi} />
                     </div>
 
-                    <div className="flex flex-col place-content-center place-items-center gap-10">
+                    <div className="place-content-center place-items-center flex flex-col gap-10">
                         <h2
                             data-aos="fade-down"
                             data-aos-duration="1000"
-                            className="text-center font-avigea text-moccaccino-600 text-2xl md:text-4xl"
+                            className="font-avigea text-moccaccino-600 md:text-4xl text-2xl text-center"
                         >
                             Sosial Media UKM
                         </h2>
@@ -67,7 +67,7 @@ function Page({ nama_ukm }) {
                 <img
                     src={gedung}
                     alt="Gedung"
-                    className="absolute bottom-0 left-0 w-full object-cover"
+                    className="absolute bottom-0 left-0 object-cover w-full"
                 />
             </div>
             <Footer />

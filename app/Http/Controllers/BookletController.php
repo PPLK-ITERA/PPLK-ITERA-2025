@@ -4,73 +4,133 @@ namespace App\Http\Controllers;
 
 use App\Models\Booklet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class BookletController extends Controller
 {
+   public function guestIndex()
+   {
+      $booklets = Booklet::all();
+      return Inertia::render('Booklet/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Success',
+            'data' => $booklets
+         ]
+      ]);
+   }
+
+
    public function index()
    {
-      $booklet = Booklet::all();
-      return response()->json($booklet, 200);
+      return Inertia::render('Dashboard/booklet/Page');
    }
+   public function getAllBooklets(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+
+      $query = Booklet::query()
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->where('nama_booklet', 'like', '%' . $searchTerm . '%')
+               ->orWhere('url_booklet', 'like', '%' . $searchTerm . '%');
+         });
+
+      $booklets = $query->paginate($perPage);
+
+      $currentPage = $booklets->currentPage(); // Halaman saat ini
+      $perPage = $booklets->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $booklets->getCollection()->transform(function ($booklet) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex, // Nomor urut
+            'booklet' => $booklet
+         ];
+      });
+
+      return response()->json($booklets);
+   }
+
 
    public function store(Request $request)
    {
-      $request->validate([
+      $validated = $request->validate([
          'nama_booklet' => 'required|string',
          'url_booklet' => 'required|string',
       ]);
 
-      $booklet = Booklet::create(
-         [
-            'nama_booklet' => $request->nama_booklet,
-            'url_booklet' => $request->url_booklet,
-         ]
-      );
-
-      if ($booklet) {
-         return response()->json(['message' => 'Berhasil menambahkan booklet'], 201);
+      DB::beginTransaction();
+      try {
+         $booklet = Booklet::create($validated);
+         DB::commit();
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menambahkan data',
+         ]);
       }
-
-      return response()->json([
-         'message' => 'Gagal menambahkan booklet',
-      ], 500);
+      return redirect()->route('booklet.index')->with('response', [
+         'status' => 201,
+         'message' => 'Berhasil menambahkan data',
+      ]);
    }
 
-   public function update(Request $request, $id)
+   public function update(Request $request)
    {
-      $request->validate([
+      $validated = $request->validate([
+         'id' => 'required|integer|exists:booklets',
          'nama_booklet' => 'required|string',
          'url_booklet' => 'required|string',
       ]);
 
-      $booklet = Booklet::find($id);
-
-      $booklet->update(
-         [
-            'nama_booklet' => $request->nama_booklet,
-            'url_booklet' => $request->url_booklet,
-         ]
-      );
-
-      if ($booklet) {
-         return response()->json(['message' => 'Berhasil mengubah booklet'], 201);
+      $booklet = Booklet::find($validated['id']);
+      if (!$booklet) {
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 404,
+            'message' => 'Data tidak ditemukan',
+         ]);
       }
 
-      return response()->json([
-         'message' => 'Gagal mengubah booklet',
-      ], 500);
+      DB::beginTransaction();
+      try {
+         $booklet->update($validated);
+         DB::commit();
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah data',
+         ]);
+      }
+      return redirect()->route('booklet.index')->with('response', [
+         'status' => 201,
+         'message' => 'Berhasil mengubah data',
+      ]);
    }
 
-   public function delete($id)
+   public function delete(Request $request)
    {
-      $booklet = Booklet::find($id)->delete();
-
-      if ($booklet) {
-         return response()->json(['message' => 'Berhasil menghapus booklet'], 201);
+      $validated = $request->validate([
+         'id' => 'required|integer|exists:booklets',
+      ]);
+      DB::beginTransaction();
+      try {
+         $booklet = Booklet::find($validated['id'])->delete();
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollBack();
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menghapus data',
+         ]);
       }
-
-      return response()->json([
-         'message' => 'Gagal menghapus booklet',
-      ], 500);
+      return redirect()->route('booklet.index')->with('response', [
+         'status' => 201,
+         'message' => 'Berhasil menghapus data',
+      ]);
    }
 }

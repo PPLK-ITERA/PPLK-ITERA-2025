@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
     Pagination,
     PaginationContent,
@@ -62,7 +63,7 @@ export const PaginationFAQ: React.FC<PaginationFAQProps> = ({
                         <PaginationLink
                             onClick={() => onPageChange(index + 1)}
                             isActive={currentPage === index + 1}
-                            className={`rounded-[10px] border px-3 py-1 ${currentPage === index + 1 ? "bg-jaffa-600 text-white" : "bg-white text-black"}`}
+                            className={`rounded-[10px] border px-3 py-1 ${currentPage === index + 1 ? "bg-jaffa-600 text-white hover:bg-jaffa-600 hover:text-white pointer-events-none" : "bg-white text-black cursor-pointer"}`}
                         >
                             {index + 1}
                         </PaginationLink>

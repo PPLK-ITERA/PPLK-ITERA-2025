@@ -22,6 +22,10 @@ export default {
             },
         },
         extend: {
+            aspectRatio: {
+                "4/3": "4 / 3",
+                "3/4": "3 / 4",
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -110,10 +114,15 @@ export default {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: "0" },
                 },
+                scan: {
+                    "0%": { transform: "translateY(-100%)" },
+                    "100%": { transform: "translateY(100%)" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                scan: "scan 3s linear infinite",
             },
             fontFamily: {
                 avigea: ["Avigea"],
@@ -133,8 +142,13 @@ export default {
                 "pattern-1": "url('!assets/pattern-1.png')",
                 "pattern-white": "url('!assets/pattern-white.png')",
                 "pattern-brown": "url('!assets/pattern-brown.png')",
+                "pattern-black": "url('!assets/pattern-black.png')",
             },
         },
     },
-    plugins: [require("tailwindcss-animate"), forms],
+    plugins: [
+        require("tailwindcss-animate"),
+        forms,
+        require("tailwindcss-3d")({ legacy: true }),
+    ],
 };

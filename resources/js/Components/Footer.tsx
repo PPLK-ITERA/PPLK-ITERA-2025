@@ -4,37 +4,40 @@ import { Link } from "@inertiajs/react";
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 
+import { FooterLink, InformasiFooter } from "@/lib/data/data";
+
+import logodiesnat_white from "!assets/logo-diesnat-white.png";
+import logokm_white from "!assets/logo-km-white.png";
 import logopplk_white from "!assets/logo-pplk-20204-white.png";
-
-const InformasiFooter = [
-    { title: "Tentang PPLK 2024", href: "/about-pplk" },
-    { title: "Informasi Fakultas", href: "/informasi-fakultas" },
-    { title: "Informasi HMPS & PRODI", href: "/informasi-hmps-prodi" },
-    { title: "Informasi UPT", href: "/informasi-upt" },
-    { title: "Informasi KM ITERA", href: "/informasi-km" },
-    { title: "Informasi SENAT ITERA", href: "/informasi-senat" },
-    { title: "Informasi UKM ITERA", href: "/informasi-ukm" },
-];
-
-const FooterLink = [
-    { title: "Instagram", href: "https://instagram.com/pplk.itera" },
-    { title: "Twitter", href: "https://twitter.com/pplkitera" },
-    { title: "Youtube", href: "https://youtube.com/pplkitera" },
-];
+import logopplkfooter from "!assets/logo-pplk-footer.png";
 
 export default function Footer() {
     return (
-        <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-10">
+        <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 relative py-10 overflow-hidden">
             <MaxWidthWrapper>
-                <div className="md:flex-row md:items-center flex flex-col items-start justify-between">
+                <div className="md:flex-row md:items-center z-10 flex flex-col items-start justify-between">
                     <div className="text-white">
-                        <img
-                            src={logopplk_white}
-                            alt="logopplk_white"
-                            className="w-32 h-32 -ml-5"
-                        />
+                        <div className="flex items-center justify-center">
+                            <img
+                                src={logodiesnat_white}
+                                alt="logopplk_white"
+                                className="xl:w-48 xl:h-32 md:w-40 md:h-28 h-16 w-[125px] -mt-2 lg:-mt-0 object-contain"
+                            />
 
-                        <h3 className="font-fesbud md:text-[20px] lg:text-[28px]">
+                            <img
+                                src={logokm_white}
+                                alt="logopplk_white"
+                                className="xl:w-32 xl:h-24 md:w-28 md:h-20 md:-ml-5 h-14 object-contain w-20"
+                            />
+
+                            <img
+                                src={logopplk_white}
+                                alt="logopplk_white"
+                                className="md:-ml-5 md:w-[110px] md:-mt-1 lg:-mt-0 md:h-[108px] lg:w-32 lg:h-32 object-contain w-20 h-20"
+                            />
+                        </div>
+
+                        <h3 className="font-fesbud md:text-[20px] mt-5 lg:text-[28px]">
                             PPLK ITERA 2024
                         </h3>
 
@@ -51,7 +54,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div className="md:mt-0 md:flex-row md:gap-10 flex flex-col gap-5 mt-10">
+                    <div className="md:mt-0 md:flex-row md:gap-10 z-10 flex flex-col gap-5 mt-10">
                         {/* Informasi */}
                         <div className="flex flex-col">
                             <h3 className="font-semibold text-white md:text-[16px] lg:text-xl">
@@ -82,7 +85,7 @@ export default function Footer() {
                                     <Link
                                         key={index}
                                         href={info.href}
-                                        className="font-montserrat font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
+                                        className="font-montserrat text-[12px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
                                     >
                                         {info.title}
                                     </Link>
@@ -92,10 +95,18 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-10 font-montserrat text-[12px] font-light text-white md:text-sm lg:text-lg">
-                    <p className="text-end">&copy; Copyright IMTEK PPLK 2024</p>
+                <div className="mt-10 font-montserrat flex justify-end text-[12px] font-light text-white md:text-sm lg:text-lg">
+                    <p className="text-end z-20">
+                        &copy; Copyright IMTEK PPLK 2024
+                    </p>
                 </div>
             </MaxWidthWrapper>
+
+            <img
+                src={logopplkfooter}
+                alt="logopplk"
+                className="mix-blend-multiply absolute bottom-0 right-0 md:w-[300px] lg:w-[400px] h-[40%] md:h-[90%] lg:h-full visible"
+            />
         </div>
     );
 }

@@ -1,8 +1,8 @@
-import { useAos } from "@/lib/hooks/useAos";
-
 import React, { useEffect } from "react";
 
 import { Card } from "@/Components/ui/card";
+
+import { useAos } from "@/lib/hooks/useAos";
 
 type Props = {};
 

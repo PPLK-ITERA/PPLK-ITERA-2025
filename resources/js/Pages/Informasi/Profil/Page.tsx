@@ -1,4 +1,6 @@
-import React from "react";
+import * as React from "react";
+
+// component menampilkan misi
 
 function Page() {
     return <div>Profil Informasi</div>;

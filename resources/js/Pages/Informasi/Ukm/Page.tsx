@@ -1,12 +1,12 @@
-import { ukmData } from "@/lib/data/ukm";
-import { useAos } from "@/lib/hooks/useAos";
-
 import React, { useEffect, useState } from "react";
 
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import { CarouselUkm } from "@/Components/informasi/Ukm/CarouselUkm";
 import PaginationInformasi from "@/Components/informasi/Ukm/PaginationUkm";
+
+import { ukmData } from "@/lib/data/ukm";
+import { useAos } from "@/lib/hooks/useAos";
 
 import gedung from "!assets/gedung-sponsor.png";
 
@@ -62,7 +62,7 @@ const Page: React.FC = () => {
             </div>
             <div>
                 <div className="bg-pattern-white flex flex-col items-center py-20">
-                    <CarouselUkm items={currentItems}  />
+                    <CarouselUkm items={currentItems} />
                     <PaginationInformasi
                         currentPage={currentPage}
                         totalPages={totalPages}
