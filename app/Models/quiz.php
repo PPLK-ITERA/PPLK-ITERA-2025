@@ -21,7 +21,7 @@ class quiz extends Model
         return $this->hasOne(quiz_answer::class,'question_id','id');
     }
     public function QuizActivity(){
-        return $this->hasOne(QuizActivity::class,'question_id','id');
+        return $this->hasOne(QuizActivity::class,'gedung_id','id');
     }
 
 }

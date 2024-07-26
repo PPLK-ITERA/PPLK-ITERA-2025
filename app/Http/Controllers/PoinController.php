@@ -12,6 +12,7 @@ use Inertia\Inertia;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use App\Helpers\PoinResponseHelper;
+use Illuminate\Support\Str;
 
 class PoinController extends Controller
 {
@@ -24,7 +25,7 @@ class PoinController extends Controller
     /**
      * Retrieves and displays QR code information for a given user.
      * If the QR code is expired or not found, returns an error page.
-     * 
+     *
      * @param int $user_id The ID of the user to retrieve QR code for.
      * @return \Inertia\Response Inertia response with QR code data or error message.
      */
@@ -43,34 +44,36 @@ class PoinController extends Controller
     }
     /**
      * Updates a user's score based on points from a request.
-     * 
+     *
      * Validates 'poin' in the request. If missing, returns an error.
      * Checks for a valid, non-expired QR code. If invalid or expired, returns an error.
      * Updates the user's score and commits the transaction if successful.
      * If an error occurs during the update, rolls back the transaction and returns an error.
-     * 
+     *
      * @param Request $request The request object ($request->poin), containing the points to add.
      * @param int $user_id The ID of the user whose score is to be updated.
      * @return \Inertia\Response Inertia response with success or error data.
      */
 
-    public function store(Request $request, $user_id)
+    public function store(Request $request)
     {
-        $ketua_kelompok = User::findorFail($user_id);
-        if (!$request->poin) {
-            return $this->helper->poinError('Poin is required', 400);
-        }
-        $qrCode = PoinQrCode::where('user_id', $user_id)
+        $validated = $request->validate([
+            'qr_code' => 'required|string',
+        ]);
+        $poinqrcode = PoinQrCode::where('code', $validated['qr_code'])->first();
+        $qrCode = PoinQrCode::where('user_id', $poinqrcode->user_id)
             ->where('created_at', '>=', Carbon::now()->subMinutes(10))
             ->orderBy('created_at', 'desc')
             ->first();
+        $kelompok_id = User::where('user_id', $poinqrcode->user_id)->first()->kelompok_id;
+        $ketua_kelompok = User::where('kelompok_id', $kelompok_id)->where('isKetua', true)->first();
 
         if (!$qrCode || $qrCode->expired_at->isPast()) {
             return $this->helper->qrError('QR code expired', 400);
         }
         DB::beginTransaction();
         try {
-            $ketua_kelompok->score += $request->poin;
+            $ketua_kelompok->poin += 500;
             $ketua_kelompok->save();
             DB::commit();
             return $this->helper->poinSuccess($ketua_kelompok);
@@ -116,19 +119,17 @@ class PoinController extends Controller
 
         if (!$code || $code->expired_at->isPast()) {
             $code = PoinQrCode::create([
-                'code' => Crypt::encryptString(strval($user_id) . '-prapplk-' . Carbon::now()->format('Y-m-d-H-i')),
+                // 'code' => Crypt::encryptString(strval($user_id) . '-prapplk-' . Carbon::now()->format('Y-m-d-H-i')),
+                'code' => Str::random(10),
                 'user_id' => $user_id,
                 'expired_at' => Carbon::now()->addMinutes(10)->toDateTimeString(),
             ]);
         }
 
         $qrUrl = URL::route('poin.redirect', ['code' => $code->code]);
+        $qrcodetext = $code->code;
 
-        $qrcodeImage = QrCode::format('png')->size(300)->generate($qrUrl);
-        $qrcodeBase64 = base64_encode($qrcodeImage);
-
-
-        return $this->helper->qrSuccess($qrcodeBase64, $qrUrl);
+        return $this->helper->qrSuccess($qrUrl, $qrcodetext);
     }
 
     /**

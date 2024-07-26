@@ -12,7 +12,7 @@ class quiz_answer extends Model
     protected $primaryKey ='id';
     protected $fillable = [
         'teks_jawaban',
-        'nilai_jawaban'
+        'is_correct'
     ];
     protected $hidden = [
         'created_at', 'updated_at'

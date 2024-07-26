@@ -39,12 +39,12 @@ export default function Page({ auth, response }) {
                         variant="outline"
                         role="combobox"
                         aria-expanded={open}
-                        className="md:w-96 w-64 justify-between"
+                        className="md:w-96 justify-between w-64"
                     >
                         {value
                             ? frameworks.find((framework) => framework.value === value)?.label
                             : "Select framework..."}
-                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        <ChevronsUpDown className="shrink-0 w-4 h-4 ml-2 opacity-50" />
                     </Button>
                 </PopoverTrigger>
                 <PopoverContent className="md:w-96 w-64 p-0">
@@ -75,7 +75,7 @@ export default function Page({ auth, response }) {
                 </PopoverContent>
             </Popover> */}
             {/* End ComboBox */}
-            <div className="grid-cols-2 lg:grid-cols-4 grid gap-4">
+            <div className="lg:grid-cols-4 grid grid-cols-2 gap-4">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                         <CardTitle className="text-sm font-medium text-green-500">

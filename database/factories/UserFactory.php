@@ -18,7 +18,7 @@ class UserFactory extends Factory
          'nim' => $this->faker->unique()->numerify('124##0###'),
          'email' => $this->faker->unique()->safeEmail,
          'password' => bcrypt('password'),
-         'prodi_id' => $this->faker->numberBetween(1,41),
+         'prodi_id' => $this->faker->numberBetween(1, 41),
          'role_id' => 1,
          'photo_profile_url' => $this->faker->imageUrl(),
          'linkedin_url' => $this->faker->url(),

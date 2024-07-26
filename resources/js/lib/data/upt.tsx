@@ -7,6 +7,35 @@ import {
 
 import logo_upa_perpus from "!assets/logoupt/logo-upa-perpus.png";
 
+// Acuan saja tidak wajib digunakan
+interface UptData {
+    key: string;
+    title: string;
+    logo: string;
+    description: string;
+    history: string;
+    visi: string;
+    misi: string[];
+    kepalaUpt: {
+        nama: string;
+        foto: string;
+        jabatan: string;
+        nip?: string;
+    };
+    sosmedUPT: {
+        instagram: string;
+        youtube: string;
+        website: string;
+        tiktok: string;
+    };
+    kegiatanUnggulan: {
+        title: string;
+        description: string;
+        tanggal: string;
+        textThumnail: string;
+    }[];
+}
+
 export const VisiMisiUPT = {
     "fakultas-sains": {
         visi: "Menjadikan Jurusan Sains ITERA sebagai lembaga pendidikan tinggi yang menghasilkan sumber daya manusia di bidang sains mencakup pengembangan teknologi yang unggul dalam menyelenggarakan pendidikan dan penelitian, mandiri, dan memenuhi kebutuhan Sumber Daya Manusia (SDM) di Sumatera khususnya, dan Indonesia serta dunia",

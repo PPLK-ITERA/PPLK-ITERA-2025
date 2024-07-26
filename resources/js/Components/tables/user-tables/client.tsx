@@ -28,7 +28,12 @@ export const UserClient: React.FC<ProductsClientProps> = ({ data }) => {
                 />
             </div>
             <Separator />
-            <DataTable searchKey="name" columns={columns} data={data} />
+            <DataTable
+                searchKey="name"
+                // @ts-ignore
+                columns={columns}
+                data={data}
+            />
         </>
     );
 };

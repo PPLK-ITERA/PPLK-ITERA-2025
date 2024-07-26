@@ -16,7 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
          \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
       ]);
       $middleware->alias(['checkRole' => \App\Http\Middleware\RoleMiddleware::class,]);
-
+      $middleware->validateCsrfTokens(except:['check-answers/*']);
       //
    })
    ->withExceptions(function (Exceptions $exceptions) {

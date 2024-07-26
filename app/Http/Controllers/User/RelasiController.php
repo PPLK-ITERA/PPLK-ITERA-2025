@@ -15,7 +15,7 @@ class RelasiController extends Controller
    // Menampilkan top 3 follower
    public function topFollowers()
    {
-      $users = User::select('name', 'nim')
+      $users = User::select('name', 'nim', 'is_ketua_kelompok')
          ->withCount('followers')
          ->orderBy('followers_count', 'desc')
          ->take(3)
@@ -45,7 +45,7 @@ class RelasiController extends Controller
 
       $users = User::where('name', 'like', "%$query%")
          ->orWhere('nim', 'like', "%$query%")
-         ->select('id', 'name', 'nim')
+         ->select('name', 'nim', 'isKetua')
          ->get();
 
       if ($users->isEmpty()) {
@@ -66,7 +66,7 @@ class RelasiController extends Controller
          return response()->json(['error' => 'Invalid order_by parameter'], 400);
       }
 
-      $query = User::where('role_id', '2')->select('name', 'nim');
+      $query = User::where('role', 'maba')->select('name', 'nim', 'is_ketua_kelompok');
 
       switch ($orderBy) {
          case 'followers':

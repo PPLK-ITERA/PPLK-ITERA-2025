@@ -20,7 +20,6 @@ interface CarouselUkmProps {
 }
 
 export const CarouselUkm: React.FC<CarouselUkmProps> = ({ items }) => {
-    useAos();
     return (
         <Carousel
             data-aos="fade-in"
@@ -30,14 +29,14 @@ export const CarouselUkm: React.FC<CarouselUkmProps> = ({ items }) => {
             <CarouselContent className="sm:grid-cols-3 lg:grid-cols-4 gap-y-[14px] grid grid-cols-2">
                 {items.map((item, index) => (
                     <Link href={`/informasi/ukm/${item.key}`} key={index}>
-                        <CarouselItem>
+                        <CarouselItem key={index}>
                             <Card>
-                                <CardContent className="border-moccaccino-800 flex flex-col items-center justify-center p-6 border-[3px] rounded-lg">
+                                <CardContent className="border-moccaccino-800 flex flex-col items-center justify-center p-6 border-4 rounded-lg">
                                     <div className="md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gray-50 flex items-center justify-center w-24 h-24 my-10 rounded-full shadow-inner">
                                         <img
                                             src={item.logo}
                                             alt="Logo UKM"
-                                            className="object-contain object-center w-full h-full scale-75"
+                                            className="w-full h-full rounded-full"
                                         />
                                     </div>
                                     <span className="text-[16px] font-montserrat font-semibold text-jaffa-600">
