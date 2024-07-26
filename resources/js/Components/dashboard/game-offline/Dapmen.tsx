@@ -1,3 +1,4 @@
+import { QRCodeSVG } from "qrcode.react";
 import QRCode from "react-qr-code";
 
 import React, { useState } from "react";
@@ -22,7 +23,11 @@ export default function Dapmen({ userId }: DapmenProps) {
 
         const response = await fetch(route("poin.qrcode", userId));
         const json = await response.json();
-        setData(json.data);
+        // setData(json.data);
+        setData({
+            code: "kontol",
+            qrUrl: "kontol",
+        });
 
         setLoading(false);
     };
@@ -32,6 +37,7 @@ export default function Dapmen({ userId }: DapmenProps) {
             <p>
                 Gunakan fitur ini untuk generate QR kelompok anda untuk di scan
                 oleh <span className="font-bold">Korlap</span>
+                {/* <p>{data.code}</p> */}
             </p>
 
             <div className="w-fit p-2 text-white bg-green-600 rounded-md">
@@ -49,7 +55,18 @@ export default function Dapmen({ userId }: DapmenProps) {
                         {data.qrUrl === "" ? null : loading ? (
                             <p>Loading...</p>
                         ) : (
-                            <QRCode size={128} value={data.qrUrl} />
+                            // <QRCode size={256} value={data.code} />
+                            <QRCodeSVG
+                                value={data.code}
+                                // imageSettings={{
+                                //     src: "https://kartatera.my.id/build/assets/D98J2HoG.png",
+                                //     height: 60,
+                                //     width: 60,
+                                //     excavate: true,
+                                // }}
+                                size={256}
+                                includeMargin={false}
+                            />
                         )}
                     </div>
                 </div>

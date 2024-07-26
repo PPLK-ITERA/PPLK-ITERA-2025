@@ -1,16 +1,13 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { IDetectedBarcode, Scanner, outline } from "@yudiel/react-qr-scanner";
-import QRCode from "react-qr-code";
 
 import React, { useEffect, useState } from "react";
 
-import { Link, useForm } from "@inertiajs/react";
+import { useForm } from "@inertiajs/react";
 
 import Dapmen from "@/Components/dashboard/game-offline/Dapmen";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
-import { Button, buttonVariants } from "@/Components/ui/button";
-
-import logopplk from "!assets/logo-pplk-2024.png";
+import { Button } from "@/Components/ui/button";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
@@ -21,6 +18,7 @@ export default function Page({ auth, response }) {
     const { data, setData, post, processing } = useForm({
         qr_code: "",
     });
+
     const [loading, setLoading] = useState(false);
 
     const handleScan = (data: string) => {
@@ -31,7 +29,7 @@ export default function Page({ auth, response }) {
 
     useEffect(() => {
         if (data.qr_code) {
-            post(route("cui.scan"));
+            post(route("poin.store"));
         }
     }, [data.qr_code]);
 
@@ -40,7 +38,7 @@ export default function Page({ auth, response }) {
             <Breadcrumbs items={breadcrumbItems} />
             <h2 className="text-3xl font-bold tracking-tight">Game Offline</h2>
 
-            {auth.user.role_id === 2 ? (
+            {auth.user.role_id === 3 ? (
                 <>
                     <Dapmen userId={auth.user.id} />
                 </>

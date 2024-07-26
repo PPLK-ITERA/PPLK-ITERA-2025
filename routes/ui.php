@@ -263,9 +263,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/informasi-kelompok/Page');
    })->name('dashboard/informasi-kelompok');
 
-   Route::get('dashboard/informasi-kelompok/edit-maba', function () {
+   Route::get('dashboard/edit-user', function () {
       return Inertia::render('Dashboard/informasi-kelompok/detail-maba/Page');
-   })->name('dashboard/informasi-kelompok/edit-maba');
+   })->name('dashboard/edit-user');
 
    // =====================================
    // Dashboard CUI(Auth)
