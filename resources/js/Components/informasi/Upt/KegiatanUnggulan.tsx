@@ -9,7 +9,7 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
-import { DataKegiatanUPT } from "@/constants/upt";
+import { DataKegiatanUPT } from "@/lib/data/upt";
 
 import sponsor_overlay from "!assets/sponsor-overlay.png";
 

@@ -2,6 +2,8 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import React from "react";
 
+import { router } from "@inertiajs/react";
+
 import Judul from "@/Components/informasi/Ukm/DetailUkm/Judul";
 import { Prestasi } from "@/Components/informasi/Ukm/DetailUkm/Prestasi";
 import Sosmed from "@/Components/informasi/Ukm/DetailUkm/Sosmed";
@@ -16,7 +18,8 @@ function Page({ nama_ukm }) {
     const ukm = ukmData.find((ukm) => ukm.key === nama_ukm);
 
     if (!ukm) {
-        return <div>UKM tidak ditemukan</div>;
+        router.replace(route("informasi/upt"));
+        return null;
     }
 
     return (

@@ -6,25 +6,30 @@ use App\Models\Penyakit;
 use App\Models\pilar;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Tugas;
 use Illuminate\Database\Seeder;
-
 
 class DatabaseSeeder extends Seeder
 {
    public function run()
    {
       $this->call([
+         RoleSeeder::class,
          KelompokSeeder::class,
          ScoreboardSeeder::class,
          UserSeeder::class,
          PresensiPplkSeeder::class,
-         RoleSeeder::class,
+         QuizSeeder::class,
+         QuizAnswerSeeder::class,
+         GedungSeeder::class,
+         UnlockStatusSeeder::class,
          QrcodeSeeder::class,
          ProdiSeeder::class,
          FAQSeeder::class,
          BookletSeeder::class,
-         QrcodeSeeder::class,
          PenyakitSeeder::class,
+         RoleSeeder::class,
+         TugasSeeder::class,
          // Add more seeders if needed
       ]);
    }

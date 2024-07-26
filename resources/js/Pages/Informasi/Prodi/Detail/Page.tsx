@@ -31,15 +31,15 @@ function Page() {
     const prodi = programStudies.at(0)!;
 
     return (
-        <div className=" min-h-screen font-montserrat overflow-x-hidden">
+        <div className=" font-montserrat min-h-screen overflow-x-hidden">
             <Navbar isSolid={true} isFixed={true} />
 
-            <div className="relative bg-pattern-white px-8">
+            <div className="bg-pattern-white relative px-8">
                 <Prodi prodi={prodi} className="max-w-6xl mx-auto" />
                 {/* <img
                     src={awan}
                     alt=""
-                    className="absolute w-full bg-gradient-to-t"
+                    className="bg-gradient-to-t absolute w-full"
                     style={{ transform: "rotateX(180deg)" }}
                 /> */}
             </div>

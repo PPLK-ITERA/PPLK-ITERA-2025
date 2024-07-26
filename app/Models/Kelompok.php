@@ -28,4 +28,7 @@ class Kelompok extends Model
         return $this->hasMany(User::class,'kelompok_id','id');
     }
 
+    public function unlock_status(){
+        return $this->hasOne(UnlockStatus::class,'kelompok_id','id');
+    }
 }

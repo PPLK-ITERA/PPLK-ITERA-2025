@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kelompok;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -12,37 +14,31 @@ class UserSeeder extends Seeder
     */
    public function run(): void
    {
-      User::factory()->count(10)->create();
 
+      $groups = Kelompok::all();
+      foreach ($groups as $group) {
+         User::factory()->count(1)->create([
+            'kelompok_id' => $group->id,
+            'isKetua' => true,
+         ]);
+         User::factory()->count(5)->create([
+            'kelompok_id' => $group->id,
+         ]);
+      }
 
-      // Create admin user if not exists
-      User::firstOrCreate(
-         ['email' => 'admin@example.com'],
-         [
-            'name' => 'Admin User',
-            'password' => bcrypt('password'),
-            'role_id' => 1,
-         ]
-      );
+      //Role Generate
+      $roles = Role::all();
+      foreach ($roles as $role) {
+         $roleModel = Role::where('role', $role['role'])->first();
 
-      // Create dapmen user if not exists
-      User::firstOrCreate(
-         ['email' => 'dapmen@example.com'],
-         [
-            'name' => 'Dapmen User',
-            'password' => bcrypt('password'),
-            'role_id' => 1,
-         ]
-      );
-
-      // Create mahasiswa user if not exists
-      User::firstOrCreate(
-         ['email' => 'mahasiswa@example.com'],
-         [
-            'name' => 'Mahasiswa User',
-            'password' => bcrypt('password'),
-            'role_id' => 1,
-         ]
-      );
+         User::firstOrCreate(
+            ['email' => strtolower($role['role']) . '@kartatera.com'],  // Unique email for each role
+            [
+               'name' => $role['role'] . ' User',
+               'password' => bcrypt('password'),  // Example password
+               'role_id' => $roleModel->id,
+            ]
+         );
+      }
    }
 }

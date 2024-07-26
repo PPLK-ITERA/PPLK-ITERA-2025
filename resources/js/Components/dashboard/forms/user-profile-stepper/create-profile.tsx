@@ -1,7 +1,5 @@
 "use client";
 
-import { type ProfileFormValues, profileSchema } from "@/lib/form-schema";
-import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 // import { useParams, useRouter } from "next/navigation";
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
@@ -15,8 +13,8 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/Components/dashboard/ui/accordion";
-import { Button } from "@/Components/dashboard/ui/button";
+} from "@/Components/ui/accordion";
+import { Button } from "@/Components/ui/button";
 import {
     Form,
     FormControl,
@@ -24,17 +22,20 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/Components/dashboard/ui/form";
-import { Heading } from "@/Components/dashboard/ui/heading";
-import { Input } from "@/Components/dashboard/ui/input";
+} from "@/Components/ui/form";
+import { Heading } from "@/Components/ui/heading";
+import { Input } from "@/Components/ui/input";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/Components/dashboard/ui/select";
-import { Separator } from "@/Components/dashboard/ui/separator";
+} from "@/Components/ui/select";
+import { Separator } from "@/Components/ui/separator";
+
+import { type ProfileFormValues, profileSchema } from "@/lib/form-schema";
+import { cn } from "@/lib/utils";
 
 interface ProfileFormType {
     initialData: any | null;

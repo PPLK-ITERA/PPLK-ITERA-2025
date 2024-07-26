@@ -14,10 +14,14 @@ class RoleSeeder extends Seeder
    public function run(): void
    {
       Role::insert([
-         ['role' => 'Admin'],
          ['role' => 'Maba'],
-         ['role' => 'Dapmen'],
+         ['role' => 'Daplok'],
+         ['role' => 'Admin'],
+         ['role' => 'Mentor'],
          ['role' => 'Pjprodi'],
+         ['role' => 'Korlap'],
+         ['role' => 'Mamet'],
+         ['role' => 'CustomerService'],
       ]);
    }
 }

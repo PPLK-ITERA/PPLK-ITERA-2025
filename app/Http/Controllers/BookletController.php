@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 class BookletController extends Controller
 {
-   public function index()
+   public function guestIndex()
    {
       $booklets = Booklet::all();
       return Inertia::render('Booklet/Page', [
@@ -20,6 +20,40 @@ class BookletController extends Controller
          ]
       ]);
    }
+
+
+   public function index()
+   {
+      return Inertia::render('Dashboard/booklet/Page');
+   }
+   public function getAllBooklets(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+
+      $query = Booklet::query()
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->where('nama_booklet', 'like', '%' . $searchTerm . '%')
+               ->orWhere('url_booklet', 'like', '%' . $searchTerm . '%');
+         });
+
+      $booklets = $query->paginate($perPage);
+
+      $currentPage = $booklets->currentPage(); // Halaman saat ini
+      $perPage = $booklets->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $booklets->getCollection()->transform(function ($booklet) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex, // Nomor urut
+            'booklet' => $booklet
+         ];
+      });
+
+      return response()->json($booklets);
+   }
+
 
    public function store(Request $request)
    {
@@ -32,50 +66,71 @@ class BookletController extends Controller
       try {
          $booklet = Booklet::create($validated);
          DB::commit();
-         return response()->json(['message' => 'Berhasil menambahkan booklet'], 201);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal menambahkan booklet'], 500);
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menambahkan data',
+         ]);
       }
+      return redirect()->route('booklet.index')->with('response', [
+         'status' => 201,
+         'message' => 'Berhasil menambahkan data',
+      ]);
    }
 
-   public function update(Request $request, $id)
+   public function update(Request $request)
    {
       $validated = $request->validate([
+         'id' => 'required|integer|exists:booklets',
          'nama_booklet' => 'required|string',
          'url_booklet' => 'required|string',
       ]);
 
-      $booklet = Booklet::find($id);
+      $booklet = Booklet::find($validated['id']);
       if (!$booklet) {
-         return response()->json(['message' => 'Booklet not found'], 404);
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 404,
+            'message' => 'Data tidak ditemukan',
+         ]);
       }
 
       DB::beginTransaction();
       try {
          $booklet->update($validated);
          DB::commit();
-         return response()->json(['message' => 'Berhasil mengubah booklet'], 200);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal mengubah booklet'], 500);
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah data',
+         ]);
       }
+      return redirect()->route('booklet.index')->with('response', [
+         'status' => 201,
+         'message' => 'Berhasil mengubah data',
+      ]);
    }
 
-   public function delete($id)
+   public function delete(Request $request)
    {
-      $booklet = Booklet::find($id);
-      if (!$booklet) {
-         return response()->json(['message' => 'Booklet not found'], 404);
-      }
+      $validated = $request->validate([
+         'id' => 'required|integer|exists:booklets',
+      ]);
       DB::beginTransaction();
       try {
-         $booklet->delete();
+         $booklet = Booklet::find($validated['id'])->delete();
          DB::commit();
-         return response()->json(['message' => 'Berhasil menghapus booklet'], 200);
-      } catch (\Throwable $th) {
+      } catch (\Exception $e) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal menghapus booklet'], 500);
+         return redirect()->route('booklet.index')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menghapus data',
+         ]);
       }
+      return redirect()->route('booklet.index')->with('response', [
+         'status' => 201,
+         'message' => 'Berhasil menghapus data',
+      ]);
    }
 }

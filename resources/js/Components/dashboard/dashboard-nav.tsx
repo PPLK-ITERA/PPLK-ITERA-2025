@@ -2,15 +2,6 @@
 
 // import Link from 'next/link';
 // import { usePathname } from 'next/navigation';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "./ui/tooltip";
-import { useSidebar } from "@/lib/hooks/useSidebar";
-import { User } from "@/lib/types/User";
-import { cn } from "@/lib/utils";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import { Dispatch, SetStateAction } from "react";
@@ -18,8 +9,17 @@ import { Dispatch, SetStateAction } from "react";
 import { Link, usePage } from "@inertiajs/react";
 
 import { Icons } from "@/Components/dashboard/icons";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/Components/ui/tooltip";
 
-import { NavItem } from "@/constants/data";
+import { NavItem } from "@/lib/data/data";
+import { useSidebar } from "@/lib/hooks/useSidebar";
+import { User } from "@/lib/types/User";
+import { cn } from "@/lib/utils";
 
 interface DashboardNavProps {
     items: NavItem[];
@@ -32,7 +32,6 @@ export function DashboardNav({
     setOpen,
     isMobileNav = false,
 }: DashboardNavProps) {
-    // const path = usePathname();
     const { isMinimized } = useSidebar();
     type MyPage = PageProps<{
         auth: {
@@ -42,13 +41,9 @@ export function DashboardNav({
 
     const { auth } = usePage<MyPage>().props;
 
-    console.log(auth.user);
-
     if (!items?.length) {
         return null;
     }
-
-    console.log("isActive", isMobileNav, isMinimized);
 
     return (
         <nav className="grid items-start gap-2">

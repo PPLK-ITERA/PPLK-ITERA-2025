@@ -3,7 +3,7 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 const Header = () => {
     return (
         <MaxWidthWrapper className="md:justify-start flex flex-col items-center justify-center">
-            <div className="h-screen px-2.5 py-[200px] md:py-[80px] lg:py-[120px] xl:py-[160px] text-center md:text-start w-full">
+            <div className="min-h-screen px-2.5 py-[200px] md:py-[80px] lg:py-[120px] xl:py-[160px] text-center md:text-start w-full">
                 <p className="text-[20px] font-semibold text-jaffa-100/80 md:text-[29.5px]">
                     Tentang
                 </p>

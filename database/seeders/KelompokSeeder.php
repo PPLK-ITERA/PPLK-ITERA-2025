@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Kelompok;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class KelompokSeeder extends Seeder
 {
@@ -12,18 +16,12 @@ class KelompokSeeder extends Seeder
     */
    public function run(): void
    {
-      Kelompok::create([
-         'no_kelompok' => 'K001',
-         'nama_kelompok' => 'Kelompok Satu',
-         'logo_kelompok' => 'logo1.png'
-      ]);
-
-      Kelompok::create([
-         'no_kelompok' => 'K002',
-         'nama_kelompok' => 'Kelompok Dua',
-         'logo_kelompok' => 'logo2.png'
-      ]);
-
-      // Tambahkan data kelompok sesuai kebutuhan
+      for ($i = 0; $i < 10; $i++) {
+         Kelompok::create([
+            'no_kelompok' => $i + 1,
+            'nama_kelompok' => 'Kelompok ' . ($i + 1),
+            'logo_kelompok' => 'kelompok' . ($i + 1) . '.png',
+         ]);
+      }
    }
 }

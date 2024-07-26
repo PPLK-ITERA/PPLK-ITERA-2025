@@ -12,7 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
-import { InformasiDropDown, MabaDropDown } from "@/constants/navlink";
+import { InformasiDropDown, MabaDropDown } from "@/lib/data/navlink";
 
 type NavLargeProps = {
     isScrolled?: boolean;

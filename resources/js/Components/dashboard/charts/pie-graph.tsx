@@ -13,13 +13,13 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/Components/dashboard/ui/card";
+} from "@/Components/ui/card";
 import {
     ChartConfig,
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
-} from "@/Components/dashboard/ui/chart";
+} from "@/Components/ui/chart";
 
 const chartData = [
     { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },

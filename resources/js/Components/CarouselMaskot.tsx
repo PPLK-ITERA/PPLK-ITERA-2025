@@ -8,7 +8,7 @@ import * as React from "react";
 
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
-import { Button } from "@/Components/dashboard/ui/button";
+import { Button } from "@/Components/ui/button";
 
 import { cn } from "@/lib/utils";
 

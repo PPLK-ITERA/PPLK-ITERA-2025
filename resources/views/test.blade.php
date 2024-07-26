@@ -1,4 +1,6 @@
-<form action="{{ route('scanqrcui') }}">
-    <input type="text" name="name" id="name">
-    <input type="submit" value="Submit">
+<form action="/check-answers" method="post">
+    @csrf
+    <button type="submit">"Follow"
+
+    </button>
 </form>
