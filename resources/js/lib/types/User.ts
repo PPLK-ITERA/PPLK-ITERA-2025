@@ -14,3 +14,14 @@ export interface User {
     instagramUrl: string;
     role_id: number;
 }
+
+export interface UserMaba {
+    no: number; // Assuming 'no' is a number
+    id: number; // Assuming 'id' is a number
+    user: {
+        name: string;
+        nim: string;
+        email: string;
+        role: string;
+    };
+}

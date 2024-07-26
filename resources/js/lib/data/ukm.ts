@@ -20,6 +20,30 @@ import ikm from "!assets/logoukm/logoikm.jpg";
 import madani from "!assets/logoukm/logomadani.png";
 import urotera from "!assets/logoukm/urotera.png";
 
+// Acuan saja tidak wajib digunakan
+interface UKMData {
+    key: string;
+    logo: string; // Assuming it's a URL or path to an image
+    title: string;
+    fotopembina: string; // Assuming it's a URL or path to an image
+    pembina: string;
+    jabatan: string;
+    fotoketua: string; // Assuming it's a URL or path to an image
+    ketum: string;
+    prodi: string;
+    sejarah: string;
+    allprestasi: {
+        prestasi: string; // Assuming it's a URL or path to an image
+        deskripsi: string;
+    }[];
+    allsosmed: {
+        instagram: string;
+        youtube: string;
+        website: string;
+        tiktok: string;
+    }[];
+}
+
 export const ukmData = [
     {
         key: "madani",

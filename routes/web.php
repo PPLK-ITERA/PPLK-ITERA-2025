@@ -16,7 +16,7 @@ use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Http\Controllers\User\RelasiController;
 use App\Http\Controllers\TugasController;
-use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\UserController;
 
 // use App\Http\Controllers\ResponseController;
 // use App\Http\Controllers\FeedbackController;

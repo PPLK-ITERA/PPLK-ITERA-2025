@@ -23,11 +23,7 @@ export default function Dapmen({ userId }: DapmenProps) {
 
         const response = await fetch(route("poin.qrcode", userId));
         const json = await response.json();
-        // setData(json.data);
-        setData({
-            code: "kontol",
-            qrUrl: "kontol",
-        });
+        setData(json.data);
 
         setLoading(false);
     };
@@ -37,7 +33,6 @@ export default function Dapmen({ userId }: DapmenProps) {
             <p>
                 Gunakan fitur ini untuk generate QR kelompok anda untuk di scan
                 oleh <span className="font-bold">Korlap</span>
-                {/* <p>{data.code}</p> */}
             </p>
 
             <div className="w-fit p-2 text-white bg-green-600 rounded-md">
