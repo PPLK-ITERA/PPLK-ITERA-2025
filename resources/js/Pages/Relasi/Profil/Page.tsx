@@ -32,6 +32,7 @@ import linkedinIcon from "!assets/svg/linkedin.svg";
 const Page: React.FC = () => {
     useAos();
 
+
     const user = users[0];
 
     return (

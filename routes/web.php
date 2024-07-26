@@ -126,11 +126,9 @@ Route::middleware('auth')->group(function () {
    //Middleware only maba
    Route::middleware(['checkRole:Maba'])->group(function () {
       Route::get('/relasi/data', [RelasiController::class, 'getProfiles'])->name('relasi.data');
-      Route::get('/relasi/topfollowers', [RelasiController::class, 'topFollowers'])->name('topFollowers');
-      //follow button
-      Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
-      //get other user profile by id
-      Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
+      Route::get('/relasi/listmaba', [RelasiController::class, 'listMaba'])->name('listMaba');
+      Route::get('/relasi/follow/{id}', [RelasiController::class, 'follow'])->name('follow');
+      Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('profile');
    });
 
    // Scoreboard
@@ -150,18 +148,6 @@ Route::middleware('auth')->group(function () {
    Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
    Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
 
-   //Middleware only maba
-   Route::middleware(['checkRole:maba'])->group(function () {
-      //Followers
-      //top 3 followers
-      Route::get('/top-followers', [RelasiController::class, 'topFollowers']);
-      //search maba
-      Route::post('/search', [RelasiController::class, 'search']);
-      //seluruh list maba
-      Route::get('/list-maba', [RelasiController::class, 'listMaba']);
-      //follow button
-      Route::post('/follow/{id}', [RelasiController::class, 'follow'])->name('follow');
-   });
 
 
    Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
