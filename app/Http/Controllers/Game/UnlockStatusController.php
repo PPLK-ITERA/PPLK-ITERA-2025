@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Game;
 use App\Http\Controllers\Controller;
 use App\Models\quiz;
 use App\Models\QuizActivity;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\UnlockStatus;
 use App\Models\gedung;
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UnlockStatusController extends Controller
 {
-   public function unlockGedung()
+   public function unlockGedung(Request $request, $id)
    {
-      $user = Auth::user();
+      $user = User::findOrFail($id);
+      // $user = Auth::user();
       $today = Carbon::today();
 
       // Cek apakah user sudah membuka gedung hari ini
@@ -66,9 +68,10 @@ class UnlockStatusController extends Controller
       return response()->json($response);
    }
 
-   public function getGedungAvailable()
+   public function getGedungAvailable(Request $request, $id)
    {
-      $user = Auth::user();
+      // $user = Auth::user();
+      $user = User::findOrFail($id);
 
       // Ambil daftar gedung yang telah dibuka oleh user
       $unlockedGedungs = UnlockStatus::where('user_id', $user->id)
