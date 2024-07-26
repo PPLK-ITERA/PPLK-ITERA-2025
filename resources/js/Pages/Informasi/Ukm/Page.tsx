@@ -5,7 +5,7 @@ import Navbar from "@/Components/Navbar";
 import { CarouselUkm } from "@/Components/informasi/Ukm/CarouselUkm";
 import PaginationInformasi from "@/Components/informasi/Ukm/PaginationUkm";
 
-import { ukmData } from "@/lib/data/ukm";
+import { ukmDataArip } from "@/lib/data/ukm";
 import { useAos } from "@/lib/hooks/useAos";
 
 import gedung from "!assets/gedung-sponsor.png";
@@ -31,8 +31,8 @@ const Page: React.FC = () => {
         };
     }, []);
 
-    const totalPages = Math.ceil(ukmData.length / itemsPerPage);
-    const currentItems = ukmData.slice(
+    const totalPages = Math.ceil(ukmDataArip.length / itemsPerPage);
+    const currentItems = ukmDataArip.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage,
     );

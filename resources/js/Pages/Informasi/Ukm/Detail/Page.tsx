@@ -7,7 +7,7 @@ import { Prestasi } from "@/Components/informasi/Ukm/DetailUkm/Prestasi";
 import Sosmed from "@/Components/informasi/Ukm/DetailUkm/Sosmed";
 import VisiMisi from "@/Components/informasi/Ukm/DetailUkm/VisiMisi";
 
-import { ukmData, ukmDataArip } from "@/lib/data/ukm";
+import { ukmDataArip } from "@/lib/data/ukm";
 import { useAos } from "@/lib/hooks/useAos";
 
 import gedung from "!assets/gedung-sponsor.png";
