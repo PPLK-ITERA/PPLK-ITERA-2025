@@ -155,6 +155,7 @@ Route::middleware('auth')->group(function () {
    Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
    Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
    Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
+   Route::get('/tugas/{id}/return', [TugasController::class, 'return'])->name('tugas.return');
 
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {
