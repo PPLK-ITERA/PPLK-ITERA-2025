@@ -96,8 +96,6 @@ class BookletController extends Controller
          ]);
       }
 
-      dd($booklet);
-
       DB::beginTransaction();
       try {
          $booklet->update($validated);
