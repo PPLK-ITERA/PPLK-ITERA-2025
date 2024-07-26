@@ -103,37 +103,6 @@ class UserController extends Controller
             ]
         ]);
     }
-    public function getProfiles(Request $request)
-   {
-      $perPage = $request->input('perPage', 10);
-      $searchTerm = $request->input('search', '');
-
-      $query = User::query()
-         
-         ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->where('name', 'like', '%' . $searchTerm . '%')
-            ->orWhere('nim', 'like', '%' . $searchTerm . '%');    
-         });
-
-      $profiles = $query->paginate($perPage);
-
-      $currentPage = $profiles->currentPage(); // Halaman saat ini
-      $perPage = $profiles->perPage(); // Jumlah data per halaman
-      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
-
-      // Mengubah setiap item untuk menambahkan nomor urut
-      $profiles->getCollection()->transform(function ($profile) use (&$currentIndex) {
-         return [
-            'user_id' => $profile->user_id,
-            'name' => $profile->name,
-            'nama_kelompok' => $profile->kelompok->nama_kelompok,
-            'no_kelompok' => $profile->kelompok->no_kelompok,
-            'photo_profile_url' => $profile->photo_profile_url,
-         ];
-      });
-      
-      return response()->json($profiles);
-   }
 
 }
 
