@@ -15,24 +15,8 @@ class UserController extends Controller
     */
    public function index()
    {
-      $user = User::with('role')->get();
-
-      $data = $user->map(function ($item) {
-         return [
-            'name' => $item->name,
-            'nim' => $item->nim,
-            'role' => $item->role->name,
-         ];
-      });
-      return Inertia::view(
-         'Dashboard/user/Page',
-         [
-            'response' => [
-               'status' => 200,
-               'message' => 'Berhasil mendapatkan data',
-               'data' => $user
-            ]
-         ]
+      return Inertia::render(
+         'Dashboard/user/Page'
       );
    }
 
