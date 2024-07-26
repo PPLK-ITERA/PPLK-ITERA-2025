@@ -12,15 +12,30 @@ use Inertia\Inertia;
 class UserController extends Controller
 {
     // Menampilkan top 3 follower
-    public function topFollowers()
-    {
-        $users = User::select('name', 'nim')
-            ->withCount('followers')
-            ->orderBy('followers_count', 'desc')
-            ->take(3)
-            ->get();
+    // public function topFollowers()
+    // {
+    //     $users = User::select('name', 'nim')
+    //         ->withCount('followers')
+    //         ->orderBy('followers_count', 'desc')
+    //         ->take(3)
+    //         ->get();
 
-        return Inertia::render('TopFollowers', [
+    //     return Inertia::render('TopFollowers', [
+    //         'response' => [
+    //             'status' => 200,
+    //             'message' => 'Berhasil mendapatkan data',
+    //             'data' => $users
+    //         ]
+    //     ]);
+    // }
+
+    public function index(){
+        $users = User::select('name', 'nim')
+        ->withCount('followers')
+        ->orderBy('followers_count', 'desc')
+        ->take(3)
+        ->get();
+        return Inertia::render('Relasi/Page', [
             'response' => [
                 'status' => 200,
                 'message' => 'Berhasil mendapatkan data',
@@ -28,7 +43,6 @@ class UserController extends Controller
             ]
         ]);
     }
-
     // Search bar untuk mencari user berdasarkan nama atau email
     public function search(Request $request)
     {
@@ -43,7 +57,7 @@ class UserController extends Controller
             ->select('id', 'name', 'nim')
             ->get();
 
-        return Inertia::render('SearchResults', [
+        return Inertia::render('Relasi/Search/Page', [
             'response' => [
                 'status' => $users->isEmpty() ? 404 : 200,
                 'message' => $users->isEmpty() ? 'No users found' : 'Users found',
@@ -158,7 +172,7 @@ class UserController extends Controller
         // Increment view count
         $user->increment('view_count');
 
-        return Inertia::render('UserProfile', [
+        return Inertia::render('Relasi/Profil/Page', [
             'response' => [
                 'status' => 200,
                 'message' => 'Profile retrieved successfully',
@@ -176,4 +190,37 @@ class UserController extends Controller
             ]
         ]);
     }
+    public function getProfiles(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+
+      $query = User::query()
+         
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->where('name', 'like', '%' . $searchTerm . '%')
+            ->orWhere('nim', 'like', '%' . $searchTerm . '%');    
+         });
+
+      $profiles = $query->paginate($perPage);
+
+      $currentPage = $profiles->currentPage(); // Halaman saat ini
+      $perPage = $profiles->perPage(); // Jumlah data per halaman
+      $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+      // Mengubah setiap item untuk menambahkan nomor urut
+      $profiles->getCollection()->transform(function ($profile) use (&$currentIndex) {
+         return [
+            'user_id' => $profile->user_id,
+            'name' => $profile->name,
+            'nama_kelompok' => $profile->kelompok->nama_kelompok,
+            'no_kelompok' => $profile->kelompok->no_kelompok,
+            'photo_profile_url' => $profile->photo_profile_url,
+         ];
+      });
+      
+      return response()->json($profiles);
+   }
+
 }
+

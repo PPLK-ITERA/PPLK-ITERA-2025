@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookletController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -20,9 +21,14 @@ Route::get('scoreboard', function () {
    return Inertia::render('Scoreboard/Page');
 })->name('scoreboard');
 
-Route::get('relasi', function () {
-   return Inertia::render('Relasi/Page');
-})->name('relasi');
+Route::get('relasi', 
+   [UserController::class, 'index']
+)->name('relasi');
+
+Route::get('relasi/data', 
+   [UserController::class, 'getProfiles']
+);
+
 
 Route::get('relasi/profil', function () {
    return Inertia::render('Relasi/Profil/Page');

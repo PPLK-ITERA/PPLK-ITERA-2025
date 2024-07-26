@@ -121,17 +121,17 @@ Route::middleware('auth')->group(function () {
 
 
    //Middleware only maba
-   Route::middleware(['checkRole:maba'])->group(function () {
-      //Followers
-      //top 3 followers
-      Route::get('/top-followers', [UserController::class, 'topFollowers']);
-      //search maba
-      Route::post('/search', [UserController::class, 'search']);
-      //seluruh list maba
-      Route::get('/list-maba', [UserController::class, 'listMaba']);
-      //follow button
-      Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
-   });
+   // Route::middleware(['checkRole:maba'])->group(function () {
+   //    //Followers
+   //    //top 3 followers
+   //    Route::get('/top-followers', [UserController::class, 'topFollowers']);
+   //    //search maba
+   //    Route::post('/search', [UserController::class, 'search']);
+   //    //seluruh list maba
+   //    Route::get('/list-maba', [UserController::class, 'listMaba']);
+   //    //follow button
+   //    Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow');
+   // });
 
    Route::middleware(['checkRole:dapmen,mahasiswa'])->group(function () {
    });
