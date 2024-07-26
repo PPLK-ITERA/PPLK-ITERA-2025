@@ -24,7 +24,6 @@ class BookletController extends Controller
 
    public function index()
    {
-      // $booklets = Booklet::all();
       return Inertia::render('Dashboard/booklet/Page');
    }
    public function getAllBooklets(Request $request)

@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
          FAQSeeder::class,
          BookletSeeder::class,
          PenyakitSeeder::class,
-         RoleSeeder::class,
          TugasSeeder::class,
          // Add more seeders if needed
       ]);
