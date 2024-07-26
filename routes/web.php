@@ -138,12 +138,6 @@ Route::middleware('auth')->group(function () {
       Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
    });
 
-
-   // Route::middleware(['checkRole:Admin'])->group(function () {
-   //    //CRUD FAQ
-   //    Route::resource('faqs', FAQController::class);
-   // })->prefix('admin');
-
    // Scoreboard
    // melihat list user pada kelompok
    // Route::get('/kelompok/{id}/user-id', [KelompokController::class, 'getUserIdsByKelompokId']);
