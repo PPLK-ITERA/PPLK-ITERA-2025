@@ -263,9 +263,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/informasi-kelompok/Page');
    })->name('dashboard/informasi-kelompok');
 
-   Route::get('dashboard/informasi-kelompok/edit-maba', function () {
+   Route::get('dashboard/edit-user', function () {
       return Inertia::render('Dashboard/informasi-kelompok/detail-maba/Page');
-   })->name('dashboard/informasi-kelompok/edit-maba');
+   })->name('dashboard/edit-user');
 
    // =====================================
    // Dashboard CUI(Auth)
@@ -334,4 +334,15 @@ Route::middleware('auth')->group(function () {
    Route::get('mading/kumpul', function () {
       return Inertia::render('Mading/Kumpul/Page');
    })->name('mading/kumpul');
+
+   // =====================================
+   // Manage Tugas (Auth)
+   // =====================================
+   Route::get('/dashboard/manage-tugas', function () {
+      return Inertia::render('Dashboard/manage-tugas/Page');
+   })->name('/dashboard/manage-tugas');
+
+   Route::get('manage-tugas/detail', function () {
+      return Inertia::render('ManageTugas/Detail/Page');
+   })->name('manage-tugas/detail');
 });
