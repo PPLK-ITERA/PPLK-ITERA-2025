@@ -1,4 +1,5 @@
 import { useAos } from "@/lib/hooks/useAos";
+
 import React from "react";
 
 const icons = {
@@ -66,27 +67,25 @@ const icons = {
 
 export default function Sosmed({ allsosmed }) {
     const sosmedLinks = allsosmed[0];
-    useAos()
+    useAos();
     return (
         <div
             data-aos="fade-up"
             data-aos-duration="1000"
-            className="flex flex-col justify-center items-center"
+            className="flex gap-8 justify-center items-center flex-wrap"
         >
-            <div className="flex space-x-4 -mt-1 mb-40 gap-1 sm:gap-5">
-                {Object.entries(sosmedLinks).map(([type, url]) =>
-                    url ? (
-                        <a
-                            key={type}
-                            href={url as string}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {icons[type] || <span>Icon not found</span>}
-                        </a>
-                    ) : null,
-                )}
-            </div>
+            {Object.entries(sosmedLinks).map(([type, url]) =>
+                url ? (
+                    <a
+                        key={type}
+                        href={url as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {icons[type] || <span>Icon not found</span>}
+                    </a>
+                ) : null,
+            )}
         </div>
     );
 }
