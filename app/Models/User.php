@@ -81,7 +81,7 @@ class User extends Authenticatable
 
    public function pilar()
    {
-      return $this->hasOne(pilar::class, 'pilar', 'id');
+      return $this->belongsTo(pilar::class, 'pilar', 'id');
    }
 
    public function tugas()
@@ -90,11 +90,15 @@ class User extends Authenticatable
    }
    public function QuizActivity()
    {
-      return $this->hasOne(QuizActivity::class, 'user_id', 'id');
+      return $this->hasMany(QuizActivity::class, 'user_id', 'id');
    }
    public function qrcode()
    {
       return $this->hasOne(Qrcode::class, 'user_id', 'id');
+   }
+   public function presensi()
+   {
+      return $this->hasOne(PresensiPplk::class, 'user_id', 'id');
    }
    public function prodi()
    {
