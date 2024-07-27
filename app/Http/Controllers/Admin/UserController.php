@@ -72,6 +72,7 @@ class UserController extends Controller
                'nim' => $user->nim,
                'email' => $user->email,
                'role' => $user->role->role,
+               'kelompok' => $user->kelompok->nama_kelompok,
             ],
          ];
       });

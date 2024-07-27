@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Tugas;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class TugasController extends Controller
 {
@@ -15,11 +16,17 @@ class TugasController extends Controller
     //     $this->middleware('role:mahasiswa')->only(['create', 'store', 'edit', 'update', 'destroy']);
     //     $this->middleware('role:admin,dapmen')->only(['index', 'show']);
     // }
-
     public function index()
     {
         $tugas = Tugas::all();
-        return view('tugas.index', compact('tugas'));
+        return Inertia::render('Dashboard/mading/Page', [
+            'response' => [
+                'status' => 200,
+                'message' => 'Success',
+                'data' => $tugas,
+            ]
+        ]);
+        // return response()->json();
     }
 
     public function create()
@@ -95,4 +102,126 @@ class TugasController extends Controller
             return redirect()->route('tugas.index')->with('error', 'Gagal menghapus tugas. Silakan coba lagi.');
         }
     }
+
+    public function getAllTugas(Request $request)
+    {
+        $perPage = $request->input('perPage', 10);
+        $searchTerm = $request->input('search', '');
+
+        $auth = Auth::user();
+        if ($auth->role_id == 3) {
+            $query = Tugas::query();
+        } elseif ($auth->role_id == 2 || $auth->role_id == 3) {
+            $query = Tugas::query()->where('kelompok_id', $auth->kelompok_id);
+        }
+
+        $query->with('user')
+            ->when($searchTerm, function ($query) use ($searchTerm) {
+                // return $query->where('nim', 'like', '%' . $searchTerm . '%')
+                //     ->orWhere('name', 'like', '%' . $searchTerm . '%')
+    
+                return $query->whereHas('user', function ($q) use ($searchTerm) {
+                    $q->where('name', 'like', '%' . $searchTerm . '%')
+                        ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+                        ->orWhere('email', 'like', '%' . $searchTerm . '%')
+                        ->orWhere('materi', 'like', '%' . $searchTerm . '%')
+                        ->orWhere('kategori_tugas', 'like', '%' . $searchTerm . '%');
+                });
+            });
+
+        //     $query = LogCui::query()
+        //  ->with(['user', 'user.penyakit', 'user.kelompok']) // Memastikan semua data yang diperlukan di eager load
+        //  ->when($searchTerm, function ($query) use ($searchTerm) {
+
+        //  });
+
+        $tugass = $query->paginate($perPage);
+
+        $currentPage = $tugass->currentPage(); // Halaman saat ini
+        $perPage = $tugass->perPage(); // Jumlah data per halaman
+        $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+        // Mengubah setiap item untuk menambahkan nomor urut
+        $tugass->getCollection()->transform(function ($tugas) use (&$currentIndex) {
+            return [
+                'no' => ++$currentIndex, // Nomor urut
+                'tugas' => $tugas
+            ];
+        });
+
+        return response()->json($tugass);
+    }
+    public function getTugasKelompok(Request $request)
+    {
+        $perPage = $request->input('perPage', 10);
+        $searchTerm = $request->input('search', '');
+        $auth = Auth::user();
+        if ($auth->role_id == 3) {
+            $query = Tugas::query();
+        } elseif ($auth->role_id == 2 || $auth->role_id == 3) {
+            $query = Tugas::query()->where('kelompok_id', $auth->kelompok_id);
+        }
+
+        $query->where('kategori_tugas', 'kelompok')->with('user')
+            ->when($searchTerm, function ($query) use ($searchTerm) {
+                return $query->where('nim', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('name', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('materi', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('kategori_tugas', 'like', '%' . $searchTerm . '%');
+            });
+
+        $tugass = $query->paginate($perPage);
+
+        $currentPage = $tugass->currentPage(); // Halaman saat ini
+        $perPage = $tugass->perPage(); // Jumlah data per halaman
+        $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+        // Mengubah setiap item untuk menambahkan nomor urut
+        $tugass->getCollection()->transform(function ($tugas) use (&$currentIndex) {
+            return [
+                'no' => ++$currentIndex, // Nomor urut
+                'tugas' => $tugas
+            ];
+        });
+
+        return response()->json($tugass);
+    }
+    public function getTugasIndividu(Request $request)
+    {
+        $perPage = $request->input('perPage', 10);
+        $searchTerm = $request->input('search', '');
+
+        $auth = Auth::user();
+        if ($auth->role_id == 3) {
+            $query = Tugas::query();
+        } elseif ($auth->role_id == 2 || $auth->role_id == 3) {
+            $query = Tugas::query()->where('kelompok_id', $auth->kelompok_id);
+        }
+
+        $query
+            ->where('kategori_tugas', 'individu')->with('user')
+            ->when($searchTerm, function ($query) use ($searchTerm) {
+                return $query->where('nim', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('name', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('materi', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('kategori_tugas', 'like', '%' . $searchTerm . '%');
+            });
+
+        $tugass = $query->paginate($perPage);
+
+        $currentPage = $tugass->currentPage(); // Halaman saat ini
+        $perPage = $tugass->perPage(); // Jumlah data per halaman
+        $currentIndex = ($currentPage - 1) * $perPage; // Menghitung index awal
+
+        // Mengubah setiap item untuk menambahkan nomor urut
+        $tugass->getCollection()->transform(function ($tugas) use (&$currentIndex) {
+            return [
+                'no' => ++$currentIndex, // Nomor urut
+                'tugas' => $tugas
+            ];
+        });
+
+        return response()->json($tugass);
+    }
 }
+

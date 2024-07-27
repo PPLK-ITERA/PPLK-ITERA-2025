@@ -5,18 +5,18 @@ import { columns } from "./columns";
 import { DataTable } from "@/Components/ui/data-table";
 import { Separator } from "@/Components/ui/separator";
 
-export const KelompokClient = () => {
+export const TugasClient = () => {
     return (
         <>
             <div className="flex items-start justify-between"></div>
             <Separator />
             <DataTable
-                searchKey="Nama, Nim, Email"
+                searchKey="Nama, Nim, atau Kelompok"
                 columns={columns}
-                apiEndpoint={route("user.maba.data")}
-                title={"Data Kelompok"}
+                apiEndpoint={route("tugas.data")}
+                title={"Total Tugas"}
                 description={
-                    "Gunakan sistem informasi ini untuk melihat data kelompok!"
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 }
             />
         </>

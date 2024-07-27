@@ -251,9 +251,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard Mading (Auth)
    // =====================================
-   Route::get('dashboard/mading', function () {
-      return Inertia::render('Dashboard/mading/Page');
-   })->name('dashboard/mading');
+   // Route::get('dashboard/mading', function () {
+   //    return Inertia::render('Dashboard/mading/Page');
+   // })->name('dashboard/mading');
 
 
    // =====================================
@@ -338,11 +338,11 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Manage Tugas (Auth)
    // =====================================
-   Route::get('/dashboard/manage-tugas', function () {
-      return Inertia::render('Dashboard/manage-tugas/Page');
-   })->name('/dashboard/manage-tugas');
+   // Route::get('/dashboard/mading', function () {
+   //    return Inertia::render('Dashboard/mading/Page');
+   // })->name('/dashboard/mading');
 
-   Route::get('manage-tugas/detail', function () {
+   Route::get('/dashboard/mading/detail', function () {
       return Inertia::render('ManageTugas/Detail/Page');
-   })->name('manage-tugas/detail');
+   })->name('/dasboard/mading/detail');
 });

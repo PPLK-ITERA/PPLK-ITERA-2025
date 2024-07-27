@@ -157,11 +157,14 @@ class FAQController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
-      $query = FAQ::query()
-         ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->where('teks_pertanyaan', 'like', '%' . $searchTerm . '%')
+      $query = FAQ::query();
+
+      if (!empty($searchTerm)) {
+         $query->where(function ($query) use ($searchTerm) {
+            $query->where('teks_pertanyaan', 'like', '%' . $searchTerm . '%')
                ->orWhere('teks_jawaban', 'like', '%' . $searchTerm . '%');
          });
+      }
 
       $faqs = $query->paginate($perPage);
 

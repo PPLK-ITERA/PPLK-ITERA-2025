@@ -1,4 +1,22 @@
-import { IconLogout } from "@tabler/icons-react";
+import {
+    IconBallFootball,
+    IconBallpen,
+    IconBook,
+    IconBuildingCommunity,
+    IconBuildingSkyscraper,
+    IconCrown,
+    IconDeviceGamepad2,
+    IconInfoCircle,
+    IconLayoutDashboard,
+    IconMap,
+    IconMoodWink,
+    IconSchool,
+    IconShirt,
+    IconTie,
+    IconUserCircle,
+    IconUsers,
+    IconUsersGroup,
+} from "@tabler/icons-react";
 
 export const NavLinks = [
     {
@@ -27,194 +45,42 @@ export const InformasiDropDown = [
     {
         title: "Tentang PPLK",
         href: "/informasi/pplk",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-info-circle"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                <path d="M12 9h.01" />
-                <path d="M11 12h1v4h1" />
-            </svg>
-        ),
+        icon: <IconInfoCircle size={24} color="#fcedd8" />,
     },
     {
         title: "Fakultas ITERA",
         href: "/informasi/fakultas",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-building-skyscraper"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M3 21l18 0" />
-                <path d="M5 21v-14l8 -4v18" />
-                <path d="M19 21v-10l-6 -4" />
-                <path d="M9 9l0 .01" />
-                <path d="M9 12l0 .01" />
-                <path d="M9 15l0 .01" />
-                <path d="M9 18l0 .01" />
-            </svg>
-        ),
+        icon: <IconBuildingSkyscraper size={24} color="#fcedd8" />,
     },
     {
         title: "Prodi & HMPS ITERA",
         href: "/informasi/prodi",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-school"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
-                <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
-            </svg>
-        ),
+        icon: <IconSchool size={24} color="#fcedd8" />,
     },
     {
         title: "UPT ITERA",
         href: "/informasi/upt",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-building-community"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
-                <path d="M13 7l0 .01" />
-                <path d="M17 7l0 .01" />
-                <path d="M17 11l0 .01" />
-                <path d="M17 15l0 .01" />
-            </svg>
-        ),
+        icon: <IconBuildingCommunity size={24} color="#fcedd8" />,
     },
     {
         title: "KM ITERA",
         href: "/informasi/km",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-tie"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 22l4 -4l-2.5 -11l.993 -2.649a1 1 0 0 0 -.936 -1.351h-3.114a1 1 0 0 0 -.936 1.351l.993 2.649l-2.5 11l4 4z" />
-                <path d="M10.5 7h3l5 5.5" />
-            </svg>
-        ),
+        icon: <IconTie size={24} color="#fcedd8" />,
     },
     {
         title: "Unit Kegiatan Mahasiswa",
         href: "/informasi/ukm",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-ball-football"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                <path d="M12 7l4.76 3.45l-1.76 5.55h-6l-1.76 -5.55z" />
-                <path d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45" />
-            </svg>
-        ),
+        icon: <IconBallFootball size={24} color="#fcedd8" />,
     },
     {
         title: "Divisi PPLK",
         href: "/informasi/pplk#divisi-pplk",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-users-group"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-            </svg>
-        ),
+        icon: <IconUsersGroup size={24} color="#fcedd8" />,
     },
     {
         title: "Kenal Maskot PPLK!",
         href: "/informasi/maskot",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-mood-wink"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                <path d="M15 10h.01" />
-                <path d="M9.5 15a3.5 3.5 0 0 0 5 0" />
-                <path d="M8.5 8.5l1.5 1.5l-1.5 1.5" />
-            </svg>
-        ),
+        icon: <IconMoodWink size={24} color="#fcedd8" />,
     },
 ];
 
@@ -222,48 +88,12 @@ export const MabaDropDown = [
     {
         title: "Ketentuan Atribut",
         href: "/ketentuan-atribut",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-shirt"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M15 4l6 2v5h-3v8a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-8h-3v-5l6 -2a3 3 0 0 0 6 0" />
-            </svg>
-        ),
+        icon: <IconShirt size={24} color="#fcedd8" />,
     },
     {
         title: "Booklet PPLK",
         href: "/booklet",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-book"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                <path d="M3 6l0 13" />
-                <path d="M12 6l0 13" />
-                <path d="M21 6l0 13" />
-            </svg>
-        ),
+        icon: <IconBook size={24} color="#fcedd8" />,
     },
 ];
 
@@ -271,140 +101,36 @@ export const UserDropdown = [
     {
         title: "Profil Kamu",
         href: route("my-profile"),
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-user-circle"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
-            </svg>
-        ),
+        icon: <IconUserCircle size={24} color="#fcedd8" />,
+    },
+    {
+        title: "Dashboard",
+        href: route("dashboard"),
+        icon: <IconLayoutDashboard size={24} color="#fcedd8" />,
     },
     {
         title: "Relasi & Jaringan",
         href: "/relasi",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-users"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-            </svg>
-        ),
+        icon: <IconUsers size={24} color="#fcedd8" />,
     },
     {
         title: "Mading",
         href: "/mading",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-map"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M3 7l6 -3l6 3l6 -3v13l-6 3l-6 -3l-6 3v-13" />
-                <path d="M9 4v13" />
-                <path d="M15 7v13" />
-            </svg>
-        ),
+        icon: <IconMap size={24} color="#fcedd8" />,
     },
     {
         title: "Kuis Assesmen",
         href: "/assesmen",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-ballpen"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M14 6l7 7l-4 4" />
-                <path d="M5.828 18.172a2.828 2.828 0 0 0 4 0l10.586 -10.586a2 2 0 0 0 0 -2.829l-1.171 -1.171a2 2 0 0 0 -2.829 0l-10.586 10.586a2.828 2.828 0 0 0 0 4z" />
-                <path d="M4 20l1.768 -1.768" />
-            </svg>
-        ),
+        icon: <IconBallpen size={24} color="#fcedd8" />,
     },
     {
         title: "Game",
         href: "/game",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-device-gamepad-2"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 5h3.5a5 5 0 0 1 0 10h-5.5l-4.015 4.227a2.3 2.3 0 0 1 -3.923 -2.035l1.634 -8.173a5 5 0 0 1 4.904 -4.019h3.4z" />
-                <path d="M14 15l4.07 4.284a2.3 2.3 0 0 0 3.925 -2.023l-1.6 -8.232" />
-                <path d="M8 9v2" />
-                <path d="M7 10h2" />
-                <path d="M14 10h2" />
-            </svg>
-        ),
+        icon: <IconDeviceGamepad2 size={24} color="#fcedd8" />,
     },
     {
         title: "Scoreboard",
         href: "/scoreboard",
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fcedd8"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-crown"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" />
-            </svg>
-        ),
+        icon: <IconCrown size={24} color="#fcedd8" />,
     },
 ];

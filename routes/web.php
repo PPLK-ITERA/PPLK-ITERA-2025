@@ -152,8 +152,12 @@ Route::middleware('auth')->group(function () {
    Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
    Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
    Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
-   Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
-   Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
+   Route::get('/dashboard/mading', [TugasController::class, 'index'])->name('tugas.index');
+   // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
+
+   Route::get('/tugas/kelompok/data', [TugasController::class, 'getTugasKelompok'])->name('tugas.kelompok.data');
+   Route::get('/tugas/individu/data', [TugasController::class, 'getTugasIndividu'])->name('tugas.individu.data');
+   Route::get('/tugas/data', [TugasController::class, 'getAllTugas'])->name('tugas.data');
 
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {

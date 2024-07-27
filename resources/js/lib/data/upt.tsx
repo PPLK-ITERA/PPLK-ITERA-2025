@@ -9,7 +9,7 @@ import logo_upa_perpus from "!assets/logoupt/logo-upa-perpus.png";
 
 // Acuan saja tidak wajib digunakan
 interface UptData {
-    key: string;
+    key: string; // ini nanti buat link ke detail -> example: "upa-perpustakaan"
     title: string;
     logo: string;
     description: string;

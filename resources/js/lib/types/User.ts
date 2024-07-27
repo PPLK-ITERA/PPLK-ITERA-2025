@@ -25,3 +25,10 @@ export interface UserMaba {
         role: string;
     };
 }
+
+export interface UserAuthProps {
+    email: string;
+    id: number;
+    name: string;
+    role_id: number;
+}

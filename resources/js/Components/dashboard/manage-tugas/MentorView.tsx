@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { Link } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 
 import { IconExternalLink } from "@tabler/icons-react";
 
@@ -27,6 +27,8 @@ import {
 } from "@/Components/ui/table";
 import { Textarea } from "@/Components/ui/textarea";
 
+import { tugasData } from "@/lib/types/Tugas";
+
 import kotakajaib from "!assets/kotakajaib.png";
 import podium_mading from "!assets/podium-mading.png";
 
@@ -49,6 +51,27 @@ const dataTugas = [
 ];
 
 export default function MentorView() {
+    const { data, setData } = useForm<tugasData[]>();
+    const [loading, setLoading] = useState(true);
+
+    const getTugasKelompok = async () => {
+        try {
+            setLoading(true);
+            const response = await fetch(route("tugas.kelompok.data"));
+            const data = await response.json();
+            setData(data.data);
+            // console.log(data.data);
+            setLoading(false);
+        } catch (error) {
+            console.error("Failed to fetch tasks:", error);
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        getTugasKelompok();
+    }, []);
+
     return (
         <div>
             <Link
@@ -67,7 +90,9 @@ export default function MentorView() {
                     Tugas Kelompok
                 </h2>
 
-                <Button>Downloade Excel</Button>
+                <Button onClick={() => getTugasKelompok()}>
+                    Downloade Excel
+                </Button>
             </div>
 
             <ScrollArea className="whitespace-nowrap max-w-7xl mt-5 overflow-hidden rounded-md">
@@ -86,31 +111,48 @@ export default function MentorView() {
                             <TableHead className="text-white">Aksi</TableHead>
                         </TableRow>
                     </TableHeader>
-                    <TableBody>
-                        {dataTugas.map((maba, index) => (
-                            <TableRow key={index}>
-                                <TableCell className="font-medium">
-                                    {index + 1}
-                                </TableCell>
-
-                                <TableCell>
-                                    <p className="line-clamp-1">{maba.nama}</p>
-                                </TableCell>
-
-                                <TableCell>
-                                    <p className="line-clamp-1">{maba.link}</p>
-                                </TableCell>
-
-                                <TableCell className="flex gap-2 text-right">
-                                    <Link
-                                        className={`${buttonVariants({ variant: "outline" })} gap-2`}
-                                        href="/dashboard/informasi-kelompok/edit-maba"
-                                    >
-                                        Kembalikan Tugas
-                                    </Link>
+                    <TableBody className="min-h-28 relative">
+                        {loading ? (
+                            <TableRow>
+                                <TableCell colSpan={4} className="text-center">
+                                    Loading...
                                 </TableCell>
                             </TableRow>
-                        ))}
+                        ) : (
+                            <>
+                                {data.map((tugas, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="font-medium">
+                                            {index + 1}
+                                        </TableCell>
+                                        <TableCell>
+                                            <p className="line-clamp-1">
+                                                {tugas.tugas.materi}
+                                            </p>
+                                        </TableCell>
+                                        <TableCell>
+                                            <p className="line-clamp-1">
+                                                {tugas.tugas.link}
+                                            </p>
+                                        </TableCell>
+                                        <TableCell className="flex gap-2 text-right">
+                                            <Link
+                                                className={`${buttonVariants({ variant: "default" })} gap-2`}
+                                                href={tugas.tugas.link}
+                                            >
+                                                Lihat Tugas
+                                            </Link>
+                                            <Link
+                                                className={`${buttonVariants({ variant: "outline" })} gap-2`}
+                                                href="/dashboard/informasi-kelompok/edit-maba"
+                                            >
+                                                Kembalikan Tugas
+                                            </Link>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </>
+                        )}
                     </TableBody>
                 </Table>
                 <ScrollBar orientation="horizontal" />
