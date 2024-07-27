@@ -40,7 +40,12 @@ export default function Page({ auth, response }) {
     const { data, setData, post, processing, errors } = useForm<Booklet>();
 
     function submit(e: FormEvent<HTMLFormElement>) {
-        post(route("dashboard.booklet.store"), {
+        let d = {
+            nama_booklet: e.currentTarget.nama_booklet.value,
+            url_booklet: e.currentTarget.url_booklet.value,
+        };
+
+        post(route("dashboard.booklet.store", d), {
             onError: () => {
                 toast({
                     title: "Uh oh! Gagal mengupload Booklet.",
@@ -54,6 +59,7 @@ export default function Page({ auth, response }) {
                 });
             },
         });
+        window.location.reload();
     }
 
     const columns: ColumnDef<Booklet>[] = [

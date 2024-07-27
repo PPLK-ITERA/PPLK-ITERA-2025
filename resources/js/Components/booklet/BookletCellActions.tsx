@@ -58,6 +58,7 @@ export const BookletCellActions: React.FC<BookletActionProps> = ({
                 });
             },
         });
+        window.location.reload();
     };
 
     function onUpdate(e: FormEvent<HTMLFormElement>) {
@@ -69,25 +70,25 @@ export const BookletCellActions: React.FC<BookletActionProps> = ({
             url_booklet: e.currentTarget.url_booklet.value,
         };
 
-        router.put(route("dashboard.booklet.update", newBooklet), {
-            
-        });
-
-
-        router.patch(route("dashboard.booklet.update", newBooklet), {
-            onError: () => {
-                toast({
-                    title: "Uh oh! Gagal mengupdate Booklet.",
-                    description: "Gagal mengupdate booklet.",
-                });
+        router.patch(
+            route("dashboard.booklet.update", newBooklet),
+            newBooklet,
+            {
+                onError: () => {
+                    toast({
+                        title: "Uh oh! Gagal menghapus Booklet.",
+                        description: "Gagal menghapus booklet.",
+                    });
+                },
+                onSuccess: () => {
+                    toast({
+                        title: "Berhasil menghapus Booklet!",
+                        description: "Booklet berhasil dihapus.",
+                    });
+                },
             },
-            onSuccess: () => {
-                toast({
-                    title: "Berhasil mengupdate Booklet!",
-                    description: "Booklet berhasil diupdate.",
-                });
-            },
-        });
+        );
+        window.location.reload();
     }
 
     return (
@@ -97,7 +98,7 @@ export const BookletCellActions: React.FC<BookletActionProps> = ({
                     <DialogTrigger asChild>
                         <Button
                             className="bg-red-500"
-                            onClick={setData(booklet)}
+                            onClick={() => setData(booklet)}
                         >
                             <IconTrashFilled size={18} />
                             <span>Hapus</span>
@@ -129,7 +130,7 @@ export const BookletCellActions: React.FC<BookletActionProps> = ({
 
                 <Dialog>
                     <DialogTrigger asChild>
-                        <Button onClick={setData(booklet)}>
+                        <Button onClick={() => setData(booklet)}>
                             <span>Edit</span>
                         </Button>
                     </DialogTrigger>
