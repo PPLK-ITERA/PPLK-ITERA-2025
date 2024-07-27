@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Game;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Cache;
 use Illuminate\Http\Request;
 use App\Models\UnlockStatus;
@@ -13,9 +14,10 @@ use Illuminate\Support\Facades\Auth;
 
 class QuizController extends Controller
 {
-   public function getQuestionsByGedung($gedung_id)
+   public function getQuestionsByGedung(Request $request, $gedung_id, $id)
    {
-      $user = Auth::user();
+      // $user = Auth::user();
+      $user = User::findOrFail($id);
 
       // Cek apakah gedung yang diminta sudah dibuka oleh user
       if (!UnlockStatus::where('user_id', $user->id)->where('gedung_id', $gedung_id)->exists()) {
