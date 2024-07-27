@@ -7,18 +7,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tugas extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    protected $fillable =[
-        'link',
-        'user_id',
-        'materi',
-        'tanggal_submit',
-        'kategori_tugas',
-    ];
+   protected $fillable = [
+      'link',
+      'user_id',
+      'materi',
+      'tanggal_submit',
+      'kategori_tugas',
+      'isReturned',
+      'catatan'
+   ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+   public function user()
+   {
+      return $this->belongsTo(User::class);
+   }
+   public function returnTugas($catatan = null)
+   {
+      $this->isReturned = true;
+
+      if (!is_null($catatan)) {
+         $this->catatan = $catatan;
+      }
+
+      $this->save();
+   }
 }
