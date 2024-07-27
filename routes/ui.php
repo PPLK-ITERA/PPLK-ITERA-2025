@@ -251,9 +251,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard Mading (Auth)
    // =====================================
-   // Route::get('dashboard/mading', function () {
-   //    return Inertia::render('Dashboard/mading/Page');
-   // })->name('dashboard/mading');
+   Route::get('dashboard/mading', function () {
+      return Inertia::render('Dashboard/mading/Page');
+   })->name('dashboard/mading');
 
 
    // =====================================

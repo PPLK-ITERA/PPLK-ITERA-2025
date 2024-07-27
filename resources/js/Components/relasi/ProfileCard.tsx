@@ -26,7 +26,7 @@ function ProfileCard({ user }: { user: User }) {
                 </div>
                 <div className="grow"></div>
                 <a href={route("relasi/profil")}>
-                    <Button className="w-full mt-6 bg-[#ECAA25] text-black border border-black font-semibold text-xs">
+                    <Button className="w-full mt-6 bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black border border-black font-semibold text-xs">
                         Kunjungi Profil
                     </Button>
                 </a>

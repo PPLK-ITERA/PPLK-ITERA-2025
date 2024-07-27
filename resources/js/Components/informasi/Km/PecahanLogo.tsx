@@ -1,12 +1,12 @@
 import React from "react";
 
-import itera from "!assets/logokm/itera.png";
-import kmPink from "!assets/logokm/km-tapi-pink.png";
-import km from "!assets/logokm/km.png";
-import sarjana from "!assets/logokm/sarjana.png";
-import swarnabumi from "!assets/logokm/swarnabumi.png";
-import tangan from "!assets/logokm/tangan.png";
-import teleskop from "!assets/logokm/teleskop.png";
+import ITERA from "!assets/logokm/ITERA.png";
+import KM from "!assets/logokm/KM.png";
+import KMITERA from "!assets/logokm/KMITERA.png";
+import Lup from "!assets/logokm/Lup.png";
+import Swarna from "!assets/logokm/Swarna.png";
+import Toga from "!assets/logokm/Toga.png";
+import U from "!assets/logokm/U.png";
 
 const PecahanLogo = () => {
     return (
@@ -14,12 +14,32 @@ const PecahanLogo = () => {
             <div className="md:gap-14 flex flex-row items-center justify-center gap-8">
                 <div className="gap-14 flex flex-col items-center justify-center">
                     <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
-                        <img src={itera} alt="logo" className="w-full h-full" />
+                        <img src={ITERA} alt="logo" className="w-full h-full" />
                     </div>
 
                     <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
+                        <img src={Toga} alt="logo" className="w-full h-full" />
+                    </div>
+                </div>
+
+                <div className="gap-14 flex flex-col items-center justify-center">
+                    <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
                         <img
-                            src={sarjana}
+                            src={KMITERA}
+                            alt="logo"
+                            className="w-full h-full"
+                        />
+                    </div>
+                    <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
+                        <img
+                            src={KM}
+                            alt="logo"
+                            className="object-contain w-full h-full p-2"
+                        />
+                    </div>
+                    <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
+                        <img
+                            src={Swarna}
                             alt="logo"
                             className="w-full h-full"
                         />
@@ -28,42 +48,10 @@ const PecahanLogo = () => {
 
                 <div className="gap-14 flex flex-col items-center justify-center">
                     <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
-                        <img
-                            src={kmPink}
-                            alt="logo"
-                            className="w-full h-full"
-                        />
+                        <img src={U} alt="logo" className="w-full h-full" />
                     </div>
                     <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
-                        <img
-                            src={km}
-                            alt="logo"
-                            className="w-full h-full p-2"
-                        />
-                    </div>
-                    <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
-                        <img
-                            src={swarnabumi}
-                            alt="logo"
-                            className="w-full h-full"
-                        />
-                    </div>
-                </div>
-
-                <div className="gap-14 flex flex-col items-center justify-center">
-                    <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
-                        <img
-                            src={tangan}
-                            alt="logo"
-                            className="w-full h-full"
-                        />
-                    </div>
-                    <div className="md:w-44 md:h-44 flex items-center justify-center w-16 h-16 overflow-hidden bg-white rounded-full">
-                        <img
-                            src={teleskop}
-                            alt="logo"
-                            className="w-full h-full"
-                        />
+                        <img src={Lup} alt="logo" className="w-full h-full" />
                     </div>
                 </div>
             </div>

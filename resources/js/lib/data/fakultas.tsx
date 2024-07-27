@@ -11,7 +11,7 @@ import fakultasTeknologiInfrastruktur from "!assets/fakultas-teknologi-infrastru
 
 export const HeaderFakultasData = {
     "fakultas-sains": {
-        title: "Fakultas Sains (Science)",
+        title: "Fakultas Sains",
         description: "Wadah Inovasi dan Pengetahuan Berkembang",
     },
     "fakultas-fti": {

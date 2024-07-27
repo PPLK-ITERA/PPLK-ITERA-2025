@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { AccordionFAQ } from "@/Components/AccordionFAQ";
+import { AccordionFAQ, FAQ } from "@/Components/AccordionFAQ";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import PaginationFAQ from "@/Components/PaginationFAQ";
@@ -8,7 +8,8 @@ import PaginationFAQ from "@/Components/PaginationFAQ";
 import { faqs } from "@/lib/data/faq";
 import { useAos } from "@/lib/hooks/useAos";
 
-const Page: React.FC = () => {
+export default function Page({ response }) {
+    const dataFAQS = response.data;
     useAos();
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [debouncedSearchTerm, setDebouncedSearchTerm] =
@@ -26,8 +27,10 @@ const Page: React.FC = () => {
         };
     }, [searchTerm]);
 
-    const filteredFaqs = faqs.filter((faq) =>
-        faq.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase()),
+    const filteredFaqs = dataFAQS.filter((faq: FAQ) =>
+        faq.teks_pertanyaan
+            .toLowerCase()
+            .includes(debouncedSearchTerm.toLowerCase()),
     );
 
     const totalPages = Math.ceil(filteredFaqs.length / itemsPerPage);
@@ -105,6 +108,6 @@ const Page: React.FC = () => {
             </div>
         </div>
     );
-};
+}
 
-export default Page;
+// export default Page;

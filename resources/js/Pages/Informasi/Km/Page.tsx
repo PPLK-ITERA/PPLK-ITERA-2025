@@ -26,7 +26,7 @@ export default function Page() {
                             Informasi
                         </p>
 
-                        <h1 className="text-jaffa-100 md:leading-[5rem] md:items-start flex flex-col items-center justify-center mt-8 leading-7">
+                        <h1 className="text-jaffa-100 md:leading-[5rem] md:items-start flex flex-col items-center justify-center mt-8 leading-[4rem]">
                             <span className="font-avigea text-[40px] md:text-[72px]">
                                 Keluarga Mahasiswa
                             </span>

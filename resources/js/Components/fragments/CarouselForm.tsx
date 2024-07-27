@@ -55,60 +55,58 @@ const CarouselForm = () => {
     }
 
     return (
-        <div>
-            <Carousel
-                className="h-[200px] w-[300px] text-white sm:h-[415px] sm:w-[415px]"
-                setApi={setApi}
-                plugins={[
-                    Autoplay({
-                        delay: 4000,
-                    }),
-                ]}
-            >
-                <CarouselContent>
-                    {randomPerson.funfact.map((item, index) => (
-                        <CarouselItem key={index}>
-                            <div>
-                                <Card className="bg-black/10 backdrop-blur-sm md:aspect-square lg:p-5 flex flex-col items-center justify-center p-2 border-none">
-                                    <CardTitle>
-                                        <p className="lg:text-4xl text-2xl font-bold text-center text-white">
-                                            {item.title}
-                                        </p>
-                                        <p className="lg:text-lg text-sm font-semibold text-center text-white">
-                                            {item.subtitle}
-                                        </p>
-                                    </CardTitle>
+        <Carousel
+            className="h-[300px] w-[300px] text-white md:h-[350px] md:w-[350px] lg:w-[415px] lg:h-[415px] xl:w-[500px] xl:h-[500px]"
+            setApi={setApi}
+            plugins={[
+                Autoplay({
+                    delay: 4000,
+                }),
+            ]}
+        >
+            <CarouselContent>
+                {randomPerson.funfact.map((item, index) => (
+                    <CarouselItem key={index}>
+                        <div>
+                            <Card className="bg-black/10 min-h-[200px] backdrop-blur-sm md:aspect-square lg:p-5 flex flex-col items-center justify-center p-2 border-none">
+                                <CardTitle>
+                                    <p className="lg:text-4xl md:text-2xl text-sm font-bold text-center text-white">
+                                        {item.title}
+                                    </p>
+                                    <p className="lg:text-lg text-sm font-semibold text-[10px] text-center text-white">
+                                        {item.subtitle}
+                                    </p>
+                                </CardTitle>
 
-                                    <CardContent className="md:mt-20 flex items-center justify-center mt-5">
-                                        <span className="md:text-md text-sm font-semibold text-center text-white">
-                                            {item.desc}
-                                        </span>
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
+                                <CardContent className="md:mt-20 flex items-center justify-center mt-5">
+                                    <p className="md:text-lg text-[8px] leading-3 text-sm font-semibold text-center text-white">
+                                        {item.desc}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </CarouselItem>
+                ))}
+            </CarouselContent>
 
-                <CarouselPrevious className="hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible invisible text-white bg-transparent" />
+            <CarouselPrevious className="hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible invisible text-white bg-transparent" />
 
-                <div className="text-sm text-center text-white">
-                    {randomPerson.funfact.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => api?.scrollTo(index)}
-                            className={`mx-1 inline-block h-2 w-2 rounded-full bg-white transition duration-200 ease-in-out ${
-                                index === current - 1
-                                    ? "w-5 bg-white"
-                                    : "bg-white/50"
-                            }`}
-                        />
-                    ))}
-                </div>
+            <div className="text-sm text-center text-white">
+                {randomPerson.funfact.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => api?.scrollTo(index)}
+                        className={`mx-1 inline-block h-2 w-2 rounded-full bg-white transition duration-200 ease-in-out ${
+                            index === current - 1
+                                ? "w-5 bg-white"
+                                : "bg-white/50"
+                        }`}
+                    />
+                ))}
+            </div>
 
-                <CarouselNext className="hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible invisible text-white bg-transparent" />
-            </Carousel>
-        </div>
+            <CarouselNext className="hover:border-2 hover:border-white hover:bg-transparent hover:text-white lg:visible invisible text-white bg-transparent" />
+        </Carousel>
     );
 };
 

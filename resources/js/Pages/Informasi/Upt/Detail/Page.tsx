@@ -29,7 +29,7 @@ function Page({ nama_upt }) {
             </div>
 
             <div className="bg-pattern-white relative z-20 py-20">
-                <div className="bg-gradient-to-b from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
+                <div className="bg-gradient-to-b hidden md:block from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
                 <div className="max-w-5xl mx-auto">
                     <div className="md:flex w-full">
                         <DescriptionHistory />

@@ -21,7 +21,13 @@ class TugasController extends Controller
     public function index()
     {
         $tugas = Tugas::all();
-        return view('tugas.index', compact('tugas'));
+        return Inertia::render("Dashboard/mading/Page", [
+            'response' => [
+                'status' => 200,
+                'message' => 'Data tugas berhasil diambil.',
+                'data' => $tugas
+            ]
+        ]);
     }
 
     public function create()

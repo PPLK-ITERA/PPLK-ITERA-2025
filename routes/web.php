@@ -156,6 +156,8 @@ Route::middleware('auth')->group(function () {
    Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
    Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
    Route::get('/tugas/{id}/return', [TugasController::class, 'return'])->name('tugas.return');
+   Route::get('/tugas-data', [TugasController::class, 'getAllTugas'])->name('tugas.data');
+   Route::get('/tugas-kelompok/data', [TugasController::class, 'getTugasKelompok'])->name('tugas.kelompok.data');
 
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {
