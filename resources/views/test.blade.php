@@ -1,4 +1,4 @@
-<form action="/check-answers" method="post">
+<form action="unlockgedungadmin/63" method="post">
     @csrf
     <button type="submit">"Follow"
 

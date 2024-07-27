@@ -16,6 +16,7 @@ class LogCui extends Model
       'user_id',
       'status',
       'waktu_izin',
+      'waktu_selesai',
       'ket_izin'
    ];
 

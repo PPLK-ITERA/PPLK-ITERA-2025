@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tugas;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -16,17 +17,11 @@ class TugasController extends Controller
     //     $this->middleware('role:mahasiswa')->only(['create', 'store', 'edit', 'update', 'destroy']);
     //     $this->middleware('role:admin,dapmen')->only(['index', 'show']);
     // }
+
     public function index()
     {
         $tugas = Tugas::all();
-        return Inertia::render('Dashboard/mading/Page', [
-            'response' => [
-                'status' => 200,
-                'message' => 'Success',
-                'data' => $tugas,
-            ]
-        ]);
-        // return response()->json();
+        return view('tugas.index', compact('tugas'));
     }
 
     public function create()
@@ -101,6 +96,17 @@ class TugasController extends Controller
             DB::rollBack();
             return redirect()->route('tugas.index')->with('error', 'Gagal menghapus tugas. Silakan coba lagi.');
         }
+    }
+    public function return(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'catatan' => 'required|string',
+        ]);
+
+        $tugas = Tugas::findOrFail($id);
+        $tugas->returnTugas($validated['catatan']);
+
+        return redirect()->back()->with('success', 'Tugas telah dikembalikan.');
     }
 
     public function getAllTugas(Request $request)

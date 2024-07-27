@@ -37,6 +37,7 @@ Route::get('/', function () {
 //Auth Route
 Route::middleware('auth')->group(function () {
 
+
    // Scoreboard
    //melihat top 10
    Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
@@ -95,7 +96,7 @@ Route::middleware('auth')->group(function () {
       Route::post('qrcode/scan', [PresensiCuiController::class, 'QRScan'])->name('cui.scan');
       Route::get('status/{code}', [PresensiCuiController::class, 'status'])->name('cui.status');
       Route::get('izin/{code}')->name('cui.izinform');
-      Route::patch('izin/{code}', [PresensiCuiController::class, 'storeIzin'])->name('cui.izin');
+      Route::post('izin/{code}', [PresensiCuiController::class, 'storeIzin'])->name('cui.izin');
       Route::patch('izin/{code}/destroy', [PresensiCuiController::class, 'destroyIzin'])->name('cui.destroy');
       Route::get('logbook', [PresensiCuiController::class, 'getLogbookData'])->name('cui.logbook');
    });
@@ -152,12 +153,9 @@ Route::middleware('auth')->group(function () {
    Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
    Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
    Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
-   Route::get('/dashboard/mading', [TugasController::class, 'index'])->name('tugas.index');
-   // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
-
-   Route::get('/tugas/kelompok/data', [TugasController::class, 'getTugasKelompok'])->name('tugas.kelompok.data');
-   Route::get('/tugas/individu/data', [TugasController::class, 'getTugasIndividu'])->name('tugas.individu.data');
-   Route::get('/tugas/data', [TugasController::class, 'getAllTugas'])->name('tugas.data');
+   Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
+   Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
+   Route::get('/tugas/{id}/return', [TugasController::class, 'return'])->name('tugas.return');
 
    //Middleware only maba
    Route::middleware(['checkRole:maba'])->group(function () {

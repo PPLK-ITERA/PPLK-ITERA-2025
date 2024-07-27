@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\PresensiCui;
 use App\Models\LogCui;
@@ -79,8 +80,8 @@ class PresensiCuiController extends Controller
          return response()->json(['message' => 'User tidak ditemukan'], 404);
       }
 
-      $log = LogCui::where('user_id', $userid)->latest('created_at');
-      if (!$log->first()->status == 'izin') {
+      $log = LogCui::where('user_id', $userid)->latest('created_at')->first();
+      if ($log->first()->status != 'izin') {
          DB::beginTransaction();
          try {
             LogCui::create([
@@ -103,14 +104,13 @@ class PresensiCuiController extends Controller
    {
       $userid = Qrcode::where('code', $code)->first()->user_id;
       $user = User::find($userid);
-      $log = LogCui::where('user_id', $userid);
       if (!$user->exists()) {
          return response()->json(['message' => 'User tidak ditemukan'], 404);
       }
       DB::beginTransaction();
       try {
-         $log->first()->update([
-            'waktu_selesai' => now(),
+         LogCui::where('user_id', $userid)->latest('created_at')->first()->update([
+            'waktu_selesai' => Carbon::now(),
          ]);
          LogCui::create([
             'user_id' => $user->id,
@@ -240,7 +240,8 @@ class PresensiCuiController extends Controller
                   ->orWhere('nim', 'like', '%' . $searchTerm . '%')
                   ->orWhere('email', 'like', '%' . $searchTerm . '%');
             });
-         });
+         })
+         ->orderBy('created_at', 'desc');
 
       $logbooks = $query->paginate($perPage);
 
@@ -257,7 +258,7 @@ class PresensiCuiController extends Controller
             'status' => $logbook->status,
             'waktu_izin' => $logbook->waktu_izin,
             'waktu_selesai' => $logbook->waktu_selesai,
-            'waktu_hadir' => $logbook->created_at,
+            'waktu_hadir' => ($logbook->status == 'izin'? null : $logbook->created_at),
             'ket_izin' => $logbook->ket_izin,
             'user' => [
                'name' => $logbook->user->name,
@@ -280,5 +281,34 @@ class PresensiCuiController extends Controller
    public function absensi()
    {
       return Inertia::render('Dashboard/cui/absensi/Page');
+   }
+
+   public function indexIzin($nim)
+   {
+      $log = LogCui::with(['user', 'user.prodi', 'user.qrcode', 'user.penyakit'])
+         ->whereHas('user', function ($query) use ($nim) {
+            $query->where('nim', $nim);
+         })
+         ->latest('created_at')
+         ->first();
+
+      // if ($log && $log->waktu_izin) {
+      //    return Inertia::render('Dashboard/cui');
+      // }
+
+      return Inertia::render('Dashboard/cui/izin/Page', [
+         'data' => [
+            'nama' => $log->user->name,
+            'nim' => $log->user->nim,
+            'status' => $log->status,
+            'pita' => $log->user->penyakit->pita,
+            'prodi' => $log->user->prodi->nama_prodi,
+            'photo_profile_url' => $log->user->photo_profile_url,
+            'waktu_hadir' => $log->created_at,
+            'waktu_izin' => $log->waktu_izin,
+            'waktu_selesai' => $log->waktu_selesai,
+            'qr_code' => $log->user->qrcode->code
+         ]
+      ]);
    }
 }

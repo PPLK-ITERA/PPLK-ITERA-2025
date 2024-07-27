@@ -284,6 +284,10 @@ Route::middleware('auth')->group(function () {
 
    Route::post('dashboard/cui', [PresensiCuiController::class, 'getMabaByNim']);
 
+   Route::get('dashboard/cui/izin/{nim}', [PresensiCuiController::class, 'indexIzin'])
+      ->name('dashboard.cui.izin');
+
+
    // Route::get('dev', function () {
    //     return Inertia::render('Dev/Page', [
    //         'username' => auth()->user()->name,
