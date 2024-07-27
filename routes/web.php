@@ -78,8 +78,9 @@ Route::middleware('auth')->group(function () {
       Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
          Route::get('booklet', [BookletController::class, 'index'])->name('dashboard.booklet.index');
          Route::get('booklet/data', [BookletController::class, 'getAllBooklets'])->name('dashboard.booklet.data');
-         Route::get('booklet', [BookletController::class, 'store'])->name('dashboard.booklet.store');
+         Route::post('booklet', [BookletController::class, 'store'])->name('dashboard.booklet.store');
          Route::put('booklet', [BookletController::class, 'update'])->name('dashboard.booklet.update');
+         Route::patch('booklet', [BookletController::class, 'update'])->name('dashboard.booklet.update');
          Route::delete('booklet', [BookletController::class, 'destroy'])->name('dashboard.booklet.destroy');
       });
 

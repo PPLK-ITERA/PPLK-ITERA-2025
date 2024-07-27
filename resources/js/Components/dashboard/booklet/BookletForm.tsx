@@ -10,13 +10,13 @@ import { Booklet } from "@/lib/types/Booklet";
 
 type Props = {
     booklet?: Booklet;
-    onSubmit: (e: FormEvent) => void;
+    onSubmit: any;
     setData: any;
 };
 
 function BookletForm({ booklet, onSubmit, setData }: Props) {
     const [url, setUrl] = useState(booklet ? booklet.url_booklet : "");
-    const [name, setName] = useState(booklet ? booklet.nama_booklet : ""    );
+    const [name, setName] = useState(booklet ? booklet.nama_booklet : "");
     const [error, setError] = useState<string | null>(null);
     const [urlError, setUrlError] = useState<string | null>(null);
 
@@ -47,19 +47,13 @@ function BookletForm({ booklet, onSubmit, setData }: Props) {
         else setError("");
     }, [name]);
 
-    useEffect(() => {
-        setData({
-            nama_booklet: name,
-            url_booklet: url,
-        });
-    }, [name, url]);
-
     if (booklet) {
         validateUrl(booklet.url_booklet);
     }
 
     return (
         <form
+            aria-describedby="form"
             className="grid gap-4 py-4"
             onSubmit={(e: FormEvent) => {
                 e.preventDefault();
@@ -101,6 +95,7 @@ function BookletForm({ booklet, onSubmit, setData }: Props) {
                     size={"sm"}
                     className={`w-1/2 bg-orange-500 ${error === null ? "hidden" : ""}`}
                     disabled={!!urlError}
+                    onClick={() => validateUrl(url)}
                 >
                     Refresh Link
                 </Button>
@@ -117,7 +112,7 @@ function BookletForm({ booklet, onSubmit, setData }: Props) {
                     className={`w-full ${error === null ? "hidden" : ""}`}
                     disabled={!!urlError}
                 >
-                    Tambahkan Booklet
+                    {booklet ? "Perbarui" : "Tambahkan"} Booklet
                 </Button>
             </div>
         </form>
