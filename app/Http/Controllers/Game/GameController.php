@@ -11,9 +11,8 @@ class GameController extends Controller
 {
    public function getUserScore(Request $request, $id)
    {
-      $user_id = User::findOrFail($id);
       try {
-         $score = User::findorfail($user_id)->score;
+         $score = User::findorfail($id)->score;
          return response()->json([
             'response' => [
                'status' => 200,
@@ -36,7 +35,7 @@ class GameController extends Controller
       $user_id = User::findOrFail($id);
       $kelompok = User::select('kelompok_id')->where('id', $user_id)->first();
       try {
-         $score = User::select(DB::raw('SUM(score) as score'))->where('kelompok_id', $kelompok->kelompok_id)->first();
+         $score = User::select(\DB::raw('SUM(score) as score'))->where('kelompok_id', $kelompok->kelompok_id)->first();
          return response()->json([
             'response' => [
                'status' => 200,
