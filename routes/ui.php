@@ -71,6 +71,10 @@ Route::get('dev-team', function () {
    return Inertia::render('Dev/Page');
 })->name('dev-team');
 
+   Route::get('dev', function () {
+       return Inertia::render('Dev/Page');
+   })->name('dev');
+
 
 // =====================================
 // KM ITERA (Guest)
@@ -288,12 +292,6 @@ Route::middleware('auth')->group(function () {
       ->name('dashboard.cui.izin');
 
 
-   // Route::get('dev', function () {
-   //     return Inertia::render('Dev/Page', [
-   //         'username' => auth()->user()->name,
-   //         'password' => auth()->user()->password
-   //     ]);
-   // })->name('dev');
 
 
    // =====================================
