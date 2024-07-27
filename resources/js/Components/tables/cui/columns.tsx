@@ -47,6 +47,11 @@ export const columns: ColumnDef<LogBookCui>[] = [
         header: "NIM",
     },
     {
+        id: "status",
+        accessorKey: "status",
+        header: "Status",
+    },
+    {
         id: "nama_kelompok",
         accessorKey: "user.nama_kelompok",
         header: "Kelompok",

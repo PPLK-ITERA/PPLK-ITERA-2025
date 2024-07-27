@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 
+import { Link } from "@inertiajs/react";
+
 import { Slash } from "lucide-react";
 
 import {
@@ -24,9 +26,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItemProps[] }) {
                     <Fragment key={item.title}>
                         {index !== items.length - 1 && (
                             <BreadcrumbItem>
-                                <BreadcrumbLink href={item.link}>
-                                    {item.title}
-                                </BreadcrumbLink>
+                                <Link href={item.link}>{item.title}</Link>
                             </BreadcrumbItem>
                         )}
                         {index < items.length - 1 && (

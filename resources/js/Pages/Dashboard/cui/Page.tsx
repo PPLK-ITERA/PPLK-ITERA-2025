@@ -31,50 +31,7 @@ export default function Page({ auth, response }) {
             </div>
 
             <Breadcrumbs items={breadcrumbItems} />
-
-            {/* Start ComboBox */}
-            {/* <Popover open={open} onOpenChange={setOpen}>
-                <PopoverTrigger asChild>
-                    <Button
-                        variant="outline"
-                        role="combobox"
-                        aria-expanded={open}
-                        className="md:w-96 justify-between w-64"
-                    >
-                        {value
-                            ? frameworks.find((framework) => framework.value === value)?.label
-                            : "Select framework..."}
-                        <ChevronsUpDown className="shrink-0 w-4 h-4 ml-2 opacity-50" />
-                    </Button>
-                </PopoverTrigger>
-                <PopoverContent className="md:w-96 w-64 p-0">
-                    <Command>
-                        <CommandGroup>
-                            <CommandList>
-                                {frameworks.map((framework) => (
-                                    <CommandItem
-                                        key={framework.value}
-                                        value={framework.value}
-                                        onSelect={(currentValue) => {
-                                            setValue(currentValue === value ? "" : currentValue)
-                                            setOpen(false)
-                                        }}
-                                    >
-                                        <Check
-                                            className={cn(
-                                                "mr-2 h-4 w-4",
-                                                value === framework.value ? "opacity-100" : "opacity-0"
-                                            )}
-                                        />
-                                        {framework.label}
-                                    </CommandItem>
-                                ))}
-                            </CommandList>
-                        </CommandGroup>
-                    </Command>
-                </PopoverContent>
-            </Popover> */}
-            {/* End ComboBox */}
+            
             <div className="lg:grid-cols-4 grid grid-cols-2 gap-4">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
