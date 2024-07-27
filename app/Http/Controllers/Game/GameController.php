@@ -32,8 +32,8 @@ class GameController extends Controller
    }
    public function getScoreKelompok(Request $request, $id)
    {
-      $user_id = User::findOrFail($id);
-      $kelompok = User::select('kelompok_id')->where('id', $user_id)->first();
+      //$user_id = User::findOrFail($id);
+      $kelompok = User::select('kelompok_id')->where('id', $id)->first();
       try {
          $score = User::select(\DB::raw('SUM(score) as score'))->where('kelompok_id', $kelompok->kelompok_id)->first();
          return response()->json([
