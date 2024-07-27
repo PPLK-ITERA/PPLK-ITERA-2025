@@ -66,6 +66,10 @@ Route::middleware('auth')->group(function () {
 
       Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
          Route::get('user/maba/data', [UserController::class, 'getUsersMaba'])->name('user.maba.data');
+         Route::get('presensi-data', [PresensiPplkController::class, 'getAllPresensi'])->name('dashboard.presensi.data');
+
+         Route::post('presensi/store', [PresensiPplkController::class, 'store'])->name('dashboard.presensi.store');
+         Route::patch('presensi/update', [PresensiPplkController::class, 'update'])->name('dashboard.presensi.update');
       });
 
       Route::middleware('checkRole:Korlap,Admin')->group(function () {
@@ -168,13 +172,6 @@ Route::middleware('auth')->group(function () {
       Route::get('/list-maba', [RelasiController::class, 'listMaba']);
       //follow button
       Route::post('/follow/{id}', [RelasiController::class, 'follow'])->name('follow');
-   });
-
-
-   Route::middleware(['checkRole:dapmen,Admin'])->group(function () {
-      //Presensi PPLK
-      Route::get('/presensi', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
-      Route::get('/presensi/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
    });
 });
 

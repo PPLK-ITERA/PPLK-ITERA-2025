@@ -7,26 +7,26 @@ use Carbon\Carbon;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('presensi_pplks', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->date('tanggal_presensi')->default=Carbon::today();
-            $table->enum('kehadiran', ['Hadir', 'Izin', 'Alfa']);
-            $table->string('keterangan')->nullable();
-            $table->timestamps();
-        });
-    }
+   /**
+    * Run the migrations.
+    */
+   public function up(): void
+   {
+      Schema::create('presensi_pplks', function (Blueprint $table) {
+         $table->id();
+         $table->foreignId('user_id')->onDelete('cascade');
+         $table->date('tanggal_presensi')->default = Carbon::today();
+         $table->enum('kehadiran', ['Hadir', 'Izin', 'Alfa']);
+         $table->string('keterangan')->nullable();
+         $table->timestamps();
+      });
+   }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('presensi_pplks');
-    }
+   /**
+    * Reverse the migrations.
+    */
+   public function down(): void
+   {
+      Schema::dropIfExists('presensi_pplks');
+   }
 };
