@@ -3,6 +3,7 @@ export type LogBookCui = {
     id: number;
     user_id: number;
     status: string;
+    latest_status: string;
     waktu_izin: string;
     waktu_selesai: string;
     waktu_hadir: string;
