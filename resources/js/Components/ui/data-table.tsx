@@ -119,7 +119,7 @@ export function DataTable<TData, TValue>({
                 className="md:max-w-sm w-full my-2"
             />
 
-            <ScrollArea className="max-w-6xl h-[calc(80vh-220px)] rounded-md border">
+            <ScrollArea className="max-w-7xl h-[calc(80vh-220px)] rounded-md border">
                 <Table className="md:w-full relative">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (

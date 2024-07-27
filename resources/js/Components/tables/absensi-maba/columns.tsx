@@ -7,7 +7,26 @@ import QRCode from "react-qr-code";
 
 import { LogBookCui } from "@/lib/types/LogBookCui";
 
-export const columns: ColumnDef<LogBookCui>[] = [
+export interface AbsensiMaba {
+    no: number;
+    id: number;
+    user: {
+        name: string;
+        nim: string;
+        email: string;
+        photo_profile_url: string;
+        qrcode: string;
+        nama_kelompok: string;
+        penyakit: {
+            pita: string;
+            ket_penyakit: string;
+        };
+        status: string;
+        tanggal_presensi: string;
+    };
+}
+
+export const columns: ColumnDef<AbsensiMaba>[] = [
     {
         id: "no",
         header: "No",
@@ -17,7 +36,6 @@ export const columns: ColumnDef<LogBookCui>[] = [
         id: "photo_profile",
         accessorKey: "user.photo_profile_url",
         header: "Foto Profil",
-        enableResizing: true, //disable resizing for just this column
         cell: ({ row }) => (
             <img
                 className="h-[120px] w-[140px] aspect-auto"
@@ -48,7 +66,7 @@ export const columns: ColumnDef<LogBookCui>[] = [
     },
     {
         id: "status",
-        accessorKey: "status",
+        accessorKey: "user.status", // Access status from the nested user object
         header: "Status",
     },
     {
@@ -65,58 +83,21 @@ export const columns: ColumnDef<LogBookCui>[] = [
         id: "ket_penyakit",
         accessorKey: "user.penyakit.ket_penyakit",
         header: "Riwayat Penyakit",
-        cell: ({ row }) => (
-            <p>
-                {row.original.user.penyakit.ket_penyakit
-                    ? row.original.user.penyakit.ket_penyakit
-                    : "-"}
-            </p>
-        ),
+        cell: ({ row }) => <p>{row.original.user.penyakit.ket_penyakit}</p>,
     },
     {
-        id: "waktu_hadir",
-        accessorKey: "waktu_hadir",
-        header: "Waktu Masuk",
-        cell: ({ row }) => (
-            <p>
-                {row.original.waktu_hadir
-                    ? format(row.original.waktu_hadir, "dd/MM/yyyy HH:mm")
-                    : "-"}
-            </p>
-        ),
+        id: "status",
+        accessorKey: "user.status",
+        header: "Status Kehadiran",
+        cell: ({ row }) => <p>{row.original.user.status}</p>,
     },
     {
-        id: "waktu_izin",
-        accessorKey: "waktu_izin",
-        header: "Waktu Izin",
-        cell: ({ row }) => (
-            <p>
-                {row.original.waktu_izin
-                    ? format(row.original.waktu_izin, "dd/MM/yyyy HH:mm")
-                    : "-"}
-            </p>
-        ),
+        id: "tanggal_presensi",
+        accessorKey: "user.tanggal_presensi",
+        header: "Waktu Presensi",
+        cell: ({ row }) => <p>{row.original.user.tanggal_presensi}</p>,
     },
-    {
-        id: "waktu_selesai",
-        accessorKey: "waktu_selesai",
-        header: "Waktu Selesai izin",
-        cell: ({ row }) => (
-            <p>
-                {row.original.waktu_selesai
-                    ? format(row.original.waktu_selesai, "dd/MM/yyyy HH:mm")
-                    : "-"}
-            </p>
-        ),
-    },
-    {
-        id: "ket_izin",
-        accessorKey: "ket_izin",
-        header: "Alasan Izin Terakhir",
-        cell: ({ row }) => (
-            <p>{row.original.ket_izin ? row.original.ket_izin : "-"}</p>
-        ),
-    },
+    // Remove other columns (waktu_izin, waktu_selesai, ket_izin) that are not part of AbsensiMaba
     {
         id: "actions",
         header: "Aksi",

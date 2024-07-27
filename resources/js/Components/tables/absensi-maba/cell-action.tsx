@@ -1,14 +1,13 @@
 "use client";
 
-// import { useRouter } from "next/navigation";
+import { AbsensiMaba } from "./columns";
+
 import { router } from "@inertiajs/react";
 
 import { Button } from "@/Components/ui/button";
 
-import { LogBookCui } from "@/lib/types/LogBookCui";
-
 interface CellActionProps {
-    data: LogBookCui;
+    data: AbsensiMaba;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {

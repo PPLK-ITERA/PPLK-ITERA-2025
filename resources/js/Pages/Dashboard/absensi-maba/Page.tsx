@@ -2,6 +2,7 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import React from "react";
 
+import { AbsensiMabaClient } from "@/Components/tables/absensi-maba/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import {
     Select,
@@ -39,6 +40,8 @@ export default function Page({ auth }) {
                     </SelectGroup>
                 </SelectContent>
             </Select>
+
+            <AbsensiMabaClient />
         </DashboardLayout>
     );
 }
