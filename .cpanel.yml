@@ -1,32 +1,17 @@
 ---
 deployment:
-    tasks:
-        - export DEPLOYPATH=/home/pplkitera
-
-        # Step 1: Clear the public_html directory
-        - /bin/rm -rf ${DEPLOYPATH}/public_html/*
-
-        # Step 2: Clear the laravel directory if it exists
-        - /bin/rm -rf ${DEPLOYPATH}/laravel/*
-
-        # Step 3: Copy the contents of the public directory to public_html
-        - /bin/cp -r public/* ${DEPLOYPATH}/public_html/
-
-        # Step 4: Create the laravel directory if it doesn't exist
-        - /bin/mkdir -p ${DEPLOYPATH}/laravel
-
-        # Step 5: Copy all other files to the laravel directory
-        - /bin/find . -mindepth 1 -maxdepth 1 -not -name 'public' -exec cp -r {} ${DEPLOYPATH}/laravel/ \;
-
-        # Step 6: Replace '/../' with '/../laravel/' in index.php in public_html
-        - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
-
-        # Step 7: Copy .env.example to .env in the laravel directory
-        - /bin/cp ${DEPLOYPATH}/laravel/.env.example ${DEPLOYPATH}/laravel/.env
-
-        # Step 8: Copy manifest.json to the laravel/public/build directory
-        - /bin/mkdir -p ${DEPLOYPATH}/laravel/public/build
-        - /bin/cp ${DEPLOYPATH}/public_html/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json
-
-        # Step 9: Run php artisan route:cache in the laravel directory
-        - cd ${DEPLOYPATH}/laravel && /usr/local/bin/php artisan route:cache
+  tasks:
+    - export USERNAME=pplkitera                     # Set the username variable
+    - export DOMAIN=pplkitera.com                   # Set the domain variable
+    - export HOMEPATH=/home/$USERNAME             # Set the home directory path using the username variable
+    - /usr/local/bin/php $HOMEPATH/laravel/artisan down  # Put Laravel into maintenance mode before deleting any files
+    - /bin/rm -rf $HOMEPATH/public_html/*               # Remove all files in the public_html directory
+    - /bin/rm -rf $HOMEPATH/laravel/*                  # Remove all files in the laravel directory, after putting Laravel down
+    - /usr/local/cpanel/scripts/update_local_php_ini --user=$USERNAME --domain=$DOMAIN  # Update the PHP configuration for the specified domain
+    - /bin/cp -R * $HOMEPATH/laravel  # Copy all files from the current directory (assumed to be the repo) to the laravel directory
+    - /bin/cp -R $HOMEPATH/laravel/public/* $HOMEPATH/public_html  # Copy all files from the laravel/public directory to public_html
+    - /bin/mkdir -p $HOMEPATH/laravel/public/build  # Ensure the target directory exists
+    - /bin/mv $HOMEPATH/public_html/build/manifest.json $HOMEPATH/laravel/public/build/  # Move manifest.json from public_html/build to laravel/public/build
+    - /bin/sed -i 's|\.\./|\.\./laravel/|g' $HOMEPATH/public_html/index.php  # Update path in public_html/index.php
+    - /usr/local/bin/php $HOMEPATH/laravel/artisan migrate:fresh --seed  # Drop all tables, re-run all migrations, and run database seeders
+    - /usr/local/bin/php $HOMEPATH/laravel/artisan up                # Bring Laravel out of maintenance mode as the final step
