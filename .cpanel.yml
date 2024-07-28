@@ -16,7 +16,7 @@ deployment:
     - /bin/mkdir -p ${DEPLOYPATH}/laravel
 
     # Step 5: Copy all other files to the laravel directory
-    - /bin/rsync -a --exclude 'public' . ${DEPLOYPATH}/laravel/
+    - /bin/find . -mindepth 1 -maxdepth 1 -not -name 'public' -exec cp -r {} ${DEPLOYPATH}/laravel/ \;
 
     # Step 6: Replace '/../' with '/../laravel/' in index.php in public_html
     - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
