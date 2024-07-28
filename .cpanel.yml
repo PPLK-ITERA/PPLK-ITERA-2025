@@ -1,4 +1,3 @@
----
 deployment:
   tasks:
     - export DEPLOYPATH=/home/pplkitera
@@ -10,13 +9,13 @@ deployment:
     - /bin/rm -rf ${DEPLOYPATH}/laravel/* ${DEPLOYPATH}/laravel/.[!.]* ${DEPLOYPATH}/laravel/..?*
 
     # Step 3: Copy the contents of the public directory to public_html
-    - /bin/rsync -av --exclude='.*' public/ ${DEPLOYPATH}/public_html/
+    - /bin/cp -r public/* ${DEPLOYPATH}/public_html/
 
     # Step 4: Create the laravel directory if it doesn't exist
     - /bin/mkdir -p ${DEPLOYPATH}/laravel
 
     # Step 5: Copy all other files to the laravel directory
-    - /bin/rsync -av --exclude='public' --exclude='.*' . ${DEPLOYPATH}/laravel/
+    - /bin/cp -r --exclude=public * ${DEPLOYPATH}/laravel/
 
     # Step 6: Replace '/../' with '/../laravel/' in index.php in public_html
     - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
