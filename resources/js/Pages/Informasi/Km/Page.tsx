@@ -10,11 +10,15 @@ import PecahanLogo from "@/Components/informasi/Km/PecahanLogo";
 import SejarahKM from "@/Components/informasi/Km/SejarahKM";
 import SosmedKM from "@/Components/informasi/Km/SosmedKM";
 
+import { useAos } from "@/lib/hooks/useAos";
+
 import awan from "!assets/awan.png";
 import gedung from "!assets/gedung-sponsor.png";
 import tiang from "!assets/tiang.png";
 
 export default function Page() {
+    useAos();
+
     return (
         <div>
             <Navbar isFixed={true} />
@@ -101,7 +105,11 @@ export default function Page() {
 
                 <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0"></div>
 
-                <div className="absolute left-0 overflow-hidden bottom-0 xl:h-[70vh] lg:h-[40vh] md:h-[30vh] w-full">
+                <div
+                    data-aos="slide-up"
+                    data-aos-duration={1000}
+                    className="absolute left-0 overflow-hidden -bottom-5 xl:h-[70vh] lg:h-[40vh] md:h-[30vh] w-full"
+                >
                     <img src={tiang} alt="tiang" className="w-full" />
                 </div>
             </div>

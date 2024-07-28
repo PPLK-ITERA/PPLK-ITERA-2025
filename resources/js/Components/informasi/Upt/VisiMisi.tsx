@@ -2,7 +2,12 @@ import React from "react";
 
 import { VisiMisiUPT } from "@/lib/data/upt";
 
-export default function VisiMisi() {
+interface VisiMisiProps {
+    visi?: string;
+    misi?: string[];
+}
+
+export default function VisiMisi({ visi, misi }: VisiMisiProps) {
     return (
         <div className="z-30">
             <div className="z-30 max-w-4xl p-6 mx-auto mt-16">
@@ -12,9 +17,7 @@ export default function VisiMisi() {
                             VISI
                         </div>
 
-                        <p className="mt-6 text-white">
-                            “{VisiMisiUPT["fakultas-sains"].visi}”
-                        </p>
+                        <p className="mt-6 text-white">“{visi}”</p>
                     </div>
                 </div>
             </div>
@@ -26,14 +29,12 @@ export default function VisiMisi() {
                             MISI
                         </div>
                         <p className=" mt-6 space-y-3 text-white">
-                            {VisiMisiUPT["fakultas-sains"].misi.map(
-                                (misi: string, index: number) => (
-                                    <div key={index} className="flex gap-2">
-                                        <p>{index + 1}.</p>
-                                        <p>{misi}</p>
-                                    </div>
-                                ),
-                            )}
+                            {misi!.map((misi: string, index: number) => (
+                                <div key={index} className="flex gap-2">
+                                    <p>{index + 1}.</p>
+                                    <p>{misi}</p>
+                                </div>
+                            ))}
                         </p>
                     </div>
                 </div>

@@ -10,13 +10,13 @@ import KegiatanUnggulan from "@/Components/informasi/Upt/KegiatanUnggulan";
 import KepalaUPT from "@/Components/informasi/Upt/KepalaUPT";
 import VisiMisi from "@/Components/informasi/Upt/VisiMisi";
 
-import { uptData } from "@/lib/data/upt";
+import { DetailUPTData } from "@/lib/data/upt";
 
 import overlay_box from "!assets/overlay-box.png";
 import pillar_brown from "!assets/pillar-brown.png";
 
 function Page({ nama_upt }) {
-    const upt = uptData.find((upt) => upt.key === nama_upt);
+    const upt = DetailUPTData.find((upt) => upt.key === nama_upt);
 
     if (!upt) {
         router.replace(route("informasi/upt"));
@@ -25,17 +25,24 @@ function Page({ nama_upt }) {
     return (
         <DefaultLayout>
             <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background">
-                <Header upt="upa-perpustakaan" />
+                <Header
+                    upt="upa-perpustakaan"
+                    title={upt?.title}
+                    desription={upt?.description}
+                />
             </div>
 
             <div className="bg-pattern-white relative z-20 py-20">
                 <div className="bg-gradient-to-b hidden md:block from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
                 <div className="max-w-5xl mx-auto">
                     <div className="md:flex w-full">
-                        <DescriptionHistory />
+                        <DescriptionHistory
+                            description={upt?.description}
+                            history={upt?.history}
+                        />
                     </div>
 
-                    <VisiMisi />
+                    <VisiMisi visi={upt?.visi} misi={upt!.misi} />
                 </div>
 
                 <img
@@ -52,7 +59,13 @@ function Page({ nama_upt }) {
             </div>
 
             <div className="bg-pattern-white relative z-20 py-20">
-                <KepalaUPT />
+                <KepalaUPT
+                    nama_upt={upt?.title}
+                    nama_kepala_upt={upt?.kepalaUpt.nama}
+                    jabatan={upt?.kepalaUpt.jabatan}
+                    nip={upt?.kepalaUpt.nip}
+                    foto_kepala_upt={upt?.kepalaUpt.foto}
+                />
             </div>
 
             <KegiatanUnggulan upt="fakultas-fti" />

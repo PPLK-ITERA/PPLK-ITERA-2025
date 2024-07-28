@@ -68,8 +68,8 @@ Route::middleware('auth')->group(function () {
          Route::get('user/maba/data', [UserController::class, 'getUsersMaba'])->name('user.maba.data');
          Route::get('presensi-data', [PresensiPplkController::class, 'getAllPresensi'])->name('dashboard.presensi.data');
 
-         Route::post('presensi/store', [PresensiPplkController::class, 'store'])->name('dashboard.presensi.store');
-         Route::patch('presensi/update', [PresensiPplkController::class, 'update'])->name('dashboard.presensi.update');
+         Route::post('presensi/store', [PresensiPplkController::class, 'store'])->name('dashboard.presensi.absen');
+         Route::patch('presensi/update', [PresensiPplkController::class, 'update'])->name('dashboard.presensi.izin');
       });
 
       Route::middleware('checkRole:Korlap,Admin')->group(function () {
@@ -106,16 +106,16 @@ Route::middleware('auth')->group(function () {
    });
 
    //Presensi PPLK
-   Route::prefix('presensi')->group(function () {
-      //Presensi PPLK
-      Route::middleware(['checkRole:Dapmen,Admin'])->group(function () {
-         Route::get('/', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
-         Route::get('/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
-      });
-      Route::middleware(['checkRole:Pjprodi,Admin'])->group(function () {
-         Route::get('/{prodi_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByProdi']);
-      });
-   });
+   // Route::prefix('presensi')->group(function () {
+   //    //Presensi PPLK
+   //    Route::middleware(['checkRole:Dapmen,Admin'])->group(function () {
+   //       Route::get('/', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
+   //       Route::get('/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
+   //    });
+   //    Route::middleware(['checkRole:Pjprodi,Admin'])->group(function () {
+   //       Route::get('/{prodi_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByProdi']);
+   //    });
+   // });
    // Route::post('/storepresensi', [PresensiPplkController::class, 'store'])->name('presensi.store');
    // Route::get('/generateQrcode', [QrcodeController::class, 'generateQrCode']);
 

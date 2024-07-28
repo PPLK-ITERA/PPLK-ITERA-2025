@@ -10,7 +10,7 @@ function Page() {
             <Navbar isSolid={true} />
 
             <div className="md:pt-20 lg:pt-28 flex flex-col items-center justify-start flex-grow min-h-screen p-4 pt-10 pb-24 text-center">
-                <h1 className="text-[25px] sm:text-[39px] md:text-[49px] font-avigea text-candlelight-700 mb-2">
+                <h1 className="text-[25px] sm:text-[39px] md:text-[49px] font-avigea bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mb-2">
                     Materi
                 </h1>
 

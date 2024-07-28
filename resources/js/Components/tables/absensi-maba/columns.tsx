@@ -23,6 +23,7 @@ export interface AbsensiMaba {
         };
         status: string;
         tanggal_presensi: string;
+        ket_izin: string;
     };
 }
 
@@ -70,6 +71,11 @@ export const columns: ColumnDef<AbsensiMaba>[] = [
         header: "Status",
     },
     {
+        id: "ket_status",
+        accessorKey: "user.ket_izin", // Access status from the nested user object
+        header: "Keterangan Izin",
+    },
+    {
         id: "nama_kelompok",
         accessorKey: "user.nama_kelompok",
         header: "Kelompok",
@@ -84,12 +90,6 @@ export const columns: ColumnDef<AbsensiMaba>[] = [
         accessorKey: "user.penyakit.ket_penyakit",
         header: "Riwayat Penyakit",
         cell: ({ row }) => <p>{row.original.user.penyakit.ket_penyakit}</p>,
-    },
-    {
-        id: "status",
-        accessorKey: "user.status",
-        header: "Status Kehadiran",
-        cell: ({ row }) => <p>{row.original.user.status}</p>,
     },
     {
         id: "tanggal_presensi",

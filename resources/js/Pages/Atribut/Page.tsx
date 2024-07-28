@@ -184,7 +184,7 @@ function Page() {
                     data-aos-duration="1000"
                     className="xl:max-w-4xl md:max-w-2xl md:pt-20 lg:pt-24 max-w-xs mx-auto"
                 >
-                    <h2 className="font-avigea text-center text-jaffa-900 pt-[30px] text-3xl md:text-5xl">
+                    <h2 className="font-avigea text-center bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit pt-[30px] text-3xl md:text-5xl mx-auto">
                         Ketentuan Atribut
                     </h2>
 

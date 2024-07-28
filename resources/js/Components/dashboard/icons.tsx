@@ -36,6 +36,8 @@ import {
     X,
 } from "lucide-react";
 
+import { IconBooks } from "@tabler/icons-react";
+
 export type Icon = LucideIcon;
 
 export const Icons = {
@@ -88,5 +90,6 @@ export const Icons = {
     book: Book,
     question: MessageCircleQuestion,
     map: Map,
-    ticket: TicketPercent
+    ticket: TicketPercent,
+    books: IconBooks,
 };

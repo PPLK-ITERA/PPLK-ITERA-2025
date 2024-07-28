@@ -70,16 +70,16 @@ const CarouselForm = () => {
                         <div>
                             <Card className="bg-black/10 min-h-[200px] backdrop-blur-sm md:aspect-square lg:p-5 flex flex-col items-center justify-center p-2 border-none">
                                 <CardTitle>
-                                    <p className="lg:text-4xl md:text-2xl text-sm font-bold text-center text-white">
+                                    <p className="lg:text-4xl md:text-2xl text-lg font-bold text-center text-white">
                                         {item.title}
                                     </p>
-                                    <p className="lg:text-lg text-sm font-semibold text-[10px] text-center text-white">
+                                    <p className="lg:text-lg font-semibold text-[10px] text-center text-white">
                                         {item.subtitle}
                                     </p>
                                 </CardTitle>
 
-                                <CardContent className="md:mt-20 flex items-center justify-center mt-5">
-                                    <p className="md:text-lg text-[8px] leading-3 text-sm font-semibold text-center text-white">
+                                <CardContent className="md:mt-20 flex items-center justify-center mt-10">
+                                    <p className="md:text-lg text-[10px] leading-3 font-normal md:font-semibold text-center text-white">
                                         {item.desc}
                                     </p>
                                 </CardContent>

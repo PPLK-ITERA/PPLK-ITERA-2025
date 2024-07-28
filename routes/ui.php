@@ -207,7 +207,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    Route::get('dashboard/absensi-maba', function () {
       return Inertia::render('Dashboard/absensi-maba/Page');
-   })->name('dashboard/absensi-maba');
+   })->name('dashboard.absensi-maba');
 
 
    // =====================================

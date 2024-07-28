@@ -28,7 +28,7 @@ export const HeaderFakultasData = {
 
 export const HeaderFakultasProdiData = {
     "fakultas-sains": {
-        title: "Program Studi Fakultas Sains (Science)",
+        title: "Program Studi Fakultas Sains",
         description: "Wadah Inovasi dan Pengetahuan Berkembang",
     },
     "fakultas-fti": {
@@ -46,7 +46,7 @@ export const HeaderFakultasProdiData = {
 export const HeroFakultasData = {
     "fakultas-sains": {
         img: fakultasSains,
-        title: "Fakultas Sains (Science)",
+        title: "Fakultas Sains",
         description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sit suscipit incidunt commodi dignissimos tenetur ea quo aliquam iure in. Error exercitationem vel eos similique repellat sed laudantium quia molestiae!",
         history:
@@ -147,11 +147,50 @@ export const DataProdiFakultas = {
 };
 
 export const DataKegiatanFakultas = [
-    { image: "chabud1" },
-    { image: "chabud2" },
-    { image: "chabud3" },
-    { image: "chabud4" },
-    { image: "chabud5" },
+    //diganti jadi object yang ada keynya sama kaya yang diatas nah nanti isi objectnya itu array of object
+    // example:
+    // DataKegiatanFakultas = {
+    //     "fakultas-sains": [{}, {}, {}],
+    //     "fakultas-ftik": [{}, {}, {}],
+    //     "fakultas-fti": [{},{},{}],
+    // }
+
+    // ini contoh isi objectnya
+    {
+        image: "chabud1",
+        title: "Kegiatan 1",
+        description: "Deskripsi Kegiatan 1",
+        date: "20 Juli 2024",
+        textThumbail: "Info Kegiatan 1",
+    },
+    {
+        image: "chabud2",
+        title: "Kegiatan 2",
+        description: "Deskripsi Kegiatan 2",
+        date: "20 Juli 2024",
+        textThumbail: "Info Kegiatan 2",
+    },
+    {
+        image: "chabud3",
+        title: "Kegiatan 3",
+        description: "Deskripsi Kegiatan 3",
+        date: "20 Juli 2024",
+        textThumbail: "Info Kegiatan 3",
+    },
+    {
+        image: "chabud4",
+        title: "Kegiatan 4",
+        description: "Deskripsi Kegiatan 4",
+        date: "20 Juli 2024",
+        textThumbail: "Info Kegiatan 4",
+    },
+    {
+        image: "chabud5",
+        title: "Kegiatan 5",
+        description: "Deskripsi Kegiatan 5",
+        date: "20 Juli 2024",
+        textThumbail: "Info Kegiatan",
+    },
 ];
 
 export const SocialMediaData = {

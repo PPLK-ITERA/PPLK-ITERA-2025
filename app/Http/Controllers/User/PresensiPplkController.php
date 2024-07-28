@@ -44,7 +44,9 @@ class PresensiPplkController extends Controller
       }
 
       $query->where('role_id', 1)->with([
-         'penyakit', 'kelompok', 'presensi'
+         'penyakit',
+         'kelompok',
+         'presensi'
       ]) // Eager loading necessary relationships
          ->when($searchTerm, function ($query) use ($searchTerm) {
             return $query->where(
@@ -80,7 +82,8 @@ class PresensiPplkController extends Controller
                   'ket_penyakit' => $user->penyakit->ket_penyakit ?? null,
                ],
                'status' => ($user->presensi) ? $user->presensi->kehadiran : 'Tidak Hadir', // Using optional() to safely access kehadiran
-               'tanggal_presensi' => ($user->presensi) ? $user->presensi->tanggal_presensi : '-', // Safely accessing tanggal_presensi
+               'tanggal_presensi' => ($user->presensi) ? $user->presensi->tanggal_presensi : '-',
+               'ket_izin' => ($user->presensi) ? ($user->presensi->kehadiran) == 'Izin' ? $user->presensi->keterangan : '-' : '-', // Safely accessing tanggal_presensi
             ],
          ];
       });
@@ -89,30 +92,29 @@ class PresensiPplkController extends Controller
 
    public function store(Request $request)
    {
-      $request->validate([
-         'user_id' => 'required',
-         'tanggal_presensi' => 'required',
-         'kehadiran' => 'required',
+      $validated = $request->validate([
+         'id' => 'required|integer',
+         'kehadiran' => 'required|in:Hadir,Izin',
+         'keterangan' => 'string|nullable'
       ]);
 
       DB::beginTransaction();
       try {
          $presensi = PresensiPplk::create(
             [
-               'user_id' => $request->user_id,
+               'user_id' => $validated['id'],
                'tanggal_presensi' => Carbon::today(),
-               'kehadiran' => $request->kehadiran,
-               'keterangan' => $request->keterangan
+               'kehadiran' => $validated['kehadiran'],
+               'keterangan' => $validated['keterangan']
             ]
          );
          DB::commit();
-         return response()->json($presensi, 201);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal menambahkan presensi'], 500);
+         return redirect()->route('dashboard.absensi-maba')->with('failed', 'Presensi gagal ditambahkan');
       }
 
-      return redirect()->route('presensi.index')->with('success', 'Presensi berhasil ditambahkan');
+      return redirect()->route('dashboard.absensi-maba')->with('success', 'Presensi berhasil ditambahkan');
    }
 
    public function updateKehadiran(Request $request, $user_id, $tanggal_presensi)
@@ -120,7 +122,7 @@ class PresensiPplkController extends Controller
       $validated = $request->validate([
          'id' => 'required|integer',
          'kehadiran' => 'required|in:Hadir,Izin,Tidak Hadir',
-         'keterangan' => 'nullable',
+         'keterangan' => 'string|nullable',
       ]);
       $presensi = PresensiPplk::where('user_id', $user_id)->where('tanggal_presensi', $tanggal_presensi);
       DB::beginTransaction();

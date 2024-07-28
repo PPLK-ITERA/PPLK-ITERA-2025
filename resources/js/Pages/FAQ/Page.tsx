@@ -47,7 +47,7 @@ export default function Page({ response }) {
                     <h2
                         data-aos="fade-down"
                         data-aos-duration="1000"
-                        className="font-avigea text-jaffa-900 pt-[30px] text-3xl md:text-5xl"
+                        className="font-avigea bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
                     >
                         Frequently Asked Question
                     </h2>

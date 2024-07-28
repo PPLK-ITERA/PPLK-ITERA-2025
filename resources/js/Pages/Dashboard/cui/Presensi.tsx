@@ -40,12 +40,12 @@ function Presensi({ response }) {
     return (
         <div className="space-y-4">
             <Card className="">
-                <CardHeader className="flex flex-row w-full items-center justify-between pb-2 space-y-0">
-                    <CardTitle className="text-center w-full text-lg font-bold">
+                <CardHeader className="flex flex-row items-center justify-between w-full pb-2 space-y-0">
+                    <CardTitle className="w-full text-lg font-bold text-center">
                         Absensi CUI Maba
                     </CardTitle>
                 </CardHeader>
-                <CardContent className="flex justify-center items-center mt-2">
+                <CardContent className="flex items-center justify-center mt-2">
                     <Button
                         onClick={() =>
                             router.get(route("dashboard.cui.absensi"))
@@ -76,21 +76,21 @@ function Presensi({ response }) {
                         <p className="font-bold text-green-500">
                             {response.message}
                         </p>
-                        <div className="flex gap-5 mt-3 w-full">
+                        <div className="flex w-full gap-5 mt-3">
                             <div>
                                 <img
-                                    className="h-64 w-48 rounded-lg bg-cover mb-2"
+                                    className="w-48 h-64 mb-2 bg-cover rounded-lg"
                                     src={response.data.profil_url}
                                     alt="Foto profil"
                                 />
                                 {response.data.pita === "hijau" && (
-                                    <div className="h-10 flex justify-center items-center font-bold bg-green-500 text-white rounded-xl">
+                                    <div className="rounded-xl flex items-center justify-center h-10 font-bold text-white bg-green-500">
                                         Pita Hijau
                                     </div>
                                 )}
                                 {response.data.pita === "kuning" && (
                                     <div>
-                                        <div className="h-10 flex justify-center items-center font-bold bg-yellow-400 text-white rounded-xl">
+                                        <div className="rounded-xl flex items-center justify-center h-10 font-bold text-white bg-yellow-400">
                                             Pita Kuning
                                         </div>
                                         <p>
@@ -101,7 +101,7 @@ function Presensi({ response }) {
                                 )}
                                 {response.data.pita === "merah" && (
                                     <div>
-                                        <div className="h-10 flex justify-center items-center font-bold bg-red-600 text-white rounded-xl">
+                                        <div className="rounded-xl flex items-center justify-center h-10 font-bold text-white bg-red-600">
                                             Pita Merah
                                         </div>
                                         <p>
@@ -112,7 +112,7 @@ function Presensi({ response }) {
                                 )}
                             </div>
                             <div>
-                                <div className="text-xl ring-1 ring-black/30 p-2 rounded-xl ">
+                                <div className="ring-1 ring-black/30 rounded-xl  p-2 text-xl">
                                     <p className="font-bold">
                                         {response.data.nama}
                                     </p>
