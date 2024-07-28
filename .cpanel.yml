@@ -3,20 +3,20 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/pplkitera
 
-    # Step 1: Clear the public_html directory
-    - /bin/rm -rf ${DEPLOYPATH}/public_html/*
+    # Step 1: Clear the public_html directory (including hidden files)
+    - /bin/rm -rf ${DEPLOYPATH}/public_html/* ${DEPLOYPATH}/public_html/.[!.]* ${DEPLOYPATH}/public_html/..?*
 
-    # Step 2: Clear the laravel directory if it exists
-    - /bin/rm -rf ${DEPLOYPATH}/laravel/*
+    # Step 2: Clear the laravel directory if it exists (including hidden files)
+    - /bin/rm -rf ${DEPLOYPATH}/laravel/* ${DEPLOYPATH}/laravel/.[!.]* ${DEPLOYPATH}/laravel/..?*
 
     # Step 3: Copy the contents of the public directory to public_html
-    - /bin/cp -r public/* ${DEPLOYPATH}/public_html/
+    - /bin/rsync -av --exclude='.*' public/ ${DEPLOYPATH}/public_html/
 
     # Step 4: Create the laravel directory if it doesn't exist
     - /bin/mkdir -p ${DEPLOYPATH}/laravel
 
     # Step 5: Copy all other files to the laravel directory
-    - /bin/find . -mindepth 1 -maxdepth 1 -not -name 'public' -exec cp -r {} ${DEPLOYPATH}/laravel/ \;
+    - /bin/rsync -av --exclude='public' --exclude='.*' . ${DEPLOYPATH}/laravel/
 
     # Step 6: Replace '/../' with '/../laravel/' in index.php in public_html
     - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
@@ -27,3 +27,12 @@ deployment:
     # Step 8: Copy manifest.json to the laravel/public/build directory
     - /bin/mkdir -p ${DEPLOYPATH}/laravel/public/build
     - /bin/cp ${DEPLOYPATH}/public_html/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json
+
+    # Step 9: Set permissions for laravel and public_html directories
+    - /bin/chmod -R 755 ${DEPLOYPATH}/laravel
+    - /bin/chmod -R 755 ${DEPLOYPATH}/public_html
+    - /bin/find ${DEPLOYPATH}/laravel -type f -exec chmod 644 {} \;
+    - /bin/find ${DEPLOYPATH}/public_html -type f -exec chmod 644 {} \;
+
+    # Step 10: Run php artisan route:cache in the laravel directory
+    - cd ${DEPLOYPATH}/laravel && /usr/local/bin/php artisan route:cache
