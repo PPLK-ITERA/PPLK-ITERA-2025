@@ -1,3 +1,4 @@
+---
 deployment:
     tasks:
         - export DEPLOYPATH=/home/pplkitera
@@ -12,10 +13,10 @@ deployment:
         - /bin/cp -r public/* ${DEPLOYPATH}/public_html/
 
         # Step 4: Create the laravel directory if it doesn't exist
-        - usr/bin/mkdir -p ${DEPLOYPATH}/laravel
+        - /bin/mkdir -p ${DEPLOYPATH}/laravel
 
         # Step 5: Copy all other files and directories to the laravel directory, excluding 'public'
-        - find . -mindepth 1 -maxdepth 1 ! -name 'public' ! -name '.env.example' -exec cp -r {} ${DEPLOYPATH}/laravel/ \;
+        - /usr/bin/find . -mindepth 1 -maxdepth 1 ! -name 'public' ! -name '.env.example' -exec /bin/cp -r {} ${DEPLOYPATH}/laravel/ \;
 
         # Step 6: Replace '/../' with '/../laravel/' in index.php in public_html
         - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
@@ -24,14 +25,14 @@ deployment:
         - /bin/cp ${DEPLOYPATH}/laravel/.env.example ${DEPLOYPATH}/laravel/.env
 
         # Step 8: Copy manifest.json to the laravel/public/build directory
-        - usr/bin/mkdir -p ${DEPLOYPATH}/laravel/public/build
+        - /bin/mkdir -p ${DEPLOYPATH}/laravel/public/build
         - /bin/cp ${DEPLOYPATH}/public_html/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json
 
         # Step 9: Set permissions for laravel and public_html directories
         - /bin/chmod -R 755 ${DEPLOYPATH}/laravel
         - /bin/chmod -R 755 ${DEPLOYPATH}/public_html
-        - /bin/find ${DEPLOYPATH}/laravel -type f -exec chmod 644 {} \;
-        - /bin/find ${DEPLOYPATH}/public_html -type f -exec chmod 644 {} \;
+        - /usr/bin/find ${DEPLOYPATH}/laravel -type f -exec /bin/chmod 644 {} \;
+        - /usr/bin/find ${DEPLOYPATH}/public_html -type f -exec /bin/chmod 644 {} \;
 
         # Step 10: Run php artisan route:cache in the laravel directory
         - cd ${DEPLOYPATH}/laravel && /usr/local/bin/php artisan route:cache
