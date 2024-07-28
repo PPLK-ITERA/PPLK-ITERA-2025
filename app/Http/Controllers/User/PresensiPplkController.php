@@ -90,7 +90,7 @@ class PresensiPplkController extends Controller
       return response()->json($attendances);
    }
 
-   public function store(Request $request)
+   public function store(Request $request, $id)
    {
       $validated = $request->validate([
          'id' => 'required|integer',
@@ -117,31 +117,29 @@ class PresensiPplkController extends Controller
       return redirect()->route('dashboard.absensi-maba')->with('success', 'Presensi berhasil ditambahkan');
    }
 
-   public function updateKehadiran(Request $request, $user_id, $tanggal_presensi)
+   public function updateKehadiran(Request $request, $id)
    {
       $validated = $request->validate([
          'id' => 'required|integer',
          'kehadiran' => 'required|in:Hadir,Izin,Tidak Hadir',
          'keterangan' => 'string|nullable',
       ]);
-      $presensi = PresensiPplk::where('user_id', $user_id)->where('tanggal_presensi', $tanggal_presensi);
+      // $presensi = PresensiPplk::where('user_id', $user_id)->where('tanggal_presensi', $tanggal_presensi);
       DB::beginTransaction();
       try {
-         if ($presensi->kehadiran != 'Izin') {
-            $presensi->update([
-               'kehadiran' => $request->kehadiran,
-            ]);
-         } else {
-            $presensi->update([
-               'kehadiran' => $request->kehadiran,
-               'keterangan' => $request->keterangan
-            ]);
-         }
+         $presensi = PresensiPplk::create(
+            [
+               'user_id' => $id,
+               'tanggal_presensi' => Carbon::today(),
+               'kehadiran' => 'Izin',
+               'keterangan' => $validated['keterangan']
+            ]
+         );
          DB::commit();
-         return response()->json($presensi, 200);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['message' => 'Gagal mengubah kehadiran'], 500);
+         return redirect()->route('presensi.index')->with('failed', 'Presensi gagal ditambahkan');
       }
+      return redirect()->route('presensi.index')->with('success', 'Presensi berhasil ditambahkan');
    }
 }

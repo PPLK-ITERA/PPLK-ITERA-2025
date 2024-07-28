@@ -13,7 +13,7 @@ export const TugasClient = () => {
             <DataTable
                 searchKey="Nama, Nim, atau Kelompok"
                 columns={columns}
-                apiEndpoint={route("tugas.data")}
+                apiEndpoint={route("dashboard.tugas.data.all")}
                 title={"Total Tugas"}
                 description={
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
