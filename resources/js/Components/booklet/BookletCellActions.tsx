@@ -70,24 +70,20 @@ export const BookletCellActions: React.FC<BookletActionProps> = ({
             url_booklet: e.currentTarget.url_booklet.value,
         };
 
-        router.patch(
-            route("dashboard.booklet.update", newBooklet),
-            newBooklet,
-            {
-                onError: () => {
-                    toast({
-                        title: "Uh oh! Gagal menghapus Booklet.",
-                        description: "Gagal menghapus booklet.",
-                    });
-                },
-                onSuccess: () => {
-                    toast({
-                        title: "Berhasil menghapus Booklet!",
-                        description: "Booklet berhasil dihapus.",
-                    });
-                },
+        router.put(route("dashboard.booklet.update", newBooklet), newBooklet, {
+            onError: () => {
+                toast({
+                    title: "Uh oh! Gagal menghapus Booklet.",
+                    description: "Gagal menghapus booklet.",
+                });
             },
-        );
+            onSuccess: () => {
+                toast({
+                    title: "Berhasil menghapus Booklet!",
+                    description: "Booklet berhasil dihapus.",
+                });
+            },
+        });
         window.location.reload();
     }
 

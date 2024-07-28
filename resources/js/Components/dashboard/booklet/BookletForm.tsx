@@ -60,7 +60,7 @@ function BookletForm({ booklet, onSubmit, setData }: Props) {
                 onSubmit(e);
             }}
         >
-            <div className="grid grid-cols-4 items-center gap-4">
+            <div className="grid items-center grid-cols-4 gap-4">
                 <Label htmlFor="nama_booklet" className="text-right">
                     Nama Booklet
                 </Label>
@@ -75,7 +75,7 @@ function BookletForm({ booklet, onSubmit, setData }: Props) {
                     onChange={(e) => setName(e.target.value)}
                 />
             </div>
-            <div className="grid grid-cols-4 items-center gap-4">
+            <div className="grid items-center grid-cols-4 gap-4">
                 <Label htmlFor="url_booklet" className="text-right">
                     Link Google Drive Booklet
                 </Label>
@@ -90,7 +90,7 @@ function BookletForm({ booklet, onSubmit, setData }: Props) {
                     onChange={(e) => setUrl(e.target.value)}
                 />
             </div>
-            <div className="flex gap-4 place-content-center justify-between items-center text-right">
+            <div className="place-content-center flex items-center justify-between gap-4 text-right">
                 <Button
                     size={"sm"}
                     className={`w-1/2 bg-orange-500 ${error === null ? "hidden" : ""}`}
@@ -100,12 +100,12 @@ function BookletForm({ booklet, onSubmit, setData }: Props) {
                     Refresh Link
                 </Button>
                 {!!urlError ? (
-                    <p className="text-red-500 text-sm">{urlError}</p>
+                    <p className="text-sm text-red-500">{urlError}</p>
                 ) : urlError === "" ? (
-                    <p className="text-green-500 text-sm">Link valid</p>
+                    <p className="text-sm text-green-500">Link valid</p>
                 ) : null}
             </div>
-            <div className="mt-4 flex gap-4 place-content-center justify-between items-center text-right">
+            <div className="place-content-center flex items-center justify-between gap-4 mt-4 text-right">
                 <Button
                     size={"sm"}
                     type={"submit"}

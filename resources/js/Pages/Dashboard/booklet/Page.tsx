@@ -36,6 +36,11 @@ const breadcrumbItems = [
     { title: "Booklet", link: "/dashboard/booklet" },
 ];
 
+interface BookletDataResponse {
+    no: number;
+    booklet: Booklet;
+}
+
 export default function Page({ auth, response }) {
     const { data, setData, post, processing, errors } = useForm<Booklet>();
 
@@ -62,7 +67,7 @@ export default function Page({ auth, response }) {
         window.location.reload();
     }
 
-    const columns: ColumnDef<Booklet>[] = [
+    const columns: ColumnDef<BookletDataResponse>[] = [
         {
             id: "no",
             header: "No",
@@ -96,7 +101,7 @@ export default function Page({ auth, response }) {
             <Breadcrumbs items={breadcrumbItems} />
             <h2 className="text-3xl font-bold tracking-tight">Atur Booklet</h2>
 
-            <div className="w-full flex place-content-end">
+            <div className="place-content-end flex w-full">
                 {/* add dialog */}
                 <Dialog>
                     <DialogTrigger asChild>
