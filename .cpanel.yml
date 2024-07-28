@@ -14,8 +14,8 @@ deployment:
     # Step 4: Create the laravel directory if it doesn't exist
     - /bin/mkdir -p ${DEPLOYPATH}/laravel
 
-    # Step 5: Copy all other files to the laravel directory
-    - /bin/cp -r --exclude=public * ${DEPLOYPATH}/laravel/
+    # Step 5: Copy all other files and directories to the laravel directory, excluding 'public'
+    - find . -mindepth 1 -maxdepth 1 ! -name 'public' ! -name '.env.example' -exec cp -r {} ${DEPLOYPATH}/laravel/ \;
 
     # Step 6: Replace '/../' with '/../laravel/' in index.php in public_html
     - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
