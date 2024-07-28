@@ -31,7 +31,7 @@ export default function Page({ auth, response }) {
             </div>
 
             <Breadcrumbs items={breadcrumbItems} />
-            
+
             <div className="lg:grid-cols-4 grid grid-cols-2 gap-4">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
@@ -49,7 +49,9 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">13</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.pita.hijau}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -68,7 +70,9 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">69</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.pita.merah}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -87,7 +91,9 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">34</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.pita.kuning}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -106,7 +112,9 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">1</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.izin}
+                        </div>
                     </CardContent>
                 </Card>
             </div>

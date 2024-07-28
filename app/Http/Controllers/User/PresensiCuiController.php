@@ -216,12 +216,38 @@ class PresensiCuiController extends Controller
    }
    public function index(Request $request)
    {
+      // Count for 'pita hijau' - Count unique users only
+      $pitahijau = LogCui::whereHas('user.penyakit', function ($q) {
+         $q->where('pita', 'hijau');
+      })->distinct('user_id')->count('user_id');
+
+      // Count for 'pita kuning' - Count unique users only
+      $pitakuning = LogCui::whereHas('user.penyakit', function ($q) {
+         $q->where('pita', 'kuning');
+      })->distinct('user_id')->count('user_id');
+
+      // Count for 'pita merah' - Count unique users only
+      $pitamerah = LogCui::whereHas('user.penyakit', function ($q) {
+         $q->where('pita', 'merah');
+      })->distinct('user_id')->count('user_id');
+
+      $izin = LogCui::where('status', 'izin')
+         ->whereNull('waktu_selesai')
+         ->distinct('user_id')
+         ->count('user_id');
+
       return Inertia::render('Dashboard/cui/Page', [
          'response' => [
             'status' => 200,
             'message' => "Berhasil load dashboard CUI",
             'data' => [
-               'tab' => $request->tab
+               'tab' => $request->tab,
+               'pita' => [
+                  'hijau' => $pitahijau,
+                  'kuning' => $pitakuning,
+                  'merah' => $pitamerah,
+               ],
+               'izin' => $izin
             ]
          ]
       ]);
@@ -258,7 +284,7 @@ class PresensiCuiController extends Controller
             'status' => $logbook->status,
             'waktu_izin' => $logbook->waktu_izin,
             'waktu_selesai' => $logbook->waktu_selesai,
-            'waktu_hadir' => ($logbook->status == 'izin'? null : $logbook->created_at),
+            'waktu_hadir' => ($logbook->status == 'izin' ? null : $logbook->created_at),
             'ket_izin' => $logbook->ket_izin,
             'user' => [
                'name' => $logbook->user->name,
