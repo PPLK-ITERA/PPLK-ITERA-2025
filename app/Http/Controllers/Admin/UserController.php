@@ -72,6 +72,7 @@ class UserController extends Controller
                'nim' => $user->nim,
                'email' => $user->email,
                'role' => $user->role->role,
+               'kelompok' => $user->kelompok->nama_kelompok,
             ],
          ];
       });
@@ -266,7 +267,7 @@ class UserController extends Controller
             ]
          );
       } catch (\Exception $e) {
-         return redirect()->route('dashboard.users.index')->with([
+         return redirect()->route('dashboard.user.index')->with([
             'response' => [
                'status' => 500,
                'message' => 'Gagal menambahkan user',
@@ -274,7 +275,7 @@ class UserController extends Controller
             ]
          ]);
       }
-      return redirect()->route('users.index')->with([
+      return redirect()->route('dashboard.user.index')->with([
          'response' => [
             'status' => 201,
             'message' => 'Berhasil menambahkan user',
@@ -303,7 +304,6 @@ class UserController extends Controller
     */
    public function update(UserUpdateRequest $request)
    {
-
       $user = User::find($request->id);
       DB::beginTransaction();
       try {
@@ -327,14 +327,14 @@ class UserController extends Controller
          DB::commit();
       } catch (\Exception $e) {
          DB::rollBack();
-         return redirect()->route('users.index')->with([
+         return redirect()->route('dashboard.user.index')->with([
             'response' => [
                'status' => 500,
                'message' => 'Gagal mengubah user',
             ]
          ]);
       }
-      return redirect()->route('users.index')->with([
+      return redirect()->route('dashboard.user.index')->with([
          'response' => [
             'status' => 201,
             'message' => 'Berhasil mengubah user',
@@ -363,14 +363,14 @@ class UserController extends Controller
          DB::commit();
       } catch (\Exception $e) {
          DB::rollBack();
-         return redirect()->route('users.index')->with([
+         return redirect()->route('dashboard.user.index')->with([
             'response' => [
                'status' => 500,
                'message' => 'Gagal menghapus user',
             ]
          ]);
       }
-      return redirect()->route('users.index')->with([
+      return redirect()->route('dashboard.user.index')->with([
          'response' => [
             'status' => 201,
             'message' => 'Berhasil menghapus user',

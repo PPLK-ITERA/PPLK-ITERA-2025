@@ -2,19 +2,19 @@ import React from "react";
 
 export default function Hero() {
     return (
-        <div className="min-h-screen px-2.5 py-[200px] md:py-[80px] lg:py-[120px] xl:py-[160px] text-center md:text-start">
-            <p className="text-[20px] font-semibold text-jaffa-100/80 md:text-[29.5px]">
+        <div className="min-h-screen px-2.5 py-[200px] md:py-[120px] lg:py-[120px] xl:py-[160px] text-center md:text-start">
+            <p className="text-[20px] font-semibold text-jaffa-100/80 md:text-[24px] lg:text-[29.5px]">
                 Selamat Datang
             </p>
 
-            <h1 className="text-jaffa-100 md:leading-[5rem] leading-[3rem] md:items-start flex flex-col items-center justify-center mt-8">
-                <span className="font-avigea text-[40px] md:text-[72px]">
+            <h1 className="text-jaffa-100 md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] leading-[3rem] md:items-start flex flex-col items-center justify-center mt-8">
+                <span className="font-avigea text-[40px] lg:text-[64px] xl:text-[72px]">
                     PPLK
                 </span>
-                <span className="font-avigea text-[64px] md:text-[108px]">
+                <span className="font-avigea text-[64px] lg:text-[72px] xl:text-[108px]">
                     ITERA
                 </span>
-                <span className="font-avigea text-[40px] md:text-[72px]">
+                <span className="font-avigea text-[40px] lg:text-[64px] xl:text-[72px]">
                     2024
                 </span>
             </h1>

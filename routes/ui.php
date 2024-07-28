@@ -165,9 +165,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard User (Auth)
    // =====================================
-   Route::get('dashboard/user', function () {
-      return Inertia::render('Dashboard/user/Page');
-   })->name('dashboard/user');
+   // Route::get('dashboard/user', function () {
+   //    return Inertia::render('Dashboard/user/Page');
+   // })->name('dashboard/user');
 
 
    // =====================================
@@ -207,7 +207,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    Route::get('dashboard/absensi-maba', function () {
       return Inertia::render('Dashboard/absensi-maba/Page');
-   })->name('dashboard/absensi-maba');
+   })->name('dashboard.absensi-maba');
 
 
    // =====================================
@@ -217,27 +217,6 @@ Route::middleware('auth')->group(function () {
       FAQController::class,
       'index'
    ])->name('dashboard.faq');
-
-   Route::post('dashboard/faq', [
-      FAQController::class,
-      'store'
-   ])->name('dashboard.faq.store');
-
-   Route::put('dashboard/faq', [
-      FAQController::class,
-      'update'
-   ])->name('dashboard.faq.update');
-
-   Route::delete('dashboard/faq', [
-      FAQController::class,
-      'destroy'
-   ])->name('dashboard.faq.destroy');
-
-   Route::get('dashboard/faqs', [
-      FAQController::class,
-      'getAllFAQ'
-   ])->name('dashboard.faq.data');
-
 
 
    // =====================================
@@ -283,6 +262,10 @@ Route::middleware('auth')->group(function () {
       ->name('dashboard.cui.data');
 
    Route::post('dashboard/cui', [PresensiCuiController::class, 'getMabaByNim']);
+
+   Route::get('dashboard/cui/izin/{nim}', [PresensiCuiController::class, 'indexIzin'])
+      ->name('dashboard.cui.izin');
+
 
    // Route::get('dev', function () {
    //     return Inertia::render('Dev/Page', [
@@ -338,11 +321,11 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Manage Tugas (Auth)
    // =====================================
-   Route::get('/dashboard/manage-tugas', function () {
-      return Inertia::render('Dashboard/manage-tugas/Page');
-   })->name('/dashboard/manage-tugas');
+   // Route::get('/dashboard/mading', function () {
+   //    return Inertia::render('Dashboard/mading/Page');
+   // })->name('/dashboard/mading');
 
-   Route::get('manage-tugas/detail', function () {
+   Route::get('/dashboard/mading/detail', function () {
       return Inertia::render('ManageTugas/Detail/Page');
-   })->name('manage-tugas/detail');
+   })->name('/dasboard/mading/detail');
 });

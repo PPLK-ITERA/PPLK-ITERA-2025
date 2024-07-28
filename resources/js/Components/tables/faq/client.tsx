@@ -10,7 +10,7 @@ export const FAQClient = () => {
         <>
             <Separator />
             <DataTable
-                searchKey="name"
+                searchKey="Pertanyaan dan Jawaban"
                 columns={columns}
                 apiEndpoint={route("dashboard.faq.data")}
                 title={"Total FAQ"}

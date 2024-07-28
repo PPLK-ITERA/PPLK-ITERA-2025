@@ -6,7 +6,12 @@ import { Link } from "@inertiajs/react";
 
 import { UserPlus } from "lucide-react";
 
-import { IconMoodAngry, IconMoodSearch } from "@tabler/icons-react";
+import {
+    IconBrandInstagram,
+    IconBrandLinkedin,
+    IconMoodAngry,
+    IconMoodSearch,
+} from "@tabler/icons-react";
 
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
@@ -39,12 +44,12 @@ const Page: React.FC = () => {
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 mx-auto text-base text-black">
+                <div className="max-w-7xl font-montserrat md:text-md md:mt-16 flex flex-col gap-8 px-2 py-16 mx-auto text-base text-black">
                     <div className="max-md:flex-col max-md:text-center max-md:items-center place-content-center flex w-full max-w-5xl gap-8 mx-auto">
                         <div className="flex flex-col justify-between gap-4">
                             <div>
                                 <img
-                                    className="aspect-square max-md:w-36 object-cover w-48 bg-gray-400 rounded-full select-none"
+                                    className="aspect-square max-md:w-36 object-cover w-48 border-2 rounded-full select-none"
                                     src={user.profileImageUrl}
                                     alt={user.name}
                                 />
@@ -55,47 +60,14 @@ const Page: React.FC = () => {
                                     viewers
                                 </p>
                             </div>
-                            <Button className="max-md:hidden w-full bg-[#ECAA25] border border-black text-black">
+
+                            <Button className="max-md:hidden w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out border border-black text-black">
                                 <UserPlus className="w-6 h-6 mr-2" />
                                 <p className="font-bold">Ikuti</p>
                             </Button>
                         </div>
-                        <div className="flex flex-col justify-between w-full md:w-[28rem]">
-                            <div className="flex flex-col gap-2">
-                                <div className="max-md:hidden flex gap-12">
-                                    <p>
-                                        <span className="font-bold">
-                                            {user.followers}
-                                        </span>{" "}
-                                        Followers
-                                    </p>
-                                    <p>
-                                        <span className="font-bold">
-                                            {user.following}
-                                        </span>{" "}
-                                        Following
-                                    </p>
-                                </div>
-                                <h3 className="font-bold">{user.name}</h3>
-                                <div className="md:gap-1 flex flex-col">
-                                    <p className="font-semibold">{user.nim}</p>
-                                    <p className="font-semibold">
-                                        {user.prodi}
-                                    </p>
-                                    <div className="max-md:place-content-center flex gap-2">
-                                        <p className="font-semibold">
-                                            {user.namaKelompok}
-                                        </p>
-                                        <p className="font-semibold">
-                                            ({user.kelompok})
-                                        </p>
-                                    </div>
-                                </div>
-                                <p className="whitespace-pre-wrap break-words text-wrap text-sm md:text-[16px]">
-                                    “{user.bio}”
-                                </p>
-                            </div>
 
+                        <div className="flex flex-col justify-between w-full md:w-[28rem]">
                             <div className="md:hidden place-content-center flex flex-wrap w-full gap-8 my-4 text-sm">
                                 <p>
                                     <span className="block font-bold">
@@ -117,27 +89,79 @@ const Page: React.FC = () => {
                                 </p>
                             </div>
 
-                            <Button className="md:hidden mb-4 w-full bg-[#ECAA25] border border-black text-black">
-                                <UserPlus className="w-6 h-6 mr-2" />
-                                <p className="font-bold">Ikuti</p>
-                            </Button>
+                            <div className="flex flex-col gap-2 mt-1">
+                                <div className="max-md:hidden flex gap-12">
+                                    <p>
+                                        <span className="font-bold">
+                                            {user.followers}
+                                        </span>{" "}
+                                        Followers
+                                    </p>
+                                    <p>
+                                        <span className="font-bold">
+                                            {user.following}
+                                        </span>{" "}
+                                        Following
+                                    </p>
+                                </div>
 
-                            <div className="flex gap-4">
+                                <h3 className="font-bold">{user.name}</h3>
+                                <div className="md:gap-1 flex flex-col">
+                                    <p className="font-semibold">{user.nim}</p>
+                                    <p className="font-semibold">
+                                        {user.prodi}
+                                    </p>
+                                    <div className="max-md:place-content-center flex gap-2">
+                                        <p className="font-semibold">
+                                            {user.namaKelompok}
+                                        </p>
+                                        <p className="font-semibold">
+                                            ({user.kelompok})
+                                        </p>
+                                    </div>
+                                </div>
+                                <p className="whitespace-pre-wrap break-words text-wrap text-sm md:text-[16px]">
+                                    “{user.bio}”
+                                </p>
+                            </div>
+
+                            <div className="md:w-fit md:mx-0 flex gap-4 mx-auto mt-5">
                                 <a
-                                    className={`${buttonVariants()} w-full bg-white border border-[#ECAA25] text-black`}
+                                    className={`w-full flex gap-1 justify-center items-center p-1 rounded-md bg-trasnparent border bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black`}
                                     href={user.instagramUrl}
                                     target="_blank"
                                 >
-                                    <img src={instagramIcon} />
+                                    <IconBrandInstagram
+                                        size={32}
+                                        color="black"
+                                        stroke={1.8}
+                                    />
+                                    <span className="md:text-[14px] text-[10px] font-semibold hidden md:block">
+                                        @nusantaramuda
+                                    </span>
                                 </a>
+
                                 <a
-                                    className={`${buttonVariants()} w-full bg-white border border-[#ECAA25] text-black`}
+                                    className={`w-full flex gap-1 justify-center items-center p-1 rounded-md bg-trasnparent border bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black`}
                                     href={user.linkedinUrl}
                                     target="_blank"
                                 >
-                                    <img src={linkedinIcon} />
+                                    <IconBrandLinkedin
+                                        size={32}
+                                        color="black"
+                                        stroke={1.8}
+                                    />
+
+                                    <span className="md:text-[14px] text-[10px] font-semibold hidden md:block">
+                                        Nusantara Muda
+                                    </span>
                                 </a>
                             </div>
+
+                            <Button className="md:hidden mb-4 mt-5 w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out     border border-black text-black">
+                                <UserPlus className="w-6 h-6 mr-2" />
+                                <p className="font-bold">Ikuti</p>
+                            </Button>
                         </div>
                     </div>
 
@@ -148,7 +172,7 @@ const Page: React.FC = () => {
 
                     <div className="w-4/5 max-w-6xl mx-auto">
                         <Carousel>
-                            <CarouselContent className="text-sm">
+                            <CarouselContent className="px-2 text-sm">
                                 {users.slice(0, 9).map((u, i) => (
                                     <CarouselItem
                                         data-aos="fade-up"

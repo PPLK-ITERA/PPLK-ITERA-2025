@@ -1,4 +1,5 @@
-import NavLarge from "./NavLarge";
+import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
+import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import React from "react";
 
@@ -7,6 +8,7 @@ import { Link, usePage } from "@inertiajs/react";
 import { IconLogout, IconUserCircle } from "@tabler/icons-react";
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
+import NavLarge from "@/Components/NavLarge";
 import NavMobile from "@/Components/NavMobile";
 import {
     DropdownMenu,
@@ -17,6 +19,7 @@ import {
 } from "@/Components/ui/dropdown-menu";
 
 import { UserDropdown } from "@/lib/data/navlink";
+import { UserAuthProps } from "@/lib/types/User";
 
 import logodiesnat from "!assets/logo-diesnat.png";
 import logopplk from "!assets/logo-pplk-2024.png";
@@ -32,9 +35,24 @@ export default function Navbar({
     isSolid = false,
     isFixed = false,
 }: NavbarProps) {
-    const { auth } = usePage().props;
+    type MyPage = PageProps<{
+        auth: {
+            user: UserAuthProps;
+        };
+    }>;
+
+    const { auth } = usePage<MyPage>().props;
 
     const [isScrolled, setIsScrolled] = React.useState(false);
+    const tawkMessengerRef = React.useRef(null);
+
+    const onLoad = () => {
+        // @ts-ignore
+        tawkMessengerRef.current.visitor({
+            name: "Jamal",
+            email: "jamal@pplk.com",
+        });
+    };
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -42,7 +60,6 @@ export default function Navbar({
         };
 
         window.addEventListener("scroll", handleScroll);
-        // Check scroll position on initial render
         handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
@@ -122,7 +139,7 @@ export default function Navbar({
                                 align="end"
                             >
                                 <p
-                                    className={`pl-[10px] py-[4px] mx-2 font-normal font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                                    className={`pl-[11px] text-[14px] py-[4px] mx-2 font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                                 >
                                     Hallo, {auth.user.name}
                                 </p>
@@ -131,7 +148,12 @@ export default function Navbar({
                                     className={`${isScrolled || isSolid ? "bg-white" : "bg-black"}`}
                                 />
 
-                                {UserDropdown.map((item, index) => (
+                                {UserDropdown.filter((item) => {
+                                    return (
+                                        auth.user.role_id !== 1 ||
+                                        item.title !== "Dashboard"
+                                    );
+                                }).map((item, index) => (
                                     <DropdownMenuItem
                                         key={index}
                                         className={`${isScrolled || isSolid ? "focus:bg-jaffa-600" : "focus:bg-jaffa-200"} w-full transition-all duration-300 ease-in-out`}
@@ -155,6 +177,10 @@ export default function Navbar({
                                 >
                                     <Link
                                         href={route("logout")}
+                                        onClick={() => {
+                                            // @ts-ignore
+                                            window.location.reload();
+                                        }}
                                         method="post"
                                         className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                                     >
@@ -177,6 +203,15 @@ export default function Navbar({
                         </Link>
                     )}
                 </div>
+
+                {auth.user ? (
+                    <TawkMessengerReact
+                        propertyId="6686a5989d7f358570d71120"
+                        widgetId="1i1uvdnf7"
+                        onLoad={onLoad}
+                        ref={tawkMessengerRef}
+                    />
+                ) : null}
             </MaxWidthWrapper>
         </nav>
     );

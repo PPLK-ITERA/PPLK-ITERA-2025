@@ -16,7 +16,7 @@ const Header = ({ fakultas }: HeaderProps) => {
                     Informasi
                 </p>
 
-                <h1 className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-[2rem]">
+                <h1 className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-[2.5rem]">
                     <span className="font-avigea text-[40px] md:text-[60px] max-w-xl">
                         {selectedFakultas.title}
                     </span>

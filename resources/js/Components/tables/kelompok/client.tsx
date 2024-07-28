@@ -11,12 +11,12 @@ export const KelompokClient = () => {
             <div className="flex items-start justify-between"></div>
             <Separator />
             <DataTable
-                searchKey="name"
+                searchKey="Nama, Nim, Email"
                 columns={columns}
-                apiEndpoint={route("user.maba.data")}
+                apiEndpoint={route("dashboard.user.data.maba")}
                 title={"Data Kelompok"}
                 description={
-                    "Gunakan sistem informasi ini untuk manajemen kehadiran maba!"
+                    "Gunakan sistem informasi ini untuk melihat data kelompok!"
                 }
             />
         </>

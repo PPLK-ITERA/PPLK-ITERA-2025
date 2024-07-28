@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card } from "@/Components/ui/card";
 
-import km from "!assets/logokm/km.png";
+import KM from "!assets/logokm/KM.png";
 
 const SejarahKM = () => {
     return (
@@ -10,9 +10,9 @@ const SejarahKM = () => {
             <Card className="lg:flex lg:flex-row flex w-full xl:w-[1155px] flex-col items-center justify-center lg:items-start rounded-[20px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] shadow-2xl lg:px-10 pb-8 mx-2">
                 <div className="lg:flex lg:flex-row lg:h-[322px] lg:w-[322px] rounded-[20px] w-[200px] h-[285px] bg-white lg:mt-24 p-8 -mt-40 border border-black">
                     <img
-                        src={km}
+                        src={KM}
                         alt="logo"
-                        className="lg:object-fill lg:w-full object-cover w-full h-full -ml-1"
+                        className="lg:object-contain lg:w-full object-cover w-full h-full"
                     />
                 </div>
 

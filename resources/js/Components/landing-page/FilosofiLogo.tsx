@@ -47,7 +47,7 @@ export default function FilosofiLogo() {
                     }),
                 ]}
                 setApi={setApi}
-                className="z-20 w-full"
+                className="z-20 w-full max-w-[1440px]"
             >
                 <CarouselContent>
                     {DataFilosofiLogo.map((data, index) => (

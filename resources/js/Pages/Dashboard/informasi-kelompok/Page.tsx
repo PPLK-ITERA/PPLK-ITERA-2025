@@ -6,7 +6,6 @@ import { useForm } from "@inertiajs/react";
 
 import { IconPencil } from "@tabler/icons-react";
 
-// import { KelompokTable } from "@/Components/dashboard/informasi-kelompok/KelompokTable";
 import { KelompokClient } from "@/Components/tables/kelompok/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
@@ -44,16 +43,16 @@ export default function Page({ auth, response }) {
     });
 
     const [file, setFile] = useState(null);
-    const [previewUrl, setPreviewUrl] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState("");
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file && file.type.startsWith("image")) {
             setFile(file);
-            // setPreviewUrl(URL.createObjectURL(file));
+            setPreviewUrl(URL.createObjectURL(file));
         } else {
             setFile(null);
-            setPreviewUrl(null);
+            setPreviewUrl("");
             alert("Please select an image file.");
         }
     };
@@ -103,8 +102,15 @@ export default function Page({ auth, response }) {
                             <DialogTitle>Edit Informasi Kelompok</DialogTitle>
                         </DialogHeader>
                         <div className="grid gap-4 py-4">
-                            <div className="w-36 h-36 relative mx-auto border rounded-full">
-                                <img src={logopplk} alt="logopplk" />
+                            <div className="w-36 h-36 relative flex items-center justify-center mx-auto border rounded-full">
+                                {previewUrl ? (
+                                    <img
+                                        src={previewUrl}
+                                        alt="preview-image-kelompok"
+                                    />
+                                ) : (
+                                    <img src={logopplk} alt="logopplk" />
+                                )}
 
                                 <Label htmlFor="upload-logo-kelompok">
                                     <IconPencil
@@ -116,6 +122,8 @@ export default function Page({ auth, response }) {
 
                                 <Input
                                     type="file"
+                                    onChange={handleImageChange}
+                                    accept="image/*"
                                     className="hidden"
                                     id="upload-logo-kelompok"
                                 />
@@ -192,23 +200,6 @@ export default function Page({ auth, response }) {
                 <Button className="mt-3">Mulai Absen Maba</Button>
             </div>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="file"
-                    onChange={handleImageChange}
-                    accept="image/*"
-                />
-                {previewUrl && (
-                    <img
-                        src={previewUrl}
-                        alt="Preview"
-                        style={{ height: "100px" }}
-                    />
-                )}
-                <button type="submit">Upload Image</button>
-            </form>
-
-            {/* <KelompokTable /> */}
             <KelompokClient />
         </DashboardLayout>
     );

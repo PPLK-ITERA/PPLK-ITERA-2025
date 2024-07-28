@@ -1,7 +1,6 @@
-import { Button } from "./button";
+import { Button, buttonVariants } from "./button";
 import { Heading } from "./heading";
 import { Input } from "./input";
-// Asumsi Button dan Input ada di path ini
 import { ScrollArea, ScrollBar } from "./scroll-area";
 import {
     ColumnDef,
@@ -13,6 +12,15 @@ import { useDebouncedCallback } from "use-debounce";
 
 import React, { useEffect, useState } from "react";
 
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+} from "@/Components/ui/pagination";
 import {
     Table,
     TableBody,
@@ -43,6 +51,9 @@ export function DataTable<TData, TValue>({
     const [perPage, setPerPage] = useState(10);
     const [totalRows, setTotalRows] = useState(0);
     const [search, setSearch] = useState("");
+
+    const numberOfPages = Math.ceil(totalRows / perPage);
+    const visiblePages = 2;
 
     const fetchTableData = async () => {
         setLoading(true);
@@ -84,6 +95,17 @@ export function DataTable<TData, TValue>({
         500,
     );
 
+    const getPaginationRange = () => {
+        const startPage = Math.max(1, page - Math.floor(visiblePages / 2));
+        const endPage = Math.min(numberOfPages, startPage + visiblePages - 1);
+        const range: number[] = []; // Explicitly declare the type
+
+        for (let i = startPage; i <= endPage; i++) {
+            range.push(i); // i is inferred as a number
+        }
+        return range;
+    };
+
     return (
         <>
             <Heading
@@ -97,7 +119,7 @@ export function DataTable<TData, TValue>({
                 className="md:max-w-sm w-full my-2"
             />
 
-            <ScrollArea className="max-w-6xl h-[calc(80vh-220px)] rounded-md border">
+            <ScrollArea className="max-w-7xl h-[calc(80vh-220px)] rounded-md border">
                 <Table className="md:w-full relative">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
@@ -158,30 +180,80 @@ export function DataTable<TData, TValue>({
                 <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
-            <div className="flex items-center justify-between py-4">
+            <div className="flex items-center justify-between">
                 <div className="text-sm text-gray-700">
                     Showing {(page - 1) * perPage + 1} to{" "}
                     {Math.min(page * perPage, totalRows)} of {totalRows} entries
                 </div>
-                <div className="flex space-x-1">
-                    <Button
-                        onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-                        disabled={page === 1}
-                    >
-                        Previous
-                    </Button>
-                    <Button
-                        onClick={() =>
-                            setPage((prev) =>
-                                prev * perPage < totalRows ? prev + 1 : prev,
-                            )
-                        }
-                        disabled={page * perPage >= totalRows}
-                    >
-                        Next
-                    </Button>
-                </div>
             </div>
+
+            <Pagination>
+                <PaginationContent>
+                    <PaginationItem>
+                        <Button
+                            disabled={page === 1}
+                            onClick={() => setPage(Math.max(page - 1, 1))}
+                        >
+                            <ChevronLeft />
+                        </Button>
+                    </PaginationItem>
+
+                    {page > 1 + visiblePages / 2 && (
+                        <>
+                            <PaginationItem className="cursor-pointer">
+                                <PaginationLink onClick={() => setPage(1)}>
+                                    1
+                                </PaginationLink>
+                            </PaginationItem>
+                            <PaginationItem>
+                                <PaginationEllipsis />
+                            </PaginationItem>
+                        </>
+                    )}
+
+                    {getPaginationRange().map((pageNum) => (
+                        <PaginationItem key={pageNum}>
+                            <PaginationLink
+                                isActive={page === pageNum}
+                                onClick={() => setPage(pageNum)}
+                                className={
+                                    page === pageNum
+                                        ? `${buttonVariants()} cursor-default hover:text-white`
+                                        : "cursor-pointer"
+                                }
+                            >
+                                {pageNum}
+                            </PaginationLink>
+                        </PaginationItem>
+                    ))}
+
+                    {page < numberOfPages - visiblePages / 2 && (
+                        <>
+                            <PaginationItem>
+                                <PaginationEllipsis />
+                            </PaginationItem>
+
+                            <PaginationItem className="cursor-pointer">
+                                <PaginationLink
+                                    onClick={() => setPage(numberOfPages)}
+                                >
+                                    {numberOfPages}
+                                </PaginationLink>
+                            </PaginationItem>
+                        </>
+                    )}
+                    <PaginationItem>
+                        <Button
+                            disabled={page === numberOfPages}
+                            onClick={() =>
+                                setPage(Math.min(page + 1, numberOfPages))
+                            }
+                        >
+                            <ChevronRight />
+                        </Button>
+                    </PaginationItem>
+                </PaginationContent>
+            </Pagination>
         </>
     );
 }

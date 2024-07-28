@@ -15,7 +15,6 @@ return new class extends Migration
          $table->id();
          $table->string('nama_booklet');
          $table->string('url_booklet');
-         $table->date('deadline')->nullable();
          $table->timestamps();
       });
    }

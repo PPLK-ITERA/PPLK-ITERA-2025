@@ -13,45 +13,45 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 
-import itera from "!assets/logokm/itera.png";
-import kmPink from "!assets/logokm/km-tapi-pink.png";
-import km from "!assets/logokm/km.png";
-import sarjana from "!assets/logokm/sarjana.png";
-import swarnabumi from "!assets/logokm/swarnabumi.png";
-import tangan from "!assets/logokm/tangan.png";
-import teleskop from "!assets/logokm/teleskop.png";
+import ITERA from "!assets/logokm/ITERA.png";
+import KM from "!assets/logokm/KM.png";
+import KMITERA from "!assets/logokm/KMITERA.png";
+import Lup from "!assets/logokm/Lup.png";
+import Swarna from "!assets/logokm/Swarna.png";
+import Toga from "!assets/logokm/Toga.png";
+import U from "!assets/logokm/U.png";
 
 const DataFilosofiLogoKM = [
     {
-        image: itera,
+        image: ITERA,
         description:
             "Sebagai ikon yang melambangkan basis keberadaan ITERA dan sebagai ikon yang mengindikasikan terintegrasinya dengan lambang Institut Teknologi Sumatera",
     },
     {
-        image: km,
+        image: KM,
         description: "Logo KM ITERA",
     },
     {
-        image: kmPink,
+        image: KMITERA,
         description:
             "Tulisan yang menunjukan identitas organisasi yang bernama KM ITERA Singkatan dari Keluaga Mahasiswa ITERA.",
     },
     {
-        image: sarjana,
+        image: Toga,
         description:
             "Sebagai ikon yang melambangkan “Pendidikan dan Pengajaran”",
     },
     {
-        image: swarnabumi,
+        image: Swarna,
         description:
             "Swarnabhumi merupakan pedoman yang menggambarkan motivasi, semangat dan tujuan dari KM-ITERA.",
     },
     {
-        image: tangan,
+        image: U,
         description: "Sebagai ikon yang melambangkan “Pengabdian Masyarakat”",
     },
     {
-        image: teleskop,
+        image: Lup,
         description:
             "Sebagai ikon yang melambangkan “Penelitian dan Pengembangan”",
     },

@@ -61,13 +61,6 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
                 </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* <Link
-                href="/ketentuan-atribut"
-                className={`lg:mx-2 text-[18px] ${router === "/ketentuan-atribut" ? "underline underline-offset-2" : ""} font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
-            >
-                Ketentuan Atribut
-            </Link> */}
-
             <DropdownMenu>
                 <DropdownMenuTrigger
                     className={`lg:mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} border-none outline-none transition-all duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}

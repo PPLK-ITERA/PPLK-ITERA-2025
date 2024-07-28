@@ -6,7 +6,7 @@ import { Link } from "@inertiajs/react";
 
 import Header from "@/Components/informasi/Upt/Header";
 
-import { uptData } from "@/lib/data/upt";
+import { DetailUPTData } from "@/lib/data/upt";
 
 function Page() {
     const [visibleItems, setVisibleItems] = useState(6); // Jumlah item awal yang ditampilkan
@@ -24,22 +24,22 @@ function Page() {
 
             <div className="bg-pattern-white py-10">
                 <div className="max-w-7xl container flex flex-wrap justify-center">
-                    {uptData.slice(0, visibleItems).map((upt, index) => (
+                    {DetailUPTData.slice(0, visibleItems).map((upt, index) => (
                         <Link
                             href={`/informasi/upt/${upt.key}`}
                             key={index}
                             className="md:w-1/3 lg:w-1/4 w-full p-2"
                         >
-                            <div className="overflow-hidden bg-white border rounded-lg shadow-md">
+                            <div className="bg-gradient-to-b from-jaffa-700 to-jaffa-800 overflow-hidden border rounded-lg shadow-md">
                                 <img
                                     src={upt.logo}
                                     alt="UPT Kebun Raya"
                                     className="object-contain object-center w-full h-40 py-5 border"
                                 />
 
-                                <div className="bg-white p-[34px]">
-                                    <h3 className="font-montserrat text-candlelight-700 text-lg font-semibold text-center">
-                                        UPT Kebun Raya
+                                <div className="py-5 bg-white">
+                                    <h3 className="font-montserrat text-jaffa-900 text-lg font-semibold text-center">
+                                        {upt.title}
                                     </h3>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@ function Page() {
                     ))}
                 </div>
 
-                {visibleItems < uptData.length && ( // Tombol "Load More" hanya ditampilkan jika ada item tersisa
+                {visibleItems < DetailUPTData.length && ( // Tombol "Load More" hanya ditampilkan jika ada item tersisa
                     <div className="py-5 text-center">
                         <button
                             onClick={loadMore}

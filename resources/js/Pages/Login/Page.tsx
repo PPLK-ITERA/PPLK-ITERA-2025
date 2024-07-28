@@ -49,16 +49,16 @@ export default function Page({ auth, status }) {
                 <Head title="Login" />
 
                 <div
-                    className={`flex h-full w-full flex-col justify-center overflow-hidden font-montserrat font-medium md:flex-row`}
+                    className={`flex h-screen w-full flex-col justify-center overflow-hidden font-montserrat font-medium md:flex-row`}
                 >
-                    <div className="flex min-h-[70px] w-full justify-center bg-[url('!assets/background-login.png')] bg-cover object-cover p-5 md:min-h-[100vh] md:w-[60%] md:items-center md:p-0">
+                    <div className="flex min-h-[70px] w-full justify-center bg-[url('!assets/background-login.png')] bg-cover object-cover p-5 md:min-h-[100vh] md:w-[50%] xl:w-[60%] md:items-center md:p-0">
                         <CarouselForm />
                     </div>
 
-                    <div className="from-1% z-10 flex w-full flex-col items-center justify-center bg-gradient-to-tl from-jaffa-600/50 via-white via-20% to-transparent to-85% md:w-[40%]">
+                    <div className="from-1% z-10 flex h-full w-full flex-col items-center justify-center bg-gradient-to-tl from-jaffa-600/50 via-white via-20% to-transparent to-85% md:w-[50%] xl:w-[40%]">
                         <img
                             src={logoPplk}
-                            className="-ml-48 h-36 w-36 lg:-ml-72 lg:-mt-[70px]"
+                            className="md:-ml-48 h-36 w-36 lg:-ml-72 lg:-mt-[70px]"
                             alt="logo-pplk-2024"
                             width={202}
                             height={202}
@@ -68,7 +68,7 @@ export default function Page({ auth, status }) {
                             onSubmit={submit}
                             className="md:items-start flex flex-col items-center justify-start p-2"
                         >
-                            <h1 className="w-[300px] text-2xl font-bold text-jaffa-800 sm:w-[300px] sm:text-3xl md:mb-8 lg:mt-10 lg:w-96 lg:text-4xl">
+                            <h1 className="w-[300px] text-xl md:text-2xl font-bold text-jaffa-600 sm:w-[300px] sm:text-3xl md:mb-8 font-montserrat tracking-tight lg:mt-10 lg:w-96 lg:text-4xl text-center md:text-start">
                                 Masuk ke Website <br /> PPLK ITERA 2024
                             </h1>
 
