@@ -69,7 +69,7 @@ Route::middleware('auth')->group(function () {
          Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
             Route::get('data', [BookletController::class, 'getAllBooklets'])->name('data');
             Route::get('/', [BookletController::class, 'index'])->name('index');
-            Route::get('/store', [BookletController::class, 'store'])->name('store');
+            Route::post('/store', [BookletController::class, 'store'])->name('store');
             Route::put('/update', [BookletController::class, 'update'])->name('update');
             Route::delete('/delete', [BookletController::class, 'destroy'])->name('destroy');
          });
