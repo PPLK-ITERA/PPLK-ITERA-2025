@@ -13,7 +13,7 @@ export const KelompokClient = () => {
             <DataTable
                 searchKey="Nama, Nim, Email"
                 columns={columns}
-                apiEndpoint={route("user.maba.data")}
+                apiEndpoint={route("dashboard.user.data.maba")}
                 title={"Data Kelompok"}
                 description={
                     "Gunakan sistem informasi ini untuk melihat data kelompok!"

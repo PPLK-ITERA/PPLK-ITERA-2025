@@ -40,71 +40,29 @@
 
       // Scoreboard
       //melihat top 10
-      Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-      //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
-      Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+      // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
+      // //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
+      // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+
+
       //melihat my profile
-      Route::get('/myprofile', [ProfileController::class, 'show'])->name('my-profile');
-      Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-      Route::patch('/myprofile/edit', [ProfileController::class, 'update'])->name('profile.update');
+      // Route::get('/myprofile', [ProfileController::class, 'show'])->name('my-profile');
+      // Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+      // Route::patch('/myprofile/edit', [ProfileController::class, 'update'])->name('profile.update');
 
+      // //melihat top 10
+      // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
+      // //melihat kelompok yang tidak masuk top 10
+      // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
-
-      //Presensi CUI
-      Route::prefix('cui')->group(function () {
-         Route::post('qrcode/scan', [PresensiCuiController::class, 'QRScan'])->name('cui.scan');
-         Route::get('status/{code}', [PresensiCuiController::class, 'status'])->name('cui.status');
-         Route::get('izin/{code}')->name('cui.izinform');
-         Route::post('izin/{code}', [PresensiCuiController::class, 'storeIzin'])->name('cui.izin');
-         Route::patch('izin/{code}/destroy', [PresensiCuiController::class, 'destroyIzin'])->name('cui.destroy');
-         Route::get('logbook', [PresensiCuiController::class, 'getLogbookData'])->name('cui.logbook');
-      });
-
-      //Presensi PPLK
-      // Route::prefix('presensi')->group(function () {
-      //    //Presensi PPLK
-      //    Route::middleware(['checkRole:Dapmen,Admin'])->group(function () {
-      //       Route::get('/', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
-      //       Route::get('/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
-      //    });
-      //    Route::middleware(['checkRole:Pjprodi,Admin'])->group(function () {
-      //       Route::get('/{prodi_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByProdi']);
-      //    });
-      // });
-
-      //Middleware only maba
-      Route::middleware(['checkRole:Maba'])->group(function () {
-         //Followers
-         //top 3 followers
-         Route::get('/top-followers', [UserController::class, 'topFollowers']);
-         //search maba
-         Route::post('/search', [UserController::class, 'search']);
-         //seluruh list maba
-         Route::get('/list-maba', [UserController::class, 'listMaba']);
-         //follow button
-         Route::post('/follow/{id}', [UserController::class, 'follow'])->name('follow.maba');
-         //get other user profile by id
-         Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
-      });
-
-
-      //melihat top 10
-      Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-      //melihat kelompok yang tidak masuk top 10
-      Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
-
-      // Tugas
-      Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
-      Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
-      Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
-      Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
-      Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
-      Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
-      Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
-
-
-      //Middleware only maba
-
+      // // Tugas
+      // Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
+      // Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
+      // Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
+      // Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
+      // Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
+      // Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
+      // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
    });
 
    require __DIR__ . '/auth.php';
@@ -113,3 +71,4 @@
    require __DIR__ . '/guest.php';
    require __DIR__ . '/relasi.php';
    require __DIR__ . '/dashboard.php';
+   require __DIR__ . '/cui.php';

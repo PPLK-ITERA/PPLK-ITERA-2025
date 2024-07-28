@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
    Route::prefix('dashboard')->name('dashboard.')->group(function () {
+
       // =====================================
       // USER
       // =====================================
@@ -51,7 +52,7 @@ Route::middleware('auth')->group(function () {
             // USER DATA MABA
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
-               Route::get('maba', [UserController::class, 'getUsersMaba'])->name('maba.data');
+               Route::get('maba', [UserController::class, 'getUsersMaba'])->name('maba');
             });
 
             // =====================================
@@ -110,7 +111,6 @@ Route::middleware('auth')->group(function () {
          });
       });
 
-
       // =====================================
       // Tugas
       // =====================================
@@ -139,15 +139,15 @@ Route::middleware('auth')->group(function () {
          Route::get('data', [KelompokController::class, 'index'])->name('data');
          Route::put('update', [KelompokController::class, 'update'])->name('update');
       });
-   });
 
-   // =====================================
-   // FAQ
-   // =====================================
-   Route::prefix('faq')->name('faq.')->group(function () {
-      Route::get('/data', [FAQController::class, 'getAllFAQ'])->name('data');
-      Route::post('/', [FAQController::class, 'store'])->name('store');
-      Route::put('/', [FAQController::class, 'update'])->name('update');
-      Route::delete('/', [FAQController::class, 'destroy'])->name('destroy');
+      // =====================================
+      // FAQ
+      // =====================================
+      Route::prefix('faq')->name('faq.')->group(function () {
+         Route::get('/data', [FAQController::class, 'getAllFAQ'])->name('data');
+         Route::post('/', [FAQController::class, 'store'])->name('store');
+         Route::put('/', [FAQController::class, 'update'])->name('update');
+         Route::delete('/', [FAQController::class, 'destroy'])->name('destroy');
+      });
    });
 });
