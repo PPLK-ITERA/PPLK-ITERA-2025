@@ -218,27 +218,6 @@ Route::middleware('auth')->group(function () {
       'index'
    ])->name('dashboard.faq');
 
-   Route::post('dashboard/faq', [
-      FAQController::class,
-      'store'
-   ])->name('dashboard.faq.store');
-
-   Route::put('dashboard/faq', [
-      FAQController::class,
-      'update'
-   ])->name('dashboard.faq.update');
-
-   Route::delete('dashboard/faq', [
-      FAQController::class,
-      'destroy'
-   ])->name('dashboard.faq.destroy');
-
-   Route::get('dashboard/faqs', [
-      FAQController::class,
-      'getAllFAQ'
-   ])->name('dashboard.faq.data');
-
-
 
    // =====================================
    // Dashboard Booklet (Auth)

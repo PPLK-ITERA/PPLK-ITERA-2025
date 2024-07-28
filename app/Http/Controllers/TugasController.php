@@ -131,7 +131,7 @@ class TugasController extends Controller
          ->when($searchTerm, function ($query) use ($searchTerm) {
             // return $query->where('nim', 'like', '%' . $searchTerm . '%')
             //     ->orWhere('name', 'like', '%' . $searchTerm . '%')
-   
+
             return $query->whereHas('user', function ($q) use ($searchTerm) {
                $q->where('name', 'like', '%' . $searchTerm . '%')
                   ->orWhere('nim', 'like', '%' . $searchTerm . '%')

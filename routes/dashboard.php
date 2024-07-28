@@ -4,6 +4,7 @@
 use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BookletController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\PoinController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\User\PresensiPplkController;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
    Route::prefix('dashboard')->name('dashboard.')->group(function () {
       // =====================================
-      // USER CRUD
+      // USER
       // =====================================
       Route::prefix('user')->name('user.')->group(function () {
          // =====================================
@@ -61,7 +62,7 @@ Route::middleware('auth')->group(function () {
       });
 
       // =====================================
-      // Booklet CRUD
+      // Booklet
       // =====================================
       Route::prefix('booklet')->name('booklet.')->group(function () {
          Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
@@ -73,41 +74,80 @@ Route::middleware('auth')->group(function () {
          });
       });
 
-      Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
-
+      // =====================================
+      // Presensi
+      // =====================================
+      Route::prefix('presensi')->name('presensi.')->group(function () {
          // =====================================
          // PRESENSI
          // =====================================
-         Route::get('presensi-data', [PresensiPplkController::class, 'getAllPresensi'])->name('dashboard.presensi.data');
-         Route::post('presensi/store', [PresensiPplkController::class, 'store'])->name('dashboard.presensi.store');
-         Route::post('presensi/izin/{id}', [PresensiPplkController::class, 'izin'])->name('dashboard.presensi.izin');
+         Route::middleware(['checkRole:Daplok,Mentor,PjProdi,Admin'])->group(function () {
+            Route::get('data', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
+            Route::post('store', [PresensiPplkController::class, 'store'])->name('store');
+            Route::post('izin/{id}', [PresensiPplkController::class, 'izin'])->name('izin');
+         });
+      });
 
+      // =====================================
+      // Poin Offline
+      // =====================================
+      Route::prefix('poin')->name('poin.')->group(function () {
          // =====================================
-         // Generate QR Code untuk poin
+         // Dapmen Role
          // =====================================
-         Route::get('/poin-qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('dashboard.poin.qrcode');
+         Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+            // =====================================
+            // Generate QR Code untuk poin
+            // =====================================
+            Route::get('/qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('qrcode');
+         });
+         // =====================================
+         // Korlap Role
+         // ====================================
+         Route::middleware('checkRole:Korlap,Admin')->group(function () {
+            Route::get('index/{user_id}', [PoinController::class, 'index'])->name('index');
+            Route::post('/store/{user_id}', [PoinController::class, 'store'])->name('dashboard.poin.store');
+         });
       });
 
-      Route::middleware('checkRole:Korlap,Admin')->group(function () {
-         Route::get('/poin/{user_id}', [PoinController::class, 'index'])->name('dashboard.poin.index');
-         Route::post('/poin-store/{user_id}', [PoinController::class, 'store'])->name('dashboard.poin.store');
-         Route::get('/poin-redirect/{code}', [PoinController::class, 'redirect'])->name('dashboard.poin.redirect');
+
+      // =====================================
+      // Tugas
+      // =====================================
+      Route::prefix('tugas')->name('tugas.')->group(function () {
+         // =====================================
+         // Mamet Role
+         // =====================================
+         Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
+            Route::get('/return/{id}', [TugasController::class, 'return'])->name('return');
+
+            // =====================================
+            // Data
+            // =====================================
+            Route::prefix('data')->name('data.')->group(function () {
+               Route::get('/all', [TugasController::class, 'getAllTugas'])->name('all');
+               Route::get('/individu', [TugasController::class, 'getTugasIndividu'])->name('individu');
+               Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
+            });
+         });
       });
 
-
-
-      Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
-
-
-         Route::get('/tugas/{id}/return', [TugasController::class, 'return'])->name('dashboard.tugas.return');
-         Route::get('/tugas-data', [TugasController::class, 'getAllTugas'])->name('dashboard.tugas.data');
-         Route::get('/tugas-kelompok/data', [TugasController::class, 'getTugasKelompok'])->name('dashboard.tugas.kelompok.data');
+      // =====================================
+      // Kelompok
+      // =====================================
+      Route::prefix('kelompok')->name('kelompok.')->group(function () {
+         Route::get('data', [KelompokController::class, 'index'])->name('data');
+         Route::put('update', [KelompokController::class, 'update'])->name('update');
       });
+   });
 
-      //Kelompok
-      Route::prefix('kelompok')->group(function () {
-         Route::get('data', [KelompokController::class, 'index'])->name('dashboard.kelompok.data');
-         Route::put('update', [KelompokController::class, 'update'])->name('dashboard.kelompok.update');
-      });
+   // =====================================
+   // FAQ
+   // =====================================
+   Route::prefix('faq')->name('faq.')->group(function () {
+      Route::get('/data', [FAQController::class, 'getAllFAQ'])->name('data');
+      Route::post('/', [FAQController::class, 'store'])->name('store');
+      Route::put('/', [FAQController::class, 'update'])->name('update');
+      Route::delete('/', [FAQController::class, 'destroy'])->name('destroy');
    });
 });

@@ -61,16 +61,16 @@
       });
 
       //Presensi PPLK
-      Route::prefix('presensi')->group(function () {
-         //Presensi PPLK
-         Route::middleware(['checkRole:Dapmen,Admin'])->group(function () {
-            Route::get('/', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
-            Route::get('/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
-         });
-         Route::middleware(['checkRole:Pjprodi,Admin'])->group(function () {
-            Route::get('/{prodi_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByProdi']);
-         });
-      });
+      // Route::prefix('presensi')->group(function () {
+      //    //Presensi PPLK
+      //    Route::middleware(['checkRole:Dapmen,Admin'])->group(function () {
+      //       Route::get('/', [PresensiPplkController::class, 'getAllPresensi'])->name('presensi.index');
+      //       Route::get('/kelompok/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByKelompok']);
+      //    });
+      //    Route::middleware(['checkRole:Pjprodi,Admin'])->group(function () {
+      //       Route::get('/{prodi_id}/{tanggal_presensi}', [PresensiPplkController::class, 'getUserPresensiByProdi']);
+      //    });
+      // });
 
       //Middleware only maba
       Route::middleware(['checkRole:Maba'])->group(function () {
