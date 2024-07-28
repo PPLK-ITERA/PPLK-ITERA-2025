@@ -1,23 +1,9 @@
    <?php
 
-   use App\Http\Controllers\Admin\Dashboard\KelompokController;
-   use App\Http\Controllers\BookletController;
-   use App\Http\Controllers\FAQController;
-   use App\Http\Controllers\Game\GameController;
-   use App\Http\Controllers\PoinController;
-   use App\Http\Controllers\QuizAnswerController;
-   use App\Http\Controllers\QuizController;
-   use App\Http\Controllers\UnlockStatusController;
-   use App\Http\Controllers\User\ProfileController;
    use Illuminate\Foundation\Application;
    use Illuminate\Support\Facades\Route;
    use Inertia\Inertia;
-   use App\Http\Controllers\ScoreboardController;
-   use App\Http\Controllers\User\PresensiCuiController;
-   use App\Http\Controllers\User\PresensiPplkController;
-   use App\Http\Controllers\User\RelasiController;
-   use App\Http\Controllers\TugasController;
-   use App\Http\Controllers\Admin\UserController;
+
 
    Route::get('/', function () {
       // if has auth, redirect to dashboard
