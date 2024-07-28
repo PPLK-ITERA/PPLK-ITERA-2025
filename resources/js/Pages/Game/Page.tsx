@@ -4,11 +4,10 @@ import React, { Fragment } from "react";
 
 function Page() {
     const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
-        loaderUrl: "build/naramuda_explorer/Build/naramuda_explorer.loader.js",
-        dataUrl: "build/naramuda_explorer/Build/naramuda_explorer.data",
-        frameworkUrl:
-            "build/naramuda_explorer/Build/naramuda_explorer.framework.js",
-        codeUrl: "build/naramuda_explorer/Build/naramuda_explorer.wasm",
+        loaderUrl: "naramuda_explorer/Build/naramuda_explorer.loader.js",
+        dataUrl: "naramuda_explorer/Build/naramuda_explorer.data",
+        frameworkUrl: "naramuda_explorer/Build/naramuda_explorer.framework.js",
+        codeUrl: "naramuda_explorer/Build/naramuda_explorer.wasm",
     });
 
     return (
@@ -19,7 +18,8 @@ function Page() {
                     {Math.round(loadingProgression * 100)}%
                 </p>
             )}
-            <Unity className="w-screen h-screen"
+            <Unity
+                className="w-screen h-screen"
                 unityProvider={unityProvider}
                 style={{ visibility: isLoaded ? "visible" : "hidden" }}
             />
