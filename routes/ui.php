@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 // =====================================
+// GAME (Guest)
+// =====================================
+Route::get('game', function () {
+   return Inertia::render('Game/Page');
+})->name('game');
+
+
+// =====================================
 // FAKULTAS (Guest)
 // =====================================
 Route::get('informasi/fakultas', function () {
