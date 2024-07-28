@@ -28,8 +28,5 @@ deployment:
         - /bin/mkdir -p ${DEPLOYPATH}/laravel/public/build
         - /bin/cp ${DEPLOYPATH}/public_html/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json
 
-        # Step 9: Drop all tables, re-run all migrations, and run database seeders
-        - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan migrate:fresh --seed
-
-        # Step 10:Bring Laravel out of maintenance mode as the final step
+        # Step 9:Bring Laravel out of maintenance mode as the final step
         - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan up
