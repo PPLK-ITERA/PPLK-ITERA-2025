@@ -165,9 +165,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard User (Auth)
    // =====================================
-   Route::get('dashboard/user', function () {
-      return Inertia::render('Dashboard/user/Page');
-   })->name('dashboard/user');
+   // Route::get('dashboard/user', function () {
+   //    return Inertia::render('Dashboard/user/Page');
+   // })->name('dashboard/user');
 
 
    // =====================================
