@@ -3,38 +3,30 @@ deployment:
     tasks:
         - export DEPLOYPATH=/home/pplkitera
 
-        # Step 1: Clear the laravel directory if it exists (including hidden files)
-        - /bin/rm -rf ${DEPLOYPATH}/laravel/* ${DEPLOYPATH}/laravel/.[!.]* ${DEPLOYPATH}/laravel/..?*
+        # Step 1: Clear the public_html directory
+        - /bin/rm -rf ${DEPLOYPATH}/public_html/*
 
-        # Step 2: Create the laravel directory if it doesn't exist
+        # Step 2: Clear the laravel directory if it exists
+        - /bin/rm -rf ${DEPLOYPATH}/laravel/*
+
+        # Step 3: Copy the contents of the public directory to public_html
+        - /bin/cp -r public/* ${DEPLOYPATH}/public_html/
+
+        # Step 4: Create the laravel directory if it doesn't exist
         - /bin/mkdir -p ${DEPLOYPATH}/laravel
 
-        # Step 3: Move all files and directories except .git to the laravel directory
-        - /usr/bin/find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec /bin/mv {} ${DEPLOYPATH}/laravel/ \;
+        # Step 5: Copy all other files to the laravel directory
+        - /bin/find . -mindepth 1 -maxdepth 1 -not -name 'public' -exec cp -r {} ${DEPLOYPATH}/laravel/ \;
 
-        # Step 4: Clear the public_html directory (including hidden files)
-        - /bin/rm -rf ${DEPLOYPATH}/public_html/* ${DEPLOYPATH}/public_html/.[!.]* ${DEPLOYPATH}/public_html/..?*
-
-        # Step 5: Create the public_html directory if it doesn't exist
-        - /bin/mkdir -p ${DEPLOYPATH}/public_html
-
-        # Step 6: Move all contents of laravel/public to public_html except laravel/public/build/manifest.json
-        - /usr/bin/find ${DEPLOYPATH}/laravel/public -mindepth 1 -maxdepth 1 ! -name 'build' -exec /bin/mv {} ${DEPLOYPATH}/public_html/ \;
-        - /bin/mkdir -p ${DEPLOYPATH}/public_html/build
-        - /bin/mv ${DEPLOYPATH}/laravel/public/build/* ${DEPLOYPATH}/public_html/build/
-        - /bin/cp ${DEPLOYPATH}/laravel/public/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json
-
-        # Step 7: Replace '/../' with '/../laravel/' in index.php in public_html
+        # Step 6: Replace '/../' with '/../laravel/' in index.php in public_html
         - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
 
-        # Step 8: Copy .env.example to .env in the laravel directory
+        # Step 7: Copy .env.example to .env in the laravel directory
         - /bin/cp ${DEPLOYPATH}/laravel/.env.example ${DEPLOYPATH}/laravel/.env
 
-        # Step 9: Set permissions for laravel and public_html directories
-        - /bin/chmod -R 755 ${DEPLOYPATH}/laravel
-        - /bin/chmod -R 755 ${DEPLOYPATH}/public_html
-        - /usr/bin/find ${DEPLOYPATH}/laravel -type f -exec /bin/chmod 644 {} \;
-        - /usr/bin/find ${DEPLOYPATH}/public_html -type f -exec /bin/chmod 644 {} \;
+        # Step 8: Copy manifest.json to the laravel/public/build directory
+        - /bin/mkdir -p ${DEPLOYPATH}/laravel/public/build
+        - /bin/cp ${DEPLOYPATH}/public_html/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json
 
-        # Step 10: Run php artisan route:cache in the laravel directory
+        # Step 9: Run php artisan route:cache in the laravel directory
         - cd ${DEPLOYPATH}/laravel && /usr/local/bin/php artisan route:cache
