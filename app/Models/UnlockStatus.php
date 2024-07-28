@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UnlockStatus extends Model
 {
     use HasFactory;
-    protected $table ='Unlock_Status';
+    protected $table ='unlock_status';
     protected $primaryKey ='id';
     protected $fillable = [
         'user_id',
