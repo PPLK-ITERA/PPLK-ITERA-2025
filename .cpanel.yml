@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/your_cpanel_username
+    - export DEPLOYPATH=/home/pplkitera
 
     # Step 1: Clear the public_html directory
     - /bin/rm -rf ${DEPLOYPATH}/public_html/*
