@@ -4,10 +4,14 @@ import React, { Fragment } from "react";
 
 function Page() {
     const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
-        loaderUrl: "naramuda_explorer/Build/naramuda_explorer.loader.js",
-        dataUrl: "naramuda_explorer/Build/naramuda_explorer.data",
-        frameworkUrl: "naramuda_explorer/Build/naramuda_explorer.framework.js",
-        codeUrl: "naramuda_explorer/Build/naramuda_explorer.wasm",
+        loaderUrl:
+            "https://krossmanzs.github.io/test-naramuda-explorer/Build/naramuda_explorer.loader.js",
+        dataUrl:
+            "https://krossmanzs.github.io/test-naramuda-explorer/Build/naramuda_explorer.data",
+        frameworkUrl:
+            "https://krossmanzs.github.io/test-naramuda-explorer/Build/naramuda_explorer.framework.js",
+        codeUrl:
+            "https://krossmanzs.github.io/test-naramuda-explorer/Build/naramuda_explorer.wasm",
     });
 
     return (
