@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          Route::middleware(['checkRole:Daplok,Mentor,PjProdi,Admin'])->group(function () {
             Route::get('data', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
-            Route::post('store', [PresensiPplkController::class, 'store'])->name('store');
+            Route::post('store', [PresensiPplkController::class, 'store'])->name('absen');
             Route::post('izin/{id}', [PresensiPplkController::class, 'izin'])->name('izin');
             Route::post('scan', [PresensiPplkController::class, 'QRScan'])->name('scan');
          });

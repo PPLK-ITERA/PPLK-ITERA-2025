@@ -48,7 +48,7 @@ function Presensi() {
                 <CardContent className="flex items-center justify-center mt-2">
                     <Button
                         onClick={() =>
-                            router.get(route("dashboard.cui.absensi"))
+                            router.get(route("dashboard.presensi.absensi"))
                         }
                     >
                         Mulai Absen Maba

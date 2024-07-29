@@ -23,6 +23,9 @@ Route::get('/', function () {
 
 //Auth Route
 Route::middleware('auth')->group(function () {
+   Route::get('/csrf-token', function (Request $request) {
+      return response()->json(['csrfToken' => csrf_token()]);
+   })->name("csrf");
 
 
    // Scoreboard

@@ -209,6 +209,10 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/absensi-maba/Page');
    })->name('dashboard.absensi-maba');
 
+   Route::get('dashboard/absensi-maba/presensi', function () {
+      return Inertia::render('Dashboard/absensi-maba/absensi/Page');
+   })->name('dashboard.absensi-maba/presensi');
+
 
    // =====================================
    // Dashboard FAQ (Auth)
@@ -314,9 +318,9 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Mading/Page');
    })->name('mading');
 
-   Route::get('mading/kumpul', function () {
-      return Inertia::render('Mading/Kumpul/Page');
-   })->name('mading/kumpul');
+   Route::get('mading/pengumpulan', function () {
+      return Inertia::render('Mading/kumpul/Page');
+   })->name('mading/pengumpulan');
 
    // =====================================
    // Manage Tugas (Auth)
