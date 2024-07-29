@@ -106,7 +106,7 @@ export const MabaDropDown = [
 export const UserDropdown = [
     {
         title: "Profil Kamu",
-        href: "/myprofile",
+        href: route("myprofile"),
         icon: <IconUserCircle size={24} color="#fcedd8" />,
     },
     {

@@ -15,8 +15,6 @@ import { Input } from "@/Components/ui/input";
 import logoPplk from "!assets/logo-pplk-2024.png";
 
 export default function Page({ auth, status }) {
-    console.log(status);
-
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
@@ -39,7 +37,6 @@ export default function Page({ auth, status }) {
 
     const submit = (e) => {
         e.preventDefault();
-        console.log("anjir");
         post(route("login"));
     };
 
