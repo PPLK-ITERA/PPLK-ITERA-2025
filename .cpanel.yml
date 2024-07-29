@@ -3,30 +3,36 @@ deployment:
     tasks:
         - export DEPLOYPATH=/home/pplkitera
 
-        # Step 1: Clear the public_html directory
+        # Step 1: Copy laravel/env to DEPLOYPATH
+        - /bin/mv ${DEPLOYPATH}/laravel/.env ${DEPLOYPATH}/
+
+        # Step 2: Clear the public_html directory
         - /bin/rm -rf ${DEPLOYPATH}/public_html/*
 
-        # Step 2: Clear the laravel directory if it exists
+        # Step 3: Clear the laravel directory if it exists
         - /bin/rm -rf ${DEPLOYPATH}/laravel/*
 
-        # Step 3: Copy the contents of the public directory to public_html
+        # Step 4: Copy the contents of the public directory to public_html
         - /bin/cp -r public/* ${DEPLOYPATH}/public_html/
 
-        # Step 4: Create the laravel directory if it doesn't exist
+        # Step 5: Create the laravel directory if it doesn't exist
         - /bin/mkdir -p ${DEPLOYPATH}/laravel
 
-        # Step 5: Copy all other files to the laravel directory
+        # Step 6: Copy all other files to the laravel directory
         - /bin/find . -mindepth 1 -maxdepth 1 -not -name 'public' -exec cp -r {} ${DEPLOYPATH}/laravel/ \;
 
-        # Step 6: Replace '/../' with '/../laravel/' in index.php in public_html
+        # Step 7: Replace '/../' with '/../laravel/' in index.php in public_html
         - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
 
-        # Step 7: Copy .env.example to .env in the laravel directory
+        # Step 8: Copy .env.example to .env in the laravel directory
         - /bin/cp ${DEPLOYPATH}/laravel/.env.example ${DEPLOYPATH}/laravel/.env
 
-        # Step 8: Copy manifest.json to the laravel/public/build directory
+        # Step 9: Copy manifest.json to the laravel/public/build directory
         - /bin/mkdir -p ${DEPLOYPATH}/laravel/public/build
         - /bin/cp ${DEPLOYPATH}/public_html/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json
 
-        # Step 9:Bring Laravel out of maintenance mode as the final step
-        - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan up
+        # Step 10: Copy DEPLOYPATH/.env to DEPLOYPATH/laravel
+        - /bin/mv ${DEPLOYPATH}/.env ${DEPLOYPATH}/laravel
+
+        # Step 11: cache the route
+        - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan route:cache
