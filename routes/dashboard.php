@@ -86,6 +86,7 @@ Route::middleware('auth')->group(function () {
             Route::get('data', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
             Route::post('store', [PresensiPplkController::class, 'store'])->name('store');
             Route::post('izin/{id}', [PresensiPplkController::class, 'izin'])->name('izin');
+            Route::post('scan', [PresensiPplkController::class, 'QRScan'])->name('scan');
          });
       });
 

@@ -10,7 +10,7 @@ class PresensiPplk extends Model
     use HasFactory;
     protected $table = 'presensi_pplks';
     protected $primaryKey = 'id';
-    
+
     protected $fillable = [
         'user_id',
         'tanggal_presensi',
@@ -19,6 +19,12 @@ class PresensiPplk extends Model
     ];
 
     protected $hidden = [
-        'created_at', 'updated_at'
+        'created_at',
+        'updated_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
