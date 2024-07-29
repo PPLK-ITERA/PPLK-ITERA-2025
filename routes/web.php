@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,9 +33,10 @@ Route::middleware('auth')->group(function () {
 
 
    //melihat my profile
-   // Route::get('/myprofile', [ProfileController::class, 'show'])->name('my-profile');
-   // Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-   // Route::patch('/myprofile/edit', [ProfileController::class, 'update'])->name('profile.update');
+   Route::get('/myprofile', [ProfileController::class, 'show'])->name('myprofile');
+   Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+   Route::put('/myprofile', [ProfileController::class, 'update'])->name('profile.update');
+   Route::put('/myprofileupload', [ProfileController::class, 'updateProfile'])->name('profile.update.profile');
 
    // //melihat top 10
    // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);

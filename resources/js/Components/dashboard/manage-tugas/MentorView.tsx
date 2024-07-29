@@ -57,7 +57,9 @@ export default function MentorView() {
     const getTugasKelompok = async () => {
         try {
             setLoading(true);
-            const response = await fetch(route("tugas.kelompok.data"));
+            const response = await fetch(
+                route("dashboard.tugas.data.kelompok"),
+            );
             const data = await response.json();
             setData(data.data);
             // console.log(data.data);

@@ -1,3 +1,5 @@
+import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
+
 import React from "react";
 
 import { Link, usePage } from "@inertiajs/react";
@@ -31,6 +33,7 @@ import {
     MabaDropDown,
     UserDropdown,
 } from "@/lib/data/navlink";
+import { UserAuthProps } from "@/lib/types/User";
 
 import logopplk_white from "!assets/logo-pplk-20204-white.png";
 
@@ -44,7 +47,13 @@ export default function NavMobile({
     isSolid = false,
     isScrolled = false,
 }: NavMobileProps) {
-    const { auth } = usePage().props;
+    type MyPage = PageProps<{
+        auth: {
+            user: UserAuthProps;
+        };
+    }>;
+
+    const { auth } = usePage<MyPage>().props;
 
     return (
         <div className="md:hidden block -mt-2">
@@ -136,33 +145,36 @@ export default function NavMobile({
                         </Accordion>
                     </div>
 
-                    <SheetFooter className="mt-40">
+                    <SheetFooter className="mt-52">
                         <div className="flex flex-col">
                             {auth.user ? (
                                 <DropdownMenu>
                                     <DropdownMenuTrigger
-                                        className={`flex items-center justify-center border-none outline-none transition-all focus:border-none focus:outline-none focus:ring-0 ${isScrolled || isSolid ? "bg-jaffa-600" : "bg-jaffa-400"} p-1 rounded-full transition-all duration-300 ease-in-out`}
+                                        className={`flex items-center justify-start border-none outline-none transition-all focus:border-none focus:outline-none focus:ring-0 p-1 rounded-full border w-full duration-300 ease-in-out`}
                                     >
-                                        <IconUserCircle
-                                            size={28}
-                                            color="white"
-                                        />
+                                        <div
+                                            className={`${isScrolled || isSolid ? "bg-jaffa-600" : "bg-jaffa-400"} p-2 -ml-1 w-fit rounded-md flex gap-2`}
+                                        >
+                                            <IconUserCircle
+                                                size={28}
+                                                color="white"
+                                                className="place-items-end"
+                                            />
+                                            <p className="font-semibold text-white">
+                                                {auth.user.name}
+                                            </p>
+                                        </div>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent
                                         className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
-                                        align="end"
+                                        align="start"
                                     >
-                                        <p
-                                            className={`pl-[10px] py-[4px] mx-2 font-normal font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
-                                        >
-                                            Hallo, {auth.user.name}
-                                        </p>
-
-                                        <DropdownMenuSeparator
-                                            className={`${isScrolled || isSolid ? "bg-white" : "bg-black"}`}
-                                        />
-
-                                        {UserDropdown.map((item, index) => (
+                                        {UserDropdown.filter((item) => {
+                                            return (
+                                                auth.user.role_id !== 1 ||
+                                                item.title !== "Dashboard"
+                                            );
+                                        }).map((item, index) => (
                                             <DropdownMenuItem
                                                 key={index}
                                                 className={`${isScrolled || isSolid ? "focus:bg-jaffa-600" : "focus:bg-jaffa-200"} w-full transition-all duration-300 ease-in-out`}
