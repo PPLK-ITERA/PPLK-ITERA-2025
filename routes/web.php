@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\RelasiController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,6 +32,17 @@ Route::middleware('auth')->group(function () {
    // //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
    // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
 
+   // Route::middleware(['checkRole:Maba'])->group(function () {
+      Route::get('/relasi', [RelasiController::class, 'index'])->name('relasi.index');
+      Route::get('/relasi/index/topfollowers', [RelasiController::class, 'topFollowers'])->name('relasi.index.topfollowers');
+      Route::get('/relasi/index/sort', [RelasiController::class, 'sort'])->name('relasi.index.sort');
+      Route::get('/relasi/data', [RelasiController::class, 'getProfiles'])->name('relasi.index.search'); // search JSON
+      
+      Route::get('/relasi/search', [RelasiController::class, 'searchIndex'])->name('relasi.search'); // search page
+
+      Route::get('/relasi/follow/{id}', [RelasiController::class, 'follow'])->name('follow');
+      Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('profile');
+   // });
 
    //melihat my profile
    Route::get('/myprofile', [ProfileController::class, 'show'])->name('myprofile');
@@ -57,6 +69,6 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/ui.php';
 require __DIR__ . '/game.php';
 require __DIR__ . '/guest.php';
-require __DIR__ . '/relasi.php';
+// require __DIR__ . '/relasi.php';
 require __DIR__ . '/dashboard.php';
 require __DIR__ . '/cui.php';

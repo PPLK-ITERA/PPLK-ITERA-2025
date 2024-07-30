@@ -31,7 +31,6 @@ import {
 } from "@/Components/ui/carousel";
 import { Input } from "@/Components/ui/input";
 
-import { users } from "@/lib/data/user";
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 
@@ -47,11 +46,6 @@ const sortOptions = [
 
 const Page: React.FC = () => {
     useAos();
-
-    const top3Followers = users
-        .sort((user1, user2) => user2.followers - user1.followers)
-        .slice(0, 3);
-    const [sort, setSort] = useState(sortOptions[0]);
 
     return (
         <div className="bg-pattern-white flex flex-col w-full min-h-screen">
@@ -78,7 +72,7 @@ const Page: React.FC = () => {
                             </h4>
                             <SortDropdown options={sortOptions} />
                         </div>
-                        <UserList users={users} />
+                        <UserList users={users} />  
                     </div>
                     <div className="flex justify-center">
                         <Button className="mx-1">1</Button>

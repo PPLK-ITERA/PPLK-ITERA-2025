@@ -55,14 +55,15 @@ export default function TopUser({
                     </div>
                 ) : null}
                 <img
-                    src={user.profileImageUrl}
+                    src={user.photo_profile_url}
                     alt={user.name}
                     className="z-0 bg-gray-400 rounded-full"
                 />
             </div>
             <div className="text-lg font-bold">{user.name}</div>
             <p className="bg-gray-400/50 px-2 text-sm rounded-full">
-                <span className="font-bold">{user.followers}</span> Followers
+                <span className="font-bold">{user.followers_count}</span>{" "}
+                Followers
             </p>
             {
                 {

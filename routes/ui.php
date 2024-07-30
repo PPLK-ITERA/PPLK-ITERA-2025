@@ -287,18 +287,21 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Relasi (Auth)
    // =====================================
-   Route::get('relasi', function () {
-      return Inertia::render('Relasi/Page');
-   })->name('relasi');
+   // Route::get('relasi', function () {
+   //    return Inertia::render('Relasi/Page');
+   // })->name('relasi');
 
-   Route::get('relasi/search', function () {
-      return Inertia::render('Relasi/Search/Page');
-   })->name('relasi/search');
+   // Route::get('relasi/search', function () {
+   //    return Inertia::render('Relasi/Search/Page');
+   // })->name('relasi/search');
 
-   Route::get('relasi/profil', function () {
-      return Inertia::render('Relasi/Profil/Page');
-   })->name('relasi/profil');
+   // Route::get('relasi/profil/{id}', function (int $id) {
+   //    return Inertia::render('Relasi/Profil/Page', [
+   //       'id' => $id
+   //    ]);
+   // })->name('relasi/profil');
 
+   
 
    // =====================================
    // Game Offline (Auth)

@@ -14,7 +14,6 @@ use Inertia\Inertia;
 class RelasiController extends Controller
 {
    // Menampilkan top 3 follower
-
    public function viewScore()
    {
       // Retrieve the authenticated user
@@ -26,60 +25,93 @@ class RelasiController extends Controller
       ]);
    }
 
-   // Search bar untuk mencari user berdasarkan nama atau email
-   // Menampilkan list mahasiswa baru yang bisa diurutkan
-   public function listMaba(Request $request)
+   public function topFollowers()
    {
-      $topfollower = User::select('name', 'nim', 'is_ketua_kelompok')
-      ->withCount('followers')
-      ->orderBy('followers_count', 'desc')
-      ->take(3)
-      ->get();
+      $topFollowers = User::withCount('followers')
+         ->orderBy('followers_count', 'desc')
+         ->take(3)
+         ->get();
 
-       $validOrders = ['viewer', 'followers', 'followings', 'nim'];
-       $orderBy = $request->input('order_by', 'nim');
-       $direction = $request->input('direction', 'asc');
-   
-       if (!in_array($orderBy, $validOrders)) {
-           return Inertia::render('Relasi/Page', [
-               'response' => [
-                   'status' => 400,
-                   'message' => 'Invalid order_by parameter',
-                   'data' => []
-               ]
-           ]);
-       }
-   
-       $query = User::where('role_id', '1')->select('name', 'nim', 'is_ketua_kelompok');
-   
-       switch ($orderBy) {
-           case 'followers':
-               $query->withCount('followers')->orderBy('followers_count', $direction);
-               break;
-           case 'followings':
-               $query->withCount('followings')->orderBy('followings_count', $direction);
-               break;
-           case 'viewer':
-               $query->addSelect('view_count')->orderBy('view_count', $direction);
-               break;
-           default:
-               $query->orderBy($orderBy, $direction);
-       }
-   
-       $users = $query->get();
-   
-       return Inertia::render('Relasi/Page', [
-           'response' => [
-               'status' => $users->isEmpty() ? 404 : 200,
-               'message' => $users->isEmpty() ? 'Maba list not found' : 'Maba list retrieved successfully',
-               'data' => [
-                   'users' => $users,
-                   'topfollower' => $topfollower
-               ]
-           ]
-       ]);
+         // Iterate through each user and return only the specified attributes
+         $topFollowers = $topFollowers->transform(function ($user) {
+            return [
+               'id' => $user->id,
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi,
+               'photo_profile_url' => asset('storage/' . $user->photo_profile_url),
+               'kelompok' => [
+                  'nama_kelompok' => $user->kelompok->nama_kelompok,
+                  'no_kelompok' => $user->kelompok->no_kelompok,
+               ],
+               'followers_count' => $user->followers_count,
+            ];
+         });
+
+      return response()->json($topFollowers);
+   }
+
+   public function sort(Request $request)
+{
+    $validOrders = ['viewer', 'followers', 'followings', 'nim', 'name'];
+    $orderBy = $request->input('order_by', 'nim');
+    $direction = $request->input('direction', 'asc');
+
+    if (!in_array($orderBy, $validOrders)) {
+        return response()->json([
+            'status' => 400,
+            'message' => 'Invalid order_by parameter',
+            'data' => []
+        ]);
+    }
+
+    $query = User::with('kelompok')->where('role_id', 1)->whereNotNull("kelompok_id");
+
+    switch ($orderBy) {
+        case 'followers':
+            $query->withCount('followers')->orderBy('followers_count', $direction);
+            break;
+        case 'followings':
+            $query->withCount('followings')->orderBy('followings_count', $direction);
+            break;
+        case 'viewer':
+            $query->addSelect('view_count')->orderBy('view_count', $direction);
+            break;
+        case 'name':
+            $query->addSelect('name')->orderBy('name', $direction);
+            break;
+        default:
+            $query->orderBy($orderBy, $direction);
+    }
+
+    $users = $query->get()->transform(function ($user) {
+        return [
+            'id' => $user->id,
+            'name' => $user->name,
+            'nim' => $user->nim,
+            'prodi' => $user->prodi,
+            'photo_profile_url' => $user->photo_profile_url ? asset('storage/' . $user->photo_profile_url) : null,
+            'kelompok' => $user->kelompok ? [
+                'nama_kelompok' => $user->kelompok->nama_kelompok,
+                'no_kelompok' => $user->kelompok->no_kelompok,
+            ] : null,
+            'followers_count' => $user->followers_count ?? 0,
+        ];
+    });
+
+    return response()->json($users);
+}
+
+
+   public function index()
+   {
+      return Inertia::render('Relasi/Page');
    }
    
+   public function searchIndex()
+   {
+      return Inertia::render('Relasi/Search/Page');
+   }
 
    // Follow a user
    public function follow($id)
@@ -133,51 +165,57 @@ class RelasiController extends Controller
            ]);
        }
    }
-   
 
-   // Menampilkan profil pengguna
-   public function profile($id)
-   {
-       $user = User::withCount(['followers', 'followings'])->findOrFail($id);
-   
-       // Increment view count
-       $user->increment('view_count');
-   
-       // Return only the specified attributes
-       $response = [
-           'name' => $user->name,
-           'nim' => $user->nim,
-           'photo_profile_url' => $user->photo_profile_url,
-           'linkedin_url' => $user->linkedin_url,
-           'instagram_url' => $user->instagram_url,
-           'pilar' => $user->pilar,
-           'view_count' => $user->view_count,
-           'followers_count' => $user->followers_count,
-           'followings_count' => $user->followings_count,
-       ];
-   
-       $followingUserId = Auth::user()->id;
-   
-       // Get 9 random users that the current user does not follow
-       $randomUsers = User::where('id', '<>', $followingUserId)
-           ->whereDoesntHave('followers', function ($query) use ($followingUserId) {
-               $query->where('following_user_id', $followingUserId);
-           })
-           ->inRandomOrder()
-           ->take(9)
-           ->get(['id', 'name', 'nim', 'photo_profile_url']);
-   
-       return Inertia::render('Relasi/Profil/Page', [
-           'response' => [
-               'status' => 200,
-               'message' => 'Profile retrieved successfully',
-               'data' => [
-                   'user' => $response,
-                   'random_users' => $randomUsers
-               ]
-           ]
-       ]);
-   }
+    // Menampilkan profil pengguna
+    public function profile($id)
+    {
+        $user = User::withCount(['followers', 'followings'])->findOrFail($id);
+    
+        // Increment view count
+        $user->increment('view_count');
+    
+        // Return only the specified attributes
+        $response = [
+         'name' => $user->name,
+         'nim' => $user->nim,
+         'prodi' => $user->prodi,
+         'photo_profile_url' => asset('storage/' . $user->photo_profile_url),
+         'linkedin_url' => $user->linkedin_url,
+         'instagram_url' => $user->instagram_url,
+         'kelompok' => [
+            'nama_kelompok' => $user->kelompok->nama_kelompok,
+            'no_kelompok' => $user->kelompok->no_kelompok,
+            'daplok' => $user->kelompok->daplok->name,
+            'mentor' => $user->kelompok->mentor->name,
+         ],
+         'view_count' => $user->view_count,
+         'followers_count' => $user->followers_count,
+         'followings_count' => $user->followings_count,
+         'bio' => $user->bio,
+        ];
+    
+        $followingUserId = Auth::user()->id;
+    
+        // Get 9 random users that the current user does not follow
+        $randomUsers = User::where('id', '<>', $followingUserId)
+            ->whereDoesntHave('followers', function ($query) use ($followingUserId) {
+                $query->where('following_user_id', $followingUserId);
+            })
+            ->inRandomOrder()
+            ->take(9)
+            ->get(['id', 'name', 'nim', 'photo_profile_url']);
+    
+        return Inertia::render('Relasi/Profil/Page', [
+            'response' => [
+                'status' => 200,
+                'message' => 'Profile retrieved successfully',
+                'data' => [
+                    'user' => $response,
+                    'random_users' => $randomUsers
+                ]
+            ]
+        ]);
+    }
    
    public function getProfiles(Request $request)
    {

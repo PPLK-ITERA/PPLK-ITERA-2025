@@ -13,7 +13,7 @@ function ProfileCard({ user }: { user: User }) {
             <CardContent className="flex flex-col items-center h-full gap-1 p-4 text-sm font-medium text-center text-black bg-white">
                 <img
                     className="w-24 h-24 bg-gray-400 rounded-full select-none"
-                    src={user.profileImageUrl}
+                    src={user.photo_profile_url}
                     alt={user.name}
                 />
                 <h3 className="line-clamp-1 text-ellipsis mt-4 font-bold">
@@ -21,8 +21,8 @@ function ProfileCard({ user }: { user: User }) {
                 </h3>
                 <p>{user.prodi}</p>
                 <div className="flex gap-1">
-                    <p>{user.namaKelompok}</p>
-                    <p>({user.kelompok})</p>
+                    <p>{user.kelompok.nama_kelompok}</p>
+                    <p>({user.kelompok.no_kelompok})</p>
                 </div>
                 <div className="grow"></div>
                 <a href={route("relasi/profil")}>
