@@ -3,6 +3,7 @@
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
