@@ -3,7 +3,7 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import {
     HeaderFakultasData,
     HeaderFakultasProdiData,
-} from "@/lib/data/fakultas";
+} from "@/lib/data/fakultas"";
 
 type HeaderProps = {
     fakultas: string;

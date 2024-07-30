@@ -11,7 +11,7 @@ import Header from "@/Components/informasi/prodi/Header";
 import { Button } from "@/Components/ui/button";
 import { Card } from "@/Components/ui/card";
 
-import { DataProdiFakultas } from "@/lib/data/fakultas";
+import { DataProdiFakultas } from "@/lib/data/fakultas"";
 import { useAos } from "@/lib/hooks/useAos";
 
 import fakultasSains from "!assets/fakultas-sains.png";

@@ -69,7 +69,7 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className="bg-pattern-white lg:-translate-y-12 relative pt-20">
+            <div className="bg-pattern-white relative pt-20">
                 <div className="relative max-w-5xl mx-auto">
                     <div className="md:flex w-full">
                         <Hero fakultas={selectedFakultas} />
@@ -96,11 +96,9 @@ export default function Page() {
                     <ProgramStudi fakultas={selectedFakultas} />
 
                     <div className="mt-16">
-                        <StrukturOrganisasi />
+                        <StrukturOrganisasi fakultas={selectedFakultas} />
                     </div>
                 </div>
-
-                <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0"></div>
             </div>
 
             <KegiatanUnggulan fakultas={selectedFakultas} />
