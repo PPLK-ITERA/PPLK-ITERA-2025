@@ -39,9 +39,8 @@ Route::middleware('auth')->group(function () {
       Route::get('/relasi/data', [RelasiController::class, 'getProfiles'])->name('relasi.index.search'); // search JSON
       
       Route::get('/relasi/search', [RelasiController::class, 'searchIndex'])->name('relasi.search'); // search page
-
-      Route::get('/relasi/follow/{id}', [RelasiController::class, 'follow'])->name('follow');
-      Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('profile');
+      Route::get('/relasi/follow/{id}', [RelasiController::class, 'follow'])->name('relasi.follow');
+      Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('relasi.profil');
    // });
 
    //melihat my profile

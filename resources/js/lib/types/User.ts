@@ -6,6 +6,7 @@ export interface Kelompok {
 }
 
 export interface User {
+    id: number;
     name: string;
     nim: string;
     prodi: string;

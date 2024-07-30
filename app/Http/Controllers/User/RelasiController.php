@@ -28,6 +28,8 @@ class RelasiController extends Controller
    public function topFollowers()
    {
       $topFollowers = User::withCount('followers')
+         ->where('role_id', 1)
+         ->whereNotNull("kelompok_id")->whereNotNull("penyakit_id")->whereNotNull("prodi_id")
          ->orderBy('followers_count', 'desc')
          ->take(3)
          ->get();
@@ -38,7 +40,7 @@ class RelasiController extends Controller
                'id' => $user->id,
                'name' => $user->name,
                'nim' => $user->nim,
-               'prodi' => $user->prodi,
+               'prodi' => $user->prodi->nama_prodi,
                'photo_profile_url' => asset('storage/' . $user->photo_profile_url),
                'kelompok' => [
                   'nama_kelompok' => $user->kelompok->nama_kelompok,
@@ -53,8 +55,8 @@ class RelasiController extends Controller
 
    public function sort(Request $request)
 {
-    $validOrders = ['viewer', 'followers', 'followings', 'nim', 'name'];
-    $orderBy = $request->input('order_by', 'nim');
+    $validOrders = ['viewer', 'followers', 'followings', 'name'];
+    $orderBy = $request->input('order_by', 'followers');
     $direction = $request->input('direction', 'asc');
 
     if (!in_array($orderBy, $validOrders)) {
@@ -65,7 +67,7 @@ class RelasiController extends Controller
         ]);
     }
 
-    $query = User::with('kelompok')->where('role_id', 1)->whereNotNull("kelompok_id");
+    $query = User::with('kelompok')->where('role_id', 1)->whereNotNull("kelompok_id")->whereNotNull("penyakit_id")->whereNotNull("prodi_id");
 
     switch ($orderBy) {
         case 'followers':
@@ -75,13 +77,13 @@ class RelasiController extends Controller
             $query->withCount('followings')->orderBy('followings_count', $direction);
             break;
         case 'viewer':
-            $query->addSelect('view_count')->orderBy('view_count', $direction);
+            $query->orderBy('view_count', $direction);
             break;
         case 'name':
-            $query->addSelect('name')->orderBy('name', $direction);
+            $query->orderBy('name', $direction);
             break;
         default:
-            $query->orderBy($orderBy, $direction);
+            $query->orderBy('followers', $direction);
     }
 
     $users = $query->get()->transform(function ($user) {
@@ -89,7 +91,7 @@ class RelasiController extends Controller
             'id' => $user->id,
             'name' => $user->name,
             'nim' => $user->nim,
-            'prodi' => $user->prodi,
+            'prodi' => $user->prodi->nama_prodi,
             'photo_profile_url' => $user->photo_profile_url ? asset('storage/' . $user->photo_profile_url) : null,
             'kelompok' => $user->kelompok ? [
                 'nama_kelompok' => $user->kelompok->nama_kelompok,
@@ -101,7 +103,6 @@ class RelasiController extends Controller
 
     return response()->json($users);
 }
-
 
    public function index()
    {
@@ -176,9 +177,10 @@ class RelasiController extends Controller
     
         // Return only the specified attributes
         $response = [
+         'id' => $user->id,
          'name' => $user->name,
          'nim' => $user->nim,
-         'prodi' => $user->prodi,
+         'prodi' => $user->prodi->nama_prodi,
          'photo_profile_url' => asset('storage/' . $user->photo_profile_url),
          'linkedin_url' => $user->linkedin_url,
          'instagram_url' => $user->instagram_url,
@@ -201,10 +203,31 @@ class RelasiController extends Controller
             ->whereDoesntHave('followers', function ($query) use ($followingUserId) {
                 $query->where('following_user_id', $followingUserId);
             })
+            
             ->inRandomOrder()
             ->take(9)
-            ->get(['id', 'name', 'nim', 'photo_profile_url']);
-    
+            ->where('role_id', 1)
+            ->whereNotNull("kelompok_id")
+            ->whereNotNull("penyakit_id")
+            ->whereNotNull("prodi_id")
+            ->get()
+            ->transform(function ($user) {
+                return [
+                  'id' => $user->id,
+                  'name' => $user->name,
+                  'nim' => $user->nim,
+                  'prodi' => $user->prodi->nama_prodi,
+                  'photo_profile_url' => asset('storage/' . $user->photo_user_url),
+                  'kelompok' => [
+                     'nama_kelompok' => $user->kelompok->nama_kelompok,
+                     'no_kelompok' => $user->kelompok->no_kelompok,
+                  ],
+                  'view_count' => $user->view_count,
+                  'followers_count' => $user->followers_count,
+                  'followings_count' => $user->followings_count,
+               ];
+            });
+
         return Inertia::render('Relasi/Profil/Page', [
             'response' => [
                 'status' => 200,
@@ -222,8 +245,8 @@ class RelasiController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
-      $query = User::query()
-         
+      $query = User::query()->where('role_id', 1)
+         ->whereNotNull("kelompok_id")->whereNotNull("penyakit_id")->whereNotNull("prodi_id")
          ->when($searchTerm, function ($query) use ($searchTerm) {
             return $query->where('name', 'like', '%' . $searchTerm . '%')
             ->orWhere('nim', 'like', '%' . $searchTerm . '%');    
@@ -238,12 +261,19 @@ class RelasiController extends Controller
       // Mengubah setiap item untuk menambahkan nomor urut
       $profiles->getCollection()->transform(function ($profile) use (&$currentIndex) {
          return [
-            'id' => $profile->id,
-            'name' => $profile->name,
+         'id' => $profile->id,
+         'name' => $profile->name,
+         'nim' => $profile->nim,
+         'prodi' => $profile->prodi->nama_prodi,
+         'photo_profile_url' => asset('storage/' . $profile->photo_profile_url),
+         'kelompok' => [
             'nama_kelompok' => $profile->kelompok->nama_kelompok,
             'no_kelompok' => $profile->kelompok->no_kelompok,
-            'photo_profile_url' => $profile->photo_profile_url,
-         ];
+         ],
+         'view_count' => $profile->view_count,
+         'followers_count' => $profile->followers_count,
+         'followings_count' => $profile->followings_count,
+        ];
       });
       
       return response()->json($profiles);

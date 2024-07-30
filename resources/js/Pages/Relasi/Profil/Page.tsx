@@ -41,8 +41,6 @@ function Page({ response }) {
     const sugesstedUsers: User[] = response.data.random_users;
     const user: User = response.data.user;
 
-    console.log("response", response);
-
     return (
         <div className="bg-pattern-white flex flex-col w-full min-h-screen">
             <div>
@@ -53,7 +51,7 @@ function Page({ response }) {
                         <div className="flex flex-col justify-between gap-4">
                             <div>
                                 <img
-                                    className="aspect-square max-md:w-36 object-cover w-48 border-2 rounded-full select-none"
+                                    className="aspect-square max-md:w-36 object-cover w-48 border-2 rounded-full select-none bg-gray-400"
                                     src={user.photo_profile_url}
                                     alt={user.name}
                                 />
@@ -184,7 +182,10 @@ function Page({ response }) {
                                         data-aos-delay={(i + 1) * 100}
                                         className="basis-48 md:basis-1/4 xl:basis-1/5 mt-2 mb-8 text-center"
                                     >
-                                        <ProfileCard user={u} />
+                                        <ProfileCard
+                                            className="w-full h-full"
+                                            user={u}
+                                        />
                                     </CarouselItem>
                                 ))}
                                 <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 mt-2 mb-8">
@@ -199,7 +200,7 @@ function Page({ response }) {
                                             <p className="font-bold text-center">
                                                 Temukan Nusantara Muda Lainnya!
                                             </p>
-                                            <a href={route("relasi")}>
+                                            <a href={route("relasi.index")}>
                                                 <Button className="w-full bg-[#ECAA25] text-black border border-black font-semibold text-xs">
                                                     Selengkapnya
                                                 </Button>

@@ -30,6 +30,7 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 import { Input } from "@/Components/ui/input";
+import { Progress } from "@/Components/ui/progress";
 
 import { fetchSort, fetchTopFollowers } from "@/lib/data/relasi";
 import { useAos } from "@/lib/hooks/useAos";
@@ -50,7 +51,7 @@ function Page() {
     const [sortLoading, setSortLoading] = useState(false);
     const [topLoading, setTopLoading] = useState(false);
     const [topFollowers, setTopFollowers] = useState<User[]>([]);
-    const [users, setUsers] = useState<User[]>([]);
+    const [users, setUsers] = useState<Partial<User>[]>([]);
     const [sort, setSort] = useState<
         "viewer" | "followers" | "followings" | "name"
     >("followers");
@@ -71,11 +72,6 @@ function Page() {
         mFetchTopFollowers();
         mFetchSort("followers", "desc");
     }, []);
-
-    useEffect(() => {
-        console.log("topFollowers", topFollowers);
-        console.log("users", users);
-    }, [topFollowers, users]);
 
     useEffect(() => {
         let direction = "desc";
@@ -110,7 +106,9 @@ function Page() {
                     </div>
 
                     <div className="w-full max-w-2xl mx-auto">
-                        {/* {topLoading ? null : (
+                        {topLoading ? (
+                            <Progress />
+                        ) : (
                             <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
                                 <TopUser
                                     user={topFollowers[1]}
@@ -128,7 +126,7 @@ function Page() {
                                     podiumHeight={144}
                                 />
                             </div>
-                        )} */}
+                        )}
                         <div className="bg-moccaccino-700 w-full h-1"></div>
                     </div>
                     <div className="w-full max-w-5xl mx-auto">
@@ -141,7 +139,11 @@ function Page() {
                                 setSort={setSort}
                             />
                         </div>
-                        {!sortLoading && <UserList users={users} />}
+                        {sortLoading ? (
+                            <Progress /> // Display a loading message or spinner
+                        ) : (
+                            <UserList users={users} />
+                        )}
                     </div>
                     <div className="flex justify-center">
                         <Button className="mx-1">1</Button>
