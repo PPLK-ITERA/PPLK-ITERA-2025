@@ -1,3 +1,4 @@
+import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import React from "react";
@@ -43,6 +44,15 @@ export default function Navbar({
     const { auth } = usePage<MyPage>().props;
 
     const [isScrolled, setIsScrolled] = React.useState(false);
+    const tawkMessengerRef = React.useRef(null);
+
+    const onLoad = () => {
+        // @ts-ignore
+        tawkMessengerRef.current.visitor({
+            name: "Jamal",
+            email: "jamal@pplk.com",
+        });
+    };
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -167,6 +177,10 @@ export default function Navbar({
                                 >
                                     <Link
                                         href={route("logout")}
+                                        onClick={() => {
+                                            // @ts-ignore
+                                            window.location.reload();
+                                        }}
                                         method="post"
                                         className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                                     >
@@ -189,6 +203,15 @@ export default function Navbar({
                         </Link>
                     )}
                 </div>
+
+                {auth.user ? (
+                    <TawkMessengerReact
+                        propertyId="6686a5989d7f358570d71120"
+                        widgetId="1i1uvdnf7"
+                        onLoad={onLoad}
+                        ref={tawkMessengerRef}
+                    />
+                ) : null}
             </MaxWidthWrapper>
         </nav>
     );

@@ -27,7 +27,7 @@ Route::prefix('api')->group(function () {
    Route::post('check-answers/{id}', [QuizAnswerController::class, 'checkAnswers']);
    Route::get('/test', [QuizAnswerController::class, 'test']);
    //membuka status gedung
-   // Route::get('/unlock-gedung/{id}', [UnlockStatusController::class, 'unlockGedung']);//ini done
+   Route::get('/unlock-gedung/{id}', [UnlockStatusController::class, 'unlockGedung']);//ini done
    //melihat gedung yang terbuka dan tertutup
    Route::get('/gedung/{id}', [UnlockStatusController::class, 'getGedungAvailable']);//ini done
    // //score user

@@ -5,7 +5,7 @@ import Visi from "./Visi";
 
 import React from "react";
 
-import logoPplk from "!assets/logo-pplk-2024.png";
+import logoPplk from "!assets/logo-pplk-hd.png";
 
 export default function Hero() {
     return (

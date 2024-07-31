@@ -1,34 +1,24 @@
+export interface Kelompok {
+    nama_kelompok: string;
+    no_kelompok: string;
+    daplok: string;
+    mentor: string;
+}
+
 export interface User {
     id: number;
     name: string;
-    followers: number;
-    following: number;
-    viewer: number;
-    nim: number;
+    nim: string;
     prodi: string;
-    kelompok: number;
-    namaKelompok: string;
+    role: string;
+    photo_profile_url: string;
+    linkedin_url: string;
+    instagram_url: string;
+    kelompok: Kelompok;
+    pilar: string;
+    view_count: number;
+    followers_count: number;
+    followings_count: number;
     bio: string;
-    profileImageUrl: string;
-    linkedinUrl: string;
-    instagramUrl: string;
-    role_id: number;
-}
-
-export interface UserMaba {
-    no: number; // Assuming 'no' is a number
-    id: number; // Assuming 'id' is a number
-    user: {
-        name: string;
-        nim: string;
-        email: string;
-        role: string;
-    };
-}
-
-export interface UserAuthProps {
-    email: string;
-    id: number;
-    name: string;
-    role_id: number;
+    qrcode: string;
 }

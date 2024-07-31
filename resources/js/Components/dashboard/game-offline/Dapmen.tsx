@@ -1,5 +1,4 @@
 import { QRCodeSVG } from "qrcode.react";
-import QRCode from "react-qr-code";
 
 import React, { useState } from "react";
 

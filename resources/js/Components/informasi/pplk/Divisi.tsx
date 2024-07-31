@@ -7,7 +7,7 @@ const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const Divisi = () => {
     const [visibleCount, setVisibleCount] = useState(4);
 
-    const itemPerLoad = 3;
+    const itemPerLoad = 4;
 
     const loadMore = () => setVisibleCount((count) => count + itemPerLoad);
 

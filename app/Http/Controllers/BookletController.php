@@ -68,12 +68,12 @@ class BookletController extends Controller
          DB::commit();
       } catch (\Throwable $th) {
          DB::rollBack();
-         return redirect()->route('booklet.index')->with('response', [
+         return redirect()->route('dashboard.booklet.index')->with('response', [
             'status' => 500,
             'message' => 'Gagal menambahkan data',
          ]);
       }
-      return redirect()->route('booklet.index')->with('response', [
+      return redirect()->route('dashboard.booklet.index')->with('response', [
          'status' => 201,
          'message' => 'Berhasil menambahkan data',
       ]);
@@ -89,7 +89,7 @@ class BookletController extends Controller
 
       $booklet = Booklet::find($validated['id']);
       if (!$booklet) {
-         return redirect()->route('booklet.index')->with('response', [
+         return redirect()->route('dashboard.booklet.index')->with('response', [
             'status' => 404,
             'message' => 'Data tidak ditemukan',
          ]);
@@ -101,18 +101,18 @@ class BookletController extends Controller
          DB::commit();
       } catch (\Throwable $th) {
          DB::rollBack();
-         return redirect()->route('booklet.index')->with('response', [
+         return redirect()->route('dashboard.booklet.index')->with('response', [
             'status' => 500,
             'message' => 'Gagal mengubah data',
          ]);
       }
-      return redirect()->route('booklet.index')->with('response', [
+      return redirect()->route('dashboard.booklet.index')->with('response', [
          'status' => 201,
          'message' => 'Berhasil mengubah data',
       ]);
    }
 
-   public function delete(Request $request)
+   public function destroy(Request $request)
    {
       $validated = $request->validate([
          'id' => 'required|integer|exists:booklets',
@@ -123,12 +123,12 @@ class BookletController extends Controller
          DB::commit();
       } catch (\Exception $e) {
          DB::rollBack();
-         return redirect()->route('booklet.index')->with('response', [
+         return redirect()->route('dashboard.booklet.index')->with('response', [
             'status' => 500,
             'message' => 'Gagal menghapus data',
          ]);
       }
-      return redirect()->route('booklet.index')->with('response', [
+      return redirect()->route('dashboard.booklet.index')->with('response', [
          'status' => 201,
          'message' => 'Berhasil menghapus data',
       ]);

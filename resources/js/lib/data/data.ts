@@ -76,6 +76,13 @@ export const navItems: NavItem[] = [
         role_id: [1, 2, 3, 4, 5, 6, 7],
     },
     {
+        title: "Materi",
+        href: "/dashboard/materi",
+        icon: "books",
+        label: "atur-materi",
+        role_id: [1, 2, 3, 4, 5, 6, 7],
+    },
+    {
         title: "FAQ",
         href: "/dashboard/faq",
         icon: "question",

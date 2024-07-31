@@ -2,6 +2,7 @@ import {
     IconBallFootball,
     IconBallpen,
     IconBook,
+    IconBooks,
     IconBuildingCommunity,
     IconBuildingSkyscraper,
     IconCrown,
@@ -93,6 +94,11 @@ export const MabaDropDown = [
     {
         title: "Booklet PPLK",
         href: "/booklet",
+        icon: <IconBooks size={24} color="#fcedd8" />,
+    },
+    {
+        title: "Materi PPLK",
+        href: "/materi",
         icon: <IconBook size={24} color="#fcedd8" />,
     },
 ];
@@ -100,7 +106,7 @@ export const MabaDropDown = [
 export const UserDropdown = [
     {
         title: "Profil Kamu",
-        href: route("my-profile"),
+        href: route("myprofile"),
         icon: <IconUserCircle size={24} color="#fcedd8" />,
     },
     {

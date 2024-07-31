@@ -35,9 +35,9 @@ import {
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
-type Props = { options: { label: string; value: string }[] };
+type Props = { options: { label: string; value: string }[]; setSort };
 
-export default function SortDropdown({ options }: Props) {
+export default function SortDropdown({ options, setSort }: Props) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -54,6 +54,7 @@ export default function SortDropdown({ options }: Props) {
                     {options.map((option) => (
                         <DropdownMenuItem
                             key={option.value}
+                            onClick={() => setSort(option.value)}
                             className="place-content-end hover:bg-jaffa-200 px-2"
                         >
                             <span className="font-semibold">

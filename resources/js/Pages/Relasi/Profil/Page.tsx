@@ -6,7 +6,12 @@ import { Link } from "@inertiajs/react";
 
 import { UserPlus } from "lucide-react";
 
-import { IconMoodAngry, IconMoodSearch } from "@tabler/icons-react";
+import {
+    IconBrandInstagram,
+    IconBrandLinkedin,
+    IconMoodAngry,
+    IconMoodSearch,
+} from "@tabler/icons-react";
 
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
@@ -22,60 +27,86 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 
-import { users } from "@/lib/data/user";
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 
 import instagramIcon from "!assets/svg/instagram.svg";
 import linkedinIcon from "!assets/svg/linkedin.svg";
 
-const Page: React.FC = () => {
+// type Props = { response };
+
+function Page({ response }) {
     useAos();
 
-    const user = users[0];
+    const sugesstedUsers: User[] = response.data.random_users;
+    const user: User = response.data.user;
 
     return (
         <div className="bg-pattern-white flex flex-col w-full min-h-screen">
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 mx-auto text-base text-black">
+                <div className="max-w-7xl font-montserrat md:text-md md:mt-16 flex flex-col gap-8 px-2 py-16 mx-auto text-base text-black">
                     <div className="max-md:flex-col max-md:text-center max-md:items-center place-content-center flex w-full max-w-5xl gap-8 mx-auto">
                         <div className="flex flex-col justify-between gap-4">
                             <div>
                                 <img
-                                    className="aspect-square max-md:w-36 object-cover w-48 bg-gray-400 rounded-full select-none"
-                                    src={user.profileImageUrl}
+                                    className="aspect-square max-md:w-36 object-cover w-48 border-2 rounded-full select-none bg-gray-400"
+                                    src={user.photo_profile_url}
                                     alt={user.name}
                                 />
                                 <p className="max-md:hidden mt-2 text-center">
                                     <span className="font-bold">
-                                        {user.viewer}
+                                        {user.view_count}
                                     </span>{" "}
                                     viewers
                                 </p>
                             </div>
-                            <Button className="max-md:hidden w-full bg-[#ECAA25] border border-black text-black">
+
+                            <Button className="max-md:hidden w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out border border-black text-black">
                                 <UserPlus className="w-6 h-6 mr-2" />
                                 <p className="font-bold">Ikuti</p>
                             </Button>
                         </div>
+
                         <div className="flex flex-col justify-between w-full md:w-[28rem]">
-                            <div className="flex flex-col gap-2">
+                            <div className="md:hidden place-content-center flex flex-wrap w-full gap-8 my-4 text-sm">
+                                <p>
+                                    <span className="block font-bold">
+                                        {user.view_count}
+                                    </span>{" "}
+                                    viewers
+                                </p>
+                                <p>
+                                    <span className="block font-bold">
+                                        {user.followers_count}
+                                    </span>{" "}
+                                    Followers
+                                </p>
+                                <p>
+                                    <span className="block font-bold">
+                                        {user.followings_count}
+                                    </span>{" "}
+                                    Following
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col gap-2 mt-1">
                                 <div className="max-md:hidden flex gap-12">
                                     <p>
                                         <span className="font-bold">
-                                            {user.followers}
+                                            {user.followers_count}
                                         </span>{" "}
                                         Followers
                                     </p>
                                     <p>
                                         <span className="font-bold">
-                                            {user.following}
+                                            {user.followings_count}
                                         </span>{" "}
                                         Following
                                     </p>
                                 </div>
+
                                 <h3 className="font-bold">{user.name}</h3>
                                 <div className="md:gap-1 flex flex-col">
                                     <p className="font-semibold">{user.nim}</p>
@@ -84,10 +115,10 @@ const Page: React.FC = () => {
                                     </p>
                                     <div className="max-md:place-content-center flex gap-2">
                                         <p className="font-semibold">
-                                            {user.namaKelompok}
+                                            {user.kelompok.nama_kelompok}
                                         </p>
                                         <p className="font-semibold">
-                                            ({user.kelompok})
+                                            ({user.kelompok.no_kelompok})
                                         </p>
                                     </div>
                                 </div>
@@ -96,48 +127,43 @@ const Page: React.FC = () => {
                                 </p>
                             </div>
 
-                            <div className="md:hidden place-content-center flex flex-wrap w-full gap-8 my-4 text-sm">
-                                <p>
-                                    <span className="block font-bold">
-                                        {user.viewer}
-                                    </span>{" "}
-                                    viewers
-                                </p>
-                                <p>
-                                    <span className="block font-bold">
-                                        {user.followers}
-                                    </span>{" "}
-                                    Followers
-                                </p>
-                                <p>
-                                    <span className="block font-bold">
-                                        {user.following}
-                                    </span>{" "}
-                                    Following
-                                </p>
+                            <div className="md:w-fit md:mx-0 flex gap-4 mx-auto mt-5">
+                                <a
+                                    className={`w-full flex gap-1 justify-center items-center p-1 rounded-md bg-trasnparent border bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black`}
+                                    href={user.instagram_url}
+                                    target="_blank"
+                                >
+                                    <IconBrandInstagram
+                                        size={32}
+                                        color="black"
+                                        stroke={1.8}
+                                    />
+                                    <span className="md:text-[14px] text-[10px] font-semibold hidden md:block">
+                                        @nusantaramuda
+                                    </span>
+                                </a>
+
+                                <a
+                                    className={`w-full flex gap-1 justify-center items-center p-1 rounded-md bg-trasnparent border bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black`}
+                                    href={user.linkedin_url}
+                                    target="_blank"
+                                >
+                                    <IconBrandLinkedin
+                                        size={32}
+                                        color="black"
+                                        stroke={1.8}
+                                    />
+
+                                    <span className="md:text-[14px] text-[10px] font-semibold hidden md:block">
+                                        Nusantara Muda
+                                    </span>
+                                </a>
                             </div>
 
-                            <Button className="md:hidden mb-4 w-full bg-[#ECAA25] border border-black text-black">
+                            <Button className="md:hidden mb-4 mt-5 w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out     border border-black text-black">
                                 <UserPlus className="w-6 h-6 mr-2" />
                                 <p className="font-bold">Ikuti</p>
                             </Button>
-
-                            <div className="flex gap-4">
-                                <a
-                                    className={`${buttonVariants()} w-full bg-white border border-[#ECAA25] text-black`}
-                                    href={user.instagramUrl}
-                                    target="_blank"
-                                >
-                                    <img src={instagramIcon} />
-                                </a>
-                                <a
-                                    className={`${buttonVariants()} w-full bg-white border border-[#ECAA25] text-black`}
-                                    href={user.linkedinUrl}
-                                    target="_blank"
-                                >
-                                    <img src={linkedinIcon} />
-                                </a>
-                            </div>
                         </div>
                     </div>
 
@@ -148,15 +174,18 @@ const Page: React.FC = () => {
 
                     <div className="w-4/5 max-w-6xl mx-auto">
                         <Carousel>
-                            <CarouselContent className="text-sm">
-                                {users.slice(0, 9).map((u, i) => (
+                            <CarouselContent className="px-2 text-sm">
+                                {sugesstedUsers.slice(0, 9).map((u, i) => (
                                     <CarouselItem
                                         data-aos="fade-up"
                                         data-aos-duration={800}
                                         data-aos-delay={(i + 1) * 100}
                                         className="basis-48 md:basis-1/4 xl:basis-1/5 mt-2 mb-8 text-center"
                                     >
-                                        <ProfileCard user={u} />
+                                        <ProfileCard
+                                            className="w-full h-full"
+                                            user={u}
+                                        />
                                     </CarouselItem>
                                 ))}
                                 <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 mt-2 mb-8">
@@ -171,7 +200,7 @@ const Page: React.FC = () => {
                                             <p className="font-bold text-center">
                                                 Temukan Nusantara Muda Lainnya!
                                             </p>
-                                            <a href={route("relasi")}>
+                                            <a href={route("relasi.index")}>
                                                 <Button className="w-full bg-[#ECAA25] text-black border border-black font-semibold text-xs">
                                                     Selengkapnya
                                                 </Button>
@@ -190,6 +219,6 @@ const Page: React.FC = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Page;

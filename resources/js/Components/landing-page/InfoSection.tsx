@@ -1,29 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "@inertiajs/react";
 
 import { InformasiInfoSection } from "@/lib/data/data";
 
-const dataInfoSection = [{}];
+const dataInfoSection = [
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA disahkan pada 06 oktober 2014 oleh Susilo Bambang Yudhoyono",
+        additional: "(Presiden RI Periode 2004-2014)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description: "ITERA merupakan Kampus paling hijau di Sumatera",
+        additional: "(Menurut data dari Kementrian Lingkungan Hidup)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description: "ITERA adalah satu-satunya Kampus Institut di Sumatera",
+        additional: "(Presiden RI Periode 2004-2014)",
+    },
+];
 
 export default function InfoSection() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(
+                (prevIndex) => (prevIndex + 1) % dataInfoSection.length,
+            );
+        }, 3000); // Change index every 3 seconds
+
+        // Cleanup the interval on component unmount
+        return () => clearInterval(interval);
+    }, []);
+
+    const currentData = dataInfoSection[currentIndex];
+
     return (
         <div className="flex h-full items-center justify-center px-2.5 lg:min-h-screen">
             <div className="flex flex-col rounded-md bg-jaffa-200 md:w-[700px] md:rounded-[24px] lg:h-[750px] lg:w-[900px] xl:h-[700px] xl:w-[1200px]">
-                <div className="flex flex-col rounded-md bg-flower-pattern md:h-[350px] md:rounded-[24px] lg:h-[475px]">
-                    <div className="flex h-full w-full flex-col items-center justify-center rounded-md bg-gradient-to-r from-jaffa-700/90 to-jaffa-800/90 px-4 md:rounded-[24px] md:px-[10%]">
-                        <div className="flex flex-col py-10">
+                <div className="flex flex-col rounded-md bg-flower-pattern h-[400px] md:h-[350px] md:rounded-[24px] lg:h-[475px]">
+                    <div className="flex h-full w-full flex-col items-center justify-center rounded-md bg-gradient-to-r from-jaffa-700/90 to-jaffa-800/90 px-4 md:rounded-[24px] py-10 md:px-[10%]">
+                        <div className="flex flex-col items-start w-full">
                             <h2 className="text-start font-avigea md:text-5xl lg:text-6xl w-full text-2xl text-white">
-                                Tahukah Kamu?
+                                {currentData.title}
                             </h2>
 
                             <p className="text-16px mt-5 w-full font-montserrat font-normal text-white/80 md:text-xl lg:max-w-[80%]">
-                                ITERA disahkan pada 06 oktober 2014 oleh Susilo
-                                Bambang Yudhoyono
+                                {currentData.description}
                             </p>
 
-                            <p className="mt-10 font-montserrat text-[16px] font-normal text-white/80 lg:max-w-[80%]">
-                                (Presiden RI Periode 2004-2014)
+                            <p className="mt-10 font-montserrat text-[10px] md:text-[16px] font-normal text-white/80 lg:max-w-[80%]">
+                                {currentData.additional}
                             </p>
                         </div>
                     </div>

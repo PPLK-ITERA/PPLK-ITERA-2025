@@ -3,6 +3,7 @@
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -129,7 +130,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Profile (Auth)
    // =====================================
-   // Route::get('profile', function () {
+   // Route::get('my-profile', function () {
    //    return Inertia::render('Profile/Page');
    // })->name('my-profile');
 
@@ -169,9 +170,9 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard User (Auth)
    // =====================================
-   Route::get('dashboard/user', function () {
-      return Inertia::render('Dashboard/user/Page');
-   })->name('dashboard/user');
+   // Route::get('dashboard/user', function () {
+   //    return Inertia::render('Dashboard/user/Page');
+   // })->name('dashboard/user');
 
 
    // =====================================
@@ -211,7 +212,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    Route::get('dashboard/absensi-maba', function () {
       return Inertia::render('Dashboard/absensi-maba/Page');
-   })->name('dashboard/absensi-maba');
+   })->name('dashboard.absensi-maba');
 
 
    // =====================================
@@ -222,42 +223,21 @@ Route::middleware('auth')->group(function () {
       'index'
    ])->name('dashboard.faq');
 
-   Route::post('dashboard/faq', [
-      FAQController::class,
-      'store'
-   ])->name('dashboard.faq.store');
-
-   Route::put('dashboard/faq', [
-      FAQController::class,
-      'update'
-   ])->name('dashboard.faq.update');
-
-   Route::delete('dashboard/faq', [
-      FAQController::class,
-      'destroy'
-   ])->name('dashboard.faq.destroy');
-
-   Route::get('dashboard/faqs', [
-      FAQController::class,
-      'getAllFAQ'
-   ])->name('dashboard.faq.data');
-
-
 
    // =====================================
    // Dashboard Booklet (Auth)
    // =====================================
-   Route::get('dashboard/booklet', function () {
-      return Inertia::render('Dashboard/booklet/Page');
-   })->name('dashboard/booklet');
+   // Route::get('dashboard/booklet', function () {
+   //    return Inertia::render('Dashboard/booklet/Page');
+   // })->name('dashboard/booklet');
 
 
    // =====================================
    // Dashboard Mading (Auth)
    // =====================================
-   // Route::get('dashboard/mading', function () {
-   //    return Inertia::render('Dashboard/mading/Page');
-   // })->name('dashboard/mading');
+   Route::get('dashboard/mading', function () {
+      return Inertia::render('Dashboard/mading/Page');
+   })->name('dashboard/mading');
 
 
    // =====================================
@@ -305,18 +285,21 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Relasi (Auth)
    // =====================================
-   Route::get('relasi', function () {
-      return Inertia::render('Relasi/Page');
-   })->name('relasi');
+   // Route::get('relasi', function () {
+   //    return Inertia::render('Relasi/Page');
+   // })->name('relasi');
 
-   Route::get('relasi/search', function () {
-      return Inertia::render('Relasi/Search/Page');
-   })->name('relasi/search');
+   // Route::get('relasi/search', function () {
+   //    return Inertia::render('Relasi/Search/Page');
+   // })->name('relasi/search');
 
-   Route::get('relasi/profil', function () {
-      return Inertia::render('Relasi/Profil/Page');
-   })->name('relasi/profil');
+   // Route::get('relasi/profil/{id}', function (int $id) {
+   //    return Inertia::render('Relasi/Profil/Page', [
+   //       'id' => $id
+   //    ]);
+   // })->name('relasi/profil');
 
+   
 
    // =====================================
    // Game Offline (Auth)
