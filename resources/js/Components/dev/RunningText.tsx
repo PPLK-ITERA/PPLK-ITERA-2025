@@ -16,7 +16,8 @@ export default function RunningText({ title, className, delay = 100 }: Props) {
 
     return (
         <div>
-            <h1 className={className}>{runningTitle}</h1>
+            <h1 className={`h-0 w-full opacity-0 ${className}`}>{runningTitle}</h1>
+            <h1 className={`${className}`}>{runningTitle}</h1>
         </div>
     );
 }
