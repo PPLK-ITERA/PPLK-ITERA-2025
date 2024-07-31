@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pilar extends Model
+class Pilar extends Model
 {
     use HasFactory;
     protected $table = 'pilar';
@@ -14,10 +14,12 @@ class pilar extends Model
         'pilar_name',
     ];
     protected $hidden = [
-        'created_at', 'updated_at'
+        'created_at',
+        'updated_at'
     ];
 
-    public function users(){
+    public function users()
+    {
         return $this->hasMany(User::class);
     }
 }

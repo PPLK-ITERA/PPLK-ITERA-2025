@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AssesmenController;
+use App\Http\Controllers\Pilar\AnswerController;
+use App\Http\Controllers\Pilar\PilarController;
+use App\Http\Controllers\Pilar\QuestionController;
+use App\Http\Controllers\Pilar\ResultController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +56,11 @@ Route::middleware('auth')->group(function () {
    // Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
    // Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
    // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
+   //Assesmen Route
+   Route::get('/questions', [QuestionController::class, 'index'])->name('assesmen.question');
+   Route::get('/question/{question_id}/answer/{answer_id}', [AnswerController::class, 'store'])->name('assesmen.answer');
+   Route::get('/result', [PilarController::class, 'index'])->name('assesmen.result');
+   Route::get('/result/reset', [ResultController::class, 'reset'])->name('assesmen.reset');
 });
 
 require __DIR__ . '/auth.php';
