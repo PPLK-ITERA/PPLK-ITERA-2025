@@ -57,10 +57,14 @@ Route::middleware('auth')->group(function () {
    // Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
    // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
    //Assesmen Route
-   Route::get('/questions', [QuestionController::class, 'index'])->name('assesmen.question');
-   Route::get('/question/{question_id}/answer/{answer_id}', [AnswerController::class, 'store'])->name('assesmen.answer');
-   Route::get('/result', [PilarController::class, 'index'])->name('assesmen.result');
+   Route::get('/questions', [QuestionController::class, 'getQuestions'])->name('assesmen.question');
+   Route::post('/question/{question_id}/answer/{answer_id}', [AnswerController::class, 'store'])->name('assesmen.answer');
+   Route::get('/asesmen/result', [PilarController::class, 'index'])->name('assesmen.result');
    Route::get('/result/reset', [ResultController::class, 'reset'])->name('assesmen.reset');
+
+   Route::get('/csrf-token', function (Request $request) {
+      return response()->json(['csrfToken' => csrf_token()]);
+   })->name("csrf");
 });
 
 require __DIR__ . '/auth.php';

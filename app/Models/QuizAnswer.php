@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class quiz_answer extends Model
+class QuizAnswer extends Model
 {
     use HasFactory;
     protected $table ='quiz_answer';
@@ -18,6 +18,6 @@ class quiz_answer extends Model
         'created_at', 'updated_at'
     ];
     public function quiz(){
-        return $this->hasMany(quiz::class,'question_id','id');
+        return $this->hasMany(Quiz::class,'question_id','id');
     }
 }

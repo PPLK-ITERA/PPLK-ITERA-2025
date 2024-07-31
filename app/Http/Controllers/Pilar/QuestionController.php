@@ -12,6 +12,11 @@ class QuestionController extends Controller
 {
     public function index()
     {
+        return Inertia::render('Asesmen/Page');
+    }
+
+    public function getQuestions()
+    {
         $result = auth()->user()->result;
         if (!$result) {
             Result::create([
@@ -20,11 +25,8 @@ class QuestionController extends Controller
             ]);
         }
 
-        $questions = Question::all();
-        foreach ($questions as $question) {
-            $answers = $question->Answers;
-            $question->setRelation('Answers', collect($answers));
-        }
+        $questions = Question::with('Answers')->get();
+        
         return response()->json([
             'status' => 200,
             'message' => 'Success',

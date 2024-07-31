@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class quiz extends Model
+class Quiz extends Model
 {
     use HasFactory;
     protected $table ='quiz';
@@ -18,7 +18,7 @@ class quiz extends Model
         'created_at', 'updated_at'
     ];
     public function QuizAnswer(){
-        return $this->hasOne(quiz_answer::class,'question_id','id');
+        return $this->hasOne(QuizAnswer::class,'question_id','id');
     }
     public function QuizActivity(){
         return $this->hasOne(QuizActivity::class,'gedung_id','id');

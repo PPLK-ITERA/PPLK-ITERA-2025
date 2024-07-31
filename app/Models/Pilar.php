@@ -23,3 +23,5 @@ class Pilar extends Model
         return $this->hasMany(User::class);
     }
 }
+
+

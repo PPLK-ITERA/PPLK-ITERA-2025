@@ -23,23 +23,16 @@ class PilarController extends Controller
             $pilarIndex = max($indices);
             $pilar = Pilar::find($pilarIndex + 1);
         }
-        return response()->json([
-            'status' => 200,
-            'message' => 'Success',
-            'data' => [
-                'result' => $result,
-                'pilar' => $pilar
+
+        return Inertia::render('Asesmen/Result/Page', [
+            'response' => [
+                'status' => 200,
+                'message' => 'Success',
+                'data' => [
+                    'result' => $result,
+                    'pilar' => $pilar
+                ]
             ]
         ]);
-        // return Inertia::render('Pilar/Page', [
-        //     'response' => [
-        //         'status' => 200,
-        //         'message' => 'Success',
-        //         'data' => [
-        //             'result' => $result,
-        //             'pilar' => $pilar
-        //         ]
-        //     ]
-        // ]);
     }
 }

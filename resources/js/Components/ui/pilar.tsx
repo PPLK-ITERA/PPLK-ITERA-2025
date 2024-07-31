@@ -15,7 +15,7 @@ const Pilar = ({
                 <p className={`${className} text-lg font-bold`}>
                     Pilar {angka} :{" "}
                 </p>
-                <p className="self-end text-xs text-[#432005]">{hasil}/18</p>
+                <p className="self-end text-xs text-[#432005]">{hasil}/10</p>
             </div>
         </div>
     );

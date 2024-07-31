@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\gedung;
+use App\Models\Gedung;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -69,6 +69,6 @@ class GedungSeeder extends Seeder
 
         ];
 
-        gedung::query()->insert($gedungs);
+        Gedung::query()->insert($gedungs);
     }
 }
