@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -90,6 +91,10 @@
         src: local("FestivalBudaya"),
             url("!assets/fonts/Festival-Budaya/FestivalBudayaXXXI.otf");
     }
+    @font-face {
+        font-family: "novaMono";
+        src: local("NovaMono"), url("!assets/fonts/NovaMono/NovaMono.ttf");
+    }
 }
 
 html {
@@ -125,3 +130,4 @@ html {
     background: #90381c;
     opacity: 0.8;
 }
+
