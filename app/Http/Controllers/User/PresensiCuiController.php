@@ -171,29 +171,32 @@ class PresensiCuiController extends Controller
       ]);
    }
 
-   public function getMabaByNim(Request $request)
+   public function getMabaByNim($nim)
    {
-      $validated = $request->validate([
-         'nim' => 'required|string',
-      ]);
-      $user = User::where('nim', $validated['nim'])->first();
+      $validator = \Validator::make(
+         ['nim' => $nim],
+         [
+            'nim' => 'required|string|digits:9',
+         ],[
+            'nim' => 'NIM harus berupa 9 digit angka!'
+         ]
+      );
+
+      if ($validator->fails()) {
+         return response()->json([
+            'message' => $validator->errors()->first('nim') // Mengembalikan error pertama terkait NIM
+         ], 422);
+      }
+
+      $user = User::where('nim', $nim)->first();
       if (!$user) {
-         return Inertia::render(
-            'Dashboard/cui/Page',
-            [
-               'response' => [
-                  'status' => 404,
-                  'message' => 'NIM ' . $validated['nim'] . ' tidak ditemukan',
-                  'data' => null
-               ]
-            ]
-         );
+         return response()->json(['message' => 'NIM ' . $nim . ' tidak ditemukan'], 404);
       }
       $log = LogCui::where('user_id', $user->id)->latest('created_at');
       $qrcode = Qrcode::where('user_id', $user->id)->first()->code;
 
       $response = [
-         'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
+         'message' => 'Berhasil mendapatkan NIM ' . $nim,
          'nama' => $user->name,
          'nim' => $user->nim,
          'profil_url' => $user->photo_profile_url,
@@ -203,16 +206,19 @@ class PresensiCuiController extends Controller
          'qr_code' => $qrcode,
          'status' => $log->first()->status ?? null,
       ];
-      return Inertia::render(
-         'Dashboard/cui/Page',
-         [
-            'response' => [
-               'status' => 200,
-               'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
-               'data' => $response
-            ]
-         ]
+      return response()->json(
+         ['message' => 'Berhasil mendapatkan NIM ' . $nim, 'data' => $response]
       );
+      // return Inertia::render(
+      //    'Dashboard/cui/Page',
+      //    [
+      //       'response' => [
+      //          'status' => 200,
+      //          'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
+      //          'data' => $response
+      //       ]
+      //    ]
+      // );
    }
    public function index(Request $request)
    {

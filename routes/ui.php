@@ -262,7 +262,7 @@ Route::middleware('auth')->group(function () {
    Route::get('dashboard/cui/data', [PresensiCuiController::class, 'getLogBook'])
       ->name('dashboard.cui.data');
 
-   Route::post('dashboard/cui', [PresensiCuiController::class, 'getMabaByNim']);
+   Route::get('dashboard/cui/{nim}', [PresensiCuiController::class, 'getMabaByNim'])->name('dashboard.cui.detail');
 
    Route::get('dashboard/cui/izin/{nim}', [PresensiCuiController::class, 'indexIzin'])
       ->name('dashboard.cui.izin');
@@ -301,7 +301,7 @@ Route::middleware('auth')->group(function () {
    //    ]);
    // })->name('relasi/profil');
 
-   
+
 
    // =====================================
    // Game Offline (Auth)
