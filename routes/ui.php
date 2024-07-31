@@ -7,13 +7,6 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 // =====================================
-// ASESMEN (Guest)
-// =====================================
-Route::get('asesmen', function () {
-   return Inertia::render('Asesmen/Page');
-})->name('asesmen');
-
-// =====================================
 // FAKULTAS (Guest)
 // =====================================
 Route::get('informasi/fakultas', function () {

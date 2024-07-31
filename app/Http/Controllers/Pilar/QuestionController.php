@@ -13,6 +13,11 @@ class QuestionController extends Controller
 {
     public function index()
     {
+        $answered_activities = AnswerActivity::where('user_id', auth()->user()->id)->get();
+        if ($answered_activities->count() == 15) {
+            return to_route('asesmen.result');
+        }
+
         return Inertia::render('Asesmen/Page');
     }
 
@@ -27,26 +32,16 @@ class QuestionController extends Controller
         }
         $questions = Question::with('Answers')->get();
 
-        $answered_activities = AnswerActivity::where('user_id', auth()->user()->id)->get();
-
-        if ($answered_activities->count() == $questions->count()) {
-            return to_route('assesmen.result');
+        foreach ($questions as $question) {
+            $question->answers = $question->answers->shuffle();
         }
 
         return response()->json([
             'status' => 200,
             'message' => 'Success',
             'data' => [
-                'questions' => $questions
+                'questions' => $questions->shuffle()
             ]
         ]);
-
-        // return Inertia::render('Question/Page', [
-        //     'response' => [
-        //         'status' => 200,
-        //         'message' => 'Success',
-        //         'data' => $questions
-        //     ]
-        // ]);
     }
 }

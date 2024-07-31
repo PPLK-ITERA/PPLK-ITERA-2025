@@ -82,7 +82,7 @@ class User extends Authenticatable
 
    public function pilar()
    {
-      return $this->belongsTo(pilar::class, 'pilar', 'id');
+      return $this->belongsTo(Pilar::class, 'pilar', 'id');
    }
 
    public function tugas()

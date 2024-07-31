@@ -14,7 +14,7 @@ class PilarController extends Controller
     {
         $result = Result::where('user_id', auth()->user()->id)->first();
         if (!$result) {
-            return to_route('assesmen.index');
+            return to_route('asesmen.index');
         }
         $pilar = null;
         $sifatScores = [$result->sifat_1_score, $result->sifat_2_score, $result->sifat_3_score];

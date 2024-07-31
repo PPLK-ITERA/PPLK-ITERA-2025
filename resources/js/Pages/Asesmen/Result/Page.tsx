@@ -5,7 +5,6 @@ import React from "react";
 import AsesmenResult from "@/Components/asesmen/Result";
 
 export default function Page({ response }) {
-    console.log(response);
     return (
         <div>
             <DefaultLayout isSolid={true}>

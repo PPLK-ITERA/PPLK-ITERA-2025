@@ -32,7 +32,7 @@ export default function AsesmenForm() {
 
     async function mGetQuestions() {
         setLoading(true);
-        const response = await fetch(route("assesmen.question"))
+        const response = await fetch(route("asesmen.question"))
             .then((response) => response.json())
             .then((json) => {
                 setQuestions(json.data.questions);
@@ -69,7 +69,7 @@ export default function AsesmenForm() {
         try {
             setSendingAnswer(true);
             await fetch(
-                route("assesmen.answer", {
+                route("asesmen.answer", {
                     question_id: questions[currentQuestion].id,
                     answer_id: selectedAnswerId,
                 }),
@@ -83,7 +83,7 @@ export default function AsesmenForm() {
             );
             setSendingAnswer(false);
             if (currentQuestion === questions.length - 1) {
-                router.get(route("assesmen.result"));
+                router.get(route("asesmen.result"));
                 return;
             }
             setCurrentQuestion(currentQuestion + 1);
