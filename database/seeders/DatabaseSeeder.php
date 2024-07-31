@@ -2,11 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Penyakit;
-use App\Models\pilar;
-use App\Models\User;
-use App\Models\Role;
-use App\Models\Tugas;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,6 +24,9 @@ class DatabaseSeeder extends Seeder
          BookletSeeder::class,
          PenyakitSeeder::class,
          TugasSeeder::class,
+         AssesmenQuestionSeeder::class,
+         AssesmenAnswerSeeder::class,
+         PilarSeeder::class,
          // Add more seeders if needed
       ]);
    }

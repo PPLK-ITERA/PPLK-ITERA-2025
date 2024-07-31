@@ -5,16 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Result extends Model
 {
     use HasFactory;
+
+    protected $table = 'result';
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'teks_pertanyaan',
+        'user_id',
+        'start_time',
+        'sifat_1_score',
+        'sifat_2_score',
+        'sifat_3_score',
     ];
 
     /**
@@ -23,7 +29,6 @@ class Question extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'sifat',
         'created_at',
         'updated_at'
     ];
@@ -36,15 +41,7 @@ class Question extends Model
     protected function casts(): array
     {
         return [
-            'teks_pertanyaan' => 'string',
+            'start_time' => 'datetime',
         ];
-    }
-    public function Pilar()
-    {
-        return $this->hasOne(Pilar::class, 'id', 'pilar_id');
-    }
-    public function Answers()
-    {
-        return $this->hasMany(Answer::class, 'question_id', 'id');
     }
 }

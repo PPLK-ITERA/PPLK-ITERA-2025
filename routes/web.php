@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\asesmenController;
+use App\Http\Controllers\Pilar\AnswerController;
+use App\Http\Controllers\Pilar\PilarController;
+use App\Http\Controllers\Pilar\QuestionController;
+use App\Http\Controllers\Pilar\ResultController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\RelasiController;
 use Illuminate\Foundation\Application;
@@ -62,6 +67,9 @@ Route::middleware('auth')->group(function () {
    // Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
    // Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
    // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
+   //asesmen Route
+
+
 });
 
 require __DIR__ . '/auth.php';
@@ -71,3 +79,5 @@ require __DIR__ . '/guest.php';
 // require __DIR__ . '/relasi.php';
 require __DIR__ . '/dashboard.php';
 require __DIR__ . '/cui.php';
+require __DIR__ . '/csrf.php';
+require __DIR__ . '/asesmen.php';
