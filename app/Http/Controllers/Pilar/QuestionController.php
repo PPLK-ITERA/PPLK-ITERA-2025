@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pilar;
 
 use App\Http\Controllers\Controller;
+use App\Models\AnswerActivity;
 use App\Models\Question;
 use App\Models\Result;
 use Carbon\Carbon;
@@ -12,6 +13,11 @@ class QuestionController extends Controller
 {
     public function index()
     {
+        return Inertia::render('Asesmen/Page');
+    }
+
+    public function getQuestions()
+    {
         $result = auth()->user()->result;
         if (!$result) {
             Result::create([
@@ -19,12 +25,14 @@ class QuestionController extends Controller
                 'start_time' => Carbon::now(),
             ]);
         }
+        $questions = Question::with('Answers')->get();
 
-        $questions = Question::all();
-        foreach ($questions as $question) {
-            $answers = $question->Answers;
-            $question->setRelation('Answers', collect($answers));
+        $answered_activities = AnswerActivity::where('user_id', auth()->user()->id)->get();
+
+        if ($answered_activities->count() == $questions->count()) {
+            return to_route('assesmen.result');
         }
+
         return response()->json([
             'status' => 200,
             'message' => 'Success',

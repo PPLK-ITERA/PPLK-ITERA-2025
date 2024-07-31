@@ -15,7 +15,6 @@ class Question extends Model
      */
     protected $fillable = [
         'teks_pertanyaan',
-        'sifat',
     ];
 
     /**
@@ -24,6 +23,7 @@ class Question extends Model
      * @var array<int, string>
      */
     protected $hidden = [
+        'sifat',
         'created_at',
         'updated_at'
     ];

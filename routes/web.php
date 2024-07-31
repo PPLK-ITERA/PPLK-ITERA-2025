@@ -57,10 +57,13 @@ Route::middleware('auth')->group(function () {
    // Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
    // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
    //Assesmen Route
-   Route::get('/questions', [QuestionController::class, 'index'])->name('assesmen.question');
-   Route::get('/question/{question_id}/answer/{answer_id}', [AnswerController::class, 'store'])->name('assesmen.answer');
-   Route::get('/result', [PilarController::class, 'index'])->name('assesmen.result');
-   Route::get('/result/reset', [ResultController::class, 'reset'])->name('assesmen.reset');
+   Route::group(['prefix' => 'assesmen'], function () {
+      Route::get('/', [QuestionController::class, 'index'])->name('assesmen.index');
+      Route::get('/questions', [QuestionController::class, 'getQuestions'])->name('assesmen.question');
+      Route::get('/question/{question_id}/answer/{answer_id}', [AnswerController::class, 'store'])->name('assesmen.answer');
+      Route::get('/result', [PilarController::class, 'index'])->name('assesmen.result');
+      Route::get('/result/reset', [ResultController::class, 'reset'])->name('assesmen.reset');
+   });
 });
 
 require __DIR__ . '/auth.php';
