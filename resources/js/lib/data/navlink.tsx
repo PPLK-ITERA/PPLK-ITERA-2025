@@ -125,8 +125,8 @@ export const UserDropdown = [
         icon: <IconMap size={24} color="#fcedd8" />,
     },
     {
-        title: "Kuis Assesmen",
-        href: "/assesmen",
+        title: "Kuis Asesmen",
+        href: "/asesmen",
         icon: <IconBallpen size={24} color="#fcedd8" />,
     },
     {

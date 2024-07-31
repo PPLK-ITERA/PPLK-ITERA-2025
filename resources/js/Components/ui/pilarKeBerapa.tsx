@@ -1,5 +1,6 @@
-import React from "react";
 import { Progress } from "./progress";
+
+import React from "react";
 
 const PilarKeBerapa = ({
     angka,
@@ -10,17 +11,12 @@ const PilarKeBerapa = ({
 }) => {
     return (
         <div>
-            <p className="text-xl font-bold">
-                <div>
-                    {/* <div className="w-full rounded-xl bg-[#fcedd8] border border-[#f8d6b0]">
-              <div className={`rounded-xl  w-1/2 h-4 ${className}`}></div>
-            </div> */}
-                    <Progress value={angka} />
-                    <div className="mt-2 text-center text-xs">
-                        <p>{angka}%</p>
-                    </div>
+            <div className="text-xl font-bold">
+                <Progress value={angka} />
+                <div className="mt-2 text-center text-xs">
+                    <p>{angka}%</p>
                 </div>
-            </p>
+            </div>
         </div>
     );
 };

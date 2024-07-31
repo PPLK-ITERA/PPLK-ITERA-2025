@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\quiz;
+use App\Models\Quiz;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -412,6 +412,6 @@ class QuizSeeder extends Seeder
         ];
 
         // Insert data into the 'quiz' table
-        quiz::query()->insert($Question);
+        Quiz::query()->insert($Question);
     }
 }
