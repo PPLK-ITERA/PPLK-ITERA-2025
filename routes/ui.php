@@ -3,6 +3,7 @@
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
+use App\Http\Controllers\User\PresensiPplkController;
 use App\Models\PengumpulanTugas;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -206,9 +207,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard Absensi Maba (Auth)
    // =====================================
-   Route::get('dashboard/absensi-maba', function () {
-      return Inertia::render('Dashboard/absensi-maba/Page');
-   })->name('dashboard.absensi-maba');
+   Route::get('dashboard/absensi-maba', [PresensiPplkController::class, 'index'])->name('dashboard.absensi-maba');
 
    Route::get('dashboard/absensi-maba/presensi', function () {
       return Inertia::render('Dashboard/absensi-maba/absensi/Page');

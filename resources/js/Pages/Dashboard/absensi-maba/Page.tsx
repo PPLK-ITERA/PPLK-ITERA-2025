@@ -23,7 +23,7 @@ const breadcrumbItems = [
     { title: "Absensi Maba", link: "/dashboard/absensi-maba" },
 ];
 
-export default function Page({ auth }) {
+export default function Page({ auth, response }) {
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
@@ -65,7 +65,9 @@ export default function Page({ auth }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">10000</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.hadir}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -84,7 +86,9 @@ export default function Page({ auth }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">69</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.tidakHadir}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -103,7 +107,9 @@ export default function Page({ auth }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">34</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.izin}
+                        </div>
                     </CardContent>
                 </Card>
             </div>

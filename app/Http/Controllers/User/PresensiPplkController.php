@@ -97,8 +97,71 @@ class PresensiPplkController extends Controller
    // tambah berdasarkan prodi filter bydate
    public function index()
    {
-      return Inertia::render('Dashboard/absensi-maba/Page');
+      $user = Auth::user();
+      $kelompok_id = $user->kelompok_id;
+      $prodi_id = $user->prodi_id; // Assuming this exists if role_id 5 needs it
+
+      // Initialize variables for response
+      $users = collect(); // Empty collection as default
+      $hadir = 0;
+      $izin = 0;
+
+      if ($user->role_id == 2 || $user->role_id == 4) {
+         // Role 2 and 4: Access users from the same kelompok
+         $users = User::where('kelompok_id', $kelompok_id)
+            ->where('role_id', 1)
+            ->count();
+
+         $hadir = PresensiPplk::whereHas('user', function ($query) use ($kelompok_id) {
+            $query->where('kelompok_id', $kelompok_id);
+         })->where('kehadiran', 'Hadir')->count();
+
+         $izin = PresensiPplk::whereHas('user', function ($query) use ($kelompok_id) {
+            $query->where('kelompok_id', $kelompok_id);
+         })->where('kehadiran', 'Izin')->count();
+      } elseif ($user->role_id == 5) {
+         // Role 5: Access users by prodi_id
+         $users = User::where('prodi_id', $prodi_id)
+            ->where('role_id', 1)
+            ->count();
+
+         $hadir = PresensiPplk::whereHas('user', function ($query) use ($prodi_id) {
+            $query->where('prodi_id', $prodi_id);
+         })->where('kehadiran', 'Hadir')->count();
+
+         $izin = PresensiPplk::whereHas('user', function ($query) use ($prodi_id) {
+            $query->where('prodi_id', $prodi_id);
+         })->where('kehadiran', 'Izin')->count();
+      } elseif ($user->role_id == 3) {
+         // Role 3: Access all users with role_id 1
+         $users = User::where('role_id', 1)->count();
+
+         $hadir = PresensiPplk::where('kehadiran', 'Hadir')->count();
+         $izin = PresensiPplk::where('kehadiran', 'Izin')->count();
+      } else {
+         // Unauthorized access
+         return response()->json([
+            'response' => [
+               'status' => 403,
+               'message' => 'Anda tidak memiliki akses',
+            ]
+         ], 403);
+      }
+
+      // Pass data to Inertia view
+      return Inertia::render('Dashboard/absensi-maba/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Data presensi berhasil diambil',
+            'data' => [
+               'tidakHadir' => $users - $hadir - $izin,
+               'hadir' => $hadir,
+               'izin' => $izin,
+            ]
+         ]
+      ]);
    }
+
    public function getAllPresensi(Request $request)
    {
       $perPage = $request->input('perPage', 10);
@@ -219,5 +282,41 @@ class PresensiPplkController extends Controller
          return redirect()->route('presensi.index')->with('failed', 'Presensi gagal ditambahkan');
       }
       return redirect()->route('presensi.index')->with('success', 'Presensi berhasil ditambahkan');
+   }
+
+   public function destroyAbsen(Request $request)
+   {
+      $validated = $request->validate([
+         'id' => 'required|integer',
+         'date' => 'required|date'
+      ]);
+      $presensi = PresensiPplk::find($validated['id']);
+      if (!$presensi) {
+         return response()->json([
+            'response' => [
+               'status' => 404,
+               'message' => 'Presensi tidak ditemukan',
+            ]
+         ], 404);
+      }
+      DB::beginTransaction();
+      try {
+         $presensi->delete();
+         DB::commit();
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json([
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal menghapus presensi',
+            ]
+         ], 500);
+      }
+      return response()->json([
+         'response' => [
+            'status' => 200,
+            'message' => 'Presensi berhasil dihapus',
+         ]
+      ], 200);
    }
 }
