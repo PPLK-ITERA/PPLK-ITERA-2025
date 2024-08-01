@@ -24,7 +24,9 @@ class Answer extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'created_at', 'updated_at'
+        'nilai_sifat',
+        'created_at',
+        'updated_at'
     ];
 
     /**

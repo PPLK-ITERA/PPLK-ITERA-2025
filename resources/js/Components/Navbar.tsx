@@ -177,10 +177,6 @@ export default function Navbar({
                                 >
                                     <Link
                                         href={route("logout")}
-                                        onClick={() => {
-                                            // @ts-ignore
-                                            window.location.reload();
-                                        }}
                                         method="post"
                                         className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                                     >

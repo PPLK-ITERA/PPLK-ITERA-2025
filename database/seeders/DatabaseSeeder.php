@@ -32,6 +32,9 @@ class DatabaseSeeder extends Seeder
          BookletSeeder::class,
          PenyakitSeeder::class,
          TugasSeeder::class,
+         AssesmenQuestionSeeder::class,
+         AssesmenAnswerSeeder::class,
+         PilarSeeder::class,
          // Add more seeders if needed
       ]);
 
