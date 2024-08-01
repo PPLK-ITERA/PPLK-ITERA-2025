@@ -1,33 +1,73 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\RelasiController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    // if has auth, redirect to dashboard
-    if (auth()->check()) {
-        return redirect()->route('dashboard');
-    }
 
-    return Inertia::render('LandingPage', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::get('/', function () {
+   // if has auth, redirect to dashboard
+   // if (auth()->check()) {
+   //    return redirect()->route('dashboard');
+   // }
+
+   return Inertia::render('LandingPage', [
+      'canLogin' => Route::has('login'),
+      'canRegister' => Route::has('register'),
+      'laravelVersion' => Application::VERSION,
+      'phpVersion' => PHP_VERSION,
+   ]);
 })->name('welcome');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
+//Auth Route
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+   // Scoreboard
+   //melihat top 10
+   // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
+   // //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
+   // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+
+   // Route::middleware(['checkRole:Maba'])->group(function () {
+      Route::get('/relasi', [RelasiController::class, 'index'])->name('relasi.index');
+      Route::get('/relasi/index/topfollowers', [RelasiController::class, 'topFollowers'])->name('relasi.index.topfollowers');
+      Route::get('/relasi/index/sort', [RelasiController::class, 'sort'])->name('relasi.index.sort');
+      Route::get('/relasi/data', [RelasiController::class, 'getProfiles'])->name('relasi.index.search'); // search JSON
+      
+      Route::get('/relasi/search', [RelasiController::class, 'searchIndex'])->name('relasi.search'); // search page
+      Route::get('/relasi/follow/{id}', [RelasiController::class, 'follow'])->name('relasi.follow');
+      Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('relasi.profil');
+   // });
+
+   //melihat my profile
+   Route::get('/myprofile', [ProfileController::class, 'show'])->name('myprofile');
+   Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+   Route::put('/myprofile', [ProfileController::class, 'update'])->name('profile.update');
+   Route::put('/myprofileupload', [ProfileController::class, 'updateProfile'])->name('profile.update.profile');
+
+   // //melihat top 10
+   // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
+   // //melihat kelompok yang tidak masuk top 10
+   // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+
+   // // Tugas
+   // Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
+   // Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
+   // Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
+   // Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
+   // Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
+   // Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
+   // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
 });
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/ui.php';
+require __DIR__ . '/game.php';
+require __DIR__ . '/guest.php';
+// require __DIR__ . '/relasi.php';
+require __DIR__ . '/dashboard.php';
+require __DIR__ . '/cui.php';

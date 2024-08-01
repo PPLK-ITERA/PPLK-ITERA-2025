@@ -2,43 +2,31 @@
 
 namespace Database\Factories;
 
+use App\Models\Penyakit;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
- */
 class UserFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
+   protected $model = User::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
-    {
-        return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
-        ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
-    }
+   public function definition()
+   {
+      return [
+         'name' => $this->faker->name,
+         'nim' => $this->faker->unique()->numerify('124##0###'),
+         'email' => $this->faker->unique()->safeEmail,
+         'password' => bcrypt('password'),
+         'prodi_id' => $this->faker->numberBetween(1, 41),
+         'role_id' => 1,
+         'photo_profile_url' => $this->faker->imageUrl(),
+         'linkedin_url' => $this->faker->url(),
+         'instagram_url' => $this->faker->url(),
+         'pilar' => $this->faker->numberBetween(1, 4),
+         'penyakit_id' => Penyakit::factory()->create()->id,
+         'created_at' => now(),
+         'updated_at' => now(),
+      ];
+   }
 }

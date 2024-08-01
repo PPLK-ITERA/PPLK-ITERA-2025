@@ -1,58 +1,161 @@
-import React, { useEffect } from 'react';
-import 'aos/dist/aos.css';
-import { useAos } from '@/lib/hooks/useAos';
+import Autoplay from "embla-carousel-autoplay";
 
-function Page({}) {
-    useAos()
+import React, { useEffect, useState } from "react";
 
-  return (
-    <div className="p-4">
-      <div className="relative w-full h-12 mb-4">
-        <input
-          type="text"
-          className="w-full h-full px-4 py-2 border rounded-full"
-          placeholder="Relasi dan jaringan"
-        />
-      </div>
+import { UserPlus } from "lucide-react";
 
-      <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-2">Top 3 Follower</h2>
-        <div className="grid grid-cols-3 gap-4" data-aos="fade-up">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="p-4 bg-gray-100 rounded-lg shadow-md">
-              <div className="h-12 w-12 bg-gray-300 rounded-full mb-2"></div>
-              <div className="h-4 bg-gray-300 mb-1"></div>
-              <div className="h-4 bg-gray-300"></div>
+import {
+    IconAdjustmentsHorizontal,
+    IconFilter,
+    IconMoodAngry,
+    IconMoodSearch,
+    IconSearch,
+} from "@tabler/icons-react";
+
+import Footer from "@/Components/Footer";
+import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
+import Navbar from "@/Components/Navbar";
+import GoldPodium from "@/Components/relasi/Podium";
+import ProfileCard from "@/Components/relasi/ProfileCard";
+import SortDropdown from "@/Components/relasi/SortDropdown";
+import TopUser from "@/Components/relasi/TopUser";
+import UserList from "@/Components/relasi/UserList";
+import { Button } from "@/Components/ui/button";
+import { Card, CardContent } from "@/Components/ui/card";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/Components/ui/carousel";
+import { Input } from "@/Components/ui/input";
+import { Progress } from "@/Components/ui/progress";
+
+import { fetchSort, fetchTopFollowers } from "@/lib/data/relasi";
+import { useAos } from "@/lib/hooks/useAos";
+import { User } from "@/lib/types/User";
+
+import instagramIcon from "!assets/svg/instagram.svg";
+import linkedinIcon from "!assets/svg/linkedin.svg";
+
+const sortOptions = [
+    { label: "Viewer", value: "viewer" },
+    { label: "Follower", value: "followers" },
+    { label: "Following", value: "followings" },
+    { label: "Nama", value: "name" },
+];
+
+function Page() {
+    useAos();
+    const [sortLoading, setSortLoading] = useState(false);
+    const [topLoading, setTopLoading] = useState(false);
+    const [topFollowers, setTopFollowers] = useState<User[]>([]);
+    const [users, setUsers] = useState<Partial<User>[]>([]);
+    const [sort, setSort] = useState<
+        "viewer" | "followers" | "followings" | "name"
+    >("followers");
+
+    async function mFetchSort(order_by, direction) {
+        setSortLoading(true);
+        setUsers(await fetchSort(order_by, direction));
+        setSortLoading(false);
+    }
+
+    async function mFetchTopFollowers() {
+        setTopLoading(true);
+        setTopFollowers(await fetchTopFollowers());
+        setTopLoading(false);
+    }
+
+    useEffect(() => {
+        mFetchTopFollowers();
+        mFetchSort("followers", "desc");
+    }, []);
+
+    useEffect(() => {
+        let direction = "desc";
+        if (sort === "name") direction = "asc";
+        mFetchSort(sort, direction);
+    }, [sort]);
+
+    return (
+        <div className="bg-pattern-white flex flex-col w-full min-h-screen">
+            <div>
+                <Navbar isSolid={true} isFixed={false} />
+
+                <div className="max-w-7xl md:pt-24 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 pt-10 mx-auto text-base text-black">
+                    <div className="relative w-full max-w-3xl mx-auto">
+                        <Input
+                            type="text"
+                            placeholder="Cari Nusantara Muda yang Lain"
+                            className="p-4 border rounded-[10px]"
+                        />
+
+                        <a href={route("relasi.search")} target="_blank">
+                            <Button className="absolute top-1/2 -translate-y-1/2 right-2 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-full p-0 w-8 h-8">
+                                <IconSearch size={14} />
+                            </Button>
+                        </a>
+                    </div>
+
+                    <div className="text-center">
+                        <h1 className="font-avigea text-jaffa-800 text-2xl font-bold">
+                            TOP 3 FOLLOWERS
+                        </h1>
+                    </div>
+
+                    <div className="w-full max-w-2xl mx-auto">
+                        {topLoading ? (
+                            <Progress />
+                        ) : (
+                            <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
+                                <TopUser
+                                    user={topFollowers[1]}
+                                    rank={2}
+                                    podiumHeight={160}
+                                />
+                                <TopUser
+                                    user={topFollowers[0]}
+                                    rank={1}
+                                    podiumHeight={196}
+                                />
+                                <TopUser
+                                    user={topFollowers[2]}
+                                    rank={3}
+                                    podiumHeight={144}
+                                />
+                            </div>
+                        )}
+                        <div className="bg-moccaccino-700 w-full h-1"></div>
+                    </div>
+                    <div className="w-full max-w-5xl mx-auto">
+                        <div className="flex justify-between">
+                            <h4 className="text-2xl font-bold">
+                                Profil Berdasarkan
+                            </h4>
+                            <SortDropdown
+                                options={sortOptions}
+                                setSort={setSort}
+                            />
+                        </div>
+                        {sortLoading ? (
+                            <Progress /> // Display a loading message or spinner
+                        ) : (
+                            <UserList users={users} />
+                        )}
+                    </div>
+                    <div className="flex justify-center">
+                        <Button className="mx-1">1</Button>
+                        <Button className="mx-1">2</Button>
+                        <Button className="mx-1">3</Button>
+                        <Button className="mx-1">4</Button>
+                    </div>
+                </div>
+                <Footer />
             </div>
-          ))}
         </div>
-      </div>
-
-      <div>
-        <h2 className="text-xl font-semibold mb-2">Urutan bsd viewer</h2>
-        <div className="grid grid-cols-3 gap-4" data-aos="fade-up">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="p-4 bg-gray-100 rounded-lg shadow-md">
-              <div className="h-12 w-12 bg-gray-300 rounded-full mb-2"></div>
-              <div className="h-4 bg-gray-300 mb-1"></div>
-              <div className="h-4 bg-gray-300"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex justify-center mt-8">
-        <button className="px-3 py-1 mx-1 border rounded">&lt;&lt;</button>
-        <button className="px-3 py-1 mx-1 border rounded">&lt;</button>
-        <button className="px-3 py-1 mx-1 border rounded bg-gray-300">1</button>
-        <button className="px-3 py-1 mx-1 border rounded">2</button>
-        <button className="px-3 py-1 mx-1 border rounded">3</button>
-        <button className="px-3 py-1 mx-1 border rounded">4</button>
-        <button className="px-3 py-1 mx-1 border rounded">&gt;</button>
-        <button className="px-3 py-1 mx-1 border rounded">&gt;&gt;</button>
-      </div>
-    </div>
-  );
-};
+    );
+}
 
 export default Page;

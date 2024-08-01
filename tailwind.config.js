@@ -1,5 +1,5 @@
-import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
@@ -13,7 +13,6 @@ export default {
         "./resources/views/**/*.blade.php",
         "./resources/**/*.{ts,tsx,jsx}",
     ],
-
     theme: {
         container: {
             center: true,
@@ -23,6 +22,10 @@ export default {
             },
         },
         extend: {
+            aspectRatio: {
+                "4/3": "4 / 3",
+                "3/4": "3 / 4",
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -111,17 +114,43 @@ export default {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: "0" },
                 },
+                scan: {
+                    "0%": { transform: "translateY(-100%)" },
+                    "100%": { transform: "translateY(100%)" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                scan: "scan 3s linear infinite",
             },
             fontFamily: {
                 avigea: ["Avigea"],
                 fesbud: ["FestivalBudaya"],
+                tinos: ["Tinos"],
+                montserrat: ["Montserrat"],
+                novamono: ["NovaMono"],
+                spacegrotesk: ['"Space Grotesk"'],
+            },
+            backgroundImage: {
+                "hero-image": "url('!assets/hero-background.png')",
+                "desktop-hero-background":
+                    "url('!assets/desktop-hero-background.png')",
+                "mobile-hero-background":
+                    "url('!assets/mobile-hero-background.png')",
+                "tablet-hero-background":
+                    "url('!assets/tablet-hero-background.png')",
+                "flower-pattern": "url('!assets/patternbunga.png')",
+                "pattern-1": "url('!assets/pattern-1.png')",
+                "pattern-white": "url('!assets/pattern-white.png')",
+                "pattern-brown": "url('!assets/pattern-brown.png')",
+                "pattern-black": "url('!assets/pattern-black.png')",
             },
         },
     },
-
-    plugins: [require("tailwindcss-animate"), forms],
+    plugins: [
+        require("tailwindcss-animate"),
+        forms,
+        require("tailwindcss-3d")({ legacy: true }),
+    ],
 };

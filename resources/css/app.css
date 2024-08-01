@@ -1,6 +1,5 @@
-/* @import url("font/Avigea/Avigea-Italic.otf");
-@import url("font/Avigea/Avigea.otf");
-@import url("font/Festival-Budaya/FestivalBudayaXXXI.otf"); */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -80,16 +79,55 @@
 
     @font-face {
         font-family: "Avigea";
-        src: local("Avigea-Regular"), url("./assets/fonts/Avigea/Avigea.otf");
+        src: local("Avigea-Regular"), url("!assets/fonts/Avigea/Avigea.otf");
     }
     @font-face {
         font-family: "Avigea-Italic";
         src: local("Avigea-Italic"),
-            url("./assets/fonts/Avigea/Avigea-Italic.otf");
+            url("!assets/fonts/Avigea/Avigea-Italic.otf");
     }
     @font-face {
         font-family: "FestivalBudaya";
         src: local("FestivalBudaya"),
-            url("./assets/fonts/Festival-Budaya/FestivalBudayaXXXI.otf");
+            url("!assets/fonts/Festival-Budaya/FestivalBudayaXXXI.otf");
+    }
+    @font-face {
+        font-family: "novaMono";
+        src: local("NovaMono"), url("!assets/fonts/NovaMono/NovaMono.ttf");
     }
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+.inverted-pentagon {
+    clip-path: polygon(100% 0, 100% 80%, 50% 100%, 0 80%, 0 0);
+}
+
+.wajik {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #90381c;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #90381c;
+    opacity: 0.8;
+}
+

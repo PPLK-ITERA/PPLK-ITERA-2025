@@ -1,14 +1,18 @@
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import clsx from "clsx";
+import { motion } from "framer-motion";
+
+import { useState } from "react";
+import React from "react";
+
+import { Head } from "@inertiajs/react";
+
+import { ArrowRight } from "lucide-react";
+
 import { QuizSkeleton } from "@/Components/fragments/QuizSkeleton";
 import { Button } from "@/Components/ui/button";
 import { Progress } from "@/Components/ui/progress";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { useToast } from "@/Components/ui/use-toast";
-import { useState } from "react";
-import React from "react";
-import clsx from "clsx";
 
 export default function Dashboard({ auth }) {
     const { toast } = useToast();
@@ -43,7 +47,7 @@ export default function Dashboard({ auth }) {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className={`mx-auto px-8 flex flex-col items-center justify-center h-full max-w-3xl text-start place-content-center gap-4 overflow-y-auto`}
+                className={`mx-auto flex h-full max-w-3xl flex-col place-content-center items-center justify-center gap-4 overflow-y-auto px-8 text-start`}
             >
                 <h1>test</h1>
             </motion.div>
