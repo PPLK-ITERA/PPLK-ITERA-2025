@@ -145,6 +145,7 @@ export default {
                 "pattern-black": "url('!assets/pattern-black.png')",
                 "history-completed":
                     "url('!assets/mading/history-completed.png')",
+                scoreboard: "url('!assets/background-scoreboard.png')",
             },
         },
     },
