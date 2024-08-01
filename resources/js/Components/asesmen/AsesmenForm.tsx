@@ -101,7 +101,7 @@ export default function AsesmenForm() {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className={`mx-auto px-8 flex flex-col items-center justify-center h-full max-w-3xl text-start place-content-center text-white gap-4 overflow-y-auto`}
+            className={`mt-20 mx-auto px-8 flex flex-col items-center justify-center h-full max-w-3xl text-start place-content-center text-white gap-4 overflow-y-auto font-montserrat`}
         >
             {loading ? (
                 <QuizSkeleton className="w-full" />
@@ -109,13 +109,13 @@ export default function AsesmenForm() {
                 <div className="flex flex-col gap-4 w-full">
                     <div className="max-md:grow" />
 
-                    <span className="text-sm md:text-xl font-semibold w-full">
-                        Question {currentQuestion + 1}/{questions.length}
+                    <span className="text-sm md:text-xl font-semibold w-full text-moccaccino-950">
+                        Pertanyaan {currentQuestion + 1}/{questions.length}
                     </span>
                     <Progress
                         value={((currentQuestion + 1) * 100) / questions.length}
                     />
-                    <div className="w-full min-h-48 max-h-64 overflow-y-auto p-4 rounded-lg shadow-inner bg-black/30 backdrop-blur">
+                    <div className="w-full min-h-48 max-h-64 overflow-y-auto p-4 rounded-lg shadow-inner bg-black/25">
                         <h2 className="max-md:text-sm font-semibold text-justify">
                             {questions[currentQuestion].teks_pertanyaan}
                         </h2>
@@ -129,12 +129,12 @@ export default function AsesmenForm() {
                                     onClick={() => onAnswerClick(ans.id)}
                                     className={clsx(
                                         {
-                                            "bg-white text-candlelight-800 hover:bg-jaffa-100":
+                                            " text-candlelight-800 hover:bg-jaffa-100 ring-1 ring-black/5 ":
                                                 ans.id !== selectedAnswerId,
-                                            "bg-gradient-to-r from-candlelight-800 to-candlelight-950":
+                                            " bg-gradient-to-r from-candlelight-800 to-candlelight-950":
                                                 ans.id === selectedAnswerId,
                                         },
-                                        "w-full h-full font-medium text-wrap py-2 max-md:text-sm",
+                                        "bg-white transition duration-400 w-full h-full font-medium text-wrap py-2 max-md:text-sm ",
                                     )}
                                 >
                                     {ans.teks_jawaban}
@@ -148,7 +148,7 @@ export default function AsesmenForm() {
                     <Button
                         onClick={submitAnswer}
                         disabled={selectedAnswerId === null || sendingAnswer}
-                        className="w-full bg-jaffa-600 my-4 md:my-8"
+                        className="w-full bg-jaffa-600 my-4 md:my-8 hover:bg-jaffa-600/80"
                     >
                         {currentQuestion < questions.length - 1
                             ? "Next"
