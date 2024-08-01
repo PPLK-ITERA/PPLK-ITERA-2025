@@ -210,6 +210,10 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/absensi-maba/Page');
    })->name('dashboard.absensi-maba');
 
+   Route::get('dashboard/absensi-maba/presensi', function () {
+      return Inertia::render('Dashboard/absensi-maba/absensi/Page');
+   })->name('dashboard.absensi-maba/presensi');
+
 
    // =====================================
    // Dashboard FAQ (Auth)

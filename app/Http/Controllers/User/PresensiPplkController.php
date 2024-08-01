@@ -16,6 +16,84 @@ use Inertia\Inertia;
 
 class PresensiPplkController extends Controller
 {
+   public function QRScan(Request $request)
+   {
+      $validated = $request->validate([
+         'qr_code' => 'required|string',
+      ]);
+
+      $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
+      if (!$qrcode) {
+         return response()->json([
+            "status" => 404,
+            "message" => "QR Code tidak ditemukan",
+            "data" => [
+               'qr_code' => $validated['qr_code']
+            ]
+         ], 404);
+      }
+      $user = User::findorfail($qrcode->user_id);
+      if (!$user) {
+         return response()->json([
+            "status" => 404,
+            "message" => "User tidak ditemukan",
+            "data" => [
+               $validated['qr_code']
+            ]
+         ], 404);
+      }
+      $presensi = PresensiPplk::where('user_id', $user->id)->where('tanggal_presensi', Carbon::today());
+      if (!$presensi->exists()) {
+         DB::beginTransaction();
+         try {
+            $presensi_now = PresensiPplk::create([
+               'user_id' => $user->id,
+               'tanggal_presensi' => Carbon::today(),
+               'status' => 'Hadir',
+            ]);
+            DB::commit();
+         } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['message' => 'Gagal membuat log'], 500);
+         }
+         return response()->json([
+            'response' => [
+               'status' => 200,
+               'message' => $presensi_now->user->name . ' berhasil melakukan presensi.',
+               'data' => [
+                  "nama" => $presensi_now->user->name,
+                  "tanggal" => $presensi_now->tanggal_presensi
+               ]
+            ]
+         ], 200);
+      } else {
+         $presensi = $presensi->first();
+         if ($presensi->kehadiran == 'Hadir') {
+            return response()->json([
+               'response' => [
+                  'status' => 400,
+                  'message' => $presensi->user->name . ' Telah melakukan presensi.',
+                  'data' => [
+                     "nama" => $presensi->user->name,
+                     "tanggal" => $presensi->tanggal_presensi
+                  ]
+               ]
+            ], 400);
+         } else if ($presensi->kehadiran) {
+            return response()->json([
+               'response' => [
+                  'status' => 400,
+                  'message' => $presensi->user->name . ' izin tidak mengikuti PPLK, tidak bisa melakukan presensi.',
+                  'data' => [
+                     "nama" => $presensi->user->name,
+                     "tanggal" => $presensi->tanggal_presensi
+                  ]
+               ]
+            ], 400);
+         }
+      }
+   }
+
    // tambah berdasarkan prodi filter bydate
    public function index()
    {
@@ -90,7 +168,7 @@ class PresensiPplkController extends Controller
       return response()->json($attendances);
    }
 
-   public function store(Request $request, $id)
+   public function store(Request $request)
    {
       $validated = $request->validate([
          'id' => 'required|integer',
@@ -117,7 +195,7 @@ class PresensiPplkController extends Controller
       return redirect()->route('dashboard.absensi-maba')->with('success', 'Presensi berhasil ditambahkan');
    }
 
-   public function updateKehadiran(Request $request, $id)
+   public function updateKehadiran(Request $request)
    {
       $validated = $request->validate([
          'id' => 'required|integer',
@@ -129,7 +207,7 @@ class PresensiPplkController extends Controller
       try {
          $presensi = PresensiPplk::create(
             [
-               'user_id' => $id,
+               'user_id' => $validated['id'],
                'tanggal_presensi' => Carbon::today(),
                'kehadiran' => 'Izin',
                'keterangan' => $validated['keterangan']

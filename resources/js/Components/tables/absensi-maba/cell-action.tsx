@@ -66,6 +66,15 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     };
 
     const handleAbsen = () => {
+        if (data.user.status === "Hadir") {
+            toast({
+                title: "Gagal",
+                description: `Maba ${data.user.name} sudah hadir`,
+                variant: "destructive",
+            });
+            return;
+        }
+
         router.post(
             route("dashboard.presensi.absen"),
             { ...dataFormAbsensi, kehadiran: "Hadir" },
@@ -108,59 +117,69 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                     </AlertDialogContent>
                 </AlertDialog>
 
-                <Dialog>
-                    <DialogTrigger asChild>
-                        <Button
-                            className="gap-2"
-                            size={"sm"}
-                            variant={"outline"}
-                        >
-                            Set Izin
-                        </Button>
-                    </DialogTrigger>
+                {data.user.status !== "Hadir" ? (
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button
+                                className="gap-2"
+                                size={"sm"}
+                                variant={"outline"}
+                            >
+                                Set Izin
+                            </Button>
+                        </DialogTrigger>
 
-                    <DialogContent className="sm:max-w-[425px]">
-                        <DialogHeader>
-                            <DialogTitle>
-                                Ingin Set Izin {data.user.name} ?
-                            </DialogTitle>
-                            <DialogDescription>
-                                Isi bagian catatan dan aksi ini akan mengubah
-                                status maba menjadi izin
-                            </DialogDescription>
-                        </DialogHeader>
+                        <DialogContent className="sm:max-w-[425px]">
+                            <DialogHeader>
+                                <DialogTitle>
+                                    Ingin Set Izin {data.user.name} ?
+                                </DialogTitle>
+                                <DialogDescription>
+                                    Isi bagian catatan dan aksi ini akan
+                                    mengubah status maba menjadi izin
+                                </DialogDescription>
+                            </DialogHeader>
 
-                        <div className="grid gap-4 py-4">
-                            <div className="flex flex-col">
-                                <Label htmlFor="asnwer" className="text-left">
-                                    Catatan
-                                </Label>
+                            <div className="grid gap-4 py-4">
+                                <div className="flex flex-col">
+                                    <Label
+                                        htmlFor="asnwer"
+                                        className="text-left"
+                                    >
+                                        Catatan
+                                    </Label>
 
-                                <Textarea
-                                    id="asnwer"
-                                    value={dataFormAbsensi.keterangan}
-                                    onChange={(e) =>
-                                        setDataFormAbsensi(
-                                            "keterangan",
-                                            e.target.value,
-                                        )
-                                    }
-                                    placeholder="Berikan catatan izin"
-                                    className="mt-1"
-                                />
+                                    <Textarea
+                                        id="asnwer"
+                                        value={dataFormAbsensi.keterangan}
+                                        onChange={(e) =>
+                                            setDataFormAbsensi(
+                                                "keterangan",
+                                                e.target.value,
+                                            )
+                                        }
+                                        placeholder="Berikan catatan izin"
+                                        className="mt-1"
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <DialogFooter>
-                            <DialogClose asChild>
-                                <Button variant={"outline"}>Batalkan</Button>
-                            </DialogClose>
 
-                            <DialogClose asChild>
-                                <Button onClick={handleIzin}>Lanjutkan</Button>
-                            </DialogClose>
-                        </DialogFooter>
-                    </DialogContent>
-                </Dialog>
+                            <DialogFooter>
+                                <DialogClose asChild>
+                                    <Button variant={"outline"}>
+                                        Batalkan
+                                    </Button>
+                                </DialogClose>
+
+                                <DialogClose asChild>
+                                    <Button onClick={handleIzin}>
+                                        Lanjutkan
+                                    </Button>
+                                </DialogClose>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
+                ) : null}
             </div>
             <Toaster />
         </>
