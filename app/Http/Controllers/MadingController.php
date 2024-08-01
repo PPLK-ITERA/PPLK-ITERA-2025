@@ -98,10 +98,8 @@ class MadingController extends Controller
    public function getTugas($id)
    {
       $tugas = KartuTugas::with('tugas')->find($id);
-      // $pengumpulan_tugas = PengumpulanTugas::with('tugas')->get();
-      // dd($pengumpulan_tugas);
       $isSubmitted = PengumpulanTugas::where('tugas_id', $tugas->tugas[0]->id)->where('user_id', Auth::id())->where('isReturn', false)->exists();
-      // return response()->json(['tugas' => $tugas, 'isSubmitted' => $isSubmitted]);
+
       return response()->json(['tugas' => $tugas, 'isSubmitted' => $isSubmitted]);
    }
 
@@ -150,5 +148,32 @@ class MadingController extends Controller
       }
 
       return response()->json(['message' => 'Task returned successfully']);
+   }
+   public function getPoster($id)
+   {
+      $kartuTugas = KartuTugas::find($id);
+      return response()->json(['poster' => $kartuTugas->poster]);
+   }
+   public function storePoster(Request $request, $id)
+   {
+      $validated = $request->validate([
+         'poster' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      ]);
+
+      $userId = Auth::id();
+
+      DB::beginTransaction();
+      try {
+         $kartuTugas = KartuTugas::find($id);
+         $poster = $validated['poster'];
+         $posterName = $poster->getClientOriginalName();
+         $poster->move(public_path('posters'), $posterName);
+         $kartuTugas->update(['poster' => $posterName]);
+         DB::commit();
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json(['error' => 'Failed to upload poster' . $th->getMessage()], 500);
+      }
+      return response()->json(['message' => 'Poster uploaded successfully']);
    }
 }
