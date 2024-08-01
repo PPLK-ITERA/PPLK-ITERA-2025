@@ -19,6 +19,7 @@ export default function AsesmenResult({
     nilai3 = 0,
     namaPilar,
     pilar,
+    persen,
 }) {
     const { toast } = useToast();
     const [result, setresult] = useState<Result | null>(null);
@@ -71,7 +72,7 @@ export default function AsesmenResult({
                 </div>
 
                 <div className="max-w-xs font-medium text-candlelight-800 italic text-center py-4 px-2 rounded-full bg-[#ED8F45] bg-opacity-20 outline outline-1 outline-jaffa-600">
-                    Hanya 25% Naramuda yang mendapatkan pilar ini
+                    Hanya {persen}% Naramuda yang mendapatkan pilar ini
                 </div>
 
                 <div className="bg-[#864D0D] max-w-md font-medium text-center text-white  p-5 h-full min-w-28 rounded-xl">

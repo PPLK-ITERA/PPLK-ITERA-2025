@@ -14,6 +14,7 @@ export default function Page({ response }) {
                     nilai3={response.data.result.sifat_3_score}
                     namaPilar={response.data.pilar.pilar_name}
                     pilar={response.data.pilar.id}
+                    persen={response.data.persen}
                 />
             </DefaultLayout>
         </div>
