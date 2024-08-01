@@ -48,6 +48,15 @@ class MadingController extends Controller
 
             // Count submissions and calculate completion percentage for each task
             foreach ($card->tugas as $tugas) {
+               // Determine if this task should be filtered based on kategori_tugas
+               $isKetuaTask = ($tugas->kategori_tugas == 'kelompok'); // Example category name
+
+               // Calculate number of members that should be counted for this task
+               $totalCountedMembers = $isKetuaTask ? User::where('kelompok_id', $user->kelompok_id)
+                  ->where('isKetua', true)
+                  ->count()
+                  : $totalMembers;
+
                $taskCompletedByUser[$tugas->id] = PengumpulanTugas::where('tugas_id', $tugas->id)
                   ->where('user_id', $userId)
                   ->where('isReturn', false)
@@ -59,14 +68,14 @@ class MadingController extends Controller
 
                $memberCompletion[$tugas->id] = $submissionsCount;
 
-               if ($totalMembers > 0) {
-                  $completionPercentage[$tugas->id] = ($submissionsCount / $totalMembers) * 100;  // Calculate completion percentage
+               if ($totalCountedMembers > 0) {
+                  $completionPercentage[$tugas->id] = ($submissionsCount / $totalCountedMembers) * 100;  // Calculate completion percentage
                } else {
                   $completionPercentage[$tugas->id] = 0;  // Avoid division by zero
                }
 
                // Check if any member has not completed this task
-               if ($submissionsCount < $totalMembers) {
+               if ($submissionsCount < $totalCountedMembers) {
                   $allTasksCompleted = false;
                }
             }
@@ -76,6 +85,7 @@ class MadingController extends Controller
             $completionPercentage[$card->id] = 0;
             $allTasksCompleted = false; // No tasks, so cannot be completed
          }
+
          // Update isSelesai column based on whether all tasks are completed by all members
          $card->is_selesai = $allTasksCompleted;
          $card->save();
