@@ -57,9 +57,9 @@ export default function BuktiPengerjaan({
                         key={index}
                         className="basis-72 md:basis-[370px] xl:basis-[26rem]"
                     >
-                        {/* ${isSubmitted[card.tugas[0].id] ? "bg-jaffa-700" : "bg-white"} */}
+                        {/* $ */}
                         <Card
-                            className={`${index === 0 && !isKetua ? "bg-jaffa-700" : ""} xl:w-[400px] md:w-[350px] lg:w-[350px] md:h-[550px] w-[280px] h-[400px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserrat`}
+                            className={`${isSubmitted[card.tugas[0].id] ? "bg-jaffa-700" : "bg-white"} ${index === 0 && !isKetua ? "bg-jaffa-700" : ""} xl:w-[400px] md:w-[350px] lg:w-[350px] md:h-[550px] w-[280px] h-[400px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserrat`}
                         >
                             <CardContent
                                 className={`flex flex-col items-center justify-center p-4 ${isSubmitted[card.tugas[0].id] ? "text-white" : "text-jaffa-700"}`}
@@ -68,8 +68,8 @@ export default function BuktiPengerjaan({
                                     Day {index + 1}
                                 </h2>
 
-                                {/* isSubmitted[card.tugas[0].id] */}
-                                {false ? (
+                                {/*  */}
+                                {isSubmitted[card.tugas[0].id] ? (
                                     <div className="md:mt-[40%] mt-[20%] flex flex-col items-center justify-center">
                                         <div className="w-32 h-32">
                                             <CircularProgressbarWithChildren
@@ -98,7 +98,7 @@ export default function BuktiPengerjaan({
                                             </CircularProgressbarWithChildren>
                                         </div>
 
-                                        {isKetua ? (
+                                        {isKetua && card.is_selesai ? (
                                             <Link
                                                 href={route(
                                                     `mading/pengumpulan-cover`,
