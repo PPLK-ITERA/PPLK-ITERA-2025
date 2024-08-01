@@ -73,6 +73,49 @@ Route::get('dev-team', function () {
    return Inertia::render('Dev/Page');
 })->name('dev-team');
 
+Route::get('dev', function () {
+      return Inertia::render('Dev/Page');
+})->name('dev');
+Route::get('developer', function () {
+      return Inertia::render('Dev/Page');
+})->name('developer');
+Route::get('team', function () {
+      return Inertia::render('Dev/Page');
+})->name('team');
+Route::get('devs', function () {
+      return Inertia::render('Dev/Page');
+})->name('devs');
+Route::get('kartatera', function () {
+      return Inertia::render('Dev/Page');
+})->name('kartatera');
+Route::get('imtek', function () {
+      return Inertia::render('Dev/Page');
+})->name('imtek');
+Route::get('admin', function () {
+      return Inertia::render('Dev/Page');
+})->name('admin');
+Route::get('kadiv', function () {
+      return Inertia::render('Dev/Page');
+})->name('kadiv');
+Route::get('wp-admin', function () {
+      return Inertia::render('Dev/Page');
+})->name('wp-admin');
+Route::get('wp-content', function () {
+      return Inertia::render('Dev/Page');
+})->name('wp-content');
+Route::get('wp-json', function () {
+      return Inertia::render('Dev/Page');
+})->name('wp-json');
+Route::get('404', function () {
+      return Inertia::render('Dev/Page');
+})->name('404');
+Route::get('auth', function () {
+      return Inertia::render('Dev/Page');
+})->name('auth');
+Route::get('auth.php', function () {
+      return Inertia::render('Dev/Page');
+})->name('auth.php');
+
 
 // =====================================
 // KM ITERA (Guest)
@@ -271,12 +314,6 @@ Route::middleware('auth')->group(function () {
       ->name('dashboard.cui.izin');
 
 
-   // Route::get('dev', function () {
-   //     return Inertia::render('Dev/Page', [
-   //         'username' => auth()->user()->name,
-   //         'password' => auth()->user()->password
-   //     ]);
-   // })->name('dev');
 
 
    // =====================================

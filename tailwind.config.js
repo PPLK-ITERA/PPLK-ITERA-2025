@@ -129,6 +129,8 @@ export default {
                 fesbud: ["FestivalBudaya"],
                 tinos: ["Tinos"],
                 montserrat: ["Montserrat"],
+                novamono: ["NovaMono"],
+                spacegrotesk: ['"Space Grotesk"'],
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",
