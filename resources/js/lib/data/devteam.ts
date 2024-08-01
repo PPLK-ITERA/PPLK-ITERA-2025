@@ -2,7 +2,7 @@ export const devTeam = {
     kadiv: [
         {
             name: "Cornelius Linux",
-            instagram: "cornelius linux",
+            instagram: "corneliuslinux",
             role: "Kepala Divisi Implementasi Teknologi",
             quote: "Tidak perlu quotes, perlunya tidur.",
             photo: "https://picsum.photos/528",
@@ -104,7 +104,7 @@ export const devTeam = {
             instagram: "jo907__",
             role: "Staff Front-End",
             quote: "samain kaya kadiv aja",
-            photo: "https://picsum.photos/530",
+            photo: "https://gcdnb.pbrd.co/images/t97ReBzxIAeR.jpg?o=1",
         },
         {
             name: "M. Arief Rahman Hakim",

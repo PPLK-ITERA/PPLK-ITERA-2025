@@ -13,17 +13,14 @@ import kartateraLogo from "!assets/svg/kartatera-logo.svg";
 
 type Props = {};
 
-function VvdSection({}: Props) {
+function BackendDivision({}: Props) {
     return (
         <section className="w-full flex items-center justify-center h-screen max-lg:pb-16 max-lg:pt-8">
             <div className="w-full max-lg:text-center mx-4 max-w-5xl flex flex-col items-center justify-center text-white">
-                <DevList
-                    devList={devTeam.vvd}
-                    devRoleName="Virtual & Visual Development"
-                />
+                <DevList devList={devTeam.backend} devRoleName="Back-End" />
             </div>
         </section>
     );
 }
 
-export default VvdSection;
+export default BackendDivision;

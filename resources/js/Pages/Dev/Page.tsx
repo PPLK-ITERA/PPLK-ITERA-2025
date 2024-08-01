@@ -1,100 +1,40 @@
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { useState } from "react";
 
-// if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-import React, { useEffect, useState } from "react";
-
-import { Carousel } from "@/Components/CarouselMaskot";
-import DevCard from "@/Components/dev/DevCard";
-import KadivSection from "@/Components/dev/KadivSection";
+import Main from "@/Components/dev/Main";
 import NavButton from "@/Components/dev/NavButton";
 import ParticleBackground from "@/Components/dev/ParticleBackground";
-import RunningTitle from "@/Components/dev/RunningText";
-import VvdSection from "@/Components/dev/VvdSection";
 import "@/Components/dev/transition.css";
 
 import { useAos } from "@/lib/hooks/useAos";
 
+import kartateraLogo from "!assets/svg/kartatera-logo.svg";
+
 function Page() {
     useAos();
 
-    const [activeComponent, setActiveComponent] = useState<React.ReactNode>(
-        <KadivSection />,
-    );
-
-    function handleSwitch(i: number) {
-        switch (i) {
-            case 0:
-                setActiveComponent(<KadivSection />);
-                break;
-            case 1:
-                setActiveComponent(<VvdSection />);
-                break;
-            case 2:
-                setActiveComponent(<KadivSection />);
-            case 3:
-                setActiveComponent(<KadivSection />);
-            case 4:
-                setActiveComponent(<KadivSection />);
-                break;
-            default:
-                break;
-        }
-    }
-
     return (
         <div className="relative min-h-screen w-screen overflow-hidden font-montserrat text-white">
+            <div className="max-lg:hidden fixed top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 opacity-20 h-3/4">
+                <img
+                    data-aos="fade-right"
+                    data-aos-duration={2000}
+                    src={kartateraLogo}
+                    alt="Kartatera Logo"
+                    className="h-full"
+                />
+            </div>
+            <div className="lg:hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 w-3/4 h-3/4">
+                <img
+                    data-aos="fade-up"
+                    data-aos-duration={1000}
+                    src={kartateraLogo}
+                    alt="Kartatera Logo"
+                    className="h-full"
+                />
+            </div>
             <ParticleBackground />
 
-            <main>
-                <TransitionGroup>
-                    <CSSTransition
-                        key={activeComponent!.type.name}
-                        timeout={500}
-                        classNames="fade"
-                    >
-                        {activeComponent}
-                    </CSSTransition>
-                </TransitionGroup>
-            </main>
-
-            <footer className="bottom-0 left-0 -translate-y-full w-full p-4">
-                <nav className="w-min mx-auto flex gap-8 backdrop-blur-md bg-white/5">
-                    <NavButton
-                        label="KARTATERA"
-                        onClick={() => {
-                            handleSwitch(0);
-                        }}
-                    />
-                    <NavButton
-                        label="VVD"
-                        onClick={() => {
-                            handleSwitch(1);
-                        }}
-                    />
-                    <NavButton
-                        label="FRONT-END"
-                        onClick={() => {
-                            handleSwitch(2);
-                        }}
-                    />
-                    <NavButton
-                        label="BACK-END"
-                        onClick={() => {
-                            handleSwitch(3);
-                        }}
-                    />
-                    <NavButton
-                        label="CONTENT RESEARCH"
-                        onClick={() => {
-                            handleSwitch(4);
-                        }}
-                    />
-                </nav>
-            </footer>
-
-            <div className="hidden shadow-2xl"></div>
+            <Main />
         </div>
     );
 }
