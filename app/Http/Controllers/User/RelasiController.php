@@ -117,7 +117,7 @@ class RelasiController extends Controller
    // Follow a user
    public function follow($id)
    {
-       $followingUserId = $id;  
+       $followingUserId = Auth::id();  
        $followedUserId = $id;
    
        // Validate that the user exists
