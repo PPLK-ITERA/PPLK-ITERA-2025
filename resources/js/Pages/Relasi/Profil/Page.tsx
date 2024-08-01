@@ -63,10 +63,27 @@ function Page({ response }) {
                                 </p>
                             </div>
 
-                            <Button className="max-md:hidden w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out border border-black text-black">
-                                <UserPlus className="w-6 h-6 mr-2" />
-                                <p className="font-bold">Ikuti</p>
-                            </Button>
+                            {!user.followed ? (
+                                <Button className="max-md:hidden w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out border border-black text-black">
+                                    <a
+                                        className="flex items-center justify-center"
+                                        href={route("relasi.follow", user.id)}
+                                    >
+                                        <UserPlus className="w-6 h-6 mr-2" />
+                                        <p className="font-bold">Ikuti</p>
+                                    </a>
+                                </Button>
+                            ) : (
+                                <Button className="max-md:hidden w-full bg-white hover:hover:bg-gray-200/90 transition duration-200 ease-in-out border border-black/50 text-black">
+                                    <a
+                                        className="flex items-center justify-center"
+                                        href={route("relasi.follow", user.id)}
+                                    >
+                                        <UserPlus className="w-6 h-6 mr-2" />
+                                        <p className="font-bold">Mengikuti</p>
+                                    </a>
+                                </Button>
+                            )}
                         </div>
 
                         <div className="flex flex-col justify-between w-full md:w-[28rem]">
@@ -129,13 +146,12 @@ function Page({ response }) {
 
                             <div className="md:w-fit md:mx-0 flex gap-4 mx-auto mt-5">
                                 <a
-                                    className={`w-full flex gap-1 justify-center items-center p-1 rounded-md bg-trasnparent border bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black`}
+                                    className={`w-full flex gap-1 justify-center items-center p-1 px-2 rounded-md border shadow hover:shadow-lg bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-300 ease-in-out text-black`}
                                     href={user.instagram_url}
                                     target="_blank"
                                 >
                                     <IconBrandInstagram
                                         size={32}
-                                        color="black"
                                         stroke={1.8}
                                     />
                                     <span className="md:text-[14px] text-[10px] font-semibold hidden md:block">
@@ -144,15 +160,11 @@ function Page({ response }) {
                                 </a>
 
                                 <a
-                                    className={`w-full flex gap-1 justify-center items-center p-1 rounded-md bg-trasnparent border bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black`}
+                                    className={`w-full flex gap-1 justify-center items-center p-1 px-2 rounded-md border shadow hover:shadow-lg bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-300 ease-in-out text-black`}
                                     href={user.linkedin_url}
                                     target="_blank"
                                 >
-                                    <IconBrandLinkedin
-                                        size={32}
-                                        color="black"
-                                        stroke={1.8}
-                                    />
+                                    <IconBrandLinkedin size={32} stroke={1.8} />
 
                                     <span className="md:text-[14px] text-[10px] font-semibold hidden md:block">
                                         Nusantara Muda
@@ -160,10 +172,27 @@ function Page({ response }) {
                                 </a>
                             </div>
 
-                            <Button className="md:hidden mb-4 mt-5 w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out     border border-black text-black">
-                                <UserPlus className="w-6 h-6 mr-2" />
-                                <p className="font-bold">Ikuti</p>
-                            </Button>
+                            {!user.followed ? (
+                                <Button className="md:hidden w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out border border-black text-black">
+                                    <a
+                                        className="flex items-center justify-center"
+                                        href={route("relasi.follow", user.id)}
+                                    >
+                                        <UserPlus className="w-6 h-6 mr-2" />
+                                        <p className="font-bold">Ikuti</p>
+                                    </a>
+                                </Button>
+                            ) : (
+                                <Button className="md:hidden w-full bg-white hover:bg-gray-200/90 transition duration-200 ease-in-out border border-black/50 text-black">
+                                    <a
+                                        className="flex items-center justify-center"
+                                        href={route("relasi.follow", user.id)}
+                                    >
+                                        <UserPlus className="w-6 h-6 mr-2" />
+                                        <p className="font-bold">Mengikuti</p>
+                                    </a>
+                                </Button>
+                            )}
                         </div>
                     </div>
 

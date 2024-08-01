@@ -62,7 +62,7 @@ export default function TopUser({
                     />
                 </div>
             )}
-            {user && <div className="text-lg font-bold">{user.name}</div>}
+            {user && <p className="text-lg font-bold break-words text-wrap">{user.name}</p>}
             <p className="bg-gray-400/50 px-2 text-sm rounded-full">
                 {user && (
                     <span className="font-bold">{user.followers_count}</span>
@@ -75,7 +75,7 @@ export default function TopUser({
                         <Podium
                             color="gold"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="text-5xl font-bold">{rank}</p>
                         </Podium>
@@ -84,7 +84,7 @@ export default function TopUser({
                         <Podium
                             color="silver"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="text-5xl font-bold">{rank}</p>
                         </Podium>
@@ -93,7 +93,7 @@ export default function TopUser({
                         <Podium
                             color="bronze"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="text-5xl font-bold">{rank}</p>
                         </Podium>

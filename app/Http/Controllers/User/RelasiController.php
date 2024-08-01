@@ -131,13 +131,7 @@ class RelasiController extends Controller
        if ($follow) {
            // If already following, unfollow the user
            $follow->delete();
-           return Inertia::render('Relasi/Page', [
-               'response' => [
-                   'status' => 200,
-                   'message' => 'Successfully unfollowed the user',
-                   'data' => null
-               ]
-           ]);
+           return redirect()->back()->with('success', 'Successfully unfollowed the user');
        }
    
        DB::beginTransaction();
@@ -148,22 +142,10 @@ class RelasiController extends Controller
                'followed_user_id' => $followedUserId
            ]);
            DB::commit();
-           return Inertia::render('Relasi/Page', [
-               'response' => [
-                   'status' => 200,
-                   'message' => 'Successfully followed the user',
-                   'data' => null
-               ]
-           ]);
+           return redirect()->back()->with('success', 'Successfully followed the user');
        } catch (\Throwable $th) {
            DB::rollBack();
-           return Inertia::render('Relasi/Page', [
-               'response' => [
-                   'status' => 500,
-                   'message' => 'Failed to follow the user',
-                   'data' => null
-               ]
-           ]);
+           return redirect()->back()->with('error', 'Failed to follow the user');
        }
    }
 
@@ -171,6 +153,9 @@ class RelasiController extends Controller
     public function profile($id)
     {
         $user = User::withCount(['followers', 'followings'])->findOrFail($id);
+        $follow = Follow::where('following_user_id', Auth::id())
+            ->where('followed_user_id', $id)
+            ->exists();
     
         // Increment view count
         $user->increment('view_count');
@@ -193,6 +178,7 @@ class RelasiController extends Controller
          'view_count' => $user->view_count,
          'followers_count' => $user->followers_count,
          'followings_count' => $user->followings_count,
+         'followed' => $follow,
          'bio' => $user->bio,
         ];
     

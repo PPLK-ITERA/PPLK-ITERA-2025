@@ -24,6 +24,7 @@ export interface User {
     linkedinUrl: string;
     instagramUrl: string;
     role_id: number;
+    followed: boolean;
 }
 
 export interface UserMaba {

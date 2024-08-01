@@ -1,4 +1,5 @@
 import Autoplay from "embla-carousel-autoplay";
+import { CircularProgressbar } from "react-circular-progressbar";
 
 import React, { useEffect, useState } from "react";
 
@@ -17,6 +18,7 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
 import GoldPodium from "@/Components/relasi/Podium";
 import ProfileCard from "@/Components/relasi/ProfileCard";
+import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import SortDropdown from "@/Components/relasi/SortDropdown";
 import TopUser from "@/Components/relasi/TopUser";
 import UserList from "@/Components/relasi/UserList";
@@ -52,6 +54,7 @@ function Page() {
     const [topLoading, setTopLoading] = useState(false);
     const [topFollowers, setTopFollowers] = useState<User[]>([]);
     const [users, setUsers] = useState<Partial<User>[]>([]);
+    const [search, setSearch] = useState("");
     const [sort, setSort] = useState<
         "viewer" | "followers" | "followings" | "name"
     >("followers");
@@ -90,9 +93,10 @@ function Page() {
                             type="text"
                             placeholder="Cari Nusantara Muda yang Lain"
                             className="p-4 border rounded-[10px]"
+                            onChange={(e) => setSearch(e.target.value)}
                         />
 
-                        <a href={route("relasi.search")} target="_blank">
+                        <a href={route("relasi.search", { search: search })}>
                             <Button className="absolute top-1/2 -translate-y-1/2 right-2 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-full p-0 w-8 h-8">
                                 <IconSearch size={14} />
                             </Button>
@@ -107,20 +111,23 @@ function Page() {
 
                     <div className="w-full max-w-2xl mx-auto">
                         {topLoading ? (
-                            <Progress />
+                            <RelasiLoading className="mx-auto min-h-36" />
                         ) : (
                             <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
                                 <TopUser
+                                    className="basis-1/3"
                                     user={topFollowers[1]}
                                     rank={2}
                                     podiumHeight={160}
                                 />
                                 <TopUser
+                                    className="basis-1/3"
                                     user={topFollowers[0]}
                                     rank={1}
                                     podiumHeight={196}
                                 />
                                 <TopUser
+                                    className="basis-1/3"
                                     user={topFollowers[2]}
                                     rank={3}
                                     podiumHeight={144}
@@ -140,7 +147,7 @@ function Page() {
                             />
                         </div>
                         {sortLoading ? (
-                            <Progress /> // Display a loading message or spinner
+                            <RelasiLoading className="mx-auto min-h-48" />
                         ) : (
                             <UserList users={users} />
                         )}
