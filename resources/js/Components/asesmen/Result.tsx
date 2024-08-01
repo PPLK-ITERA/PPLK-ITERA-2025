@@ -1,17 +1,18 @@
 "use client";
 
 import { Progress } from "../ui/progress";
-import { useToast } from "../ui/use-toast";
-
-import { useEffect, useState } from "react";
-
-import { getResult } from "@/lib/data/result";
-import { Result } from "@/lib/types/Result";
 
 import pilar1 from "!assets/pilar/pilar1.png";
 import pilar2 from "!assets/pilar/pilar2.png";
 import pilar3 from "!assets/pilar/pilar3.png";
 import pilar4 from "!assets/pilar/pilar4.png";
+
+const deskripsiPilar = [
+    "Pilar pertama mengajarkan pentingnya pendidikan tinggi dan pembentukan karakter. Pendidikan tidak hanya tentang pengetahuan, tetapi juga tentang membangun integritas dan tanggung jawab. Kamu diingatkan untuk menjunjung tinggi nilai-nilai positif dan menjaga kesehatan diri serta lingkungan kampus.",
+    "Pilar ini menyoroti peran kamu dalam pembangunan ekonomi di era Industri 4.0 dan Society 5.0. Ini bukan hanya tentang teknologi terbaru, tetapi juga tentang memanfaatkan pengetahuanmu untuk berdampak positif pada masyarakat. Kamu perlu siap beradaptasi dengan perubahan ekonomi global.",
+    "Pilar ketiga menekankan pentingnya menjaga keseimbangan antara kehidupan akademis dan lingkungan. Kamu harus peduli terhadap lingkungan dan memahami pentingnya keselamatan serta kesehatan, baik secara pribadi maupun kolektif.",
+    "Pilar terakhir berfokus pada hukum dan tata kelola. Sebagai bagian dari generasi muda, kamu bertanggung jawab untuk memahami peranmu dalam masyarakat dan berkontribusi pada pembangunan negara, dengan kesadaran bela negara dan karakter kebangsaan yang kuat.",
+];
 
 export default function AsesmenResult({
     nilai1 = 0,
@@ -21,9 +22,6 @@ export default function AsesmenResult({
     pilar,
     persen,
 }) {
-    const { toast } = useToast();
-    const [result, setresult] = useState<Result | null>(null);
-    const [nilaiTotal, setnilaiTotal] = useState(0);
     const maxPoin = 10;
 
     const ProgresPilar = ({ textColor, gradient, angka, hasil }) => {
@@ -31,7 +29,15 @@ export default function AsesmenResult({
             <div className="font-montserrat mb-6">
                 <div className="flex justify-between">
                     <p className={`${textColor} text-lg font-bold`}>
-                        Pilar {angka} :{" " + namaPilar}
+                        Pilar {angka} :
+                        {" " +
+                            (angka === 1
+                                ? "Work Hard"
+                                : angka === 2
+                                  ? "Sharing is Caring"
+                                  : angka === 3
+                                    ? "Equity"
+                                    : "Common")}
                     </p>
                     <p className={`${textColor} self-end font-medium `}>
                         {hasil}/{maxPoin}
@@ -71,15 +77,18 @@ export default function AsesmenResult({
                     </h1>
                 </div>
 
-                <div className="max-w-xs font-medium text-candlelight-800 italic text-center py-4 px-2 rounded-full bg-[#ED8F45] bg-opacity-20 outline outline-1 outline-jaffa-600">
-                    Hanya {persen}% Naramuda yang mendapatkan pilar ini
+                <div className="max-w-sm font-medium text-candlelight-800 italic text-center py-4 px-2 rounded-full bg-[#ED8F45] bg-opacity-20 outline outline-1 outline-jaffa-600">
+                    Kamu merupakan salah satu dari{" "}
+                    <span className="font-bold">
+                        {" "}
+                        {Number(persen).toFixed(0)}%
+                    </span>{" "}
+                    Naramuda yang mendapatkan Pilar{" "}
+                    <span className="font-bold">{namaPilar}</span>
                 </div>
 
                 <div className="bg-[#864D0D] max-w-md font-medium text-center text-white  p-5 h-full min-w-28 rounded-xl">
-                    Pilar kerja keras adalah fondasi yang mendasari setiap
-                    pencapaian besar. Ini melibatkan dedikasi yang tidak kenal
-                    lelah, tekad yang kuat, dan komitmen untuk terus berusaha
-                    meskipun menghadapi rintangan dan tantangan.
+                    {deskripsiPilar[pilar - 1]}
                 </div>
             </div>
         );
