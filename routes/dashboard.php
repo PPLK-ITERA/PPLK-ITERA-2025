@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\User\PresensiPplkController;
@@ -53,12 +54,15 @@ Route::middleware('auth')->group(function () {
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
                Route::get('maba', [UserController::class, 'getUsersMaba'])->name('maba');
+               Route::get('prodi', [UserController::class, 'getProdis'])->name('prodi');
+               Route::get('kelompok', [UserController::class, 'getKelompok'])->name('kelompok');
             });
 
             // =====================================
             // UPDATE DATA USER
             // =====================================
-            Route::put('user/update', [UserController::class, 'update'])->name('update');
+            Route::get('edit/{id}', [UserController::class, 'edit'])->name('edit');
+            Route::put('update', [UserController::class, 'update'])->name('update');
          });
       });
 
@@ -72,6 +76,19 @@ Route::middleware('auth')->group(function () {
             Route::post('/store', [BookletController::class, 'store'])->name('store');
             Route::put('/update', [BookletController::class, 'update'])->name('update');
             Route::delete('/delete', [BookletController::class, 'destroy'])->name('destroy');
+         });
+      });
+
+      // =====================================
+      // Materi
+      // =====================================
+      Route::prefix('materi')->name('materi.')->group(function () {
+         Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
+            Route::get('data', [MateriController::class, 'getAllMateris'])->name('data');
+            Route::get('/', [MateriController::class, 'index'])->name('index');
+            Route::post('/store', [MateriController::class, 'store'])->name('store');
+            Route::put('/update', [MateriController::class, 'update'])->name('update');
+            Route::delete('/delete', [MateriController::class, 'destroy'])->name('destroy');
          });
       });
 

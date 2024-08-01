@@ -1,4 +1,3 @@
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { ColumnDef } from "@tanstack/react-table";
 import { format } from "date-fns";
 import { useDebouncedCallback } from "use-debounce";
@@ -11,23 +10,22 @@ import { CalendarIcon } from "lucide-react";
 
 import { IconPlus } from "@tabler/icons-react";
 
-import { BookletCellActions } from "@/Components/booklet/BookletCellActions";
+import DashboardLayout from "@/Layouts/DashboardLayout";
+
+import { BookletCellActions } from "@/Components/dashboard/booklet/BookletCellActions";
 import BookletForm from "@/Components/dashboard/booklet/BookletForm";
-import { BookletTable } from "@/Components/dashboard/booklet/BookletTable";
-import { CellAction } from "@/Components/tables/cui/cell-action";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
 import { DataTable } from "@/Components/ui/data-table";
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "@/Components/ui/dialog";
 import { Toaster } from "@/Components/ui/toaster";
-import { toast } from "@/Components/ui/use-toast";
+import { toast, useToast } from "@/Components/ui/use-toast";
 
 import { Booklet } from "@/lib/types/Booklet";
 
@@ -42,31 +40,6 @@ interface BookletDataResponse {
 }
 
 export default function Page({ auth, response }) {
-    const { data, setData, post, processing, errors } = useForm<Booklet>();
-
-    function submit(e: FormEvent<HTMLFormElement>) {
-        let d = {
-            nama_booklet: e.currentTarget.nama_booklet.value,
-            url_booklet: e.currentTarget.url_booklet.value,
-        };
-
-        post(route("dashboard.booklet.store", d), {
-            onError: () => {
-                toast({
-                    title: "Uh oh! Gagal mengupload Booklet.",
-                    description: errors.nama_booklet || errors.url_booklet,
-                });
-            },
-            onSuccess: () => {
-                toast({
-                    title: "Berhasil mengupload Booklet!",
-                    description: "Booklet berhasil diupload.",
-                });
-            },
-        });
-        window.location.reload();
-    }
-
     const columns: ColumnDef<BookletDataResponse>[] = [
         {
             id: "no",
@@ -87,11 +60,7 @@ export default function Page({ auth, response }) {
             id: "action",
             header: "Aksi",
             cell: ({ row }) => (
-                <BookletCellActions
-                    submit={submit}
-                    setData={setData}
-                    booklet={row.original.booklet}
-                />
+                <BookletCellActions booklet={row.original.booklet} />
             ),
         },
     ];
@@ -101,7 +70,7 @@ export default function Page({ auth, response }) {
             <Breadcrumbs items={breadcrumbItems} />
             <h2 className="text-3xl font-bold tracking-tight">Atur Booklet</h2>
 
-            <div className="place-content-end flex w-full">
+            <div className="place-content-start flex w-full">
                 {/* add dialog */}
                 <Dialog>
                     <DialogTrigger asChild>
@@ -114,7 +83,7 @@ export default function Page({ auth, response }) {
                         <DialogHeader>
                             <DialogTitle>Tambah Booklet</DialogTitle>
                         </DialogHeader>
-                        <BookletForm onSubmit={submit} setData={setData} />
+                        <BookletForm />
                     </DialogContent>
                 </Dialog>
             </div>

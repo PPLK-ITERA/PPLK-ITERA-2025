@@ -16,7 +16,7 @@ class Tugas extends Model
       'tanggal_submit',
       'kategori_tugas',
       'isReturned',
-      'catatan'
+      'catatan',
    ];
 
    public function user()
@@ -32,5 +32,10 @@ class Tugas extends Model
       }
 
       $this->save();
+   }
+
+   public function pengumpulanTugas()
+   {
+      return $this->hasOne(PengumpulanTugas::class, 'tugas_id', 'id');
    }
 }

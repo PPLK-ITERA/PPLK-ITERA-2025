@@ -1,13 +1,9 @@
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 
-import { HeaderFakultasData } from "@/lib/data/fakultas";
+import { FAKULTAS_DATA, FakultasData } from "@/lib/data/fakultas";
 
-type HeaderProps = {
-    fakultas: string;
-};
-
-const Header = ({ fakultas }: HeaderProps) => {
-    const selectedFakultas = HeaderFakultasData[fakultas];
+const Header = ({ fakultas }) => {
+    const selectedFakultas: FakultasData = FAKULTAS_DATA[fakultas];
 
     return (
         <MaxWidthWrapper className="md:justify-start flex flex-col items-center justify-center">
@@ -28,7 +24,7 @@ const Header = ({ fakultas }: HeaderProps) => {
 
                 <p className="mt-10 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em] max-w-lg">
                     <span className="text-[18px] md:text-[25px]">
-                        {selectedFakultas.description}
+                        {selectedFakultas.header_desc}
                     </span>
                 </p>
             </div>
