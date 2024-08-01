@@ -1,7 +1,8 @@
 import Presensi from "./Presensi";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import React from "react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { AbsensiMabaClient } from "@/Components/tables/absensi-maba/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";

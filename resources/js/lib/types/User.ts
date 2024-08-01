@@ -31,4 +31,5 @@ export interface UserAuthProps {
     id: number;
     name: string;
     role_id: number;
+    isKetua: boolean;
 }

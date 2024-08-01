@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MadingController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,13 @@ Route::get('/', function () {
 
 //Auth Route
 Route::middleware('auth')->group(function () {
+   Route::get('/csrf-token', function (Request $request) {
+      return response()->json(['csrfToken' => csrf_token()]);
+   })->name("csrf");
+
+   Route::get("/mading-preview", function () {
+      return view("mading-preview");
+   });
 
 
    // Scoreboard
@@ -37,6 +45,12 @@ Route::middleware('auth')->group(function () {
    Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
    Route::put('/myprofile', [ProfileController::class, 'update'])->name('profile.update');
    Route::put('/myprofileupload', [ProfileController::class, 'updateProfile'])->name('profile.update.profile');
+
+   Route::prefix('mading')->name('mading.')->group(function () {
+      Route::get('/card', [MadingController::class, 'getCard'])->name('card');
+      Route::get('/tugas/{id}', [MadingController::class, 'getTugas'])->name('tugas');
+      Route::post('/store', [MadingController::class, 'storeTugas'])->name('store');
+   });
 
    // //melihat top 10
    // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);

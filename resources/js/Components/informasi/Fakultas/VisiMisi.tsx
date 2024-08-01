@@ -26,7 +26,7 @@ export default function VisiMisi({ fakultas }: { fakultas: string }) {
                         <div className="text-xl font-bold absolute top-0 -mt-6 -left-2 bg-white text-jaffa-700 py-2 rounded-full border-4 border-[#B9822F] px-14">
                             MISI
                         </div>
-                        <p className=" mt-6 space-y-3 text-white">
+                        <p className="mt-6 space-y-3 text-white">
                             {selectedFakultas.misi.map(
                                 (misi: string, index: number) => (
                                     <div key={index} className="flex gap-2">

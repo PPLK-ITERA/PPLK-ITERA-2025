@@ -1,6 +1,6 @@
-import DefaultLayout from "@/Layouts/DefaultLayout";
-
 import React, { useEffect } from "react";
+
+import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import Header from "@/Components/informasi/Fakultas/Header";
 import Hero from "@/Components/informasi/Fakultas/Hero";

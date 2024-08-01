@@ -12,8 +12,12 @@ import { useState } from "react";
 
 import { Link } from "@inertiajs/react";
 
+import { HardDriveUpload } from "lucide-react";
+
+import { IconPhotoUp, IconUpload } from "@tabler/icons-react";
+
 import RadialSeparators from "@/Components/mading/RadialSeparator";
-import { Button } from "@/Components/ui/button";
+import { Button, buttonVariants } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
     Carousel,
@@ -21,50 +25,60 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
+import { CardType } from "@/lib/types/Mading";
+
 import sponsor_overlay from "!assets/sponsor-overlay.png";
 
-const Tugas = [1, 2, 3, 4, 5, 6];
+interface BuktiPengerjaanProps {
+    cards: CardType[];
+    completionPercentage: { [key: number]: number };
+    isSubmitted: { [key: number]: boolean };
+    isKetua: boolean;
+}
 
-export default function BuktiPengerjaan({ upt }: { upt?: string }) {
-    const [submit, setSubmit] = useState(true);
+export default function BuktiPengerjaan({
+    cards,
+    completionPercentage,
+    isSubmitted,
+    isKetua,
+}: BuktiPengerjaanProps) {
+    const [submit, setSubmit] = useState(false);
 
     return (
-        <div className="relative z-10 w-full">
-            <div className="flex justify-center mt-24">
-                <h2 className="font-montserrat text-[25px] font-bold text-moccaccino-950 text-center">
-                    Kumpulkan bukti pengerjaan tugas dibawah ini
-                </h2>
-            </div>
-            <Carousel
-                opts={{
-                    align: "start",
-                    loop: true,
-                }}
-                className="scroll-smooth max-w-[1920px] xl:pl-36 lg:pl-20 md:pl-10 w-full pl-5 mx-auto mt-10"
-                plugins={[
-                    Autoplay({
-                        delay: 3000,
-                    }),
-                ]}
-            >
-                <CarouselContent>
-                    {Tugas.map((_, index) => (
-                        <CarouselItem
-                            key={index}
-                            className="basis-72 md:basis-80 xl:basis-[26rem]"
+        <Carousel
+            opts={{
+                align: "start",
+            }}
+            className="scroll-smooth max-w-[1920px] xl:pl-36 lg:pl-20 md:pl-10 w-full pl-5 mx-auto mt-10"
+        >
+            <CarouselContent>
+                {cards.map((card, index) => (
+                    <CarouselItem
+                        key={index}
+                        className="basis-72 md:basis-[370px] xl:basis-[26rem]"
+                    >
+                        {/* ${isSubmitted[card.tugas[0].id] ? "bg-jaffa-700" : "bg-white"} */}
+                        <Card
+                            className={`${index === 0 && !isKetua ? "bg-jaffa-700" : ""} xl:w-[400px] md:w-[350px] lg:w-[350px] md:h-[550px] w-[280px] h-[400px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserrat`}
                         >
-                            <Card
-                                className={`${submit ? "bg-jaffa-700" : ""} xl:w-[400px] md:w-[300px] lg:w-[310px] md:h-[550px] w-[280px] h-[500px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserra`}
+                            <CardContent
+                                className={`flex flex-col items-center justify-center p-4 ${isSubmitted[card.tugas[0].id] ? "text-white" : "text-jaffa-700"}`}
                             >
-                                <CardContent className="flex flex-col items-center justify-center p-4 text-white">
-                                    <h2 className="pt-5 font-avigea text-[44px] text-center">
-                                        Day {index + 1}
-                                    </h2>
-                                    {submit ? (
-                                        <div className="w-32 h-32 mt-32">
+                                <h2 className="pt-5 font-avigea text-[44px] text-center">
+                                    Day {index + 1}
+                                </h2>
+
+                                {/* isSubmitted[card.tugas[0].id] */}
+                                {false ? (
+                                    <div className="md:mt-[40%] mt-[20%] flex flex-col items-center justify-center">
+                                        <div className="w-32 h-32">
                                             <CircularProgressbarWithChildren
-                                                value={90}
-                                                text={`${90}%`}
+                                                value={
+                                                    completionPercentage[
+                                                        index + 1
+                                                    ]
+                                                }
+                                                text={`${Math.floor(completionPercentage[index + 1])}%`}
                                                 strokeWidth={10}
                                                 styles={buildStyles({
                                                     strokeLinecap: "butt",
@@ -83,20 +97,55 @@ export default function BuktiPengerjaan({ upt }: { upt?: string }) {
                                                 />
                                             </CircularProgressbarWithChildren>
                                         </div>
-                                    ) : (
-                                        <Link
-                                            className="mt-44 text-[48px] font-bold text-jaffa-700 bg-transparent"
-                                            href={route("mading/kumpul")}
-                                        >
-                                            +
-                                        </Link>
-                                    )}
-                                </CardContent>
-                            </Card>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
-        </div>
+
+                                        {isKetua ? (
+                                            <Link
+                                                href={route(
+                                                    `mading/pengumpulan-cover`,
+                                                    { id: card.id },
+                                                )}
+                                                onClick={() => setSubmit(true)}
+                                                className={`${buttonVariants()} hover:bg-white/90 flex items-center justify-center gap-2 mx-auto mt-10 md:mt-16 bg-white shadow-sm`}
+                                            >
+                                                <IconPhotoUp
+                                                    color="#b54419"
+                                                    size={20}
+                                                />
+
+                                                <span className="text-jaffa-700 font-bold">
+                                                    Upload Cover
+                                                </span>
+                                            </Link>
+                                        ) : null}
+                                    </div>
+                                ) : (
+                                    <>
+                                        {index === 0 && isKetua ? (
+                                            <Link
+                                                className="mt-44 text-[48px] font-bold text-jaffa-700 bg-transparent"
+                                                href={`/mading/pengumpulan/${card.id}`}
+                                            >
+                                                +
+                                            </Link>
+                                        ) : (
+                                            <>
+                                                {index !== 0 ? (
+                                                    <Link
+                                                        className="mt-44 text-[48px] font-bold text-jaffa-700 bg-transparent"
+                                                        href={`/mading/pengumpulan/${card.id}`}
+                                                    >
+                                                        +
+                                                    </Link>
+                                                ) : null}
+                                            </>
+                                        )}
+                                    </>
+                                )}
+                            </CardContent>
+                        </Card>
+                    </CarouselItem>
+                ))}
+            </CarouselContent>
+        </Carousel>
     );
 }

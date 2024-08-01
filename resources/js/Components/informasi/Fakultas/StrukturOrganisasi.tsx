@@ -32,7 +32,7 @@ export default function StrukturOrganisasi({ fakultas }) {
         <div className="py-16">
             <div className="text-start md:text-center md:px-0 px-4">
                 <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-bold tracking-widest text-center">
-                    Struktural Jabatan
+                    Jabatan Struktural
                 </p>
             </div>
 

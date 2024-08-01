@@ -59,8 +59,6 @@ export interface UserResponse {
 const Page = ({ response }) => {
     const UserData: UserResponse = response.data;
 
-    console.log(UserData);
-
     const [file, setFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState("");
     const [qrData, setQrData] = useState("");
@@ -110,8 +108,6 @@ const Page = ({ response }) => {
             setPreviewUrl("");
         }
     };
-
-    console.log(UserData.photo_profile_url);
 
     const handleSubmit = async (event) => {
         event.preventDefault();

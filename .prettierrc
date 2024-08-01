@@ -8,6 +8,7 @@
         "^@inertiajs(.*)$",
         "^lucide-react$",
         "^@tabler/icons-react$",
+        "^@/Layouts(.*)$",
         "^@/Components(.*)$",
         "^@/hookform(.*)$",
         "^@/lib(.*)$",

@@ -2,11 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\KartuTugas;
+use App\Models\PengumpulanTugas;
 use App\Models\Penyakit;
 use App\Models\pilar;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Tugas;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,5 +34,38 @@ class DatabaseSeeder extends Seeder
          TugasSeeder::class,
          // Add more seeders if needed
       ]);
+
+      foreach (range(1, 6) as $hari) {
+         $kartuTugas = KartuTugas::create([
+            'hari' => $hari,
+            'tanggal' => Carbon::now(),
+            'kelompok_id' => 2, // Setting to kelompok_id 2
+            'poster_url' => null,
+            'is_selesai' => false,
+         ]);
+
+         // Buat satu Tugas untuk setiap KartuTugas
+         $tugas = Tugas::create([
+            'kartu_id' => $kartuTugas->id,
+            'judul' => 'Sample Task ' . $hari,
+            'deskripsi' => 'Complete the task for day ' . $hari,
+            'pengumpulan' => 'sosmed',
+            'kategori' => 'individu',
+            'deadline' => Carbon::now()->addDays(7),
+         ]);
+
+         // Buat PengumpulanTugas untuk setiap user dan tugas
+         foreach (range(27, 32) as $userId) {
+            PengumpulanTugas::create([
+               'user_id' => $userId,
+               'tugas_id' => $tugas->id,
+               'jawaban' => 'Here is my task submission for day ' . $hari,
+               'isReturn' => false,
+               'tanggal_submit' => Carbon::now(),
+            ]);
+         }
+      }
    }
+
+
 }

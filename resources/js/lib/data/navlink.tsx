@@ -59,8 +59,8 @@ export const InformasiDropDown = [
         icon: <IconSchool size={24} color="#fcedd8" />,
     },
     {
-        title: "UPT ITERA",
-        href: "/informasi/upt",
+        title: "UPA ITERA",
+        href: "/informasi/upa",
         icon: <IconBuildingCommunity size={24} color="#fcedd8" />,
     },
     {
