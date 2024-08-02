@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "@inertiajs/react";
+
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import NavHero from "@/Components/NavHero";
@@ -70,7 +72,9 @@ export default function Error({ status }) {
                     </div>
 
                     <div className="font-montserrat">
-                        <span className="text-xs text-red-300/70 animate-pulse">Error {status}</span>
+                        <span className="text-xs text-red-300/70 animate-pulse">
+                            Error {status}
+                        </span>
 
                         <p className="text-lg md:text-xl font-semibold">
                             {title} {emoji}
@@ -80,12 +84,12 @@ export default function Error({ status }) {
                         </p>
                     </div>
 
-                    <a
-                        href={"/"}
+                    <Link
+                        href={route("welcome")}
                         className="rounded p-3 bg-jaffa-400/80 hover:bg-jaffa-400 backdrop-blur-md md:w-fit transition"
                     >
                         Kembali ke Beranda
-                    </a>
+                    </Link>
                 </div>
 
                 <div data-aos="fade-left" data-aos-duration="1500">
