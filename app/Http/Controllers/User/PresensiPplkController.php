@@ -166,16 +166,9 @@ class PresensiPplkController extends Controller
    {
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
+      $date = $request->input('date', Carbon::today()->toDateString());
 
-      if (Auth::user()->role_id == 2 || Auth::user()->role_id == 4) {
-         $kelompok_id = Auth::user()->kelompok_id;
-         $query = User::query()->where('kelompok_id', $kelompok_id);
-      } elseif (Auth::user()->role_id == 5) {
-         $prodi_id = Auth::user()->prodi_id;
-         $query = User::query()->where('prodi_id', $prodi_id);
-      } elseif (Auth::user()->role_id == 3) {
-         $query = User::query();
-      } else {
+      if (!in_array(Auth::user()->role_id, [2, 4, 5, 3])) {
          return response()->json([
             'response' => [
                'status' => 403,
@@ -184,28 +177,27 @@ class PresensiPplkController extends Controller
          ], 403);
       }
 
-      $query->where('role_id', 1)->with([
-         'penyakit',
-         'kelompok',
-         'presensi'
-      ]) // Eager loading necessary relationships
-         ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->where(
-               'name',
-               'like',
-               '%' . $searchTerm . '%'
-            )
+      $query = User::query()->where('role_id', 1);
+
+      if (Auth::user()->role_id === 2 || Auth::user()->role_id === 4) {
+         $query->where('kelompok_id', Auth::user()->kelompok_id);
+      } elseif (Auth::user()->role_id === 5) {
+         $query->where('prodi_id', Auth::user()->prodi_id);
+      }
+
+      $query->with(['penyakit', 'kelompok', 'presensi'])
+         ->where(function ($q) use ($searchTerm, $date) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
                ->orWhere('nim', 'like', '%' . $searchTerm . '%')
                ->orWhere('email', 'like', '%' . $searchTerm . '%')
-               ->orWhereHas('presensi', function ($q) use ($searchTerm) {
-                  $q->where('kehadiran', 'like', '%' . $searchTerm . '%')
-                     ->orWhere('tanggal_presensi', 'like', '%' . $searchTerm . '%');
+               ->orWhereHas('presensi', function ($query) use ($searchTerm, $date) {
+                  $query->where('kehadiran', 'like', '%' . $searchTerm . '%')
+                     ->orWhere('tanggal_presensi', $date);
                });
          });
 
       $attendances = $query->paginate($perPage);
 
-      // Adjusting the collection to include custom attributes like indexing and presence data
       $attendances->getCollection()->transform(function ($user, $key) use ($perPage, $attendances) {
          $currentIndex = ($attendances->currentPage() - 1) * $perPage + $key + 1;
          return [
@@ -216,20 +208,22 @@ class PresensiPplkController extends Controller
                'nim' => $user->nim,
                'email' => $user->email,
                'photo_profile_url' => $user->photo_profile_url,
-               'qrcode' => $user->qrcode->code ?? null,
-               'nama_kelompok' => $user->kelompok->nama_kelompok ?? null,
+               'qrcode' => optional($user->qrcode)->code,
+               'nama_kelompok' => optional($user->kelompok)->nama_kelompok,
                'penyakit' => [
-                  'pita' => $user->penyakit->pita ?? null,
-                  'ket_penyakit' => $user->penyakit->ket_penyakit ?? null,
+                  'pita' => optional($user->penyakit)->pita,
+                  'ket_penyakit' => optional($user->penyakit)->ket_penyakit,
                ],
-               'status' => ($user->presensi) ? $user->presensi->kehadiran : 'Tidak Hadir', // Using optional() to safely access kehadiran
-               'tanggal_presensi' => ($user->presensi) ? $user->presensi->tanggal_presensi : '-',
-               'ket_izin' => ($user->presensi) ? ($user->presensi->kehadiran) == 'Izin' ? $user->presensi->keterangan : '-' : '-', // Safely accessing tanggal_presensi
+               'status' => optional($user->presensi)->kehadiran ?: 'Tidak Hadir',
+               'tanggal_presensi' => optional($user->presensi)->tanggal_presensi ?: '-',
+               'ket_izin' => optional($user->presensi)->kehadiran === 'Izin' ? $user->presensi->keterangan : '-',
             ],
          ];
       });
+
       return response()->json($attendances);
    }
+
 
    public function store(Request $request)
    {
