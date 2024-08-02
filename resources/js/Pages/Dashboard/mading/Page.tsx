@@ -23,7 +23,7 @@ export default function Page({ auth }) {
 
             <TugasClient />
 
-            {auth.user.role_id === 3 ? <MentorView /> : null}
+            {auth.user.role_id === 2 ? <MentorView /> : null}
         </DashboardLayout>
     );
 }

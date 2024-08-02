@@ -1,9 +1,10 @@
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { IDetectedBarcode, Scanner, outline } from "@yudiel/react-qr-scanner";
 
 import React, { useEffect, useState } from "react";
 
 import { useForm } from "@inertiajs/react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import Dapmen from "@/Components/dashboard/game-offline/Dapmen";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
@@ -38,13 +39,15 @@ export default function Page({ auth, response }) {
             <Breadcrumbs items={breadcrumbItems} />
             <h2 className="text-3xl font-bold tracking-tight">Game Offline</h2>
 
-            {auth.user.role_id === 3 ? (
+            {auth.user.role_id === 2 ||
+            auth.user.role_id === 3 ||
+            auth.user.role_id === 4 ? (
                 <>
                     <Dapmen userId={auth.user.id} />
                 </>
             ) : null}
 
-            {auth.user.role_id === 3 ? (
+            {auth.user.role_id === 6 ? (
                 <>
                     <p>
                         Gunakan fitur ini untuk scan QR kelompok dari{" "}

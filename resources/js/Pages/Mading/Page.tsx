@@ -2,7 +2,7 @@ import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resource
 
 import { useEffect, useState } from "react";
 
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
@@ -56,12 +56,14 @@ const SkeletonLoader = () => {
     );
 };
 
-const Mading = () => {
+const Mading = ({ succes }: { succes?: string }) => {
     type MyPage = PageProps<{
         auth: {
             user: UserAuthProps;
         };
     }>;
+
+    succes ? console.log("pesan", succes) : null;
 
     const { auth } = usePage<MyPage>().props;
 

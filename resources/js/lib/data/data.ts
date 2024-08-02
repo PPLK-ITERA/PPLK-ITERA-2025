@@ -104,6 +104,13 @@ export const navItems: NavItem[] = [
         role_id: [1, 2, 3, 4, 5, 6, 7],
     },
     {
+        title: "Game Offline",
+        href: "/dashboard/game-offline",
+        icon: "game",
+        label: "atur-informasi-kelompok",
+        role_id: [1, 2, 3, 4, 5, 6, 7],
+    },
+    {
         title: "CUI",
         href: "/dashboard/cui",
         icon: "ticket",

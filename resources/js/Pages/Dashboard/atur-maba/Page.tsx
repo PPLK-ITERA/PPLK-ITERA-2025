@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
-    { title: "Booklet", link: "/dashboard/booklet" },
+    { title: "Atur Maba", link: "/dashboard/atur-maba" },
 ];
 
 export default function Page({ auth }) {

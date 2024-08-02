@@ -297,7 +297,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    Route::get('dashboard/informasi-kelompok', function () {
       return Inertia::render('Dashboard/informasi-kelompok/Page');
-   })->name('dashboard/informasi-kelompok');
+   })->name('informasi-kelompok');
 
    // Route::get('dashboard/edit-user/{user_id}', function ($user_id) {
    //    return Inertia::render('Dashboard/informasi-kelompok/detail-maba/Page');

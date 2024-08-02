@@ -64,17 +64,15 @@ class KelompokController extends Controller
    }
    public function update(Request $request)
    {
-      $id  = auth()->user()->kelompok_id;
+      $id = auth()->user()->kelompok_id;
       $kelompok = Kelompok::find($id);
       $validated = $request->validate([
-         'no_kelompok' => 'required|integer',
-         'nama_kelompok' => 'required|string|unique:kelompoks,nama_kelompok,' . $id,
-         'logo_kelompok' => 'required'
+         'nama_kelompok' => 'sometimes|string',
+         'logo_kelompok' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
       DB::BeginTransaction();
       try {
          $kelompok->update([
-            'no_kelompok' => $validated['no_kelompok'],
             'nama_kelompok' => $validated['nama_kelompok'],
             'logo_kelompok' => $validated['logo_kelompok']
          ]);
@@ -90,7 +88,7 @@ class KelompokController extends Controller
             ]
          );
       }
-      return redirect()->route('kelompok.index')->with(
+      return redirect()->route('informasi-kelompok')->with(
          [
             'response' => [
                'status' => 200,

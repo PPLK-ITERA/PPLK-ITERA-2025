@@ -324,42 +324,99 @@ class UserController extends Controller
    /**
     * Update the specified resource in storage.
     */
-   public function update(UserUpdateRequest $request)
+   public function editFoto(Request $request)
    {
-      $user = User::find($request->id);
-      DB::beginTransaction();
+      $validated = $request->validated([
+         'id' => ['required', 'integer'],
+         'photo' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
+      ]);
+      $user = User::find($validated['id']);
+      $path_image = $request->file('gambar')->store('images/atk', 'public');
+      DB::BeginTransaction();
       try {
-         $penyakit = Penyakit::find($user->penyakit_id);
-         $penyakit->update(
-            [
-               'pita' => $request->pita,
-               'ket_penyakit' => $request->ket_penyakit,
-            ]
-         );
-         $user->update(
-            [
-               'username' => $request->username,
-               'password' => bcrypt($request->password),
-               'name' => $request->name,
-               'nim' => $request->nim,
-               'role_id' => $request->role_id,
-               'penyakit' => $penyakit->id
-            ]
-         );
-         DB::commit();
+         $user->update([
+            'photo_profile_url' => 'storage/' . $path_image,
+         ]);
       } catch (\Exception $e) {
-         DB::rollBack();
+         DB::rollback();
          return redirect()->route('dashboard.user.index')->with([
             'response' => [
                'status' => 500,
-               'message' => 'Gagal mengubah user',
+               'message' => 'Gagal mengubah foto',
+            ]
+         ]);
+      }
+   }
+   public function editProfil(Request $request)
+   {
+      $validated = $request->validated([
+         'id' => ['required', 'integer'],
+         'name' => ['required', 'string'],
+         'nim' => ['required', 'string'],
+         'email' => ['required', 'email'],
+         'prodi_id' => ['required', 'integer'],
+         'pita' => ['required', 'string'],
+         'ket_penyakit' => ['string'],
+      ]);
+      $user = User::find($validated['id']);
+      DB::BeginTransaction();
+      try {
+         $penyakit = Penyakit::find($user->penyakit_id);
+         $penyakit->update([
+            'pita' => $validated['pita'],
+            'ket_penyakit' => $validated['ket_penyakit'],
+         ]);
+         $user->update([
+            'name' => $validated['name'],
+            'nim' => $validated['nim'],
+            'email' => $validated['email'],
+            'prodi_id' => $validated['prodi_id'],
+         ]);
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollback();
+         return redirect()->route('dashboard.user.index')->with([
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal mengubah profil',
             ]
          ]);
       }
       return redirect()->route('dashboard.user.index')->with([
          'response' => [
             'status' => 201,
-            'message' => 'Berhasil mengubah user',
+            'message' => 'Berhasil mengubah profil',
+         ]
+      ]);
+   }
+   public function editSosmed(Request $request)
+   {
+      $validated = $request->validated([
+         'id' => ['required', 'integer'],
+         'instagram_url' => ['required', 'url'],
+         'linkedin_url' => ['required', 'url'],
+      ]);
+      $user = User::find($validated['id']);
+      DB::BeginTransaction();
+      try {
+         $user->update([
+            'instagram_url' => $validated['instagram_url'],
+            'linkedin_url' => $validated['linkedin_url'],
+         ]);
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollback();
+         return redirect()->route('dashboard.user.index')->with([
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal mengubah sosmed',
+            ]
+         ]);
+      }
+      return redirect()->route('dashboard.user.index')->with([
+         'response' => [
+            'status' => 201,
+            'message' => 'Berhasil mengubah sosmed',
          ]
       ]);
    }
