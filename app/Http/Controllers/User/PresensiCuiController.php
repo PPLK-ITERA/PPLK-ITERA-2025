@@ -14,6 +14,86 @@ use Inertia\Inertia;
 
 class PresensiCuiController extends Controller
 {
+   public function storeHadir(Request $request)
+   {
+      $validated = $request->validate([
+         'user_id' => 'required|integer',
+      ]);
+
+      $user = User::find($validated['user_id']);
+      if (!$user) {
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "response" => [
+               "status" => 404,
+               "message" => "User tidak ditemukan",
+               "data" => [
+                  'user_id' => $validated['user_id']
+               ]
+            ]
+         ]);
+      }
+
+      // cek apakah user merupakan maba
+      if ($user->role->role != 'Maba') {
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "response" => [
+               "status" => 400,
+               "message" => "User bukan merupakan maba",
+               "data" => [
+                  'user_id' => $validated['user_id']
+               ]
+            ]
+         ]);
+      }
+
+      $log = LogCui::where('user_id', $user->id)->first();
+
+      if ($log) {
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "data" => [
+               'status' => $log->status,
+               'nama' => $user->name,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi->nama_prodi,
+               'pita' => $user->penyakit->pita ?? null,
+               'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+               'qr_code' => $user->qrcode->code,
+            ]
+         ]);
+      }
+
+      DB::beginTransaction();
+      try {
+         LogCui::create([
+            'user_id' => $user->id,
+            'status' => 'hadir',
+         ]);
+         DB::commit();
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "data" => [
+               'status' => 'hadir',
+               'nama' => $user->name,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi->nama_prodi,
+               'pita' => $user->penyakit->pita ?? null,
+               'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+               'qr_code' => $user->qrcode->code,
+            ]
+         ]);
+      } catch (\Exception $e) {
+         DB::rollback();
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "response" => [
+               "status" => 500,
+               "message" => "Gagal melakukan presensi",
+               "data" => [
+                  'user_id' => $validated['user_id']
+               ]
+            ]
+         ]);
+      }
+   }
+
    public function QRScan(Request $request)
    {
       $validated = $request->validate([
@@ -45,26 +125,59 @@ class PresensiCuiController extends Controller
          ]);
       }
       $log = LogCui::where('user_id', $user->id);
+
+      // jika user belum melakukan presensi, tampilkan halaman presensi
       if (!$log->exists()) {
-         DB::beginTransaction();
-         try {
-            $logCui = LogCui::create([
-               'user_id' => $user->id,
-               'status' => 'hadir',
-            ]);
-            DB::commit();
-         } catch (\Exception $e) {
-            DB::rollback();
-            return response()->json(['message' => 'Gagal membuat log'], 500);
-         }
-         return redirect()->route('cui.status', ['code' => $validated['qr_code']])->with('message', 'Berhasil melakukan presensi CUI');
+         return Inertia::render('Dashboard/cui/absensi/DetailMaba', [
+            'data' => [
+               'status' => 'belum hadir',
+               'id' => $user->id,
+               'nama' => $user->name,
+               'imgUrl' => $user->photo_profile_url,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi->nama_prodi,
+               'pita' => $user->penyakit->pita ?? null,
+               'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+               'qr_code' => $validated['qr_code'],
+            ]
+         ]);
       }
 
-      if ($log->first()->status == 'izin') {
-         return redirect()->route('cui.status', ['code' => $validated['qr_code']])->with('message', 'Peserta sedang izin');
+      // jika user sudah melakukan presensi dan sedang izin, tampilkan halaman status izin
+
+      if ($log->latest('created_at')->first()->status == 'izin') {
+         return Inertia::render('Dashboard/cui/absensi/DetailMaba', [
+            'data' => [
+               'status' => 'izin',
+               'id' => $user->id,
+               'nama' => $user->name,
+               'nim' => $user->nim,
+               'imgUrl' => $user->photo_profile_url,
+               'prodi' => $user->prodi->nama_prodi,
+               'pita' => $user->penyakit->pita ?? null,
+               'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+               'qr_code' => $validated['qr_code'],
+               'waktu_izin' => $log->first()->waktu_izin,
+               'ket_izin' => $log->first()->ket_izin,
+            ]
+         ]);
       }
 
-      return redirect()->route('cui.status', ['code' => $validated['qr_code']])->with('message', 'Peserta sudah melakukan presensi');
+      // jika user sudah melakukan presensi, tampilkan halaman status
+      return Inertia::render('Dashboard/cui/absensi/DetailMaba', [
+         'data' => [
+            'status' => 'hadir',
+            'id' => $user->id,
+            'nama' => $user->name,
+            'nim' => $user->nim,
+            'imgUrl' => $user->photo_profile_url,
+            'prodi' => $user->prodi->nama_prodi,
+            'pita' => $user->penyakit->pita ?? null,
+            'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+            'qr_code' => $validated['qr_code'],
+            'waktu_hadir' => $log->first()->created_at,
+         ]
+      ]);
    }
 
    public function storeIzin(Request $request, $code)
@@ -177,7 +290,8 @@ class PresensiCuiController extends Controller
          ['nim' => $nim],
          [
             'nim' => 'required|string|digits:9',
-         ],[
+         ],
+         [
             'nim' => 'NIM harus berupa 9 digit angka!'
          ]
       );
