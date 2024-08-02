@@ -86,7 +86,7 @@
     }
     @font-face {
         font-family: "novaMono";
-        src: local("NovaMono"), url("!assets/fonts/NovaMono/NovaMono.ttf");
+        src: local("NovaMono"), url("!assets/fonts/NovaMono/novamono.ttf");
     }
 }
 
@@ -123,4 +123,3 @@ html {
     background: #90381c;
     opacity: 0.8;
 }
-
