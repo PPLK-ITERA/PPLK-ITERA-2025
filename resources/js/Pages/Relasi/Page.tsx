@@ -129,6 +129,7 @@ function Page() {
                         )}
                         <div className="bg-moccaccino-700 w-full h-1"></div>
                     </div>
+
                     <div className="w-full max-w-5xl mx-auto">
                         <div className="flex justify-between">
                             <h4 className="text-2xl font-bold">

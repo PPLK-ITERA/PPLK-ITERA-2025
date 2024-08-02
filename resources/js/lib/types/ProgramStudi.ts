@@ -1,44 +1,48 @@
-interface Kk {
+export interface Kk {
     title: string;
     description: string;
 }
 
-interface Achievement {
-    title: string;
-    description: string;
-    imageUrl?: string;
-}
-
-interface HmpsActivities {
+export interface Achievement {
     title: string;
     description: string;
     imageUrl?: string;
 }
 
-interface ProgramStudi {
-    name: string;
-    imageUrl: string;
+export interface HmpsActivities {
+    title: string;
     description: string;
-    history: string;
-    accreditation: string;
-    accreditationNo: string;
-    vision: string;
-    mission: string;
-    coordinatorName: string;
-    kk: Kk[];
-    achievements: Achievement[];
-    instagramUrl: string;
-    youtubeUrl: string;
-    websiteUrl: string;
-    tiktokUrl: string;
-    hmpsName: string;
-    hmpsImageUrl: string;
-    hmpsAcronym: string;
-    hmpsDescrption: string;
-    hmpsCoordinatorName: string;
+    imageUrl?: string;
+    documentation?: any;
+}
+
+export interface ProgramStudi {
+    key: string;
+    name?: string;
+    imageUrl?: any;
+    description?: string;
+    history?: string;
+    accreditation?: string;
+    accreditationNo?: string;
+    vision?: string;
+    mission?: string[];
+    coordinatorName?: string;
+    coordinatorPhoto?: any;
+    kk?: Kk[];
+    achievements?: Achievement[];
+    instagramUrl?: string;
+    kahim?: string;
+    youtubeUrl?: string;
+    websiteUrl?: string;
+    tiktokUrl?: string;
+    hmpsName?: string;
+    hmpsImageUrl?: any;
+    hmpsAcronym?: string;
+    hmpsDescrption?: string;
+    hmpsCoordinatorName?: string;
     hmpsActivities: HmpsActivities[];
-    hmpsInstagramUrl: string;
-    hmpsYoutubeUrl: string;
-    hmpsWebsiteUrl: string;
-    hmpsTiktokUrl: string;
+    hmpsInstagramUrl?: string;
+    hmpsYoutubeUrl?: string;
+    hmpsWebsiteUrl?: string;
+    hmpsTiktokUrl?: string;
 }

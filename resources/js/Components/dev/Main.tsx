@@ -62,8 +62,8 @@ function Main({}: Props) {
                 </TransitionGroup>
             </main>
 
-            <footer className="fixed bottom-2 left-0 w-full">
-                <nav className="w-fit mx-auto px-4 flex flex-wrap place-content-center gap-2 lg:gap-8 backdrop-blur-md bg-white/5 text-xs lg:text-sm 2xl:text-base">
+            <footer className="bottom-2 fixed left-0 w-full">
+                <nav className="w-fit place-content-center lg:gap-8 backdrop-blur-md bg-white/5 lg:text-sm 2xl:text-base flex flex-wrap gap-2 px-4 mx-auto text-xs">
                     <NavButton
                         active={activeIndex == 0}
                         label="KARTATERA"

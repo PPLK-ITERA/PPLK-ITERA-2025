@@ -71,11 +71,11 @@ function DevList({
     }, [developer]);
 
     return (
-        <div className="w-full max-lg:flex-col-reverse flex justify-between backdrop-blur-md border border-white/20 rounded overflow-hidden p-6 lg:p-8 place-items-center gap-8 lg:gap-24 bg-opacity-10">
+        <div className="max-lg:flex-col-reverse backdrop-blur-md border-white/20 lg:p-8 place-items-center lg:gap-24 bg-opacity-10 flex justify-between w-full gap-8 p-6 overflow-hidden border rounded">
             <div className="flex flex-col h-fit w-full max-w-xl lg:h-[400px]">
                 <RunningText
                     delay={40}
-                    className="text-base md:text-2xl font-bold my-3"
+                    className="md:text-2xl my-3 text-base font-bold"
                     title={`Sub-Divisi ${devRoleName}`}
                 ></RunningText>
                 <div className="md:grow"></div>

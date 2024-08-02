@@ -53,10 +53,6 @@ export default function ParticleBackground({ children }: Props) {
                     clear: true,
                     defaultThemes: {},
                     delay: 0,
-                    fullScreen: {
-                        enable: true,
-                        zIndex: -1,
-                    },
                     detectRetina: true,
                     duration: 0,
                     fpsLimit: 120,

@@ -5,6 +5,7 @@ import {
     IconBooks,
     IconBuildingCommunity,
     IconBuildingSkyscraper,
+    IconCode,
     IconCrown,
     IconDeviceGamepad2,
     IconInfoCircle,
@@ -49,6 +50,11 @@ export const InformasiDropDown = [
         icon: <IconInfoCircle size={24} color="#fcedd8" />,
     },
     {
+        title: "Kenal Maskot PPLK!",
+        href: "/informasi/maskot",
+        icon: <IconMoodWink size={24} color="#fcedd8" />,
+    },
+    {
         title: "Fakultas ITERA",
         href: "/informasi/fakultas",
         icon: <IconBuildingSkyscraper size={24} color="#fcedd8" />,
@@ -79,9 +85,9 @@ export const InformasiDropDown = [
         icon: <IconUsersGroup size={24} color="#fcedd8" />,
     },
     {
-        title: "Kenal Maskot PPLK!",
-        href: "/informasi/maskot",
-        icon: <IconMoodWink size={24} color="#fcedd8" />,
+        title: "Developer Team",
+        href: "/dev-team",
+        icon: <IconCode size={24} color="#fcedd8" />,
     },
 ];
 

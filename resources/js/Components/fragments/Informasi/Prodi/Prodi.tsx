@@ -3,15 +3,15 @@ import React from "react";
 import {
     IconBrandInstagram,
     IconBrandTiktok,
-    IconBrandYoutubeFilled,
-    IconWorld,
+    IconBrandYoutube,
+    IconWorldWww,
 } from "@tabler/icons-react";
 
 import { AccordionKk } from "@/Components/informasi/prodi/AccordionKk";
-import AchievementList from "@/Components/informasi/prodi/AchievementList";
 import { Card, CardContent } from "@/Components/ui/card";
 
 import { useAos } from "@/lib/hooks/useAos";
+import { ProgramStudi } from "@/lib/types/ProgramStudi";
 
 import accreditation_a from "!assets/accreditation-a.png";
 import banpt from "!assets/banpt.png";
@@ -25,13 +25,16 @@ const Prodi = ({ prodi, className }: Props) => {
         <div className={className}>
             <div className="place-content-center flex flex-col w-full gap-16 py-24">
                 <div className="flex flex-col gap-6 text-center">
-                    <img
-                        src="https://gcdnb.pbrd.co/images/QfWO8MCZ1xmx.png?o=1"
-                        alt="Prodi"
-                        className="lg:h-80 h-56 mx-auto"
-                        data-aos="fade-in"
-                        data-aos-duration="1000"
-                    />
+                    <div className="w-64 h-64 p-10 mx-auto overflow-hidden bg-white rounded-full">
+                        <img
+                            src={prodi.imageUrl}
+                            alt="Prodi"
+                            className="object-contain w-full h-full mx-auto"
+                            data-aos="fade-in"
+                            data-aos-duration="1000"
+                        />
+                    </div>
+
                     <h1 className="font-avigea lg:text-4xl text-moccaccino-600 text-2xl">
                         {prodi.name}
                     </h1>
@@ -48,7 +51,10 @@ const Prodi = ({ prodi, className }: Props) => {
                     <h1 className="font-avigea lg:text-3xl text-moccaccino-600 text-2xl">
                         Sejarah
                     </h1>
-                    <p className="font-medium text-justify">{prodi.history}</p>
+
+                    <p className="font-medium text-justify">
+                        {prodi.history ? prodi.history : <p>Coming Soon</p>}
+                    </p>
                 </div>
 
                 <Card
@@ -66,15 +72,19 @@ const Prodi = ({ prodi, className }: Props) => {
                                     {prodi.name}
                                 </p>
                                 <p className="max-lg:text-sm font-tinos">
-                                    {prodi.accreditationNo}
+                                    {prodi.accreditationNo
+                                        ? prodi.accreditationNo
+                                        : "Coming Soon"}
                                 </p>
                             </div>
+
                             <div className="max-lg:flex-col place-content-center place-items-center flex gap-2">
                                 <img
                                     className="lg:h-20 object-contain h-12"
                                     src={accreditation_a}
                                     alt="akreditasi"
                                 />
+
                                 <img
                                     className="lg:h-20 object-contain h-12"
                                     src={banpt}
@@ -102,8 +112,23 @@ const Prodi = ({ prodi, className }: Props) => {
                         <h1 className="border-jaffa-600 text-jaffa-600 absolute top-0 p-2 px-8 font-bold -translate-x-4 -translate-y-1/2 bg-white border-2 rounded-full">
                             Misi
                         </h1>
+
                         <p className="rounded-xl bg-gradient-to-br from-jaffa-600 to-jaffa-700 h-full p-8 text-left text-white whitespace-pre-wrap">
-                            {prodi.mission}
+                            {prodi.mission ? (
+                                <>
+                                    {prodi.mission.map((misi, index) => (
+                                        <span
+                                            key={index}
+                                            className="flex gap-2"
+                                        >
+                                            {index + 1}. {misi}
+                                            <br />
+                                        </span>
+                                    ))}
+                                </>
+                            ) : (
+                                <p>Data Kosong</p>
+                            )}
                         </p>
                     </div>
                 </div>
@@ -113,20 +138,25 @@ const Prodi = ({ prodi, className }: Props) => {
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
-                    <h1 className="font-avigea max-lg:text-center lg:text-3xl text-moccaccino-600 text-lg">
+                    <h1 className="font-avigea lg:text-3xl text-moccaccino-600 text-lg text-center">
                         Koordinator Program Studi
                     </h1>
-                    <div className="max-lg:flex-col max-lg:place-items-center flex gap-6 mt-4">
+
+                    <div className="max-lg:flex-col place-items-center font-montserrat flex justify-center gap-6 mt-4">
                         <img
-                            src="https://placeholder.pics/svg/100x100"
+                            src={
+                                prodi.coordinatorPhoto ||
+                                "https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg"
+                            }
                             alt="Koordinator"
                             className="lg:h-28 lg:w-28 w-20 h-20 rounded-full"
                         />
+
                         <div className="place-content-center max-lg:place-items-center max-lg:text-center flex flex-col text-left">
-                            <p className="lg:text-2xl text-lg">
+                            <p className="lg:text-2xl text-lg font-semibold">
                                 {prodi.coordinatorName}
                             </p>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-black/70 mt-2 text-sm">
                                 Koordinator Program Studi {prodi.name}
                             </p>
                         </div>
@@ -137,14 +167,8 @@ const Prodi = ({ prodi, className }: Props) => {
                     <h1 className="font-avigea lg:text-3xl text-moccaccino-600 mb-2 text-2xl">
                         Kelompok Keahlian
                     </h1>
-                    <AccordionKk kk={prodi.kk} />
-                </div>
 
-                <div data-aos="fade-up" data-aos-duration="800">
-                    <h1 className="font-avigea lg:text-3xl text-moccaccino-600 text-2xl">
-                        Prestasi
-                    </h1>
-                    <AchievementList achievements={prodi.achievements} />
+                    <AccordionKk kk={prodi.kk} />
                 </div>
 
                 <div
@@ -155,19 +179,42 @@ const Prodi = ({ prodi, className }: Props) => {
                     <h1 className="font-avigea lg:text-3xl text-moccaccino-600 text-2xl">
                         Sosial Media {prodi.name}
                     </h1>
-                    <div className="place-content-center text-candlelight-500 flex gap-8 mt-4">
-                        <a href={prodi.instagramUrl} target="_blank">
-                            <IconBrandInstagram className="lg:h-16 lg:w-16 hover:text-candlelight-600 w-12 h-12 transition" />
-                        </a>
-                        <a href={prodi.youtubeUrl} target="_blank">
-                            <IconBrandYoutubeFilled className="lg:h-16 lg:w-16 hover:text-candlelight-600 w-12 h-12 transition" />
-                        </a>
-                        <a href={prodi.websiteUrl} target="_blank">
-                            <IconWorld className="lg:h-16 lg:w-16 hover:text-candlelight-600 w-12 h-12 transition" />
-                        </a>
-                        <a href={prodi.tiktokUrl} target="_blank">
-                            <IconBrandTiktok className="lg:h-16 lg:w-16 hover:text-candlelight-600 w-12 h-12 transition" />
-                        </a>
+
+                    <div className="place-content-center text-jaffa-200 flex gap-8 mt-4">
+                        {prodi.instagramUrl && (
+                            <a href={prodi.hmpsInstagramUrl} target="_blank">
+                                <div className="bg-moccaccino-600 flex items-center justify-center p-2 rounded-full">
+                                    <IconBrandInstagram
+                                        size={40}
+                                        color="white"
+                                    />
+                                </div>
+                            </a>
+                        )}
+
+                        {prodi.youtubeUrl && (
+                            <a href={prodi.hmpsYoutubeUrl} target="_blank">
+                                <div className="bg-moccaccino-600 flex items-center justify-center p-2 rounded-full">
+                                    <IconBrandYoutube size={40} color="white" />
+                                </div>
+                            </a>
+                        )}
+
+                        {prodi.websiteUrl && (
+                            <a href={prodi.hmpsWebsiteUrl} target="_blank">
+                                <div className="bg-moccaccino-600 flex items-center justify-center p-2 rounded-full">
+                                    <IconWorldWww size={40} color="white" />
+                                </div>
+                            </a>
+                        )}
+
+                        {prodi.tiktokUrl && (
+                            <a href={prodi.hmpsTiktokUrl} target="_blank">
+                                <div className="bg-moccaccino-600 flex items-center justify-center p-2 rounded-full">
+                                    <IconBrandTiktok size={40} color="white" />
+                                </div>
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>

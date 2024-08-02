@@ -39,9 +39,11 @@ Route::get('informasi/prodi', function () {
    return Inertia::render('Informasi/Prodi/Page');
 })->name('informasi/prodi');
 
-Route::get('informasi/prodi/detail', function () {
-   return Inertia::render('Informasi/Prodi/Detail/Page');
-})->name('informasi/prodi/detail');
+Route::get('informasi/prodi/{prodi}', function (string $prodi) {
+   return Inertia::render('Informasi/Prodi/Detail/Page', [
+      'prodi' => $prodi
+   ]);
+})->name('informasi/prodi/{prodi}');
 
 
 // =====================================
@@ -82,46 +84,46 @@ Route::get('dev-team', function () {
 })->name('dev-team');
 
 Route::get('dev', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('dev');
 Route::get('developer', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('developer');
 Route::get('team', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('team');
 Route::get('devs', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('devs');
 Route::get('kartatera', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('kartatera');
 Route::get('imtek', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('imtek');
 Route::get('admin', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('admin');
 Route::get('kadiv', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('kadiv');
 Route::get('wp-admin', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('wp-admin');
 Route::get('wp-content', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('wp-content');
 Route::get('wp-json', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('wp-json');
 Route::get('404', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('404');
 Route::get('auth', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('auth');
 Route::get('auth.php', function () {
-      return Inertia::render('Dev/Page');
+   return Inertia::render('Dev/Page');
 })->name('auth.php');
 
 
@@ -316,7 +318,7 @@ Route::middleware('auth')->group(function () {
    Route::get('dashboard/cui/data', [PresensiCuiController::class, 'getLogBook'])
       ->name('dashboard.cui.data');
 
-   Route::post('dashboard/cui', [PresensiCuiController::class, 'getMabaByNim']);
+   Route::get('dashboard/cui/{nim}', [PresensiCuiController::class, 'getMabaByNim'])->name('dashboard.cui.detail');
 
    Route::get('dashboard/cui/izin/{nim}', [PresensiCuiController::class, 'indexIzin'])
       ->name('dashboard.cui.izin');

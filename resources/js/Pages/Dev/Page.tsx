@@ -13,8 +13,8 @@ function Page() {
     useAos();
 
     return (
-        <div className="relative min-h-screen w-screen overflow-hidden font-montserrat text-white">
-            <div className="max-lg:hidden fixed top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 opacity-20 h-3/4">
+        <div className="font-montserrat relative w-screen min-h-screen overflow-hidden text-white">
+            <div className="max-lg:hidden top-1/2 opacity-20 h-3/4 fixed left-0 -translate-x-1/2 -translate-y-1/2">
                 <img
                     data-aos="fade-right"
                     data-aos-duration={2000}
@@ -23,7 +23,7 @@ function Page() {
                     className="h-full"
                 />
             </div>
-            <div className="lg:hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 w-3/4 h-3/4">
+            <div className="lg:hidden top-1/2 left-1/2 opacity-20 h-3/4 fixed w-3/4 -translate-x-1/2 -translate-y-1/2">
                 <img
                     data-aos="fade-up"
                     data-aos-duration={1000}

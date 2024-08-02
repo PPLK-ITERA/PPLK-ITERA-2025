@@ -33,7 +33,7 @@ export default function Panduan() {
                 <CarouselContent className="gap-2 px-5">
                     <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
                         <Link href="/ketentuan-atribut">
-                            <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
+                            <div className="bg-gradient-to-r w-fit from-jaffa-700 to-jaffa-800 p-4 mx-auto rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="48"
@@ -57,7 +57,7 @@ export default function Panduan() {
 
                     <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800">
                         <Link href="/booklet">
-                            <div className="bg-jaffa-400 p-4 rounded-full">
+                            <div className="bg-jaffa-400 w-fit p-4 mx-auto rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="48"
@@ -89,7 +89,7 @@ export default function Panduan() {
 
                     <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-14">
                         <Link href="relasi">
-                            <div className="bg-jaffa-400 p-2 rounded-full">
+                            <div className="bg-jaffa-400 w-fit p-2 mx-auto rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="64"
@@ -121,7 +121,7 @@ export default function Panduan() {
 
                     <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
                         <Link href="faq">
-                            <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
+                            <div className="bg-gradient-to-r w-fit from-jaffa-700 to-jaffa-800 p-4 mx-auto rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="48"

@@ -15,8 +15,8 @@ type Props = {};
 
 function BackendDivision({}: Props) {
     return (
-        <section className="w-full flex items-center justify-center h-screen max-lg:pb-16 max-lg:pt-8">
-            <div className="w-full max-lg:text-center mx-4 max-w-5xl flex flex-col items-center justify-center text-white">
+        <section className="max-lg:pb-16 max-lg:pt-8 flex items-center justify-center w-full h-screen">
+            <div className="max-lg:text-center flex flex-col items-center justify-center w-full max-w-5xl mx-4 text-white">
                 <DevList devList={devTeam.backend} devRoleName="Back-End" />
             </div>
         </section>

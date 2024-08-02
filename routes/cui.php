@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
    Route::prefix('cui')->group(function () {
       Route::post('qrcode/scan', [PresensiCuiController::class, 'QRScan'])->name('cui.scan');
+      Route::post('hadir', [PresensiCuiController::class, 'storeHadir'])->name('cui.hadir');
       Route::get('status/{code}', [PresensiCuiController::class, 'status'])->name('cui.status');
       Route::get('izin/{code}')->name('cui.izinform');
       Route::post('izin/{code}', [PresensiCuiController::class, 'storeIzin'])->name('cui.izin');
