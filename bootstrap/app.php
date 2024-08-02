@@ -3,6 +3,10 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
    ->withRouting(
@@ -20,5 +24,9 @@ return Application::configure(basePath: dirname(__DIR__))
       //
    })
    ->withExceptions(function (Exceptions $exceptions) {
-      //
+      $exceptions->render(function (HttpException $e, Request $request) {
+         return Inertia::render('Error', ['status' => $e->getStatusCode()])
+            ->toResponse($request)
+            ->setStatusCode($e->getStatusCode());
+      });
    })->create();

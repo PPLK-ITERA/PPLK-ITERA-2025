@@ -9,7 +9,7 @@ function Page({ auth }) {
     return (
         <div>
             <DefaultLayout isSolid={true}>
-                <div className="mt-28">
+                <div className="bg-pattern-white">
                     <AsesmenForm />
                 </div>
             </DefaultLayout>

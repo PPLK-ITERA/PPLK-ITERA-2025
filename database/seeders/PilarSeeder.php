@@ -15,16 +15,16 @@ class PilarSeeder extends Seeder
     {
         $pilars = [
             [
-                'pilar_name' => 'Pilar 1',
+                'pilar_name' => 'Work Hard',
             ],
             [
-                'pilar_name' => 'Pilar 2',
+                'pilar_name' => 'Sharing Is Caring',
             ],
             [
-                'pilar_name' => 'Pilar 3',
+                'pilar_name' => 'Equity',
             ],
             [
-                'pilar_name' => 'Pilar 4',
+                'pilar_name' => 'Common',
             ],
         ];
         Pilar::query()->insert($pilars);

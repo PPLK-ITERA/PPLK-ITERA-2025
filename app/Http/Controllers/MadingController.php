@@ -48,6 +48,15 @@ class MadingController extends Controller
 
             // Count submissions and calculate completion percentage for each task
             foreach ($card->tugas as $tugas) {
+               // Determine if this task should be filtered based on kategori_tugas
+               $isKetuaTask = ($tugas->kategori_tugas == 'kelompok'); // Example category name
+
+               // Calculate number of members that should be counted for this task
+               $totalCountedMembers = $isKetuaTask ? User::where('kelompok_id', $user->kelompok_id)
+                  ->where('isKetua', true)
+                  ->count()
+                  : $totalMembers;
+
                $taskCompletedByUser[$tugas->id] = PengumpulanTugas::where('tugas_id', $tugas->id)
                   ->where('user_id', $userId)
                   ->where('isReturn', false)
@@ -59,14 +68,14 @@ class MadingController extends Controller
 
                $memberCompletion[$tugas->id] = $submissionsCount;
 
-               if ($totalMembers > 0) {
-                  $completionPercentage[$tugas->id] = ($submissionsCount / $totalMembers) * 100;  // Calculate completion percentage
+               if ($totalCountedMembers > 0) {
+                  $completionPercentage[$tugas->id] = ($submissionsCount / $totalCountedMembers) * 100;  // Calculate completion percentage
                } else {
                   $completionPercentage[$tugas->id] = 0;  // Avoid division by zero
                }
 
                // Check if any member has not completed this task
-               if ($submissionsCount < $totalMembers) {
+               if ($submissionsCount < $totalCountedMembers) {
                   $allTasksCompleted = false;
                }
             }
@@ -76,6 +85,7 @@ class MadingController extends Controller
             $completionPercentage[$card->id] = 0;
             $allTasksCompleted = false; // No tasks, so cannot be completed
          }
+
          // Update isSelesai column based on whether all tasks are completed by all members
          $card->is_selesai = $allTasksCompleted;
          $card->save();
@@ -98,10 +108,8 @@ class MadingController extends Controller
    public function getTugas($id)
    {
       $tugas = KartuTugas::with('tugas')->find($id);
-      // $pengumpulan_tugas = PengumpulanTugas::with('tugas')->get();
-      // dd($pengumpulan_tugas);
       $isSubmitted = PengumpulanTugas::where('tugas_id', $tugas->tugas[0]->id)->where('user_id', Auth::id())->where('isReturn', false)->exists();
-      // return response()->json(['tugas' => $tugas, 'isSubmitted' => $isSubmitted]);
+
       return response()->json(['tugas' => $tugas, 'isSubmitted' => $isSubmitted]);
    }
 
@@ -150,5 +158,32 @@ class MadingController extends Controller
       }
 
       return response()->json(['message' => 'Task returned successfully']);
+   }
+   public function getPoster($id)
+   {
+      $kartuTugas = KartuTugas::find($id);
+      return response()->json(['poster' => $kartuTugas->poster]);
+   }
+   public function storePoster(Request $request, $id)
+   {
+      $validated = $request->validate([
+         'poster' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      ]);
+
+      $userId = Auth::id();
+
+      DB::beginTransaction();
+      try {
+         $kartuTugas = KartuTugas::find($id);
+         $poster = $validated['poster'];
+         $posterName = $poster->getClientOriginalName();
+         $poster->move(public_path('posters'), $posterName);
+         $kartuTugas->update(['poster' => $posterName]);
+         DB::commit();
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json(['error' => 'Failed to upload poster' . $th->getMessage()], 500);
+      }
+      return response()->json(['message' => 'Poster uploaded successfully']);
    }
 }

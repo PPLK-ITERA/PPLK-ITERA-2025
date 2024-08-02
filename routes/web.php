@@ -62,23 +62,6 @@ Route::middleware('auth')->group(function () {
       Route::get('/tugas/{id}', [MadingController::class, 'getTugas'])->name('tugas');
       Route::post('/store', [MadingController::class, 'storeTugas'])->name('store');
    });
-
-   // //melihat top 10
-   // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-   // //melihat kelompok yang tidak masuk top 10
-   // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
-
-   // // Tugas
-   // Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
-   // Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
-   // Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
-   // Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
-   // Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
-   // Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
-   // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
-   //asesmen Route
-
-
 });
 
 require __DIR__ . '/auth.php';
