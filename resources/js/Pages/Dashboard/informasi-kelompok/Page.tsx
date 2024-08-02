@@ -1,10 +1,10 @@
-import DashboardLayout from "@/Layouts/DashboardLayout";
-
 import React, { useState } from "react";
 
 import { useForm } from "@inertiajs/react";
 
 import { IconPencil } from "@tabler/icons-react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { KelompokClient } from "@/Components/tables/kelompok/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";

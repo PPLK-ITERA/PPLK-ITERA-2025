@@ -82,7 +82,7 @@ class User extends Authenticatable
 
    public function pilar()
    {
-      return $this->belongsTo(pilar::class, 'pilar', 'id');
+      return $this->belongsTo(Pilar::class, 'pilar', 'id');
    }
 
    public function tugas()
@@ -108,5 +108,14 @@ class User extends Authenticatable
    public function penyakit()
    {
       return $this->belongsTo(Penyakit::class, 'penyakit_id', 'id');
+   }
+   public function result()
+   {
+      return $this->hasOne(Result::class, 'user_id', 'id');
+   }
+
+   public function assesmenActivity()
+   {
+      return $this->hasMany(AnswerActivity::class, 'user_id', 'id');
    }
 }

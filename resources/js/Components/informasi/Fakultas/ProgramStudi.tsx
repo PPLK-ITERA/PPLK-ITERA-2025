@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 import React from "react";
 
-import { DataProdiFakultas } from "@/lib/data/fakultas";
+import { FAKULTAS_DATA, FakultasData } from "@/lib/data/fakultas";
 
 const Prodi = ({ text, className }) => (
     <div
@@ -14,47 +14,76 @@ const Prodi = ({ text, className }) => (
 );
 
 export default function ProgramStudi({ fakultas }) {
-    const selectedProdi = DataProdiFakultas[fakultas] || [];
+    const selectedFakultas: FakultasData = FAKULTAS_DATA[fakultas];
 
     return (
-        <div className="md:px-4 px-4 mt-16">
+        <div className="md:px-4 px-4 pb-10 mt-16">
             <div className="text-start md:text-center">
                 <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-bold tracking-widest">
                     Program Studi
                 </p>
             </div>
-            <div className="md:mt-16 justify-evenly flex flex-wrap gap-5 mt-10">
-                <Marquee>
-                    {selectedProdi.map((tag, index) => (
-                        <div>
-                            <Prodi key={index} text={tag} className="mx-2" />
+            <div className="md:mt-16 justify-evenly relative flex flex-wrap gap-5 mt-10">
+                <Marquee direction="right">
+                    {selectedFakultas.prodi.map((tag, index) => (
+                        <Prodi key={index} text={tag} className="z-10 mx-2" />
+                    ))}
+                </Marquee>
+                <Marquee direction="left">
+                    {selectedFakultas.prodi
+                        .slice()
+                        .reverse()
+                        .map((tag, index) => (
                             <Prodi
                                 key={index}
                                 text={tag}
-                                className="mx-8 my-4"
+                                className="z-10 mx-2"
                             />
-                            <Prodi key={index} text={tag} className="mx-2" />
-                        </div>
-                    ))}
+                        ))}
                 </Marquee>
+                <Marquee direction="right">
+                    {selectedFakultas.prodi
+                        .slice()
+                        .reverse()
+                        .map((tag, index) => (
+                            <Prodi
+                                key={index}
+                                text={tag}
+                                className="z-10 mx-2"
+                            />
+                        ))}
+                </Marquee>
+
+                <div className="absolute inset-0 z-20 flex justify-between">
+                    <div className="pointer-events-none h-full w-[50px] bg-gradient-to-r from-white to-transparent" />
+                    <div className="pointer-events-none h-full w-[50px] bg-gradient-to-l from-white to-transparent" />
+                </div>
             </div>
 
-            <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 rounded-xl md:px-10 flex justify-between px-3 py-4 mt-24 text-xl text-center text-white">
+            <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 rounded-xl md:px-10 flex justify-around px-3 py-4 mt-24 text-xl text-center text-white">
                 <div>
-                    <CountUp end={selectedProdi.length} enableScrollSpy />
+                    <CountUp
+                        end={selectedFakultas.prodi.length}
+                        enableScrollSpy
+                        className="text-3xl font-bold"
+                    />
                     <p>Prodi</p>
                 </div>
                 <div>
-                    <CountUp end={3210} enableScrollSpy />
+                    <CountUp
+                        end={selectedFakultas.jumlah_mahasiswa}
+                        enableScrollSpy
+                        className="text-3xl font-bold"
+                    />
                     <p>Mahasiswa</p>
                 </div>
                 <div>
-                    <CountUp end={146} enableScrollSpy />
+                    <CountUp
+                        end={selectedFakultas.jumlah_dosen}
+                        enableScrollSpy
+                        className="text-3xl font-bold"
+                    />
                     <p>Dosen</p>
-                </div>
-                <div>
-                    <CountUp end={38} enableScrollSpy />
-                    <p>Tendik</p>
                 </div>
             </div>
         </div>

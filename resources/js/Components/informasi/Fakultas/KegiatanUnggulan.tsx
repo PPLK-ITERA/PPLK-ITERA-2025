@@ -9,11 +9,13 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
-import { DataKegiatanFakultas, SocialMediaData } from "@/lib/data/fakultas";
+import { FAKULTAS_DATA, FakultasData } from "@/lib/data/fakultas";
 
 import gunung from "!assets/gunung.png";
 
 export default function KegiatanUnggulan({ fakultas }: { fakultas: string }) {
+    const selectedFakultas: FakultasData = FAKULTAS_DATA[fakultas];
+
     return (
         <div className="relative bg-pattern-white bg-[#170C0A]">
             <div className="max-w-72 mx-auto text-center -translate-y-5">
@@ -37,47 +39,43 @@ export default function KegiatanUnggulan({ fakultas }: { fakultas: string }) {
                 ]}
             >
                 <CarouselContent>
-                    {DataKegiatanFakultas.map((_, index) => (
-                        <CarouselItem
-                            key={index}
-                            className="basis-72 md:basis-80 xl:basis-[26rem]"
-                        >
-                            <Card
-                                className={`xl:w-[400px] md:w-[300px] lg:w-[310px] md:h-[550px] w-[280px] h-[500px] xl:h-[600px] overflow-hidden rounded-lg relative
-                                        ${index + 1 === 1 ? "bg-mobile-hero-background bg-cover" : ""}
-                                        ${index + 1 === 2 ? "bg-mobile-hero-background bg-cover" : ""}
-                                        ${index + 1 === 3 ? "bg-mobile-hero-background bg-cover" : ""}
-                                        ${index + 1 === 4 ? "bg-mobile-hero-background bg-cover" : ""}
-                                        ${index + 1 === 5 ? "bg-mobile-hero-background bg-cover" : ""}
-                                        font-montserrat`}
+                    {selectedFakultas.kegiatanUnggulan.map(
+                        (kegiatan, index) => (
+                            <CarouselItem
+                                key={index}
+                                className="basis-72 md:basis-80 xl:basis-[26rem] border-none"
                             >
-                                <CardContent className="p-4 text-white">
-                                    <p className="opacity-90">20 Juli 2024</p>
-                                    <h3 className="font-bold text-[20px]">
-                                        Info Kegiatan SLurd
-                                    </h3>
-                                </CardContent>
+                                <Card
+                                    className={`xl:w-[400px] border-none md:w-[300px] lg:w-[310px] md:h-[550px] w-[280px] h-[500px] xl:h-[600px] overflow-hidden rounded-lg relative font-montserrat`}
+                                >
+                                    <CardContent className="absolute top-0 z-20 p-4 text-white">
+                                        <p className="opacity-90 z-20">
+                                            {kegiatan.tanggal}
+                                        </p>
+                                        <h3 className="font-bold z-20 text-[20px]">
+                                            {kegiatan.text_thumbnail}
+                                        </h3>
+                                    </CardContent>
 
-                                {/* <img
-                                        src={chabud}
+                                    <img
+                                        src={kegiatan.img}
                                         alt=""
-                                        className="object-cover w-full h-full scale-x-[-1] absolute top-0"
-                                    /> */}
+                                        className="brightness-50 absolute top-0 object-cover w-full h-full"
+                                    />
 
-                                <CardContent className="absolute bottom-0 flex flex-col items-start justify-center p-4 mx-auto bg-white border">
-                                    <h3 className="font-bold">
-                                        Judul Postingan {index + 1}
-                                    </h3>
+                                    <CardContent className="absolute min-h-[180px] lg:min-h-[200px] bottom-0 p-4 mx-auto bg-white border">
+                                        <h3 className="font-bold text-[12px] lg:text-[14px] xl:text-[16px]">
+                                            {kegiatan.title}
+                                        </h3>
 
-                                    <p className="mt-5">
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Excepturi iste, nulla
-                                        nihil neque consequatur
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        </CarouselItem>
-                    ))}
+                                        <p className="mt-5 text-[10px] lg:text-[12px]">
+                                            {kegiatan.description}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
+                        ),
+                    )}
                 </CarouselContent>
             </Carousel>
 
@@ -90,17 +88,19 @@ export default function KegiatanUnggulan({ fakultas }: { fakultas: string }) {
                     </div>
 
                     <div className="flex items-center justify-center gap-5 mt-8">
-                        {SocialMediaData[fakultas].map((socialMedia, index) => (
-                            <a
-                                key={index}
-                                href={socialMedia.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="bg-jaffa-100 z-10 p-2 rounded-full cursor-pointer"
-                            >
-                                {socialMedia.icon}
-                            </a>
-                        ))}
+                        {selectedFakultas.sosmedFakultas.map(
+                            (socialMedia, index) => (
+                                <a
+                                    key={index}
+                                    href={socialMedia.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="bg-jaffa-100 z-10 p-2 rounded-full cursor-pointer"
+                                >
+                                    {socialMedia.icon}
+                                </a>
+                            ),
+                        )}
                     </div>
                 </div>
             </div>

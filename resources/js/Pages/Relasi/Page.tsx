@@ -1,6 +1,6 @@
 import Autoplay from "embla-carousel-autoplay";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { UserPlus } from "lucide-react";
 
@@ -30,8 +30,9 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 import { Input } from "@/Components/ui/input";
+import { Progress } from "@/Components/ui/progress";
 
-import { users } from "@/lib/data/user";
+import { fetchSort, fetchTopFollowers } from "@/lib/data/relasi";
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 
@@ -40,18 +41,43 @@ import linkedinIcon from "!assets/svg/linkedin.svg";
 
 const sortOptions = [
     { label: "Viewer", value: "viewer" },
-    { label: "Follower", value: "follower" },
-    { label: "Following", value: "following" },
-    { label: "Nama", value: "nama" },
+    { label: "Follower", value: "followers" },
+    { label: "Following", value: "followings" },
+    { label: "Nama", value: "name" },
 ];
 
-const Page: React.FC = () => {
+function Page() {
     useAos();
+    const [sortLoading, setSortLoading] = useState(false);
+    const [topLoading, setTopLoading] = useState(false);
+    const [topFollowers, setTopFollowers] = useState<User[]>([]);
+    const [users, setUsers] = useState<Partial<User>[]>([]);
+    const [sort, setSort] = useState<
+        "viewer" | "followers" | "followings" | "name"
+    >("followers");
 
-    const top3Followers = users
-        .sort((user1, user2) => user2.followers - user1.followers)
-        .slice(0, 3);
-    const [sort, setSort] = useState(sortOptions[0]);
+    async function mFetchSort(order_by, direction) {
+        setSortLoading(true);
+        setUsers(await fetchSort(order_by, direction));
+        setSortLoading(false);
+    }
+
+    async function mFetchTopFollowers() {
+        setTopLoading(true);
+        setTopFollowers(await fetchTopFollowers());
+        setTopLoading(false);
+    }
+
+    useEffect(() => {
+        mFetchTopFollowers();
+        mFetchSort("followers", "desc");
+    }, []);
+
+    useEffect(() => {
+        let direction = "desc";
+        if (sort === "name") direction = "asc";
+        mFetchSort(sort, direction);
+    }, [sort]);
 
     return (
         <div className="bg-pattern-white flex flex-col w-full min-h-screen">
@@ -66,7 +92,7 @@ const Page: React.FC = () => {
                             className="p-4 border rounded-[10px]"
                         />
 
-                        <a href={route("relasi/search")} target="_blank">
+                        <a href={route("relasi.search")} target="_blank">
                             <Button className="absolute top-1/2 -translate-y-1/2 right-2 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-full p-0 w-8 h-8">
                                 <IconSearch size={14} />
                             </Button>
@@ -80,23 +106,27 @@ const Page: React.FC = () => {
                     </div>
 
                     <div className="w-full max-w-2xl mx-auto">
-                        <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
-                            <TopUser
-                                user={top3Followers[1]}
-                                rank={2}
-                                podiumHeight={160}
-                            />
-                            <TopUser
-                                user={top3Followers[0]}
-                                rank={1}
-                                podiumHeight={196}
-                            />
-                            <TopUser
-                                user={top3Followers[2]}
-                                rank={3}
-                                podiumHeight={144}
-                            />
-                        </div>
+                        {topLoading ? (
+                            <Progress />
+                        ) : (
+                            <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
+                                <TopUser
+                                    user={topFollowers[1]}
+                                    rank={2}
+                                    podiumHeight={160}
+                                />
+                                <TopUser
+                                    user={topFollowers[0]}
+                                    rank={1}
+                                    podiumHeight={196}
+                                />
+                                <TopUser
+                                    user={topFollowers[2]}
+                                    rank={3}
+                                    podiumHeight={144}
+                                />
+                            </div>
+                        )}
                         <div className="bg-moccaccino-700 w-full h-1"></div>
                     </div>
                     <div className="w-full max-w-5xl mx-auto">
@@ -104,9 +134,16 @@ const Page: React.FC = () => {
                             <h4 className="text-2xl font-bold">
                                 Profil Berdasarkan
                             </h4>
-                            <SortDropdown options={sortOptions} />
+                            <SortDropdown
+                                options={sortOptions}
+                                setSort={setSort}
+                            />
                         </div>
-                        <UserList users={users} />
+                        {sortLoading ? (
+                            <Progress /> // Display a loading message or spinner
+                        ) : (
+                            <UserList users={users} />
+                        )}
                     </div>
                     <div className="flex justify-center">
                         <Button className="mx-1">1</Button>
@@ -119,6 +156,6 @@ const Page: React.FC = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Page;

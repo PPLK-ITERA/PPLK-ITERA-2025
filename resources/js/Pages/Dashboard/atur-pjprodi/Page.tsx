@@ -1,7 +1,8 @@
-import DashboardLayout from "@/Layouts/DashboardLayout";
-
 import React from "react";
 
+import DashboardLayout from "@/Layouts/DashboardLayout";
+
+import { AturPJProdiClient } from "@/Components/tables/atur-pjprodi/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 
 const breadcrumbItems = [
@@ -9,11 +10,13 @@ const breadcrumbItems = [
     { title: "Atur Pj Prodi", link: "/dashboard/atur-pjprodi" },
 ];
 
-export default function Page({auth}) {
+export default function Page({ auth }) {
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
             <h2 className="text-3xl font-bold tracking-tight">Atur PJ Prodi</h2>
+
+            <AturPJProdiClient />
         </DashboardLayout>
     );
 }

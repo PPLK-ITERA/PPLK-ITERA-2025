@@ -1,7 +1,8 @@
 import Presensi from "./Presensi";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import React from "react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { AbsensiMabaClient } from "@/Components/tables/absensi-maba/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
@@ -22,13 +23,16 @@ const breadcrumbItems = [
     { title: "Absensi Maba", link: "/dashboard/absensi-maba" },
 ];
 
-export default function Page({ auth }) {
+export default function Page({ auth, response }) {
+    const handleDate = (value) => {
+        console.log("date", value);
+    };
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
             <h2 className="text-3xl font-bold tracking-tight">Absensi Maba</h2>
 
-            <Select>
+            <Select onValueChange={handleDate}>
                 <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Pilih Hari/Tanggal" />
                 </SelectTrigger>
@@ -36,13 +40,13 @@ export default function Page({ auth }) {
                     <SelectGroup>
                         <SelectLabel>Day PPLK</SelectLabel>
 
-                        <SelectItem value="1">Pra-PPLK</SelectItem>
-                        <SelectItem value="2">Day 1 PPLK</SelectItem>
-                        <SelectItem value="3">Day 2 PPLK</SelectItem>
-                        <SelectItem value="4">Day 3 PPLK</SelectItem>
-                        <SelectItem value="5">Day 4 PPLK</SelectItem>
-                        <SelectItem value="6">Day 5 PPLK</SelectItem>
-                        <SelectItem value="7">CUI</SelectItem>
+                        <SelectItem value="2024-08-01">Pra-PPLK</SelectItem>
+                        <SelectItem value="2024-08-12">Day 1 PPLK</SelectItem>
+                        <SelectItem value="2024-08-13">Day 2 PPLK</SelectItem>
+                        <SelectItem value="2024-08-14">Day 3 PPLK</SelectItem>
+                        <SelectItem value="2024-08-15">Day 4 PPLK</SelectItem>
+                        <SelectItem value="2024-08-16">Day 5 PPLK</SelectItem>
+                        <SelectItem value="2024-08-17">CUI</SelectItem>
                     </SelectGroup>
                 </SelectContent>
             </Select>
@@ -64,7 +68,9 @@ export default function Page({ auth }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">10000</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.hadir}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -83,7 +89,9 @@ export default function Page({ auth }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">69</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.tidakHadir}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -102,7 +110,9 @@ export default function Page({ auth }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">34</div>
+                        <div className="text-2xl font-bold">
+                            {response.data.izin}
+                        </div>
                     </CardContent>
                 </Card>
             </div>

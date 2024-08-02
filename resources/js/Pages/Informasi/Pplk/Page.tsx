@@ -1,6 +1,6 @@
-import DefaultLayout from "@/Layouts/DefaultLayout";
-
 import React from "react";
+
+import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Header from "@/Components/informasi/pplk/Header";

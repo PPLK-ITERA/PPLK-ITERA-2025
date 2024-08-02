@@ -26,8 +26,8 @@ export default function AchievementList({ achievements }: Props) {
                     >
                         <Card className="overflow-hidden">
                             <div className="flex h-64">
-                                <div className="basis-3/5 h-full flex flex-col text-left gap-2 place-content-center p-4">
-                                    <h5 className="font-medium text-xl">
+                                <div className="basis-3/5 place-content-center flex flex-col h-full gap-2 p-4 text-left">
+                                    <h5 className="text-xl font-medium">
                                         {a.title}
                                     </h5>
                                     <p>{a.description}</p>
@@ -35,7 +35,7 @@ export default function AchievementList({ achievements }: Props) {
                                 <img
                                     src={a.imageUrl}
                                     alt=""
-                                    className="bg-gray-300 object-cover basis-2/5"
+                                    className="basis-2/5 object-cover bg-gray-300"
                                 />
                             </div>
                         </Card>

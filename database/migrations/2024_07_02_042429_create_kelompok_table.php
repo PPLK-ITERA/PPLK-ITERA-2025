@@ -13,7 +13,7 @@ return new class extends Migration {
       Schema::create('kelompok', function (Blueprint $table) {
          $table->id()->primary();
          $table->string('no_kelompok');
-         $table->string('nama_kelompok');
+         $table->string('nama_kelompok')->nullable();
          $table->string('logo_kelompok')->nullable();
          $table->foreignId('daplok_id')->nullable();
          $table->foreignId('mentor_id')->nullable();

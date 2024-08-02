@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
    /**
     * Run the migrations.
     */
@@ -13,16 +12,13 @@ return new class extends Migration
    {
       Schema::create('tugas', function (Blueprint $table) {
          $table->id();
-         $table->string('link');
-         $table->unsignedBigInteger('user_id');
-         $table->enum('materi', ['materi1', 'materi2', 'materi3']);
-         $table->enum('kategori_tugas', ['individu', 'kelompok']);
-         $table->date('tanggal_submit');
-         $table->boolean('isReturned')->default(false);
-         $table->text('catatan')->nullable();
+         $table->string('judul');
+         $table->string('deskripsi');
+         $table->enum('pengumpulan', ['sosmed', 'drive']);
+         $table->enum('kategori', ['individu', 'kelompok']);
+         $table->date('deadline');
          $table->timestamps();
-
-         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+         $table->foreignId('kartu_id');
       });
    }
 

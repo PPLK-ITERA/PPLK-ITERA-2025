@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\UserStoreRequest;
 use App\Http\Requests\Admin\User\UserUpdateRequest;
+use App\Models\Kelompok;
 use App\Models\Penyakit;
+use App\Models\Prodi;
 use App\Models\Qrcode;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -297,6 +299,26 @@ class UserController extends Controller
    public function edit(string $id)
    {
       //
+      return Inertia::render('Dashboard/detail-user/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Berhasil mendapatkan data user',
+            'data' => User::with('penyakit', 'qrcode', 'kelompok')->find($id)
+         ]
+      ]);
+   }
+
+   public function getProdis()
+   {
+      $prodi = Prodi::select('nama_prodi', 'id')->get();
+
+      return response()->json($prodi);
+   }
+   public function getKelompok()
+   {
+      $kelompok = Kelompok::select('nama_kelompok', 'id', 'no_kelompok')->get();
+
+      return response()->json($kelompok);
    }
 
    /**
