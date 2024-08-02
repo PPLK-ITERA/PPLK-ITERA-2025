@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MadingController;
+use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\RelasiController;
 use Illuminate\Foundation\Application;
@@ -35,10 +36,10 @@ Route::middleware('auth')->group(function () {
 
 
    // Scoreboard
-   //melihat top 10
-   // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-   // //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
-   // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+   // melihat top 10
+   Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase'])->name('scoreboard.top-score');
+   //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
+   Route::get('/scoreboard/kelompok', [ScoreboardController::class, 'getKelompokScore'])->name('scoreboard.kelompok');
 
    // Route::middleware(['checkRole:Maba'])->group(function () {
    Route::get('/relasi', [RelasiController::class, 'index'])->name('relasi.index');
