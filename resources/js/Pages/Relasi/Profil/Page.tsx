@@ -1,8 +1,8 @@
 import Autoplay from "embla-carousel-autoplay";
 
-import React from "react";
+import React, { useState } from "react";
 
-import { Link } from "@inertiajs/react";
+import { Link, router, usePage } from "@inertiajs/react";
 
 import { UserPlus } from "lucide-react";
 
@@ -17,6 +17,7 @@ import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
 import ProfileCard from "@/Components/relasi/ProfileCard";
+import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import { Button, buttonVariants } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
@@ -29,6 +30,7 @@ import {
 
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
+import { generateRandomImage } from "@/lib/utils";
 
 import instagramIcon from "!assets/svg/instagram.svg";
 import linkedinIcon from "!assets/svg/linkedin.svg";
@@ -38,8 +40,36 @@ import linkedinIcon from "!assets/svg/linkedin.svg";
 function Page({ response }) {
     useAos();
 
+    const [followLoading, setFollowLoading] = useState(false);
+
     const sugesstedUsers: User[] = response.data.random_users;
     const user: User = response.data.user;
+
+    function follow() {
+        if (followLoading) return;
+
+        setFollowLoading(true);
+        router.get(route("relasi.follow", user.id));
+        setFollowLoading(true);
+    }
+
+    const FollowButton = (
+        <Button
+            className={`w-full ${user.followed ? "bg-white hover:bg-gray-300" : "bg-[#ECAA25] hover:bg-[#ECAA25]/90"} transition duration-200 ease-in-out border border-black text-black`}
+            onClick={follow}
+        >
+            {!followLoading ? (
+                <div className="flex gap-2">
+                    <UserPlus className="w-6 h-6 mr-2" />
+                    <p className="font-bold">
+                        {user.followed ? "Mengikuti" : "Ikuti"}
+                    </p>
+                </div>
+            ) : (
+                <RelasiLoading className="w-full" />
+            )}
+        </Button>
+    );
 
     return (
         <div className="bg-pattern-white flex flex-col w-full min-h-screen">
@@ -52,7 +82,8 @@ function Page({ response }) {
                             <div>
                                 <img
                                     className="aspect-square max-md:w-36 object-cover w-48 border-2 rounded-full select-none bg-gray-400"
-                                    src={user.photo_profile_url}
+                                    // src={user.photo_profile_url}
+                                    src={generateRandomImage()}
                                     alt={user.name}
                                 />
                                 <p className="max-md:hidden mt-2 text-center">
@@ -63,27 +94,7 @@ function Page({ response }) {
                                 </p>
                             </div>
 
-                            {!user.followed ? (
-                                <Button className="max-md:hidden w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out border border-black text-black">
-                                    <a
-                                        className="flex items-center justify-center"
-                                        href={route("relasi.follow", user.id)}
-                                    >
-                                        <UserPlus className="w-6 h-6 mr-2" />
-                                        <p className="font-bold">Ikuti</p>
-                                    </a>
-                                </Button>
-                            ) : (
-                                <Button className="max-md:hidden w-full bg-white hover:hover:bg-gray-200/90 transition duration-200 ease-in-out border border-black/50 text-black">
-                                    <a
-                                        className="flex items-center justify-center"
-                                        href={route("relasi.follow", user.id)}
-                                    >
-                                        <UserPlus className="w-6 h-6 mr-2" />
-                                        <p className="font-bold">Mengikuti</p>
-                                    </a>
-                                </Button>
-                            )}
+                            <div className="max-md:hidden">{FollowButton}</div>
                         </div>
 
                         <div className="flex flex-col justify-between w-full md:w-[28rem]">
@@ -125,7 +136,7 @@ function Page({ response }) {
                                 </div>
 
                                 <h3 className="font-bold">{user.name}</h3>
-                                <div className="md:gap-1 flex flex-col">
+                                <div className=" flex flex-col">
                                     <p className="font-semibold">{user.nim}</p>
                                     <p className="font-semibold">
                                         {user.prodi}
@@ -144,9 +155,9 @@ function Page({ response }) {
                                 </p>
                             </div>
 
-                            <div className="md:w-fit md:mx-0 flex gap-4 mx-auto mt-5">
+                            <div className="md:w-full flex gap-3 my-3 md:mt-auto md:mb-0">
                                 <a
-                                    className={`w-full flex gap-1 justify-center items-center p-1 px-2 rounded-md border shadow hover:shadow-lg bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-300 ease-in-out text-black`}
+                                    className={`w-full flex gap-1 border-black justify-center items-center p-1 px-2 rounded-md border shadow hover:shadow-lg bg-[#ECAA25] hover:bg-[#F7B938] transition duration-300 ease-in-out text-black`}
                                     href={user.instagram_url}
                                     target="_blank"
                                 >
@@ -154,45 +165,25 @@ function Page({ response }) {
                                         size={32}
                                         stroke={1.8}
                                     />
-                                    <span className="md:text-[14px] text-[10px] font-semibold hidden md:block">
+                                    <span className="md:text-[14px] text-xs font-semibold max-sm:hidden">
                                         @nusantaramuda
                                     </span>
                                 </a>
 
                                 <a
-                                    className={`w-full flex gap-1 justify-center items-center p-1 px-2 rounded-md border shadow hover:shadow-lg bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-300 ease-in-out text-black`}
+                                    className={`w-full flex gap-1 border-black justify-center items-center p-1 px-2 rounded-md border shadow hover:shadow-lg bg-[#ECAA25] hover:bg-[#F7B938] transition duration-300 ease-in-out text-black`}
                                     href={user.linkedin_url}
                                     target="_blank"
                                 >
                                     <IconBrandLinkedin size={32} stroke={1.8} />
 
-                                    <span className="md:text-[14px] text-[10px] font-semibold hidden md:block">
+                                    <span className="md:text-[14px] text-xs font-semibold max-sm:hidden">
                                         Nusantara Muda
                                     </span>
                                 </a>
                             </div>
 
-                            {!user.followed ? (
-                                <Button className="md:hidden w-full bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out border border-black text-black">
-                                    <a
-                                        className="flex items-center justify-center"
-                                        href={route("relasi.follow", user.id)}
-                                    >
-                                        <UserPlus className="w-6 h-6 mr-2" />
-                                        <p className="font-bold">Ikuti</p>
-                                    </a>
-                                </Button>
-                            ) : (
-                                <Button className="md:hidden w-full bg-white hover:bg-gray-200/90 transition duration-200 ease-in-out border border-black/50 text-black">
-                                    <a
-                                        className="flex items-center justify-center"
-                                        href={route("relasi.follow", user.id)}
-                                    >
-                                        <UserPlus className="w-6 h-6 mr-2" />
-                                        <p className="font-bold">Mengikuti</p>
-                                    </a>
-                                </Button>
-                            )}
+                            <div className="md:hidden">{FollowButton}</div>
                         </div>
                     </div>
 

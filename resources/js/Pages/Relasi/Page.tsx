@@ -1,5 +1,6 @@
 import Autoplay from "embla-carousel-autoplay";
 import { CircularProgressbar } from "react-circular-progressbar";
+import { useSearchParams } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
 
@@ -59,6 +60,7 @@ function Page() {
         "viewer" | "followers" | "followings" | "name"
     >("followers");
 
+
     async function mFetchSort(order_by, direction) {
         setSortLoading(true);
         setUsers(await fetchSort(order_by, direction));
@@ -87,7 +89,7 @@ function Page() {
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl md:pt-24 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 pt-10 mx-auto text-base text-black">
+                <div className="max-w-7xl md:pt-24 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 py-16 pt-10 mx-auto text-base text-black">
                     <div className="relative w-full max-w-3xl mx-auto">
                         <Input
                             type="text"
@@ -97,8 +99,8 @@ function Page() {
                         />
 
                         <a href={route("relasi.search", { search: search })}>
-                            <Button className="absolute top-1/2 -translate-y-1/2 right-2 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-full p-0 w-8 h-8">
-                                <IconSearch size={14} />
+                            <Button className="absolute top-1/2 -translate-y-1/2 right-0 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-r-lg rounded-l-none">
+                                <IconSearch className="w-4 h-4" />
                             </Button>
                         </a>
                     </div>
@@ -138,8 +140,8 @@ function Page() {
                     </div>
                     <div className="w-full max-w-5xl mx-auto">
                         <div className="flex justify-between">
-                            <h4 className="text-2xl font-bold">
-                                Profil Berdasarkan
+                            <h4 className="text-2xl font-bold capitalize">
+                                Profil Berdasarkan {sort}
                             </h4>
                             <SortDropdown
                                 options={sortOptions}
@@ -153,10 +155,18 @@ function Page() {
                         )}
                     </div>
                     <div className="flex justify-center">
-                        <Button className="mx-1">1</Button>
-                        <Button className="mx-1">2</Button>
-                        <Button className="mx-1">3</Button>
-                        <Button className="mx-1">4</Button>
+                        <Button className="mx-1 bg-jaffa-500 border border-black">
+                            1
+                        </Button>
+                        <Button className="mx-1 bg-jaffa-500 border border-black">
+                            2
+                        </Button>
+                        <Button className="mx-1 bg-jaffa-500 border border-black">
+                            3
+                        </Button>
+                        <Button className="mx-1 bg-jaffa-500 border border-black">
+                            4
+                        </Button>
                     </div>
                 </div>
                 <Footer />

@@ -7,6 +7,7 @@ import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 
 import crown from "!assets/svg/crown.svg";
+import { generateRandomImage } from "@/lib/utils";
 
 type Props = {
     user?: User;
@@ -56,7 +57,8 @@ export default function TopUser({
                         </div>
                     ) : null}
                     <img
-                        src={user.photo_profile_url}
+                        // src={user.photo_profile_url}
+                        src={generateRandomImage()}
                         alt={user.name}
                         className="z-0 bg-gray-400 rounded-full"
                     />
@@ -65,7 +67,7 @@ export default function TopUser({
             {user && <p className="text-lg font-bold break-words text-wrap">{user.name}</p>}
             <p className="bg-gray-400/50 px-2 text-sm rounded-full">
                 {user && (
-                    <span className="font-bold">{user.followers_count}</span>
+                    <span className="font-bold">{user.followers_count} </span>
                 )}
                 Followers
             </p>

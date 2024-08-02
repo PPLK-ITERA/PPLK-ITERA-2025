@@ -28,3 +28,8 @@ export function hasDraggableData<T extends Active | Over>(
 
     return false;
 }
+
+export function generateRandomImage() {
+    // generate random picsum photos with size between 200 and 300 randomly
+    return `https://picsum.photos/${Math.max(Math.floor(Math.random() * 100) + 200, 300)}`;
+}
