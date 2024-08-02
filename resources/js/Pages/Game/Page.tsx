@@ -5,13 +5,13 @@ import React, { Fragment } from "react";
 function Page() {
     const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
         loaderUrl:
-            "https://krossmanzs.github.io/test-naramuda-explorer/Build/naramuda_explorer.loader.js",
+            "https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/Build/naramuda_explorer.loader.js",
         dataUrl:
-            "https://krossmanzs.github.io/test-naramuda-explorer/Build/naramuda_explorer.data",
+            "https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/Build/naramuda_explorer.data",
         frameworkUrl:
-            "https://krossmanzs.github.io/test-naramuda-explorer/Build/naramuda_explorer.framework.js",
+            "https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/Build/naramuda_explorer.framework.js",
         codeUrl:
-            "https://krossmanzs.github.io/test-naramuda-explorer/Build/naramuda_explorer.wasm",
+            "https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/Build/optimized.wasm",
     });
 
     return (
