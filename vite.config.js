@@ -3,6 +3,7 @@ import laravel from "laravel-vite-plugin";
 import path from "path";
 import { defineConfig } from "vite";
 import compression from "vite-plugin-compression2";
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default defineConfig({
     plugins: [
@@ -12,6 +13,7 @@ export default defineConfig({
         }),
         react(),
         compression(),
+        ViteImageOptimizer()
     ],
     resolve: {
         alias: {
@@ -23,8 +25,8 @@ export default defineConfig({
     },
     build: {
         minify: "terser",
-        sourcemap: false,
-        manifest: true,
+        sourcemap: "hidden",
+        manifest: "manifest.json",
         rollupOptions: {
             output: {
                 // Template untuk nama asset yang menambahkan hash

@@ -1,0 +1,1 @@
+{"version":3,"file":"CjP6JC1F.js","sources":["../../../resources/js/Pages/Informasi/Profil/Page.tsx"],"sourcesContent":["import * as React from \"react\";\n\n// component menampilkan misi\n\nfunction Page() {\n    return <div>Profil Informasi</div>;\n}\n\nexport default Page;\n"],"names":["Page","jsx","children"],"mappings":"kCAIA,SAASA,IACE,SAAAC,IAAC,OAAIC,SAAgB,oBAChC"}
