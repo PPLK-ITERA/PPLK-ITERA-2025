@@ -111,6 +111,7 @@ import idensity from "!assets/logoukm/logoidensity.jpg";
 import ikm from "!assets/logoukm/logoikm.png";
 import ipsitera from "!assets/logoukm/logoipsitera.jpg";
 import karate from "!assets/logoukm/logokarate.png";
+import kmb from "!assets/logoukm/logokmb.png";
 import kmk from "!assets/logoukm/logokmk.png";
 import kmpa from "!assets/logoukm/logokmpa.png";
 import kraken from "!assets/logoukm/logokraken.png";
@@ -133,7 +134,7 @@ import umpasa from "!assets/logoukm/logoumpasa.png";
 import unitselam from "!assets/logoukm/logounitselam.jpg";
 import urotera from "!assets/logoukm/urotera.png";
 
-export const ukmDataArip = [
+export const ukmData = [
     {
         key: "madani",
         link: "/informasi/ukm/madani",
@@ -144,7 +145,7 @@ export const ukmDataArip = [
         sejarah:
             "MADANI ITERA adalah unit kegiatan mahasiswa yang berbasis Agama Islam di Institut Teknologi Sumatera. Peran dan fungsi MADANI atau Mahasiswa Peradaban Islam adalah merangkul Mahasiswa Muslim ITERA dari berbagai ras, suku, dan budaya, membina serta menyebarkan nilai-nilai Islam di lingkungan kampus. MADANI didirikan untuk mencetak mahasiswa yang berilmu, beriman, dan sebagai Lembaga Dakwah Kampus (LDK) yang ada di Institut Teknologi Sumatera. MADANI ITERA dirintis sejak 2012 di kampus ITB Jatinangor dan didirikan di Bandung pada Hari Kamis tanggal 04 Juni 2015 bertepatan dengan 17 Sya’ban 1436 Hijriah. Kemudian ditetapkan sebagai Unit Kegiatan Mahasiswa (UKM) resmi di kampus Institut Teknologi Sumatera pada 06 Oktober 2015 / 22 Dzulhijjah 1436 H. ",
         visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-        misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+        misi: "1.  Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
 
         allprestasi: [
             {
@@ -1486,6 +1487,39 @@ export const ukmDataArip = [
                 youtube: "",
                 website: "",
                 tiktok: "https://www.tiktok.com/@petanque.itera",
+            },
+        ],
+    },
+
+    {
+        key: "kmb",
+        link: "/informasi/ukm/kmb",
+        logo: kmb,
+        title: "KMB",
+        ketum: "Marsel",
+        prodi: "Prodi'21",
+        sejarah:
+            "Keluarga Mahasiswa Buddhis Institut Teknologi Sumatera merupakan salah satu Unit Kegiatan Mahasiswa (UKM) yang bertujuan untuk mewujudkan persatuan dan kebersamaan diantara mahasiswa buddhis, di dalam hubungan dan interaksi sosial dengan kehidupan di lingkungan Institut Teknologi Sumatera pada umumnya, yang di dalam gerak langkahnya tersebut bersifat kekeluargaan dan bernaung langsung di bawah Rektorat Institut Teknologi Sumatera, serta sepenuhnya mengabdi untuk kepentingan almamater, nusa dan bangsa. Kegiatan Mahasiswa Buddhis Institut Teknologi Sumatera merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera, Lampung. Berdiri sebagai Komunitas sejak tahun 2020",
+        visi: "KMB-ITERA adalah Unit Kegiatan Mahasiswa buddhis di Institut Teknologi Sumatera yang bersifat kekeluargaan, dan bernaung langsung di bawah Rektorat Institut Teknologi Sumatera, serta bebas dan terbuka bagi semua mahasiswa buddhis dan/atau mahasiswa lainnya di lingkungan kampus Institut Teknologi Sumatera yang terdaftar secara sah di Institut Teknologi Sumatera dan patuh kepada Anggaran Dasar dan Anggaran Rumah Tangga KMB-ITERA.",
+        misi: "1. Mengamalkan dan mengembangkan nilai-nilai Buddha Dhamma dalam rangka pelaksanaan Tri Dharma Perguruan Tinggi \n2. Mendukung upaya terciptanya mahasiswa buddhis yang berakhlak, bermoral, dan berintelektual tinggi \n3. Menjadi organisasi yang maju, bersolidaritas, berintegritas dan dapat dipercaya diantara sesama anggota dan antar mahasiswa buddhis lainnya \n4. Ikut berperan aktif dalam dinamika proses pembinaan kepribadian dan mengembangkan nilai-nilai persatuan dan kesatuan di kalangan mahasiswa.",
+
+        allprestasi: [
+            {
+                prestasi: defaultimage,
+                deskripsi: "Cooming Soon",
+            },
+            {
+                prestasi: defaultimage,
+                deskripsi: "Cooming Soon",
+            },
+        ],
+
+        allsosmed: [
+            {
+                instagram: "https://www.instagram.com/kmb.itera",
+                youtube: "",
+                website: "",
+                tiktok: "",
             },
         ],
     },

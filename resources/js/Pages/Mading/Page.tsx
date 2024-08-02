@@ -1,20 +1,17 @@
-import { CircularProgressbar } from "react-circular-progressbar";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import { useEffect, useState } from "react";
 
-import { Link, usePage } from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
 
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import BuktiPengerjaan from "@/Components/mading/BuktiPengerjaan";
 import CompletedMessage from "@/Components/mading/CompletedMessage";
-import ProgressBar from "@/Components/mading/ProgressBar";
 import RiwayatTugas from "@/Components/mading/RiwayatTugas";
-import { Button, buttonVariants } from "@/Components/ui/button";
+import { Button } from "@/Components/ui/button";
 import {
     Carousel,
-    type CarouselApi,
     CarouselContent,
     CarouselItem,
 } from "@/Components/ui/carousel";
@@ -49,7 +46,7 @@ const SkeletonLoader = () => {
                             <div className="flex flex-col items-center justify-center p-4">
                                 <div className="w-2/3 h-10 mt-5 bg-gray-300 rounded"></div>
                                 <div className="w-32 h-32 mt-32 bg-gray-300 rounded-full"></div>
-                                <div className="mt-44 w-1/3 h-10 bg-gray-300 rounded"></div>
+                                <div className="mt-36 w-1/3 h-10 bg-gray-300 rounded"></div>
                             </div>
                         </div>
                     </CarouselItem>
@@ -180,12 +177,12 @@ const Mading = () => {
                         <img
                             src={kotakajaib}
                             alt="kotakajaib"
-                            className="xl:scale-100 z-20 -mt-20 scale-50"
+                            className="xl:scale-100 md:mt-0 z-20 -mt-20 scale-50"
                         />
 
                         <a
-                            href="mading-preview"
-                            className={`z-20 md:mt-56 -mt-10 cursor-pointer text-sm text-white bg-jaffa-800 hover:bg-jaffa-800  ${buttonVariants()}`}
+                            href={route("mading.preview")}
+                            className={`z-20 xl:mt-32 -mt-10 cursor-pointer text-sm text-white bg-jaffa-800 hover:bg-jaffa-800 shadow-md inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 px-4 py-2`}
                         >
                             Lihat Preview Mading Kelompokmu
                         </a>

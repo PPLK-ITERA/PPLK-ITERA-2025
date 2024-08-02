@@ -10,14 +10,13 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 
-import { devTeam } from "@/lib/data/devteam";
 import { Developer } from "@/lib/types/Developer";
 
 type Props = { staffList: Developer[]; onclick?: (dev: Developer) => void };
 
 function StaffCarousel({ staffList, onclick }: Props) {
     return (
-        <Carousel className="p-2 text-sm h-20 lg:h-28">
+        <Carousel className="lg:h-28 h-20 p-2 text-sm">
             <CarouselContent>
                 {staffList.map((dev, i) => (
                     <CarouselItem
@@ -28,7 +27,7 @@ function StaffCarousel({ staffList, onclick }: Props) {
                     >
                         <Tilt
                             tiltReverse={true}
-                            className="border cursor-grab border-white/50 rounded overflow-hidden"
+                            className="cursor-grab border-white/50 overflow-hidden border rounded"
                         >
                             <div
                                 onClick={
@@ -38,15 +37,15 @@ function StaffCarousel({ staffList, onclick }: Props) {
                                 <img
                                     src={dev.photo}
                                     alt={dev.name}
-                                    className="lg:w-28 w-20 lg:h-28 h-20 rounded-sm mx-auto bg-white/5 object-cover object-center"
+                                    className="lg:w-28 lg:h-28 bg-white/5 object-cover object-center w-20 h-20 mx-auto rounded-sm"
                                 />
                             </div>
                         </Tilt>
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className=" translate-x-8 max-lg:w-5 max-lg:h-5 w-6 h-6 text-yellow-300 bg-yellow-400/50" />
-            <CarouselNext className=" -translate-x-8 max-lg:w-5 max-lg:h-5 w-6 h-6 text-yellow-300 bg-yellow-400/50" />
+            <CarouselPrevious className=" max-lg:w-5 max-lg:h-5 bg-yellow-400/50 w-6 h-6 text-yellow-300 translate-x-8" />
+            <CarouselNext className=" max-lg:w-5 max-lg:h-5 bg-yellow-400/50 w-6 h-6 text-yellow-300 -translate-x-8" />
         </Carousel>
     );
 }

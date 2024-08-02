@@ -17,7 +17,6 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 import {
@@ -82,7 +81,7 @@ export default function NavMobile({
 
                             <AccordionItem
                                 value="item-1"
-                                className="border-none"
+                                className="focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none"
                             >
                                 <AccordionTrigger className="text-white">
                                     <Link

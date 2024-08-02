@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 
    Route::get("/mading-preview", function () {
       return view("mading-preview");
-   });
+   })->name("mading.preview");
 
 
    // Scoreboard

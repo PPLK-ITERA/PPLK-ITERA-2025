@@ -5,7 +5,6 @@ import React from "react";
 
 import { devTeam } from "@/lib/data/devteam";
 
-import linuk from "!assets/linuk.png";
 import kartateraLogo from "!assets/svg/kartatera-logo.svg";
 
 type Props = {};
@@ -13,8 +12,8 @@ type Props = {};
 function KadivSection({}: Props) {
     return (
         <section className="flex items-center justify-center h-screen">
-            <div className="h-full flex flex-col lg:grid lg:grid-cols-4 gap-4 p-8 rounded-lg shadow-lg">
-                <div className="max-lg:hidden col-span-1 p-4 flex flex-col place-content-center">
+            <div className="lg:grid lg:grid-cols-4 flex flex-col h-full gap-4 p-8 rounded-lg shadow-lg">
+                <div className="max-lg:hidden place-content-center flex flex-col col-span-1 p-4">
                     <RunningText
                         className="lg:text-2xl xl:text-3xl 2xl:text-5xl font-avigea tracking-wider"
                         title={"KARTATERA"}
@@ -24,12 +23,12 @@ function KadivSection({}: Props) {
                         data-aos="fade-right"
                         data-aos-delay={300}
                         data-aos-duration={2000}
-                        className="mt-16 p-4 rounded-lg backdrop-blur-md bg-white/10 border border-white/50"
+                        className="backdrop-blur-md bg-white/10 border-white/50 p-4 mt-16 border rounded-lg"
                     >
-                        <h3 className="text-lg xl:text-xl 2xl:text-2xl font-semibold">
+                        <h3 className="xl:text-xl 2xl:text-2xl text-lg font-semibold">
                             Implementasi Teknologi
                         </h3>
-                        <p className="text-sm xl:text-base mt-6 text-justify">
+                        <p className="xl:text-base text-start mt-6 text-sm">
                             Kartatera berasal dari "Utskarta" (canggih) dan
                             "Lanterna" (lentera). Divisi IT ini melambangkan
                             cahaya perubahan dari zaman kuno ke modern, membantu
@@ -39,12 +38,12 @@ function KadivSection({}: Props) {
                     </div>
                 </div>
                 <div className="grow place-content-center col-span-2">
-                    <div className="w-full max-md:flex-col max-md:h-full flex gap-6 place-content-center place-items-center">
+                    <div className="max-md:flex-col max-md:h-full place-content-center place-items-center flex w-full gap-6">
                         <div
                             data-aos="fade-up"
                             data-aos-duration={1000}
                             data-aos-delay={1000}
-                            className="max-md:h-full w-full md:max-w-64"
+                            className="max-md:h-full md:max-w-64 w-full"
                         >
                             <DevCard
                                 developer={devTeam.sekdiv[0]}
@@ -58,7 +57,7 @@ function KadivSection({}: Props) {
                             data-aos="fade-up"
                             data-aos-duration={1000}
                             data-aos-delay={500}
-                            className="max-md:h-full w-full md:max-w-64"
+                            className="max-md:h-full md:max-w-64 w-full"
                         >
                             <DevCard
                                 developer={devTeam.kadiv[0]}
@@ -69,7 +68,7 @@ function KadivSection({}: Props) {
                             data-aos="fade-up"
                             data-aos-duration={1000}
                             data-aos-delay={1500}
-                            className="max-md:h-full w-full md:max-w-64"
+                            className="max-md:h-full md:max-w-64 w-full"
                         >
                             <DevCard
                                 developer={devTeam.bendiv[0]}
@@ -81,7 +80,7 @@ function KadivSection({}: Props) {
                         </div>
                     </div>
                 </div>
-                <div className="max-lg:hidden col-span-1 p-4 flex flex-col items-center justify-center">
+                <div className="max-lg:hidden flex flex-col items-center justify-center col-span-1 p-4">
                     <h1
                         data-aos="fade-left"
                         data-aos-duration={1000}
@@ -102,9 +101,9 @@ function KadivSection({}: Props) {
                     </div>
                 </div>
                 {/* mobile title */}
-                <div className="lg:hidden col-span-1 p-4 flex flex-col items-center justify-center mb-8">
+                <div className="lg:hidden flex flex-col items-center justify-center col-span-1 p-4 mb-8">
                     <RunningText
-                        className="text-xl md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-5xl font-avigea tracking-wider"
+                        className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-5xl font-avigea text-xl tracking-wider"
                         title={"KARTATERA"}
                         delay={150}
                     />
@@ -112,12 +111,12 @@ function KadivSection({}: Props) {
                         data-aos="fade-up"
                         data-aos-delay={300}
                         data-aos-duration={1000}
-                        className="p-2 md:p-4 rounded-lg backdrop-blur-md bg-white/10 border border-white/50 text-center"
+                        className="md:p-4 backdrop-blur-md bg-white/10 border-white/50 p-2 text-center border rounded-lg"
                     >
-                        <h3 className="text-base md:text-lg xl:text-xl 2xl:text-2xl font-semibold">
+                        <h3 className="md:text-lg xl:text-xl 2xl:text-2xl text-base font-semibold">
                             IMPLEMENTASI TEKNOLOGI
                         </h3>
-                        <p className="text-xs md:text-sm xl:text-base mt-1 md:mt-4 text-center">
+                        <p className="md:text-sm xl:text-base md:mt-4 mt-1 text-xs text-center">
                             Kartatera berasal dari "Utskarta" (canggih) dan
                             "Lanterna" (lentera). Divisi IT ini melambangkan
                             cahaya perubahan dari zaman kuno ke modern, membantu

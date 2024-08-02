@@ -30,6 +30,27 @@ export const PaginationUKM: React.FC<PaginationUKMProps> = ({
         }
     };
 
+    const pageNumbers: (number | string)[] = [];
+    const neighborCount = 1; // Number of pages to show around the current page
+
+    for (let i = 1; i <= totalPages; i++) {
+        if (
+            i === 1 ||
+            i === totalPages ||
+            (i >= currentPage - neighborCount &&
+                i <= currentPage + neighborCount)
+        ) {
+            pageNumbers.push(i);
+        } else if (
+            i < currentPage - neighborCount ||
+            i > currentPage + neighborCount
+        ) {
+            if (pageNumbers[pageNumbers.length - 1] !== "...") {
+                pageNumbers.push("...");
+            }
+        }
+    }
+
     return (
         <Pagination>
             <PaginationContent className="md:mt-10 mt-5">
@@ -39,6 +60,7 @@ export const PaginationUKM: React.FC<PaginationUKMProps> = ({
                         className={`rounded-[10px] border bg-white px-2 py-2 text-black ${currentPage === 1 ? "pointer-events-none opacity-50" : ""}`}
                         aria-label="Go to previous page"
                     >
+                        {/* Previous Page Icon */}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -57,15 +79,19 @@ export const PaginationUKM: React.FC<PaginationUKMProps> = ({
                     </button>
                 </PaginationItem>
 
-                {[...Array(totalPages)].map((_, index) => (
+                {pageNumbers.map((number: any, index) => (
                     <PaginationItem key={index}>
-                        <PaginationLink
-                            onClick={() => onPageChange(index + 1)}
-                            isActive={currentPage === index + 1}
-                            className={`rounded-[10px] border px-3 py-1 ${currentPage === index + 1 ? "bg-jaffa-600 text-white hover:bg-jaffa-600 hover:text-white pointer-events-none" : "bg-white text-black cursor-pointer"}`}
-                        >
-                            {index + 1}
-                        </PaginationLink>
+                        {number === "..." ? (
+                            <span className="px-3 py-1">...</span>
+                        ) : (
+                            <PaginationLink
+                                onClick={() => onPageChange(number)}
+                                isActive={currentPage === number}
+                                className={`rounded-[10px] border px-3 py-1 ${currentPage === number ? "bg-jaffa-600 text-white hover:bg-jaffa-600 hover:text-white pointer-events-none" : "bg-white text-black cursor-pointer"}`}
+                            >
+                                {number}
+                            </PaginationLink>
+                        )}
                     </PaginationItem>
                 ))}
 
@@ -74,6 +100,7 @@ export const PaginationUKM: React.FC<PaginationUKMProps> = ({
                         onClick={handleNextClick}
                         className={`rounded-[10px] border bg-white px-2 py-2 text-black ${currentPage === totalPages ? "pointer-events-none opacity-50" : ""}`}
                     >
+                        {/* Next Page Icon */}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -81,9 +108,9 @@ export const PaginationUKM: React.FC<PaginationUKMProps> = ({
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
                         >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />

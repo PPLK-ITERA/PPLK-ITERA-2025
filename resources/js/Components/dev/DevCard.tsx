@@ -1,11 +1,8 @@
-import { description } from "../dashboard/charts/bar-graph";
 import DevPreview from "./DevPreview";
-import ReactDOM from "react-dom";
 import Tilt from "react-parallax-tilt";
 
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useAos } from "@/lib/hooks/useAos";
 import { Developer } from "@/lib/types/Developer";
 
 type Props = {
@@ -33,41 +30,41 @@ export default function DevCard({
             tiltAngleXInitial={tiltInitialY}
             tiltAngleYInitial={tiltInitialX}
         >
-            <div className="relative overflow-hidden rounded-xl w-full h-full text-center backdrop-blur">
+            <div className="rounded-xl backdrop-blur relative w-full h-full overflow-hidden text-center">
                 {isLoading && (
-                    <div className="absolute top-1/2 left-1/2 z-20 opacity-75 -translate-x-1/2 -translate-y-1/2 h-3 w-1/2 border border-yellow-500 overflow-hidden">
+                    <div className="top-1/2 left-1/2 absolute z-20 w-1/2 h-3 overflow-hidden -translate-x-1/2 -translate-y-1/2 border border-yellow-500 opacity-75">
                         <div
-                            className="bg-white w-full h-full"
+                            className="w-full h-full bg-white"
                             data-aos="slide-right"
                             data-aos-delay={1000}
                             data-aos-duration={3000}
                         ></div>
-                        <div className="absolute -left-3 bottom-0 h-6 w-6 bg-yellow-500 -rotate-45" />
-                        <div className="absolute -right-3 top-0 h-6 w-6 bg-yellow-500 rotate-45" />
+                        <div className="-left-3 absolute bottom-0 w-6 h-6 -rotate-45 bg-yellow-500" />
+                        <div className="-right-3 absolute top-0 w-6 h-6 rotate-45 bg-yellow-500" />
                     </div>
                 )}
                 <img
                     src={developer.photo}
                     alt={developer.name}
-                    className="absolute bg-yellow-400/50  top-0 left-0 w-full h-full object-cover z-0 opacity-80 group-hover:opacity-50 transition-all group-hover:scale-110 duration-700"
+                    className="bg-yellow-400/50 opacity-80 group-hover:opacity-50 group-hover:scale-110 absolute top-0 left-0 z-0 object-cover w-full h-full transition-all duration-700"
                     onLoad={() => setIsLoading(false)}
                 />
-                <div className="absolute top-0 left-0 w-full h-full object-cover z-0 bg-gradient-to-t from-yellow-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-all"></div>
-                <div className="absolute top-0 left-0 w-full h-full object-cover z-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 group-hover:opacity-0 transition-all"></div>
-                <div className="absolute p-4 top-0 left-0 w-full h-full flex flex-col gap-1 justify-end group-hover:-translate-y-10 transition-all duration-500">
-                    <h3 className="text-base md:text-xl font-semibold">
+                <div className="bg-gradient-to-t from-yellow-400/20 to-transparent group-hover:opacity-100 absolute top-0 left-0 z-0 object-cover w-full h-full transition-all opacity-0"></div>
+                <div className="bg-gradient-to-t from-black/80 via-transparent to-transparent group-hover:opacity-0 absolute top-0 left-0 z-0 object-cover w-full h-full transition-all opacity-100"></div>
+                <div className="group-hover:-translate-y-10 absolute top-0 left-0 flex flex-col justify-end w-full h-full gap-1 p-4 transition-all duration-500">
+                    <h3 className="md:text-xl text-base font-semibold">
                         {developer.name}
                     </h3>
-                    <p className="text-xs md:text-sm font-semibold">
+                    <p className="md:text-sm text-xs font-semibold">
                         {developer.role}
                     </p>
                     <div className="h-[1px] bg-white/40"></div>
-                    <p className="text-yellow-300/80 underline text-xs group-hover:text-yellow-400 hover:scale-110 transition font-mono">
+                    <p className="text-yellow-300/80 group-hover:text-yellow-400 hover:scale-110 font-mono text-xs underline transition">
                         Click to see more
                     </p>
                 </div>
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-white/80 h-2 border border-yellow-400 rounded-b-full w-24" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white/80 h-2 border border-yellow-400 rounded-t-full w-24" />
+                <div className="left-1/2 bg-white/80 absolute top-0 w-24 h-2 -translate-x-1/2 border border-yellow-400 rounded-b-full" />
+                <div className="left-1/2 bg-white/80 absolute bottom-0 w-24 h-2 -translate-x-1/2 border border-yellow-400 rounded-t-full" />
 
                 <DevPreview
                     dev={developer}
