@@ -267,7 +267,7 @@ export const DataFilosofiLogo = [
 
 export const InformasiInfoSection = [
     { title: "Informasi Fakultas", href: "/informasi/fakultas" },
-    { title: "Informasi HMPS & PRODI", href: "/informasi/hmpsprodi" },
+    { title: "Informasi HMPS & PRODI", href: "/informasi/prodi" },
     { title: "Informasi UPT", href: "/informasi/upt" },
     { title: "Informasi KM ITERA", href: "/informasi/km" },
     { title: "Informasi UKM ITERA", href: "/informasi/ukm" },
@@ -276,7 +276,7 @@ export const InformasiInfoSection = [
 export const InformasiFooter = [
     { title: "Tentang PPLK 2024", href: "/informasi/pplk" },
     { title: "Informasi Fakultas", href: "/informasi/fakultas" },
-    { title: "Informasi HMPS & PRODI", href: "/informasi/hmpsprodi" },
+    { title: "Informasi HMPS & PRODI", href: "/informasi/prodi" },
     { title: "Informasi UPT", href: "/informasi/upt" },
     { title: "Informasi KM ITERA", href: "/informasi/km" },
     { title: "Informasi UKM ITERA", href: "/informasi/ukm" },
