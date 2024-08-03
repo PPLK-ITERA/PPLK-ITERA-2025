@@ -72,7 +72,7 @@ export default function FilosofiLogo() {
             </Carousel>
 
             {DataFilosofiLogo.map((data, index) => (
-                <>
+                <div key={index}>
                     {current === index + 1 ? (
                         <>
                             <img
@@ -92,7 +92,7 @@ export default function FilosofiLogo() {
                             </div>
                         </>
                     ) : null}
-                </>
+                </div>
             ))}
         </div>
     );
