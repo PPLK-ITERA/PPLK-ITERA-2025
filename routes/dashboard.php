@@ -3,11 +3,11 @@
 
 use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\TugasController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
-use App\Http\Controllers\TugasController;
 use App\Http\Controllers\User\PresensiPplkController;
 use Illuminate\Support\Facades\Route;
 
@@ -148,8 +148,7 @@ Route::middleware('auth')->group(function () {
             // Data
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
-               Route::get('/all', [TugasController::class, 'getAllTugas'])->name('all');
-               Route::get('/individu', [TugasController::class, 'getTugasIndividu'])->name('individu');
+               Route::get('/user/{id}', [TugasController::class, 'getTugasUser'])->name('user');
                Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
             });
          });
