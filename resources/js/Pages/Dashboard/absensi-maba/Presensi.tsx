@@ -2,9 +2,9 @@ import { useDebouncedCallback } from "use-debounce";
 
 import React, { useEffect } from "react";
 
-import { router, useForm } from "@inertiajs/react";
+import { Link, router, useForm } from "@inertiajs/react";
 
-import { Button } from "@/Components/ui/button";
+import { Button, buttonVariants } from "@/Components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Input } from "@/Components/ui/input";
 
@@ -46,13 +46,12 @@ function Presensi() {
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="flex items-center justify-center mt-2">
-                    <Button
-                        onClick={() =>
-                            router.get(route("dashboard.presensi.absensi"))
-                        }
+                    <Link
+                        href={route("dashboard.absensi-maba/presensi")}
+                        className={buttonVariants()}
                     >
                         Mulai Absen Maba
-                    </Button>
+                    </Link>
                 </CardContent>
             </Card>
             <Input
