@@ -30,10 +30,6 @@ export default function ParticleBackground({ children }: Props) {
                 particlesLoaded={particlesLoaded}
                 options={{
                     autoPlay: true,
-                    fullScreen: {
-                        enable: true,
-                        zIndex: -1,
-                    },
                     background: {
                         color: {
                             value: "#08030A",

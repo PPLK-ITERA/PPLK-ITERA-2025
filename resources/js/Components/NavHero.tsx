@@ -22,8 +22,8 @@ export default function NavHero() {
                 src={awan}
                 alt="awan"
                 className="xl:-mt-52 lg:-mt-40 md:-mt-20 md:visible absolute z-40 invisible w-full bg-cover"
-                data-aos="fade-in"
-                data-duration="3000"
+                data-aos="fade-up"
+                data-aos-duration="3000"
             />
         </div>
     );
