@@ -7,6 +7,7 @@ import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 
 import crown from "!assets/svg/crown.svg";
+import { generateRandomImage } from "@/lib/utils";
 
 type Props = {
     user?: User;
@@ -57,18 +58,24 @@ export default function TopUser({
                         </div>
                     ) : null}
                     <img
-                        src={user.photo_profile_url}
+                        // src={user.photo_profile_url}
+                        src={generateRandomImage()}
                         alt={user.name}
                         className="z-0 bg-gray-400 rounded-full"
                     />
                 </div>
             )}
+<<<<<<< HEAD
+            {user && <p className="text-lg font-bold break-words text-wrap">{user.name}</p>}
+            <p className="bg-gray-400/50 px-2 text-sm rounded-full">
+=======
 
             {user && <div className="text-lg font-bold">{user.name}</div>}
 
             <p className="bg-gray-400/50 md:px-2 px-0 text-sm rounded-full">
+>>>>>>> 9582d1fefc59a2b18c7fb54fd15d45380a434987
                 {user && (
-                    <span className="font-bold">{user.followers_count}</span>
+                    <span className="font-bold">{user.followers_count} </span>
                 )}
                 Followers
             </p>
@@ -79,7 +86,7 @@ export default function TopUser({
                         <Podium
                             color="gold"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="md:text-5xl text-3xl font-bold">
                                 {rank}
@@ -90,7 +97,7 @@ export default function TopUser({
                         <Podium
                             color="silver"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="md:text-5xl text-3xl font-bold">
                                 {rank}
@@ -101,7 +108,7 @@ export default function TopUser({
                         <Podium
                             color="bronze"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="md:text-5xl text-3xl font-bold">
                                 {rank}
