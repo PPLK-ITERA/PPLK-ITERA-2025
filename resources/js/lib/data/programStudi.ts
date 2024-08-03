@@ -318,7 +318,7 @@ export const programStudies: ProgramStudi[] = [
         websiteUrl: "https://tg.itera.ac.id/dosen-dan-tendik/",
         tiktokUrl: " ",
         hmpsName: "Himpunan Mahasiswa Teknik Geofisika",
-        hmpsImageUrl: logohmtg,
+        // hmpsImageUrl: logohmtg,
         hmpsAcronym: "HMTG",
         hmpsDescrption:
             "HMTG Mayapada diresmikan pada tanggal 10 Mei 2013 bertempat di Kampus ITB Jatinangor, Jawa Barat. Pendirian himpunan mahasiswa ini didasari dengan keinginannya ada sebuah wadah yang menjadi penghimpun mahasiswa dalam wadah keprofesian.",
