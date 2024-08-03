@@ -6,8 +6,10 @@ use App\Http\Controllers\BookletController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Models\PengumpulanTugas;
+use Illuminate\Http\Client\HttpClientException;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 // =====================================
 // GAME (Guest)
@@ -172,7 +174,9 @@ Route::get('materi', [MateriController::class, 'guestIndex'])->name('materi');
 // Maskot (Guest)
 // =====================================
 Route::get('informasi/maskot', function () {
-   return Inertia::render('Maskot/Page');
+   // lempar ke 404
+   abort(404);
+   // return Inertia::render('Maskot/Page');
 })->name('informasi/maskot');
 
 Route::middleware('auth')->group(function () {
