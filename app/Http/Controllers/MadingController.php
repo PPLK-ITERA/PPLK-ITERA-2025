@@ -125,9 +125,10 @@ class MadingController extends Controller
 
       DB::beginTransaction();
       try {
-         $pengumpulanTugas = PengumpulanTugas::create([
+         PengumpulanTugas::updateOrCreate([
             'user_id' => $userId,
             'tugas_id' => $validated['tugas_id'],
+         ], [
             'jawaban' => $validated['jawaban'],
             'tanggal_submit' => Carbon::now(),
             'isReturn' => false,

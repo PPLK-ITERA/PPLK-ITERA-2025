@@ -1,4 +1,3 @@
-import Autoplay from "embla-carousel-autoplay";
 import {
     CircularProgressbarWithChildren,
     buildStyles,
@@ -10,7 +9,7 @@ import { Link } from "@inertiajs/react";
 import { IconPhotoUp } from "@tabler/icons-react";
 
 import RadialSeparators from "@/Components/mading/RadialSeparator";
-import { Button, buttonVariants } from "@/Components/ui/button";
+import { buttonVariants } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
     Carousel,
@@ -35,6 +34,7 @@ export default function BuktiPengerjaan({
     isSubmitted,
     isKetua,
 }: BuktiPengerjaanProps) {
+    console.log(isSubmitted);
     return (
         <Carousel
             opts={{
@@ -89,7 +89,11 @@ function renderProgress(
     index: number,
     isKetua: boolean,
 ) {
-    if (index === 0 && card.tugas[0].kategori === "kelompok") {
+    if (
+        index === 0 &&
+        card.tugas[0].kategori === "kelompok" &&
+        isSubmitted[card.tugas[0].id]
+    ) {
         // Logic to display two images on the first card for non-leaders in a group task
         return (
             <div className="md:gap-8 xl:gap-10 flex flex-col items-center justify-center gap-5 mt-0">
@@ -175,7 +179,7 @@ function renderUploadLink(index: number, isKetua: boolean, card: CardType) {
     if (index === 0 && isKetua && card.tugas[0].kategori === "kelompok") {
         return (
             <Link
-                className="mt-44 text-[48px] font-bold text-jaffa-700 bg-transparent"
+                className="text-[48px] font-bold text-jaffa-700 bg-transparent"
                 href={`/mading/pengumpulan/${card.id}`}
             >
                 +
@@ -184,7 +188,7 @@ function renderUploadLink(index: number, isKetua: boolean, card: CardType) {
     } else if (index !== 0) {
         return (
             <Link
-                className="mt-44 text-[48px] font-bold text-jaffa-700 bg-transparent"
+                className="text-[48px] font-bold text-jaffa-700 bg-transparent"
                 href={`/mading/pengumpulan/${card.id}`}
             >
                 +

@@ -68,13 +68,13 @@ class TugasController extends Controller
       DB::beginTransaction();
       try {
          $tugas->update([
-            'isReturned' => true,
+            'isReturn' => true,
             'catatan' => $validated['catatan']
          ]);
          DB::commit();
       } catch (\Exception $e) {
          DB::rollBack();
-         return redirect()->route('dashboard')->with(
+         return redirect()->back()->with(
             'response',
             [
                'status' => 500,
@@ -82,7 +82,7 @@ class TugasController extends Controller
             ]
          );
       }
-      return redirect()->route('dashboard')->with(
+      return redirect()->back()->with(
          'response',
          [
             'status' => 200,
@@ -105,12 +105,39 @@ class TugasController extends Controller
       return response()->json([
          'response' => [
             'status' => 200,
-            'message' => 'Berhasil mendapatkan data',
+            'message' => 'Berhasil mendapatkan data poster',
             'data' => $poster
          ]
       ]);
    }
-   public function returnPoster()
+   public function returnPoster(Request $request)
    {
+      $validated = $request->validate([
+         'id' => 'required|integer',
+      ]);
+      $poster = KartuTugas::find($validated['id']);
+      DB::beginTransaction();
+      try {
+         $poster->update([
+            'poster' => null
+         ]);
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollBack();
+         return redirect()->back()->with(
+            'response',
+            [
+               'status' => 500,
+               'message' => $e->getMessage()
+            ]
+         );
+      }
+      return redirect()->back()->with(
+         'response',
+         [
+            'status' => 200,
+            'message' => 'Berhasil mengembalikan poster'
+         ]
+      );
    }
 }

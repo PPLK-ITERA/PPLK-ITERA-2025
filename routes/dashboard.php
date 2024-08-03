@@ -142,7 +142,8 @@ Route::middleware('auth')->group(function () {
          // Mamet Role
          // =====================================
          Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
-            Route::put('/return/{id}', [TugasController::class, 'return'])->name('return');
+            Route::put('/return', [TugasController::class, 'returnTugas'])->name('return');
+            Route::put('/return-poster', [TugasController::class, 'returnPoster'])->name('return-poster');
 
             // =====================================
             // Data

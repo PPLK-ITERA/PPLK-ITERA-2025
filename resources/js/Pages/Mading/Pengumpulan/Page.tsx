@@ -80,7 +80,50 @@ export default function Page({ id }) {
         fetchCsrfToken();
     }, []);
 
-    const validateUrl = useDebouncedCallback(async () => {
+    const validateUrl = (id: number) => {
+        switch (id) {
+            case 1:
+                validateTiktokUrl();
+                break;
+            case 2:
+                validateTiktokUrl();
+                break;
+            case 3:
+                validateGDriveUrl();
+                break;
+            case 4:
+                validateInstagramUrl();
+                break;
+            case 5:
+                validateTiktokUrl();
+                break;
+            case 6:
+                validateGDriveUrl();
+                break;
+            default:
+                break;
+        }
+    };
+
+    const validateTiktokUrl = useDebouncedCallback(() => {
+        if (!/^https:\/\/(www\.)?tiktok\.com\/.*$/g.test(formData.url)) {
+            setUrlError("link harus dari TikTok");
+            return;
+        }
+
+        setUrlError("");
+    }, 200);
+
+    const validateInstagramUrl = useDebouncedCallback(async () => {
+        if (!/^https:\/\/(www\.)?instagram\.com\/.*$/g.test(formData.url)) {
+            setUrlError("link harus dari Instagram");
+            return;
+        }
+
+        setUrlError("");
+    }, 200);
+
+    const validateGDriveUrl = useDebouncedCallback(async () => {
         if (!/^https:\/\/(www\.)?\w+\.google\.com\/.*$/g.test(formData.url)) {
             setUrlError("link harus dari Google Drive");
             return;
@@ -98,7 +141,7 @@ export default function Page({ id }) {
         }
 
         setUrlError("");
-    }, 100);
+    }, 200);
 
     const handleSubmit = async () => {
         try {
@@ -149,14 +192,6 @@ export default function Page({ id }) {
                                 Pengumpulan Tugas Day - {id}
                             </h2>
 
-                            {/* Day 0 TikTok
-                                    Day 1 TikTok
-                                    Day 2 Drive PDF &
-                                    check Linkedin
-                                    Day 3 Upload IG
-                                    Day 4 Upload TikTok
-                                    Day 5 Upload PDF Drive */}
-
                             <div className="flex flex-col mt-10">
                                 {tugasData?.tugas.map((tugas, index) => (
                                     <div className="flex flex-col" key={index}>
@@ -187,7 +222,7 @@ export default function Page({ id }) {
                                                     "url",
                                                     e.target.value,
                                                 );
-                                                validateUrl();
+                                                validateUrl(tugas.id);
                                                 setTugasId(tugas.id);
                                             }}
                                             placeholder={
