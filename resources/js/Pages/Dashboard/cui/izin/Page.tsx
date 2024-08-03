@@ -1,16 +1,19 @@
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { format } from "date-fns";
+import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import React from "react";
 
-import { router, useForm } from "@inertiajs/react";
+import { router, useForm, usePage } from "@inertiajs/react";
 
 import { ArrowLeft } from "lucide-react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Separator } from "@/Components/ui/separator";
+import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
 const breadcrumbItems = [
@@ -61,7 +64,7 @@ function StatusPita({ pita }: { pita: string }) {
     }
 }
 
-function Page({ auth, data }) {
+function Page({ auth, data, flash }) {
     const {
         data: formData,
         setData: setFormData,
@@ -73,6 +76,24 @@ function Page({ auth, data }) {
     });
     const { toast } = useToast();
 
+    React.useEffect(() => {
+        if (flash.response) {
+            if (flash.response.status === 200) {
+                toast({
+                    title: "Berhasil",
+                    description: flash.response.message,
+                    variant: "default",
+                });
+            } else {
+                toast({
+                    title: "Gagal",
+                    description: flash.response.message,
+                    variant: "destructive",
+                });
+            }
+        }
+    }, [flash, toast]);
+
     const handleIzin = () => {
         post(route("cui.izin", data.qr_code));
     };
@@ -82,81 +103,101 @@ function Page({ auth, data }) {
     };
 
     return (
-        <DashboardLayout user={auth.user}>
-            <div className="flex items-center justify-between space-y-2">
-                <h2 className="text-3xl font-bold tracking-tight">
-                    Izin Peserta CUI
-                </h2>
-            </div>
-
-            <Breadcrumbs items={breadcrumbItems} />
-            <Separator />
-            <Button
-                variant="outline"
-                onClick={() => router.replace(route("dashboard.cui"))}
-            >
-                <ArrowLeft className="mr-2" /> Kembali
-            </Button>
-            <div className="flex">
-                <img
-                    className="w-64 h-96 rounded-lg drop-shadow-lg"
-                    src={data.photo_profile_url}
-                    alt="Foto Profil"
-                />
-                <div className="flex flex-col gap-2 ml-3 outline rounded-md outline-1 outline-black/30 p-2">
-                    <p className="font-bold text-lg">Deskripsi</p>
-                    <TextBox value={data.nama} label="Nama" />
-                    <TextBox value={data.nim} label="NIM" />
-                    <TextBox value={data.prodi} label="Prodi" />
-                    <Separator />
-
-                    <div className="flex items-center gap-2">
-                        <p className="font-bold text-lg">Status</p>
-                        <p className="uppercase outline px-2 rounded-md bg-slate-200 font-medium outline-black/30 outline-1">
-                            {data.status}
-                        </p>
-                    </div>
-                    <StatusPita pita={data.pita} />
-                    <DateTimeBox
-                        label={"Waktu Hadir"}
-                        value={data.waktu_hadir}
-                    />
-                    <DateTimeBox label={"Waktu Izin"} value={data.waktu_izin} />
-                    <DateTimeBox
-                        label={"Waktu Selesai Izin"}
-                        value={data.selesai_izin}
-                    />
+        <>
+            <DashboardLayout user={auth.user}>
+                <div className="flex items-center justify-between space-y-2">
+                    <h2 className="text-3xl font-bold tracking-tight">
+                        Izin Peserta CUI
+                    </h2>
                 </div>
 
-                <div className="flex flex-col w-64 gap-2 ml-3 outline rounded-md outline-1 outline-black/30 p-2">
-                    <p className="font-bold text-lg">Atur Izin</p>
-                    <Separator />
-                    {data.status === "hadir" ? (
-                        <div className="flex flex-col gap-2">
-                            <Input
-                                onChange={(e) =>
-                                    setFormData("ket_izin", e.target.value)
-                                }
-                                value={formData.ket_izin}
-                                placeholder="Keterangan"
-                            />
+                <Breadcrumbs items={breadcrumbItems} />
+                <Separator />
+                <Button
+                    variant="outline"
+                    onClick={() => router.replace(route("dashboard.cui"))}
+                >
+                    <ArrowLeft className="mr-2" /> Kembali
+                </Button>
+                <div className="flex flex-col md:flex-row md:items-start justify-center items-center gap-4">
+                    <img
+                        className="w-64 h-96 rounded-lg drop-shadow-lg"
+                        src={data.photo_profile_url}
+                        alt="Foto Profil"
+                    />
+                    <div className="flex flex-col w-full gap-2 ml-3 outline rounded-md outline-1 outline-black/30 p-2">
+                        <p className="font-bold text-lg">Deskripsi</p>
+                        <TextBox value={data.nama} label="Nama" />
+                        <TextBox value={data.nim} label="NIM" />
+                        <TextBox value={data.prodi} label="Prodi" />
+                        <Separator />
 
-                            <Button
-                                className="w-full"
-                                disabled={processing}
-                                onClick={handleIzin}
-                            >
-                                Submit
-                            </Button>
+                        <div className="flex items-center gap-2">
+                            <p className="font-bold text-lg">Status</p>
+                            <p className="uppercase outline px-2 rounded-md bg-slate-200 font-medium outline-black/30 outline-1">
+                                {data.status}
+                            </p>
                         </div>
-                    ) : (
-                        <Button disabled={processing} onClick={handleCabutIzin}>
-                            Cabut Izin
-                        </Button>
-                    )}
+                        <StatusPita pita={data.pita} />
+                        <DateTimeBox
+                            label={"Waktu Hadir"}
+                            value={data.waktu_hadir}
+                        />
+                        <DateTimeBox
+                            label={"Waktu Izin"}
+                            value={data.waktu_izin}
+                        />
+                        <DateTimeBox
+                            label={"Waktu Selesai Izin"}
+                            value={data.selesai_izin}
+                        />
+                    </div>
+
+                    <div className="flex flex-col w-full gap-2 ml-3 outline rounded-md outline-1 outline-black/30 p-2">
+                        <p className="font-bold text-lg">Atur Izin</p>
+                        <Separator />
+                        {data.status === "hadir" ? (
+                            <div className="flex flex-col gap-2">
+                                <Input
+                                    onChange={(e) =>
+                                        setFormData("ket_izin", e.target.value)
+                                    }
+                                    value={formData.ket_izin}
+                                    placeholder="Keterangan"
+                                />
+
+                                <Button
+                                    className="w-full"
+                                    disabled={processing}
+                                    onClick={handleIzin}
+                                >
+                                    Submit
+                                </Button>
+                            </div>
+                        ) : (
+                            <div>
+                                <p>
+                                    <span className="font-medium">
+                                        Keterangan izin
+                                    </span>
+                                    <br />
+                                    {data.ket_izin}
+                                </p>
+                                <Separator className="my-3" />
+                                <Button
+                                    className="w-full"
+                                    disabled={processing}
+                                    onClick={handleCabutIzin}
+                                >
+                                    Cabut Izin
+                                </Button>
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </div>
-        </DashboardLayout>
+            </DashboardLayout>
+            <Toaster />
+        </>
     );
 }
 
