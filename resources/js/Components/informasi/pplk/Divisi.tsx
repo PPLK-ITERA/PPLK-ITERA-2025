@@ -57,13 +57,13 @@ const Divisi = () => {
                 <img
                     src={Vagiotesis}
                     alt={"Vagiotesis"}
-                    className="object-contain w-full h-full mt-5"
+                    className="object-contain w-full h-full mt-5 hover:scale-110 transition-all duration-300 hover:cursor-pointer"
                 />
             </div>
 
             <div className="sm:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 mt-5 mb-10">
                 {DATA_DIVISI.slice(0, visibleCount).map((item, index) => (
-                    <div key={index} className={``}>
+                    <div key={index} className={`hover:scale-110 transition-all duration-300 hover:cursor-pointer`}>
                         <img
                             src={item.logo}
                             alt={item.nama}

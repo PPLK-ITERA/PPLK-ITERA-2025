@@ -26,7 +26,9 @@ const Hmps = ({ prodi, className }: Props) => {
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
-                    <div className="w-64 h-64 mx-auto overflow-hidden rounded-full">
+                    <div
+                        className={`w-64 h-64 mx-auto overflow-hidden rounded-full ${prodi.hmpsImageUrl ? "visible" : "invisible"}`}
+                    >
                         <img
                             src={
                                 prodi.hmpsImageUrl

@@ -83,13 +83,10 @@ export default function NavMobile({
                                 value="item-1"
                                 className="focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none"
                             >
-                                <AccordionTrigger className="text-white">
-                                    <Link
-                                        href="#"
-                                        className={`text-[18px] font-bold text-white transition duration-200 ease-in`}
-                                    >
-                                        Informasi
-                                    </Link>
+                                <AccordionTrigger
+                                    className={`text-[18px] font-bold text-white transition duration-200 ease-in`}
+                                >
+                                    Informasi
                                 </AccordionTrigger>
                                 <AccordionContent>
                                     <div className="flex flex-col gap-2">
@@ -112,13 +109,10 @@ export default function NavMobile({
                                 value="item-2"
                                 className="-mt-4 border-none"
                             >
-                                <AccordionTrigger className="text-white">
-                                    <Link
-                                        href="#"
-                                        className={`text-[18px] font-bold text-white transition duration-200 ease-in`}
-                                    >
-                                        Mahasiswa Baru
-                                    </Link>
+                                <AccordionTrigger
+                                    className={`text-[18px] font-bold text-white transition duration-200 ease-in`}
+                                >
+                                    Mahasiswa Baru
                                 </AccordionTrigger>
                                 <AccordionContent>
                                     <div className="flex flex-col gap-2">
