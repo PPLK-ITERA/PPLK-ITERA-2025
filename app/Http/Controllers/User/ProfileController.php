@@ -26,7 +26,7 @@ class ProfileController extends Controller
          'nim' => $user->nim,
          'prodi' => $user->prodi,
          'role' => $user->role,
-         'photo_profile_url' => asset('storage/' . $user->photo_profile_url),
+         'photo_profile_url' => $user->photo_profile_url,
          'linkedin_url' => $user->linkedin_url,
          'instagram_url' => $user->instagram_url,
          'kelompok' => [
@@ -50,11 +50,6 @@ class ProfileController extends Controller
             'data' => $response
          ]
       ]);
-   }
-   public function edit()
-   {
-      $user = User::findOrFail(auth()->id());
-      return view('test', compact('user'));
    }
    public function update(Request $request)
    {
@@ -85,40 +80,33 @@ class ProfileController extends Controller
    public function updateProfile(Request $request)
    {
       $user = User::findOrFail(auth()->id());
-      // dd($request);
-      // Validate the incoming request
+
+
       $request->validate([
          'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
 
-      // Handle the profile photo update process
-      if ($request->hasFile('photo')) {
-         // Start transaction to ensure atomicity
-         DB::beginTransaction();
-
-         try {
-            // Store new photo and update user's profile photo path
-            $path_name = $request->file('photo')->store('images/photo-profile', 'public');
-
-            // Delete old photo if it exists
-            if ($user->photo_profile_photo) {
-               Storage::disk('public')->delete($user->photo_profile_photo);
-            }
-
-            // Update user's profile with new photo URL
-            $user->update(['photo_profile_url' => $path_name]);
-
-            // Commit the transaction
-            DB::commit();
-
-            return redirect()->route('myprofile')->with('success', 'Profile updated successfully.');
-         } catch (\Exception $e) {
-            // Roll back the transaction on error
-            DB::rollBack();
-            return redirect()->route('myprofile')->with('error', 'Failed to update profile.');
+      if ($request->hasFile('sphoto')) {
+         $storagePath = substr($user->photo_profile_url, strlen('/storage/'));
+         if (Storage::disk('public')->exists($storagePath)) {
+            Storage::disk('public')->delete($storagePath);
          }
+         $path = $request->file('photo')->store('images/profilePhoto', 'public');
+         $path_image = '/storage/' . $path;
       } else {
-         return redirect()->route('myprofile')->with('info', 'No changes made to your profile.');
+         $path_image = $user->photo_profile_url;
       }
+
+      DB::beginTransaction();
+      try {
+         $user->update([
+            'photo_profile_url' => $path_image
+         ]);
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollBack();
+         return redirect()->route('myprofile')->with('error', 'Failed to update profile.');
+      }
+      return redirect()->route('myprofile')->with('success', 'Profile updated successfully.');
    }
 }

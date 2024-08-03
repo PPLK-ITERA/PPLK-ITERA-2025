@@ -1,20 +1,17 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Label } from "@radix-ui/react-dropdown-menu";
-import { IconZoomIn } from "@tabler/icons-react";
 
 import React from "react";
+
+import { IconZoomIn } from "@tabler/icons-react";
 
 import { Button } from "@/Components/ui/button";
 import {
     Dialog,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
     DialogOverlay,
     DialogPortal,
-    DialogTitle,
     DialogTrigger,
 } from "@/Components/ui/dialog";
+
 import { cn } from "@/lib/utils";
 
 const DialogContent = React.forwardRef<
@@ -40,7 +37,7 @@ export function ImageDialog({ src }) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="absolute top-2 right-2 text-white bg-black/70 rounded-lg p-2 border border-white/50 hover:scale-110 transition">
+                <Button className="top-2 right-2 bg-black/70 border-white/50 hover:scale-105 absolute p-2 text-white transition-all duration-200 border rounded-lg">
                     <IconZoomIn />
                 </Button>
             </DialogTrigger>
@@ -48,7 +45,7 @@ export function ImageDialog({ src }) {
                 <div className="max-md:px-8">
                     <img
                         src={src}
-                        className="w-full object-contain rounded-xl overflow-hidden shadow-xl"
+                        className="rounded-xl object-contain w-full overflow-hidden shadow-xl"
                     />
                 </div>
             </DialogContent>

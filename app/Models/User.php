@@ -24,6 +24,7 @@ class User extends Authenticatable
       'photo_profile_url',
       'linkedin_url',
       'instagram_url',
+      'link_sertif',
       'kelompok_id',
       'isKetua',
       'pilar',
@@ -41,7 +42,6 @@ class User extends Authenticatable
    protected $hidden = [
       'password',
       'remember_token',
-      'pilar',
       'created_at',
       'updated_at',
    ];

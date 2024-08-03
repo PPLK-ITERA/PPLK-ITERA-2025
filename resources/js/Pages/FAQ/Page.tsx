@@ -5,7 +5,6 @@ import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import PaginationFAQ from "@/Components/PaginationFAQ";
 
-import { faqs } from "@/lib/data/faq";
 import { useAos } from "@/lib/hooks/useAos";
 
 export default function Page({ response }) {
@@ -91,7 +90,6 @@ export default function Page({ response }) {
                     <div
                         data-aos="fade-up"
                         data-aos-duration="1000"
-                        // className="mx-4 mb-10 mt-10 sm:mx-10 md:mx-[142px] md:mb-[140px] md:mt-[56px]"
                         className="container p-4 mx-auto md:mt-[56px]"
                     >
                         <AccordionFAQ items={currentItems} />

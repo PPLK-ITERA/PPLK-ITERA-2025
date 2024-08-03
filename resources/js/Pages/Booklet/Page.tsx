@@ -4,7 +4,7 @@ import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import { CarouselBooklet } from "@/Components/booklet/ScrollBooklet";
 
-function Page() {
+function Page({ response }) {
     return (
         <div className="bg-pattern-white flex flex-col min-h-screen">
             <Navbar isSolid={true} />

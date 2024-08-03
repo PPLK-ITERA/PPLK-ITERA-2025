@@ -16,7 +16,7 @@ const Header = ({ upt, title, headerDescription }: HeaderProps) => {
 
                 <h1 className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-[2.5rem]">
                     <span className="font-avigea text-[40px] md:text-[60px] max-w-2xl capitalize">
-                        {upt ? title : `Unit Pengelola Teknis (UPT)`}
+                        {upt ? title : `Unit Penunjang Akademik (UPA)`}
                     </span>
                     <br />
                     <span className="font-avigea text-[64px] md:text-[60px]">
@@ -28,7 +28,7 @@ const Header = ({ upt, title, headerDescription }: HeaderProps) => {
                     <span className="text-[18px] md:text-[25px]">
                         {upt
                             ? headerDescription
-                            : `lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, sint nisi laborum, ut dolor impedit amet placeat minus velit.`}
+                            : `Unit Penunjang Akademik bertujuan meningkatkan kualitas proses pembelajaran dengan menyediakan layanan dan dukungan akademis.`}
                     </span>
                 </p>
             </div>

@@ -1,25 +1,50 @@
 import { DetailUser } from "@/Pages/Dashboard/detail-user/Page";
+import { useDebouncedCallback } from "use-debounce";
 
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
+import { useForm } from "@inertiajs/react";
+
+import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/Components/ui/select";
-import { Textarea } from "@/Components/ui/textarea";
 
 interface TentangPPLKFormProps {
     currentUser: DetailUser;
 }
 
 const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
+    const [urlError, setUrlError] = useState<string | null>(null);
+
+    const { data, setData, put } = useForm({
+        id: currentUser.id,
+        sertif: "",
+        _method: "put",
+    });
+
+    const validateUrl = useDebouncedCallback(async () => {
+        if (!/^https:\/\/(www\.)?\w+\.google\.com\/.*$/g.test(data.sertif)) {
+            setUrlError("link harus dari Google Drive");
+            return;
+        }
+
+        let id = data.sertif.split("/")[5];
+
+        let response = await fetch(
+            `https://www.googleapis.com/drive/v2/files/${id}?key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
+        );
+
+        if (!response.ok) {
+            setUrlError("Link drive belum publik, silahkan coba lagi");
+            return;
+        }
+
+        setUrlError("");
+    }, 100);
+
+    const handleSubmit = () => {
+        put(route("dashboard.user.edit-sertif"));
+    };
     return (
         <div className="p-4 space-y-5 border rounded-md shadow-md">
             <h2 className="text-xl font-bold tracking-tight">Tentang PPLK</h2>
@@ -38,6 +63,7 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
                             type="text"
                             id="nama-kelompok-maba"
                             value={currentUser.kelompok.nama_kelompok}
+                            disabled
                             placeholder="Nawasena"
                             className="mt-1"
                         />
@@ -55,6 +81,7 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
                             type="number"
                             id="nomor-kelompok-maba"
                             value={currentUser.kelompok.no_kelompok}
+                            disabled
                             placeholder="73"
                             className="mt-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         />
@@ -71,6 +98,7 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
                     type="number"
                     id="score-game-individu-maba"
                     value={currentUser.score}
+                    disabled
                     placeholder="73"
                     className="mt-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
@@ -81,25 +109,14 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
                     Pilar
                 </Label>
 
-                <Select>
-                    <SelectTrigger className="w-full mt-1">
-                        <SelectValue placeholder="Pilar" />
-                    </SelectTrigger>
-
-                    <SelectContent>
-                        <SelectGroup>
-                            <SelectLabel>Pilars</SelectLabel>
-                            <SelectItem value="pilar-1">Kerja Keras</SelectItem>
-                            <SelectItem value="pilar-2">
-                                Sharing is Caring
-                            </SelectItem>
-                            <SelectItem value="pilar-3">Equity</SelectItem>
-                            <SelectItem value="pilar-4">
-                                Hukum dan Tata Kelola Negara
-                            </SelectItem>
-                        </SelectGroup>
-                    </SelectContent>
-                </Select>
+                <Input
+                    type="text"
+                    id="pilar-maba"
+                    value={currentUser.pilar.pilar_name}
+                    disabled
+                    placeholder="Pilar User"
+                    className="mt-1"
+                />
             </div>
 
             <div className="flex flex-col w-full">
@@ -113,17 +130,42 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
                 <Input
                     type="text"
                     id="serti-kelulusan-pplk-maba"
-                    value=""
+                    value={
+                        currentUser.link_sertif
+                            ? currentUser.link_sertif
+                            : data.sertif
+                    }
                     placeholder="https://drive.google.com/...."
                     className="mt-1"
+                    onChange={(e) => {
+                        setData("sertif", e.target.value);
+                        validateUrl();
+                    }}
                 />
+
+                {!!urlError ? (
+                    <span className="text-red-500 text-[12px]">{urlError}</span>
+                ) : urlError === "" ? (
+                    <span className="text-[12px] text-green-500">
+                        Link valid
+                    </span>
+                ) : null}
             </div>
 
-            <div className="flex flex-col w-full">
+            <div className="flex justify-end">
+                <Button
+                    onClick={handleSubmit}
+                    disabled={!!urlError || !data.sertif}
+                >
+                    Simpan Sertifikat
+                </Button>
+            </div>
+
+            {/* <div className="flex flex-col w-full">
                 <Label className="text-left">Preview Sertifikat</Label>
 
                 <div className="w-full min-h-[200px] rounded-md bg-gray-400/30 mt-1" />
-            </div>
+            </div> */}
         </div>
     );
 };

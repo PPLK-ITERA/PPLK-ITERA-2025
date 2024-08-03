@@ -3,17 +3,15 @@ import React, { useState } from "react";
 import {
     IconBrandInstagram,
     IconBrandTiktok,
-    IconBrandYoutubeFilled,
-    IconWorld,
+    IconBrandYoutube,
+    IconWorldWww,
 } from "@tabler/icons-react";
 
-import { AccordionKk } from "@/Components/informasi/prodi/AccordionKk";
-import AchievementList from "@/Components/informasi/prodi/AchievementList";
-import HmpsActivities from "@/Components/informasi/prodi/HmpsActivities";
-import { Card, CardContent } from "@/Components/ui/card";
+import HmpsActivity from "@/Components/informasi/prodi/HmpsActivity";
+import { Card } from "@/Components/ui/card";
 
-import accreditation_a from "!assets/accreditation-a.png";
-import banpt from "!assets/banpt.png";
+import { ProgramStudi } from "@/lib/types/ProgramStudi";
+
 import box from "!assets/overlay-box2.png";
 import pillar from "!assets/pillar-brown2.png";
 
@@ -22,21 +20,29 @@ type Props = { prodi: ProgramStudi; className?: string };
 const Hmps = ({ prodi, className }: Props) => {
     return (
         <div className={className}>
-            <div className="w-full flex flex-col gap-24 place-content-center py-16">
+            <div className="place-content-center flex flex-col w-full gap-24 py-16">
                 <div
-                    className="mx-auto w-full max-w-6xl px-4 text-center flex flex-col gap-12"
+                    className="flex flex-col w-full max-w-6xl gap-12 px-4 mx-auto text-center"
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
-                    <img
-                        src={prodi.hmpsImageUrl}
-                        alt="Prodi"
-                        className="mx-auto h-56 lg:h-80"
-                    />
-                    <h1 className="max-w-2xl mx-auto font-avigea text-2xl lg:text-4xl">
-                        {prodi.hmpsName}
+                    <div className="w-64 h-64 mx-auto overflow-hidden rounded-full">
+                        <img
+                            src={
+                                prodi.hmpsImageUrl
+                                    ? prodi.hmpsImageUrl
+                                    : "https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg"
+                            }
+                            alt="Prodi"
+                            className="w-full h-full"
+                        />
+                    </div>
+
+                    <h1 className="font-avigea lg:text-4xl max-w-2xl mx-auto text-2xl">
+                        {prodi.hmpsAcronym}
                     </h1>
-                    <p className="max-w-2xl mx-auto font-medium ">
+
+                    <p className=" max-w-2xl mx-auto font-medium">
                         {prodi.hmpsDescrption}
                     </p>
                 </div>
@@ -45,15 +51,15 @@ const Hmps = ({ prodi, className }: Props) => {
                     <Card
                         data-aos="fade-up"
                         data-aos-duration="800"
-                        className="lg:mx-auto w-full max-w-6xl rounded-lg flex flex-col gap-6 bg-gradient-to-r shadow-xl shadow-jaffa-300/20 from-jaffa-600 to-jaffa-700 p-4 lg:p-8 text-left lg:px-16 border-0"
+                        className="lg:mx-auto bg-gradient-to-r shadow-jaffa-300/20 from-jaffa-600 to-jaffa-700 lg:p-8 lg:px-16 flex flex-col w-full max-w-[300px] md:max-w-[768px] lg:max-w-[1080px] gap-6 p-4 text-left border-0 rounded-lg shadow-xl mx-auto"
                     >
-                        <div className="flex place-content-center">
-                            <div className="text-center lg:text-left flex flex-col text-white">
+                        <div className="place-content-center flex">
+                            <div className="lg:text-left flex flex-col text-center text-white">
                                 <p className="max-lg:text-xs">
                                     Ketua {prodi.hmpsName} 2024-2025
                                 </p>
-                                <p className="text-xl lg:text-3xl text-center">
-                                    {prodi.hmpsCoordinatorName}
+                                <p className="lg:text-3xl text-xl text-center">
+                                    {prodi.kahim}
                                 </p>
                             </div>
                         </div>
@@ -71,13 +77,15 @@ const Hmps = ({ prodi, className }: Props) => {
                         alt=""
                         className="absolute bottom-0 left-0 -translate-x-24 translate-y-[26%] w-44 lg:w-96"
                     />
-                    <div className="flex place-content-center place-items-center">
+
+                    <div className="place-content-center place-items-center flex">
                         <div className="h-[1px] bg-white grow"></div>
-                        <h4 className="p-2 lg:p-6 lg:px-12 bg-gradient-to-r from-[#864D0D] to-[#432005] rounded-2xl border text-sm lg:text-3xl">
+                        <h4 className="px-3 py-1 bg-gradient-to-r from-[#864D0D] to-[#432005] rounded-full border text-[16px] md:text-[20px]">
                             KEGIATAN UNGGULAN
                         </h4>
                         <div className="h-[1px] bg-white grow"></div>
                     </div>
+
                     <img
                         src={pillar}
                         alt=""
@@ -93,44 +101,56 @@ const Hmps = ({ prodi, className }: Props) => {
                             transform:
                                 "rotateY(180deg) translateX(-6rem) translateY(26%)",
                         }}
-                        className="absolute bottom-0 right-0 rotate-0 w-44 lg:w-96"
+                        className="w-44 lg:w-96 absolute bottom-0 right-0 rotate-0"
                     />
                 </div>
 
-                <div className="mx-auto w-full max-w-6xl px-4">
-                    <HmpsActivities hmpsActivities={prodi.hmpsActivities} />
+                <div className="w-full max-w-6xl px-4 mx-auto">
+                    <HmpsActivity hmpsActivities={prodi.hmpsActivities} />
                 </div>
 
                 <div
-                    className="mx-auto w-full max-w-6xl px-4  text-center"
+                    className="w-full max-w-6xl px-4 mx-auto text-center"
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
-                    <h1 className="font-avigea text-xl lg:text-3xl text-moccaccino-500">
+                    <h1 className="font-avigea lg:text-3xl text-moccaccino-500 text-xl">
                         Sosial Media {prodi.hmpsAcronym}
                     </h1>
-                    <div className="flex gap-8 place-content-center text-jaffa-200 mt-4">
+
+                    <div className="place-content-center text-jaffa-200 flex gap-8 mt-4">
                         {prodi.hmpsInstagramUrl && (
                             <a href={prodi.hmpsInstagramUrl} target="_blank">
-                                <IconBrandInstagram className="h-12 w-12 lg:h-16 lg:w-16 hover:text-jaffa-300 transition" />
+                                <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
+                                    <IconBrandInstagram
+                                        size={40}
+                                        color="black"
+                                    />
+                                </div>
                             </a>
                         )}
 
                         {prodi.hmpsYoutubeUrl && (
                             <a href={prodi.hmpsYoutubeUrl} target="_blank">
-                                <IconBrandYoutubeFilled className="h-12 w-12 lg:h-16 lg:w-16 hover:text-jaffa-300 transition" />
+                                <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
+                                    <IconBrandYoutube size={40} color="black" />
+                                </div>
                             </a>
                         )}
 
                         {prodi.hmpsWebsiteUrl && (
                             <a href={prodi.hmpsWebsiteUrl} target="_blank">
-                                <IconWorld className="h-12 w-12 lg:h-16 lg:w-16 hover:text-jaffa-300 transition" />
+                                <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
+                                    <IconWorldWww size={40} color="black" />
+                                </div>
                             </a>
                         )}
 
                         {prodi.hmpsTiktokUrl && (
                             <a href={prodi.hmpsTiktokUrl} target="_blank">
-                                <IconBrandTiktok className="h-12 w-12 lg:h-16 lg:w-16 hover:text-jaffa-300 transition" />
+                                <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
+                                    <IconBrandTiktok size={40} color="black" />
+                                </div>
                             </a>
                         )}
                     </div>

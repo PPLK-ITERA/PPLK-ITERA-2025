@@ -1,24 +1,27 @@
-import { Button } from '@/Components/ui/button';
-import { Card, CardContent } from '@/Components/ui/card';
-import { Link, router } from '@inertiajs/react';
-import { format } from 'date-fns';
-import { ArrowLeft } from 'lucide-react';
-import React, { FC } from 'react'
+import { format } from "date-fns";
+
+import React, { FC } from "react";
+
+import { Link, router } from "@inertiajs/react";
+
+import { ArrowLeft } from "lucide-react";
+
+import { Button } from "@/Components/ui/button";
+import { Card, CardContent } from "@/Components/ui/card";
 
 interface ResultCardProps {
-    nama: string,
-    prodi: string,
-    nim: string,
-    status: string,
-    waktu: Date,
-    pita: string,
-    riwayatPenyakit: string,
-    keterangan: string,
-    imgUrl: string,
-    routeBack: string,
-    routeScan: string
+    nama: string;
+    prodi: string;
+    nim: string;
+    status: string;
+    waktu: Date;
+    pita: string;
+    riwayatPenyakit: string;
+    keterangan: string;
+    imgUrl: string;
+    routeBack: string;
+    routeScan: string;
 }
-
 
 export const ResultCardSuccess: FC<ResultCardProps> = ({
     nama,
@@ -31,28 +34,30 @@ export const ResultCardSuccess: FC<ResultCardProps> = ({
     keterangan,
     imgUrl,
     routeBack,
-    routeScan
+    routeScan,
 }) => {
     return (
-        <div className='relative flex h-full flex-col justify-center md:justify-between items-center'>
+        <div className="relative flex h-full flex-col justify-center md:justify-between items-center">
             <div>
-                <div className='w-full flex flex-col justify-center items-center'>
+                <div className="w-full flex flex-col justify-center items-center">
                     <img
-                        className='w-32 aspect-[3/4] border border-black rounded-xl'
+                        className="w-32 aspect-[3/4] border border-black rounded-xl"
                         src={imgUrl}
-                        alt='Foto Maba'
+                        alt="Foto Maba"
                     />
-                    <p className='font-bold text-lg mt-2'>{nama}</p>
-                    <p className='font-medium'>{prodi}</p>
-                    <p className='font-medium'>{nim}</p>
+                    <p className="font-bold text-lg mt-2">{nama}</p>
+                    <p className="font-medium">{prodi}</p>
+                    <p className="font-medium">{nim}</p>
                 </div>
-                <Card className='w-96 pt-4 mt-4 rounded-lg'>
+                <Card className="w-96 pt-4 mt-4 rounded-lg">
                     <CardContent>
-                        <div className='flex flex-col gap-2'>
-                            <div className='flex justify-between items-center'>
-                                <p className='font-bold'>Status</p>
-                                <div className='flex items-center gap-2'>
-                                    <p className='font-bold text-green-500'>{status}</p>
+                        <div className="flex flex-col gap-2">
+                            <div className="flex justify-between items-center">
+                                <p className="font-bold">Status</p>
+                                <div className="flex items-center gap-2">
+                                    <p className="font-bold text-green-500">
+                                        {status}
+                                    </p>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="18"
@@ -64,21 +69,24 @@ export const ResultCardSuccess: FC<ResultCardProps> = ({
                                     </svg>
                                 </div>
                             </div>
-                            <div className='flex justify-between'>
-                                <p className='font-bold'>Waktu</p>
-                                <p>{format(waktu, 'dd/MM/yyyy HH:mm')}</p>
+                            <div className="flex justify-between">
+                                <p className="font-bold">Waktu</p>
+                                <p>{format(waktu, "dd/MM/yyyy HH:mm")}</p>
                             </div>
-                            <div className='flex justify-between'>
-                                <p className='font-bold'>Pita</p>
-                                <div className={`${pita === 'merah' ? 'bg-red-600' : pita === 'kuning' ? 'bg-yellow-500' : 'bg-green-500'} px-3 rounded-md text-white font-bold`}>
-                                    {pita.charAt(0).toUpperCase() + pita.slice(1)}
+                            <div className="flex justify-between">
+                                <p className="font-bold">Pita</p>
+                                <div
+                                    className={`${pita === "merah" ? "bg-red-600" : pita === "kuning" ? "bg-yellow-500" : "bg-green-500"} px-3 rounded-md text-white font-bold`}
+                                >
+                                    {pita.charAt(0).toUpperCase() +
+                                        pita.slice(1)}
                                 </div>
                             </div>
-                            <div className='flex justify-between'>
-                                <p className='font-bold'>Riwayat Penyakit</p>
+                            <div className="flex justify-between">
+                                <p className="font-bold">Riwayat Penyakit</p>
                                 <p>{riwayatPenyakit}</p>
                             </div>
-                            {keterangan? (
+                            {keterangan ? (
                                 <div>
                                     <p>Keterangan</p>
                                     <p>{keterangan}</p>
@@ -89,18 +97,40 @@ export const ResultCardSuccess: FC<ResultCardProps> = ({
                 </Card>
             </div>
 
-            <div className='fixed bottom-0 left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col justify-center items-center gap-2 mt-5 pb-5'>
-                <Link href={route(routeScan)} className='bg-slate-600 rounded-full w-12 h-12 flex items-center self-center justify-center p-2'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="stroke-white lucide lucide-scan-qr-code"><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /></svg>
+            <div className="fixed bottom-0 left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col justify-center items-center gap-2 mt-5 pb-5">
+                <Link
+                    href={route(routeScan)}
+                    className="bg-slate-600 rounded-full w-12 h-12 flex items-center self-center justify-center p-2"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="stroke-white lucide lucide-scan-qr-code"
+                    >
+                        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                    </svg>
                 </Link>
 
-                <Button onClick={() => router.get(route(routeBack))} className='w-fit'>
-                    <ArrowLeft className='mr-2' />
+                <Button
+                    onClick={() => router.get(route(routeBack))}
+                    className="w-fit"
+                >
+                    <ArrowLeft className="mr-2" />
                     Kembali
                 </Button>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ResultCardSuccess
+export default ResultCardSuccess;

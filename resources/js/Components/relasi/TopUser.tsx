@@ -41,9 +41,10 @@ export default function TopUser({
             }}
             className={`flex flex-col items-center gap-3 ${className} transition-all duration-1000`}
         >
-            <div className="grow"></div>
+            <div className="grow" />
+
             {user && (
-                <div className="relative w-24 h-24 rounded-full shadow-lg">
+                <div className="md:w-24 md:h-24 relative w-20 h-20 rounded-full shadow-lg">
                     {rank == 1 ? (
                         <div className="left-1/2 absolute z-10 w-12 h-12 -translate-x-1/2 -translate-y-1/2">
                             <img
@@ -64,13 +65,21 @@ export default function TopUser({
                     />
                 </div>
             )}
+<<<<<<< HEAD
             {user && <p className="text-lg font-bold break-words text-wrap">{user.name}</p>}
             <p className="bg-gray-400/50 px-2 text-sm rounded-full">
+=======
+
+            {user && <div className="text-lg font-bold">{user.name}</div>}
+
+            <p className="bg-gray-400/50 md:px-2 px-0 text-sm rounded-full">
+>>>>>>> 9582d1fefc59a2b18c7fb54fd15d45380a434987
                 {user && (
                     <span className="font-bold">{user.followers_count} </span>
                 )}
                 Followers
             </p>
+
             {
                 {
                     1: (
@@ -79,7 +88,9 @@ export default function TopUser({
                             maxHeightPx={podiumHeight}
                             className=""
                         >
-                            <p className="text-5xl font-bold">{rank}</p>
+                            <p className="md:text-5xl text-3xl font-bold">
+                                {rank}
+                            </p>
                         </Podium>
                     ),
                     2: (
@@ -88,7 +99,9 @@ export default function TopUser({
                             maxHeightPx={podiumHeight}
                             className=""
                         >
-                            <p className="text-5xl font-bold">{rank}</p>
+                            <p className="md:text-5xl text-3xl font-bold">
+                                {rank}
+                            </p>
                         </Podium>
                     ),
                     3: (
@@ -97,7 +110,9 @@ export default function TopUser({
                             maxHeightPx={podiumHeight}
                             className=""
                         >
-                            <p className="text-5xl font-bold">{rank}</p>
+                            <p className="md:text-5xl text-3xl font-bold">
+                                {rank}
+                            </p>
                         </Podium>
                     ),
                 }[rank]

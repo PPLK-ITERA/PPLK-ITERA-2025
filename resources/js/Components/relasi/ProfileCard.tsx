@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 
 import React from "react";
 
+import { Link } from "@inertiajs/react";
+
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 
@@ -35,11 +37,11 @@ function ProfileCard({
                     <p>({user.kelompok!.no_kelompok})</p>
                 </div>
                 <div className="grow"></div>
-                <a href={route("relasi.profil", { id: user.id })}>
+                <Link href={route("relasi.profil", { id: user.id })}>
                     <Button className="w-full mt-6 bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black border border-black font-semibold text-xs">
                         Kunjungi Profil
                     </Button>
-                </a>
+                </Link>
             </CardContent>
         </Card>
     );

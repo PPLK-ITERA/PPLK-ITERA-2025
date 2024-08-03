@@ -1,11 +1,11 @@
-import { GuestLayout } from "@/Layouts/GuestLayout";
-
 import React from "react";
 import { useState } from "react";
 
 import { Head, Link, useForm } from "@inertiajs/react";
 
 import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
+
+import { GuestLayout } from "@/Layouts/GuestLayout";
 
 import InputError from "@/Components/InputError";
 import CarouselForm from "@/Components/fragments/CarouselForm";

@@ -1,8 +1,9 @@
 import { ResultCardNotFound } from "./ResultCardNotFound";
 import ResultCardSuccess from "./ResultCardSuccess";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import React from "react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 function Page({ auth, response }) {
     return (

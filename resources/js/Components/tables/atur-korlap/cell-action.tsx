@@ -1,8 +1,9 @@
 "use client";
 
 import { DatKorlap } from "./columns";
+import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
-import { Link, router, useForm } from "@inertiajs/react";
+import { Link, router, useForm, usePage } from "@inertiajs/react";
 
 import {
     AlertDialog,
@@ -31,55 +32,28 @@ import { Textarea } from "@/Components/ui/textarea";
 import { Toaster } from "@/Components/ui/toaster";
 import { toast } from "@/Components/ui/use-toast";
 
+import { UserAuthProps } from "@/lib/types/User";
+
 interface CellActionProps {
     data: DatKorlap;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-    const {
-        data: dataFormAbsensi,
-        setData: setDataFormAbsensi,
-        get,
-        post,
-        processing,
-        errors,
-    } = useForm({
+    const { delete: deleteUser } = useForm({
         id: data.id,
-        kehadiran: "",
-        keterangan: "",
     });
 
-    const handleIzin = () => {
-        router.post(
-            route("dashboard.presensi.absen"),
-            { ...dataFormAbsensi, kehadiran: "Izin" },
-            {
-                onSuccess: () => {
-                    toast({
-                        title: "Berhasil",
-                        description: `Berhasil mengizinkan ${data.user.name}`,
-                    });
-                    window.location.reload();
-                },
-            },
-        );
+    const handleDelete = () => {
+        deleteUser(route("dashboard.user.destroy"));
     };
 
-    const handleAbsen = () => {
-        router.post(
-            route("dashboard.presensi.absen"),
-            { ...dataFormAbsensi, kehadiran: "Hadir" },
-            {
-                onSuccess: () => {
-                    toast({
-                        title: "Berhasil",
-                        description: `Berhasil mengabsen ${data.user.name}`,
-                    });
-                    window.location.reload();
-                },
-            },
-        );
-    };
+    type MyPage = PageProps<{
+        auth: {
+            user: UserAuthProps;
+        };
+    }>;
+
+    const { auth } = usePage<MyPage>().props;
 
     return (
         <>
@@ -93,59 +67,38 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                     Edit
                 </Link>
 
-                <Dialog>
-                    <DialogTrigger asChild>
-                        <Button
-                            className="gap-2"
-                            size={"sm"}
-                            variant={"outline"}
-                        >
-                            Set Izin
-                        </Button>
-                    </DialogTrigger>
+                {auth.user.role_id !== 3 ? null : (
+                    <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                            <Button
+                                className="gap-2"
+                                size={"sm"}
+                                variant={"destructive"}
+                            >
+                                Delete
+                            </Button>
+                        </AlertDialogTrigger>
 
-                    <DialogContent className="sm:max-w-[425px]">
-                        <DialogHeader>
-                            <DialogTitle>
-                                Ingin Set Izin {data.user.name} ?
-                            </DialogTitle>
-                            <DialogDescription>
-                                Isi bagian catatan dan aksi ini akan mengubah
-                                status maba menjadi izin
-                            </DialogDescription>
-                        </DialogHeader>
-
-                        <div className="grid gap-4 py-4">
-                            <div className="flex flex-col">
-                                <Label htmlFor="asnwer" className="text-left">
-                                    Catatan
-                                </Label>
-
-                                <Textarea
-                                    id="asnwer"
-                                    value={dataFormAbsensi.keterangan}
-                                    onChange={(e) =>
-                                        setDataFormAbsensi(
-                                            "keterangan",
-                                            e.target.value,
-                                        )
-                                    }
-                                    placeholder="Berikan catatan izin"
-                                    className="mt-1"
-                                />
-                            </div>
-                        </div>
-                        <DialogFooter>
-                            <DialogClose asChild>
-                                <Button variant={"outline"}>Batalkan</Button>
-                            </DialogClose>
-
-                            <DialogClose asChild>
-                                <Button onClick={handleIzin}>Lanjutkan</Button>
-                            </DialogClose>
-                        </DialogFooter>
-                    </DialogContent>
-                </Dialog>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>
+                                    Are you absolutely sure?
+                                </AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    Kamu akan menghapus data {data.user.name}{" "}
+                                    secara permanen. Data yang sudah dihapus
+                                    tidak dapat dikembalikan.
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction onClick={handleDelete}>
+                                    Continue
+                                </AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
+                )}
             </div>
             <Toaster />
         </>

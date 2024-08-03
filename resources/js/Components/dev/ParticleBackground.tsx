@@ -18,22 +18,17 @@ export default function ParticleBackground({ children }: Props) {
         });
     }, []);
 
-    const particlesLoaded = async (container) => {
-        console.log(container);
-    };
+    // const particlesLoaded = async (container) => {
+    //     console.log(container);
+    // };
 
     if (init) {
         return (
             <Particles
                 className="z-[-1] fixed top-0 left-0"
                 id="tsparticles"
-                particlesLoaded={particlesLoaded}
                 options={{
                     autoPlay: true,
-                    fullScreen: {
-                        enable: true,
-                        zIndex: -1,
-                    },
                     background: {
                         color: {
                             value: "#08030A",
@@ -57,10 +52,6 @@ export default function ParticleBackground({ children }: Props) {
                     clear: true,
                     defaultThemes: {},
                     delay: 0,
-                    fullScreen: {
-                        enable: true,
-                        zIndex: -1,
-                    },
                     detectRetina: true,
                     duration: 0,
                     fpsLimit: 120,

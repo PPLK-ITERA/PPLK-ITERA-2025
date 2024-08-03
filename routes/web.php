@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MadingController;
+use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\RelasiController;
 use Illuminate\Foundation\Application;
@@ -29,16 +30,14 @@ Route::middleware('auth')->group(function () {
       return response()->json(['csrfToken' => csrf_token()]);
    })->name("csrf");
 
-   Route::get("/mading-preview", function () {
-      return view("mading-preview");
-   });
+   Route::get("/mading-preview", [MadingController::class, 'previewMading'])->name("mading.preview");
 
 
    // Scoreboard
-   //melihat top 10
-   // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-   // //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
-   // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
+   // melihat top 10
+   Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase'])->name('scoreboard.top-score');
+   //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
+   Route::get('/scoreboard/kelompok', [ScoreboardController::class, 'getKelompokScore'])->name('scoreboard.kelompok');
 
    // Route::middleware(['checkRole:Maba'])->group(function () {
    Route::get('/relasi', [RelasiController::class, 'index'])->name('relasi.index');
@@ -61,24 +60,9 @@ Route::middleware('auth')->group(function () {
       Route::get('/card', [MadingController::class, 'getCard'])->name('card');
       Route::get('/tugas/{id}', [MadingController::class, 'getTugas'])->name('tugas');
       Route::post('/store', [MadingController::class, 'storeTugas'])->name('store');
+
+      Route::put('/store-poster', [MadingController::class, 'storePoster'])->name('store-poster');
    });
-
-   // //melihat top 10
-   // Route::get('/scoreboard/top-score', [ScoreboardController::class, 'getTotalScoresFromDatabase']);
-   // //melihat kelompok yang tidak masuk top 10
-   // Route::get('/scoreboard/kelompok/{id}', [ScoreboardController::class, 'getKelompokScore']);
-
-   // // Tugas
-   // Route::get('/tugas/create', [TugasController::class, 'create'])->name('tugas.create');
-   // Route::post('/tugas', [TugasController::class, 'store'])->name('tugas.store');
-   // Route::get('/tugas/{id}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
-   // Route::put('/tugas/{id}', [TugasController::class, 'update'])->name('tugas.update');
-   // Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->name('tugas.destroy');
-   // Route::get('/tugas', [TugasController::class, 'index'])->name('tugas.index');
-   // Route::get('/tugas/{id}', [TugasController::class, 'show'])->name('tugas.show');
-   //asesmen Route
-
-
 });
 
 require __DIR__ . '/auth.php';

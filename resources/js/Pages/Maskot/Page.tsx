@@ -16,13 +16,13 @@ function Page() {
             <Navbar isSolid={true} isFixed={true} />
             <div className="bg-pattern-white relative items-center justify-center pt-20">
                 <div className="mt-[105px] lg:mt-[55px] flex flex-col items-center text-center">
-                    <h1
+                    <h2
                         data-aos="fade-down"
                         data-aos-duration="1000"
-                        className="font-avigea md:text-5xl lg:text-6xl text-jaffa-900 max-lg:-mt-20 text-4xl"
+                        className="font-avigea text-jaffa-900 w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
                     >
                         Maskot PPLK ITERA 2024
-                    </h1>
+                    </h2>
 
                     <div className="lg:py-20 w-full py-4">
                         <CarouselMaskot />

@@ -33,7 +33,7 @@ export default function Panduan() {
                 <CarouselContent className="gap-2 px-5">
                     <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
                         <Link href="/ketentuan-atribut">
-                            <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
+                            <div className="bg-gradient-to-r w-fit from-jaffa-700 to-jaffa-800 p-4 mx-auto rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="48"
@@ -57,7 +57,7 @@ export default function Panduan() {
 
                     <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800">
                         <Link href="/booklet">
-                            <div className="bg-jaffa-400 p-4 rounded-full">
+                            <div className="bg-jaffa-400 w-fit p-4 mx-auto rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="48"
@@ -65,9 +65,9 @@ export default function Panduan() {
                                     viewBox="0 0 24 24"
                                     fill="#ffffff"
                                     stroke="#000000"
-                                    stroke-width="1"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeWidth="1"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                     className="icon icon-tabler icons-tabler-outline icon-tabler-book-2"
                                 >
                                     <path
@@ -89,7 +89,7 @@ export default function Panduan() {
 
                     <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-gradient-to-r from-jaffa-700 to-jaffa-800 py-14">
                         <Link href="relasi">
-                            <div className="bg-jaffa-400 p-2 rounded-full">
+                            <div className="bg-jaffa-400 w-fit p-2 mx-auto rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="64"
@@ -97,9 +97,9 @@ export default function Panduan() {
                                     viewBox="0 0 24 24"
                                     fill="#ffffff"
                                     stroke="#b54419"
-                                    stroke-width="1"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeWidth="1"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                     className="icon icon-tabler icons-tabler-outline icon-tabler-user-circle"
                                 >
                                     <path
@@ -121,7 +121,7 @@ export default function Panduan() {
 
                     <CarouselItem className="-ml-0 flex max-max-h-[270px] min-h-[240px] min-5-[280px] max-w-[280px] flex-col items-center justify-center rounded-[24px] bg-jaffa-400">
                         <Link href="faq">
-                            <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 p-4 rounded-full">
+                            <div className="bg-gradient-to-r w-fit from-jaffa-700 to-jaffa-800 p-4 mx-auto rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="48"
@@ -129,9 +129,9 @@ export default function Panduan() {
                                     viewBox="0 0 24 24"
                                     fill="none"
                                     stroke="#ffffff"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                     className="icon icon-tabler icons-tabler-outline icon-tabler-question-mark"
                                 >
                                     <path
@@ -183,9 +183,9 @@ export default function Panduan() {
                             viewBox="0 0 24 24"
                             fill="#ffffff"
                             stroke="#000000"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             className="icon icon-tabler icons-tabler-outline icon-tabler-book-2"
                         >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -211,9 +211,9 @@ export default function Panduan() {
                             viewBox="0 0 24 24"
                             fill="#ffffff"
                             stroke="#b54419"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             className="icon icon-tabler icons-tabler-outline icon-tabler-user-circle"
                         >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -239,9 +239,9 @@ export default function Panduan() {
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="#ffffff"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             className="icon icon-tabler icons-tabler-outline icon-tabler-question-mark"
                         >
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />

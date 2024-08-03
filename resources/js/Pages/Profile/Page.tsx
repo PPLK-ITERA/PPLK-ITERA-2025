@@ -109,31 +109,6 @@ const Page = ({ response }) => {
         }
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        if (!file) {
-            toast({
-                title: "Please upload an image first.",
-                variant: "destructive",
-            });
-            return;
-        }
-
-        try {
-            // const result = await response.json();
-            // console.log(result); // Handle the server response
-        } catch (error) {
-            console.error("Error uploading the image:", error);
-            toast({
-                title: "Error uploading the image.",
-                variant: "destructive",
-            });
-        }
-
-        window.location.reload();
-    };
-
     const downloadQRCode = () => {
         const canvas = document.querySelector("canvas");
         const pngUrl = canvas!

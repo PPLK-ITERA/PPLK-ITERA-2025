@@ -3,11 +3,11 @@
 
 use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\TugasController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
-use App\Http\Controllers\TugasController;
 use App\Http\Controllers\User\PresensiPplkController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
             // CRUD USER
             // =====================================
             Route::get('store', [UserController::class, 'store'])->name('store');
-            Route::delete('delete', [UserController::class, 'delete'])->name('destroy');
+            Route::delete('delete', [UserController::class, 'destroy'])->name('destroy');
          });
 
          // =====================================
@@ -63,6 +63,11 @@ Route::middleware('auth')->group(function () {
             // =====================================
             Route::get('edit/{id}', [UserController::class, 'edit'])->name('edit');
             Route::put('update', [UserController::class, 'update'])->name('update');
+            Route::put('edit-foto', [UserController::class, 'editFoto'])->name('edit-foto');
+            Route::put('edit-profil', [UserController::class, 'editProfil'])->name('edit-profil');
+            Route::put('edit-sosmed', [UserController::class, 'editSosmed'])->name('edit-sosmed');
+            Route::put('edit-password', [UserController::class, 'editPassword'])->name('edit-password');
+            Route::put('edit-sertif', [UserController::class, 'editSertif'])->name('edit-sertif');
          });
       });
 
@@ -136,16 +141,16 @@ Route::middleware('auth')->group(function () {
          // =====================================
          // Mamet Role
          // =====================================
-         Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
-            Route::get('/return/{id}', [TugasController::class, 'return'])->name('return');
+         Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+            Route::put('/return/{id}', [TugasController::class, 'return'])->name('return');
 
             // =====================================
             // Data
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
-               Route::get('/all', [TugasController::class, 'getAllTugas'])->name('all');
-               Route::get('/individu', [TugasController::class, 'getTugasIndividu'])->name('individu');
+               Route::get('/user/{id}', [TugasController::class, 'getTugasUser'])->name('user');
                Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
+               Route::get('/poster', [TugasController::class, 'getPoster'])->name('poster');
             });
          });
       });
@@ -154,8 +159,9 @@ Route::middleware('auth')->group(function () {
       // Kelompok
       // =====================================
       Route::prefix('kelompok')->name('kelompok.')->group(function () {
-         Route::get('data', [KelompokController::class, 'index'])->name('data');
+         // Route::get('data', [KelompokController::class, 'index'])->name('data');
          Route::put('update', [KelompokController::class, 'update'])->name('update');
+         Route::get('data', [KelompokController::class, 'getKelompok'])->name('data');
       });
 
       // =====================================

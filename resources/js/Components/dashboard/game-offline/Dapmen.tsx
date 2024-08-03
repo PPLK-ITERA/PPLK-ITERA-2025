@@ -20,7 +20,7 @@ export default function Dapmen({ userId }: DapmenProps) {
     const fetchQR = async () => {
         setLoading(true);
 
-        const response = await fetch(route("poin.qrcode", userId));
+        const response = await fetch(route("dashboard.poin.qrcode", userId));
         const json = await response.json();
         setData(json.data);
 

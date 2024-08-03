@@ -6,10 +6,11 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 
 import { FooterLink, InformasiFooter } from "@/lib/data/data";
 
-import logodiesnat_white from "!assets/logo-diesnat-white.png";
-import logokm_white from "!assets/logo-km-white.png";
-import logopplk_white from "!assets/logo-pplk-20204-white.png";
 import logopplkfooter from "!assets/logo-pplk-footer.png";
+import dieswarna from "!assets/logofooter/dieswarna.png";
+import iterawarna from "!assets/logofooter/iterawarna.png";
+import kmwarna from "!assets/logofooter/kmwarna.png";
+import pplkwarna from "!assets/logofooter/pplkwarna.png";
 
 export default function Footer() {
     return (
@@ -17,23 +18,27 @@ export default function Footer() {
             <MaxWidthWrapper>
                 <div className="md:flex-row md:items-center z-10 flex flex-col items-start justify-between">
                     <div className="text-white">
-                        <div className="flex items-center justify-center">
+                        <div className="md:pl-6 md:-ml-1 flex items-center justify-center pl-2 pr-1 -ml-2 bg-white rounded-full">
                             <img
-                                src={logodiesnat_white}
+                                src={iterawarna}
                                 alt="logopplk_white"
-                                className="xl:w-48 xl:h-32 md:w-40 md:h-28 h-16 w-[125px] -mt-2 lg:-mt-0 object-contain"
+                                className="md:-ml-5 xl:h-14 xl:w-20 h-14 object-contain w-12"
+                            />
+                            <img
+                                src={dieswarna}
+                                alt="logopplk_white"
+                                className="lg:h-16 lg:w-[125px] xl:-mt-0 object-contain w-[90px] h-16"
+                            />
+                            <img
+                                src={kmwarna}
+                                alt="logopplk_white"
+                                className="xl:h-14 xl:w-20 object-contain w-12 h-10"
                             />
 
                             <img
-                                src={logokm_white}
+                                src={pplkwarna}
                                 alt="logopplk_white"
-                                className="xl:w-32 xl:h-24 md:w-28 md:h-20 md:-ml-5 h-14 object-contain w-20"
-                            />
-
-                            <img
-                                src={logopplk_white}
-                                alt="logopplk_white"
-                                className="md:-ml-5 md:w-[110px] md:-mt-1 lg:-mt-0 md:h-[108px] lg:w-32 lg:h-32 object-contain w-20 h-20"
+                                className="xl:w-20 xl:h-16 xl:-ml-5 h-14 object-contain w-16 -ml-2"
                             />
                         </div>
 
