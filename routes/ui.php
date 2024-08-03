@@ -3,6 +3,7 @@
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Models\PengumpulanTugas;
 use Illuminate\Support\Facades\Route;
@@ -165,9 +166,7 @@ Route::get('booklet', [BookletController::class, 'guestIndex'])->name('booklet')
 // =====================================
 // Materi (Guest)
 // =====================================
-Route::get('materi', function () {
-   return Inertia::render('Materi/Page');
-})->name('materi');
+Route::get('materi', [MateriController::class, 'guestIndex'])->name('materi');
 
 // =====================================
 // Maskot (Guest)

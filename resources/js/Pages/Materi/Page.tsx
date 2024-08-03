@@ -4,7 +4,11 @@ import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import { CarouselMateri } from "@/Components/materi/ScrollMateri";
 
-function Page() {
+function Page({ response }: { response: any }) {
+    console.log(response)
+    const materis = response.data;
+
+
     return (
         <div className="bg-pattern-white flex flex-col min-h-screen">
             <Navbar isSolid={true} />
@@ -15,14 +19,13 @@ function Page() {
                 </h1>
 
                 <p className="text-[16px] sm:text-[20px] font-montserrat font-[400] text-moccaccino-950 mb-8 max-w-4xl">
-                    Materi adalah lorem Ipsum has been the industry's standard
-                    dummy text ever since the 1500s, when an unknown printer
-                    took a galley of type and scrambled it to make a type
-                    specimen book.
+                     Halaman ini menyediakan materi terbaru dari pemateri PPLK ITERA. Pastikan untuk memeriksa secara berkala agar Anda tidak melewatkan informasi atau materi penting yang diperbarui secara rutin.
+
+
                 </p>
 
                 <div className="w-full mt-[40px] sm:mt-[60px] flex justify-center">
-                    <CarouselMateri />
+                    <CarouselMateri materis={materis} />
                 </div>
             </div>
             <Footer />

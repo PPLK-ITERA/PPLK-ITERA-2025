@@ -7,7 +7,9 @@ import {
     DialogTrigger,
 } from "@/Components/ui/dialog";
 
-export function DialogBooklet() {
+import { Booklet } from "@/lib/types/Booklet";
+
+export function DialogBooklet({ booklet }: { booklet: Booklet }) {
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -22,18 +24,21 @@ export function DialogBooklet() {
                 <div className="absolute inset-0 h-full w-full border rounded-md bg-gradient-to-b from-[#B9822F] to-[#A6680C] opacity-85"></div>
                 <div className="relative z-10 flex h-full w-full flex-col justify-center">
                     <DialogTitle className="mb-4 text-left sm:text-center md:text-center font-avigea font-normal text-[25px] sm:text-[36px] md:text-[39px] text-candlelight-50">
-                        Booklet Motmazio
+                        {booklet.nama_booklet}
                     </DialogTitle>
-                    <p className="mb-5 font-montserrat text-[16px] md:text-[20px] lg:text-[25px] sm:text-center md:text-center text-candlelight-50">
+                    {/* <p className="mb-5 font-montserrat text-[16px] md:text-[20px] lg:text-[25px] sm:text-center md:text-center text-candlelight-50">
                         Ini adalah deskripsi dari booklet yang akan dikerjakan,
                         bisa digunakan untuk menjelaskan tentang tugas yang
                         diberikan, seperti cara pengumpulan dll.
-                    </p>
+                    </p> */}
                 </div>
                 <DialogFooter className="z-10 flex justify-center">
-                    <Button className="mx-auto bg-candlelight-50 text-candlelight-800 focus:bg-candlelight-50 focus:text-candlelight-800">
+                    <a
+                        target="_blacnk"
+                        className="mx-auto bg-candlelight-50 text-candlelight-800 focus:bg-candlelight-50 focus:text-candlelight-800"
+                    >
                         Buka Booklet
-                    </Button>
+                    </a>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
