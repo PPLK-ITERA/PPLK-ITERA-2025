@@ -1,18 +1,50 @@
 import { ResultCardNotFound } from "./result/ResultCardNotFound";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { format } from "date-fns";
+import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
-import React from "react";
+import React, { useEffect } from "react";
 
-import { Link, router } from "@inertiajs/react";
+import { Link, router, usePage } from "@inertiajs/react";
 
 import { ArrowLeft, CheckSquareIcon, EraserIcon } from "lucide-react";
 
+import DashboardLayout from "@/Layouts/DashboardLayout";
+
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
+import { toast } from "@/Components/ui/use-toast";
+import { Toaster } from "@/Components/ui/toaster";
+
+interface flashResponse extends PageProps {
+    flash: {
+        response: {
+            status: number;
+            message: string;
+        };
+    };
+}
 
 function DetailMaba({ auth, data, response }) {
-    console.log(data);
+    const { flash } = usePage<flashResponse>().props;
+
+    useEffect(() => {
+        if (flash.response) {
+            if (flash.response.status === 200) {
+                toast({
+                    title: "Berhasil",
+                    description: flash.response.message,
+                    variant: "default",
+                });
+            } else {
+                toast({
+                    title: "Gagal",
+                    description: flash.response.message,
+                    variant: "destructive",
+                });
+            }
+        }
+    }, [flash, toast]);
+
     return (
         <DashboardLayout user={auth.user}>
             {response ? (
@@ -24,7 +56,15 @@ function DetailMaba({ auth, data, response }) {
                 />
             ) : (
                 <div>
-                    <div className="relative flex h-full flex-col justify-center md:justify-between items-center">
+                    <Button
+                        variant="outline"
+                        onClick={() => router.get(route("dashboard.cui"))}
+                        className="w-fit"
+                    >
+                        <ArrowLeft className="mr-2" />
+                        Kembali
+                    </Button>
+                    <div className="mt-4 relative flex h-full flex-col justify-center md:justify-between items-center">
                         <div>
                             <div className="w-full flex flex-col justify-center items-center">
                                 <img
@@ -38,7 +78,7 @@ function DetailMaba({ auth, data, response }) {
                                 <p className="font-medium">{data.prodi}</p>
                                 <p className="font-medium">{data.nim}</p>
                             </div>
-                            <Card className="w-96 pt-4 mt-4 rounded-lg">
+                            <Card className="w-[calc(100vw-30px)] md:w-96 pt-4 mt-4 rounded-lg mb-3">
                                 <CardContent>
                                     <div className="flex flex-col gap-2">
                                         <div className="flex justify-between items-center">
@@ -88,7 +128,8 @@ function DetailMaba({ auth, data, response }) {
                                                     )}
                                                 </p>
                                             </div>
-                                        ) : (
+                                        ) : null}
+                                        {data.waktu_izin ? (
                                             <div className="flex justify-between">
                                                 <p className="font-bold">
                                                     Waktu Izin
@@ -100,7 +141,7 @@ function DetailMaba({ auth, data, response }) {
                                                     )}
                                                 </p>
                                             </div>
-                                        )}
+                                        ) : null}
                                         <div className="flex justify-between">
                                             <p className="font-bold">Pita</p>
                                             <div
@@ -158,7 +199,7 @@ function DetailMaba({ auth, data, response }) {
                                                 )
                                             }
                                         >
-                                            <EraserIcon className="mr-2"/>
+                                            <EraserIcon className="mr-2" />
                                             Cabut Izin
                                         </Button>
                                     ) : (
@@ -181,43 +222,33 @@ function DetailMaba({ auth, data, response }) {
                             )}
                         </div>
 
-                        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col justify-center items-center gap-2 mt-5 pb-5">
-                            {/* <Link
-                    href={route(data.routeScan)}
-                    className="bg-slate-600 rounded-full w-12 h-12 flex items-center self-center justify-center p-2"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="stroke-white lucide lucide-scan-qr-code"
-                    >
-                        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-                        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-                        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-                        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-                    </svg>
-                </Link> */}
-
-                            <Button
-                                onClick={() =>
-                                    router.get(route("dashboard.cui.absensi"))
-                                }
-                                className="w-fit"
+                        <Link
+                            href={route("dashboard.cui.absensi")}
+                            className="mt-2 bg-slate-600 rounded-full w-12 h-12 flex items-center self-center justify-center p-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                className="stroke-white lucide lucide-scan-qr-code"
                             >
-                                <ArrowLeft className="mr-2" />
-                                Kembali
-                            </Button>
-                        </div>
+                                <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                                <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                                <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                                <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                            </svg>
+                        </Link>
+                        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col justify-center items-center gap-2 mt-5 pb-5"></div>
                     </div>
                 </div>
             )}
+            <Toaster/>
         </DashboardLayout>
     );
 }
