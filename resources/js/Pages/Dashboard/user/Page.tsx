@@ -10,7 +10,6 @@ const breadcrumbItems = [
     { title: "User", link: "/dashboard/user" },
 ];
 export default function Page({ auth, response }) {
-    console.log(response);
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
