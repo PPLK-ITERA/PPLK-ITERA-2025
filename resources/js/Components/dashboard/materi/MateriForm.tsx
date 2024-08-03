@@ -22,7 +22,7 @@ function MateriForm({ materi }: Props) {
     const [error, setError] = useState<string | null>(null);
 
     const validateUrl = useDebouncedCallback(async () => {
-        console.log("validating url", data.link_materi);
+        // console.log("validating url", data.link_materi);
         if (
             !/^https:\/\/(www\.)?\w+\.google\.com\/.*$/g.test(data.link_materi)
         ) {

@@ -8,9 +8,7 @@ import { Booklet } from "@/lib/types/Booklet";
 
 function Page({ response }: { response: any }) {
     const booklets: Booklet[] = response.data;
-
-    console.log(booklets);
-
+  
     return (
         <div className="bg-pattern-white flex flex-col min-h-screen">
             <Navbar isSolid={true} />

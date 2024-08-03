@@ -67,7 +67,7 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({
 }) => {
     const [searchTerm, setSearchTerm] = useState("");
 
-    console.log(data);
+    // console.log(data);
 
     const handleItemsPerPageChange = (
         event: React.ChangeEvent<HTMLSelectElement>,

@@ -1,5 +1,4 @@
 import { ResultCardNotFound } from "./result/ResultCardNotFound";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { format } from "date-fns";
 
 import React from "react";
@@ -8,11 +7,12 @@ import { Link, router } from "@inertiajs/react";
 
 import { ArrowLeft, CheckSquareIcon, EraserIcon } from "lucide-react";
 
+import DashboardLayout from "@/Layouts/DashboardLayout";
+
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 
 function DetailMaba({ auth, data, response }) {
-    console.log(data);
     return (
         <DashboardLayout user={auth.user}>
             {response ? (
@@ -24,15 +24,15 @@ function DetailMaba({ auth, data, response }) {
                 />
             ) : (
                 <div>
-                    <div className="relative flex h-full flex-col justify-center md:justify-between items-center">
+                    <div className="md:justify-between relative flex flex-col items-center justify-center h-full">
                         <div>
-                            <div className="w-full flex flex-col justify-center items-center">
+                            <div className="flex flex-col items-center justify-center w-full">
                                 <img
                                     className="w-32 aspect-[3/4] border border-black rounded-xl"
                                     src={data.imgUrl}
                                     alt="Foto Maba"
                                 />
-                                <p className="font-bold text-lg mt-2">
+                                <p className="mt-2 text-lg font-bold">
                                     {data.nama}
                                 </p>
                                 <p className="font-medium">{data.prodi}</p>
@@ -41,7 +41,7 @@ function DetailMaba({ auth, data, response }) {
                             <Card className="w-96 pt-4 mt-4 rounded-lg">
                                 <CardContent>
                                     <div className="flex flex-col gap-2">
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex items-center justify-between">
                                             <p className="font-bold">Status</p>
                                             <div className="flex items-center gap-2">
                                                 <p
@@ -158,7 +158,7 @@ function DetailMaba({ auth, data, response }) {
                                                 )
                                             }
                                         >
-                                            <EraserIcon className="mr-2"/>
+                                            <EraserIcon className="mr-2" />
                                             Cabut Izin
                                         </Button>
                                     ) : (
@@ -181,10 +181,10 @@ function DetailMaba({ auth, data, response }) {
                             )}
                         </div>
 
-                        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col justify-center items-center gap-2 mt-5 pb-5">
+                        <div className="left-1/2 md:static md:translate-x-0 fixed bottom-0 flex flex-col items-center justify-center gap-2 pb-5 mt-5 -translate-x-1/2">
                             {/* <Link
                     href={route(data.routeScan)}
-                    className="bg-slate-600 rounded-full w-12 h-12 flex items-center self-center justify-center p-2"
+                    className="bg-slate-600 flex items-center self-center justify-center w-12 h-12 p-2 rounded-full"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -193,9 +193,9 @@ function DetailMaba({ auth, data, response }) {
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="stroke-white lucide lucide-scan-qr-code"
                     >
                         <path d="M3 7V5a2 2 0 0 1 2-2h2" />

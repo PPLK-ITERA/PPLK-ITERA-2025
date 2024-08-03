@@ -63,8 +63,6 @@ const Mading = ({ succes }: { succes?: string }) => {
         };
     }>;
 
-    succes ? console.log("pesan", succes) : null;
-
     const { auth } = usePage<MyPage>().props;
 
     const [data, setData] = useState<ResponseData | null>(null);
