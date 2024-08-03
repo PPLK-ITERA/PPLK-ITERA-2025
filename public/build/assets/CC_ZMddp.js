@@ -1,0 +1,7 @@
+import{j as e,a as s}from"./Bz8SZWRk.js";import{a}from"./bKzaXQS6.js";import{B as l}from"./Cj141LS1.js";import{C as r,a as o}from"./BwUm0PZa.js";import{g as i}from"./BPBzuKzv.js";
+/**
+ * @license @tabler/icons-react v3.11.0 - MIT
+ *
+ * This source code is licensed under the MIT license.
+ * See the LICENSE file in the root directory of this source tree.
+ */var t=a("outline","loader-2","IconLoader2",[["path",{d:"M12 3a9 9 0 1 0 9 9",key:"svg-0"}]]);function n({className:s}){return e.jsx("div",{className:`w-6 h-6 ${s} grid place-content-center`,children:e.jsx(t,{className:"animate-spin"})})}function m({user:a,className:t}){return e.jsx(r,{className:`${t} drop-shadow-xl ring-1 ring-black/10 rounded-md`,children:e.jsxs(o,{className:"flex flex-col items-center h-full gap-1 p-4 text-sm font-medium text-center text-black bg-white",children:[e.jsx("img",{className:"md:w-24 w-16 md:h-24 h-16 bg-gray-400 rounded-full select-none",src:i(),alt:a.name}),e.jsx("h3",{className:"line-clamp-1 text-ellipsis mt-4 font-bold",children:a.name}),e.jsx("p",{className:"capitalize",children:a.prodi.toLowerCase()}),e.jsxs("div",{className:"flex gap-1",children:[e.jsx("p",{children:a.kelompok.nama_kelompok}),e.jsxs("p",{children:["(",a.kelompok.no_kelompok,")"]})]}),e.jsx("div",{className:"grow"}),e.jsx(s,{href:route("relasi.profil",{id:a.id}),children:e.jsx(l,{className:"w-full mt-6 bg-[#ECAA25] hover:bg-[#ECAA25]/90 transition duration-200 ease-in-out text-black border border-black font-semibold text-xs",children:"Kunjungi Profil"})})]})})}export{m as P,n as R};
