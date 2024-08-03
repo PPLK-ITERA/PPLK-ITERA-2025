@@ -82,7 +82,7 @@ export default function VideoSection() {
                 Video PPLK
             </h2>
 
-            <Carousel className="xl:max-w-7xl md:max-w-3xl lg:max-w-5xl relative max-w-xl">
+            <Carousel className="xl:max-w-4xl md:max-w-xl lg:max-w-2xl relative max-w-xl">
                 <CarouselContent>
                     {VideoPPLK.map((video, index) => (
                         <CarouselItem key={index}>

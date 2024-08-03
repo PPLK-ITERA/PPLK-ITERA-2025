@@ -7,6 +7,7 @@ import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 
 import crown from "!assets/svg/crown.svg";
+import { generateRandomImage } from "@/lib/utils";
 
 type Props = {
     user?: User;
@@ -57,7 +58,8 @@ export default function TopUser({
                         </div>
                     ) : null}
                     <img
-                        src={user.photo_profile_url}
+                        // src={user.photo_profile_url}
+                        src={generateRandomImage()}
                         alt={user.name}
                         className="z-0 bg-gray-400 rounded-full"
                     />
@@ -68,7 +70,7 @@ export default function TopUser({
 
             <p className="bg-gray-400/50 md:px-2 px-0 text-sm rounded-full">
                 {user && (
-                    <span className="font-bold">{user.followers_count}</span>
+                    <span className="font-bold">{user.followers_count} </span>
                 )}
                 Followers
             </p>
@@ -79,7 +81,7 @@ export default function TopUser({
                         <Podium
                             color="gold"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="md:text-5xl text-3xl font-bold">
                                 {rank}
@@ -90,7 +92,7 @@ export default function TopUser({
                         <Podium
                             color="silver"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="md:text-5xl text-3xl font-bold">
                                 {rank}
@@ -101,7 +103,7 @@ export default function TopUser({
                         <Podium
                             color="bronze"
                             maxHeightPx={podiumHeight}
-                            className="w-full"
+                            className=""
                         >
                             <p className="md:text-5xl text-3xl font-bold">
                                 {rank}

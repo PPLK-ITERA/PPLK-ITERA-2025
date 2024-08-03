@@ -1,0 +1,24 @@
+"use client";
+
+import { columns } from "./columns";
+
+import { DataTable } from "@/Components/ui/data-table";
+import { Separator } from "@/Components/ui/separator";
+
+export const MadingClient = () => {
+    return (
+        <>
+            <div className="flex items-start justify-between"></div>
+            <Separator />
+            <DataTable
+                searchKey="Nama, Nim, Email"
+                columns={columns}
+                apiEndpoint={route("dashboard.user.data.maba")}
+                title={"Data Kelompok"}
+                description={
+                    "Gunakan sistem informasi ini untuk melihat data kelompok!"
+                }
+            />
+        </>
+    );
+};

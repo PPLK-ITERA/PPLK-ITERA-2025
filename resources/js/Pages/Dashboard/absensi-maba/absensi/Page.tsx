@@ -1,10 +1,11 @@
 import QRScanner from "./QRScanner";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { IDetectedBarcode, Scanner, outline } from "@yudiel/react-qr-scanner";
 
 import React, { useEffect, useState } from "react";
 
 import { router, useForm, usePage } from "@inertiajs/react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { Button } from "@/Components/ui/button";
 import { Toaster } from "@/Components/ui/toaster";
@@ -36,7 +37,7 @@ function Page({ auth }) {
                 });
 
                 const getResult = await response.json();
-                console.log(getResult.response);
+                // console.log(getResult.response);
 
                 if (getResult.response.status === 200) {
                     toast({

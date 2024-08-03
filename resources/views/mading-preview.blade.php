@@ -142,6 +142,10 @@
                 transform: rotateY(0deg);
             }
         }
+
+        .backround-mading {
+            background-color: #fff;
+        }
     </style>
 </head>
 
@@ -150,20 +154,10 @@
 
         <div id="spin-container">
             <!-- Add your images (or video) here -->
-            <img src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt="" />
-            <img src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt="" />
-            <img src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt="" />
-            <img src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt="" />
-            <img src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt="" />
-            <img src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt="" />
-            <!-- Text at center of ground -->
-
+            @foreach($urls as $url)
+                <img src={{ $url }} alt="" class="backround-mading" />
+                <!-- Text at center of ground -->
+            @endforeach
         </div>
         <div id="ground">
 
@@ -249,7 +243,6 @@
         var rotateSpeed = -60; // unit: seconds/360 degrees
         var imgWidth = 120 * multiplier; // width of images (unit: px)
         var imgHeight = 170 * multiplier; // height of images (unit: px)
-        console.log(width);
         // Link of background music - set 'null' if you dont want to play background music
         var bgMusicURL =
             "https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a";

@@ -38,17 +38,19 @@ export function UserNav({ name }) {
                         <div className="flex flex-col space-y-1">{name}</div>
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className="flex items-center justify-between w-full">
-                        <Link href="/">Landing Page</Link>
-                        <IconLayoutNavbarFilled className="mr-[2px]" />
-                    </DropdownMenuItem>
+                    <Link href={route("welcome")}>
+                        <DropdownMenuItem className="flex items-center justify-between w-full hover:bg-black/5">
+                            Landing Page
+                            <IconLayoutNavbarFilled className="mr-[2px]" />
+                        </DropdownMenuItem>
+                    </Link>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className="flex items-center justify-between w-full">
-                        <Link href={route("logout")} method="post">
+                    <Link href={route("logout")} method="post">
+                        <DropdownMenuItem className="flex items-center justify-between w-full hover:bg-black/5">
                             Log out
-                        </Link>
-                        <IconLogout />
-                    </DropdownMenuItem>
+                            <IconLogout />
+                        </DropdownMenuItem>
+                    </Link>
                 </DropdownMenuContent>
             </DropdownMenu>
         );

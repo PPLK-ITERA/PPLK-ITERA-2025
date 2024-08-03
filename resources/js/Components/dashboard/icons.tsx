@@ -10,6 +10,7 @@ import {
     CreditCard,
     File,
     FileText,
+    Gamepad2,
     HelpCircle,
     Image,
     Laptop,
@@ -36,7 +37,7 @@ import {
     X,
 } from "lucide-react";
 
-import { IconBooks } from "@tabler/icons-react";
+import { IconBooks, IconDeviceGamepad2 } from "@tabler/icons-react";
 
 export type Icon = LucideIcon;
 
@@ -92,4 +93,5 @@ export const Icons = {
     map: Map,
     ticket: TicketPercent,
     books: IconBooks,
+    game: IconDeviceGamepad2,
 };

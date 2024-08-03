@@ -18,16 +18,15 @@ export default function ParticleBackground({ children }: Props) {
         });
     }, []);
 
-    const particlesLoaded = async (container) => {
-        console.log(container);
-    };
+    // const particlesLoaded = async (container) => {
+    //     console.log(container);
+    // };
 
     if (init) {
         return (
             <Particles
                 className="z-[-1] fixed top-0 left-0"
                 id="tsparticles"
-                particlesLoaded={particlesLoaded}
                 options={{
                     autoPlay: true,
                     background: {

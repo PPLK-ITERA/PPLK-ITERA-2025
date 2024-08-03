@@ -8,6 +8,7 @@ import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 
 import { type User } from "@/lib/types/User";
+import { generateRandomImage } from "@/lib/utils";
 
 function ProfileCard({
     user,
@@ -23,7 +24,8 @@ function ProfileCard({
             <CardContent className="flex flex-col items-center h-full gap-1 p-4 text-sm font-medium text-center text-black bg-white">
                 <img
                     className="md:w-24 w-16 md:h-24 h-16 bg-gray-400 rounded-full select-none"
-                    src={user.photo_profile_url}
+                    // src={user.photo_profile_url}
+                    src={generateRandomImage()}
                     alt={user.name}
                 />
                 <h3 className="line-clamp-1 text-ellipsis mt-4 font-bold">

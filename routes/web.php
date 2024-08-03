@@ -30,9 +30,7 @@ Route::middleware('auth')->group(function () {
       return response()->json(['csrfToken' => csrf_token()]);
    })->name("csrf");
 
-   Route::get("/mading-preview", function () {
-      return view("mading-preview");
-   })->name("mading.preview");
+   Route::get("/mading-preview", [MadingController::class, 'previewMading'])->name("mading.preview");
 
 
    // Scoreboard
@@ -62,6 +60,8 @@ Route::middleware('auth')->group(function () {
       Route::get('/card', [MadingController::class, 'getCard'])->name('card');
       Route::get('/tugas/{id}', [MadingController::class, 'getTugas'])->name('tugas');
       Route::post('/store', [MadingController::class, 'storeTugas'])->name('store');
+
+      Route::put('/store-poster', [MadingController::class, 'storePoster'])->name('store-poster');
    });
 });
 

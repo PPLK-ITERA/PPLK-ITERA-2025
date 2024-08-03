@@ -1,4 +1,5 @@
 import { set } from "date-fns";
+import { FileUploader } from "react-drag-drop-files";
 import { useDebouncedCallback } from "use-debounce";
 
 import React, { useEffect, useState } from "react";
@@ -7,14 +8,20 @@ import { Link, router, useForm } from "@inertiajs/react";
 
 import { ChevronLeft } from "lucide-react";
 
+import { IconX } from "@tabler/icons-react";
+
 import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
+import { Toaster } from "@/Components/ui/toaster";
+import { useToast } from "@/Components/ui/use-toast";
 
 import { CardType } from "@/lib/types/Mading";
+
+const fileTypes = ["JPG", "PNG", "GIF"];
 
 const ketentuanUploadCover = [
     "Kreativitas dan Daya Tarik Visual: Pilih gambar yang unik dan menarik perhatian pembaca. Gunakan desain yang kreatif dan harmonis untuk menciptakan tampilan yang memikat.",
@@ -32,18 +39,6 @@ export default function Page({ id }) {
     const [tugasId, setTugasId] = useState(0);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const {
-        data: formData,
-        setData: setFormData,
-        post,
-        put,
-        processing,
-        errors,
-    } = useForm({
-        tugas_id: 0,
-        url: "",
-    });
-
     const getTugasData = async () => {
         try {
             const response = await fetch(route("mading.tugas", { id }), {
@@ -60,9 +55,12 @@ export default function Page({ id }) {
             const data = await response.json();
             setTugasData(data.tugas);
             setIsSubmitted(data.isSubmitted);
-            console.log("tugasData", tugasData);
         } catch (error) {
-            console.log("Error: ", error);
+            toast({
+                title: "Error",
+                variant: "destructive",
+                description: "Gagal mendapatkan data tugas",
+            });
         }
     };
 
@@ -82,47 +80,35 @@ export default function Page({ id }) {
         fetchCsrfToken();
     }, []);
 
-    const validateUrl = useDebouncedCallback(async () => {
-        if (!/^https:\/\/(www\.)?\w+\.google\.com\/.*$/g.test(formData.url)) {
-            setUrlError("link harus dari Google Drive");
-            return;
-        }
+    const [file, setFile] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState("");
 
-        let id = formData.url.split("/")[5];
+    const { data, setData, post } = useForm({
+        id: id,
+        poster: null,
+        _method: "put",
+    });
 
-        let response = await fetch(
-            `https://www.googleapis.com/drive/v2/files/${id}?key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
-        );
+    const { toast } = useToast();
 
-        if (!response.ok) {
-            setUrlError("Link drive belum publik, silahkan coba lagi");
-            return;
-        }
+    const fileTypes = ["JPG", "PNG", "JPEG"];
 
-        setUrlError("");
-    }, 100);
+    const handleImageChange = (file) => {
+        setPreviewUrl(URL.createObjectURL(file));
+        setFile(file);
 
-    const handleSubmit = async () => {
+        setData("poster", file);
+    };
+
+    const changePoster = () => {
         try {
-            const response = await fetch(route("mading.store"), {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": csrfToken,
-                },
-                body: JSON.stringify({
-                    tugas_id: tugasId,
-                    jawaban: formData.url,
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error("HTTP status " + response.status);
-            }
-
-            router.replace(route("mading"));
+            post(route("mading.store-poster"));
         } catch (error) {
-            console.log("Error: ", error);
+            toast({
+                title: "Error",
+                variant: "destructive",
+                description: "Gagal mengunggah cover",
+            });
         }
     };
 
@@ -172,62 +158,61 @@ export default function Page({ id }) {
                                 </Button>
                             </div>
 
-                            <div className="flex flex-col mt-10">
-                                {tugasData?.tugas.map((tugas, index) => (
-                                    <div className="flex flex-col" key={index}>
-                                        <Label
-                                            htmlFor="input-tugas"
-                                            className="text-left"
-                                        >
-                                            Link Google Drive
-                                        </Label>
-
-                                        <Input
-                                            type="text"
-                                            id="input-tugas"
-                                            value={formData.url}
-                                            onChange={(e) => {
-                                                setFormData(
-                                                    "url",
-                                                    e.target.value,
-                                                );
-                                                validateUrl();
-                                                setTugasId(tugas.id);
-                                            }}
-                                            placeholder={
-                                                "https://drive.google.com/..."
-                                            }
-                                            className="mt-2"
+                            <div className="max-w-fit flex flex-col mx-auto">
+                                {previewUrl ? (
+                                    <div className="aspect-4/3 relative w-64 h-64 mx-auto mt-10 border">
+                                        <img
+                                            src={previewUrl}
+                                            alt="Preview"
+                                            className="object-contain w-full h-full bg-no-repeat rounded-md"
                                         />
-                                        {!!urlError ? (
-                                            <span className="text-red-500 text-[12px]">
-                                                {urlError}
-                                            </span>
-                                        ) : urlError === "" ? (
-                                            <span className="text-[12px] text-green-500">
-                                                Link valid
-                                            </span>
-                                        ) : null}
+
+                                        <Button
+                                            className="-top-3 -right-3 absolute p-1 text-white bg-black"
+                                            size={"icon"}
+                                            onClick={() => {
+                                                setFile(null);
+                                                setPreviewUrl("");
+                                            }}
+                                        >
+                                            <IconX />
+                                        </Button>
                                     </div>
-                                ))}
-                            </div>
+                                ) : (
+                                    <div>
+                                        <FileUploader
+                                            handleChange={handleImageChange}
+                                            name="file"
+                                            types={fileTypes}
+                                            accept=".jpg, .png, .gif"
+                                            maxSize={2}
+                                            onSizeError={() => {
+                                                toast({
+                                                    title: "File Too Large",
+                                                    description:
+                                                        "The file size should be under 2MB.",
+                                                    variant: "destructive",
+                                                });
+                                            }}
+                                            classes="mt-5 aspect-square !h-40 !w-40"
+                                            label="Upload or drop a file Max 2MB"
+                                        />
+                                    </div>
+                                )}
 
-                            <div className="mt-5">
-                                <Label className=" text-left">Preview</Label>
-                                <div className="aspect-video bg-red-500 rounded-md"></div>
+                                <Button
+                                    onClick={changePoster}
+                                    disabled={!file}
+                                    className="bg-jaffa-700 hover:bg-jaffa-700/90 w-full mt-5 transition duration-200 ease-in-out"
+                                >
+                                    Submit Cover {id}
+                                </Button>
                             </div>
-
-                            <Button
-                                onClick={handleSubmit}
-                                disabled={!!urlError || !formData.url}
-                                className="bg-jaffa-700 hover:bg-jaffa-700/90 w-full mt-5 transition duration-200 ease-in-out"
-                            >
-                                Submit Cover {id}
-                            </Button>
                         </div>
                     </MaxWidthWrapper>
                 </div>
             </DefaultLayout>
+            <Toaster />
         </>
     );
 }

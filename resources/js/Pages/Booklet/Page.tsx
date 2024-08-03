@@ -4,7 +4,11 @@ import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import { CarouselBooklet } from "@/Components/booklet/ScrollBooklet";
 
-function Page() {
+import { Booklet } from "@/lib/types/Booklet";
+
+function Page({ response }: { response: any }) {
+    const booklets: Booklet[] = response.data;
+  
     return (
         <div className="bg-pattern-white flex flex-col min-h-screen">
             <Navbar isSolid={true} />
@@ -15,14 +19,15 @@ function Page() {
                 </h1>
 
                 <p className="text-[16px] sm:text-[20px] font-montserrat font-[400] text-moccaccino-950 mb-8 max-w-4xl">
-                    Booklet adalah lorem Ipsum has been the industry's standard
-                    dummy text ever since the 1500s, when an unknown printer
-                    took a galley of type and scrambled it to make a type
-                    specimen book.
+                    Halaman ini menyediakan daftar booklet untuk membantu
+                    mahasiswa memahami konteks tugas yang diberikan. Periksa
+                    secara berkala untuk materi terbaru dan informasi penting.
+                    Tingkatkan kemampuan Anda melalui panduan terperinci yang
+                    tersedia di sini.
                 </p>
 
                 <div className="w-full mt-[40px] sm:mt-[60px] flex justify-center">
-                    <CarouselBooklet />
+                    <CarouselBooklet booklets={booklets} />
                 </div>
             </div>
             <Footer />

@@ -3,6 +3,7 @@
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Models\PengumpulanTugas;
 use Illuminate\Http\Client\HttpClientException;
@@ -167,9 +168,7 @@ Route::get('booklet', [BookletController::class, 'guestIndex'])->name('booklet')
 // =====================================
 // Materi (Guest)
 // =====================================
-Route::get('materi', function () {
-   return Inertia::render('Materi/Page');
-})->name('materi');
+Route::get('materi', [MateriController::class, 'guestIndex'])->name('materi');
 
 // =====================================
 // Maskot (Guest)
@@ -234,7 +233,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    Route::get('dashboard/atur-maba', function () {
       return Inertia::render('Dashboard/atur-maba/Page');
-   })->name('dashboard/atur-maba');
+   })->name('dashboard.atur-maba');
 
 
    // =====================================
@@ -301,7 +300,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    Route::get('dashboard/informasi-kelompok', function () {
       return Inertia::render('Dashboard/informasi-kelompok/Page');
-   })->name('dashboard/informasi-kelompok');
+   })->name('informasi-kelompok');
 
    // Route::get('dashboard/edit-user/{user_id}', function ($user_id) {
    //    return Inertia::render('Dashboard/informasi-kelompok/detail-maba/Page');

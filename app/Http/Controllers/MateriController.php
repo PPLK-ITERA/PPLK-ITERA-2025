@@ -15,7 +15,13 @@ class MateriController extends Controller
    public function guestIndex()
    {
       $materi = Materi::all();
-      return Inertia::render('Materi/Page');
+      return Inertia::render('Materi/Page', [
+         'response' => [
+            'status' => 200,
+            'message' => 'Success',
+            'data' => $materi
+         ]
+      ]);
    }
    /**
     * Display a listing of the resource.

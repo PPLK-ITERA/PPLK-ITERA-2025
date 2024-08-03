@@ -17,6 +17,7 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
 import GoldPodium from "@/Components/relasi/Podium";
 import ProfileCard from "@/Components/relasi/ProfileCard";
+import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import SortDropdown from "@/Components/relasi/SortDropdown";
 import TopUser from "@/Components/relasi/TopUser";
 import UserList from "@/Components/relasi/UserList";
@@ -53,23 +54,19 @@ function Page() {
     const [searchLoading, setSearchLoading] = useState(false);
     const [usersResponse, setUsersResponse] =
         useState<UserSearchResponse | null>(null);
+    const [searchTitle, setSearchTitle] = useState<string>(
+        "Cari Naramuda Lainnya!",
+    );
+    useState<UserSearchResponse | null>(null);
     const [users, setUsers] = useState<Partial<User>[]>([]);
     const [search, setSearch] = useState<string>("");
-    // const [sort, setSort] = useState<
-    //     "viewer" | "followers" | "followings" | "name"
-    // >("followers");
-
-    // async function mFetchSort(order_by, direction) {
-    //     setSortLoading(true);
-    //     setUsers(await fetchSort(order_by, direction));
-    //     setSortLoading(false);
-    // }
 
     async function mFetchSearch() {
         setSearchLoading(true);
         let response = await fetchSearch(search);
         setUsersResponse(response);
         setUsers(response.data);
+        if (search) setSearchTitle(`Hasil Pencarian dari ${search}`);
         setSearchLoading(false);
     }
 
@@ -98,16 +95,13 @@ function Page() {
                         </Button>
                     </div>
                     {searchLoading ? (
-                        <Progress className="max-w-5xl mx-auto" />
+                        <RelasiLoading className="min-h-72 w-full" />
                     ) : (
                         <div className="w-full max-w-5xl mx-auto">
                             <div className="flex justify-between">
                                 <h4 className="text-2xl font-bold">
-                                    {search
-                                        ? `Hasil dari ${search}`
-                                        : "Cari Naramuda Lainnya!"}
+                                    {searchTitle}
                                 </h4>
-                                {/* <SortDropdown options={sortOptions} /> */}
                             </div>
                             <UserList users={users} />
                         </div>

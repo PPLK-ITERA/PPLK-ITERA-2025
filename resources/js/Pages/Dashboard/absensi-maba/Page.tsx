@@ -27,6 +27,7 @@ export default function Page({ auth, response }) {
     const handleDate = (value) => {
         console.log("date", value);
     };
+
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />

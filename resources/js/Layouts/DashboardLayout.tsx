@@ -4,12 +4,12 @@ import Header from "@/Components/dashboard/layout/header";
 import Sidebar from "@/Components/dashboard/layout/sidebar";
 import { ScrollArea, ScrollBar } from "@/Components/ui/scroll-area";
 
-import { User } from "@/lib/types/User";
+import { UserAuthProps } from "@/lib/types/User";
 
 export default function DashboardLayout({
     user,
     children,
-}: PropsWithChildren<{ user: User }>) {
+}: PropsWithChildren<{ user: UserAuthProps }>) {
     return (
         <>
             <Header user={user} />

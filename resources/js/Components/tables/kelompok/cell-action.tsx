@@ -3,10 +3,12 @@
 // import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { Link } from "@inertiajs/react";
+
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 
 import { AlertModal } from "@/Components/dashboard/modal/alert-modal";
-import { Button } from "@/Components/ui/button";
+import { Button, buttonVariants } from "@/Components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -38,8 +40,12 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                 loading={loading}
             />
             <div className="flex gap-1 p-2">
-                <Button size="sm">Atur Izin</Button>
-                <Button size="sm">Edit</Button>
+                <Link
+                    href={`/dashboard/user/edit/${data.id}`}
+                    className={`${buttonVariants({ size: "sm" })}`}
+                >
+                    Edit
+                </Link>
             </div>
         </>
     );

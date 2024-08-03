@@ -15,7 +15,7 @@ export async function fetchSort(
         `${route("relasi.index.sort")}?order_by=${order_by}&direction=${direction}`,
     );
     const json = await response.json();
-    return json;
+    return json.data;
 }
 
 export async function fetchSearch(search: string): Promise<UserSearchResponse> {

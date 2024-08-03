@@ -81,7 +81,6 @@ function Page({ auth }) {
                                     styles={{
                                         container: {
                                             width: "100%",
-                                            marginLeft: "-35px",
                                         },
                                     }}
                                 />
@@ -96,18 +95,7 @@ function Page({ auth }) {
                 >
                     Absensi Manual
                 </Button>
-                <Button
-                    onClick={() =>
-                        router.visit(route("cui.scan"), {
-                            method: "post",
-                            data: {
-                                qr_code: "0aKLplpGK9",
-                            },
-                        })
-                    }
-                >
-                    test button
-                </Button>
+
                 {result && (
                     <p className="hidden md:block">Scanned Result: {result}</p>
                 )}

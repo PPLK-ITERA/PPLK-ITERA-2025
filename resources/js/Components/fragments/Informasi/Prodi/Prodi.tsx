@@ -79,11 +79,11 @@ const Prodi = ({ prodi, className }: Props) => {
                             </div>
 
                             <div className="max-lg:flex-col place-content-center place-items-center flex gap-2">
-                                <img
+                                {/* <img
                                     className="lg:h-20 object-contain h-12"
                                     src={accreditation_a}
                                     alt="akreditasi"
-                                />
+                                /> */}
 
                                 <img
                                     className="lg:h-20 object-contain h-12"

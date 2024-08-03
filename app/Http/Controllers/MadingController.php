@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class MadingController extends Controller
 {
@@ -124,9 +125,10 @@ class MadingController extends Controller
 
       DB::beginTransaction();
       try {
-         $pengumpulanTugas = PengumpulanTugas::create([
+         PengumpulanTugas::updateOrCreate([
             'user_id' => $userId,
             'tugas_id' => $validated['tugas_id'],
+         ], [
             'jawaban' => $validated['jawaban'],
             'tanggal_submit' => Carbon::now(),
             'isReturn' => false,
@@ -164,9 +166,10 @@ class MadingController extends Controller
       $kartuTugas = KartuTugas::find($id);
       return response()->json(['poster' => $kartuTugas->poster]);
    }
-   public function storePoster(Request $request, $id)
+   public function storePoster(Request $request)
    {
       $validated = $request->validate([
+         'id' => 'required|integer',
          'poster' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
 
@@ -174,16 +177,37 @@ class MadingController extends Controller
 
       DB::beginTransaction();
       try {
-         $kartuTugas = KartuTugas::find($id);
+         $kartuTugas = KartuTugas::find($validated['id']);
          $poster = $validated['poster'];
-         $posterName = $poster->getClientOriginalName();
-         $poster->move(public_path('posters'), $posterName);
-         $kartuTugas->update(['poster' => $posterName]);
+         if ($request->hasFile('poster')) {
+            $storagePath = substr($kartuTugas->poster, strlen('/storage/'));
+            if (Storage::disk('public')->exists($storagePath)) {
+               Storage::disk('public')->delete($storagePath);
+            }
+            $path = $request->file('poster')->store('images/poster', 'public');
+            $path_image = '/storage/' . $path;
+         } else {
+            $path_image = $kartuTugas->poster;
+         }
+
+         $kartuTugas->update(['poster_url' => $path_image]);
+         $kartuTugas->save();
          DB::commit();
       } catch (\Throwable $th) {
          DB::rollBack();
          return response()->json(['error' => 'Failed to upload poster' . $th->getMessage()], 500);
       }
-      return response()->json(['message' => 'Poster uploaded successfully']);
+      // return response()->json(['message' => 'Poster uploaded successfully']);
+      return redirect()->route('mading')->with('success', 'Poster uploaded successfully');
+   }
+
+   public function previewMading()
+   {
+      $kelompok_id = Auth::user()->kelompok_id;
+      $urls = KartuTugas::with('tugas')
+         ->where('kelompok_id', $kelompok_id)
+         ->pluck('poster_url')->toArray();
+
+      return view('mading-preview', ['urls' => $urls]);
    }
 }
