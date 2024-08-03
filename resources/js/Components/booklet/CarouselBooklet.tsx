@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import useEmblaCarousel, {
     type UseEmblaCarouselType,
 } from "embla-carousel-react";
@@ -10,6 +9,8 @@ import * as React from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Button } from "@/Components/ui/button";
+
+import { cn } from "@/lib/utils";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -227,9 +228,9 @@ const CarouselPrevious = React.forwardRef<
                 viewBox="0 0 25 24"
                 fill="none"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
             >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -272,9 +273,9 @@ const CarouselNext = React.forwardRef<
                 viewBox="0 0 21 24"
                 fill="none"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
             >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />

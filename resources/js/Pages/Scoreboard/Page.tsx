@@ -22,7 +22,6 @@ function Page() {
         });
 
         const data = await response.json();
-        console.log("data top ten:", data);
         setDataTopTen(data);
     };
 
@@ -32,7 +31,6 @@ function Page() {
         });
 
         const data = await response.json();
-        console.log("data socre kelompok:", data);
         setDataKelompokScore(data);
     };
 

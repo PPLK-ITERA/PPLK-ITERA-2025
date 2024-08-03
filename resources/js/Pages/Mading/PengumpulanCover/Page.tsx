@@ -55,9 +55,12 @@ export default function Page({ id }) {
             const data = await response.json();
             setTugasData(data.tugas);
             setIsSubmitted(data.isSubmitted);
-            console.log("tugasData", tugasData);
         } catch (error) {
-            console.log("Error: ", error);
+            toast({
+                title: "Error",
+                variant: "destructive",
+                description: "Gagal mendapatkan data tugas",
+            });
         }
     };
 
@@ -101,37 +104,11 @@ export default function Page({ id }) {
         try {
             post(route("mading.store-poster"));
         } catch (error) {
-            console.log("Error: ", error);
-        }
-    };
-
-    const handleSubmitPoster = async () => {
-        try {
-            const response = await fetch(route("mading.store-poster"), {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": csrfToken,
-                },
-                body: JSON.stringify({
-                    id: id,
-                    poster: data,
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error("HTTP status " + response.status);
-            }
-
             toast({
-                title: "Success",
-                description: "Cover berhasil diunggah.",
-                variant: "default",
+                title: "Error",
+                variant: "destructive",
+                description: "Gagal mengunggah cover",
             });
-
-            router.replace(route("mading"));
-        } catch (error) {
-            console.log("Error: ", error);
         }
     };
 
@@ -234,8 +211,8 @@ export default function Page({ id }) {
                         </div>
                     </MaxWidthWrapper>
                 </div>
-                <Toaster />
             </DefaultLayout>
+            <Toaster />
         </>
     );
 }

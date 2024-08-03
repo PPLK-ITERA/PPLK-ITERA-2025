@@ -128,7 +128,6 @@ export default function Page({ auth }: { auth: any }) {
         });
         const data = await response.json();
 
-        console.log(data);
         setDataKelompok(data);
         setData("nama_kelompok", data.nama_kelompok);
     };

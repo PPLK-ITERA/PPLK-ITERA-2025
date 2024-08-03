@@ -1,6 +1,5 @@
 import { ResultCardNotFound } from "./result/ResultCardNotFound";
 import { format } from "date-fns";
-import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import React, { useEffect } from "react";
 
@@ -12,21 +11,11 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
-import { toast } from "@/Components/ui/use-toast";
 import { Toaster } from "@/Components/ui/toaster";
+import { useToast } from "@/Components/ui/use-toast";
 
-interface flashResponse extends PageProps {
-    flash: {
-        response: {
-            status: number;
-            message: string;
-        };
-    };
-}
-
-function DetailMaba({ auth, data, response }) {
-    const { flash } = usePage<flashResponse>().props;
-
+function DetailMaba({ auth, data, response, flash }) {
+    const { toast } = useToast();
     useEffect(() => {
         if (flash.response) {
             if (flash.response.status === 200) {
@@ -248,7 +237,7 @@ function DetailMaba({ auth, data, response }) {
                     </div>
                 </div>
             )}
-            <Toaster/>
+            <Toaster />
         </DashboardLayout>
     );
 }

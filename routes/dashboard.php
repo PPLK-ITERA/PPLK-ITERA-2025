@@ -3,11 +3,11 @@
 
 use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\TugasController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
-use App\Http\Controllers\TugasController;
 use App\Http\Controllers\User\PresensiPplkController;
 use Illuminate\Support\Facades\Route;
 
@@ -141,16 +141,16 @@ Route::middleware('auth')->group(function () {
          // =====================================
          // Mamet Role
          // =====================================
-         Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
-            Route::get('/return/{id}', [TugasController::class, 'return'])->name('return');
+         Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+            Route::put('/return/{id}', [TugasController::class, 'return'])->name('return');
 
             // =====================================
             // Data
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
-               Route::get('/all', [TugasController::class, 'getAllTugas'])->name('all');
-               Route::get('/individu', [TugasController::class, 'getTugasIndividu'])->name('individu');
+               Route::get('/user/{id}', [TugasController::class, 'getTugasUser'])->name('user');
                Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
+               Route::get('/poster', [TugasController::class, 'getPoster'])->name('poster');
             });
          });
       });

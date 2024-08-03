@@ -12,7 +12,3 @@ export const Icons = {
     tiktok: IconBrandTiktokFilled,
     website: IconWorldWww,
 };
-
-export default function TestTubeIcon() {
-    console.log(Icons.youtube);
-}

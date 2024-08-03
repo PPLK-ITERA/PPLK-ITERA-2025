@@ -64,15 +64,6 @@ function StatusPita({ pita }: { pita: string }) {
     }
 }
 
-interface flashResponse extends PageProps {
-    flash: {
-        response: {
-            status: number;
-            message: string;
-        };
-    };
-}
-
 function Page({ auth, data, flash }) {
     const {
         data: formData,
@@ -128,7 +119,7 @@ function Page({ auth, data, flash }) {
                 >
                     <ArrowLeft className="mr-2" /> Kembali
                 </Button>
-                <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+                <div className="flex flex-col md:flex-row md:items-start justify-center items-center gap-4">
                     <img
                         className="w-64 h-96 rounded-lg drop-shadow-lg"
                         src={data.photo_profile_url}
@@ -162,7 +153,7 @@ function Page({ auth, data, flash }) {
                         />
                     </div>
 
-                    <div className="flex flex-col w-full md:w-64 gap-2 ml-3 outline rounded-md outline-1 outline-black/30 p-2">
+                    <div className="flex flex-col w-full gap-2 ml-3 outline rounded-md outline-1 outline-black/30 p-2">
                         <p className="font-bold text-lg">Atur Izin</p>
                         <Separator />
                         {data.status === "hadir" ? (

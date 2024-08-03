@@ -37,7 +37,7 @@ function Page({ auth }) {
                 });
 
                 const getResult = await response.json();
-                console.log(getResult.response);
+                // console.log(getResult.response);
 
                 if (getResult.response.status === 200) {
                     toast({

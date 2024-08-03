@@ -56,7 +56,6 @@ export default function Page({ auth, response }) {
             id: "action",
             header: "Aksi",
             cell: ({ row }) => {
-                console.log(row.original.materi);
                 return <MateriCellActions materi={row.original.materi} />;
             },
         },

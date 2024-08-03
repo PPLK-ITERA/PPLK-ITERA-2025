@@ -13,6 +13,8 @@ import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
+import { Toaster } from "@/Components/ui/toaster";
+import { useToast } from "@/Components/ui/use-toast";
 
 import { CardType } from "@/lib/types/Mading";
 
@@ -22,6 +24,8 @@ export default function Page({ id }) {
     const [csrfToken, setCsrfToken] = useState("");
     const [tugasId, setTugasId] = useState(0);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const { toast } = useToast();
 
     const {
         data: formData,
@@ -51,9 +55,12 @@ export default function Page({ id }) {
             const data = await response.json();
             setTugasData(data.tugas);
             setIsSubmitted(data.isSubmitted);
-            console.log("tugasData", tugasData);
         } catch (error) {
-            console.log("Error: ", error);
+            toast({
+                title: "Error",
+                description: "Gagal mendapatkan data tugas",
+                variant: "destructive",
+            });
         }
     };
 
@@ -113,7 +120,11 @@ export default function Page({ id }) {
 
             router.replace(route("mading"));
         } catch (error) {
-            console.log("Error: ", error);
+            toast({
+                title: "Error",
+                description: "Gagal mensubmit tugas",
+                variant: "destructive",
+            });
         }
     };
 
@@ -221,6 +232,8 @@ export default function Page({ id }) {
                     </MaxWidthWrapper>
                 </div>
             </DefaultLayout>
+
+            <Toaster />
         </>
     );
 }

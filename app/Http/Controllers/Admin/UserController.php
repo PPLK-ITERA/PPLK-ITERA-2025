@@ -13,6 +13,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -51,11 +52,9 @@ class UserController extends Controller
          ->where('role_id', 1)
          ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
          ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->whereHas('user', function ($q) use ($searchTerm) {
-               $q->where('name', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
-            });
+            $query->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
          });
 
       $users = $query->paginate($perPage);
@@ -130,11 +129,9 @@ class UserController extends Controller
          ->where('role_id', 5) // Hanya user dengan role Maba
          ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
          ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->whereHas('user', function ($q) use ($searchTerm) {
-               $q->where('name', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
-            });
+            $query->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
          });
 
       $users = $query->paginate($perPage);
@@ -169,11 +166,9 @@ class UserController extends Controller
          ->where('role_id', 6) // Hanya user dengan role Maba
          ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
          ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->whereHas('user', function ($q) use ($searchTerm) {
-               $q->where('name', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
-            });
+            $query->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
          });
 
       $users = $query->paginate($perPage);
@@ -208,11 +203,9 @@ class UserController extends Controller
          ->where('role_id', 7) // Hanya user dengan role Maba
          ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
          ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->whereHas('user', function ($q) use ($searchTerm) {
-               $q->where('name', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
-            });
+            $query->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
          });
 
       $users = $query->paginate($perPage);
@@ -236,14 +229,6 @@ class UserController extends Controller
       });
 
       return response()->json($users);
-   }
-
-   /**
-    * Show the form for creating a new resource.
-    */
-   public function create()
-   {
-      //
    }
 
    /**
@@ -331,11 +316,20 @@ class UserController extends Controller
          'photo' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
       ]);
       $user = User::find($validated['id']);
-      $path_image = $request->file('photo')->store('images/photoprofile', 'public');
+      if ($request->hasFile('photo')) {
+         $storagePath = substr($user->photo_profile_url, strlen('/storage/'));
+         if (Storage::disk('public')->exists($storagePath)) {
+            Storage::disk('public')->delete($storagePath);
+         }
+         $path = $request->file('photo')->store('images/profilePhoto', 'public');
+         $path_image = '/storage/' . $path;
+      } else {
+         $path_image = $user->photo_profile_url;
+      }
       DB::BeginTransaction();
       try {
          $user->update([
-            'photo_profile_url' => asset('storage/' . $path_image),
+            'photo_profile_url' => $path_image,
          ]);
          DB::commit();
       } catch (\Exception $e) {
@@ -369,10 +363,12 @@ class UserController extends Controller
       DB::BeginTransaction();
       try {
          $penyakit = Penyakit::find($user->penyakit_id);
-         $penyakit->update([
-            'pita' => $validated['pita'],
-            'ket_penyakit' => $validated['ket_penyakit'],
-         ]);
+         if ($penyakit) {
+            $penyakit->update([
+               'pita' => $validated['pita'],
+               'ket_penyakit' => $validated['ket_penyakit'],
+            ]);
+         }
          $user->update([
             'name' => $validated['name'],
             'nim' => $validated['nim'],
@@ -507,8 +503,12 @@ class UserController extends Controller
       try {
          $penyakit = Penyakit::find($user->penyakit_id);
          $qrcode = Qrcode::where('user_id', $user->id)->first();
-         $qrcode->delete();
-         $penyakit->delete();
+         if ($qrcode) {
+            $qrcode->delete();
+         }
+         if ($penyakit) {
+            $penyakit->delete();
+         }
          $user->delete();
          DB::commit();
       } catch (\Exception $e) {
