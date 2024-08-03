@@ -73,25 +73,21 @@ class KelompokController extends Controller
          'logo_kelompok' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
       ]);
       if ($request->hasFile('logo_kelompok')) {
-         Storage::delete($kelompok->logo_kelompok);
-         $path_image = $request->file('logo_kelompok')->store('images/logokelompok', 'public');
+         $storagePath = substr($kelompok->logo_kelompok, strlen('/storage/'));
+         if (Storage::disk('public')->exists($storagePath)) {
+            Storage::disk('public')->delete($storagePath);
+         }
+         $path = $request->file('photo')->store('images/logoKelompok', 'public');
+         $path_image = '/storage/' . $path;
       } else {
          $path_image = $kelompok->logo_kelompok;
       }
       DB::BeginTransaction();
       try {
-         if ($request->hasFile('logo_kelompok')) {
-            $kelompok->update([
-               'nama_kelompok' => $validated['nama_kelompok'],
-               'logo_kelompok' => asset('storage/' . $path_image),
-            ]);
-         } else {
-            $kelompok->update([
-               'nama_kelompok' => $validated['nama_kelompok'],
-               'logo_kelompok' => $path_image,
-            ]);
-         }
-
+         $kelompok->update([
+            'nama_kelompok' => $validated['nama_kelompok'],
+            'logo_kelompok' => $path_image,
+         ]);
          DB::commit();
       } catch (\Exception $e) {
          DB::rollback();
@@ -122,8 +118,8 @@ class KelompokController extends Controller
             // Eager load the related prodi and select specific fields
             $query->with([
                'prodi' => function ($subQuery) {
-               $subQuery->select('id', 'nama_prodi');
-            }
+                  $subQuery->select('id', 'nama_prodi');
+               }
             ])->select('id', 'name', 'prodi_id');
          },
          'daplok' => function ($query) {
