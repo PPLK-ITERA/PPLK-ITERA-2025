@@ -303,7 +303,7 @@ class UserController extends Controller
          'response' => [
             'status' => 200,
             'message' => 'Berhasil mendapatkan data user',
-            'data' => User::with('penyakit', 'qrcode', 'kelompok')->find($id)
+            'data' => User::with('penyakit', 'qrcode', 'kelompok', 'pilar')->find($id)
          ]
       ]);
    }
@@ -326,37 +326,44 @@ class UserController extends Controller
     */
    public function editFoto(Request $request)
    {
-      $validated = $request->validated([
+      $validated = $request->validate([
          'id' => ['required', 'integer'],
          'photo' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
       ]);
       $user = User::find($validated['id']);
-      $path_image = $request->file('gambar')->store('images/atk', 'public');
+      $path_image = $request->file('photo')->store('images/photoprofile', 'public');
       DB::BeginTransaction();
       try {
          $user->update([
-            'photo_profile_url' => 'storage/' . $path_image,
+            'photo_profile_url' => asset('storage/' . $path_image),
          ]);
+         DB::commit();
       } catch (\Exception $e) {
          DB::rollback();
-         return redirect()->route('dashboard.user.index')->with([
-            'response' => [
+         return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+            ->with('response', [
                'status' => 500,
-               'message' => 'Gagal mengubah foto',
-            ]
-         ]);
+               'message' => 'Gagal mengubah foto profil user',
+            ]);
       }
+
+      return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+         ->with('response', [
+            'status' => 200,
+            'message' => 'Berhasil mengubah foto profil user',
+         ]);
    }
    public function editProfil(Request $request)
    {
-      $validated = $request->validated([
+      $validated = $request->validate([
          'id' => ['required', 'integer'],
          'name' => ['required', 'string'],
          'nim' => ['required', 'string'],
          'email' => ['required', 'email'],
          'prodi_id' => ['required', 'integer'],
          'pita' => ['required', 'string'],
-         'ket_penyakit' => ['string'],
+         'ket_penyakit' => ['sometimes', 'string'],
+         'bio' => ['sometimes', 'string'],
       ]);
       $user = User::find($validated['id']);
       DB::BeginTransaction();
@@ -371,30 +378,30 @@ class UserController extends Controller
             'nim' => $validated['nim'],
             'email' => $validated['email'],
             'prodi_id' => $validated['prodi_id'],
+            'bio' => $validated['bio'],
          ]);
          DB::commit();
       } catch (\Exception $e) {
          DB::rollback();
-         return redirect()->route('dashboard.user.index')->with([
-            'response' => [
+         return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+            ->with('response', [
                'status' => 500,
-               'message' => 'Gagal mengubah profil',
-            ]
-         ]);
+               'message' => 'Gagal mengubah profil user',
+            ]);
       }
-      return redirect()->route('dashboard.user.index')->with([
-         'response' => [
-            'status' => 201,
-            'message' => 'Berhasil mengubah profil',
-         ]
-      ]);
+
+      return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+         ->with('response', [
+            'status' => 200,
+            'message' => 'Berhasil mengubah profil user',
+         ]);
    }
    public function editSosmed(Request $request)
    {
-      $validated = $request->validated([
+      $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'instagram_url' => ['required', 'url'],
-         'linkedin_url' => ['required', 'url'],
+         'instagram_url' => ['sometimes', 'url', 'nullable'],
+         'linkedin_url' => ['sometimes', 'url', 'nullable'],
       ]);
       $user = User::find($validated['id']);
       DB::BeginTransaction();
@@ -406,27 +413,91 @@ class UserController extends Controller
          DB::commit();
       } catch (\Exception $e) {
          DB::rollback();
-         return redirect()->route('dashboard.user.index')->with([
-            'response' => [
+         return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+            ->with('response', [
                'status' => 500,
-               'message' => 'Gagal mengubah sosmed',
-            ]
-         ]);
+               'message' => 'Gagal mengubah link sosmed user',
+            ]);
       }
-      return redirect()->route('dashboard.user.index')->with([
-         'response' => [
-            'status' => 201,
-            'message' => 'Berhasil mengubah sosmed',
-         ]
-      ]);
+      return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+         ->with('response', [
+            'status' => 200,
+            'message' => 'Berhasil mengubah link sosmed user',
+         ]);
    }
 
+   public function editPassword(Request $request)
+   {
+      $validated = $request->validate([
+         'id' => ['required', 'integer'],
+         'new_password' => ['required', 'string'],
+         'confirm_new_password' => ['required', 'string'],
+      ]);
+      $user = User::findOrFail($validated['id']);
+
+      if ($validated['new_password'] !== $validated['confirm_new_password']) {
+         return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+            ->with('response', [
+               'status' => 400,
+               'message' => 'Password baru dan konfirmasi password baru tidak sama',
+            ]);
+      }
+
+      DB::BeginTransaction();
+      try {
+         $user->update([
+            'password' => bcrypt($validated['new_password']),
+         ]);
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollback();
+         return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+            ->with('response', [
+               'status' => 500,
+               'message' => 'Gagal mereset password',
+            ]);
+      }
+      return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+         ->with('response', [
+            'status' => 200,
+            'message' => 'Berhasil mengubah password',
+         ]);
+   }
+
+   public function editSertif(Request $request)
+   {
+      $validated = $request->validate([
+         'id' => ['required', 'integer'],
+         'sertif' => ['required', 'url',],
+      ]);
+      $user = User::find($validated['id']);
+      DB::BeginTransaction();
+      try {
+         $user->update([
+            'link_sertif' => $validated['sertif'],
+         ]);
+
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollback();
+         return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+            ->with('response', [
+               'status' => 500,
+               'message' => 'Gagal mengubah sertifikat',
+            ]);
+      }
+      return redirect()->route('dashboard.user.edit', ['id' => $user->id])
+         ->with('response', [
+            'status' => 200,
+            'message' => 'Berhasil mengubah sertifikat',
+         ]);
+   }
    /**
     * Remove the specified resource from storage.
     */
    public function destroy(Request $request)
    {
-      $validated = $request->validated(
+      $validated = $request->validate(
          [
             'id' => ['required', 'integer'],
          ]
@@ -442,16 +513,16 @@ class UserController extends Controller
          DB::commit();
       } catch (\Exception $e) {
          DB::rollBack();
-         return redirect()->route('dashboard.user.index')->with([
+         return redirect()->route('dashboard.atur-maba')->with([
             'response' => [
                'status' => 500,
                'message' => 'Gagal menghapus user',
             ]
          ]);
       }
-      return redirect()->route('dashboard.user.index')->with([
+      return redirect()->route('dashboard.atur-maba')->with([
          'response' => [
-            'status' => 201,
+            'status' => 200,
             'message' => 'Berhasil menghapus user',
          ]
       ]);

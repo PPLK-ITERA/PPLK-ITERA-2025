@@ -26,7 +26,7 @@ class ProfileController extends Controller
          'nim' => $user->nim,
          'prodi' => $user->prodi,
          'role' => $user->role,
-         'photo_profile_url' => asset('storage/' . $user->photo_profile_url),
+         'photo_profile_url' => $user->photo_profile_url,
          'linkedin_url' => $user->linkedin_url,
          'instagram_url' => $user->instagram_url,
          'kelompok' => [

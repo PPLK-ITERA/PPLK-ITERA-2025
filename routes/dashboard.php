@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
             // CRUD USER
             // =====================================
             Route::get('store', [UserController::class, 'store'])->name('store');
-            Route::delete('delete', [UserController::class, 'delete'])->name('destroy');
+            Route::delete('delete', [UserController::class, 'destroy'])->name('destroy');
          });
 
          // =====================================
@@ -63,6 +63,11 @@ Route::middleware('auth')->group(function () {
             // =====================================
             Route::get('edit/{id}', [UserController::class, 'edit'])->name('edit');
             Route::put('update', [UserController::class, 'update'])->name('update');
+            Route::put('edit-foto', [UserController::class, 'editFoto'])->name('edit-foto');
+            Route::put('edit-profil', [UserController::class, 'editProfil'])->name('edit-profil');
+            Route::put('edit-sosmed', [UserController::class, 'editSosmed'])->name('edit-sosmed');
+            Route::put('edit-password', [UserController::class, 'editPassword'])->name('edit-password');
+            Route::put('edit-sertif', [UserController::class, 'editSertif'])->name('edit-sertif');
          });
       });
 
@@ -154,8 +159,9 @@ Route::middleware('auth')->group(function () {
       // Kelompok
       // =====================================
       Route::prefix('kelompok')->name('kelompok.')->group(function () {
-         Route::get('data', [KelompokController::class, 'index'])->name('data');
+         // Route::get('data', [KelompokController::class, 'index'])->name('data');
          Route::put('update', [KelompokController::class, 'update'])->name('update');
+         Route::get('data', [KelompokController::class, 'getKelompok'])->name('data');
       });
 
       // =====================================

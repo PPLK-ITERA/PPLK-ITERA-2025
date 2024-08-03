@@ -16,8 +16,6 @@ import { Label } from "@/Components/ui/label";
 
 import { CardType } from "@/lib/types/Mading";
 
-import kompas from "!assets/kompas.png";
-
 export default function Page({ id }) {
     const [tugasData, setTugasData] = useState<CardType | null>(null);
     const [urlError, setUrlError] = useState<string | null>(null);

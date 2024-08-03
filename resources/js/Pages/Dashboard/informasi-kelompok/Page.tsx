@@ -25,6 +25,8 @@ import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
+import { Kelompok } from "@/lib/types/InformasiKelompok";
+
 import logopplk from "!assets/logo-pplk-2024.png";
 
 const breadcrumbItems = [
@@ -61,11 +63,14 @@ export default function Page({ auth }: { auth: any }) {
                     variant: "destructive",
                 });
             }
+
+            window.location.reload();
         }
     }, [flash, toast]);
 
     const [file, setFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState("");
+    const [dataKelompok, setDataKelompok] = useState<Kelompok>();
 
     const { data, setData, post } = useForm({
         nama_kelompok: "",
@@ -114,6 +119,26 @@ export default function Page({ auth }: { auth: any }) {
         }
     };
 
+    const getDataKelompok = async () => {
+        const response = await fetch(route("dashboard.kelompok.data"), {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await response.json();
+
+        console.log(data);
+        setDataKelompok(data);
+        setData("nama_kelompok", data.nama_kelompok);
+    };
+
+    useEffect(() => {
+        getDataKelompok();
+    }, []);
+
+    // useEffect(() => {}, []);
+
     const changeDataKelompok = () => {
         post(route("dashboard.kelompok.update"));
     };
@@ -126,12 +151,23 @@ export default function Page({ auth }: { auth: any }) {
                     Informasi Kelompok
                 </h2>
 
-                <div className="w-36 h-36 md:mx-0 mx-auto border rounded-full">
-                    <img src={logopplk} alt="logopplk" />
+                <div className="w-36 h-36 md:mx-0 mx-auto overflow-hidden border rounded-full">
+                    {dataKelompok?.logo_kelompok ? (
+                        <img
+                            src={dataKelompok?.logo_kelompok}
+                            alt={`logo kelompok ${dataKelompok?.nama_kelompok}`}
+                        />
+                    ) : (
+                        <img src={logopplk} alt="logopplk" />
+                    )}
                 </div>
 
                 <div className="flex items-center justify-start gap-2 font-semibold">
-                    <p className="text-lg">Kelompok 73 Nawasena</p>
+                    <p className="line-clamp-1 text-lg capitalize">
+                        Kelompok {dataKelompok?.no_kelompok}{" "}
+                        {dataKelompok?.nama_kelompok}
+                    </p>
+
                     <Dialog>
                         <DialogTrigger asChild>
                             <IconPencil className="-mt-[1px] cursor-pointer" />
@@ -155,8 +191,10 @@ export default function Page({ auth }: { auth: any }) {
                                     ) : (
                                         <div className="w-36 h-36 overflow-hidden rounded-full">
                                             <img
-                                                src={logopplk}
-                                                alt="logopplk"
+                                                src={
+                                                    dataKelompok?.logo_kelompok
+                                                }
+                                                alt={`logo kelompok ${dataKelompok?.nama_kelompok}`}
                                             />
                                         </div>
                                     )}
@@ -228,8 +266,12 @@ export default function Page({ auth }: { auth: any }) {
                         <h2 className="font-bold">Daplok</h2>
 
                         <div className="mt-5">
-                            <p className="text-lg font-bold">Siti Abdiyah</p>
-                            <p className="font-semibold">Teknik Sipil</p>
+                            <p className="text-lg font-bold">
+                                {dataKelompok?.daplok.name}
+                            </p>
+                            <p className="font-semibold">
+                                {dataKelompok?.daplok.prodi.nama_prodi}
+                            </p>
                         </div>
                     </div>
 
@@ -237,8 +279,12 @@ export default function Page({ auth }: { auth: any }) {
                         <h2 className="font-bold">Mentor</h2>
 
                         <div className="mt-5">
-                            <p className="text-lg font-bold">Ujang Pance</p>
-                            <p className="font-semibold">Teknik Sipil</p>
+                            <p className="text-lg font-bold">
+                                {dataKelompok?.mentor.name}
+                            </p>
+                            <p className="font-semibold">
+                                {dataKelompok?.mentor.prodi.nama_prodi}
+                            </p>
                         </div>
                     </div>
                 </div>

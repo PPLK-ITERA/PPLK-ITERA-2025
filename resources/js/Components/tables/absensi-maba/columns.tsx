@@ -15,7 +15,7 @@ export interface AbsensiMaba {
         nim: string;
         email: string;
         photo_profile_url: string;
-        qrcode: string;
+        // qrcode: string;
         nama_kelompok: string;
         penyakit: {
             pita: string;
@@ -39,20 +39,10 @@ export const columns: ColumnDef<AbsensiMaba>[] = [
         header: "Foto Profil",
         cell: ({ row }) => (
             <img
-                className="h-[120px] w-[140px] aspect-auto"
+                className="h-[120px] w-[300px] object-cover aspect-3/4"
                 src={row.original.user.photo_profile_url}
                 alt="Foto Profil"
             />
-        ),
-    },
-    {
-        id: "qrcode",
-        accessorKey: "user.qrcode",
-        header: "QR Code",
-        cell: ({ row }) => (
-            <div className="bg-white">
-                <QRCode size={64} value={row.original.user.qrcode} />
-            </div>
         ),
     },
     {

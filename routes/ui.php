@@ -230,7 +230,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    Route::get('dashboard/atur-maba', function () {
       return Inertia::render('Dashboard/atur-maba/Page');
-   })->name('dashboard/atur-maba');
+   })->name('dashboard.atur-maba');
 
 
    // =====================================
