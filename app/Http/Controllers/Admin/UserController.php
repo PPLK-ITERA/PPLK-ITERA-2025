@@ -491,8 +491,12 @@ class UserController extends Controller
       try {
          $penyakit = Penyakit::find($user->penyakit_id);
          $qrcode = Qrcode::where('user_id', $user->id)->first();
-         $qrcode->delete();
-         $penyakit->delete();
+         if ($qrcode) {
+            $qrcode->delete();
+         }
+         if ($penyakit) {
+            $penyakit->delete();
+         }
          $user->delete();
          DB::commit();
       } catch (\Exception $e) {
