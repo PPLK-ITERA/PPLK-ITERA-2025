@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\KartuTugas;
 use App\Models\PengumpulanTugas;
+use App\Models\Tugas;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -33,7 +36,12 @@ class TugasController extends Controller
    public function getTugasKelompok()
    {
       try {
-         $tugas = PengumpulanTugas::where('kelompok_id', Auth::user()->kelompok_id)->get();
+         $ketua = User::where('kelompok_id', Auth::user()->kelompok_id)->where('isKetua', true)->first();
+         $tugas = Tugas::with('pengumpulanTugas')
+            ->where('kategori', 'kelompok')
+            ->whereHas('pengumpulanTugas', function ($query) use ($ketua) {
+               $query->where('user_id', $ketua->id);
+            })->get();
       } catch (\Exception $e) {
          return response()->json([
             'response' => [
@@ -81,5 +89,28 @@ class TugasController extends Controller
             'message' => 'Berhasil mengembalikan tugas'
          ]
       );
+   }
+   public function getPoster()
+   {
+      try {
+         $poster = KartuTugas::where('kelompok_id', Auth::user()->kelompok_id)->select('hari', 'poster')->get();
+      } catch (\Exception $e) {
+         return response()->json([
+            'response' => [
+               'status' => 500,
+               'message' => $e->getMessage()
+            ]
+         ]);
+      }
+      return response()->json([
+         'response' => [
+            'status' => 200,
+            'message' => 'Berhasil mendapatkan data',
+            'data' => $poster
+         ]
+      ]);
+   }
+   public function returnPoster()
+   {
    }
 }

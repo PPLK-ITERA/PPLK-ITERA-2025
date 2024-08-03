@@ -141,8 +141,8 @@ Route::middleware('auth')->group(function () {
          // =====================================
          // Mamet Role
          // =====================================
-         Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
-            Route::get('/return/{id}', [TugasController::class, 'return'])->name('return');
+         Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+            Route::put('/return/{id}', [TugasController::class, 'return'])->name('return');
 
             // =====================================
             // Data
@@ -150,6 +150,7 @@ Route::middleware('auth')->group(function () {
             Route::prefix('data')->name('data.')->group(function () {
                Route::get('/user/{id}', [TugasController::class, 'getTugasUser'])->name('user');
                Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
+               Route::get('/poster', [TugasController::class, 'getPoster'])->name('poster');
             });
          });
       });
