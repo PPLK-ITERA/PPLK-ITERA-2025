@@ -65,15 +65,10 @@ export default function TopUser({
                     />
                 </div>
             )}
-<<<<<<< HEAD
-            {user && <p className="text-lg font-bold break-words text-wrap">{user.name}</p>}
-            <p className="bg-gray-400/50 px-2 text-sm rounded-full">
-=======
 
             {user && <div className="text-lg font-bold">{user.name}</div>}
 
             <p className="bg-gray-400/50 md:px-2 px-0 text-sm rounded-full">
->>>>>>> 9582d1fefc59a2b18c7fb54fd15d45380a434987
                 {user && (
                     <span className="font-bold">{user.followers_count} </span>
                 )}

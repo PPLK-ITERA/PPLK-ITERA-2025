@@ -4,6 +4,8 @@ import { useSearchParams } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
 
+import { Link } from "@inertiajs/react";
+
 import { UserPlus } from "lucide-react";
 
 import {
@@ -60,7 +62,6 @@ function Page() {
         "viewer" | "followers" | "followings" | "name"
     >("followers");
 
-
     async function mFetchSort(order_by, direction) {
         setSortLoading(true);
         setUsers(await fetchSort(order_by, direction));
@@ -98,11 +99,11 @@ function Page() {
                             onChange={(e) => setSearch(e.target.value)}
                         />
 
-                        <a href={route("relasi.search", { search: search })}>
+                        <Link href={route("relasi.search", { search: search })}>
                             <Button className="absolute top-1/2 -translate-y-1/2 right-0 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-r-lg rounded-l-none">
                                 <IconSearch className="w-4 h-4" />
                             </Button>
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="text-center">

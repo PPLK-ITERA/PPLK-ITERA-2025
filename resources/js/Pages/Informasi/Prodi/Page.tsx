@@ -15,6 +15,7 @@ import fakultasSains from "!assets/fakultas-sains.png";
 import fakultasTeknologiIndustri from "!assets/fakultas-teknologi-industri.png";
 import fakultasTeknologiInfrastruktur from "!assets/fakultas-teknologi-infrastruktur-dan-kewilayahan.png";
 import patternBrown from "!assets/pattern-brown.png";
+import { Link } from "@inertiajs/react";
 
 export default function Page() {
     useAos();
@@ -134,7 +135,7 @@ export default function Page() {
                                             {prodi.name}
                                         </p>
 
-                                        <a
+                                        <Link
                                             href={`/informasi/prodi/${prodi.key}`}
                                         >
                                             <Button
@@ -143,7 +144,7 @@ export default function Page() {
                                             >
                                                 Selengkapnya
                                             </Button>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <p className="h-full p-2 font-semibold text-center">

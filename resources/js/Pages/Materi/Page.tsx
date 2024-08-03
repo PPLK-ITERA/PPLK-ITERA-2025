@@ -5,7 +5,6 @@ import Navbar from "@/Components/Navbar";
 import { CarouselMateri } from "@/Components/materi/ScrollMateri";
 
 function Page({ response }: { response: any }) {
-    console.log(response)
     const materis = response.data;
 
 

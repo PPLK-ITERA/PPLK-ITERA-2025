@@ -197,6 +197,7 @@ function Page({ response }) {
                             <CarouselContent className="px-2 text-sm">
                                 {sugesstedUsers.slice(0, 9).map((u, i) => (
                                     <CarouselItem
+                                        key={i}
                                         data-aos="fade-up"
                                         data-aos-duration={800}
                                         data-aos-delay={(i + 1) * 100}
@@ -220,11 +221,11 @@ function Page({ response }) {
                                             <p className="font-bold text-center">
                                                 Temukan Nusantara Muda Lainnya!
                                             </p>
-                                            <a href={route("relasi.index")}>
+                                            <Link href={route("relasi.index")}>
                                                 <Button className="w-full bg-[#ECAA25] text-black border border-black font-semibold text-xs">
                                                     Selengkapnya
                                                 </Button>
-                                            </a>
+                                            </Link>
                                         </CardContent>
                                     </Card>
                                 </CarouselItem>
