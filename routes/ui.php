@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\MadingController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\MateriController;

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KartuTugas;
 use App\Models\PengumpulanTugas;
 use App\Models\Tugas;
 use App\Models\User;
@@ -14,23 +13,27 @@ use Illuminate\Support\Facades\Storage;
 
 class MadingController extends Controller
 {
-   public function getCard()
+   public function index()
    {
-      // Check if the user is authenticated
-      if (!Auth::check()) {
-         return response()->json(['error' => 'User not authenticated'], 401);
-      }
-
-      $userId = Auth::id();
       $user = Auth::user();
+      $userId = $user->id;
 
       // Fetch all cards associated with the user's group with related tasks
-      $cards = KartuTugas::with('tugas')
-         ->where('kelompok_id', $user->kelompok_id)
-         ->get();
+      $tugass = Tugas::with([
+         'pengumpulanTugas' => function ($query) use ($user) {
+            $query->whereHas('user', function ($q) use ($user) {
+               $q->where('kelompok_id', $user->kelompok_id)->where('role_id', 1);
+            });
+         }
+      ])->get();
 
       // Fetch history of task submissions
-      $history = PengumpulanTugas::with('tugas')->where('user_id', $userId)->get();
+      $riwayat = PengumpulanTugas::with([
+         'tugas' => function ($query) {
+            $query->select('id', 'judul');
+         }
+      ])->where('user_id', $userId)->get();
+
 
       // Count total members in the user's group (assuming all are expected to complete tasks)
       $totalMembers = User::where('kelompok_id', $user->kelompok_id)->where('role_id', 1)->count();
@@ -39,100 +42,91 @@ class MadingController extends Controller
       $tugasCount = [];
       $memberCompletion = [];
       $completionPercentage = [];
-      $taskCompletedByUser = [];
+      $cardOpen = [];
+      $isSelesai = true;
 
-      foreach ($cards as $card) {
-         $allTasksCompleted = true; // Assume all tasks are completed
-
-         if ($card->tugas && $card->tugas->count() > 0) {
-            $tugasCount[$card->id] = $card->tugas->count();  // Total tasks per card
-
-            // Count submissions and calculate completion percentage for each task
-            foreach ($card->tugas as $tugas) {
-               // Determine if this task should be filtered based on kategori_tugas
-               $isKetuaTask = ($tugas->kategori_tugas == 'kelompok'); // Example category name
-
-               // Calculate number of members that should be counted for this task
-               $totalCountedMembers = $isKetuaTask ? User::where('kelompok_id', $user->kelompok_id)
-                  ->where('isKetua', true)
-                  ->count()
-                  : $totalMembers;
-
-               $taskCompletedByUser[$tugas->id] = PengumpulanTugas::where('tugas_id', $tugas->id)
-                  ->where('user_id', $userId)
-                  ->where('isReturn', false)
-                  ->exists();
-
-               $submissionsCount = PengumpulanTugas::where('tugas_id', $tugas->id)
-                  ->where('isReturn', false)
-                  ->count();
-
-               $memberCompletion[$tugas->id] = $submissionsCount;
-
-               if ($totalCountedMembers > 0) {
-                  $completionPercentage[$tugas->id] = ($submissionsCount / $totalCountedMembers) * 100;  // Calculate completion percentage
-               } else {
-                  $completionPercentage[$tugas->id] = 0;  // Avoid division by zero
-               }
-
-               // Check if any member has not completed this task
-               if ($submissionsCount < $totalCountedMembers) {
-                  $allTasksCompleted = false;
-               }
-            }
-         } else {
-            $tugasCount[$card->id] = 0;
-            $memberCompletion[$card->id] = 0;
-            $completionPercentage[$card->id] = 0;
-            $allTasksCompleted = false; // No tasks, so cannot be completed
+      foreach ($tugass as $tugas) {
+         if (!isset($tugasCount[$tugas->hari])) {
+            $tugasCount[$tugas->hari] = 0;
+            $cardOpen[$tugas->hari] = false;
          }
 
-         // Update isSelesai column based on whether all tasks are completed by all members
-         $card->is_selesai = $allTasksCompleted;
-         $card->save();
+         $memberCompletion[$tugas->hari] = 0;
+         $completionPercentage[$tugas->hari] = 0;
+
+         $tugasCount[$tugas->hari] += 1;
+
+         $tugasDia = $tugas->pengumpulanTugas->where('user_id', $userId)->first();
+
+         if (!$tugasDia || $tugasDia->isReturn) {
+            $cardOpen[$tugas->hari] = true;
+         }
+
+         foreach ($tugas->pengumpulanTugas as $pengumpulanTugas) {
+            if (!$pengumpulanTugas->isReturn) {
+               $memberCompletion[$tugas->hari] += 1;
+            }
+            $completionPercentage[$tugas->hari] = ($memberCompletion[$tugas->hari] / ($tugasCount[$tugas->hari] * $totalMembers)) * 100;  // Calculate completion percentage
+         }
+
+         if ($memberCompletion[$tugas->hari] < $totalMembers) {
+            $isSelesai = false;
+         }
       }
 
-      // Create a response object
       $response = [
-         'cards' => $cards,
-         'history' => $history,
-         'totalMembers' => $totalMembers,
-         'tugasCount' => $tugasCount,
-         'memberCompletion' => $memberCompletion,
-         'completionPercentage' => $completionPercentage,
-         'isSubmitted' => $taskCompletedByUser,
+         'isSelesai' => $isSelesai,
+         'card' => [
+            'completionPercentage' => $completionPercentage,
+            'cardOpen' => $cardOpen
+         ],
+         'history' => $riwayat,
       ];
 
       return response()->json($response);
    }
 
-   public function getTugas($id)
+   public function getTugas($hari)
    {
-      $tugas = KartuTugas::with('tugas')->find($id);
-      $isSubmitted = PengumpulanTugas::where('tugas_id', $tugas->tugas[0]->id)->where('user_id', Auth::id())->where('isReturn', false)->exists();
+      $tugass = Tugas::where('hari', $hari)->get();
 
-      return response()->json(['tugas' => $tugas, 'isSubmitted' => $isSubmitted]);
+      $isSubmitted = false;
+
+      foreach ($tugass as $tugas) {
+         $isSubmitted = PengumpulanTugas::where('tugas_id', $tugas->id)->where('user_id', Auth::id())->where('isReturn', false)->exists();
+         if (!$isSubmitted) {
+            break;
+         }
+      }
+
+      if ($isSubmitted) {
+         return redirect()->route('mading')->with(['message' => 'Task already submitted']);
+      }
+
+      return response()->json(['tugas' => $tugass, 'isSubmitted' => $isSubmitted]);
    }
 
    public function storeTugas(Request $request)
    {
       $validated = $request->validate([
-         'tugas_id' => 'required|integer',
-         'jawaban' => 'required|string',
+         'tugas_id.*' => 'required|integer',
+         'jawaban.*' => 'required|url',
       ]);
 
       $userId = Auth::id();
 
       DB::beginTransaction();
       try {
-         PengumpulanTugas::updateOrCreate([
-            'user_id' => $userId,
-            'tugas_id' => $validated['tugas_id'],
-         ], [
-            'jawaban' => $validated['jawaban'],
-            'tanggal_submit' => Carbon::now(),
-            'isReturn' => false,
-         ]);
+         foreach ($validated['tugas_id'] as $key => $tugasId) {
+            PengumpulanTugas::updateOrCreate([
+               'user_id' => $userId,
+               'tugas_id' => $tugasId,
+            ], [
+               'jawaban' => $validated['jawaban'][$key],
+               'tanggal_submit' => Carbon::now(),
+               'isReturn' => false,
+            ]);
+         }
 
          DB::commit();
       } catch (\Throwable $th) {
@@ -151,16 +145,29 @@ class MadingController extends Controller
 
       DB::beginTransaction();
       try {
-         $tugas = PengumpulanTugas::findorfail($validated['id']);
+         $tugas = PengumpulanTugas::findOrFail($validated['id']);
          $tugas->update(['isReturn' => true, 'catatan' => $validated['catatan']]);
          DB::commit();
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['error' => 'Failed to return task'], 500);
+         return redirect()->route('dashboard.mading')->with([
+            'response' => [
+               'status' => 500,
+               'message' => 'Failed to return task',
+               'data' => null
+            ]
+         ]);
       }
 
-      return response()->json(['message' => 'Task returned successfully']);
+      return redirect()->route('dashboard.mading')->with([
+         'response' => [
+            'status' => 200,
+            'message' => 'Task returned successfully',
+            'data' => null
+         ]
+      ]);
    }
+
    public function getPoster($id)
    {
       $kartuTugas = KartuTugas::find($id);
@@ -201,13 +208,13 @@ class MadingController extends Controller
       return redirect()->route('mading')->with('success', 'Poster uploaded successfully');
    }
 
-   public function previewMading()
-   {
-      $kelompok_id = Auth::user()->kelompok_id;
-      $urls = KartuTugas::with('tugas')
-         ->where('kelompok_id', $kelompok_id)
-         ->pluck('poster_url')->toArray();
+   // public function previewMading()
+   // {
+   //    $kelompok_id = Auth::user()->kelompok_id;
+   //    $urls = KartuTugas::with('tugas')
+   //       ->where('kelompok_id', $kelompok_id)
+   //       ->pluck('poster_url')->toArray();
 
-      return view('mading-preview', ['urls' => $urls]);
-   }
+   //    return view('mading-preview', ['urls' => $urls]);
+   // }
 }

@@ -90,54 +90,54 @@ class TugasController extends Controller
          ]
       );
    }
-   public function getPoster()
-   {
-      try {
-         $poster = KartuTugas::where('kelompok_id', Auth::user()->kelompok_id)->select('hari', 'poster')->get();
-      } catch (\Exception $e) {
-         return response()->json([
-            'response' => [
-               'status' => 500,
-               'message' => $e->getMessage()
-            ]
-         ]);
-      }
-      return response()->json([
-         'response' => [
-            'status' => 200,
-            'message' => 'Berhasil mendapatkan data poster',
-            'data' => $poster
-         ]
-      ]);
-   }
-   public function returnPoster(Request $request)
-   {
-      $validated = $request->validate([
-         'id' => 'required|integer',
-      ]);
-      $poster = KartuTugas::find($validated['id']);
-      DB::beginTransaction();
-      try {
-         $poster->update([
-            'poster' => null
-         ]);
-         DB::commit();
-      } catch (\Exception $e) {
-         DB::rollBack();
-         return redirect()->back()->with(
-            'response',
-            [
-               'status' => 500,
-               'message' => $e->getMessage()
-            ]
-         );
-      }
-      return redirect()->back()->with(
-         'response',
-         [
-            'status' => 200,
-            'message' => 'Berhasil mengembalikan poster'
-         ]
-      );
-   }
+   // public function getPoster()
+   // {
+   //    try {
+   //       $poster = KartuTugas::where('kelompok_id', Auth::user()->kelompok_id)->select('hari', 'poster')->get();
+   //    } catch (\Exception $e) {
+   //       return response()->json([
+   //          'response' => [
+   //             'status' => 500,
+   //             'message' => $e->getMessage()
+   //          ]
+   //       ]);
+   //    }
+   //    return response()->json([
+   //       'response' => [
+   //          'status' => 200,
+   //          'message' => 'Berhasil mendapatkan data poster',
+   //          'data' => $poster
+   //       ]
+   //    ]);
+   // }
+   // public function returnPoster(Request $request)
+   // {
+   //    $validated = $request->validate([
+   //       'id' => 'required|integer',
+   //    ]);
+   //    $poster = KartuTugas::find($validated['id']);
+   //    DB::beginTransaction();
+   //    try {
+   //       $poster->update([
+   //          'poster' => null
+   //       ]);
+   //       DB::commit();
+   //    } catch (\Exception $e) {
+   //       DB::rollBack();
+   //       return redirect()->back()->with(
+   //          'response',
+   //          [
+   //             'status' => 500,
+   //             'message' => $e->getMessage()
+   //          ]
+   //       );
+   //    }
+   //    return redirect()->back()->with(
+   //       'response',
+   //       [
+   //          'status' => 200,
+   //          'message' => 'Berhasil mengembalikan poster'
+   //       ]
+   //    );
+   // }
 }
