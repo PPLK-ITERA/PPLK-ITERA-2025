@@ -222,7 +222,7 @@ export default function Page({ id }) {
                                                     "url",
                                                     e.target.value,
                                                 );
-                                                validateUrl(tugas.id);
+                                                // validateUrl(tugas.id);
                                                 setTugasId(tugas.id);
                                             }}
                                             placeholder={
