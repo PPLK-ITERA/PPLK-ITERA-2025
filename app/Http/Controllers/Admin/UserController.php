@@ -351,7 +351,7 @@ class UserController extends Controller
    {
       $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'name' => ['required', 'string'],
+         'name' => ['required', 'string','regex:/^[\pL\s\-]+$/u'],
          'nim' => ['required', 'string'],
          'email' => ['required', 'email'],
          'prodi_id' => ['required', 'integer'],
