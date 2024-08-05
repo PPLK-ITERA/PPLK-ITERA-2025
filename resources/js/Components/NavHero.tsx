@@ -12,7 +12,7 @@ export default function NavHero() {
     useAos();
 
     return (
-        <div className="bg-mobile-hero-background md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background h-screen bg-bottom bg-cover">
+        <div className="bg-mobile-hero-background md:h-full md:bg-desktop-hero-background lg:bg-desktop-hero-background h-screen bg-bottom bg-cover">
             <MaxWidthWrapper>
                 <Navbar isFixed={true} />
                 <Hero />

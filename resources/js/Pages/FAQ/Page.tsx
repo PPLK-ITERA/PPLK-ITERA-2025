@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { Head } from "@inertiajs/react";
+
 import { AccordionFAQ, FAQ } from "@/Components/AccordionFAQ";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
@@ -39,72 +41,78 @@ export default function Page({ response }) {
     );
 
     return (
-        <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
-            <div>
-                <Navbar isSolid={true} isFixed={true} />
-                <div className="md:pt-20 lg:pt-24 pt-20">
-                    <h2
-                        data-aos="fade-down"
-                        data-aos-duration="1000"
-                        className="font-avigea bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
-                    >
-                        Frequently Asked Question
-                    </h2>
+        <>
+            <Head title="FAQ" />
 
-                    <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 md:mt-[40px] md:px-0">
-                        <div
+            <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
+                <div>
+                    <Navbar isSolid={true} isFixed={true} />
+                    <div className="md:pt-20 lg:pt-24 pt-20">
+                        <h2
                             data-aos="fade-down"
                             data-aos-duration="1000"
-                            className="relative flex items-center"
+                            className="font-avigea bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
                         >
-                            <input
-                                type="text"
-                                placeholder="Cari pertanyaan disini..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full rounded-[10px] border border-[#864D0D] px-4 py-2 pl-10 text-base placeholder-black focus:outline-none focus:ring-2 focus:ring-jaffa-500 sm:px-6 sm:py-2.5 sm:pl-12 sm:text-lg md:text-[18px] focus:border-none"
-                            />
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="left-3 absolute text-black"
+                            Frequently Asked Question
+                        </h2>
+
+                        <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 md:mt-[40px] md:px-0">
+                            <div
+                                data-aos="fade-down"
+                                data-aos-duration="1000"
+                                className="relative flex items-center"
                             >
-                                <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
+                                <input
+                                    type="text"
+                                    placeholder="Cari pertanyaan disini..."
+                                    value={searchTerm}
+                                    onChange={(e) =>
+                                        setSearchTerm(e.target.value)
+                                    }
+                                    className="w-full rounded-[10px] border border-[#864D0D] px-4 py-2 pl-10 text-base placeholder-black focus:outline-none focus:ring-2 focus:ring-jaffa-500 sm:px-6 sm:py-2.5 sm:pl-12 sm:text-lg md:text-[18px] focus:border-none"
                                 />
-                                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                                <path d="M21 21l-6 -6" />
-                            </svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="left-3 absolute text-black"
+                                >
+                                    <path
+                                        stroke="none"
+                                        d="M0 0h24v24H0z"
+                                        fill="none"
+                                    />
+                                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                                    <path d="M21 21l-6 -6" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            className="container p-4 mx-auto md:mt-[56px]"
+                        >
+                            <AccordionFAQ items={currentItems} />
+                            <PaginationFAQ
+                                currentPage={currentPage}
+                                totalPages={totalPages}
+                                onPageChange={setCurrentPage}
+                            />
                         </div>
                     </div>
-
-                    <div
-                        data-aos="fade-up"
-                        data-aos-duration="1000"
-                        className="container p-4 mx-auto md:mt-[56px]"
-                    >
-                        <AccordionFAQ items={currentItems} />
-                        <PaginationFAQ
-                            currentPage={currentPage}
-                            totalPages={totalPages}
-                            onPageChange={setCurrentPage}
-                        />
-                    </div>
+                </div>
+                <div className="text-left">
+                    <Footer />
                 </div>
             </div>
-            <div className="text-left">
-                <Footer />
-            </div>
-        </div>
+        </>
     );
 }
 

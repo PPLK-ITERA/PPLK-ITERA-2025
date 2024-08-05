@@ -13,13 +13,13 @@ import {
     CarouselPrevious,
 } from "@/Components/ui/carousel";
 
-import ITERA from "!assets/logokm/ITERA.png";
-import KM from "!assets/logokm/KM.png";
 import KMITERA from "!assets/logokm/KMITERA.png";
 import Lup from "!assets/logokm/Lup.png";
 import Swarna from "!assets/logokm/Swarna.png";
 import Toga from "!assets/logokm/Toga.png";
 import U from "!assets/logokm/U.png";
+import ITERA from "!assets/logokm/itera.png";
+import KM from "!assets/logokm/km.png";
 
 const DataFilosofiLogoKM = [
     {

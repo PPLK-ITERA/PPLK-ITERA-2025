@@ -58,7 +58,7 @@ class PoinController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'qr_code' => 'required|string',
+            'qr_code' => 'required|string|max:10',
         ]);
         $poinqrcode = PoinQrCode::where('code', $validated['qr_code'])->first();
         $qrCode = PoinQrCode::where('user_id', $poinqrcode->user_id)

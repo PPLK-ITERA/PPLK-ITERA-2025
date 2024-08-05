@@ -5,6 +5,8 @@ import { usePage } from "@inertiajs/react";
 
 import { ChevronDown } from "lucide-react";
 
+import { IconNotebook } from "@tabler/icons-react";
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -88,6 +90,22 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
                             </Link>
                         </DropdownMenuItem>
                     ))}
+                    <DropdownMenuItem
+                        className={`${isScrolled || isSolid ? `focus:bg-jaffa-600` : `focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
+                    >
+                        <a
+                            href="https://drive.google.com/file/d/1L6NUCvhWmhNp_of1u8z81hBwn5UK24vD/view?usp=sharing"
+                            target="_blank"
+                            className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                        >
+                            <span
+                                className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                            >
+                                <IconNotebook size={24} color="#fcedd8" />
+                            </span>
+                            Panduan Penggunaan
+                        </a>
+                    </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
 

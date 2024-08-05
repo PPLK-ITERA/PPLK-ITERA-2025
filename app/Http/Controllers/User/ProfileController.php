@@ -57,7 +57,7 @@ class ProfileController extends Controller
       $validated = $request->validate([
          'linkedinURL' => 'required|url',
          'instagramURL' => 'required|url',
-         'bio' => 'required|string', // Assuming a reasonable max length for bio
+         'bio' => 'required|string|max:150', // Assuming a reasonable max length for bio
       ]);
 
       DB::beginTransaction();
@@ -83,7 +83,7 @@ class ProfileController extends Controller
 
 
       $request->validate([
-         'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
       ]);
 
       if ($request->hasFile('sphoto')) {

@@ -284,6 +284,14 @@ class UserController extends Controller
    public function edit(string $id)
    {
       //
+      $user = User::find($id);
+      $isDapmenOrMentor = auth()->user()->role_id == 2 || auth()->user()->role_id == 4;
+      if($isDapmenOrMentor && auth()->user()->kelompok_id != $user->kelompok_id){
+         return redirect()->route('dashboard.user.index');
+      }
+      if($isDapmenOrMentor && $user->role_id != 1){
+         return redirect()->route('dashboard.user.index');
+      }
       return Inertia::render('Dashboard/detail-user/Page', [
          'response' => [
             'status' => 200,
@@ -351,22 +359,29 @@ class UserController extends Controller
    {
       $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'name' => ['required', 'string'],
+         'name' => ['required', 'string','regex:/^[\pL\s\-]+$/u'],
          'nim' => ['required', 'string'],
          'email' => ['required', 'email'],
          'prodi_id' => ['required', 'integer'],
+         'bio' => ['nullable', 'string','max:150'],
+      ]);
+
+      $user = User::find($validated['id']);
+
+      if($user->role_id == 1){
+         $validate = $request->validate([
          'pita' => ['required', 'string'],
          'ket_penyakit' => ['sometimes', 'string'],
-         'bio' => ['sometimes', 'string'],
-      ]);
-      $user = User::find($validated['id']);
+         ]);
+      };
+      
       DB::BeginTransaction();
       try {
          $penyakit = Penyakit::find($user->penyakit_id);
          if ($penyakit) {
             $penyakit->update([
-               'pita' => $validated['pita'],
-               'ket_penyakit' => $validated['ket_penyakit'],
+               'pita' => $validate['pita'],
+               'ket_penyakit' => $validate['ket_penyakit'],
             ]);
          }
          $user->update([

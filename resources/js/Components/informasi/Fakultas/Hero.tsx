@@ -7,7 +7,7 @@ const Hero = ({ fakultas }) => {
 
     return (
         <div>
-            <div className="md:flex w-full">
+            <div className="md:flex md:flex-col lg:flex-row md:items-center md:justify-center w-full">
                 <div
                     className={`md:w-1/3 md:h-[300px] overflow-hidden flex items-center justify-center ${fakultas === "fakultas-fti" ? "px-5 lg:p-10" : ""} ${fakultas === "fakultas-sains" ? "px-5 lg:p-10" : ""}`}
                 >
@@ -17,8 +17,8 @@ const Hero = ({ fakultas }) => {
                     />
                 </div>
 
-                <div className="pt-14 md:w-2/3 pl-4 space-y-3">
-                    <p className="font-avigea text-moccaccino-500 md:max-w-[80%] md:text-start md:text-5xl text-3xl font-bold tracking-widest text-center">
+                <div className="pt-14 md:w-2/3 lg:text-start pl-4 space-y-3 text-center">
+                    <p className="font-avigea text-moccaccino-500 lg:max-w-[80%] lg:text-start md:text-center md:text-5xl text-3xl font-bold tracking-widest text-center">
                         {selectedFakultas.title}
                     </p>
 
@@ -28,7 +28,7 @@ const Hero = ({ fakultas }) => {
                 </div>
             </div>
 
-            <div className="md:px-8 lg:px-0 md:mt-20 max-w-4xl px-4 mx-auto mt-16 space-y-3">
+            <div className="md:px-8 md:text-center lg:text-start lg:px-0 md:mt-20 max-w-4xl px-4 mx-auto mt-16 space-y-3">
                 <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-bold tracking-widest">
                     Sejarah
                 </p>

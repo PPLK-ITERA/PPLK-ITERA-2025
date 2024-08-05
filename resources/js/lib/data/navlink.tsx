@@ -12,6 +12,7 @@ import {
     IconLayoutDashboard,
     IconMap,
     IconMoodWink,
+    IconMusic,
     IconSchool,
     IconShirt,
     IconTie,
@@ -106,6 +107,11 @@ export const MabaDropDown = [
         title: "Materi PPLK",
         href: "/materi",
         icon: <IconBook size={24} color="#fcedd8" />,
+    },
+    {
+        title: "Lagu",
+        href: "/lagu",
+        icon: <IconMusic size={24} color="#fcedd8" />,
     },
 ];
 

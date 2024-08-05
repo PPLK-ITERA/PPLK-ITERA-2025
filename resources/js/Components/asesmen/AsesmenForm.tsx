@@ -1,5 +1,6 @@
 "use client";
 
+import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { Toast } from "../ui/toast";
 import { Toaster } from "../ui/toaster";
 import clsx from "clsx";
@@ -106,22 +107,27 @@ export default function AsesmenForm() {
             {loading ? (
                 <QuizSkeleton className="w-full" />
             ) : (
-                <div className="flex flex-col gap-4 w-full">
-                    <div className="max-md:grow" />
-
-                    <span className="text-sm md:text-xl font-semibold w-full text-moccaccino-950">
+                <div className="relative flex flex-col w-full gap-4">
+                    <span className="md:text-xl text-moccaccino-950 w-full text-sm font-semibold">
                         Pertanyaan {currentQuestion + 1}/{questions.length}
                     </span>
+
                     <Progress
                         value={((currentQuestion + 1) * 100) / questions.length}
                     />
-                    <div className="w-full min-h-48 max-h-64 overflow-y-auto p-4 rounded-lg shadow-inner bg-black/25">
-                        <h2 className="max-md:text-sm font-semibold text-justify">
+
+                    <ScrollArea className="md:min-h-48 bg-jaffa-950/25 backdrop-blur-md w-full h-40 p-4 overflow-y-auto rounded-lg shadow-inner">
+                        <h2 className="max-md:text-sm text-start font-semibold text-black">
                             {questions[currentQuestion].teks_pertanyaan}
                         </h2>
-                    </div>
 
-                    <ul className="w-full flex flex-col gap-2 mt-4 md:mt-8">
+                        <ScrollBar
+                            orientation="vertical"
+                            className="text-jaffa-950"
+                        />
+                    </ScrollArea>
+
+                    <ul className="md:mt-8 flex flex-col w-full gap-2 mt-2">
                         {questions[currentQuestion].answers.map((ans) => (
                             <li key={ans.id}>
                                 <Button
@@ -134,7 +140,7 @@ export default function AsesmenForm() {
                                             " bg-gradient-to-r from-candlelight-800 to-candlelight-950":
                                                 ans.id === selectedAnswerId,
                                         },
-                                        "bg-white transition duration-400 w-full h-full font-medium text-wrap py-2 max-md:text-sm ",
+                                        "bg-white transition duration-400 w-full h-full font-medium text-wrap py-2 max-md:text-[12px]",
                                     )}
                                 >
                                     {ans.teks_jawaban}
@@ -143,12 +149,10 @@ export default function AsesmenForm() {
                         ))}
                     </ul>
 
-                    <div className="max-md:grow"></div>
-
                     <Button
                         onClick={submitAnswer}
                         disabled={selectedAnswerId === null || sendingAnswer}
-                        className="w-full bg-jaffa-600 my-4 md:my-8 hover:bg-jaffa-600/80"
+                        className="bg-jaffa-900 md:my-8 hover:bg-jaffa-900/80 w-full mb-4"
                     >
                         {currentQuestion < questions.length - 1
                             ? "Next"
