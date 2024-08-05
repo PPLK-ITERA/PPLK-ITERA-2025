@@ -2,7 +2,7 @@ import { QRCodeCanvas } from "qrcode.react";
 
 import { useEffect, useState } from "react";
 
-import { useForm } from "@inertiajs/react";
+import { Head, useForm } from "@inertiajs/react";
 
 import { IconPencil } from "@tabler/icons-react";
 
@@ -134,186 +134,196 @@ const Page = ({ response }) => {
     // !assets/
 
     return (
-        <div className="bg-pattern-white">
-            <Navbar isSolid={true} isFixed={true} />
-            <Toaster />
-            <div className="sm:flex-row mb-28 flex flex-col justify-center gap-3 pt-32 mx-auto">
-                <div className="flex flex-col items-center gap-4 mx-2">
-                    <div className="w-[212px] h-[212px] overflow-hidden flex justify-center items-center rounded-full border">
-                        {previewUrl ? (
-                            <img
-                                src={previewUrl}
-                                alt="preview-image-kelompok"
-                                className="object-contain object-center w-full h-full"
-                            />
-                        ) : (
-                            <img
-                                src={UserData.photo_profile_url}
-                                alt="logopplk"
-                                className="object-contain object-center w-full h-full"
-                            />
-                        )}
-                    </div>
+        <>
+            <Head title={`myprofile`} />
 
-                    <h2 className="text-center text-[16px] font-montserrat font-bold">
-                        {UserData.name}
-                    </h2>
-
-                    <div className="flex justify-center items-center w-[98px] h-[40px] rounded-[10px] border border-[#B9622F]">
-                        <Dialog>
-                            <DialogTrigger asChild>
-                                <Button className="bg-gradient-to-b from-[#B9822F] to-[#A6680C]">
-                                    Edit Foto Profil
-                                </Button>
-                            </DialogTrigger>
-
-                            <DialogContent className="sm:max-w-[425px]">
-                                <DialogHeader>
-                                    <DialogTitle>
-                                        Edit Foto Profilmu
-                                    </DialogTitle>
-                                </DialogHeader>
-                                <div className="grid gap-4 py-4">
-                                    <div className="relative flex items-center justify-center mx-auto rounded-full">
-                                        <div className="w-36 h-36 flex items-center justify-center overflow-hidden border rounded-full">
-                                            {previewUrl ? (
-                                                <img
-                                                    src={previewUrl}
-                                                    alt="preview-image-kelompok"
-                                                    className="object-contain object-center w-full h-full"
-                                                />
-                                            ) : (
-                                                <img
-                                                    src={
-                                                        UserData.photo_profile_url
-                                                    }
-                                                    alt="logopplk"
-                                                    className="object-contain object-center w-full h-full"
-                                                />
-                                            )}
-                                        </div>
-
-                                        <Label htmlFor="upload-logo-kelompok">
-                                            <IconPencil
-                                                size={32}
-                                                color="white"
-                                                className="-mt-[1px] cursor-pointer absolute bottom-1 right-1 bg-gradient-to-b from-[#B9822F] to-[#A6680C] border rounded-full p-1"
-                                            />
-                                        </Label>
-
-                                        <Input
-                                            type="file"
-                                            onChange={handleImageChange}
-                                            accept="image/*"
-                                            className="hidden"
-                                            id="upload-logo-kelompok"
-                                        />
-                                    </div>
-                                </div>
-                                <DialogFooter>
-                                    <DialogClose asChild>
-                                        <Button
-                                            variant={"outline"}
-                                            // disabled={processing}
-                                        >
-                                            Batalkan
-                                        </Button>
-                                    </DialogClose>
-                                    <DialogClose asChild>
-                                        <Button
-                                            // type="submit"
-                                            onClick={changeProfile}
-                                            // disabled={processing}
-                                            className="bg-gradient-to-b from-[#B9822F] to-[#A6680C]"
-                                        >
-                                            Simpan
-                                        </Button>
-                                    </DialogClose>
-                                </DialogFooter>
-                            </DialogContent>
-                        </Dialog>
-                    </div>
-
-                    <div>
-                        <h2 className="text-black font-montserrat font-bold text-[16px] text-center">
-                            QR Presensi
-                        </h2>
-                        <div className="aspect-square bg-white border flex justify-center items-center mt-1 w-[200px] h-[200px] rounded-md">
-                            {qrData === "" ? (
-                                <p>Loading...</p>
+            <div className="bg-pattern-white">
+                <Navbar isSolid={true} isFixed={true} />
+                <Toaster />
+                <div className="sm:flex-row mb-28 flex flex-col justify-center gap-3 pt-32 mx-auto">
+                    <div className="flex flex-col items-center gap-4 mx-2">
+                        <div className="w-[212px] h-[212px] overflow-hidden flex justify-center items-center rounded-full border">
+                            {previewUrl ? (
+                                <img
+                                    src={previewUrl}
+                                    alt="preview-image-kelompok"
+                                    className="object-contain object-center w-full h-full"
+                                />
                             ) : (
-                                <QRCodeCanvas
-                                    value={qrData}
-                                    size={200}
-                                    includeMargin={true}
-                                    level="H"
-                                    width={500}
-                                    height={500}
+                                <img
+                                    src={UserData.photo_profile_url}
+                                    alt="logopplk"
+                                    className="object-contain object-center w-full h-full"
                                 />
                             )}
                         </div>
-                    </div>
 
-                    <Button
-                        className="bg-gradient-to-b from-[#B9822F] to-[#A6680C]"
-                        onClick={downloadQRCode}
-                    >
-                        Download QR Code
-                    </Button>
-                </div>
+                        <h2 className="text-center text-[16px] font-montserrat font-bold">
+                            {UserData.name}
+                        </h2>
 
-                <div className="flex flex-col gap-6 mx-2">
-                    <div className="mx-auto flex justify-center items-center xl:items-start xl:justify-start xl:max-w-[945px] md:max-w-[920px] lg:max-w-[800px] md:max-h-[108px] w-full h-full bg-jaffa-600 rounded-md">
-                        <div className="xl:p-3 flex flex-col gap-2 p-5">
-                            <h2 className="flex md:text-[23px] lg:text-[25px] text-[20px] font-montserrat font-semibold text-white items-center">
-                                <img src={info} alt="info" className="mr-2" />
-                                Informasi
+                        <div className="flex justify-center items-center w-[98px] h-[40px] rounded-[10px] border border-[#B9622F]">
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                    <Button className="bg-gradient-to-b from-[#B9822F] to-[#A6680C]">
+                                        Edit Foto Profil
+                                    </Button>
+                                </DialogTrigger>
+
+                                <DialogContent className="sm:max-w-[425px]">
+                                    <DialogHeader>
+                                        <DialogTitle>
+                                            Edit Foto Profilmu
+                                        </DialogTitle>
+                                    </DialogHeader>
+                                    <div className="grid gap-4 py-4">
+                                        <div className="relative flex items-center justify-center mx-auto rounded-full">
+                                            <div className="w-36 h-36 flex items-center justify-center overflow-hidden border rounded-full">
+                                                {previewUrl ? (
+                                                    <img
+                                                        src={previewUrl}
+                                                        alt="preview-image-kelompok"
+                                                        className="object-contain object-center w-full h-full"
+                                                    />
+                                                ) : (
+                                                    <img
+                                                        src={
+                                                            UserData.photo_profile_url
+                                                        }
+                                                        alt="logopplk"
+                                                        className="object-contain object-center w-full h-full"
+                                                    />
+                                                )}
+                                            </div>
+
+                                            <Label htmlFor="upload-logo-kelompok">
+                                                <IconPencil
+                                                    size={32}
+                                                    color="white"
+                                                    className="-mt-[1px] cursor-pointer absolute bottom-1 right-1 bg-gradient-to-b from-[#B9822F] to-[#A6680C] border rounded-full p-1"
+                                                />
+                                            </Label>
+
+                                            <Input
+                                                type="file"
+                                                onChange={handleImageChange}
+                                                accept="image/*"
+                                                className="hidden"
+                                                id="upload-logo-kelompok"
+                                            />
+                                        </div>
+                                    </div>
+                                    <DialogFooter>
+                                        <DialogClose asChild>
+                                            <Button
+                                                variant={"outline"}
+                                                // disabled={processing}
+                                            >
+                                                Batalkan
+                                            </Button>
+                                        </DialogClose>
+                                        <DialogClose asChild>
+                                            <Button
+                                                // type="submit"
+                                                onClick={changeProfile}
+                                                // disabled={processing}
+                                                className="bg-gradient-to-b from-[#B9822F] to-[#A6680C]"
+                                            >
+                                                Simpan
+                                            </Button>
+                                        </DialogClose>
+                                    </DialogFooter>
+                                </DialogContent>
+                            </Dialog>
+                        </div>
+
+                        <div>
+                            <h2 className="text-black font-montserrat font-bold text-[16px] text-center">
+                                QR Presensi
                             </h2>
-                            <p className="md:text-[16px] lg:text-[16px] text-[12px] font-montserrat font-normal text-white">
-                                Hubungi Daplok atau Mentor jika terdapat
-                                kesalahan data
-                            </p>
+                            <div className="aspect-square bg-white border flex justify-center items-center mt-1 w-[200px] h-[200px] rounded-md">
+                                {qrData === "" ? (
+                                    <p>Loading...</p>
+                                ) : (
+                                    <QRCodeCanvas
+                                        value={qrData}
+                                        size={200}
+                                        includeMargin={true}
+                                        level="H"
+                                        width={500}
+                                        height={500}
+                                    />
+                                )}
+                            </div>
                         </div>
+
+                        <Button
+                            className="bg-gradient-to-b from-[#B9822F] to-[#A6680C]"
+                            onClick={downloadQRCode}
+                        >
+                            Download QR Code
+                        </Button>
                     </div>
 
-                    <div className="md:flex-row flex flex-col gap-8">
-                        <div className="xl:max-h-[826px] xl:max-w-[444px] lg:max-w-[350px] mx-auto w-full h-full rounded-md bg-white shadow-2xl border border-gray-400">
-                            <Profil
-                                props={{
-                                    name: UserData.name,
-                                    nim: UserData.nim,
-                                    role: UserData.role,
-                                    photo_profile_url:
-                                        UserData.photo_profile_url,
-                                    linkedin_url: UserData.linkedin_url,
-                                    instagram_url: UserData.instagram_url,
-                                    kelompok: UserData.kelompok,
-                                    pilar: UserData.pilar,
-                                    viewCount: UserData.viewCount,
-                                    followersCount: UserData.followersCount,
-                                    followingsCount: UserData.followingsCount,
-                                    qrcode: UserData.qrcode,
-                                    prodi: UserData.prodi,
-                                    bio: UserData.bio,
-                                }}
-                            />
+                    <div className="flex flex-col gap-6 mx-2">
+                        <div className="mx-auto flex justify-center items-center xl:items-start xl:justify-start xl:max-w-[945px] md:max-w-[920px] lg:max-w-[800px] md:max-h-[108px] w-full h-full bg-jaffa-600 rounded-md">
+                            <div className="xl:p-3 flex flex-col gap-2 p-5">
+                                <h2 className="flex md:text-[23px] lg:text-[25px] text-[20px] font-montserrat font-semibold text-white items-center">
+                                    <img
+                                        src={info}
+                                        alt="info"
+                                        className="mr-2"
+                                    />
+                                    Informasi
+                                </h2>
+                                <p className="md:text-[16px] lg:text-[16px] text-[12px] font-montserrat font-normal text-white">
+                                    Hubungi Daplok atau Mentor jika terdapat
+                                    kesalahan data
+                                </p>
+                            </div>
                         </div>
-                        <div className="md:max-h-[605px] lg:max-h-[590px] xl:max-w-[444px] lg:max-w-[350px] mx-auto w-full h-full rounded-md bg-white shadow-2xl border border-gray-400">
-                            <TentangPplk
-                                props={{
-                                    nama_daplok: UserData.kelompok.daplok,
-                                    nama_mentor: UserData.kelompok.mentor,
-                                    nama_kelompok:
-                                        UserData.kelompok.nama_kelompok,
-                                    no_kelompok: UserData.kelompok.no_kelompok,
-                                }}
-                            />
+
+                        <div className="md:flex-row flex flex-col gap-8">
+                            <div className="xl:max-h-[826px] xl:max-w-[444px] lg:max-w-[350px] mx-auto w-full h-full rounded-md bg-white shadow-2xl border border-gray-400">
+                                <Profil
+                                    props={{
+                                        name: UserData.name,
+                                        nim: UserData.nim,
+                                        role: UserData.role,
+                                        photo_profile_url:
+                                            UserData.photo_profile_url,
+                                        linkedin_url: UserData.linkedin_url,
+                                        instagram_url: UserData.instagram_url,
+                                        kelompok: UserData.kelompok,
+                                        pilar: UserData.pilar,
+                                        viewCount: UserData.viewCount,
+                                        followersCount: UserData.followersCount,
+                                        followingsCount:
+                                            UserData.followingsCount,
+                                        qrcode: UserData.qrcode,
+                                        prodi: UserData.prodi,
+                                        bio: UserData.bio,
+                                    }}
+                                />
+                            </div>
+                            <div className="md:max-h-[605px] lg:max-h-[590px] xl:max-w-[444px] lg:max-w-[350px] mx-auto w-full h-full rounded-md bg-white shadow-2xl border border-gray-400">
+                                <TentangPplk
+                                    props={{
+                                        nama_daplok: UserData.kelompok.daplok,
+                                        nama_mentor: UserData.kelompok.mentor,
+                                        nama_kelompok:
+                                            UserData.kelompok.nama_kelompok,
+                                        no_kelompok:
+                                            UserData.kelompok.no_kelompok,
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </>
     );
 };
 

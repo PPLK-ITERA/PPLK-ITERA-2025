@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
 
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 import { UserPlus } from "lucide-react";
 
@@ -86,94 +86,102 @@ function Page() {
     }, [sort]);
 
     return (
-        <div className="bg-pattern-white flex flex-col w-full min-h-screen">
-            <div>
-                <Navbar isSolid={true} isFixed={false} />
+        <>
+            <Head title="Relasi & Jaringan" />
 
-                <div className="max-w-7xl md:pt-24 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 py-16 pt-10 mx-auto text-base text-black">
-                    <div className="relative w-full max-w-3xl mx-auto">
-                        <Input
-                            type="text"
-                            placeholder="Cari Nusantara Muda yang Lain"
-                            className="p-4 border rounded-[10px]"
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
+            <div className="bg-pattern-white flex flex-col w-full min-h-screen">
+                <div>
+                    <Navbar isSolid={true} isFixed={false} />
 
-                        <Link href={route("relasi.search", { search: search })}>
-                            <Button className="absolute top-1/2 -translate-y-1/2 right-0 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-r-lg rounded-l-none">
-                                <IconSearch className="w-4 h-4" />
-                            </Button>
-                        </Link>
-                    </div>
+                    <div className="max-w-7xl md:pt-24 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 py-16 pt-10 mx-auto text-base text-black">
+                        <div className="relative w-full max-w-3xl mx-auto">
+                            <Input
+                                type="text"
+                                placeholder="Cari Nusantara Muda yang Lain"
+                                className="p-4 border rounded-[10px]"
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
 
-                    <div className="text-center">
-                        <h1 className="font-avigea text-jaffa-800 text-2xl font-bold">
-                            TOP 3 FOLLOWERS
-                        </h1>
-                    </div>
+                            <Link
+                                href={route("relasi.search", {
+                                    search: search,
+                                })}
+                            >
+                                <Button className="absolute top-1/2 -translate-y-1/2 right-0 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-r-lg rounded-l-none">
+                                    <IconSearch className="w-4 h-4" />
+                                </Button>
+                            </Link>
+                        </div>
 
-                    <div className="w-full max-w-2xl mx-auto">
-                        {topLoading ? (
-                            <RelasiLoading className="mx-auto min-h-36" />
-                        ) : (
-                            <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
-                                <TopUser
-                                    className="basis-1/3"
-                                    user={topFollowers[1]}
-                                    rank={2}
-                                    podiumHeight={160}
-                                />
-                                <TopUser
-                                    className="basis-1/3"
-                                    user={topFollowers[0]}
-                                    rank={1}
-                                    podiumHeight={196}
-                                />
-                                <TopUser
-                                    className="basis-1/3"
-                                    user={topFollowers[2]}
-                                    rank={3}
-                                    podiumHeight={144}
+                        <div className="text-center">
+                            <h1 className="font-avigea text-jaffa-800 text-2xl font-bold">
+                                TOP 3 FOLLOWERS
+                            </h1>
+                        </div>
+
+                        <div className="w-full max-w-2xl mx-auto">
+                            {topLoading ? (
+                                <RelasiLoading className="min-h-36 mx-auto" />
+                            ) : (
+                                <div className="sm:gap-4 lg:gap-8 flex justify-center w-full gap-2 pt-4 overflow-y-hidden text-center">
+                                    <TopUser
+                                        className="basis-1/3"
+                                        user={topFollowers[1]}
+                                        rank={2}
+                                        podiumHeight={160}
+                                    />
+                                    <TopUser
+                                        className="basis-1/3"
+                                        user={topFollowers[0]}
+                                        rank={1}
+                                        podiumHeight={196}
+                                    />
+                                    <TopUser
+                                        className="basis-1/3"
+                                        user={topFollowers[2]}
+                                        rank={3}
+                                        podiumHeight={144}
+                                    />
+                                </div>
+                            )}
+                            <div className="bg-moccaccino-700 w-full h-1"></div>
+                        </div>
+
+                        <div className="w-full max-w-5xl mx-auto">
+                            <div className="flex justify-between">
+                                <h4 className="text-2xl font-bold capitalize">
+                                    Profil Berdasarkan {sort}
+                                </h4>
+                                <SortDropdown
+                                    options={sortOptions}
+                                    setSort={setSort}
                                 />
                             </div>
-                        )}
-                        <div className="bg-moccaccino-700 w-full h-1"></div>
-                    </div>
-
-                    <div className="w-full max-w-5xl mx-auto">
-                        <div className="flex justify-between">
-                            <h4 className="text-2xl font-bold capitalize">
-                                Profil Berdasarkan {sort}
-                            </h4>
-                            <SortDropdown
-                                options={sortOptions}
-                                setSort={setSort}
-                            />
+                            {sortLoading ? (
+                                <RelasiLoading className="min-h-48 mx-auto" />
+                            ) : (
+                                <UserList users={users} />
+                            )}
                         </div>
-                        {sortLoading ? (
-                            <RelasiLoading className="mx-auto min-h-48" />
-                        ) : (
-                            <UserList users={users} />
-                        )}
+                        <div className="flex justify-center">
+                            <Button className="bg-jaffa-500 mx-1 border border-black">
+                                1
+                            </Button>
+                            <Button className="bg-jaffa-500 mx-1 border border-black">
+                                2
+                            </Button>
+                            <Button className="bg-jaffa-500 mx-1 border border-black">
+                                3
+                            </Button>
+                            <Button className="bg-jaffa-500 mx-1 border border-black">
+                                4
+                            </Button>
+                        </div>
                     </div>
-                    <div className="flex justify-center">
-                        <Button className="mx-1 bg-jaffa-500 border border-black">
-                            1
-                        </Button>
-                        <Button className="mx-1 bg-jaffa-500 border border-black">
-                            2
-                        </Button>
-                        <Button className="mx-1 bg-jaffa-500 border border-black">
-                            3
-                        </Button>
-                        <Button className="mx-1 bg-jaffa-500 border border-black">
-                            4
-                        </Button>
-                    </div>
+                    <Footer />
                 </div>
-                <Footer />
             </div>
-        </div>
+        </>
     );
 }
 

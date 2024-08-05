@@ -149,7 +149,7 @@ const Prodi = ({ prodi, className }: Props) => {
                                 "https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg"
                             }
                             alt="Koordinator"
-                            className="lg:h-28 lg:w-28 w-20 h-20 rounded-full"
+                            className="lg:h-28 lg:w-28 object-cover w-20 h-20 rounded-full"
                         />
 
                         <div className="place-content-center max-lg:place-items-center max-lg:text-center flex flex-col text-left">

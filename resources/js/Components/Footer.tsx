@@ -100,9 +100,17 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-10 font-montserrat flex justify-end text-[12px] font-light text-white md:text-sm lg:text-lg">
+                <div className="mt-10 font-montserrat flex justify-end text-[12px] font-light text-white md:text-sm lg:text-lg flex-col">
                     <p className="text-end z-20">
                         &copy; Copyright IMTEK PPLK 2024
+                    </p>
+                    <p className="text-end z-20">
+                        Kontak Kami Melalui{" "}
+                        <span>
+                            <a href="mailto:imtekpplk@gmail.com">
+                                imtekpplk@gmail.com
+                            </a>
+                        </span>
                     </p>
                 </div>
             </MaxWidthWrapper>
