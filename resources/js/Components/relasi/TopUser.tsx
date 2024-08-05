@@ -5,9 +5,9 @@ import React, { useEffect, useState } from "react";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
+import { generateRandomImage } from "@/lib/utils";
 
 import crown from "!assets/svg/crown.svg";
-import { generateRandomImage } from "@/lib/utils";
 
 type Props = {
     user?: User;
@@ -66,7 +66,14 @@ export default function TopUser({
                 </div>
             )}
 
-            {user && <div className="text-lg font-bold">{user.name}</div>}
+            {user && (
+                <a
+                    className="text-lg font-bold hover:scale-105 hover:underline transition"
+                    href={route("relasi.profil", { id: user.id })}
+                >
+                    {user.name}
+                </a>
+            )}
 
             <p className="bg-gray-400/50 md:px-2 px-0 text-sm rounded-full">
                 {user && (

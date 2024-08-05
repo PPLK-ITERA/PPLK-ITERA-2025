@@ -19,7 +19,7 @@ class ScoreboardController extends Controller
     */
    public function getTotalScoresFromDatabase()
    {
-      $kelompokScores = User::with('kelompok')->select('kelompok_id', \DB::raw('SUM(score) as total_score'))->whereNotNull('kelompok_id')
+      $kelompokScores = User::with('kelompok')->select('kelompok_id', DB::raw('SUM(score) as total_score'))->whereNotNull('kelompok_id')
          ->groupBy('kelompok_id')
          ->orderBy('total_score', 'desc')
          ->get();
@@ -41,7 +41,7 @@ class ScoreboardController extends Controller
 
       // Mengambil skor kelompok dan mengurutkannya
       $kelompokScores = User::with('kelompok')
-         ->select('kelompok_id', \DB::raw('SUM(score) as total_score'))
+         ->select('kelompok_id', DB::raw('SUM(score) as total_score'))
          ->groupBy('kelompok_id')
          ->orderBy('total_score', 'desc')
          ->get();

@@ -2,28 +2,11 @@ import React from "react";
 
 import { Link } from "@inertiajs/react";
 
-import Footer from "@/Components/Footer";
-import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
-import NavHero from "@/Components/NavHero";
-import Navbar from "@/Components/Navbar";
-import FilosofiLogo from "@/Components/landing-page/FilosofiLogo";
-import Hero from "@/Components/landing-page/Hero";
-import InfoSection from "@/Components/landing-page/InfoSection";
-import Maskot from "@/Components/landing-page/Maskot";
-import Panduan from "@/Components/landing-page/Panduan";
-import Sponsorship from "@/Components/landing-page/Sponsorship";
-import VideoSection from "@/Components/landing-page/VideoSection";
-import What from "@/Components/landing-page/What";
 import { Button } from "@/Components/ui/button";
 
 import { useAos } from "@/lib/hooks/useAos";
 
-import awan from "!assets/awan.png";
 import elang from "!assets/elang-hero.png";
-import overlay_box from "!assets/overlay-box.png";
-import overlay_earth from "!assets/overlay-earth.png";
-import pillar_brown from "!assets/pillar-brown.png";
-import sponsor_overlay from "!assets/sponsor-overlay.png";
 
 export default function Error({ status }) {
     const title = {
@@ -84,12 +67,12 @@ export default function Error({ status }) {
                         </p>
                     </div>
 
-                    <Link
-                        href={route("welcome")}
+                    <Button
+                        onClick={() => window.history.back()}
                         className="rounded p-3 bg-jaffa-400/80 hover:bg-jaffa-400 backdrop-blur-md md:w-fit transition"
                     >
-                        Kembali ke Beranda
-                    </Link>
+                        Kembali
+                    </Button>
                 </div>
 
                 <div data-aos="fade-left" data-aos-duration="1500">
