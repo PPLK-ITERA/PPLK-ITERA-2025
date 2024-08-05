@@ -62,7 +62,7 @@ class TugasController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'catatan' => 'required|string',
+         'catatan' => 'required|string|max:120',
       ]);
       $tugas = PengumpulanTugas::find($validated['id']);
       DB::beginTransaction();

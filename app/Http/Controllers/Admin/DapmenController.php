@@ -56,8 +56,8 @@ class DapmenController extends Controller
    public function store(Request $request)
    {
       $validated = $request->validate([
-         'name' => 'required|string',
-         'nim' => 'required|string',
+         'name' => 'required|string|max:120',
+         'nim' => 'required|string|max:9',
          'email' => 'required|email|unique:users',
          'role_id' => 'required|number|default:2',
          'kelompok_id' => 'required|integer',

@@ -45,9 +45,9 @@ class MateriController extends Controller
    public function store(Request $request)
    {
       $validated = $request->validate([
-         'nama_materi' => 'required|string',
+         'nama_materi' => 'required|string|max:120',
          'link_materi' => 'required|url|string',
-         'hari' => 'required|string',
+         'hari' => 'required|string|max:120',
       ]);
       DB::beginTransaction();
       try {
@@ -83,9 +83,9 @@ class MateriController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'nama_materi' => 'required|string',
-         'link_materi' => 'required|url|string',
-         'hari' => 'required|string',
+         'nama_materi' => 'required|string|max:120',
+         'link_materi' => 'required|url|string|max:120',
+         'hari' => 'required|string|max:120',
       ]);
       DB::beginTransaction();
       try {

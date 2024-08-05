@@ -19,7 +19,7 @@ class PresensiPplkController extends Controller
    public function QRScan(Request $request)
    {
       $validated = $request->validate([
-         'qr_code' => 'required|string',
+         'qr_code' => 'required|string|max:10',
       ]);
 
       $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
