@@ -355,18 +355,25 @@ class UserController extends Controller
          'nim' => ['required', 'string'],
          'email' => ['required', 'email'],
          'prodi_id' => ['required', 'integer'],
-         'pita' => ['required', 'string'],
-         'ket_penyakit' => ['sometimes', 'string'],
          'bio' => ['nullable', 'string','max:150'],
       ]);
+
       $user = User::find($validated['id']);
+
+      if($user->role_id == 1){
+         $validate = $request->validate([
+         'pita' => ['required', 'string'],
+         'ket_penyakit' => ['sometimes', 'string'],
+         ]);
+      };
+      
       DB::BeginTransaction();
       try {
          $penyakit = Penyakit::find($user->penyakit_id);
          if ($penyakit) {
             $penyakit->update([
-               'pita' => $validated['pita'],
-               'ket_penyakit' => $validated['ket_penyakit'],
+               'pita' => $validate['pita'],
+               'ket_penyakit' => $validate['ket_penyakit'],
             ]);
          }
          $user->update([
