@@ -98,25 +98,25 @@ function Page() {
     };
 
     return (
-        <>
+        <div>
             <Head title="Relasi & Jaringan" />
 
             <div className="bg-pattern-white flex flex-col w-full min-h-screen">
                 <div>
                     <Navbar isSolid={true} isFixed={false} />
 
-                <div className="max-w-7xl md:pt-28 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 py-16 pt-10 px-4 mx-auto text-base text-black">
-                    <div className="relative w-full max-w-3xl mx-auto">
-                        <RelasiSearch
-                            onsubmit={(search) => goToSearch(search)}
-                        />
-                    </div>
+                    <div className="max-w-7xl md:pt-28 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 py-16 pt-10 px-4 mx-auto text-base text-black">
+                        <div className="relative w-full max-w-3xl mx-auto">
+                            <RelasiSearch
+                                onsubmit={(search) => goToSearch(search)}
+                            />
+                        </div>
 
-                    <div className="text-center">
-                        <h1 className="font-avigea text-jaffa-800 text-2xl font-bold">
-                            TOP 3 FOLLOWERS
-                        </h1>
-                    </div>
+                        <div className="text-center">
+                            <h1 className="font-avigea text-jaffa-800 text-2xl font-bold">
+                                TOP 3 FOLLOWERS
+                            </h1>
+                        </div>
 
                         <div className="w-full max-w-2xl mx-auto">
                             {topLoading ? (
@@ -146,72 +146,75 @@ function Page() {
                             <div className="bg-moccaccino-700 w-full h-1"></div>
                         </div>
 
-                    <div className="w-full max-w-5xl mx-auto">
-                        <div className="flex max-md:flex-col place-content-center justify-between">
-                            <h4 className="text-lg lg:text-2xl font-bold capitalize text-center">
-                                Profil Berdasarkan {sort}
-                            </h4>
-                            <SortDropdown
-                                options={sortOptions}
-                                setSort={setSort}
-                            />
+                        <div className="w-full max-w-5xl mx-auto">
+                            <div className="flex max-md:flex-col place-content-center justify-between">
+                                <h4 className="text-lg lg:text-2xl font-bold capitalize text-center">
+                                    Profil Berdasarkan {sort}
+                                </h4>
+                                <SortDropdown
+                                    options={sortOptions}
+                                    setSort={setSort}
+                                />
+                            </div>
+                            {sortLoading ? (
+                                <RelasiLoading className="mx-auto min-h-48" />
+                            ) : (
+                                <UserList users={users} />
+                            )}
                         </div>
-                        {sortLoading ? (
-                            <RelasiLoading className="mx-auto min-h-48" />
-                        ) : (
-                            <UserList users={users} />
-                        )}
-                    </div>
 
-                    <ul className="flex gap-2 mx-auto flex-wrap place-content-center place-items-center">
-                        <li>
-                            <Button
-                                size="sm"
-                                onClick={() =>
-                                    setCurrentPage(Math.max(currentPage - 1, 1))
-                                }
-                                className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition "
-                            >
-                                <IconChevronLeft></IconChevronLeft>
-                            </Button>
-                        </li>
-
-                        {getPaginationRange().map((page) => (
-                            <li key={page}>
+                        <ul className="flex gap-2 mx-auto flex-wrap place-content-center place-items-center">
+                            <li>
                                 <Button
                                     size="sm"
-                                    className=" bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition"
-                                    onClick={() => setCurrentPage(page)}
+                                    onClick={() =>
+                                        setCurrentPage(
+                                            Math.max(currentPage - 1, 1),
+                                        )
+                                    }
+                                    className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition "
                                 >
-                                    {page}
+                                    <IconChevronLeft></IconChevronLeft>
                                 </Button>
                             </li>
-                        ))}
 
-                        <li>
-                            <Button
-                                size="sm"
-                                onClick={() =>
-                                    setCurrentPage(
-                                        Math.min(
-                                            currentPage + 1,
-                                            sortResponse?.last_page ?? 1,
-                                        ),
-                                    )
-                                }
-                                className=" bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition"
-                            >
-                                <IconChevronRight></IconChevronRight>
-                            </Button>
-                        </li>
-                    </ul>
-                    <p className="text-center">
-                        Halaman {currentPage} dari{" "}
-                        {sortResponse?.last_page ?? 1}
-                    </p>
+                            {getPaginationRange().map((page) => (
+                                <li key={page}>
+                                    <Button
+                                        size="sm"
+                                        className=" bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition"
+                                        onClick={() => setCurrentPage(page)}
+                                    >
+                                        {page}
+                                    </Button>
+                                </li>
+                            ))}
+
+                            <li>
+                                <Button
+                                    size="sm"
+                                    onClick={() =>
+                                        setCurrentPage(
+                                            Math.min(
+                                                currentPage + 1,
+                                                sortResponse?.last_page ?? 1,
+                                            ),
+                                        )
+                                    }
+                                    className=" bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition"
+                                >
+                                    <IconChevronRight></IconChevronRight>
+                                </Button>
+                            </li>
+                        </ul>
+                        <p className="text-center">
+                            Halaman {currentPage} dari{" "}
+                            {sortResponse?.last_page ?? 1}
+                        </p>
+                    </div>
+
+                    <Footer />
                 </div>
-
-                <Footer />
             </div>
         </div>
     );

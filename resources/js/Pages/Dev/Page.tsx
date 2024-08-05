@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { Head } from "@inertiajs/react";
+
 import { IconCancel, IconX } from "@tabler/icons-react";
 
 import Main from "@/Components/dev/Main";
@@ -40,7 +42,7 @@ function Page() {
                 </div>
                 <ParticleBackground />
 
-            {/* 
+                {/* 
             fitur ga penting ga usah dimasukin
             
             <div className="fixed right-0 top-0">
