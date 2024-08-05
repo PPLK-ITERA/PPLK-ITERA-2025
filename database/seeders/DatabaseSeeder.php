@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
    {
       $this->call([
          RoleSeeder::class,
-            // KelompokSeeder::class,
+         // KelompokSeeder::class,
          ScoreboardSeeder::class,
-            // UserSeeder::class,
+         // UserSeeder::class,
          PresensiPplkSeeder::class,
          QuizSeeder::class,
          QuizAnswerSeeder::class,
@@ -30,21 +30,33 @@ class DatabaseSeeder extends Seeder
          ProdiSeeder::class,
          FAQSeeder::class,
          BookletSeeder::class,
-            // TugasSeeder::class,
+         // TugasSeeder::class,
          AssesmenQuestionSeeder::class,
          AssesmenAnswerSeeder::class,
          PilarSeeder::class,
          // Add more seeders if needed
       ]);
 
-      foreach (range(1, 3) as $kelompok) {
+      foreach (range(1, 2) as $kelompok) {
          // Create users and save them to get their IDs
-         $daplokUser = User::factory()->create([
-            'role_id' => 2, // Assuming role_id 2 is for daplok
+         $daplokUser = User::create([
+            'name' => 'Pendamping Kelompok ' . $kelompok,
+            'email' => 'daplok.' . $kelompok . '@pplk.com',
+            'password' => bcrypt('password'),  // Example password
+            'prodi_id' => rand(1, 41),
+            'nim' => rand(100000, 9999999),
+            'penyakit_id' => Penyakit::factory()->create()->id,
+            'role_id' => 4, // Assuming role_id 4 is for mentor
             'kelompok_id' => $kelompok
          ]);
 
-         $mentorUser = User::factory()->create([
+         $mentorUser = User::create([
+            'name' => 'Mentor Kelompok ' . $kelompok,
+            'email' => 'mentor.' . $kelompok . '@pplk.com',
+            'password' => bcrypt('password'),  // Example password
+            'prodi_id' => rand(1, 41),
+            'nim' => rand(100000, 9999999),
+            'penyakit_id' => Penyakit::factory()->create()->id,
             'role_id' => 4, // Assuming role_id 4 is for mentor
             'kelompok_id' => $kelompok
          ]);
@@ -57,11 +69,32 @@ class DatabaseSeeder extends Seeder
             'daplok_id' => $daplokUser->id,
             'mentor_id' => $mentorUser->id
          ]);
+
          foreach (range(1, 3) as $user) {
-            User::factory()->create([
-               'role_id' => 1,
-               'kelompok_id' => $kelompok
-            ]);
+            if ($user == 1) {
+               User::create([
+                  'name' => 'Maba ' . $user . ' ' . $kelompok,
+                  'email' => 'maba.' . $user . '.' . $kelompok . '@pplk.com',
+                  'password' => bcrypt('password'),
+                  'prodi_id' => rand(1, 41),
+                  'nim' => rand(100000, 9999999),
+                  'penyakit_id' => Penyakit::factory()->create()->id,
+                  'isKetua' => true,
+                  'role_id' => 1,
+                  'kelompok_id' => $kelompok
+               ]);
+            } else {
+               User::create([
+                  'name' => 'Maba ' . $user . ' ' . $kelompok,
+                  'email' => 'maba.' . $user . '.0' . $kelompok . '@pplk.com',
+                  'password' => bcrypt('password'),
+                  'prodi_id' => rand(1, 41),
+                  'nim' => rand(100000, 9999999),
+                  'penyakit_id' => Penyakit::factory()->create()->id,
+                  'role_id' => 1,
+                  'kelompok_id' => $kelompok
+               ]);
+            }
          }
          foreach (range(1, 6) as $hari) {
             $kartuTugas = KartuTugas::create([
@@ -73,14 +106,25 @@ class DatabaseSeeder extends Seeder
             ]);
 
             // Buat satu Tugas untuk setiap KartuTugas
-            $tugas = Tugas::create([
-               'kartu_id' => $kartuTugas->id,
-               'judul' => 'Sample Task ' . $hari,
-               'deskripsi' => 'Complete the task for day ' . $hari,
-               'pengumpulan' => 'sosmed',
-               'kategori' => 'individu',
-               'deadline' => Carbon::now()->addDays(7),
-            ]);
+            if ($hari == 1) {
+               $tugas = Tugas::create([
+                  'kartu_id' => $kartuTugas->id,
+                  'judul' => 'Sample Task ' . $hari,
+                  'deskripsi' => 'Complete the task for day ' . $hari,
+                  'pengumpulan' => 'drive',
+                  'kategori' => 'kelompok',
+                  'deadline' => Carbon::now()->addDays(7),
+               ]);
+            } else {
+               Tugas::create([
+                  'kartu_id' => $kartuTugas->id,
+                  'judul' => 'Sample Task ' . $hari,
+                  'deskripsi' => 'Complete the task for day ' . $hari,
+                  'pengumpulan' => 'drive',
+                  'kategori' => 'individu',
+                  'deadline' => Carbon::now()->addDays(7),
+               ]);
+            }
          }
       }
       $roles = Role::all();
