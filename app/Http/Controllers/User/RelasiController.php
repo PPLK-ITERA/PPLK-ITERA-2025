@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Follow;
+use App\Models\Views;
 use App\Models\Qrcode;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -154,13 +155,30 @@ class RelasiController extends Controller
    // Menampilkan profil pengguna
    public function profile($id)
    {
-      $user = User::withCount(['followers', 'followings'])->findOrFail($id);
+      $viewingUserId = Auth::id();
+      $viewedUserId = $id;
+      $views = Views::where('viewing_user_id', $viewingUserId)
+         ->where('viewed_user_id', $viewedUserId)
+         ->exists();
+      if(!$views){
+         DB::beginTransaction();
+         try {
+            // If not following, follow the user
+            Views::create([
+               'viewing_user_id' => $viewingUserId,
+               'viewed_user_id' => $viewedUserId
+            ]);
+            DB::commit();
+         } catch (\Throwable $th) {
+            DB::rollBack();
+         }
+      }
+      $user = User::withCount(['followers', 'followings', 'viewers'])->findOrFail($id);
       $follow = Follow::where('following_user_id', Auth::id())
          ->where('followed_user_id', $id)
          ->exists();
 
-      // Increment view count
-      $user->increment('view_count');
+      // $user->view_count = 
 
       // Return only the specified attributes
       $response = [
@@ -177,7 +195,7 @@ class RelasiController extends Controller
             'daplok' => $user->kelompok->daplok->name,
             'mentor' => $user->kelompok->mentor->name,
          ],
-         'view_count' => $user->view_count,
+         'view_count' => $user->viewers_count,
          'followers_count' => $user->followers_count,
          'followings_count' => $user->followings_count,
          'followed' => $follow,

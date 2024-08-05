@@ -170,7 +170,7 @@ class MadingController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'poster' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         'poster' => 'required|image|mimes:jpeg,png,jpg|max:2048',
       ]);
 
       $userId = Auth::id();
