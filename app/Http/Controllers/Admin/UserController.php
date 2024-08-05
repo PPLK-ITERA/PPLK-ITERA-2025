@@ -284,6 +284,14 @@ class UserController extends Controller
    public function edit(string $id)
    {
       //
+      $user = User::find($id);
+      $isDapmenOrMentor = auth()->user()->role_id == 2 || auth()->user()->role_id == 4;
+      if($isDapmenOrMentor && auth()->user()->kelompok_id != $user->kelompok_id){
+         return redirect()->route('dashboard.user.index');
+      }
+      if($isDapmenOrMentor && $user->role_id != 1){
+         return redirect()->route('dashboard.user.index');
+      }
       return Inertia::render('Dashboard/detail-user/Page', [
          'response' => [
             'status' => 200,

@@ -26,7 +26,6 @@ class CreateUsersTable extends Migration
          $table->string('link_sertif')->nullable();
          $table->foreignId('kelompok_id')->nullable();
          $table->integer('score')->default(0);
-         $table->unsignedBigInteger('view_count')->default(0);
 
          $table->foreignId('prodi_id')->nullable();
          $table->foreignId('penyakit_id')->nullable();

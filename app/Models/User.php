@@ -69,6 +69,16 @@ class User extends Authenticatable
    {
       return $this->hasMany(Follow::class, 'following_user_id');
    }
+   public function viewers()
+   {
+      return $this->hasMany(Views::class, 'viewed_user_id');
+   }
+
+   public function viewing()
+   {
+      return $this->hasMany(Views::class, 'viewing_user_id');
+   }
+   
 
    public function kelompok()
    {
