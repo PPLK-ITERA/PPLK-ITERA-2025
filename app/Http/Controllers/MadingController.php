@@ -117,8 +117,8 @@ class MadingController extends Controller
    public function storeTugas(Request $request)
    {
       $validated = $request->validate([
-         'tugas_id' => 'required|integer',
-         'jawaban' => 'required|string',
+         'tugas_id' => 'required|integer|max:120',
+         'jawaban' => 'required|string|max:120',
       ]);
 
       $userId = Auth::id();
@@ -146,7 +146,7 @@ class MadingController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'catatan' => 'required|string',
+         'catatan' => 'required|string|max:120',
       ]);
 
       DB::beginTransaction();

@@ -34,11 +34,11 @@ class UserController extends Controller
    public function store(Request $request)
    {
       $validated = $request->validate([
-         'name' => 'required|string|regex:/^[\pL\s\-]+$/u',
+         'name' => 'required|string|max:120|regex:/^[\pL\s\-]+$/u|alpha:ascii',
          'email' => 'required|email',
-         'password' => 'required|string',
+         'password' => 'required|string|max:120',
          'role_id' => 'required|number|default:1',
-         'nim' => 'required|string',
+         'nim' => 'required|string|max:9',
          'photo_profile_url' => 'string',
          'linkedin_url' => 'string',
          'instagram_url' => 'string',
