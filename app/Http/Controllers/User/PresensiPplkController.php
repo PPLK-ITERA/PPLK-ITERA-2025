@@ -33,6 +33,28 @@ class PresensiPplkController extends Controller
          ], 404);
       }
       $user = User::findorfail($qrcode->user_id);
+      if(Auth::user()->role_id == 5){
+         if($user->prodi_id != Auth::user()->prodi_id){
+            return response()->json([
+               "status" => 403,
+               "message" => "Maba tidak ada di prodi anda",
+               "data" => [
+                  $validated['qr_code']
+               ]
+            ], 403);
+         }
+      }elseif(Auth::user()->role_id == 2 || Auth::user()->role_id == 4){
+         $kelompok = Auth::user()->kelompok_id;
+         if($kelompok != $user->kelompok_id){
+            return response()->json([
+               "status" => 403,
+               "message" => "Maba tidak ada di kelompok anda",
+               "data" => [
+                  $validated['qr_code']
+               ]
+            ], 403);
+         }
+      }
       if (!$user) {
          return response()->json([
             "status" => 404,
