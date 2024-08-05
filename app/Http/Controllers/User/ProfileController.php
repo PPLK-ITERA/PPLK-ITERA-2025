@@ -57,7 +57,7 @@ class ProfileController extends Controller
       $validated = $request->validate([
          'linkedinURL' => 'required|url',
          'instagramURL' => 'required|url',
-         'bio' => 'required|string', // Assuming a reasonable max length for bio
+         'bio' => 'nullable|max:150|string', // Assuming a reasonable max length for bio
       ]);
 
       DB::beginTransaction();

@@ -357,7 +357,7 @@ class UserController extends Controller
          'prodi_id' => ['required', 'integer'],
          'pita' => ['required', 'string'],
          'ket_penyakit' => ['sometimes', 'string'],
-         'bio' => ['sometimes', 'string'],
+         'bio' => ['nullable', 'string','max:150'],
       ]);
       $user = User::find($validated['id']);
       DB::BeginTransaction();
