@@ -3,11 +3,11 @@ import { IDetectedBarcode, Scanner, outline } from "@yudiel/react-qr-scanner";
 
 import React, { useEffect, useState } from "react";
 
-import { router, useForm, usePage } from "@inertiajs/react";
+import { Link, router, useForm, usePage } from "@inertiajs/react";
 
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-import { Button } from "@/Components/ui/button";
+import { Button, buttonVariants } from "@/Components/ui/button";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
@@ -84,18 +84,9 @@ function Page({ auth }) {
             <DashboardLayout user={auth.user}>
                 <div className="relative flex flex-col items-center justify-center w-full h-full">
                     <div className="md:w-[100%] w-[75vw] h-[70vh] items-center justify-center">
-                        {/* <QRScanner
-                        onScan={handleScan}
-                        onError={handleError}
-                        scanDelay={3000}
-                        onBack={() => {
-                            router.get(
-                                route("dashboard.cui", { tab: "presensi" }),
-                            );
-                        }}
-                        pause={processing}
-                    /> */}
-                        <h1></h1>
+                        <h2 className="text-xl font-bold tracking-tight text-center">
+                            Absensi QR SCAN Maba
+                        </h2>
 
                         {loading ? (
                             <div className="border-b-purple-900 flex items-center justify-center w-full h-full">
@@ -133,15 +124,12 @@ function Page({ auth }) {
                             </div>
                         )}
                     </div>
-                    <Button
-                        onClick={() =>
-                            router.get(
-                                route("dashboard.cui", { tab: "presensi" }),
-                            )
-                        }
+                    <Link
+                        href={"/dashboard/absensi-maba"}
+                        className={buttonVariants()}
                     >
-                        Absensi Manual
-                    </Button>
+                        Absen Manual
+                    </Link>
                     {result && (
                         <p className="md:block hidden">
                             Scanned Result: {result}
