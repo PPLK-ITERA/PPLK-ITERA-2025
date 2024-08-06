@@ -81,12 +81,11 @@ class ProfileController extends Controller
    {
       $user = User::findOrFail(auth()->id());
 
-
       $request->validate([
          'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
       ]);
 
-      if ($request->hasFile('sphoto')) {
+      if ($request->hasFile('photo')) {
          $storagePath = substr($user->photo_profile_url, strlen('/storage/'));
          if (Storage::disk('public')->exists($storagePath)) {
             Storage::disk('public')->delete($storagePath);

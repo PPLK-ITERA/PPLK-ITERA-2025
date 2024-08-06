@@ -172,7 +172,7 @@ class MadingController extends Controller
          DB::commit();
       } catch (\Throwable $th) {
          DB::rollBack();
-         return response()->json(['error' => 'Failed to submit task' . $th->getMessage()], 500);
+         return response()->json(['error' => 'Failed to submit task'], 500);
       }
       return response()->json(['message' => 'Task submitted successfully']);
    }
