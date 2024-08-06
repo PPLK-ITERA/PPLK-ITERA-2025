@@ -15,13 +15,26 @@ class TugasController extends Controller
 {
    public function getTugasUser($id)
    {
+      $user = User::find($id);
+      $auth = Auth::user();
+      if (in_array($auth->role_id, [2, 4])) {
+         if ($user->kelompok_id != $auth->kelompok_id) {
+            return response()->json(
+               [
+                  'response' => [
+                     'status' => 403,
+                     'message' => "You are not authorized to acces this"
+                  ]
+               ]
+            );
+         }
+      }
       try {
          $tugas = PengumpulanTugas::where('user_id', $id)->get();
       } catch (\Exception $e) {
          return response()->json([
             'response' => [
                'status' => 500,
-               'message' => $e->getMessage()
             ]
          ]);
       }
@@ -46,7 +59,6 @@ class TugasController extends Controller
          return response()->json([
             'response' => [
                'status' => 500,
-               'message' => $e->getMessage()
             ]
          ]);
       }
@@ -78,7 +90,6 @@ class TugasController extends Controller
             'response',
             [
                'status' => 500,
-               'message' => $e->getMessage()
             ]
          );
       }
@@ -98,7 +109,6 @@ class TugasController extends Controller
          return response()->json([
             'response' => [
                'status' => 500,
-               'message' => $e->getMessage()
             ]
          ]);
       }
@@ -128,7 +138,6 @@ class TugasController extends Controller
             'response',
             [
                'status' => 500,
-               'message' => $e->getMessage()
             ]
          );
       }
