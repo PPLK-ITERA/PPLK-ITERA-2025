@@ -8,9 +8,9 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('test', function () {
-   return view('test');
-});
+// Route::get('test', function () {
+//    return view('test');
+// });
 
 Route::get('/', function () {
    // if has auth, redirect to dashboard
@@ -65,7 +65,7 @@ Route::middleware('auth')->group(function () {
       Route::get('/tugas/{hari}', [MadingController::class, 'getTugas'])->name('tugas');
       Route::post('/store', [MadingController::class, 'storeTugas'])->name('store');
 
-      // Route::put('/store-poster', [MadingController::class, 'storePoster'])->name('store-poster');
+      Route::post('/store-poster', [MadingController::class, 'storePoster'])->name('store-poster');
    });
 });
 

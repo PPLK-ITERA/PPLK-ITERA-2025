@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelompok;
 use App\Models\PengumpulanTugas;
+use App\Models\Poster;
 use App\Models\Tugas;
 use App\Models\User;
 use Carbon\Carbon;
@@ -34,6 +36,7 @@ class MadingController extends Controller
          }
       ])->where('user_id', $userId)->get();
 
+      // $posters = Poster::where('kelompok_id', $user->kelompok_id)->get();
 
       // Count total members in the user's group (assuming all are expected to complete tasks)
       $totalMembers = User::where('kelompok_id', $user->kelompok_id)->where('role_id', 1)->count();
@@ -43,12 +46,14 @@ class MadingController extends Controller
       $memberCompletion = [];
       $completionPercentage = [];
       $cardOpen = [];
+      $posters = [];
       $isSelesai = true;
 
       foreach ($tugass as $tugas) {
          if (!isset($tugasCount[$tugas->hari])) {
             $tugasCount[$tugas->hari] = 0;
             $cardOpen[$tugas->hari] = false;
+            $posters[$tugas->hari] = null;
          }
 
          $memberCompletion[$tugas->hari] = 0;
@@ -72,13 +77,18 @@ class MadingController extends Controller
          if ($memberCompletion[$tugas->hari] < $totalMembers) {
             $isSelesai = false;
          }
+
+         if ($completionPercentage[$tugas->hari] >= 100) {
+            $posters[$tugas->hari] = Poster::where('kelompok_id', $user->kelompok_id)->where('hari', $tugas->hari)->first();
+         }
       }
 
       $response = [
          'isSelesai' => $isSelesai,
          'card' => [
             'completionPercentage' => $completionPercentage,
-            'cardOpen' => $cardOpen
+            'cardOpen' => $cardOpen,
+            'posters' => $posters
          ],
          'history' => $riwayat,
       ];
@@ -168,53 +178,71 @@ class MadingController extends Controller
       ]);
    }
 
-   public function getPoster($id)
-   {
-      $kartuTugas = KartuTugas::find($id);
-      return response()->json(['poster' => $kartuTugas->poster]);
-   }
    public function storePoster(Request $request)
    {
+      // dd($request->all());
       $validated = $request->validate([
-         'id' => 'required|integer',
-         'poster' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         'hari' => 'required|integer|in:0,1,2,3,4,5',
+         'poster' => 'required|image|mimes:jpeg,png,jpg|max:2048',
       ]);
 
       $userId = Auth::id();
+      $kelompokId = Auth::user()->kelompok_id;
+
+      // TODO: cek apakah semua user pada kelompok tersebut telah mengumpulkan tugas pada hari tersebut
+      // $tugass = PengumpulanTugas::whereHas('tugas', function ($query) use ($validated) {
+      //    $query->where('hari', $validated['hari']);
+      // })->whereHas('user', function ($query) use ($userId) {
+      //    $query->where('kelompok_id', Auth::user()->kelompok_id);
+      // })->get();
+
+      // foreach ($tugass as $tugas) {
+      //    dd($tugas);
+      //    if ($tugas->isReturn) {
+      //       return redirect()->route('mading')->with('error', 'All members must submit their tasks first');
+      //    }
+      // }
 
       DB::beginTransaction();
       try {
-         $kartuTugas = KartuTugas::find($validated['id']);
-         $poster = $validated['poster'];
-         if ($request->hasFile('poster')) {
-            $storagePath = substr($kartuTugas->poster, strlen('/storage/'));
-            if (Storage::disk('public')->exists($storagePath)) {
-               Storage::disk('public')->delete($storagePath);
-            }
-            $path = $request->file('poster')->store('images/poster', 'public');
-            $path_image = '/storage/' . $path;
-         } else {
-            $path_image = $kartuTugas->poster;
-         }
+         $path = $request->file('poster')->store('images/poster', 'public');
 
-         $kartuTugas->update(['poster_url' => $path_image]);
-         $kartuTugas->save();
+         Poster::updateOrCreate([
+            'kelompok_id' => $kelompokId,
+            'hari' => $validated['hari'],
+         ], [
+            'hari' => $validated['hari'],
+            'url_poster' => $path,
+            'isReturn' => false,
+         ]);
+
          DB::commit();
       } catch (\Throwable $th) {
          DB::rollBack();
          return response()->json(['error' => 'Failed to upload poster' . $th->getMessage()], 500);
       }
       // return response()->json(['message' => 'Poster uploaded successfully']);
-      return redirect()->route('mading')->with('success', 'Poster uploaded successfully');
+      return redirect()->back()->with('success', 'Poster uploaded successfully');
    }
 
-   // public function previewMading()
-   // {
-   //    $kelompok_id = Auth::user()->kelompok_id;
-   //    $urls = KartuTugas::with('tugas')
-   //       ->where('kelompok_id', $kelompok_id)
-   //       ->pluck('poster_url')->toArray();
+   public function previewMading()
+   {
+      $kelompok_id = Auth::user()->kelompok_id;
+      $urls = Poster::where('kelompok_id', $kelompok_id)
+         ->pluck('url_poster')->toArray();
 
-   //    return view('mading-preview', ['urls' => $urls]);
-   // }
+      foreach ($urls as $key => $url) {
+         $urls[$key] = Storage::url($url);
+      }
+
+      $kelompok = Kelompok::find($kelompok_id);
+
+      if ($kelompok->logo_kelompok) {
+         $logo_kelompok_url = Storage::url(Kelompok::find($kelompok_id)->logo_kelompok);
+      } else {
+         $logo_kelompok_url = null;
+      }
+
+      return view('mading-preview', ['urls' => $urls, 'logo_kelompok_url' => $logo_kelompok_url]);
+   }
 }

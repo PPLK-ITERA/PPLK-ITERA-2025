@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\KartuTugas;
 use App\Models\PengumpulanTugas;
+use App\Models\Poster;
 use App\Models\Tugas;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -64,6 +65,9 @@ class TugasController extends Controller
          'id' => 'required|integer',
          'catatan' => 'required|string',
       ]);
+
+      $kelompokId = Auth::user()->kelompok_id;
+
       $tugas = PengumpulanTugas::find($validated['id']);
       DB::beginTransaction();
       try {
@@ -90,54 +94,49 @@ class TugasController extends Controller
          ]
       );
    }
-   // public function getPoster()
-   // {
-   //    try {
-   //       $poster = KartuTugas::where('kelompok_id', Auth::user()->kelompok_id)->select('hari', 'poster')->get();
-   //    } catch (\Exception $e) {
-   //       return response()->json([
-   //          'response' => [
-   //             'status' => 500,
-   //             'message' => $e->getMessage()
-   //          ]
-   //       ]);
-   //    }
-   //    return response()->json([
-   //       'response' => [
-   //          'status' => 200,
-   //          'message' => 'Berhasil mendapatkan data poster',
-   //          'data' => $poster
-   //       ]
-   //    ]);
-   // }
-   // public function returnPoster(Request $request)
-   // {
-   //    $validated = $request->validate([
-   //       'id' => 'required|integer',
-   //    ]);
-   //    $poster = KartuTugas::find($validated['id']);
-   //    DB::beginTransaction();
-   //    try {
-   //       $poster->update([
-   //          'poster' => null
-   //       ]);
-   //       DB::commit();
-   //    } catch (\Exception $e) {
-   //       DB::rollBack();
-   //       return redirect()->back()->with(
-   //          'response',
-   //          [
-   //             'status' => 500,
-   //             'message' => $e->getMessage()
-   //          ]
-   //       );
-   //    }
-   //    return redirect()->back()->with(
-   //       'response',
-   //       [
-   //          'status' => 200,
-   //          'message' => 'Berhasil mengembalikan poster'
-   //       ]
-   //    );
-   // }
+
+   public function returnPoster(Request $request)
+   {
+      $validated = $request->validate([
+         'hari' => 'required|integer|in:0,1,2,3,4,5',
+      ]);
+      $poster = Poster::where('kelompok_id', Auth::user()->kelompok_id)
+         ->where('hari', $validated['hari'])
+         ->first();
+
+      if (!$poster) {
+         return redirect()->back()->with(
+            'response',
+            [
+               'status' => 404,
+               'message' => 'Poster tidak ditemukan'
+            ]
+         );
+      }
+
+      DB::beginTransaction();
+      try {
+         $poster->update([
+            'url_poster' => null,
+            'isReturn' => true,
+         ]);
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollBack();
+         return redirect()->back()->with(
+            'response',
+            [
+               'status' => 500,
+               'message' => $e->getMessage()
+            ]
+         );
+      }
+      return redirect()->back()->with(
+         'response',
+         [
+            'status' => 200,
+            'message' => 'Berhasil mengembalikan poster'
+         ]
+      );
+   }
 }

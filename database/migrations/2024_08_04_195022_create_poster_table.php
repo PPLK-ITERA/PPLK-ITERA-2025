@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,9 +12,9 @@ return new class extends Migration
     {
         Schema::create('poster', function (Blueprint $table) {
             $table->id();
-            $table->string('url_poster');
+            $table->string('url_poster')->nullable();
             $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
-            $table->enum('hari', ['prapplk', 1, 2, 3, 4, 5]);
+            $table->enum('hari', [0, 1, 2, 3, 4, 5]);
             $table->boolean('isReturn')->default(false);
             $table->timestamps();
         });
