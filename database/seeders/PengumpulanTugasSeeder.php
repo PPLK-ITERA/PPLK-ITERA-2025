@@ -18,12 +18,12 @@ class PengumpulanTugasSeeder extends Seeder
         $tugass = Tugas::all();
         foreach ($tugass as $tugas) {
             foreach ($users as $user) {
-                if ($tugas->id != 2) {
-                    $tugas->pengumpulanTugas()->create([
-                        'jawaban' => 'Jawaban Tugas',
-                        'user_id' => $user->id,
-                    ]);
-                }
+                // if ($tugas->id != 2) {
+                $tugas->pengumpulanTugas()->create([
+                    'jawaban' => 'Jawaban Tugas',
+                    'user_id' => $user->id,
+                ]);
+                // }
             }
         }
     }

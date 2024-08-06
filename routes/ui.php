@@ -373,11 +373,11 @@ Route::middleware('auth')->group(function () {
    })->name('mading');
 
    Route::get('mading/pengumpulan/{id}', function (string $id) {
-      $pengumpulanTugas = PengumpulanTugas::where('tugas_id', $id)->where('user_id', auth()->user()->id)->first();
+      // $pengumpulanTugas = PengumpulanTugas::where('tugas_id', $id)->where('user_id', auth()->user()->id)->first();
 
-      if ($pengumpulanTugas && !$pengumpulanTugas->isReturn) {
-         return to_route("mading");
-      }
+      // if ($pengumpulanTugas && !$pengumpulanTugas->isReturn) {
+      //    return to_route("mading");
+      // }
 
       return Inertia::render('Mading/Pengumpulan/Page', [
          'id' => $id

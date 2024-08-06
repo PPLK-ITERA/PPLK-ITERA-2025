@@ -56,7 +56,12 @@ class MadingController extends Controller
             $posters[$tugas->hari] = null;
          }
 
-         $memberCompletion[$tugas->hari] = 0;
+         if ($tugas->hari == $dayBefore) {
+            $memberCompletion[$tugas->hari] = $memberCompletion;
+         } else {
+            $memberCompletion[$tugas->hari] = 0;
+         }
+
          $completionPercentage[$tugas->hari] = 0;
 
          $tugasCount[$tugas->hari] += 1;
@@ -71,7 +76,6 @@ class MadingController extends Controller
             if (!$pengumpulanTugas->isReturn) {
                $memberCompletion[$tugas->hari] += 1;
             }
-            $completionPercentage[$tugas->hari] = ($memberCompletion[$tugas->hari] / ($tugasCount[$tugas->hari] * $totalMembers)) * 100;  // Calculate completion percentage
          }
 
          if ($memberCompletion[$tugas->hari] < $totalMembers) {
@@ -81,7 +85,14 @@ class MadingController extends Controller
          if ($completionPercentage[$tugas->hari] >= 100) {
             $posters[$tugas->hari] = Poster::where('kelompok_id', $user->kelompok_id)->where('hari', $tugas->hari)->first();
          }
+
+         $dayBefore = $tugas->hari;
       }
+
+      foreach ($tugass as $tugas) {
+         $completionPercentage[$tugas->hari] = ($memberCompletion[$tugas->hari] / ($tugasCount[$tugas->hari] * $totalMembers)) * 100;  // Calculate completion percentage
+      }
+
 
       $response = [
          'isSelesai' => $isSelesai,
@@ -91,6 +102,9 @@ class MadingController extends Controller
             'posters' => $posters
          ],
          'history' => $riwayat,
+         'membercompletion' => $memberCompletion,
+         'count' => $tugasCount,
+         'tugass' => $tugass
       ];
 
       return response()->json($response);

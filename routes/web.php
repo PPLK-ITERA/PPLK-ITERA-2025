@@ -60,8 +60,8 @@ Route::middleware('auth')->group(function () {
    Route::put('/myprofileupload', [ProfileController::class, 'updateProfile'])->name('profile.update.profile');
 
    Route::prefix('mading')->name('mading.')->group(function () {
-      Route::get('/', [MadingController::class, 'index'])->name('index');
-      // Route::get('/card', [MadingController::class, 'getCard'])->name('card');
+      // Route::get('/', [MadingController::class, 'index'])->name('index');
+      Route::get('/card', [MadingController::class, 'index'])->name('card');
       Route::get('/tugas/{hari}', [MadingController::class, 'getTugas'])->name('tugas');
       Route::post('/store', [MadingController::class, 'storeTugas'])->name('store');
 
