@@ -61,7 +61,7 @@ class PoinResponseHelper
       ]);
    }
 
-   public function qrSuccess($qrUrl, $code)
+   public function qrSuccess($code)
    {
       // return Inertia::render('Dashboard/game-offline/Page', [
       //    'response' => [
@@ -77,7 +77,6 @@ class PoinResponseHelper
          'status' => 200,
          'message' => 'success',
          'data' => [
-            'qrUrl' => $qrUrl,
             'code' => $code
          ]
       ]);
