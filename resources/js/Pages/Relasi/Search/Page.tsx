@@ -1,4 +1,5 @@
 import Autoplay from "embla-carousel-autoplay";
+import { useSearchParams } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
 
@@ -6,6 +7,8 @@ import { UserPlus } from "lucide-react";
 
 import {
     IconAdjustmentsHorizontal,
+    IconChevronLeft,
+    IconChevronRight,
     IconFilter,
     IconMoodAngry,
     IconMoodSearch,
@@ -18,28 +21,18 @@ import Navbar from "@/Components/Navbar";
 import GoldPodium from "@/Components/relasi/Podium";
 import ProfileCard from "@/Components/relasi/ProfileCard";
 import RelasiLoading from "@/Components/relasi/RelasiLoading";
+import RelasiSearch from "@/Components/relasi/RelasiSearch";
 import SortDropdown from "@/Components/relasi/SortDropdown";
 import TopUser from "@/Components/relasi/TopUser";
 import UserList from "@/Components/relasi/UserList";
 import { Button } from "@/Components/ui/button";
-import { Card, CardContent } from "@/Components/ui/card";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/Components/ui/carousel";
-import { Input } from "@/Components/ui/input";
-import { Progress } from "@/Components/ui/progress";
+import { Toaster } from "@/Components/ui/toaster";
+import { useToast } from "@/Components/ui/use-toast";
 
 import { fetchSearch } from "@/lib/data/relasi";
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 import { UserSearchResponse } from "@/lib/types/UserSearchResponse";
-
-import instagramIcon from "!assets/svg/instagram.svg";
-import linkedinIcon from "!assets/svg/linkedin.svg";
 
 const sortOptions = [
     { label: "Viewer", value: "viewer" },
@@ -50,29 +43,66 @@ const sortOptions = [
 
 function Page() {
     useAos();
-    const [sortLoading, setSortLoading] = useState(false);
+
+    const toast = useToast();
     const [searchLoading, setSearchLoading] = useState(false);
-    const [usersResponse, setUsersResponse] =
-        useState<UserSearchResponse | null>(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchResponse, setSearchResponse] = useState<UserSearchResponse>();
+    const [users, setUsers] = useState<Partial<User>[]>([]);
+    const [search, setSearch] = useState("");
     const [searchTitle, setSearchTitle] = useState<string>(
         "Cari Naramuda Lainnya!",
     );
-    useState<UserSearchResponse | null>(null);
-    const [users, setUsers] = useState<Partial<User>[]>([]);
-    const [search, setSearch] = useState<string>("");
 
-    async function mFetchSearch() {
+    async function mFetchSearch(
+        mSearch: string = "",
+        page: number = currentPage,
+    ) {
+        if (!mSearch) return;
+        if (mSearch.length > 100) {
+            toast.toast({
+                title: "Gagal mencari Naramuda...",
+                description: "Kata kunci terlalu panjang",
+                variant: "destructive",
+            });
+            return;
+        }
+        if (/[^a-zA-Z0-9_ ]/g.test(mSearch)) {
+            toast.toast({
+                title: "Gagal mencari Naramuda...",
+                description: "Kata kunci hanya boleh berupa huruf dan angka",
+                variant: "destructive",
+            });
+            return;
+        }
+
         setSearchLoading(true);
-        let response = await fetchSearch(search);
-        setUsersResponse(response);
+        let response = await fetchSearch(mSearch, page);
+        setSearchResponse(response);
         setUsers(response.data);
-        if (search) setSearchTitle(`Hasil Pencarian dari ${search}`);
+        setSearchTitle(`Hasil Pencarian dari ${mSearch}`);
         setSearchLoading(false);
     }
 
     useEffect(() => {
-        mFetchSearch();
+        let s = new URLSearchParams(window.location.search).get("search") ?? "";
+        setSearch(s);
+        mFetchSearch(s);
     }, []);
+
+    useEffect(() => {
+        mFetchSearch(search, currentPage);
+    }, [currentPage]);
+
+    const getPaginationRange = () => {
+        let range: Array<number> = [];
+        let start = Math.max(1, currentPage - 2);
+        let end = Math.min(searchResponse?.last_page ?? 0, start + 4);
+        for (let i = start; i <= end; i++) {
+            range.push(i);
+        }
+        return range;
+    };
 
     return (
         <div className="bg-pattern-white flex flex-col w-full min-h-screen">
@@ -81,41 +111,79 @@ function Page() {
 
                 <div className="max-w-7xl md:pt-24 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 px-2 py-16 pt-10 mx-auto text-base text-black">
                     <div className="relative w-full max-w-3xl mx-auto">
-                        <Input
-                            type="text"
-                            placeholder="Cari Nusantara Muda yang Lain"
-                            className="p-4 border rounded-full"
-                            onChange={(e) => setSearch(e.target.value)}
+                        <RelasiSearch
+                            onsubmit={(search) => mFetchSearch(search, 1)}
                         />
-                        <Button
-                            className="absolute top-1/2 -translate-y-1/2 right-2 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-full p-0 w-8 h-8"
-                            onClick={mFetchSearch}
-                        >
-                            <IconSearch size={14} />
-                        </Button>
                     </div>
                     {searchLoading ? (
                         <RelasiLoading className="min-h-72 w-full" />
                     ) : (
                         <div className="w-full max-w-5xl mx-auto">
-                            <div className="flex justify-between">
-                                <h4 className="text-2xl font-bold">
+                            <div className="flex  place-content-center place-items-center">
+                                <h4 className="text-lg lg:text-2xl font-bold text-center">
                                     {searchTitle}
                                 </h4>
                             </div>
-                            <UserList users={users} />
+                            {users.length > 0 ? (
+                                <UserList users={users} />
+                            ) : (
+                                <div className="mx-auto text-wrap text-sm text-center my-16">
+                                    Maaf, kami tidak dapat menemukan Naramuda
+                                    yang kamu cari 😕
+                                </div>
+                            )}
                         </div>
                     )}
-                    <div className="flex justify-center">
-                        <Button className="mx-1">1</Button>
-                        <Button className="mx-1">2</Button>
-                        <Button className="mx-1">3</Button>
-                        <Button className="mx-1">4</Button>
-                    </div>
+
+                    <ul className="flex gap-2 mx-auto place-content-center flex-wrap">
+                        <li>
+                            <Button
+                                onClick={() =>
+                                    setCurrentPage(Math.max(currentPage - 1, 1))
+                                }
+                                className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition "
+                            >
+                                <IconChevronLeft></IconChevronLeft>
+                            </Button>
+                        </li>
+
+                        {getPaginationRange().map((page) => (
+                            <li key={page}>
+                                <Button
+                                    className=" bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition"
+                                    onClick={() => setCurrentPage(page)}
+                                >
+                                    {page}
+                                </Button>
+                            </li>
+                        ))}
+
+                        <li>
+                            <Button
+                                onClick={() =>
+                                    setCurrentPage(
+                                        Math.min(
+                                            currentPage + 1,
+                                            searchResponse?.last_page ?? 1,
+                                        ),
+                                    )
+                                }
+                                className=" bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition"
+                            >
+                                <IconChevronRight></IconChevronRight>
+                            </Button>
+                        </li>
+                    </ul>
+                    <p className="text-center">
+                        Halaman {currentPage} dari{" "}
+                        {searchResponse?.last_page ?? 1}
+                    </p>
                 </div>
 
                 <Footer />
             </div>
+
+            <Toaster />
         </div>
     );
 }

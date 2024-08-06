@@ -65,7 +65,7 @@ export default function TopKelompok({
                                 : "https://picsum.photos/200"
                         }
                         alt={kelompok.nama_kelompok}
-                        className="z-0 bg-gray-400 rounded-full"
+                        className="z-0 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full w-full h-full object-contain object-center"
                     />
                 </div>
             )}

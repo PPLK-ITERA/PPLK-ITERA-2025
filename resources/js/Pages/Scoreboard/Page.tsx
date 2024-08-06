@@ -8,6 +8,7 @@ import { Progress } from "@/Components/ui/progress";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { DataKelompokScore, DataTopTen } from "@/lib/types/Scoreboard";
+import RelasiLoading from "@/Components/relasi/RelasiLoading";
 
 function Page() {
     useAos();
@@ -22,6 +23,7 @@ function Page() {
         });
 
         const data = await response.json();
+        console.log(data)
         setDataTopTen(data);
     };
 
@@ -50,7 +52,7 @@ function Page() {
 
                     <div className="md:max-w-2xl w-full max-w-sm mx-auto">
                         {dataTopTen.length === 0 ? (
-                            <Progress />
+                            <RelasiLoading className="my-16 w-full h-full text-center text-white" />
                         ) : (
                             <div className="sm:gap-4 md:max-w-2xl lg:gap-8 flex justify-center w-full max-w-lg gap-2 pt-4 overflow-y-hidden text-center">
                                 <TopKelompok
@@ -91,7 +93,7 @@ function Page() {
                 >
                     <div className="z-10 py-5">
                         <h1 className="font-avigea text-[20px] z-10">
-                            Top Kelompok PPLK ni SLURD
+                            Top 10 Kelompok PPLK
                         </h1>
 
                         <div className="max-w-2xl mx-auto">

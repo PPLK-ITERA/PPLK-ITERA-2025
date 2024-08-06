@@ -2,10 +2,13 @@ import { useState } from "react";
 
 import { Head } from "@inertiajs/react";
 
+import { IconCancel, IconX } from "@tabler/icons-react";
+
 import Main from "@/Components/dev/Main";
 import NavButton from "@/Components/dev/NavButton";
 import ParticleBackground from "@/Components/dev/ParticleBackground";
 import "@/Components/dev/transition.css";
+import { Button } from "@/Components/ui/button";
 
 import { useAos } from "@/lib/hooks/useAos";
 
@@ -38,6 +41,18 @@ function Page() {
                     />
                 </div>
                 <ParticleBackground />
+
+                {/* 
+            fitur ga penting ga usah dimasukin
+            
+            <div className="fixed right-0 top-0">
+                <Button
+                    className="bg-transparent"
+                    onClick={() => window.history.back()}
+                >
+                    <IconX />
+                </Button>
+            </div> */}
 
                 <Main />
             </div>

@@ -123,6 +123,11 @@ class RelasiController extends Controller
       $followingUserId = Auth::id();
       $followedUserId = $id;
 
+      // reject if the user tries to follow themselves
+      if ($followingUserId === $followedUserId) {
+         return redirect()->back()->with('error', 'You cannot follow yourself');
+      }
+
       // Validate that the user exists
       User::findOrFail($followedUserId);
 
@@ -192,8 +197,6 @@ class RelasiController extends Controller
          'kelompok' => [
             'nama_kelompok' => $user->kelompok->nama_kelompok,
             'no_kelompok' => $user->kelompok->no_kelompok,
-            'daplok' => $user->kelompok->daplok->name,
-            'mentor' => $user->kelompok->mentor->name,
          ],
          'view_count' => $user->viewers_count,
          'followers_count' => $user->followers_count,
@@ -249,7 +252,8 @@ class RelasiController extends Controller
    public function getProfiles(Request $request)
    {
       $perPage = $request->input('perPage', 10);
-      $searchTerm = $request->input('search', '');
+      $inputSearch = $request->input('search', '');
+      $searchTerm = preg_replace('/[^a-zA-Z0-9_ ]/', '', substr($inputSearch, 0, 99));
 
       $query = User::query()->where('role_id', 1)
          ->whereNotNull("kelompok_id")->whereNotNull("penyakit_id")->whereNotNull("prodi_id")
