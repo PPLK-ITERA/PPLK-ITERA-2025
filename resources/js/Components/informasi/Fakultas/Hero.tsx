@@ -1,15 +1,18 @@
 import React from "react";
 
 import { FAKULTAS_DATA, FakultasData } from "@/lib/data/fakultas";
+import { useAos } from "@/lib/hooks/useAos";
 
 const Hero = ({ fakultas }) => {
     const selectedFakultas: FakultasData = FAKULTAS_DATA[fakultas];
+
+    useAos();
 
     return (
         <div>
             <div className="md:flex md:flex-col lg:flex-row md:items-center md:justify-center w-full">
                 <div
-                    className={`md:w-1/3 md:h-[300px] overflow-hidden flex items-center justify-center ${fakultas === "fakultas-fti" ? "px-5 lg:p-10" : ""} ${fakultas === "fakultas-sains" ? "px-5 lg:p-10" : ""}`}
+                    className={`md:w-1/3 max-md:max-w-xs mx-auto md:h-[300px] overflow-hidden flex items-center justify-center ${fakultas === "fakultas-fti" ? "px-5 lg:p-10" : ""} ${fakultas === "fakultas-sains" ? "px-5 lg:p-10" : ""}`}
                 >
                     <img
                         src={selectedFakultas.logo}
@@ -28,7 +31,7 @@ const Hero = ({ fakultas }) => {
                 </div>
             </div>
 
-            <div className="md:px-8 md:text-center lg:text-start lg:px-0 md:mt-20 max-w-4xl px-4 mx-auto mt-16 space-y-3">
+            <div data-aos="fade-up" data-aos-duration="600" className="md:px-8 md:text-center lg:text-start lg:px-0 md:mt-20 max-w-4xl px-4 mx-auto mt-16 space-y-3">
                 <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-bold tracking-widest">
                     Sejarah
                 </p>

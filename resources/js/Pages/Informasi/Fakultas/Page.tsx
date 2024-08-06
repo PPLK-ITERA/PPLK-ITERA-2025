@@ -11,6 +11,8 @@ import ProgramStudi from "@/Components/informasi/Fakultas/ProgramStudi";
 import StrukturOrganisasi from "@/Components/informasi/Fakultas/StrukturOrganisasi";
 import VisiMisi from "@/Components/informasi/Fakultas/VisiMisi";
 
+import { useAos } from "@/lib/hooks/useAos";
+
 import fakultasSains from "!assets/fakultas-sains.png";
 import fakultasTeknologiIndustri from "!assets/fakultas-teknologi-industri.png";
 import fakultasTeknologiInfrastruktur from "!assets/fakultas-teknologi-infrastruktur-dan-kewilayahan.png";
@@ -18,6 +20,8 @@ import overlay_box from "!assets/overlay-box.png";
 import pillar_brown from "!assets/pillar-brown.png";
 
 export default function Page() {
+    useAos();
+
     const [selectedFakultas, setSelectedFakultas] = React.useState(
         localStorage.getItem("selectedFakultas") || "fakultas-sains",
     );
@@ -79,12 +83,17 @@ export default function Page() {
                 </div>
 
                 <div className="bg-pattern-white relative pt-20">
-                    <div className="relative max-w-5xl mx-auto">
-                        <div className="md:flex w-full">
+                    <div className="relative max-w-5xl mx-auto flex flex-col gap-24">
+                        <div
+                            data-aos="fade-up"
+                            data-aos-duration="600"
+                            className="md:flex w-full"
+                        >
                             <Hero fakultas={selectedFakultas} />
                         </div>
-
-                        <VisiMisi fakultas={selectedFakultas} />
+                        <div data-aos="fade-up" data-aos-duration="600">
+                            <VisiMisi fakultas={selectedFakultas} />
+                        </div>
                     </div>
 
                     <div className="top-1/4 xl:visible absolute flex flex-col invisible w-full">
@@ -101,16 +110,26 @@ export default function Page() {
                         />
                     </div>
 
-                    <div className="max-w-5xl mx-auto">
+                    <div
+                        data-aos="fade-up"
+                        data-aos-duration="600"
+                        className="max-w-5xl mx-auto"
+                    >
                         <ProgramStudi fakultas={selectedFakultas} />
+                    </div>
 
-                        <div className="mt-16">
-                            <StrukturOrganisasi fakultas={selectedFakultas} />
-                        </div>
+                    <div
+                        data-aos="fade-up"
+                        data-aos-duration="600"
+                        className="mt-16"
+                    >
+                        <StrukturOrganisasi fakultas={selectedFakultas} />
+                    </div>
+
+                    <div className="mt-24">
+                        <KegiatanUnggulan fakultas={selectedFakultas} />
                     </div>
                 </div>
-
-                <KegiatanUnggulan fakultas={selectedFakultas} />
             </DefaultLayout>
         </>
     );

@@ -26,7 +26,7 @@ const Prodi = ({ prodi, className }: Props) => {
             <div className="place-content-center flex flex-col w-full gap-16 py-24">
                 <div className="flex flex-col gap-6 text-center">
                     {prodi.imageUrl ? (
-                        <div className="w-64 h-64 p-10 mx-auto overflow-hidden bg-white rounded-full">
+                        <div className="w-64 h-64 p-10 mx-auto overflow-hidden bg-white rounded-full shadow-md">
                             <img
                                 src={prodi.imageUrl}
                                 alt="Prodi"

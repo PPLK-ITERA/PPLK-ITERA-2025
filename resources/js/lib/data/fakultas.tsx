@@ -107,18 +107,17 @@ export const FAKULTAS_DATA = {
                 nama: "Dr. Sri Efrinita Irwan, S.Si., M.Si.",
                 foto: bawahan1_sains,
                 jabatan:
-                    "(Wakil Dekan Fakultas Sains Bidang Akademik dan Kemahasiswaan)",
+                    "Wakil Dekan Fakultas Sains Bidang Akademik dan Kemahasiswaan",
             },
             {
                 nama: "apt. Dirga, S.Farm., M.Sc.",
                 foto: bawahan2_sains,
-                jabatan:
-                    "(Wakil Dekan Fakultas Sains Bidang Keuangan dan Umum)",
+                jabatan: "Wakil Dekan Fakultas Sains Bidang Keuangan dan Umum",
             },
             {
                 nama: "Widyastuti, S.Kom., M.M.",
                 foto: bawahan3_sains,
-                jabatan: "(Subbagian Umum Fakultas Sains)",
+                jabatan: "Subbagian Umum Fakultas Sains",
             },
         ],
         sosmedFakultas: [
@@ -222,7 +221,7 @@ export const FAKULTAS_DATA = {
                 nama: "Roy Candra P Sigalingging, M.Sc., Ph.D.",
                 foto: bawahan1_ftik,
                 jabatan:
-                    "(Sekretaris Fakultas Teknologi Infrastuktur dan Kewilayahan)",
+                    "Sekretaris Fakultas Teknologi Infrastuktur dan Kewilayahan",
             },
         ],
         sosmedFakultas: [
@@ -339,13 +338,13 @@ export const FAKULTAS_DATA = {
             {
                 nama: "Dr. Jabosar Ronggur Hamonangan Panjaitan, S.T., M.T.",
                 foto: bawahan1_fti,
-                jabatan: "(Wakil Dekan Bidang Akademik dan Kemahasiswaan)",
+                jabatan: "Wakil Dekan Bidang Akademik dan Kemahasiswaan",
             },
             {
                 nama: "Dr. Sena Maulana, S.Hut., M.Si.",
                 foto: bawahan2_fti,
-                jabatan: "(Wakil Dekan Bidang Umum dan Keuangan)",
-            },
+                jabatan: "Wakil Dekan Bidang Umum dan Keuangan",
+            }
         ],
         sosmedFakultas: [
             {

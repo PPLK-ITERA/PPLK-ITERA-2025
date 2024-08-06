@@ -9,7 +9,7 @@ const Prodi = ({ text, className }) => (
     <div
         className={`rounded-full border-jaffa-700 border-2 bg-jaffa-400 py-2 px-8 ${className}`}
     >
-        <p className="md:text-2xl text-white">{text}</p>
+        <p className="md:text-xl text-white">{text}</p>
     </div>
 );
 
@@ -17,13 +17,14 @@ export default function ProgramStudi({ fakultas }) {
     const selectedFakultas: FakultasData = FAKULTAS_DATA[fakultas];
 
     return (
-        <div className="md:px-4 px-4 pb-10 mt-16">
+        <div className="md:px-4 px-4 pb-10 mt-16 flex flex-col gap-16">
             <div className="text-start md:text-center">
-                <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-bold tracking-widest">
+                <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-semibold tracking-wide">
                     Program Studi
                 </p>
             </div>
-            <div className="md:mt-16 justify-evenly relative flex flex-wrap gap-5 mt-10">
+
+            <div className="justify-evenly relative flex flex-wrap gap-5 ">
                 <Marquee direction="right">
                     {selectedFakultas.prodi.map((tag, index) => (
                         <Prodi key={index} text={tag} className="z-10 mx-2" />
@@ -60,7 +61,7 @@ export default function ProgramStudi({ fakultas }) {
                 </div>
             </div>
 
-            <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 rounded-xl md:px-10 flex justify-around px-3 py-4 mt-24 text-xl text-center text-white">
+            <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 rounded-xl md:px-10 flex justify-around px-3 py-10  text-xl text-center text-white">
                 <div>
                     <CountUp
                         end={selectedFakultas.prodi.length}
