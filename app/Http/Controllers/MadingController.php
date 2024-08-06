@@ -50,8 +50,7 @@ class MadingController extends Controller
       $posters = [];
       $days = [];
 
-      $isSelesai = true;
-      $dayBefore = null;
+      $isSelesai = false;
 
       foreach ($tugass as $tugas) {
          $hari = $tugas->hari;
@@ -73,7 +72,7 @@ class MadingController extends Controller
             if (!$pengumpulanTugas->isReturn) {
                $memberCompletion[$hari] += 1;
             }
-            if ($pengumpulanTugas->user_id == auth()->id()) {
+            if ($pengumpulanTugas->user_id == $userId && !$pengumpulanTugas->isReturn) {
                $userTaskSubmitted = true;
             }
          }
@@ -82,13 +81,6 @@ class MadingController extends Controller
          if (!$userTaskSubmitted) {
             $cardOpen[$hari] = true;
          }
-
-         // Check for incomplete tasks
-         if ($memberCompletion[$hari] < $totalMembers) {
-            $isSelesai = false;
-         }
-
-         $dayBefore = $hari;
       }
 
       // Update completion percentages and determine if posters should be displayed
@@ -96,7 +88,18 @@ class MadingController extends Controller
          $completionPercentage[$hari] = ($memberCompletion[$hari] / ($tugasCount[$hari] * $totalMembers)) * 100;
          if ($completionPercentage[$hari] >= 100) {
             $posters[$hari] = Poster::where('kelompok_id', auth()->user()->kelompok_id)->where('hari', $hari)->first();
+            if (!$posters[$hari]) {
+               $cardOpen[$hari] = null;
+            }
          }
+      }
+
+      if (
+         count(array_filter($posters, function ($x) {
+            return !empty($x);
+         })) == count($days) - 1
+      ) {
+         $isSelesai = true;
       }
 
       $response = [
@@ -144,6 +147,12 @@ class MadingController extends Controller
          'tugas_id.*' => 'required|integer',
          'jawaban.*' => 'required|url',
       ]);
+
+      $isPengumpulanTugasExist = PengumpulanTugas::whereIn('tugas_id', $validated['tugas_id'])->where('user_id', Auth::id())->where('isReturn', false)->exists();
+
+      if ($isPengumpulanTugasExist) {
+         return redirect()->route('mading')->with(['message' => 'Task already submitted']);
+      }
 
       $userId = Auth::id();
 
@@ -246,7 +255,7 @@ class MadingController extends Controller
       }
       // return response()->json(['message' => 'Poster uploaded successfully']);
 
-      // return redirect()->back()->with('success', 'Poster uploaded successfully');
+      return redirect()->route('mading')->with('success', 'Poster uploaded successfully');
    }
 
    public function previewMading()
@@ -255,14 +264,14 @@ class MadingController extends Controller
       $urls = Poster::where('kelompok_id', $kelompok_id)
          ->pluck('url_poster')->toArray();
 
-      foreach ($urls as $key => $url) {
-         $urls[$key] = Storage::url($url);
-      }
+      // foreach ($urls as $key => $url) {
+      //    $urls[$key] = Storage::url($url);
+      // }
 
       $kelompok = Kelompok::find($kelompok_id);
 
       if ($kelompok->logo_kelompok) {
-         $logo_kelompok_url = Storage::url(Kelompok::find($kelompok_id)->logo_kelompok);
+         $logo_kelompok_url = ($kelompok->logo_kelompok);
       } else {
          $logo_kelompok_url = null;
       }

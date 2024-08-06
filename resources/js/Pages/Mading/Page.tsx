@@ -158,8 +158,7 @@ const Mading = ({ succes }: { succes?: string }) => {
                     <img src={awan} alt="" className="w-full" />
                 </div>
 
-                {data?.isSelesai &&
-                data.card.posters.every((item) => item !== null) ? (
+                {data?.isSelesai ? (
                     <>
                         <h2 className="text-jaffa-50 mt-5 xl:mt-20 font-avigea font-bold md:text-[25px] text-[20px] xl:text-[60px] z-20">
                             MADING TUGAS SELESAI

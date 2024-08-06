@@ -44,7 +44,7 @@ export default function BuktiPengerjaan({
                         <Card
                             className={`bg-white ${data.card.cardOpen[index] ? "" : "bg-jaffa-700"} xl:w-[400px] md:w-[350px] lg:w-[350px] md:h-[550px] w-[280px] h-[400px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserrat`}
                         >
-                            <CardContent className="relative flex flex-col items-center justify-center h-full p-4 text-white">
+                            <CardContent className="relative flex flex-col items-center justify-center h-full p-0 text-white">
                                 {data.card.cardOpen[index] ? (
                                     <>
                                         <Link
@@ -56,9 +56,13 @@ export default function BuktiPengerjaan({
                                     </>
                                 ) : (
                                     <>
-                                        {data.card.posters[index] ? (
+                                        {data.card.posters[index] &&
+                                        !data.card.posters[index].isReturn ? (
                                             <img
-                                                src={data.card.posters[index]}
+                                                src={
+                                                    data.card.posters[index]
+                                                        .url_poster
+                                                }
                                                 alt="Poster"
                                                 className="object-cover w-full h-full"
                                             />
@@ -109,15 +113,19 @@ export default function BuktiPengerjaan({
                                                                     logo_pplk_itera
                                                                 }
                                                                 alt="logo_pplk_itera"
+                                                                className="object-contain w-full h-full"
                                                             />
                                                         </div>
 
                                                         <div className="md:h-32 md:w-32 w-24 h-24 overflow-hidden bg-white rounded-full">
                                                             <img
                                                                 src={
-                                                                    logo_pplk_itera
+                                                                    data
+                                                                        .logo_kelompok
+                                                                        .logo_kelompok
                                                                 }
-                                                                alt="logo_pplk_itera"
+                                                                alt="logo_kelompok"
+                                                                className="object-contain w-full h-full"
                                                             />
                                                         </div>
                                                     </div>

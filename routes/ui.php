@@ -7,6 +7,7 @@ use App\Http\Controllers\BookletController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Models\PengumpulanTugas;
+use App\Models\Tugas;
 use Illuminate\Http\Client\HttpClientException;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -373,7 +374,26 @@ Route::middleware('auth')->group(function () {
    })->name('mading');
 
    Route::get('mading/pengumpulan/{id}', function (string $id) {
-      // $pengumpulanTugas = PengumpulanTugas::where('tugas_id', $id)->where('user_id', auth()->user()->id)->first();
+      // TODO: cek apakah tugas hari ini ada atau tidak
+
+      // $pengumpulanTugas = PengumpulanTugas::with([
+      //    'tugas',
+      //    function ($query) use ($id) {
+      //       $query->where('hari', $id);
+      //    }
+      // ])->where('user_id', auth()->user()->id)->first();
+
+      // $pengumpulanTugas = Tugas::with([
+      //    'pengumpulanTugas' => function ($query) {
+      //       $query->where('user_id', auth()->user()->id);
+      //    }
+      // ])->where('hari', $id)->first();
+
+      // $tugasIds = Tugas::all()->pluck('id')->toArray();
+
+      // if (!in_array($id, $tugasIds)) {
+      //    return to_route("mading");
+      // }
 
       // if ($pengumpulanTugas && !$pengumpulanTugas->isReturn) {
       //    return to_route("mading");

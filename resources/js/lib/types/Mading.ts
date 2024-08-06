@@ -66,7 +66,11 @@ export interface HistoryEntry {
 export interface CardType {
     completionPercentage: number[];
     cardOpen: boolean[];
-    posters: (string | null)[];
+    posters: ({
+        id: number;
+        url_poster: string;
+        isReturn: boolean;
+    } | null)[];
 }
 
 // Root export interface to hold all data
@@ -74,6 +78,9 @@ export interface TaskSystem {
     isSelesai: boolean;
     card: CardType;
     history: HistoryEntry[];
+    logo_kelompok: {
+        logo_kelompok: string;
+    };
 }
 
 export interface Tugas {
