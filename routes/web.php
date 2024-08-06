@@ -65,7 +65,7 @@ Route::middleware('auth')->group(function () {
       Route::get('/tugas/{hari}', [MadingController::class, 'getTugas'])->name('tugas');
       Route::post('/store', [MadingController::class, 'storeTugas'])->name('store');
 
-      Route::post('/store-poster', [MadingController::class, 'storePoster'])->name('store-poster');
+      Route::put('/store-poster', [MadingController::class, 'storePoster'])->name('store-poster');
    });
 });
 

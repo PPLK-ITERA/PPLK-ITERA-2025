@@ -29,6 +29,7 @@ class MadingController extends Controller
          }
       ])->get();
 
+      $logo = Kelompok::find($user->kelompok_id);
       // Fetch history of task submissions
       $riwayat = PengumpulanTugas::with([
          'tugas' => function ($query) {
@@ -47,6 +48,7 @@ class MadingController extends Controller
       $completionPercentage = [];
       $cardOpen = [];
       $posters = [];
+      $days = [];
 
       $isSelesai = true;
       $dayBefore = null;
@@ -93,20 +95,24 @@ class MadingController extends Controller
          $completionPercentage[$hari] = ($memberCompletion[$hari] / ($count * $totalMembers)) * 100;
          if ($completionPercentage[$hari] >= 100) {
             $posters[$hari] = Poster::where('kelompok_id', auth()->user()->kelompok_id)->where('hari', $hari)->first();
+            $days[$hari] = $hari;
          }
       }
+      ;
 
       $response = [
          'isSelesai' => $isSelesai,
          'card' => [
             'completionPercentage' => $completionPercentage,
             'cardOpen' => $cardOpen,
-            'posters' => $posters
+            'posters' => $posters,
+            'hari' => $days
          ],
          'history' => $riwayat,  // Ensure $riwayat is defined and assigned appropriately before this point
          'memberCompletion' => $memberCompletion,
          'count' => $tugasCount,
-         'tugass' => $tugass
+         'tugass' => $tugass,
+         'logo_kelompok' => $logo,
       ];
 
 
@@ -202,6 +208,7 @@ class MadingController extends Controller
          'hari' => 'required|integer|in:0,1,2,3,4,5',
          'poster' => 'required|image|mimes:jpeg,png,jpg|max:2048',
       ]);
+      dd($request->all());
 
       $userId = Auth::id();
       $kelompokId = Auth::user()->kelompok_id;
@@ -239,7 +246,8 @@ class MadingController extends Controller
          return response()->json(['error' => 'Failed to upload poster' . $th->getMessage()], 500);
       }
       // return response()->json(['message' => 'Poster uploaded successfully']);
-      return redirect()->back()->with('success', 'Poster uploaded successfully');
+
+      // return redirect()->back()->with('success', 'Poster uploaded successfully');
    }
 
    public function previewMading()

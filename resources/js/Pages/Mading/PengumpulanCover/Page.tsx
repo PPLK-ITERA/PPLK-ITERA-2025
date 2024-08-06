@@ -21,8 +21,6 @@ import { useToast } from "@/Components/ui/use-toast";
 
 import { CardType } from "@/lib/types/Mading";
 
-const fileTypes = ["JPG", "PNG", "GIF"];
-
 const ketentuanUploadCover = [
     "Kreativitas dan Daya Tarik Visual: Pilih gambar yang unik dan menarik perhatian pembaca. Gunakan desain yang kreatif dan harmonis untuk menciptakan tampilan yang memikat.",
     "Kualitas dan Resolusi Gambar: Pastikan gambar yang diunggah memiliki resolusi tinggi agar tetap jelas dan tajam saat ditampilkan.",
@@ -32,41 +30,39 @@ const ketentuanUploadCover = [
     "Gambar yang Senonoh dan Tidak Menyinggung: Pastikan gambar yang diunggah tidak mengandung unsur SARA, pornografi, atau hal-hal yang dapat menyinggung orang lain.",
 ];
 
-export default function Page({ id }) {
+export default function Page({ hari }) {
     const [tugasData, setTugasData] = useState<CardType | null>(null);
     const [urlError, setUrlError] = useState<string | null>(null);
     const [csrfToken, setCsrfToken] = useState("");
     const [tugasId, setTugasId] = useState(0);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const getTugasData = async () => {
-        try {
-            const response = await fetch(route("mading.tugas", { id }), {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+    // const getTugasData = async () => {
+    //     try {
+    //         const response = await fetch(route("mading.tugas", { hari }), {
+    //             method: "GET",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //         });
 
-            if (!response.ok) {
-                throw new Error("HTTP status " + response.status);
-            }
+    //         if (!response.ok) {
+    //             throw new Error("HTTP status " + response.status);
+    //         }
 
-            const data = await response.json();
-            setTugasData(data.tugas);
-            setIsSubmitted(data.isSubmitted);
-        } catch (error) {
-            toast({
-                title: "Error",
-                variant: "destructive",
-                description: "Gagal mendapatkan data tugas",
-            });
-        }
-    };
+    //         const data = await response.json();
+    //         setTugasData(data.tugas);
+    //         setIsSubmitted(data.isSubmitted);
+    //     } catch (error) {
+    //         toast({
+    //             title: "Error",
+    //             variant: "destructive",
+    //             description: "Gagal mendapatkan data tugas",
+    //         });
+    //     }
+    // };
 
     useEffect(() => {
-        getTugasData();
-
         const fetchCsrfToken = async () => {
             try {
                 const response = await fetch(route("csrf"));
@@ -84,7 +80,7 @@ export default function Page({ id }) {
     const [previewUrl, setPreviewUrl] = useState("");
 
     const { data, setData, post } = useForm({
-        id: id,
+        hari: hari,
         poster: null,
         _method: "put",
     });
@@ -131,7 +127,7 @@ export default function Page({ id }) {
                                 data-aos-duration="1000"
                                 className="font-montserrat font-bold text-jaffa-700 w-fit pt-[30px] text-3xl"
                             >
-                                Pengumpulan Cover Day - {id}
+                                Pengumpulan Cover Day - {hari}
                             </h2>
 
                             <div className="md:mt-10 mt-5">
@@ -205,7 +201,7 @@ export default function Page({ id }) {
                                     disabled={!file}
                                     className="bg-jaffa-700 hover:bg-jaffa-700/90 w-full mt-5 transition duration-200 ease-in-out"
                                 >
-                                    Submit Cover {id}
+                                    Submit Cover Day {hari}
                                 </Button>
                             </div>
                         </div>

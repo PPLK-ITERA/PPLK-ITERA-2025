@@ -384,9 +384,9 @@ Route::middleware('auth')->group(function () {
       ]);
    })->name('mading/pengumpulan');
 
-   Route::get('mading/pengumpulan-cover/{id}', function (string $id) {
+   Route::get('mading/pengumpulan-cover/{hari}', function (string $hari) {
       return Inertia::render('Mading/PengumpulanCover/Page', [
-         'id' => $id
+         'hari' => $hari
       ]);
    })->name('mading/pengumpulan-cover');
 

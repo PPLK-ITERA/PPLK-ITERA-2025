@@ -16,7 +16,7 @@ import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
-import { CardType, TaskData, TaskSystem, Tugas } from "@/lib/types/Mading";
+import { TaskData } from "@/lib/types/Mading";
 
 export default function Page({ id }) {
     const [tugasData, setTugasData] = useState<TaskData | null>(null);
@@ -81,27 +81,12 @@ export default function Page({ id }) {
             const data = await response.json();
             setTugasData(data);
 
-            // data.tugas.map((tugas: Tugas) => {
-            //     TugasId.push(tugas.id);
-            // });
-            // Initialize the form data
             let tugasId: number[] = [];
             data.tugas.forEach((tugas, index) => {
                 tugasId.push(tugas.id);
-                addOrUpdateJawaban(index, ""); // Initialize jawaban
+                addOrUpdateJawaban(index, "");
             });
             setFormData("tugas_id", tugasId);
-
-            // setFormData(data.tugas.map((tugas) => data.tugas.set(tugas.id, 0)));
-
-            // TugasId.push(data.tugas.map((tugas) => tugas.id));
-
-            // console.log("tugasId", TugasId);
-
-            // @ts-ignore
-            // setFormData("tugas_id", TugasId);
-            // setIsSubmitted(data.isSubmitted);
-            // console.log("tugas", data.tugas[0].id);
         } catch (error) {
             toast({
                 title: "Error",
@@ -269,8 +254,6 @@ export default function Page({ id }) {
                             >
                                 Pengumpulan Tugas Day - {id}
                             </h2>
-
-                            {/* <p>{}</p> */}
 
                             <div className="flex flex-col mt-10">
                                 {tugasData?.tugas.map((tugas, index) => (

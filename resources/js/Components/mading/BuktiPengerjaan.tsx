@@ -17,24 +17,19 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
-import { CardType, TaskSystem } from "@/lib/types/Mading";
+import { TaskSystem } from "@/lib/types/Mading";
 
 import logo_pplk_itera from "!assets/logo-pplk-hd.png";
 
-// interface
-
-// interface BuktiPengerjaanProps {
-//     cards: CardType[];
-//     completionPercentage: { [key: number]: number };
-//     isSubmitted: { [key: number]: boolean };
-//     isKetua: boolean;
-// }
-
 interface BuktiPengerjaanProps {
     data: TaskSystem;
+    isKetua: boolean;
 }
 
-export default function BuktiPengerjaan({ data }: BuktiPengerjaanProps) {
+export default function BuktiPengerjaan({
+    data,
+    isKetua,
+}: BuktiPengerjaanProps) {
     return (
         <Carousel
             opts={{ align: "start" }}
@@ -68,28 +63,80 @@ export default function BuktiPengerjaan({ data }: BuktiPengerjaanProps) {
                                                 className="object-cover w-full h-full"
                                             />
                                         ) : (
-                                            <div className="scale-50">
-                                                <CircularProgressbarWithChildren
-                                                    value={percent}
-                                                    text={`${Math.floor(percent)}%`}
-                                                    strokeWidth={10}
-                                                    styles={buildStyles({
-                                                        strokeLinecap: "butt",
-                                                        textColor: "#fff",
-                                                        trailColor: "#F97B70",
-                                                        pathColor: "#FEF3F2",
-                                                    })}
-                                                >
-                                                    <RadialSeparators
-                                                        count={12}
-                                                        style={{
-                                                            background:
-                                                                "#B54419",
-                                                            width: "2px",
-                                                            height: `${10}%`,
-                                                        }}
-                                                    />
-                                                </CircularProgressbarWithChildren>
+                                            <div className="flex flex-col w-full">
+                                                {index !== 0 ? (
+                                                    <>
+                                                        <h2 className="font-avigea text-[44px] text-center">
+                                                            Day {index}
+                                                        </h2>
+
+                                                        <div className="scale-50">
+                                                            <CircularProgressbarWithChildren
+                                                                value={percent}
+                                                                text={`${Math.floor(percent)}%`}
+                                                                strokeWidth={10}
+                                                                styles={buildStyles(
+                                                                    {
+                                                                        strokeLinecap:
+                                                                            "butt",
+                                                                        textColor:
+                                                                            "#fff",
+                                                                        trailColor:
+                                                                            "#F97B70",
+                                                                        pathColor:
+                                                                            "#FEF3F2",
+                                                                    },
+                                                                )}
+                                                                className=""
+                                                            >
+                                                                <RadialSeparators
+                                                                    count={12}
+                                                                    style={{
+                                                                        background:
+                                                                            "#B54419",
+                                                                        width: "2px",
+                                                                        height: `${10}%`,
+                                                                    }}
+                                                                />
+                                                            </CircularProgressbarWithChildren>
+                                                        </div>
+                                                    </>
+                                                ) : (
+                                                    <div className="flex flex-col gap-5 mx-auto">
+                                                        <div className="md:h-32 md:w-32 w-24 h-24 overflow-hidden bg-white rounded-full">
+                                                            <img
+                                                                src={
+                                                                    logo_pplk_itera
+                                                                }
+                                                                alt="logo_pplk_itera"
+                                                            />
+                                                        </div>
+
+                                                        <div className="md:h-32 md:w-32 w-24 h-24 overflow-hidden bg-white rounded-full">
+                                                            <img
+                                                                src={
+                                                                    logo_pplk_itera
+                                                                }
+                                                                alt="logo_pplk_itera"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                {isKetua && index !== 0 ? (
+                                                    <Link
+                                                        href={`/mading/pengumpulan-cover/${index}`}
+                                                        className={`${buttonVariants()} hover:bg-white/90 flex items-center justify-center gap-2 mx-auto bg-white shadow-sm`}
+                                                    >
+                                                        <IconPhotoUp
+                                                            color="#b54419"
+                                                            size={20}
+                                                        />
+                                                        <span className="text-jaffa-700 font-bold">
+                                                            Upload Cover
+                                                        </span>
+                                                    </Link>
+                                                ) : null}
                                             </div>
                                         )}
                                     </>

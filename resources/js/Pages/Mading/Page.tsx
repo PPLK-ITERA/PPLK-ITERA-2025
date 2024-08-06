@@ -132,18 +132,25 @@ const Mading = ({ succes }: { succes?: string }) => {
                         </h2>
 
                         {!!data ? (
-                            <BuktiPengerjaan data={data} />
+                            <BuktiPengerjaan
+                                data={data}
+                                isKetua={auth.user.isKetua}
+                            />
                         ) : (
                             <SkeletonLoader />
                         )}
                     </div>
                 </div>
 
-                {/* {isKelompokSelesai ? (
+                {data?.isSelesai ? (
                     <CompletedMessage />
                 ) : (
-                    <>{!!data && <RiwayatTugas historys={data!.history} />}</>
-                )} */}
+                    <>
+                        {data?.history && (
+                            <RiwayatTugas historys={data.history} />
+                        )}
+                    </>
+                )}
             </div>
 
             <div className="bg-pattern-white py-10 lg:py-52 relative bg-[#170C0A] flex flex-col gap-10 items-center justify-center">
@@ -151,7 +158,8 @@ const Mading = ({ succes }: { succes?: string }) => {
                     <img src={awan} alt="" className="w-full" />
                 </div>
 
-                {/* {isKelompokSelesai ? (
+                {data?.isSelesai &&
+                data.card.posters.every((item) => item !== null) ? (
                     <>
                         <h2 className="text-jaffa-50 mt-5 xl:mt-20 font-avigea font-bold md:text-[25px] text-[20px] xl:text-[60px] z-20">
                             MADING TUGAS SELESAI
@@ -222,7 +230,7 @@ const Mading = ({ succes }: { succes?: string }) => {
                             className="absolute bottom-0 w-full"
                         />
                     </>
-                )} */}
+                )}
             </div>
 
             <Toaster />

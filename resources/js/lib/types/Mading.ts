@@ -56,7 +56,7 @@ export interface HistoryEntry {
     user_id: number;
     tugas_id: number;
     jawaban: string;
-    isReturn: number;
+    isReturn: boolean;
     tanggal_submit: string;
     catatan: string | null;
     tugas: TugasMading;
@@ -91,3 +91,14 @@ export interface TaskData {
     tugas: Tugas[];
     isSubmitted: boolean;
 }
+
+// export interface History {
+//     id: number;
+//     user_id: number;
+//     tugas_id: number;
+//     jawaban: string;
+//     tanggal_submit: string;
+//     isReturn: boolean;
+//     catatan: string;
+//     tugas: Tugas;
+// }
