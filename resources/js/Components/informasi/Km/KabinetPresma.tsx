@@ -46,21 +46,21 @@ const kabinetData: Kabinet[] = [
     },
     {
         year: "2022/2023",
-        name: "Muhammad Kizlar Agha Yasin",
-        department: "Teknik Geomatika 2012",
+        name: "Arbi Aditya Ramadhan",
+        department: "Teknik Elektro 2019",
         kabinet: "Kabinet Revolusi Area",
     },
     {
         year: "2023/2024",
-        name: "Muhammad Kizlar Agha Yasin",
-        department: "Teknik Geomatika 2012",
+        name: "Erza Refanza",
+        department: "Teknik Geologi 2020",
         kabinet: "Kabinet Wangsabatih",
     },
     {
         year: "2024/2025",
-        name: "Muhammad Kizlar Agha Yasin",
-        department: "Teknik Geomatika 2012",
-        kabinet: "Kabinet",
+        name: "Ahmad Khadi Abdillah",
+        department: "Teknik Industri 2021",
+        kabinet: "Kabinet Gasendra",
     },
 ];
 

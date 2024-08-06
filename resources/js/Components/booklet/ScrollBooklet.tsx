@@ -67,10 +67,10 @@ export function CarouselBooklet({ booklets }: { booklets: Booklet[] }) {
                                 <div
                                     data-aos="fade-up"
                                     data-aos-duration="1500"
-                                    className="flex items-center justify-between flex-grow m-2 border-t-2 border-gray-400/30 px-2 py-6"
+                                    className="flex items-center justify-between flex-grow m-2 border-t-2 border-gray-400/30 px-1 py-6"
                                 >
                                     <div>
-                                        <h2 className="text-left text-xl font-semibold text-candlelight-700">
+                                        <h2 className="text-left text-xl sm:text-sm md:text-xl font-semibold text-candlelight-700">
                                             {booklet.nama_booklet}
                                         </h2>
                                     </div>
@@ -78,7 +78,7 @@ export function CarouselBooklet({ booklets }: { booklets: Booklet[] }) {
                                     <a
                                         target="_blank"
                                         href={booklet.url_booklet}
-                                        className="bg-gradient-to-r from-[#B9822F] to-[#A6680C] font-montserrat text-[14px] text-white hover:text-white focus:text-white shadow hover:shadow-lg p-2 px-4 rounded transition"
+                                        className="bg-gradient-to-r from-[#B9822F] to-[#A6680C] font-montserrat sm:text-[10px] md:text-[14px] text-white hover:text-white focus:text-white shadow hover:shadow-lg p-2 px-4 rounded transition"
                                     >
                                         Lihat
                                     </a>
