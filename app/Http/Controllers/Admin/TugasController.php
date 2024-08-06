@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\KartuTugas;
 use App\Models\PengumpulanTugas;
+use App\Models\Poster;
 use App\Models\Tugas;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,26 +16,13 @@ class TugasController extends Controller
 {
    public function getTugasUser($id)
    {
-      $user = User::find($id);
-      $auth = Auth::user();
-      if (in_array($auth->role_id, [2, 4])) {
-         if ($user->kelompok_id != $auth->kelompok_id) {
-            return response()->json(
-               [
-                  'response' => [
-                     'status' => 403,
-                     'message' => "You are not authorized to acces this"
-                  ]
-               ]
-            );
-         }
-      }
       try {
          $tugas = PengumpulanTugas::where('user_id', $id)->get();
       } catch (\Exception $e) {
          return response()->json([
             'response' => [
                'status' => 500,
+               'message' => $e->getMessage()
             ]
          ]);
       }
@@ -59,6 +47,7 @@ class TugasController extends Controller
          return response()->json([
             'response' => [
                'status' => 500,
+               'message' => $e->getMessage()
             ]
          ]);
       }
@@ -74,8 +63,11 @@ class TugasController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'catatan' => 'required|string|max:120',
+         'catatan' => 'required|string',
       ]);
+
+      $kelompokId = Auth::user()->kelompok_id;
+
       $tugas = PengumpulanTugas::find($validated['id']);
       DB::beginTransaction();
       try {
@@ -90,6 +82,7 @@ class TugasController extends Controller
             'response',
             [
                'status' => 500,
+               'message' => $e->getMessage()
             ]
          );
       }
@@ -101,35 +94,31 @@ class TugasController extends Controller
          ]
       );
    }
-   public function getPoster()
-   {
-      try {
-         $poster = KartuTugas::where('kelompok_id', Auth::user()->kelompok_id)->select('hari', 'poster')->get();
-      } catch (\Exception $e) {
-         return response()->json([
-            'response' => [
-               'status' => 500,
-            ]
-         ]);
-      }
-      return response()->json([
-         'response' => [
-            'status' => 200,
-            'message' => 'Berhasil mendapatkan data poster',
-            'data' => $poster
-         ]
-      ]);
-   }
+
    public function returnPoster(Request $request)
    {
       $validated = $request->validate([
-         'id' => 'required|integer',
+         'hari' => 'required|integer|in:0,1,2,3,4,5',
       ]);
-      $poster = KartuTugas::find($validated['id']);
+      $poster = Poster::where('kelompok_id', Auth::user()->kelompok_id)
+         ->where('hari', $validated['hari'])
+         ->first();
+
+      if (!$poster) {
+         return redirect()->back()->with(
+            'response',
+            [
+               'status' => 404,
+               'message' => 'Poster tidak ditemukan'
+            ]
+         );
+      }
+
       DB::beginTransaction();
       try {
          $poster->update([
-            'poster' => null
+            'url_poster' => null,
+            'isReturn' => true,
          ]);
          DB::commit();
       } catch (\Exception $e) {
@@ -138,6 +127,7 @@ class TugasController extends Controller
             'response',
             [
                'status' => 500,
+               'message' => $e->getMessage()
             ]
          );
       }

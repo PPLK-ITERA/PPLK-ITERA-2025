@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\MadingController;
 use App\Http\Controllers\User\PresensiCuiController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Models\PengumpulanTugas;
+use App\Models\Tugas;
 use Illuminate\Http\Client\HttpClientException;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -374,20 +376,39 @@ Route::middleware('auth')->group(function () {
    })->name('mading');
 
    Route::get('mading/pengumpulan/{id}', function (string $id) {
-      $pengumpulanTugas = PengumpulanTugas::where('tugas_id', $id)->where('user_id', auth()->user()->id)->first();
+      // TODO: cek apakah tugas hari ini ada atau tidak
 
-      if ($pengumpulanTugas && !$pengumpulanTugas->isReturn) {
-         return to_route("mading");
-      }
+      // $pengumpulanTugas = PengumpulanTugas::with([
+      //    'tugas',
+      //    function ($query) use ($id) {
+      //       $query->where('hari', $id);
+      //    }
+      // ])->where('user_id', auth()->user()->id)->first();
+
+      // $pengumpulanTugas = Tugas::with([
+      //    'pengumpulanTugas' => function ($query) {
+      //       $query->where('user_id', auth()->user()->id);
+      //    }
+      // ])->where('hari', $id)->first();
+
+      // $tugasIds = Tugas::all()->pluck('id')->toArray();
+
+      // if (!in_array($id, $tugasIds)) {
+      //    return to_route("mading");
+      // }
+
+      // if ($pengumpulanTugas && !$pengumpulanTugas->isReturn) {
+      //    return to_route("mading");
+      // }
 
       return Inertia::render('Mading/Pengumpulan/Page', [
          'id' => $id
       ]);
    })->name('mading/pengumpulan');
 
-   Route::get('mading/pengumpulan-cover/{id}', function (string $id) {
+   Route::get('mading/pengumpulan-cover/{hari}', function (string $hari) {
       return Inertia::render('Mading/PengumpulanCover/Page', [
-         'id' => $id
+         'hari' => $hari
       ]);
    })->name('mading/pengumpulan-cover');
 

@@ -10,13 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('kartu_tugas', function (Blueprint $table) {
+        Schema::create('poster', function (Blueprint $table) {
             $table->id();
-            $table->integer("hari");
-            $table->date("tanggal");
-            $table->foreignId("kelompok_id");
-            $table->string("poster_url")->nullable();
-            $table->boolean("is_selesai")->default(false);
+            $table->string('url_poster')->nullable();
+            $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
+            $table->enum('hari', [0, 1, 2, 3, 4, 5]);
+            $table->boolean('isReturn')->default(false);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('kartu_tugas');
+        Schema::dropIfExists('poster');
     }
 };

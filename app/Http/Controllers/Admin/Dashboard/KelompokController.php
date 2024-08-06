@@ -77,7 +77,7 @@ class KelompokController extends Controller
          if (Storage::disk('public')->exists($storagePath)) {
             Storage::disk('public')->delete($storagePath);
          }
-         $path = $request->file('photo')->store('images/logoKelompok', 'public');
+         $path = $request->file('logo_kelompok')->store('images/logoKelompok', 'public');
          $path_image = '/storage/' . $path;
       } else {
          $path_image = $kelompok->logo_kelompok;
@@ -118,8 +118,8 @@ class KelompokController extends Controller
             // Eager load the related prodi and select specific fields
             $query->with([
                'prodi' => function ($subQuery) {
-                  $subQuery->select('id', 'nama_prodi');
-               }
+               $subQuery->select('id', 'nama_prodi');
+            }
             ])->select('id', 'name', 'prodi_id');
          },
          'daplok' => function ($query) {
