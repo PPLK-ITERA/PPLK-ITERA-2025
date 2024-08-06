@@ -40,16 +40,18 @@ Route::middleware('auth')->group(function () {
    //melihat kelompok yang tidak masuk top 10 berdasarkan id kelompok
    Route::get('/scoreboard/kelompok', [ScoreboardController::class, 'getKelompokScore'])->name('scoreboard.kelompok');
 
-   // Route::middleware(['checkRole:Maba'])->group(function () {
-   Route::get('/relasi', [RelasiController::class, 'index'])->name('relasi.index');
-   Route::get('/relasi/index/topfollowers', [RelasiController::class, 'topFollowers'])->name('relasi.index.topfollowers');
-   Route::get('/relasi/index/sort', [RelasiController::class, 'sort'])->name('relasi.index.sort');
-   Route::get('/relasi/data', [RelasiController::class, 'getProfiles'])->name('relasi.index.search'); // search JSON
+   Route::middleware(['checkRole:Maba'])->group(function () {
+      Route::get('/relasi', [RelasiController::class, 'index'])->name('relasi.index');
+      Route::get('/relasi/index/topfollowers', [RelasiController::class, 'topFollowers'])->name('relasi.index.topfollowers');
+      Route::get('/relasi/index/sort', [RelasiController::class, 'sort'])->name('relasi.index.sort');
+      Route::get('/relasi/data', [RelasiController::class, 'getProfiles'])->name('relasi.index.search'); // search JSON
 
-   Route::get('/relasi/search', [RelasiController::class, 'searchIndex'])->name('relasi.search'); // search page
-   Route::get('/relasi/follow/{id}', [RelasiController::class, 'follow'])->name('relasi.follow');
-   Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('relasi.profil');
-   // });
+      Route::get('/relasi/search', [RelasiController::class, 'searchIndex'])->name('relasi.search'); // search page
+      Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('relasi.profil');
+   });
+   Route::middleware('checkRole:Maba,Admin')->group(function () {
+      Route::get('/relasi/follow/{id}', [RelasiController::class, 'follow'])->name('relasi.follow');
+   });
 
    //melihat my profile
    Route::get('/myprofile', [ProfileController::class, 'show'])->name('myprofile');
@@ -57,7 +59,7 @@ Route::middleware('auth')->group(function () {
    Route::put('/myprofile', [ProfileController::class, 'update'])->name('profile.update');
    Route::put('/myprofileupload', [ProfileController::class, 'updateProfile'])->name('profile.update.profile');
 
-   Route::prefix('mading')->name('mading.')->group(function () {
+   Route::prefix('mading')->name('mading.')->middleware('checkRole:Maba')->group(function () {
       Route::get('/card', [MadingController::class, 'getCard'])->name('card');
       Route::get('/tugas/{id}', [MadingController::class, 'getTugas'])->name('tugas');
       Route::post('/store', [MadingController::class, 'storeTugas'])->name('store');
