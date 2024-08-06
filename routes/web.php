@@ -13,7 +13,7 @@ use Inertia\Inertia;
 Route::get('/', function () {
    // if has auth, redirect to dashboard
    // if (auth()->check()) {
-   //    return redirect()->route('dashboard');
+   //    return redirect()->route('dashboard.index');
    // }
 
    return Inertia::render('LandingPage', [

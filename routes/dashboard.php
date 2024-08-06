@@ -9,11 +9,18 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
 use App\Http\Controllers\User\PresensiPplkController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::middleware('auth')->group(function () {
    Route::prefix('dashboard')->name('dashboard.')->middleware('checkRole:Daplok,Mentor,Admin,PjProdi,Mamet,CustomerService,Korlap')->group(function () {
-
+      Route::get('/', function () {
+         if (Auth::user()->role_id == 1) {
+            return redirect()->route('welcome');
+         }
+         return Inertia::render('Dashboard/Page');
+      })->name('index');
       // =====================================
       // USER
       // =====================================

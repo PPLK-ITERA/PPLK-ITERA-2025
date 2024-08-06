@@ -14,7 +14,7 @@ use Inertia\Inertia;
 
 // Route::get('login', function () {
 //    if (auth()->check()) {
-//       return redirect()->route('dashboard');
+//       return redirect()->route('dashboard.index');
 //    }
 //    // return Inertia::render('Login');
 // })->name('login');

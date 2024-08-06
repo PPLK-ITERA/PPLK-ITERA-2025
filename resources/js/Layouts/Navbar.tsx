@@ -19,7 +19,7 @@ const Navbar = ({ user }) => {
                 <h2
                     className={`mb-1 hidden flex-grow text-center md:mb-0 md:block`}
                 >
-                    <Link href={route("dashboard")}>
+                    <Link href={route("dashboard.index")}>
                         Pillar of Personality PPLK 2024
                     </Link>
                 </h2>

@@ -123,7 +123,7 @@ export const UserDropdown = [
     },
     {
         title: "Dashboard",
-        href: route("dashboard"),
+        href: route("dashboard.index"),
         icon: <IconLayoutDashboard size={24} color="#fcedd8" />,
     },
     {
