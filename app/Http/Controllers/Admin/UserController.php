@@ -286,10 +286,10 @@ class UserController extends Controller
       //
       $user = User::find($id);
       $isDapmenOrMentor = auth()->user()->role_id == 2 || auth()->user()->role_id == 4;
-      if($isDapmenOrMentor && auth()->user()->kelompok_id != $user->kelompok_id){
+      if ($isDapmenOrMentor && auth()->user()->kelompok_id != $user->kelompok_id) {
          return redirect()->route('dashboard.user.index');
       }
-      if($isDapmenOrMentor && $user->role_id != 1){
+      if ($isDapmenOrMentor && $user->role_id != 1) {
          return redirect()->route('dashboard.user.index');
       }
       return Inertia::render('Dashboard/detail-user/Page', [
@@ -357,33 +357,52 @@ class UserController extends Controller
    }
    public function editProfil(Request $request)
    {
+      // Validate input
       $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'name' => ['required', 'string','regex:/^[\pL\s\-]+$/u'],
+         'name' => ['required', 'string', "regex:/^[\pL\s\-']+$/u", 'max:120'],
          'nim' => ['required', 'string'],
          'email' => ['required', 'email'],
          'prodi_id' => ['required', 'integer'],
-         'bio' => ['nullable', 'string','max:150'],
+         'bio' => ['nullable', 'string', 'max:150'],
       ]);
 
+      // Find user
       $user = User::find($validated['id']);
 
-      if($user->role_id == 1){
-         $validate = $request->validate([
-         'pita' => ['required', 'string'],
-         'ket_penyakit' => ['sometimes', 'string'],
+      // Check if user exists
+      if (!$user) {
+         return redirect()->route('dashboard.user.edit', ['id' => $validated['id']])
+            ->with('response', [
+               'status' => 404,
+               'message' => 'User not found',
+            ]);
+      }
+
+      // Validate additional fields for admins
+      if ($user->role_id == 1) {
+         $adminValidated = $request->validate([
+            'pita' => ['required', 'string', 'in:hijau,kuning,merah'],
+            'ket_penyakit' => ['nullable', 'string', 'max:120'],
          ]);
-      };
-      
-      DB::BeginTransaction();
-      try {
-         $penyakit = Penyakit::find($user->penyakit_id);
-         if ($penyakit) {
-            $penyakit->update([
-               'pita' => $validate['pita'],
-               'ket_penyakit' => $validate['ket_penyakit'],
+      }
+
+      // Use DB transaction for multiple operations
+      DB::transaction(function () use ($user, $validated, $adminValidated) {
+         // Update or create 'penyakit' if user is admin
+         if ($user->role_id == 1 && $user->pita != null) {
+            $penyakit = Penyakit::updateOrCreate(
+               ['pita' => $adminValidated['pita']],
+               ['ket_penyakit' => $adminValidated['ket_penyakit']]
+            );
+
+            // Update user with penyakit_id
+            $user->update([
+               'penyakit_id' => $penyakit->id,
             ]);
          }
+
+         // Update user details
          $user->update([
             'name' => $validated['name'],
             'nim' => $validated['nim'],
@@ -391,28 +410,20 @@ class UserController extends Controller
             'prodi_id' => $validated['prodi_id'],
             'bio' => $validated['bio'],
          ]);
-         DB::commit();
-      } catch (\Exception $e) {
-         DB::rollback();
-         return redirect()->route('dashboard.user.edit', ['id' => $user->id])
-            ->with('response', [
-               'status' => 500,
-               'message' => 'Gagal mengubah profil user',
-            ]);
-      }
-
+      });
       return redirect()->route('dashboard.user.edit', ['id' => $user->id])
          ->with('response', [
             'status' => 200,
             'message' => 'Berhasil mengubah profil user',
          ]);
    }
+
    public function editSosmed(Request $request)
    {
       $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'instagram_url' => ['sometimes', 'url', 'nullable'],
-         'linkedin_url' => ['sometimes', 'url', 'nullable'],
+         'instagram_url' => ['nullable', 'url', 'max:120', 'regex:#^((https?:\/\/)?(www\.)?)?instagram\.com\/[a-zA-Z0-9._]{1,30}\/?$#i'],
+         'linkedin_url' => ['nullable', 'url', 'max:120', 'regex:#^((https?:\/\/)?(www\.)?)?linkedin\.com\/in\/[a-zA-Z0-9\-_]{1,100}\/?$#i'],
       ]);
       $user = User::find($validated['id']);
       DB::BeginTransaction();
@@ -479,7 +490,7 @@ class UserController extends Controller
    {
       $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'sertif' => ['required', 'url',],
+         'sertif' => ['required', 'url'],
       ]);
       $user = User::find($validated['id']);
       DB::BeginTransaction();
