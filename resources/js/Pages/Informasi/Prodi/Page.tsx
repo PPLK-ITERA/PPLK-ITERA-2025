@@ -114,7 +114,7 @@ export default function Page() {
                         {displayedItems.map((prodi, index) => (
                             <Card
                                 key={index}
-                                className="w-64 h-48 overflow-hidden rounded-sm"
+                                className="w-64 h-48 overflow-hidden rounded-xl shadow-lg"
                             >
                                 <div className="place-content-center place-items-center flex flex-col">
                                     <div className="group relative w-full h-32 overflow-hidden">
@@ -131,24 +131,21 @@ export default function Page() {
                                                     "https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg"
                                                 }
                                                 alt="Prodi"
-                                                className="object-cover w-full h-full"
+                                                className="object-contain w-full h-full"
                                                 data-aos="fade-in"
                                                 data-aos-duration="1000"
                                             />
                                         </div>
 
                                         {/* detail on hover */}
-                                        <div className="group-hover:opacity-100 bg-white/30 backdrop-blur place-content-center place-items-center absolute top-0 left-0 flex flex-col justify-between w-full h-full p-2 text-sm transition duration-200 ease-in-out opacity-0">
-                                            <p className="font-montserrat font-semibold text-black">
-                                                {prodi.name}
-                                            </p>
-
+                                        <div className="group-hover:opacity-100 bg-black/50 backdrop-blur place-content-center place-items-center absolute top-0 left-0 flex flex-col  w-full h-full p-2 text-sm transition duration-200 ease-in-out opacity-0">
                                             <Link
                                                 href={`/informasi/prodi/${prodi.key}`}
                                             >
                                                 <Button
-                                                    className="bg-jaffa-950 hover:bg-jaffa-950/90 text-white transition-all duration-200 ease-in-out rounded-sm"
+                                                    className="text-white"
                                                     size={"sm"}
+                                                    variant={"ghost"}
                                                 >
                                                     Selengkapnya
                                                 </Button>

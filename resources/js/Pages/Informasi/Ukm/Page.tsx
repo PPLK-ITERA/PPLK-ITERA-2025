@@ -41,6 +41,8 @@ const Page: React.FC = () => {
         currentPage * itemsPerPage,
     );
 
+    useAos();
+
     return (
         <>
             <Head title="Informasi UKM" />
@@ -49,11 +51,11 @@ const Page: React.FC = () => {
                 <div className="bg-mobile-hero-background md:bg-desktop-hero-background md:min-h-full relative flex items-center justify-center min-h-screen p-5 bg-center bg-cover">
                     <MaxWidthWrapper className="md:justify-start flex flex-col items-center justify-center">
                         <div className="w-full px-2.5 py-[96px] md:py-[200px] lg:py-[160px] xl:py-[160px] text-center md:text-start">
-                            <p className="text-[20px] font-semibold text-jaffa-100/80 md:text-[29.5px]">
+                            <p data-aos="fade-right" data-aos-duration={1000} className="text-[20px] font-semibold text-jaffa-100/80 md:text-[29.5px]">
                                 Informasi
                             </p>
 
-                            <h1 className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-[2.5rem]">
+                            <h1 data-aos="fade-right" data-aos-duration={1500} className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-[2.5rem]">
                                 <span className="font-avigea text-[40px] md:text-[60px] max-w-xl">
                                     UNIT KEGIATAN MAHASISWA (UKM)
                                 </span>
@@ -63,15 +65,12 @@ const Page: React.FC = () => {
                                 </span>
                             </h1>
 
-                            <p className="mt-10 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em] max-w-2xl">
-                                <span className="text-[18px] md:text-[25px]">
-                                    Unit Kegiatan Mahasiswa adalah sebuah
-                                    organisasi yang mewadahi berbagai minat &
-                                    bakat mahasiswa di Institut Teknologi
-                                    Sumatera. UKM hadir untuk bisa memfasilitasi
-                                    semua minat & bakat dari seluruh Mahasiswa
-                                    Institut Teknologi Sumatera.
-                                </span>
+                            <p data-aos="fade-right" data-aos-duration={2000} className="mt-8 text-[18px] md:text-xl leading-4 text-jaffa-100 font-montserrat max-w-xl">
+                                Unit Kegiatan Mahasiswa adalah sebuah organisasi
+                                yang mewadahi berbagai minat & bakat mahasiswa
+                                di Institut Teknologi Sumatera. UKM hadir untuk
+                                bisa memfasilitasi semua minat & bakat dari
+                                seluruh Mahasiswa Institut Teknologi Sumatera.
                             </p>
                         </div>
                     </MaxWidthWrapper>

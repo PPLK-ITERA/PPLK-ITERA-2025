@@ -31,26 +31,26 @@ export default function StrukturOrganisasi({ fakultas }) {
     return (
         <div className="py-16">
             <div className="text-start md:text-center md:px-0 px-4">
-                <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-bold tracking-widest text-center">
+                <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-semibold tracking-wide text-center">
                     Jabatan Struktural
                 </p>
             </div>
 
             <div className="md:mt-16 flex items-center justify-center mx-auto mt-8">
-                <div className="px-10">
+                <div className="px-8">
                     <Carousel
                         className="md:max-w-3xl lg:max-w-5xl max-w-[300px]"
                         setApi={setApi}
                     >
-                        <CarouselContent className="-ml-1">
+                        <CarouselContent>
                             {selectedFakultas.struktur_organisasi.map(
                                 (item, index) => (
                                     <CarouselItem
                                         key={index}
-                                        className="md:basis-1/2 lg:basis-1/2 font-montserrat pl-1"
+                                        className="md:basis-1/2 lg:basis-1/2 font-montserrat"
                                     >
-                                        <div className="p-1">
-                                            <Card className="rounded-md xl:min-w-[500px] min-w-[300px] flex items-center xl:min-h-[300px] overflow-hidden flex-col md:flex-row">
+                                        <div>
+                                            <Card className="rounded-2xl shadow-xl overflow-hidden border-0 min-w-[300px] flex items-center xl:min-w-[500px] xl:min-h-[300px] flex-col md:flex-row">
                                                 <div className="md:w-[40%] w-full h-[300px] overflow-hidden">
                                                     <img
                                                         src={item.foto}
@@ -59,12 +59,12 @@ export default function StrukturOrganisasi({ fakultas }) {
                                                     />
                                                 </div>
 
-                                                <div className="text-center relative h-[300px] md:text-start p-5 md:w-[60%] w-full">
-                                                    <h3 className="mt-5 text-xl font-bold">
+                                                <div className="text-center relative h-[300px] md:text-start p-6 md:w-[60%] w-full bg-jaffa-100 flex flex-col gap-2 place-content-center">
+                                                    <h3 className="text-xl font-bold">
                                                         {item.nama}
                                                     </h3>
 
-                                                    <p className="top-1/2 left-1/2 md:left-5 md:-translate-x-0 absolute -translate-x-1/2">
+                                                    <p className="text-sm font-medium">
                                                         {item.jabatan}
                                                     </p>
                                                 </div>
