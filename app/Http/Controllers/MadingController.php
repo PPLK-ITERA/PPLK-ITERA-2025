@@ -38,8 +38,8 @@ class MadingController extends Controller
 
       // $posters = Poster::where('kelompok_id', $user->kelompok_id)->get();
 
-      // Count total members in the user's group (assuming all are expected to complete tasks)
-      $totalMembers = User::where('kelompok_id', $user->kelompok_id)->where('role_id', 1)->count();
+      // Retrieve total members expected to complete tasks in the user's group
+      $totalMembers = User::where('kelompok_id', auth()->user()->kelompok_id)->where('role_id', 1)->count();
 
       // Initialize arrays to store task counts and member completions
       $tugasCount = [];
@@ -47,52 +47,48 @@ class MadingController extends Controller
       $completionPercentage = [];
       $cardOpen = [];
       $posters = [];
+
       $isSelesai = true;
+      $dayBefore = null;
 
       foreach ($tugass as $tugas) {
-         if (!isset($tugasCount[$tugas->hari])) {
-            $tugasCount[$tugas->hari] = 0;
-            $cardOpen[$tugas->hari] = false;
-            $posters[$tugas->hari] = null;
+         $hari = $tugas->hari;
+         // Initialize daily data if not already set
+         if (!isset($tugasCount[$hari])) {
+            $tugasCount[$hari] = 0;
+            $memberCompletion[$hari] = 0;
+            $completionPercentage[$hari] = 0;
+            $cardOpen[$hari] = true;  // Start with card open, and close it if all members complete the tasks
+            $posters[$hari] = null;
          }
 
-         if ($tugas->hari == $dayBefore) {
-            $memberCompletion[$tugas->hari] = $memberCompletion;
-         } else {
-            $memberCompletion[$tugas->hari] = 0;
-         }
+         $tugasCount[$hari] += 1;
 
-         $completionPercentage[$tugas->hari] = 0;
-
-         $tugasCount[$tugas->hari] += 1;
-
-         $tugasDia = $tugas->pengumpulanTugas->where('user_id', $userId)->first();
-
-         if (!$tugasDia || $tugasDia->isReturn) {
-            $cardOpen[$tugas->hari] = true;
-         }
-
+         // Evaluate task submissions
          foreach ($tugas->pengumpulanTugas as $pengumpulanTugas) {
             if (!$pengumpulanTugas->isReturn) {
-               $memberCompletion[$tugas->hari] += 1;
+               $memberCompletion[$hari] += 1;
+               if ($pengumpulanTugas->user_id == auth()->id()) {
+                  $cardOpen[$hari] = true;
+               }
             }
          }
 
-         if ($memberCompletion[$tugas->hari] < $totalMembers) {
-            $isSelesai = false;
+         // If all members have completed the task for the day, close the card
+         if ($memberCompletion[$hari] == $totalMembers * $tugasCount[$hari]) {
+            $cardOpen[$hari] = false;
          }
 
-         if ($completionPercentage[$tugas->hari] >= 100) {
-            $posters[$tugas->hari] = Poster::where('kelompok_id', $user->kelompok_id)->where('hari', $tugas->hari)->first();
+         $dayBefore = $hari;
+      }
+
+      // Update completion percentages and determine if posters should be displayed
+      foreach ($tugasCount as $hari => $count) {
+         $completionPercentage[$hari] = ($memberCompletion[$hari] / ($count * $totalMembers)) * 100;
+         if ($completionPercentage[$hari] >= 100) {
+            $posters[$hari] = Poster::where('kelompok_id', auth()->user()->kelompok_id)->where('hari', $hari)->first();
          }
-
-         $dayBefore = $tugas->hari;
       }
-
-      foreach ($tugass as $tugas) {
-         $completionPercentage[$tugas->hari] = ($memberCompletion[$tugas->hari] / ($tugasCount[$tugas->hari] * $totalMembers)) * 100;  // Calculate completion percentage
-      }
-
 
       $response = [
          'isSelesai' => $isSelesai,
@@ -101,11 +97,12 @@ class MadingController extends Controller
             'cardOpen' => $cardOpen,
             'posters' => $posters
          ],
-         'history' => $riwayat,
-         'membercompletion' => $memberCompletion,
+         'history' => $riwayat,  // Ensure $riwayat is defined and assigned appropriately before this point
+         'memberCompletion' => $memberCompletion,
          'count' => $tugasCount,
          'tugass' => $tugass
       ];
+
 
       return response()->json($response);
    }
