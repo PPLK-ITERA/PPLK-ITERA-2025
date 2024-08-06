@@ -30,7 +30,7 @@ export default function Page({ auth, response }) {
 
     useEffect(() => {
         if (data.qr_code) {
-            post(route("poin.store"));
+            post(route("dashboard.poin.store"));
         }
     }, [data.qr_code]);
 

@@ -22,7 +22,6 @@ function MateriForm({ materi }: Props) {
     const [error, setError] = useState<string | null>(null);
 
     const validateUrl = useDebouncedCallback(async () => {
-        // console.log("validating url", data.link_materi);
         if (
             !/^https:\/\/(www\.)?\w+\.google\.com\/.*$/g.test(data.link_materi)
         ) {
@@ -44,6 +43,11 @@ function MateriForm({ materi }: Props) {
     }, 200);
 
     function onSubmit() {
+        toast({
+            title: "Mohon tunggu sebentar...",
+            description: "Sedang mengupload Materi...",
+        });
+
         if (materi) {
             console.log(data);
             put(route("dashboard.materi.update"), {
@@ -144,7 +148,8 @@ function MateriForm({ materi }: Props) {
                 <Button
                     className="bg-orange-500"
                     size={"sm"}
-                    onClick={() => validateUrl()}
+                    type="button"
+                    onClick={validateUrl}
                 >
                     Refresh Link
                 </Button>

@@ -1,6 +1,8 @@
+import Error from "@/Pages/Error";
+
 import React from "react";
 
-import { router } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 
 import DefaultLayout from "@/Layouts/DefaultLayout";
 
@@ -19,60 +21,64 @@ function Page({ nama_upa }) {
     const upa = DetailUPTData.find((upa) => upa.key === nama_upa);
 
     if (!upa) {
-        router.replace(route("informasi/upa"));
+        return <Error status={404} />;
     }
 
     return (
-        <DefaultLayout>
-            <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background">
-                <Header
-                    upt={upa?.title}
-                    title={upa?.title}
-                    headerDescription={upa?.headerDescription}
-                />
-            </div>
+        <>
+            <Head title={`Informasi ${upa.title}`} />
 
-            <div className="bg-pattern-white relative z-20 py-20">
-                <div className="bg-gradient-to-b hidden md:block from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
-                <div className="max-w-5xl mx-auto">
-                    <div className="md:flex w-full">
-                        <DescriptionHistory
-                            description={upa?.description}
-                            history={upa?.history}
-                        />
-                    </div>
-
-                    <VisiMisi visi={upa?.visi} misi={upa!.misi} />
+            <DefaultLayout>
+                <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background">
+                    <Header
+                        upt={upa?.title}
+                        title={upa?.title}
+                        headerDescription={upa?.headerDescription}
+                    />
                 </div>
 
-                <img
-                    src={pillar_brown}
-                    alt="pillar_brown"
-                    className="lg:visible absolute bottom-0 z-20 invisible w-full"
-                />
+                <div className="bg-pattern-white relative z-20 py-20">
+                    <div className="bg-gradient-to-b hidden md:block from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
+                    <div className="max-w-5xl mx-auto">
+                        <div className="md:flex w-full">
+                            <DescriptionHistory
+                                description={upa?.description}
+                                history={upa?.history}
+                            />
+                        </div>
 
-                <img
-                    src={overlay_box}
-                    alt="pillar_brown"
-                    className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px] z-20 invisible lg:visible"
-                />
-            </div>
+                        <VisiMisi visi={upa?.visi} misi={upa!.misi} />
+                    </div>
 
-            <div className="bg-pattern-white relative z-20 py-20">
-                <KepalaUPT
-                    nama_upt={upa?.title}
-                    nama_kepala_upt={upa?.kepalaUpt.nama}
-                    jabatan={upa?.kepalaUpt.jabatan}
-                    nip={upa?.kepalaUpt.nip}
-                    foto_kepala_upt={upa?.kepalaUpt.foto}
-                    link_instagram={upa?.sosmedUPT.instagram}
-                    link_youtube={upa?.sosmedUPT.youtube}
-                    link_website={upa?.sosmedUPT.website}
-                />
-            </div>
+                    <img
+                        src={pillar_brown}
+                        alt="pillar_brown"
+                        className="lg:visible absolute bottom-0 z-20 invisible w-full"
+                    />
 
-            <KegiatanUnggulan kegiatanUnggulan={upa!.kegiatanUnggulan} />
-        </DefaultLayout>
+                    <img
+                        src={overlay_box}
+                        alt="pillar_brown"
+                        className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px] z-20 invisible lg:visible"
+                    />
+                </div>
+
+                <div className="bg-pattern-white relative z-20 py-20">
+                    <KepalaUPT
+                        nama_upt={upa?.title}
+                        nama_kepala_upt={upa?.kepalaUpt.nama}
+                        jabatan={upa?.kepalaUpt.jabatan}
+                        nip={upa?.kepalaUpt.nip}
+                        foto_kepala_upt={upa?.kepalaUpt.foto}
+                        link_instagram={upa?.sosmedUPT.instagram}
+                        link_youtube={upa?.sosmedUPT.youtube}
+                        link_website={upa?.sosmedUPT.website}
+                    />
+                </div>
+
+                <KegiatanUnggulan kegiatanUnggulan={upa!.kegiatanUnggulan} />
+            </DefaultLayout>
+        </>
     );
 }
 

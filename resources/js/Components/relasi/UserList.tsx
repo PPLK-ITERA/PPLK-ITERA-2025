@@ -13,7 +13,7 @@ export default function UserList({ users, className }: Props) {
         >
             {users.length > 0 && users.slice(0, 10).map((user, index) => (
                 <ProfileCard
-                    className="h-72 md:h-80 w-36 md:w-48"
+                    className="h-72 md:h-72 w-36 md:w-44"
                     user={user}
                 />
             ))}

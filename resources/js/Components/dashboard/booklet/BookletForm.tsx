@@ -47,6 +47,11 @@ function BookletForm({ booklet }: Props) {
     }, 200);
 
     function onSubmit() {
+        toast({
+            title: "Mohon tunggu sebentar...",
+            description: "Sedang mengupload Booklet...",
+        });
+
         if (booklet) {
             put(route("dashboard.booklet.update", booklet.id), {
                 onError: () => {
@@ -129,9 +134,10 @@ function BookletForm({ booklet }: Props) {
                 </div>
                 <div className="place-content-center flex items-center justify-between gap-4 text-right">
                     <Button
+                        type="button"
                         className="bg-orange-500"
                         size={"sm"}
-                        onClick={() => validateUrl()}
+                        onClick={validateUrl}
                     >
                         Refresh Link
                     </Button>
@@ -143,8 +149,8 @@ function BookletForm({ booklet }: Props) {
                 </div>
                 <div className="place-content-center flex items-center justify-between gap-4 mt-4 text-right">
                     <Button
-                        size={"sm"}
-                        type={"submit"}
+                        size="sm"
+                        type="submit"
                         className={`w-full`}
                         disabled={!!urlError || !!error}
                     >

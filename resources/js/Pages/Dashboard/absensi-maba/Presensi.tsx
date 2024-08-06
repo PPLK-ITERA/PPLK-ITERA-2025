@@ -42,7 +42,7 @@ function Presensi() {
             <Card className="">
                 <CardHeader className="flex flex-row items-center justify-between w-full pb-2 space-y-0">
                     <CardTitle className="w-full text-lg font-bold text-center">
-                        Absensi CUI Maba
+                        Absensi Maba
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="flex items-center justify-center mt-2">

@@ -2624,7 +2624,7 @@ export const programStudies: ProgramStudi[] = [
     {
         //DATA PROGRAM STUDI SAINS AKTUARIA
         key: "sains-aktuaria",
-        name: "Sain Aktuaria",
+        name: "Sains Aktuaria",
         imageUrl: logoaktuaria,
         description:
             "Aktuaria merupakan suatu disiplin ilmu yang menerapkan ilmu matematika, metode statistika, ekonomi, dan finance untuk menganalisis risiko pada industri keuangan khususnya pada bisnis asuransi, dana pensiun, investasi serta industri keuangan lainnya. Secara umum, ilmu aktuaria mempelajari model permasalahan ketidakpastian dan harapan hidup.",

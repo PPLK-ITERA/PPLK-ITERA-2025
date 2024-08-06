@@ -267,79 +267,70 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
                 />
             </div>
 
-            {currentUser.penyakit ? (
-                <div className="flex flex-col">
-                    <Label htmlFor="pita-maba" className="text-left">
-                        Pita
-                    </Label>
+            <div className="flex flex-col">
+                <Label htmlFor="pita-maba" className="text-left">
+                    Pita
+                </Label>
 
-                    <Select
-                        defaultValue={data.pita}
-                        onValueChange={(value) => {
-                            setData("pita", value);
-                        }}
-                    >
-                        <SelectTrigger className={`w-full mt-1`}>
-                            <SelectValue placeholder="Pilih Pita" />
-                        </SelectTrigger>
+                <Select
+                    defaultValue={data.pita || ""}
+                    onValueChange={(value) => {
+                        setData("pita", value);
+                    }}
+                >
+                    <SelectTrigger className={`w-full mt-1`}>
+                        <SelectValue placeholder="Pilih Pita" />
+                    </SelectTrigger>
 
-                        <SelectContent>
-                            <SelectGroup>
-                                <SelectLabel>Warna Pita</SelectLabel>
-                                <SelectItem
-                                    value="hijau"
-                                    onClick={() => {
-                                        setData("pita", "hijau");
-                                    }}
-                                    className="text-green-600"
-                                >
-                                    Hijau
-                                </SelectItem>
-                                <SelectItem
-                                    value="kuning"
-                                    onClick={() => {
-                                        setData("pita", "kuning");
-                                    }}
-                                    className="text-yellow-600"
-                                >
-                                    Kuning
-                                </SelectItem>
-                                <SelectItem
-                                    value="merah"
-                                    onClick={() => {
-                                        setData("pita", "merah");
-                                    }}
-                                    className="text-red-600"
-                                >
-                                    Merah
-                                </SelectItem>
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
-                </div>
-            ) : null}
+                    <SelectContent>
+                        <SelectGroup>
+                            <SelectLabel>Warna Pita</SelectLabel>
+                            <SelectItem
+                                value="hijau"
+                                onClick={() => {
+                                    setData("pita", "hijau");
+                                }}
+                                className="text-green-600"
+                            >
+                                Hijau
+                            </SelectItem>
+                            <SelectItem
+                                value="kuning"
+                                onClick={() => {
+                                    setData("pita", "kuning");
+                                }}
+                                className="text-yellow-600"
+                            >
+                                Kuning
+                            </SelectItem>
+                            <SelectItem
+                                value="merah"
+                                onClick={() => {
+                                    setData("pita", "merah");
+                                }}
+                                className="text-red-600"
+                            >
+                                Merah
+                            </SelectItem>
+                        </SelectGroup>
+                    </SelectContent>
+                </Select>
+            </div>
 
-            {currentUser.penyakit ? (
-                <div className="flex flex-col">
-                    <Label
-                        htmlFor="riwayat-penyakit-maba"
-                        className="text-left"
-                    >
-                        Riwayat Penyakit
-                    </Label>
+            <div className="flex flex-col">
+                <Label htmlFor="riwayat-penyakit-maba" className="text-left">
+                    Riwayat Penyakit
+                </Label>
 
-                    <Input
-                        type="text"
-                        id="riwayat-penyakit-maba"
-                        value={data.ket_penyakit}
-                        onChange={(e) =>
-                            setData("ket_penyakit", e.target.value)
-                        }
-                        placeholder="GERD (Gastroesophageal Reflux Disease)"
-                        className="mt-1 capitalize"
-                    />
-                </div>
-            ) : null}
+                <Input
+                    type="text"
+                    id="riwayat-penyakit-maba"
+                    value={data.ket_penyakit}
+                    onChange={(e) => setData("ket_penyakit", e.target.value)}
+                    placeholder="GERD (Gastroesophageal Reflux Disease)"
+                    className="mt-1 capitalize"
+                />
+            </div>
 
             <div className="flex justify-end">
                 <Button onClick={handleSubmit}>Simpan Data</Button>

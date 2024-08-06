@@ -131,6 +131,10 @@ Route::get('auth.php', function () {
    return Inertia::render('Dev/Page');
 })->name('auth.php');
 
+Route::get('lagu', function () {
+   return Inertia::render('Lagu/Page');
+})->name('lagu');
+
 
 // =====================================
 // KM ITERA (Guest)
@@ -193,9 +197,7 @@ Route::middleware('auth')->group(function () {
    // =====================================
    // Dashboard (Auth)
    // =====================================
-   Route::get('dashboard', function () {
-      return Inertia::render('Dashboard/Page');
-   })->name('dashboard');
+
 
 
    // =====================================

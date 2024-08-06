@@ -100,7 +100,7 @@ class PresensiCuiController extends Controller
    public function QRScan(Request $request)
    {
       $validated = $request->validate([
-         'qr_code' => 'required|string',
+         'qr_code' => 'required|string|max:10',
       ]);
 
       $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
@@ -186,7 +186,7 @@ class PresensiCuiController extends Controller
    public function storeIzin(Request $request, $code)
    {
       $validated = $request->validate([
-         'ket_izin' => 'required|string',
+         'ket_izin' => 'required|string|max:120',
       ]);
 
       $userid = Qrcode::where('code', $code)->first()->user_id;

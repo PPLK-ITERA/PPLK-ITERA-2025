@@ -23,10 +23,6 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
 
     const handleSubmit = () => {
         put(route("profile.update"));
-        // toast({
-        //     title: "Profil kamu berhasil diubah.",
-        //     variant: "default",
-        // });
     };
 
     return (
@@ -149,7 +145,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                     onChange={(e) => {
                         setData("bio", e.target.value);
                     }}
-                    className="xl:max-w-[396px] xl:h-[88px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px]"
+                    className="xl:max-w-[396px] xl:h-[88px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] max-h-[150px]"
                 />
             </div>
             <Button

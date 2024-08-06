@@ -19,7 +19,7 @@ class PresensiPplkController extends Controller
    public function QRScan(Request $request)
    {
       $validated = $request->validate([
-         'qr_code' => 'required|string',
+         'qr_code' => 'required|string|max:10',
       ]);
 
       $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
@@ -33,6 +33,28 @@ class PresensiPplkController extends Controller
          ], 404);
       }
       $user = User::findorfail($qrcode->user_id);
+      if (Auth::user()->role_id == 5) {
+         if ($user->prodi_id != Auth::user()->prodi_id) {
+            return response()->json([
+               "status" => 403,
+               "message" => "Maba tidak ada di prodi anda",
+               "data" => [
+                  $validated['qr_code']
+               ]
+            ], 403);
+         }
+      } elseif (Auth::user()->role_id == 2 || Auth::user()->role_id == 4) {
+         $kelompok = Auth::user()->kelompok_id;
+         if ($kelompok != $user->kelompok_id) {
+            return response()->json([
+               "status" => 403,
+               "message" => "Maba tidak ada di kelompok anda",
+               "data" => [
+                  $validated['qr_code']
+               ]
+            ], 403);
+         }
+      }
       if (!$user) {
          return response()->json([
             "status" => 404,
@@ -97,6 +119,10 @@ class PresensiPplkController extends Controller
    // tambah berdasarkan prodi filter bydate
    public function index()
    {
+      return Inertia::render('Dashboard/absensi-maba/Page');
+   }
+   public function dataHadir(Request $request)
+   {
       $user = Auth::user();
       $kelompok_id = $user->kelompok_id;
       $prodi_id = $user->prodi_id; // Assuming this exists if role_id 5 needs it
@@ -106,6 +132,8 @@ class PresensiPplkController extends Controller
       $hadir = 0;
       $izin = 0;
 
+      $date = $request->input('date', Carbon::today()->toDateString());
+
       if ($user->role_id == 2 || $user->role_id == 4) {
          // Role 2 and 4: Access users from the same kelompok
          $users = User::where('kelompok_id', $kelompok_id)
@@ -114,11 +142,11 @@ class PresensiPplkController extends Controller
 
          $hadir = PresensiPplk::whereHas('user', function ($query) use ($kelompok_id) {
             $query->where('kelompok_id', $kelompok_id);
-         })->where('kehadiran', 'Hadir')->count();
+         })->where('kehadiran', 'Hadir')->Where('tanggal_presensi', $date)->count();
 
          $izin = PresensiPplk::whereHas('user', function ($query) use ($kelompok_id) {
             $query->where('kelompok_id', $kelompok_id);
-         })->where('kehadiran', 'Izin')->count();
+         })->where('kehadiran', 'Izin')->Where('tanggal_presensi', $date)->count();
       } elseif ($user->role_id == 5) {
          // Role 5: Access users by prodi_id
          $users = User::where('prodi_id', $prodi_id)
@@ -127,17 +155,17 @@ class PresensiPplkController extends Controller
 
          $hadir = PresensiPplk::whereHas('user', function ($query) use ($prodi_id) {
             $query->where('prodi_id', $prodi_id);
-         })->where('kehadiran', 'Hadir')->count();
+         })->where('kehadiran', 'Hadir')->Where('tanggal_presensi', $date)->count();
 
          $izin = PresensiPplk::whereHas('user', function ($query) use ($prodi_id) {
             $query->where('prodi_id', $prodi_id);
-         })->where('kehadiran', 'Izin')->count();
+         })->where('kehadiran', 'Izin')->Where('tanggal_presensi', $date)->count();
       } elseif ($user->role_id == 3) {
          // Role 3: Access all users with role_id 1
          $users = User::where('role_id', 1)->count();
 
-         $hadir = PresensiPplk::where('kehadiran', 'Hadir')->count();
-         $izin = PresensiPplk::where('kehadiran', 'Izin')->count();
+         $hadir = PresensiPplk::where('kehadiran', 'Hadir')->Where('tanggal_presensi', $date)->count();
+         $izin = PresensiPplk::where('kehadiran', 'Izin')->Where('tanggal_presensi', $date)->count();
       } else {
          // Unauthorized access
          return response()->json([
@@ -149,7 +177,7 @@ class PresensiPplkController extends Controller
       }
 
       // Pass data to Inertia view
-      return Inertia::render('Dashboard/absensi-maba/Page', [
+      return response()->json([
          'response' => [
             'status' => 200,
             'message' => 'Data presensi berhasil diambil',
@@ -159,7 +187,7 @@ class PresensiPplkController extends Controller
                'izin' => $izin,
             ]
          ]
-      ]);
+      ], 200);
    }
 
    public function getAllPresensi(Request $request)

@@ -70,7 +70,7 @@ class KelompokController extends Controller
       $kelompok = Kelompok::find($id);
       $validated = $request->validate([
          'nama_kelompok' => 'sometimes|string',
-         'logo_kelompok' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+         'logo_kelompok' => 'sometimes|image|mimes:jpeg,png,jpg|max:2048|nullable',
       ]);
       if ($request->hasFile('logo_kelompok')) {
          $storagePath = substr($kelompok->logo_kelompok, strlen('/storage/'));

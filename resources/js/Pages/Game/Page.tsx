@@ -2,6 +2,8 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 import React, { Fragment } from "react";
 
+import { Head } from "@inertiajs/react";
+
 function Page() {
     const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
         loaderUrl:
@@ -16,6 +18,8 @@ function Page() {
 
     return (
         <Fragment>
+            <Head title="Game" />
+
             {!isLoaded && (
                 <p>
                     Loading Application...{" "}

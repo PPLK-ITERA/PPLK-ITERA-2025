@@ -71,6 +71,18 @@ const VideoPPLK = [
             />
         ),
     },
+    {
+        id: 6,
+        embed: (
+            <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/G6U5Ub6v4SU?si=YFGiH8Ed4SImjL_C"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen={true}
+            />
+        ),
+    },
 ];
 
 export default function VideoSection() {
