@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
+import { Head } from "@inertiajs/react";
+
 import { ChevronDown, ChevronUp, Info } from "lucide-react";
+
+import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import { AccordionAtribut } from "@/Components/AccordionAtribut";
 import Footer from "@/Components/Footer";
@@ -176,35 +180,37 @@ function Page() {
 
     return (
         <>
-            <Navbar isSolid={true} />
+            <Head title="Ketentuan Atribut" />
 
-            <div className="bg-pattern-white min-h-screen">
-                <div
-                    data-aos="fade-down"
-                    data-aos-duration="1000"
-                    className="xl:max-w-4xl md:max-w-2xl md:pt-20 lg:pt-24 max-w-xs mx-auto"
-                >
-                    <h2 className="font-avigea text-center bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit pt-[30px] text-3xl md:text-5xl mx-auto">
-                        Ketentuan Atribut
-                    </h2>
+            <DefaultLayout isSolid={true}>
+                <div className="bg-pattern-white min-h-screen">
+                    <div
+                        data-aos="fade-down"
+                        data-aos-duration="1000"
+                        className="xl:max-w-4xl md:max-w-2xl md:pt-20 lg:pt-24 max-w-xs mx-auto"
+                    >
+                        <h2 className="font-avigea text-center bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit pt-[30px] text-3xl md:text-5xl mx-auto">
+                            Ketentuan Atribut
+                        </h2>
 
-                    <p className="mt-5 text-center text-[16px] sm:text-[20px]">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Libero, quia? Ut veniam eveniet natus, architecto
-                        quos accusamus, velit fuga dolor aliquam minima dolorum
-                        ea similique labore quia in perspiciatis molestiae?
-                    </p>
+                        <p className="mt-5 text-center text-[16px] sm:text-[20px]">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Libero, quia? Ut veniam eveniet natus,
+                            architecto quos accusamus, velit fuga dolor aliquam
+                            minima dolorum ea similique labore quia in
+                            perspiciatis molestiae?
+                        </p>
+                    </div>
+
+                    <div
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        className="container p-4 mx-auto md:mt-[56px]"
+                    >
+                        <AccordionAtribut />
+                    </div>
                 </div>
-
-                <div
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                    className="container p-4 mx-auto md:mt-[56px]"
-                >
-                    <AccordionAtribut />
-                </div>
-            </div>
-            <Footer />
+            </DefaultLayout>
         </>
     );
 }

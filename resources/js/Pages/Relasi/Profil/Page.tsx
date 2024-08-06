@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import { Link, router, usePage } from "@inertiajs/react";
 
-import { UserPlus } from "lucide-react";
+import { UserCircle, UserPlus } from "lucide-react";
 
 import {
     IconBrandInstagram,
@@ -37,29 +37,43 @@ import linkedinIcon from "!assets/svg/linkedin.svg";
 
 // type Props = { response };
 
-function Page({ response }) {
+function Page({ auth, response }) {
     useAos();
-
-    const [followLoading, setFollowLoading] = useState(false);
-
     const sugesstedUsers: User[] = response.data.random_users;
     const user: User = response.data.user;
 
+    const [followLoading, setFollowLoading] = useState(false);
+    const isSelf = auth.user.id == user.id;
+
     function follow() {
         if (followLoading) return;
+        if (isSelf) return;
 
         setFollowLoading(true);
         router.get(route("relasi.follow", user.id));
         setFollowLoading(true);
     }
 
-    const FollowButton = (
+    const FollowButton = isSelf ? (
+        <Button
+            className={`w-full ${user.followed ? "bg-white hover:bg-gray-300" : "bg-[#ECAA25] hover:bg-[#ECAA25]/90"} transition duration-200 ease-in-out border border-black text-black`}
+            onClick={follow}
+        >
+            <a
+                href={route("myprofile")}
+                className="flex gap-2 place-content-center place-items-center"
+            >
+                <UserCircle className="w-6 h-6 mr-2" />
+                <p className="font-bold">Edit Profil</p>
+            </a>
+        </Button>
+    ) : (
         <Button
             className={`w-full ${user.followed ? "bg-white hover:bg-gray-300" : "bg-[#ECAA25] hover:bg-[#ECAA25]/90"} transition duration-200 ease-in-out border border-black text-black`}
             onClick={follow}
         >
             {!followLoading ? (
-                <div className="flex gap-2">
+                <div className="flex gap-2 place-content-center place-items-center">
                     <UserPlus className="w-6 h-6 mr-2" />
                     <p className="font-bold">
                         {user.followed ? "Mengikuti" : "Ikuti"}
@@ -83,7 +97,10 @@ function Page({ response }) {
                                 <img
                                     className="aspect-square max-md:w-36 object-cover w-48 border-2 rounded-full select-none bg-gray-400"
                                     // src={user.photo_profile_url}
-                                    src={generateRandomImage()}
+                                    src={
+                                        user.profileImageUrl ??
+                                        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                    }
                                     alt={user.name}
                                 />
                                 <p className="max-md:hidden mt-2 text-center">
@@ -210,7 +227,7 @@ function Page({ response }) {
                                     </CarouselItem>
                                 ))}
                                 <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 mt-2 mb-8">
-                                    <Card className="drop-shadow-xl h-full rounded-md">
+                                    <Card className="drop-shadow-xl h-72 md:h-72 w-36 md:w-44 rounded-md">
                                         <CardContent className="flex flex-col items-center justify-between h-full gap-1 p-4 text-black bg-white border rounded-md">
                                             <div className="bg-gradient-to-r place-content-center from-jaffa-600 to-jaffa-800 grid w-24 h-24 text-white rounded-full">
                                                 <IconMoodSearch

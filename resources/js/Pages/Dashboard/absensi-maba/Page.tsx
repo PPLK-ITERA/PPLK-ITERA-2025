@@ -69,9 +69,7 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">
-                            {response.data.hadir}
-                        </div>
+                        <div className="text-2xl font-bold"></div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -90,9 +88,7 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">
-                            {response.data.tidakHadir}
-                        </div>
+                        <div className="text-2xl font-bold"></div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -111,9 +107,7 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">
-                            {response.data.izin}
-                        </div>
+                        <div className="text-2xl font-bold"></div>
                     </CardContent>
                 </Card>
             </div>

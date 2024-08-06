@@ -9,11 +9,18 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
 use App\Http\Controllers\User\PresensiPplkController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::middleware('auth')->group(function () {
-   Route::prefix('dashboard')->name('dashboard.')->group(function () {
-
+   Route::prefix('dashboard')->name('dashboard.')->middleware('checkRole:Daplok,Mentor,Admin,PjProdi,Mamet,CustomerService,Korlap')->group(function () {
+      Route::get('/', function () {
+         if (Auth::user()->role_id == 1) {
+            return redirect()->route('welcome');
+         }
+         return Inertia::render('Dashboard/Page');
+      })->name('index');
       // =====================================
       // USER
       // =====================================
@@ -26,7 +33,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          // Admin Role
          // =====================================
-         Route::middleware(['checkRole:Admin'])->group(function () {
+         Route::middleware(['checkRole:CustomerService,Admin'])->group(function () {
             // =====================================
             // USER DATA EXCEPT MABA
             // =====================================
@@ -42,13 +49,16 @@ Route::middleware('auth')->group(function () {
             // CRUD USER
             // =====================================
             Route::get('store', [UserController::class, 'store'])->name('store');
+         });
+         Route::middleware('checkRole:Admin')->group(function () {
             Route::delete('delete', [UserController::class, 'destroy'])->name('destroy');
          });
+
 
          // =====================================
          // Daplok Mentor Role
          // =====================================
-         Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+         Route::middleware(['checkRole:Daplok,Mentor,CustomerService,Admin'])->group(function () {
             // =====================================
             // USER DATA MABA
             // =====================================
@@ -130,7 +140,7 @@ Route::middleware('auth')->group(function () {
          // ====================================
          Route::middleware('checkRole:Korlap,Admin')->group(function () {
             Route::get('index/{user_id}', [PoinController::class, 'index'])->name('index');
-            Route::post('/store/{user_id}', [PoinController::class, 'store'])->name('dashboard.poin.store');
+            Route::post('/store/{user_id}', [PoinController::class, 'store'])->name('store');
          });
       });
 
@@ -159,7 +169,7 @@ Route::middleware('auth')->group(function () {
       // =====================================
       // Kelompok
       // =====================================
-      Route::prefix('kelompok')->name('kelompok.')->group(function () {
+      Route::prefix('kelompok')->name('kelompok.')->middleware('checkRole:Daplok,Mentor,Admin')->group(function () {
          // Route::get('data', [KelompokController::class, 'index'])->name('data');
          Route::put('update', [KelompokController::class, 'update'])->name('update');
          Route::get('data', [KelompokController::class, 'getKelompok'])->name('data');
@@ -168,7 +178,7 @@ Route::middleware('auth')->group(function () {
       // =====================================
       // FAQ
       // =====================================
-      Route::prefix('faq')->name('faq.')->group(function () {
+      Route::prefix('faq')->name('faq.')->middleware('checkRole:CustomerService,Admin')->group(function () {
          Route::get('/data', [FAQController::class, 'getAllFAQ'])->name('data');
          Route::post('/', [FAQController::class, 'store'])->name('store');
          Route::put('/', [FAQController::class, 'update'])->name('update');

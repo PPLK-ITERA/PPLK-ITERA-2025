@@ -12,6 +12,7 @@ import {
     IconLayoutDashboard,
     IconMap,
     IconMoodWink,
+    IconMusic,
     IconSchool,
     IconShirt,
     IconTie,
@@ -107,6 +108,11 @@ export const MabaDropDown = [
         href: "/materi",
         icon: <IconBook size={24} color="#fcedd8" />,
     },
+    {
+        title: "Lagu",
+        href: "/lagu",
+        icon: <IconMusic size={24} color="#fcedd8" />,
+    },
 ];
 
 export const UserDropdown = [
@@ -117,7 +123,7 @@ export const UserDropdown = [
     },
     {
         title: "Dashboard",
-        href: route("dashboard"),
+        href: route("dashboard.index"),
         icon: <IconLayoutDashboard size={24} color="#fcedd8" />,
     },
     {

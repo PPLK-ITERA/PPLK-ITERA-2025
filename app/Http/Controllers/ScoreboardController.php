@@ -19,12 +19,33 @@ class ScoreboardController extends Controller
     */
    public function getTotalScoresFromDatabase()
    {
-      $kelompokScores = User::with('kelompok')->select('kelompok_id', \DB::raw('SUM(score) as total_score'))->whereNotNull('kelompok_id')
+      $kelompokScores = User::with(['kelompok' => function ($query) {
+         // Select specific fields from the kelompok relationship if necessary
+         $query->select('id', 'no_kelompok', 'nama_kelompok', 'logo_kelompok');
+      }])
+         ->select('kelompok_id', DB::raw('SUM(score) as total_score'))
+         ->whereNotNull('kelompok_id')
          ->groupBy('kelompok_id')
          ->orderBy('total_score', 'desc')
          ->get();
 
       $topTenScores = $kelompokScores->take(10);
+
+      $topTenScores->transform(function ($topTen) {
+         // Check and transform data including related kelompok information
+         if (isset($topTen->kelompok) && isset($topTen->total_score)) {
+            return [
+               'total_score' => $topTen->total_score,
+               'kelompok' => [
+                  "no_kelompok" => $topTen->kelompok->no_kelompok,
+                  "nama_kelompok" => $topTen->kelompok->nama_kelompok,
+                  "logo_kelompok" => $topTen->kelompok->logo_kelompok,
+               ]
+            ];
+         }
+         // Handling the case where kelompok data is missing
+         return null;  // or provide default values or log an error
+      });
 
       return response()->json($topTenScores);
    }
@@ -41,7 +62,7 @@ class ScoreboardController extends Controller
 
       // Mengambil skor kelompok dan mengurutkannya
       $kelompokScores = User::with('kelompok')
-         ->select('kelompok_id', \DB::raw('SUM(score) as total_score'))
+         ->select('kelompok_id', DB::raw('SUM(score) as total_score'))
          ->groupBy('kelompok_id')
          ->orderBy('total_score', 'desc')
          ->get();
@@ -61,16 +82,23 @@ class ScoreboardController extends Controller
       // Mengecek jika kelompok tidak ada dalam top ten
       if (!$kelompokInTopTen) {
          return response()->json([
-            'kelompok' => $kelompokScore,
+            'kelompok' => [
+               'no_kelompok' => $kelompokScore->kelompok->no_kelompok,
+               'nama_kelompok' => $kelompokScore->kelompok->nama_kelompok,
+               'logo_kelompok' => $kelompokScore->kelompok->logo_kelompok,
+            ],
             'position' => $position
          ]);
       }
 
       return response()->json([
          'message' => 'Kelompok Anda masuk dalam 10 besar!',
-         'kelompok' => $kelompokScore,
+         'kelompok' => [
+            'no_kelompok' => $kelompokScore->kelompok->no_kelompok,
+            'nama_kelompok' => $kelompokScore->kelompok->nama_kelompok,
+            'logo_kelompok' => $kelompokScore->kelompok->logo_kelompok,
+         ],
          'position' => $position
       ]);
    }
-
 }

@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId("user_id")->constrained("users")->onDelete("cascade");
             $table->foreignId("tugas_id")->constrained("tugas")->onDelete("cascade");
             $table->string("jawaban");
-            $table->boolean("isReturn");
+            $table->boolean("isReturn")->default(false);
             $table->date("tanggal_submit")->default(now());
             $table->string("catatan")->nullable();
             $table->timestamps();

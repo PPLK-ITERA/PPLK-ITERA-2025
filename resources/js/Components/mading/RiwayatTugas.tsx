@@ -1,9 +1,9 @@
 import React from "react";
 
-import { History } from "@/lib/types/Mading";
+import { HistoryEntry } from "@/lib/types/Mading";
 
 interface RiwayatTugasProps {
-    historys: History[];
+    historys: HistoryEntry[];
 }
 
 const RiwayatTugas = ({ historys }: RiwayatTugasProps) => {

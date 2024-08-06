@@ -14,11 +14,11 @@ return new class extends Migration {
          $table->id();
          $table->string('judul');
          $table->string('deskripsi');
-         $table->enum('pengumpulan', ['sosmed', 'drive']);
+         $table->enum('hari', [0, 1, 2, 3, 4, 5]);
+         $table->enum('tipe_link', ['instagram', 'tiktok', 'drive', 'linkedin']);
          $table->enum('kategori', ['individu', 'kelompok']);
          $table->date('deadline');
          $table->timestamps();
-         $table->foreignId('kartu_id');
       });
    }
 

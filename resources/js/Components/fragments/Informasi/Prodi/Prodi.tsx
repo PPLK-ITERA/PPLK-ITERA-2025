@@ -25,15 +25,17 @@ const Prodi = ({ prodi, className }: Props) => {
         <div className={className}>
             <div className="place-content-center flex flex-col w-full gap-16 py-24">
                 <div className="flex flex-col gap-6 text-center">
-                    <div className="w-64 h-64 p-10 mx-auto overflow-hidden bg-white rounded-full">
-                        <img
-                            src={prodi.imageUrl}
-                            alt="Prodi"
-                            className="object-contain w-full h-full mx-auto"
-                            data-aos="fade-in"
-                            data-aos-duration="1000"
-                        />
-                    </div>
+                    {prodi.imageUrl ? (
+                        <div className="w-64 h-64 p-10 mx-auto overflow-hidden bg-white rounded-full shadow-md">
+                            <img
+                                src={prodi.imageUrl}
+                                alt="Prodi"
+                                className="object-contain w-full h-full mx-auto"
+                                data-aos="fade-in"
+                                data-aos-duration="1000"
+                            />
+                        </div>
+                    ) : null}
 
                     <h1 className="font-avigea lg:text-4xl text-moccaccino-600 text-2xl">
                         {prodi.name}
@@ -79,12 +81,6 @@ const Prodi = ({ prodi, className }: Props) => {
                             </div>
 
                             <div className="max-lg:flex-col place-content-center place-items-center flex gap-2">
-                                {/* <img
-                                    className="lg:h-20 object-contain h-12"
-                                    src={accreditation_a}
-                                    alt="akreditasi"
-                                /> */}
-
                                 <img
                                     className="lg:h-20 object-contain h-12"
                                     src={banpt}
@@ -96,15 +92,15 @@ const Prodi = ({ prodi, className }: Props) => {
                 </Card>
 
                 <div
-                    className="max-lg:flex-col flex gap-8 mt-8"
+                    className="max-lg:flex-col flex gap-8 mt-8 max-md:text-sm"
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
-                    <div className=" basis-1/2 relative">
+                    <div className="basis-1/2 relative">
                         <h1 className="border-jaffa-600 text-jaffa-600 absolute top-0 p-2 px-8 font-bold -translate-x-4 -translate-y-1/2 bg-white border-2 rounded-full">
                             Visi
                         </h1>
-                        <p className="rounded-xl bg-gradient-to-br from-jaffa-600 to-jaffa-700 h-full p-8 text-left text-white">
+                        <p className="rounded-xl bg-gradient-to-br from-jaffa-600 to-jaffa-700 h-full p-8 text-left text-white ">
                             {prodi.vision}
                         </p>
                     </div>
@@ -143,14 +139,13 @@ const Prodi = ({ prodi, className }: Props) => {
                     </h1>
 
                     <div className="max-lg:flex-col place-items-center font-montserrat flex justify-center gap-6 mt-4">
-                        <img
-                            src={
-                                prodi.coordinatorPhoto ||
-                                "https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg"
-                            }
-                            alt="Koordinator"
-                            className="lg:h-28 lg:w-28 w-20 h-20 rounded-full"
-                        />
+                        {prodi.coordinatorPhoto ? (
+                            <img
+                                src={prodi.coordinatorPhoto}
+                                alt="Koordinator"
+                                className="lg:h-28 lg:w-28 object-cover w-20 h-20 rounded-full"
+                            />
+                        ) : null}
 
                         <div className="place-content-center max-lg:place-items-center max-lg:text-center flex flex-col text-left">
                             <p className="lg:text-2xl text-lg font-semibold">
@@ -182,7 +177,7 @@ const Prodi = ({ prodi, className }: Props) => {
 
                     <div className="place-content-center text-jaffa-200 flex gap-8 mt-4">
                         {prodi.instagramUrl && (
-                            <a href={prodi.hmpsInstagramUrl} target="_blank">
+                            <a href={prodi.instagramUrl} target="_blank">
                                 <div className="bg-moccaccino-600 flex items-center justify-center p-2 rounded-full">
                                     <IconBrandInstagram
                                         size={40}
@@ -193,7 +188,7 @@ const Prodi = ({ prodi, className }: Props) => {
                         )}
 
                         {prodi.youtubeUrl && (
-                            <a href={prodi.hmpsYoutubeUrl} target="_blank">
+                            <a href={prodi.youtubeUrl} target="_blank">
                                 <div className="bg-moccaccino-600 flex items-center justify-center p-2 rounded-full">
                                     <IconBrandYoutube size={40} color="white" />
                                 </div>
@@ -201,7 +196,7 @@ const Prodi = ({ prodi, className }: Props) => {
                         )}
 
                         {prodi.websiteUrl && (
-                            <a href={prodi.hmpsWebsiteUrl} target="_blank">
+                            <a href={prodi.websiteUrl} target="_blank">
                                 <div className="bg-moccaccino-600 flex items-center justify-center p-2 rounded-full">
                                     <IconWorldWww size={40} color="white" />
                                 </div>
@@ -209,7 +204,7 @@ const Prodi = ({ prodi, className }: Props) => {
                         )}
 
                         {prodi.tiktokUrl && (
-                            <a href={prodi.hmpsTiktokUrl} target="_blank">
+                            <a href={prodi.tiktokUrl} target="_blank">
                                 <div className="bg-moccaccino-600 flex items-center justify-center p-2 rounded-full">
                                     <IconBrandTiktok size={40} color="white" />
                                 </div>

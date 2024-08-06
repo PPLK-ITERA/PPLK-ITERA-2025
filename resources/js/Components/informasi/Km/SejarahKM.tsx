@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card } from "@/Components/ui/card";
 
-import KM from "!assets/logokm/KM.png";
+import KM from "!assets/logokm/km.png";
 
 const SejarahKM = () => {
     return (

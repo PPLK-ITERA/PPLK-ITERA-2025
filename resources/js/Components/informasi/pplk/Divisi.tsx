@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+// Importing the division logos
 import Airasta from "!assets/logodivisi/Airasta.png";
 import Amphorta from "!assets/logodivisi/Amphorta.png";
 import Berdhana from "!assets/logodivisi/Berdhana.png";
@@ -18,6 +19,7 @@ import Sakasella from "!assets/logodivisi/Sakasella.png";
 import Utsala from "!assets/logodivisi/Utsala.png";
 import Vagiotesis from "!assets/logodivisi/Vagiotesis.png";
 
+// Data for divisions
 const DATA_DIVISI = [
     { nama: "Prajamusi", logo: Prajamusi },
     { nama: "Sakasella", logo: Sakasella },
@@ -38,11 +40,37 @@ const DATA_DIVISI = [
 ];
 
 const Divisi = () => {
-    const [visibleCount, setVisibleCount] = useState(4);
+    const [visibleCount, setVisibleCount] = useState(3); // Initial state set to 3 for smaller devices
 
-    const itemPerLoad = 4;
+    useEffect(() => {
+        // Function to set items per load based on the window width
+        const updateItemsPerLoad = () => {
+            if (window.innerWidth >= 1024) {
+                // Laptop and larger devices
+                setVisibleCount(4);
+            } else if (window.innerWidth >= 768) {
+                // Tablet devices
+                setVisibleCount(3);
+            } else {
+                // Mobile devices
+                setVisibleCount(2);
+            }
+        };
 
-    const loadMore = () => setVisibleCount((count) => count + itemPerLoad);
+        // Set items per load on initial render
+        updateItemsPerLoad();
+
+        // Add event listener for window resize to update items per load
+        window.addEventListener("resize", updateItemsPerLoad);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener("resize", updateItemsPerLoad);
+        };
+    }, []);
+
+    const loadMore = () =>
+        setVisibleCount((count) => count + (window.innerWidth >= 1024 ? 4 : 3));
 
     return (
         <div
@@ -57,13 +85,16 @@ const Divisi = () => {
                 <img
                     src={Vagiotesis}
                     alt={"Vagiotesis"}
-                    className="object-contain w-full h-full mt-5 hover:scale-110 transition-all duration-300 hover:cursor-pointer"
+                    className="hover:scale-110 hover:cursor-pointer object-contain w-full h-full mt-5 transition-all duration-300"
                 />
             </div>
 
-            <div className="sm:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 mt-5 mb-10">
+            <div className="md:grid-cols-3 lg:grid-cols-4 grid grid-cols-1 gap-4 mt-5 mb-10">
                 {DATA_DIVISI.slice(0, visibleCount).map((item, index) => (
-                    <div key={index} className={`hover:scale-110 transition-all duration-300 hover:cursor-pointer`}>
+                    <div
+                        key={index}
+                        className={`hover:scale-110 transition-all duration-300 hover:cursor-pointer`}
+                    >
                         <img
                             src={item.logo}
                             alt={item.nama}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 import DefaultLayout from "@/Layouts/DefaultLayout";
 
@@ -17,48 +17,54 @@ function Page() {
     };
 
     return (
-        <DefaultLayout>
-            <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background">
-                <Header />
-            </div>
+        <>
+            <Head title="Informasi UPA" />
 
-            <div className="bg-pattern-white py-10">
-                <div className="max-w-7xl container flex flex-wrap justify-center">
-                    {DetailUPTData.slice(0, visibleItems).map((upt, index) => (
-                        <Link
-                            href={`/informasi/upa/${upt.key}`}
-                            key={index}
-                            className="md:w-1/3 lg:w-1/4 w-full p-2"
-                        >
-                            <div className="bg-gradient-to-b from-jaffa-700 to-jaffa-800 overflow-hidden border rounded-lg shadow-md">
-                                <img
-                                    src={upt.logo}
-                                    alt="UPT Kebun Raya"
-                                    className="object-contain object-center w-full h-40 py-5 border"
-                                />
-
-                                <div className="py-5 bg-white">
-                                    <h3 className="font-montserrat text-jaffa-900 text-lg font-semibold text-center">
-                                        {upt.title}
-                                    </h3>
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
+            <DefaultLayout>
+                <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:h-full md:bg-desktop-hero-background lg:bg-desktop-hero-background">
+                    <Header />
                 </div>
 
-                {visibleItems < DetailUPTData.length && ( // Tombol "Load More" hanya ditampilkan jika ada item tersisa
-                    <div className="py-5 text-center">
-                        <button
-                            onClick={loadMore}
-                            className="bg-jaffa-600 px-4 py-2 font-bold text-white rounded"
-                        >
-                            Load More
-                        </button>
+                <div className="bg-pattern-white py-10">
+                    <div className="max-w-7xl container flex flex-wrap justify-center">
+                        {DetailUPTData.slice(0, visibleItems).map(
+                            (upt, index) => (
+                                <Link
+                                    href={`/informasi/upa/${upt.key}`}
+                                    key={index}
+                                    className="md:w-1/3 lg:w-1/4 w-full p-2 "
+                                >
+                                    <div className="bg-gradient-to-b from-jaffa-700 to-jaffa-800 overflow-hidden border rounded-md  shadow-md hover:shadow-xl transition duration-300">
+                                        <img
+                                            src={upt.logo}
+                                            alt="UPT Kebun Raya"
+                                            className="object-contain object-center w-full h-40 py-5 border"
+                                        />
+
+                                        <div className="py-5 bg-white">
+                                            <h3 className="font-montserrat text-jaffa-900 text-lg font-semibold text-center">
+                                                {upt.title}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ),
+                        )}
                     </div>
-                )}
-            </div>
-        </DefaultLayout>
+
+                    {visibleItems < DetailUPTData.length && ( // Tombol "Load More" hanya ditampilkan jika ada item tersisa
+                        <div className="py-5 text-center">
+                            <button
+                                onClick={loadMore}
+                                className="bg-jaffa-600 px-4 py-2 font-bold text-white rounded"
+                            >
+                                Load More
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </DefaultLayout>
+        </>
     );
 }
 

@@ -18,7 +18,7 @@ import {
 import { Toaster } from "@/Components/ui/toaster";
 import { toast } from "@/Components/ui/use-toast";
 
-import { ResponseData } from "@/lib/types/Mading";
+import { TaskSystem } from "@/lib/types/Mading";
 import { UserAuthProps } from "@/lib/types/User";
 
 import awan from "!assets/awan.png";
@@ -65,8 +65,7 @@ const Mading = ({ succes }: { succes?: string }) => {
 
     const { auth } = usePage<MyPage>().props;
 
-    const [data, setData] = useState<ResponseData | null>(null);
-    const [isKelompokSelesai, setIsKelompokSelesai] = useState(true);
+    const [data, setData] = useState<TaskSystem | null>(null);
 
     const getCard = async () => {
         try {
@@ -81,12 +80,9 @@ const Mading = ({ succes }: { succes?: string }) => {
                 throw new Error("HTTP status " + response.status);
             }
 
-            const data: ResponseData = await response.json();
+            const data: TaskSystem = await response.json();
+            console.log(data);
             setData(data);
-            const semuaSelesai = data.cards.every(
-                (card) => data.completionPercentage[card.id] === 100,
-            );
-            setIsKelompokSelesai(semuaSelesai);
         } catch (error) {}
     };
 
@@ -137,11 +133,7 @@ const Mading = ({ succes }: { succes?: string }) => {
 
                         {!!data ? (
                             <BuktiPengerjaan
-                                cards={data?.cards}
-                                completionPercentage={
-                                    data?.completionPercentage
-                                }
-                                isSubmitted={data?.isSubmitted}
+                                data={data}
                                 isKetua={auth.user.isKetua}
                             />
                         ) : (
@@ -150,10 +142,14 @@ const Mading = ({ succes }: { succes?: string }) => {
                     </div>
                 </div>
 
-                {isKelompokSelesai ? (
+                {data?.isSelesai ? (
                     <CompletedMessage />
                 ) : (
-                    <>{!!data && <RiwayatTugas historys={data!.history} />}</>
+                    <>
+                        {data?.history && (
+                            <RiwayatTugas historys={data.history} />
+                        )}
+                    </>
                 )}
             </div>
 
@@ -162,7 +158,7 @@ const Mading = ({ succes }: { succes?: string }) => {
                     <img src={awan} alt="" className="w-full" />
                 </div>
 
-                {isKelompokSelesai ? (
+                {data?.isSelesai ? (
                     <>
                         <h2 className="text-jaffa-50 mt-5 xl:mt-20 font-avigea font-bold md:text-[25px] text-[20px] xl:text-[60px] z-20">
                             MADING TUGAS SELESAI

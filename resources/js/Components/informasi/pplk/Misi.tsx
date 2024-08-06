@@ -40,7 +40,7 @@ function Page() {
                     </div>
                 </div>
 
-                <div className="max-lg:flex-col flex gap-10 mt-16">
+                <div className="max-md:flex-col flex gap-10 mt-16">
                     <div className="flex sm:h-[439px] sm:w-[330px] h-[350px] w-[280px] flex-col items-center rounded-[3px] bg-white shadow-2xl">
                         <p className="font-avigea mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">
                             PEMBINA

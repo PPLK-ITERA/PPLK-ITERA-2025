@@ -16,14 +16,12 @@ import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
-import { CardType } from "@/lib/types/Mading";
+import { TaskData } from "@/lib/types/Mading";
 
 export default function Page({ id }) {
-    const [tugasData, setTugasData] = useState<CardType | null>(null);
-    const [urlError, setUrlError] = useState<string | null>(null);
+    const [tugasData, setTugasData] = useState<TaskData | null>(null);
+    const [urlError, setUrlError] = useState(new Map());
     const [csrfToken, setCsrfToken] = useState("");
-    const [tugasId, setTugasId] = useState(0);
-    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const { toast } = useToast();
 
@@ -34,10 +32,38 @@ export default function Page({ id }) {
         put,
         processing,
         errors,
-    } = useForm({
-        tugas_id: 0,
-        url: "",
+    } = useForm<{
+        tugas_id: number[];
+        jawaban: string[];
+    }>({
+        tugas_id: [],
+        jawaban: [],
     });
+
+    // Update tugas_id and jawaban arrays
+    const addOrUpdateTugasId = (index, value) => {
+        const newTugasId = [...formData.tugas_id];
+        newTugasId[index] = value;
+        setFormData("tugas_id", newTugasId);
+    };
+
+    const addOrUpdateJawaban = (index, value) => {
+        const newJawaban = [...formData.jawaban];
+        newJawaban[index] = value;
+        setFormData("jawaban", newJawaban);
+    };
+
+    // Function to remove a value from tugas_id array
+    const removeTugasId = (index) => {
+        const newTugasId = formData.tugas_id.filter((_, i) => i !== index); // Filter out the value
+        setFormData("tugas_id", newTugasId); // Update the form data
+    };
+
+    // Function to remove a value from jawaban array
+    const removeJawaban = (index) => {
+        const newJawaban = formData.jawaban.filter((_, i) => i !== index); // Filter out the value
+        setFormData("jawaban", newJawaban); // Update the form data
+    };
 
     const getTugasData = async () => {
         try {
@@ -53,8 +79,14 @@ export default function Page({ id }) {
             }
 
             const data = await response.json();
-            setTugasData(data.tugas);
-            setIsSubmitted(data.isSubmitted);
+            setTugasData(data);
+
+            let tugasId: number[] = [];
+            data.tugas.forEach((tugas, index) => {
+                tugasId.push(tugas.id);
+                addOrUpdateJawaban(index, "");
+            });
+            setFormData("tugas_id", tugasId);
         } catch (error) {
             toast({
                 title: "Error",
@@ -80,68 +112,99 @@ export default function Page({ id }) {
         fetchCsrfToken();
     }, []);
 
-    const validateUrl = (id: number) => {
-        switch (id) {
-            case 1:
-                validateTiktokUrl();
+    const validateUrl = (
+        tipe_link: string,
+        tugas_id: number,
+        url: string,
+        index: number,
+    ) => {
+        switch (tipe_link) {
+            case "tiktok":
+                validateTiktokUrl(tugas_id, url, index);
                 break;
-            case 2:
-                validateTiktokUrl();
+            case "instagram":
+                validateInstagramUrl(tugas_id, url, index);
                 break;
-            case 3:
-                validateGDriveUrl();
-                break;
-            case 4:
-                validateInstagramUrl();
-                break;
-            case 5:
-                validateTiktokUrl();
-                break;
-            case 6:
-                validateGDriveUrl();
-                break;
-            default:
+            case "drive":
+                validateGDriveUrl(tugas_id, url, index);
                 break;
         }
     };
 
-    const validateTiktokUrl = useDebouncedCallback(() => {
-        if (!/^https:\/\/(www\.)?tiktok\.com\/.*$/g.test(formData.url)) {
-            setUrlError("link harus dari TikTok");
+    // Function to check if all URLs are valid
+    const allLinksValid = () => {
+        for (const [key, value] of urlError.entries()) {
+            if (value !== "") {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    const validateTiktokUrl = useDebouncedCallback((tugas_id, url, index) => {
+        if (!/^https:\/\/(www\.)?tiktok\.com\/.*$/g.test(url)) {
+            setUrlError(
+                new Map(urlError).set(tugas_id, "link harus dari TikTok"),
+            );
             return;
         }
 
-        setUrlError("");
+        setUrlError(new Map(urlError).set(tugas_id, ""));
+        addOrUpdateJawaban(index, url); // Update jawaban
     }, 200);
 
-    const validateInstagramUrl = useDebouncedCallback(async () => {
-        if (!/^https:\/\/(www\.)?instagram\.com\/.*$/g.test(formData.url)) {
-            setUrlError("link harus dari Instagram");
-            return;
-        }
+    const validateInstagramUrl = useDebouncedCallback(
+        async (tugas_id, url, index) => {
+            if (!/^https:\/\/(www\.)?instagram\.com\/.*$/g.test(url)) {
+                setUrlError(
+                    new Map(urlError).set(
+                        tugas_id,
+                        "link harus dari Instagram",
+                    ),
+                );
+                return;
+            }
 
-        setUrlError("");
-    }, 200);
+            setUrlError(new Map(urlError).set(tugas_id, ""));
+            addOrUpdateJawaban(index, url); // Update jawaban
+        },
+        200,
+    );
 
-    const validateGDriveUrl = useDebouncedCallback(async () => {
-        if (!/^https:\/\/(www\.)?\w+\.google\.com\/.*$/g.test(formData.url)) {
-            setUrlError("link harus dari Google Drive");
-            return;
-        }
+    const validateGDriveUrl = useDebouncedCallback(
+        async (tugas_id, url, index) => {
+            if (!/^https:\/\/(www\.)?\w+\.google\.com\/.*$/g.test(url)) {
+                setUrlError(
+                    new Map(urlError).set(
+                        tugas_id,
+                        "link harus dari Google Drive",
+                    ),
+                );
+                return;
+            }
 
-        let id = formData.url.split("/")[5];
+            let id = url.split("/")[5];
 
-        let response = await fetch(
-            `https://www.googleapis.com/drive/v2/files/${id}?key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
-        );
+            let response = await fetch(
+                `https://www.googleapis.com/drive/v2/files/${id}?key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
+            );
 
-        if (!response.ok) {
-            setUrlError("Link drive belum publik, silahkan coba lagi");
-            return;
-        }
+            if (!response.ok) {
+                setUrlError(
+                    new Map(urlError).set(
+                        tugas_id,
+                        "Link drive belum publik, silahkan coba lagi",
+                    ),
+                );
 
-        setUrlError("");
-    }, 200);
+                return;
+            }
+
+            setUrlError(new Map(urlError).set(tugas_id, ""));
+            addOrUpdateJawaban(index, url); // Update jawaban
+        },
+        200,
+    );
 
     const handleSubmit = async () => {
         try {
@@ -152,8 +215,8 @@ export default function Page({ id }) {
                     "X-CSRF-TOKEN": csrfToken,
                 },
                 body: JSON.stringify({
-                    tugas_id: tugasId,
-                    jawaban: formData.url,
+                    tugas_id: formData.tugas_id,
+                    jawaban: formData.jawaban,
                 }),
             });
 
@@ -197,54 +260,40 @@ export default function Page({ id }) {
                                     <div className="flex flex-col" key={index}>
                                         <Label
                                             htmlFor="input-tugas"
-                                            className="text-left"
+                                            className="text-left capitalize"
                                         >
-                                            Link{" "}
-                                            {id === "1"
-                                                ? "TikTok"
-                                                : id === "2"
-                                                  ? "TikTok"
-                                                  : id === "3"
-                                                    ? "G-Drive"
-                                                    : id === "4"
-                                                      ? "Instagram"
-                                                      : id === "5"
-                                                        ? "TikTok"
-                                                        : "G-Drive"}
+                                            Link {tugas.tipe_link}
                                         </Label>
 
                                         <Input
                                             type="text"
                                             id="input-tugas"
-                                            value={formData.url}
                                             onChange={(e) => {
-                                                setFormData(
-                                                    "url",
+                                                validateUrl(
+                                                    tugas.tipe_link,
+                                                    tugas.id,
                                                     e.target.value,
+                                                    index,
                                                 );
-                                                // validateUrl(tugas.id);
-                                                setTugasId(tugas.id);
                                             }}
                                             placeholder={
-                                                id === "1"
+                                                tugas.tipe_link === "tiktok"
                                                     ? "https://www.tiktok.com/..."
-                                                    : id === "2"
-                                                      ? "https://www.tiktok.com/..."
-                                                      : id === "3"
+                                                    : tugas.tipe_link ===
+                                                        "instagram"
+                                                      ? "https://www.instagram.com/..."
+                                                      : tugas.tipe_link ===
+                                                          "drive"
                                                         ? "https://drive.google.com/..."
-                                                        : id === "4"
-                                                          ? "https://www.instagram.com/..."
-                                                          : id === "5"
-                                                            ? "https://www.tiktok.com/..."
-                                                            : "https://drive.google.com/..."
+                                                        : "Yeuu gaada kocakkkkk!"
                                             }
                                             className="mt-2"
                                         />
-                                        {!!urlError ? (
+                                        {urlError.get(tugas.id) ? (
                                             <span className="text-red-500 text-[12px]">
-                                                {urlError}
+                                                {urlError.get(tugas.id)}
                                             </span>
-                                        ) : urlError === "" ? (
+                                        ) : urlError.get(tugas.id) === "" ? (
                                             <span className="text-[12px] text-green-500">
                                                 Link valid
                                             </span>
@@ -252,12 +301,12 @@ export default function Page({ id }) {
                                     </div>
                                 ))}
 
-                                {/* bg-candlelight-700 hover:bg-candlelight-700/90 */}
-                                {/* bg-jaffa-700 hover:bg-jaffa-700/90 */}
-
                                 <Button
                                     onClick={handleSubmit}
-                                    disabled={!!urlError || !formData.url}
+                                    disabled={
+                                        !allLinksValid() ||
+                                        !formData.jawaban.length
+                                    }
                                     className="bg-jaffa-700 hover:bg-jaffa-700/90 w-full mt-5 transition duration-200 ease-in-out"
                                 >
                                     Submit Tugas {id}

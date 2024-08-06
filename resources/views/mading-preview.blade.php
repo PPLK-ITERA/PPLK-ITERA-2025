@@ -45,8 +45,7 @@
             transform: rotateX(-10deg);
         }
 
-        #drag-container img,
-        #drag-container video {
+        .mading {
             -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
             position: absolute;
@@ -60,8 +59,7 @@
             -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
         }
 
-        #drag-container img:hover,
-        #drag-container video:hover {
+        .mading {
             -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
         }
 
@@ -143,8 +141,62 @@
             }
         }
 
-        .backround-mading {
-            background-color: #fff;
+        .mading {
+            object-fit: contain;
+        }
+
+        .first-mading {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background-image: linear-gradient(180deg, #cc8b02 0%, #723f11 74%);
+
+            .first-mading-image-pplk {
+                width: 96px;
+                height: 96px;
+                border-radius: 50%;
+                overflow: hidden;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .inner-image {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .first-mading-image-kelompok {
+                width: 96px;
+                height: 96px;
+                border-radius: 50%;
+                overflow: hidden;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .inner-image {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .first-mading {
+                .first-mading-image-pplk {
+                    width: 48px;
+                    height: 48px;
+                }
+
+                .first-mading-image-kelompok {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
         }
     </style>
 </head>
@@ -153,16 +205,28 @@
     <div id="drag-container">
 
         <div id="spin-container">
+
             <!-- Add your images (or video) here -->
+
+            <div class="mading first-mading">
+                <div class="first-mading-image-pplk">
+                    <img src="https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/assets/images/logo-pplk-hd.png"
+                        alt="" class="inner-image" />
+                </div>
+
+                <div class="first-mading-image-kelompok">
+                    <img src={{$logo_kelompok_url}} alt="" class="inner-image" />
+                </div>
+            </div>
             @foreach($urls as $url)
-                <img src={{ $url }} alt="" class="backround-mading" />
+                <img src={{ $url }} alt="" class="mading" />
                 <!-- Text at center of ground -->
             @endforeach
         </div>
         <div id="ground">
 
             <img src="https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/assets/images/logo-pplk-hd.png"
-                alt="" />
+                alt="" class="mading" />
 
         </div>
     </div>
@@ -261,9 +325,8 @@
 
         var odrag = document.getElementById("drag-container");
         var ospin = document.getElementById("spin-container");
-        var aImg = ospin.getElementsByTagName("img");
-        var aVid = ospin.getElementsByTagName("video");
-        var aEle = [...aImg, ...aVid]; // combine 2 arrays
+        var aImg = ospin.getElementsByClassName("mading");
+        var aEle = [...aImg]; // combine 2 arrays
 
         // Size of images
         ospin.style.width = imgWidth + "px";
