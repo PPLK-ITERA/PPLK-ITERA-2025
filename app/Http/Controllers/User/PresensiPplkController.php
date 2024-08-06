@@ -190,11 +190,14 @@ class PresensiPplkController extends Controller
       ], 200);
    }
 
-   public function getAllPresensi(Request $request)
+   public function getAllPresensi(Request $request, $date = null)
    {
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
-      $date = $request->input('date', Carbon::today()->toDateString());
+      if($date == null){
+         $date = Carbon::today();
+      }
+
 
       if (!in_array(Auth::user()->role_id, [2, 4, 5, 3])) {
          return response()->json([

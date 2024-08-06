@@ -1,6 +1,7 @@
 <?php
 //dashboard
 
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TugasController;
@@ -15,12 +16,7 @@ use Inertia\Inertia;
 
 Route::middleware('auth')->group(function () {
    Route::prefix('dashboard')->name('dashboard.')->middleware('checkRole:Daplok,Mentor,Admin,PjProdi,Mamet,CustomerService,Korlap')->group(function () {
-      Route::get('/', function () {
-         if (Auth::user()->role_id == 1) {
-            return redirect()->route('welcome');
-         }
-         return Inertia::render('Dashboard/Page');
-      })->name('index');
+      Route::get('/', [DashboardController::class, 'index'])->name('index');
       // =====================================
       // USER
       // =====================================
@@ -115,7 +111,7 @@ Route::middleware('auth')->group(function () {
          // PRESENSI
          // =====================================
          Route::middleware(['checkRole:Daplok,Mentor,PjProdi,Admin'])->group(function () {
-            Route::get('data', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
+            Route::get('data/{date}', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
             Route::post('store', [PresensiPplkController::class, 'store'])->name('absen');
             Route::post('izin/{id}', [PresensiPplkController::class, 'izin'])->name('izin');
             Route::post('scan', [PresensiPplkController::class, 'QRScan'])->name('scan');
