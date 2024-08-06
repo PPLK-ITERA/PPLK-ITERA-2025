@@ -58,8 +58,8 @@ class BookletController extends Controller
    public function store(Request $request)
    {
       $validated = $request->validate([
-         'nama_booklet' => 'required|string',
-         'url_booklet' => 'required|string',
+         'nama_booklet' => 'required|string|max:120',
+         'url_booklet' => 'required|string|max:120',
       ]);
 
       DB::beginTransaction();
@@ -83,8 +83,8 @@ class BookletController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer|exists:booklets',
-         'nama_booklet' => 'required|string',
-         'url_booklet' => 'required|string',
+         'nama_booklet' => 'required|string|max:120',
+         'url_booklet' => 'required|string|max:120',
       ]);
 
       $booklet = Booklet::find($validated['id']);
