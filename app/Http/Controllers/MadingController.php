@@ -57,6 +57,7 @@ class MadingController extends Controller
          $hari = $tugas->hari;
          // Initialize daily data if not already set
          if (!isset($tugasCount[$hari])) {
+            $days[$hari] = $hari;
             $tugasCount[$hari] = 0;
             $memberCompletion[$hari] = 0;
             $completionPercentage[$hari] = 0;
@@ -91,14 +92,12 @@ class MadingController extends Controller
       }
 
       // Update completion percentages and determine if posters should be displayed
-      foreach ($tugasCount as $hari => $count) {
-         $completionPercentage[$hari] = ($memberCompletion[$hari] / ($count * $totalMembers)) * 100;
+      foreach ($days as $hari) {
+         $completionPercentage[$hari] = ($memberCompletion[$hari] / ($tugasCount[$hari] * $totalMembers)) * 100;
          if ($completionPercentage[$hari] >= 100) {
             $posters[$hari] = Poster::where('kelompok_id', auth()->user()->kelompok_id)->where('hari', $hari)->first();
-            $days[$hari] = $hari;
          }
       }
-      ;
 
       $response = [
          'isSelesai' => $isSelesai,
@@ -208,7 +207,7 @@ class MadingController extends Controller
          'hari' => 'required|integer|in:0,1,2,3,4,5',
          'poster' => 'required|image|mimes:jpeg,png,jpg|max:2048',
       ]);
-      dd($request->all());
+      // dd($request->all());
 
       $userId = Auth::id();
       $kelompokId = Auth::user()->kelompok_id;
@@ -229,7 +228,7 @@ class MadingController extends Controller
 
       DB::beginTransaction();
       try {
-         $path = $request->file('poster')->store('images/poster', 'public');
+         $path = Storage::url($request->file('poster')->store('images/poster', 'public'));
 
          Poster::updateOrCreate([
             'kelompok_id' => $kelompokId,
