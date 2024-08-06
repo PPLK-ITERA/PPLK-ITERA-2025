@@ -230,19 +230,19 @@ export default function Page() {
         <DefaultLayout isSolid={true}>
             <div className="min-h-screen py-[100px] bg-pattern-white font-montserrat">
                 <Tabs defaultValue="hymne-itera" className="max-w-6xl mx-auto">
-                    <TabsList className="grid w-full grid-cols-3">
-                        <TabsTrigger value="hymne-itera">
+                    <TabsList className="grid w-full grid-cols-3 lg:h-14">
+                        <TabsTrigger className="h-full lg:text-lg" value="hymne-itera">
                             Hymne Itera
                         </TabsTrigger>
-                        <TabsTrigger value="mars-itera">Mars Itera</TabsTrigger>
-                        <TabsTrigger value="anthem-pplk">
+                        <TabsTrigger className="h-full lg:text-lg" value="mars-itera">Mars Itera</TabsTrigger>
+                        <TabsTrigger className="h-full lg:text-lg" value="anthem-pplk">
                             Anthem PPLK
                         </TabsTrigger>
                     </TabsList>
 
                     {Object.entries(LYRICS).map(([key, verses]) => (
                         <TabsContent key={key} value={key}>
-                            <Card className="md:p-5 p-0 rounded-md">
+                            <Card className="md:p-5 mx-2 rounded-md">
                                 <div className="max-w-lg mx-auto">
                                     <div className="bg-jaffa-600 aspect-video rounded-xl flex items-center justify-center w-full h-full mx-auto overflow-hidden shadow-md">
                                         <iframe

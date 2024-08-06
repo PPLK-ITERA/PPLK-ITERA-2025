@@ -92,15 +92,15 @@ const Prodi = ({ prodi, className }: Props) => {
                 </Card>
 
                 <div
-                    className="max-lg:flex-col flex gap-8 mt-8"
+                    className="max-lg:flex-col flex gap-8 mt-8 max-md:text-sm"
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
-                    <div className=" basis-1/2 relative">
+                    <div className="basis-1/2 relative">
                         <h1 className="border-jaffa-600 text-jaffa-600 absolute top-0 p-2 px-8 font-bold -translate-x-4 -translate-y-1/2 bg-white border-2 rounded-full">
                             Visi
                         </h1>
-                        <p className="rounded-xl bg-gradient-to-br from-jaffa-600 to-jaffa-700 h-full p-8 text-left text-white">
+                        <p className="rounded-xl bg-gradient-to-br from-jaffa-600 to-jaffa-700 h-full p-8 text-left text-white ">
                             {prodi.vision}
                         </p>
                     </div>

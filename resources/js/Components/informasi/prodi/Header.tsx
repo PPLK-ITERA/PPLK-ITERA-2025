@@ -1,3 +1,5 @@
+import { IconChevronDown } from "@tabler/icons-react";
+
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 
 import { FAKULTAS_DATA } from "@/lib/data/fakultas";
@@ -39,9 +41,9 @@ const Header = ({ fakultas }: HeaderProps) => {
                 <p
                     data-aos="fade-right"
                     data-aos-duration="2000"
-                    className="mt-10 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em] max-w-lg"
+                    className="mt-10 text-sm text-jaffa-100 max-w-lg max-md:mx-auto font-montserrat"
                 >
-                    <span className="text-[18px] md:text-[25px]">
+                    <span className="text-lg md:text-xl">
                         Daftar program studi yang ada di{" "}
                         {selectedFakultas.title} ITERA
                     </span>

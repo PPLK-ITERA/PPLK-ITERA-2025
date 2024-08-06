@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { Head, Link } from "@inertiajs/react";
 
+import { IconChevronDown } from "@tabler/icons-react";
+
 import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import PaginationFAQ from "@/Components/PaginationFAQ";
@@ -67,7 +69,7 @@ export default function Page() {
                     <Header fakultas={selectedFakultas} />
 
                     <div className="bottom-20 md:bottom-0 absolute z-10 w-full">
-                        <div className="md:max-w-3xl flex justify-between max-w-sm gap-3 mx-auto">
+                        <div className="md:max-w-3xl flex justify-between max-w-sm gap-3 mx-auto px-2">
                             <button
                                 className={`${selectedFakultas == "fakultas-sains" ? "bg-jaffa-700" : "bg-jaffa-200"} hover:bg-jaffa-700 rounded-xl md:py-4 md:px-20 flex items-center justify-center px-8 py-4 shadow-lg transition-all duration-300 ease-in-out`}
                                 onClick={() =>
@@ -106,56 +108,59 @@ export default function Page() {
                                 />
                             </button>
                         </div>
+
+                        <div className="flex max-sm:text-sm text-white flex-col gap-2 place-content-center place-items-center mt-8 md:hidden">
+                            <p
+                                data-aos="fade-up"
+                                data-aos-duration="2000"
+                                className=""
+                            >
+                                scroll untuk melihat
+                            </p>
+                            <IconChevronDown className="w-8 h-8 animate-bounce" />
+                        </div>
                     </div>
                 </div>
 
-                <div className="bg-pattern-white py-16">
+                <div className="bg-pattern-white py-16 font-montserrat">
                     <div className="place-content-center flex flex-wrap w-full max-w-6xl gap-8 mx-auto">
                         {displayedItems.map((prodi, index) => (
                             <Card
                                 key={index}
-                                className="w-64 h-48 overflow-hidden rounded-xl shadow-lg"
+                                className="w-64 h-48 overflow-hidden rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-500 group"
                             >
-                                <div className="place-content-center place-items-center flex flex-col">
-                                    <div className="group relative w-full h-32 overflow-hidden">
-                                        <img
-                                            className="object-cover w-full"
-                                            src={patternBrown}
-                                            alt=""
-                                        />
-
-                                        <div className="top-1/2 left-1/2 absolute w-24 h-24 p-1 mx-auto overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white rounded-full">
+                                <Link href={`/informasi/prodi/${prodi.key}`}>
+                                    <div className="place-content-center place-items-center flex flex-col">
+                                        <div className="relative w-full h-32 overflow-hidden bg-black">
                                             <img
-                                                src={
-                                                    prodi.imageUrl ||
-                                                    "https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg"
-                                                }
-                                                alt="Prodi"
-                                                className="object-contain w-full h-full"
-                                                data-aos="fade-in"
-                                                data-aos-duration="1000"
+                                                className="object-cover w-full group-hover:opacity-40 transition duration-700"
+                                                src={patternBrown}
+                                                alt=""
                                             />
-                                        </div>
 
-                                        {/* detail on hover */}
-                                        <div className="group-hover:opacity-100 bg-black/50 backdrop-blur place-content-center place-items-center absolute top-0 left-0 flex flex-col  w-full h-full p-2 text-sm transition duration-200 ease-in-out opacity-0">
-                                            <Link
-                                                href={`/informasi/prodi/${prodi.key}`}
-                                            >
-                                                <Button
-                                                    className="text-white"
-                                                    size={"sm"}
-                                                    variant={"ghost"}
-                                                >
-                                                    Selengkapnya
-                                                </Button>
-                                            </Link>
+                                            <div className="top-1/2 group-hover:scale-75 group-hover:-translate-y-8 left-1/2 absolute w-24 h-24 p-1 mx-auto overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white rounded-full transition duration-500">
+                                                <img
+                                                    src={
+                                                        prodi.imageUrl ||
+                                                        "https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg"
+                                                    }
+                                                    alt="Prodi"
+                                                    className="object-contain w-full h-full"
+                                                    data-aos="fade-in"
+                                                    data-aos-duration="1000"
+                                                />
+                                            </div>
+
+                                            {/* detail on hover */}
+                                            <p className="group-hover:opacity-100 text-white absolute top-3 text-center w-full flex flex-col text-sm transition duration-500 opacity-0">
+                                                Selengkapnya
+                                            </p>
                                         </div>
+                                        <p className="h-full p-2 text-sm font-semibold text-center">
+                                            {prodi.name}
+                                        </p>
                                     </div>
-                                    <p className="h-full p-2 font-semibold text-center">
-                                        {prodi.name}
-                                    </p>
-                                </div>
+                                </Link>
                             </Card>
                         ))}
                     </div>

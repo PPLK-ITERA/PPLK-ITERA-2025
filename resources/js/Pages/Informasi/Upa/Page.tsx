@@ -32,9 +32,9 @@ function Page() {
                                 <Link
                                     href={`/informasi/upa/${upt.key}`}
                                     key={index}
-                                    className="md:w-1/3 lg:w-1/4 w-full p-2"
+                                    className="md:w-1/3 lg:w-1/4 w-full p-2 "
                                 >
-                                    <div className="bg-gradient-to-b from-jaffa-700 to-jaffa-800 overflow-hidden border rounded-lg shadow-md">
+                                    <div className="bg-gradient-to-b from-jaffa-700 to-jaffa-800 overflow-hidden border rounded-md  shadow-md hover:shadow-xl transition duration-300">
                                         <img
                                             src={upt.logo}
                                             alt="UPT Kebun Raya"

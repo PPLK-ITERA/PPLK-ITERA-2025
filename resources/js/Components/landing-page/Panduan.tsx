@@ -8,9 +8,17 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
+import { useAos } from "@/lib/hooks/useAos";
+
 export default function Panduan() {
+    useAos();
+
     return (
-        <div className="lg:flex-row flex flex-col items-center justify-center w-full min-h-screen py-20">
+        <div
+            data-aos="fade-up"
+            data-aos-duration={1000}
+            className="lg:flex-row flex flex-col items-center justify-center w-full min-h-screen py-20"
+        >
             <div className="lg:w-1/3 lg:items-start xl:w-1/2 flex flex-col items-center justify-center w-full text-left">
                 <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-3xl text-transparent md:text-4xl">
                     Panduan

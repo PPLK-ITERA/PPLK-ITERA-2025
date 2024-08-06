@@ -2,9 +2,17 @@ import React from "react";
 
 import { Link } from "@inertiajs/react";
 
+import { useAos } from "@/lib/hooks/useAos";
+
 export default function What() {
+    useAos();
+
     return (
-        <div className="flex relative min-h-[70vh] items-center justify-center pt-20 md:pt-32">
+        <div
+            data-aos="fade-up"
+            data-aos-duration={1000}
+            className="flex relative min-h-[70vh] items-center justify-center pt-20 md:pt-32"
+        >
             <div className="flex flex-col items-center justify-center text-center">
                 <h2 className="z-40 bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-3xl text-transparent md:text-5xl">
                     Apa Itu PPLK ITERA?

@@ -60,12 +60,18 @@ export default function LandingPage() {
 
                 <FilosofiLogo />
 
-                <div className="relative bg-[#170C0A] -mt-1 bg-pattern-white">
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration={1000}
+                    className="relative bg-[#170C0A] -mt-1 bg-pattern-white"
+                >
                     <MaxWidthWrapper>
                         <Maskot />
                     </MaxWidthWrapper>
 
                     <img
+                        data-aos="slide-up"
+                        data-aos-duration={1000}
                         src={pillar_brown}
                         alt="pillar_brown"
                         className="absolute bottom-0 z-0 w-full"
@@ -73,20 +79,30 @@ export default function LandingPage() {
                 </div>
 
                 <img
+                    data-aos="slide-up"
+                    data-aos-duration={1000}
                     src={overlay_box}
                     alt="pillar_brown"
                     className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
                 />
 
-                <div className="bg-pattern-white pt-40 pb-20">
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration={1000}
+                    className="bg-pattern-white pt-40 pb-20"
+                >   
                     <InfoSection />
                 </div>
 
                 <div className="h-[10px] w-full bg-candlelight-600" />
 
-                <Sponsorship />
+                <div data-aos="fade-up" data-aos-duration={1000}>
+                    <Sponsorship />
+                </div>
 
                 <img
+                    data-aos="fade-up"
+                    data-aos-duration={1000}
                     src={sponsor_overlay}
                     alt="sponsor_overlay"
                     className="object-cover w-full"
