@@ -1,0 +1,1 @@
+import{r,j as a}from"./BumpipQC.js";import{P as s}from"./mn4n0sv4.js";var e=r.forwardRef(((r,e)=>a.jsx(s.span,{...r,ref:e,style:{position:"absolute",border:0,width:1,height:1,padding:0,margin:-1,overflow:"hidden",clip:"rect(0, 0, 0, 0)",whiteSpace:"nowrap",wordWrap:"normal",...r.style}})));e.displayName="VisuallyHidden";var o=e;export{o as R,e as V};

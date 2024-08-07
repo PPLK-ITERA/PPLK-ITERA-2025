@@ -16,9 +16,9 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 // =====================================
 // GAME (Guest)
 // =====================================
-Route::get('game', function () {
-   return Inertia::render('Game/Page');
-})->name('game');
+// Route::get('game', function () {
+//    return Inertia::render('Game/Page');
+// })->name('game');
 
 
 // =====================================

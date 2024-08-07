@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TugasController extends Controller
 {
@@ -24,7 +25,6 @@ class TugasController extends Controller
          ])->where('user_id', $id)->get();
 
          $nama = User::findOrFail($id)->name;
-
       } catch (\Exception $e) {
          return response()->json([
             'response' => [
@@ -66,7 +66,6 @@ class TugasController extends Controller
             ->whereHas('pengumpulanTugas', function ($query) use ($ketua) {
                $query->where('user_id', $ketua->id);
             })->get();
-
       } catch (\Exception $e) {
          return response()->json([
             'response' => [
@@ -150,6 +149,10 @@ class TugasController extends Controller
 
       DB::beginTransaction();
       try {
+         $storagePath = substr($poster->poster, strlen('/storage/'));
+         if (Storage::disk('public')->exists($storagePath)) {
+            Storage::disk('public')->delete($storagePath);
+         }
          $poster->update([
             'url_poster' => null,
             'isReturn' => true,

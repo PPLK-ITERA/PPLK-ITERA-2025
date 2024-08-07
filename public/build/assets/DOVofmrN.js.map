@@ -1,1 +1,0 @@
-{"version":3,"file":"DOVofmrN.js","sources":["../../../resources/js/Pages/Auth/Dashboard/DashboardAdmin.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction DashboardAdmin() {\n    return <div>DashboardAdmin</div>;\n}\n\nexport default DashboardAdmin;\n"],"names":["DashboardAdmin","jsx","children"],"mappings":"kCAEA,SAASA,IACE,SAAAC,IAAC,OAAIC,SAAc,kBAC9B"}
