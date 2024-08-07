@@ -32,6 +32,8 @@ export default function TopUser({
         }, 100);
     }, []);
 
+    console.log(user);
+
     return (
         <div
             style={{
@@ -58,8 +60,11 @@ export default function TopUser({
                         </div>
                     ) : null}
                     <img
-                        // src={user.photo_profile_url}
-                        src={generateRandomImage()}
+                        src={
+                            user.photo_profile_url ??
+                            "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                        }
+                        // src={generateRandomImage()}
                         alt={user.name}
                         className="z-0 bg-gray-400 rounded-full"
                     />
@@ -68,7 +73,7 @@ export default function TopUser({
 
             {user && (
                 <a
-                    className="text-lg font-bold hover:scale-105 hover:underline transition"
+                    className="hover:scale-105 hover:underline text-lg font-bold transition"
                     href={route("relasi.profil", { id: user.id })}
                 >
                     {user.name}

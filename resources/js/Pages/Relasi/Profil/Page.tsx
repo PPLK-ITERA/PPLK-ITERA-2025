@@ -98,7 +98,7 @@ function Page({ auth, response }) {
                                     className="aspect-square max-md:w-36 object-cover w-48 border-2 rounded-full select-none bg-gray-400"
                                     // src={user.photo_profile_url}
                                     src={
-                                        user.profileImageUrl ??
+                                        user.photo_profile_url ??
                                         "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
                                     }
                                     alt={user.name}
