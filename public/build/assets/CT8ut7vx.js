@@ -1,1 +1,0 @@
-import{j as e}from"./DqG_jvZq.js";function o(){return e.jsx("div",{children:"Booklet Page"})}export{o as default};
