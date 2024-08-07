@@ -95,7 +95,7 @@ class RelasiController extends Controller
             'name' => $user->name,
             'nim' => $user->nim,
             'prodi' => $user->prodi->nama_prodi,
-            'photo_profile_url' => $user->photo_profile_url ?? "",
+            'photo_profile_url' => $user->photo_profile_url,
             'kelompok' => $user->kelompok ? [
                'nama_kelompok' => $user->kelompok->nama_kelompok,
                'no_kelompok' => $user->kelompok->no_kelompok,
