@@ -1,0 +1,5116 @@
+{
+  "_!~{01B}~.js": {
+    "file": "assets/B0a9OMnn.css",
+    "src": "_!~{01B}~.js"
+  },
+  "_3M3m1EwH.js": {
+    "file": "assets/3M3m1EwH.js",
+    "name": "embla-carousel-autoplay.esm"
+  },
+  "_AgwDuxO4.js": {
+    "file": "assets/AgwDuxO4.js",
+    "name": "format"
+  },
+  "_B0dZQ6sp.js": {
+    "file": "assets/B0dZQ6sp.js",
+    "name": "IconX",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_B5C8yXpc.js": {
+    "file": "assets/B5C8yXpc.js",
+    "name": "logo-pplk-hd",
+    "assets": [
+      "assets/D0bWTZjB.png"
+    ]
+  },
+  "_BAQuY6YB.js": {
+    "file": "assets/BAQuY6YB.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_BBS3-s2K.js": {
+    "file": "assets/BBS3-s2K.js",
+    "name": "IconChevronRight",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_BBTGNeRg.js": {
+    "file": "assets/BBTGNeRg.js",
+    "name": "use-toast",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_BBVVcmnJ.js": {
+    "file": "assets/BBVVcmnJ.js",
+    "name": "DefaultLayout",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js"
+    ]
+  },
+  "_BN1q1RBU.js": {
+    "file": "assets/BN1q1RBU.js",
+    "name": "separator",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js",
+      "_a_XWxsz5.js"
+    ]
+  },
+  "_BRyySBr2.js": {
+    "file": "assets/BRyySBr2.js",
+    "name": "DashboardLayout",
+    "imports": [
+      "resources/js/app.jsx",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_C410qOe_.js",
+      "_Cw9KlwPi.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_B0dZQ6sp.js",
+      "_Bw_GOsU5.js"
+    ]
+  },
+  "_BTOVjOCj.js": {
+    "file": "assets/BTOVjOCj.js",
+    "name": "textarea",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js"
+    ]
+  },
+  "_BXeNE4YX.js": {
+    "file": "assets/BXeNE4YX.js",
+    "name": "pilar4",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js"
+    ],
+    "assets": [
+      "assets/KM3zOF42.png",
+      "assets/B3nA7Yhw.png",
+      "assets/BCTDjeMt.png",
+      "assets/CnLBTYHL.png"
+    ]
+  },
+  "_BXn6Jrdl.js": {
+    "file": "assets/BXn6Jrdl.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_BZtDV8eV.js": {
+    "file": "assets/BZtDV8eV.js",
+    "name": "logo-pplk-2024",
+    "assets": [
+      "assets/D98J2HoG.png"
+    ]
+  },
+  "_BdKs9FHu.js": {
+    "file": "assets/BdKs9FHu.js",
+    "name": "breadcrumbs",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js"
+    ]
+  },
+  "_BeW4Y_Jj.js": {
+    "file": "assets/BeW4Y_Jj.js",
+    "name": "pagination",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js"
+    ]
+  },
+  "_Ble8ih0Z.js": {
+    "file": "assets/Ble8ih0Z.js",
+    "name": "beep",
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "assets": [
+      "assets/BXCTemS2.mp3"
+    ]
+  },
+  "_BmWlmpu1.js": {
+    "file": "assets/BmWlmpu1.js",
+    "name": "IconPlus",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_Bq4vzlmi.js": {
+    "file": "assets/Bq4vzlmi.js",
+    "name": "fakultas-teknologi-infrastruktur-dan-kewilayahan",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Dcu7TUH9.js",
+      "_ChGpu5en.js"
+    ],
+    "assets": [
+      "assets/DLN3F9av.png",
+      "assets/B1cqK5NR.png",
+      "assets/CzVFb1O3.png",
+      "assets/Bnx0eoGI.png",
+      "assets/B_N9iKiH.png",
+      "assets/Ddb_bG2I.png",
+      "assets/BgtgOdt4.png",
+      "assets/zt1Sq3R-.png",
+      "assets/CQLA_ill.png",
+      "assets/B5qhHsp4.png",
+      "assets/Dve4o5HD.png",
+      "assets/DwDX1A3Z.png",
+      "assets/Bhwb55DN.png",
+      "assets/DDDpxT8c.png",
+      "assets/CIqFXO4S.png",
+      "assets/B1Iyijei.png",
+      "assets/DJ1dpXuw.png",
+      "assets/BpaO7QEp.png",
+      "assets/hCi2bDOk.png",
+      "assets/C9wFxuA7.png",
+      "assets/CI-i1OCm.png",
+      "assets/NuUEbG-R.png",
+      "assets/6FGNSNsh.png"
+    ]
+  },
+  "_BtKYUuGJ.js": {
+    "file": "assets/BtKYUuGJ.js",
+    "name": "alas-filosofi",
+    "assets": [
+      "assets/CN9LKn89.png"
+    ]
+  },
+  "_Bu_KoUoA.js": {
+    "file": "assets/Bu_KoUoA.js",
+    "name": "motion",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_Bw_GOsU5.js": {
+    "file": "assets/Bw_GOsU5.js",
+    "name": "button",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js"
+    ]
+  },
+  "_BzE44elF.js": {
+    "file": "assets/BzE44elF.js",
+    "name": "index.module",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_C1wBydXT.js": {
+    "file": "assets/C1wBydXT.js",
+    "name": "arrow-right",
+    "imports": [
+      "_LIaDX6C_.js"
+    ]
+  },
+  "_C410qOe_.js": {
+    "file": "assets/C410qOe_.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_C46PLoNX.js": {
+    "file": "assets/C46PLoNX.js",
+    "name": "data",
+    "imports": [
+      "_BZtDV8eV.js"
+    ],
+    "assets": [
+      "assets/BlxXP3kS.png",
+      "assets/ZBl8kuSA.png",
+      "assets/CgMr2p-5.png",
+      "assets/CK_jSwe_.png",
+      "assets/BTUVjtmB.png",
+      "assets/DXyEp3zZ.png",
+      "assets/SJ45SN-2.png"
+    ]
+  },
+  "_C5ApNRNs.js": {
+    "file": "assets/C5ApNRNs.js",
+    "name": "alert-modal",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_a30AbYcg.js"
+    ]
+  },
+  "_C910vcZT.js": {
+    "file": "assets/C910vcZT.js",
+    "name": "IconTrashFilled",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_CBT_1F9J.js": {
+    "file": "assets/CBT_1F9J.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_CKUdLLXv.js": {
+    "file": "assets/CKUdLLXv.js",
+    "name": "label",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js"
+    ]
+  },
+  "_CLBRjDnP.js": {
+    "file": "assets/CLBRjDnP.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js"
+    ]
+  },
+  "_CNAeFkhN.js": {
+    "file": "assets/CNAeFkhN.js",
+    "name": "carousel",
+    "imports": [
+      "resources/js/app.jsx",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ]
+  },
+  "_C_oSu1GE.js": {
+    "file": "assets/C_oSu1GE.js",
+    "name": "accordion",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js",
+      "_a_XWxsz5.js",
+      "_CLBRjDnP.js",
+      "_Cw9KlwPi.js",
+      "_KYyiEPZ8.js",
+      "_LIaDX6C_.js"
+    ]
+  },
+  "_CdlhT4iK.js": {
+    "file": "assets/CdlhT4iK.js",
+    "name": "elang-hero",
+    "assets": [
+      "assets/BwiULnQt.png"
+    ]
+  },
+  "_ChGpu5en.js": {
+    "file": "assets/ChGpu5en.js",
+    "name": "IconBrandInstagram",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_ClN2HWF5.js": {
+    "file": "assets/ClN2HWF5.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js"
+    ]
+  },
+  "_CnuPZMgP.js": {
+    "file": "assets/CnuPZMgP.js",
+    "name": "tabs",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_C410qOe_.js"
+    ]
+  },
+  "_Cw9KlwPi.js": {
+    "file": "assets/Cw9KlwPi.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js"
+    ]
+  },
+  "_CyL-sgyv.js": {
+    "file": "assets/CyL-sgyv.js",
+    "name": "pillar-brown",
+    "assets": [
+      "assets/CCTduJAQ.png",
+      "assets/CeFKthon.png"
+    ]
+  },
+  "_CzmROYJN.js": {
+    "file": "assets/CzmROYJN.js",
+    "name": "card",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js"
+    ]
+  },
+  "_D8OyzxR9.js": {
+    "file": "assets/D8OyzxR9.js",
+    "name": "gedung-sponsor",
+    "assets": [
+      "assets/D-5eIxnc.png"
+    ]
+  },
+  "_DAaPK9hk.js": {
+    "file": "assets/DAaPK9hk.js",
+    "name": "upa",
+    "imports": [
+      "resources/js/app.jsx",
+      "_DXUPjsip.js",
+      "_bM37MfT9.js"
+    ],
+    "assets": [
+      "assets/CxGkI9vi.png",
+      "assets/BcbwpaYt.png",
+      "assets/sJi9icXn.png",
+      "assets/BUSXKdjU.png",
+      "assets/X_l4Eu60.png",
+      "assets/C6LZxmc-.png",
+      "assets/BtPy125O.png",
+      "assets/DqoaVwwi.png",
+      "assets/DHxH_Xob.png",
+      "assets/D_iVJPo7.png",
+      "assets/C6dd77TP.png",
+      "assets/Bmt-o7hp.png",
+      "assets/C2WpI23Z.png",
+      "assets/Br1U5jVT.png",
+      "assets/D1WDxYKC.png",
+      "assets/B3tqX4PE.jpg",
+      "assets/GrF_X3En.png",
+      "assets/DXy2l8gp.png",
+      "assets/CFIT0rWL.png",
+      "assets/CSV5xd99.png",
+      "assets/BGxtRQUY.png",
+      "assets/BzggiY3D.png",
+      "assets/BaYJNaZB.png",
+      "assets/BW0AoNho.png",
+      "assets/BEgRlbp2.png",
+      "assets/C3HDOoEh.png",
+      "assets/pvHpwdcD.png",
+      "assets/Ds094SIq.png",
+      "assets/BdwEM-wZ.png",
+      "assets/BDi00XNp.png",
+      "assets/C8OaZpB-.png",
+      "assets/BuqfWaFD.png",
+      "assets/CDK2YK0j.png",
+      "assets/CmvsJ2K9.png",
+      "assets/KtcSMkwQ.png"
+    ]
+  },
+  "_DCE6C9jE.js": {
+    "file": "assets/DCE6C9jE.js",
+    "name": "heading",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_DDOXGxyK.js": {
+    "file": "assets/DDOXGxyK.js",
+    "name": "IconBrandTiktok",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_DKMAaO_8.js": {
+    "file": "assets/DKMAaO_8.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_DLhH0H2W.js": {
+    "file": "assets/DLhH0H2W.js",
+    "name": "overlay-earth",
+    "assets": [
+      "assets/CU2VWmR4.png"
+    ]
+  },
+  "_DLyaNGsp.js": {
+    "file": "assets/DLyaNGsp.js",
+    "name": "scroll-area",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js"
+    ]
+  },
+  "_DPdBf6DS.js": {
+    "file": "assets/DPdBf6DS.js",
+    "name": "extends"
+  },
+  "_DXUPjsip.js": {
+    "file": "assets/DXUPjsip.js",
+    "name": "Navbar",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js"
+    ],
+    "assets": [
+      "assets/BPXXQUDH.png",
+      "assets/BcRVHF28.png",
+      "assets/l6HTSsEo.png"
+    ]
+  },
+  "_Dcu7TUH9.js": {
+    "file": "assets/Dcu7TUH9.js",
+    "name": "IconWorldWww",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_DegpNc8D.js": {
+    "file": "assets/DegpNc8D.js",
+    "name": "embla-carousel-react.esm",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_DjnmRtTq.js": {
+    "file": "assets/DjnmRtTq.js",
+    "name": "input",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js"
+    ]
+  },
+  "_Dk_7dWwh.js": {
+    "file": "assets/Dk_7dWwh.js",
+    "name": "Footer",
+    "imports": [
+      "resources/js/app.jsx",
+      "_DXUPjsip.js",
+      "_C46PLoNX.js"
+    ],
+    "assets": [
+      "assets/CNe9yWmR.png",
+      "assets/DeChAuyg.png",
+      "assets/BnWKIFou.png",
+      "assets/DaOo2YTV.png",
+      "assets/Cje5GL1k.png"
+    ]
+  },
+  "_DrOG5P5R.js": {
+    "file": "assets/DrOG5P5R.js",
+    "name": "alert-dialog",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_Cw9KlwPi.js",
+      "_Bw_GOsU5.js"
+    ]
+  },
+  "_DsM_GpWP.js": {
+    "file": "assets/DsM_GpWP.js",
+    "name": "table",
+    "imports": [
+      "resources/js/app.jsx",
+      "_C410qOe_.js"
+    ]
+  },
+  "_DsnVXMxa.js": {
+    "file": "assets/DsnVXMxa.js",
+    "name": "awan",
+    "assets": [
+      "assets/CrYIRASi.png"
+    ]
+  },
+  "_DzW0UYMV.js": {
+    "file": "assets/DzW0UYMV.js",
+    "name": "ukm",
+    "assets": [
+      "assets/Dt15LfNS.jpg",
+      "assets/D3hT5Xuk.jpg",
+      "assets/DfUq38Pi.jpg",
+      "assets/CxMpWwoM.jpg",
+      "assets/DVcbUQFi.jpg",
+      "assets/lhAHPKOx.jpg",
+      "assets/DNHbnTU3.jpg",
+      "assets/7o2UIsdK.jpg",
+      "assets/mvaxHLrm.jpg",
+      "assets/H4KfVuXt.jpeg",
+      "assets/NJc1eDcN.jpg",
+      "assets/CQgBo_47.jpg",
+      "assets/B_Z1JGkI.jpg",
+      "assets/BG19PTg_.jpg",
+      "assets/Dp75M50O.jpg",
+      "assets/BjXv42QA.jpg",
+      "assets/ButFpLIO.jpg",
+      "assets/DFiW6VSv.jpg",
+      "assets/BPDiaE-I.jpg",
+      "assets/Dt6JJx11.jpg",
+      "assets/CPf5k3bh.jpg",
+      "assets/xikceQHl.jpg",
+      "assets/Bz8-SP52.jpg",
+      "assets/Co1AAU_x.jpg",
+      "assets/s_f9O8Fh.png",
+      "assets/BLcc5qUu.png",
+      "assets/BZaT3EKE.png",
+      "assets/DNntKBd1.jpg",
+      "assets/JHqniH4W.jpg",
+      "assets/FautkpID.jpg",
+      "assets/DuqTEaiE.jpg",
+      "assets/BWzQCjfu.jpg",
+      "assets/GnnpxwmS.jpg",
+      "assets/INwBwYF2.jpg",
+      "assets/fCsSMxGU.jpg",
+      "assets/Cdw6rbBY.jpg",
+      "assets/SzMThjlS.jpg",
+      "assets/SrplyfsA.jpg",
+      "assets/_9qm-GIt.png",
+      "assets/DnH-Pcz2.png",
+      "assets/0uZdiuoy.png",
+      "assets/D_QKeDcB.png",
+      "assets/DBt_UnHv.png",
+      "assets/q-Plu-Rh.png",
+      "assets/C0yY8p5P.jpeg",
+      "assets/Bhyy-KnX.png",
+      "assets/qa_d_VDJ.png",
+      "assets/Cc8zdPWu.jpg",
+      "assets/XZwyxyjr.jpg",
+      "assets/DJMBlxCr.jpg",
+      "assets/DVZk3V3e.jpg",
+      "assets/DJg5lBOW.jpg",
+      "assets/hujf5VD7.jpg",
+      "assets/DEBkm1bV.jpg",
+      "assets/DcmE8bk1.jpg",
+      "assets/sn3irvZ0.jpg",
+      "assets/BW5xYvfH.jpg",
+      "assets/DjZp9HZo.jpg",
+      "assets/tXXFE7bK.png",
+      "assets/BwmdDJu-.png",
+      "assets/BKTXl5w1.png",
+      "assets/DcNtdVEW.jpg",
+      "assets/Ct11_a2w.jpg",
+      "assets/CoEkpIPo.jpg",
+      "assets/B_6OVb6V.jpg",
+      "assets/7WN9tuOu.jpg",
+      "assets/DykSOZm8.jpg",
+      "assets/CvFtodAH.jpg",
+      "assets/DdIPQuJu.jpg",
+      "assets/D3-YMIuy.jpg",
+      "assets/C1h8Vzg0.jpg",
+      "assets/BYnDGiox.jpg",
+      "assets/DxWyuD3Y.jpg",
+      "assets/XubQtNcq.jpg",
+      "assets/EpnXLxgc.jpg",
+      "assets/D9d8mL55.jpg",
+      "assets/CnHAcrdy.jpg",
+      "assets/R1YDNu01.jpg",
+      "assets/BH6mBg6u.jpg",
+      "assets/CBdZ2DbK.jpg",
+      "assets/CghkntTL.jpeg",
+      "assets/DZzx6chH.jpeg",
+      "assets/DaD41n7K.jpeg",
+      "assets/D-uG2EpC.jpeg",
+      "assets/CgE_AEMf.jpg",
+      "assets/uaCPUxwL.jpg",
+      "assets/DoRwSAcv.jpg",
+      "assets/D__PmZfB.jpg",
+      "assets/IGep339R.jpg",
+      "assets/Dc34CpV_.jpg",
+      "assets/nKsPN0wm.jpg",
+      "assets/B6htnM6K.jpg",
+      "assets/DhG8vFEJ.jpg",
+      "assets/DXzuXFwK.jpg",
+      "assets/ZQ_3FA31.jpg",
+      "assets/BFzvFGa_.jpg",
+      "assets/DodZHxKK.png",
+      "assets/BPdHQlpr.png",
+      "assets/BE5uqjYn.png",
+      "assets/B2i-iq7w.png",
+      "assets/C_HLhTz2.jpg",
+      "assets/BLiNChut.jpg",
+      "assets/QBi2aZHX.png",
+      "assets/BTXyAnoA.png",
+      "assets/ClfN9KNZ.png",
+      "assets/DBl6AKyl.png",
+      "assets/B1FSml9h.png",
+      "assets/CS2rJiZW.jpg",
+      "assets/DdeUEYND.png",
+      "assets/CFJ_nSEF.jpg",
+      "assets/CTY9NzCE.png",
+      "assets/DcdTyb59.png",
+      "assets/DkFOezK7.png",
+      "assets/DcuuNpUU.png",
+      "assets/CVBJhHSF.png",
+      "assets/Ci0Bbs1u.png",
+      "assets/DEpJO8sG.png",
+      "assets/r_8_zvOX.jpg",
+      "assets/B6cDBfMc.png",
+      "assets/m7tSCEdP.png",
+      "assets/hYF516pp.png",
+      "assets/BU9nH499.png",
+      "assets/BNsCRTW6.png",
+      "assets/C06s-_xG.jpg",
+      "assets/BBJKNj6R.png",
+      "assets/DhRpY5ZC.jpg",
+      "assets/CaqczpmS.png",
+      "assets/3uqSAMsH.png",
+      "assets/z-pHQD1S.png",
+      "assets/BUFIywo9.png",
+      "assets/DbcxeILJ.png",
+      "assets/CIRTNO3-.jpg"
+    ]
+  },
+  "_FfmO1YB6.js": {
+    "file": "assets/FfmO1YB6.js",
+    "name": "IconPencil",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_FiM0Gwvm.js": {
+    "file": "assets/FiM0Gwvm.js",
+    "name": "arrow-left",
+    "imports": [
+      "_LIaDX6C_.js"
+    ]
+  },
+  "_FqdEnJB7.js": {
+    "file": "assets/FqdEnJB7.js",
+    "name": "toaster",
+    "imports": [
+      "resources/js/app.jsx",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_CLBRjDnP.js",
+      "_ClN2HWF5.js",
+      "_BBTGNeRg.js"
+    ]
+  },
+  "_G9cpeAgW.js": {
+    "file": "assets/G9cpeAgW.js",
+    "name": "programStudi",
+    "assets": [
+      "assets/DyBY9sr-.jpg",
+      "assets/CkikjnYV.jpeg",
+      "assets/NQ8JzFFD.jpg",
+      "assets/BaXsX0Tb.png",
+      "assets/B1Xppxu-.jpg",
+      "assets/BGAZHFe9.jpg",
+      "assets/BP10wJzU.jpg",
+      "assets/xvjYzJgJ.jpg",
+      "assets/RpNLD2Gm.png",
+      "assets/lEwx2BUY.jpg",
+      "assets/cywv11ta.jpg",
+      "assets/Biujq8GU.jpeg",
+      "assets/B_CLnL-Y.jpg",
+      "assets/BBfS8kmJ.jpg",
+      "assets/Bc0cdnA3.jpg",
+      "assets/BNj6wP-q.jpeg",
+      "assets/9YndyqWp.png",
+      "assets/F4JERe04.png",
+      "assets/NNcFYyeO.jpeg",
+      "assets/BQ2clKex.jpeg",
+      "assets/DynQAzpO.jpg",
+      "assets/HKw9VlUt.jpg",
+      "assets/DhGn8PWd.jpg",
+      "assets/CSROb3Cv.jpg",
+      "assets/CC1GHjAy.jpeg",
+      "assets/B0OsJD_G.jpg",
+      "assets/BOlcQ0zH.jpg",
+      "assets/QzOlTxK0.png",
+      "assets/CzfvhZYP.jpg",
+      "assets/DDsrho6j.png",
+      "assets/BTDnUf1g.jpeg",
+      "assets/hpOddi-2.jpeg",
+      "assets/3Qkfoldu.jpg",
+      "assets/Bh2TNvWT.jpeg",
+      "assets/DhZhgWLf.jpg",
+      "assets/1rgW7W1S.jpg",
+      "assets/CEi65Znc.jpg",
+      "assets/OITz1Bh0.jpg",
+      "assets/DwrrYD5C.jpg",
+      "assets/COEwWNUY.jpg",
+      "assets/p9k1EEik.jpg",
+      "assets/Ddi_Mxn-.jpg",
+      "assets/byL_530h.jpg",
+      "assets/CS2gachq.jpg",
+      "assets/vPAbbc37.jpg",
+      "assets/COs3yYeO.jpg",
+      "assets/Dm_AdtPc.jpg",
+      "assets/C6rN0eC-.jpg",
+      "assets/BQZ4PcS3.jpg",
+      "assets/CqayIkeM.jpg",
+      "assets/b_IMTtWL.jpg",
+      "assets/C6zd-TdY.jpg",
+      "assets/D7GLw0P3.jpg",
+      "assets/ejgwmEsD.jpg",
+      "assets/CI6eiwfE.jpg",
+      "assets/CTUmhP37.jpg",
+      "assets/Bv1vpzQx.jpg",
+      "assets/Dz-WWoe5.jpg",
+      "assets/EyaxEsLL.jpg",
+      "assets/pRDDdOlE.jpg",
+      "assets/DC_-vnVl.jpg",
+      "assets/BmkYpqhe.jpg",
+      "assets/BFT4y2rs.jpg",
+      "assets/DXvoSsj-.jpg",
+      "assets/D3wJwyT-.jpg",
+      "assets/DfxOSaYx.jpg",
+      "assets/RGf5A4mr.jpg",
+      "assets/DKWoFAOz.jpeg",
+      "assets/CrsrK2_D.jpg",
+      "assets/B2c5kJfQ.jpg",
+      "assets/DksE6p74.jpg",
+      "assets/EpMusvQW.jpg",
+      "assets/Dxed3bA4.jpg",
+      "assets/BkiCkJFd.jpg",
+      "assets/DEgK5jBB.jpg",
+      "assets/CgCXusZV.jpg",
+      "assets/CXDkQaAH.jpg",
+      "assets/ByVy1Qee.jpg",
+      "assets/DLXJaSCx.jpg",
+      "assets/miRFGher.jpg",
+      "assets/Ld4fRRjn.jpg",
+      "assets/YfdOGRaE.jpg",
+      "assets/zMrn_3GG.jpg",
+      "assets/CEjs3Vve.jpg",
+      "assets/jpm2aILT.jpg",
+      "assets/CLBhoxy2.jpg",
+      "assets/DjB_yQ9j.jpg",
+      "assets/DvpK8WET.jpg",
+      "assets/C1XpIxU9.jpg",
+      "assets/Bhxg92pO.jpg",
+      "assets/DWXf6ZzP.jpg",
+      "assets/xh206_CN.jpg",
+      "assets/CRzYx333.jpg",
+      "assets/Dgw1JOQC.png",
+      "assets/CXIQ9atN.jpg",
+      "assets/wq5LGksT.jpg",
+      "assets/C7mmYrD9.jpg",
+      "assets/DaLBu3pK.jpg",
+      "assets/D-7bEvKf.jpg",
+      "assets/yfkHZ7Ja.jpg",
+      "assets/B1V19MnC.jpg",
+      "assets/QtL_WI0i.jpeg",
+      "assets/BkRRIhX0.jpeg",
+      "assets/BX8LUQzt.jpeg",
+      "assets/CKdD8FkT.jpg",
+      "assets/Bv5o_e7Q.jpg",
+      "assets/DiWjw0Hx.jpg",
+      "assets/LgE2M_7n.jpg",
+      "assets/dxeir_6o.jpeg",
+      "assets/B1bIEcZR.jpg",
+      "assets/CilrjLwG.jpg",
+      "assets/DG_Ipgrb.jpg",
+      "assets/C7NTvhFN.jpeg",
+      "assets/DbFlTUU3.jpeg",
+      "assets/Bryt32Qs.jpeg",
+      "assets/BZdxUrD0.jpeg",
+      "assets/Czar9m2g.jpg",
+      "assets/Cb0rDpoj.jpg",
+      "assets/Dj66O6rQ.jpg",
+      "assets/CLbVjHm8.jpg",
+      "assets/BmRbw-_m.jpg",
+      "assets/D_Obo_wI.jpg",
+      "assets/DitaT1qa.jpg",
+      "assets/CpNzx48m.jpeg",
+      "assets/9-4ajzrk.jpeg",
+      "assets/BqRWgECi.jpeg",
+      "assets/DxXCOu7L.jpeg",
+      "assets/BLcCcUN3.png",
+      "assets/BSUJr1KN.png",
+      "assets/DvDCT7oR.png",
+      "assets/DSjooqQb.png",
+      "assets/CKPrPyUZ.png",
+      "assets/MJEs75fz.png",
+      "assets/DFdbV_Zn.png",
+      "assets/A_8WIiNs.png",
+      "assets/Dde67jNT.png",
+      "assets/BdjkMdr1.png",
+      "assets/Dly_T-81.png",
+      "assets/Bf5GivPk.png",
+      "assets/CFv21wgO.png",
+      "assets/DnLfm1X8.png",
+      "assets/DX1VOAEx.png",
+      "assets/YhZjTJmD.png",
+      "assets/B4MML0mZ.png",
+      "assets/IG6EihxB.png",
+      "assets/C5wyafNT.png",
+      "assets/BxukYFyw.png",
+      "assets/BbrWrlVC.png",
+      "assets/DjbhUfPw.png",
+      "assets/D4KSjkQd.png",
+      "assets/BZSa4831.png",
+      "assets/DvSwYYSL.png",
+      "assets/BiD53Flk.png",
+      "assets/aPjpWceY.png",
+      "assets/CkFttF3r.png",
+      "assets/vytibhZO.png",
+      "assets/DAFy9C6a.png",
+      "assets/CUs-78ly.png",
+      "assets/DkgweriG.png",
+      "assets/D8ugw1uL.png",
+      "assets/DDHj53u4.png",
+      "assets/B2N-jjpU.png",
+      "assets/D2Dl3vji.png",
+      "assets/_IMTY9Re.png",
+      "assets/BafnyCz6.png",
+      "assets/exDAE_XD.png",
+      "assets/Bf4QhHIP.png",
+      "assets/D8RLDTeC.png",
+      "assets/DyfpgntU.png",
+      "assets/2NL_j_5v.png",
+      "assets/BHK9n3Vr.png",
+      "assets/PYKnfRNP.png",
+      "assets/mWy5HAAz.png",
+      "assets/TDnFN-7z.png",
+      "assets/C-FNOb6e.png",
+      "assets/CxXvv7iO.png",
+      "assets/Bfct7I9h.png",
+      "assets/DOk5hp56.png",
+      "assets/jcisJQQe.png",
+      "assets/QQtAJPaN.png",
+      "assets/Cc7e7MwH.png",
+      "assets/Bmz2SwlO.png",
+      "assets/DZ6fy86-.png",
+      "assets/C2ytQREa.png",
+      "assets/Dhr6qCN_.png",
+      "assets/CGF5PVLN.png",
+      "assets/88-w3nm6.png",
+      "assets/Dl6OuOsN.png",
+      "assets/CGUT9mXP.png",
+      "assets/ByUeGw47.png",
+      "assets/BZfevrf2.png",
+      "assets/BTpu2SBc.png",
+      "assets/BscSeKns.png",
+      "assets/CdMUdqeW.png",
+      "assets/DFZHPprq.png",
+      "assets/CWxS7jb6.png",
+      "assets/BG3prL0f.png",
+      "assets/DN28-sUo.png",
+      "assets/BKVwt4Gk.png",
+      "assets/CY09mYH1.png"
+    ]
+  },
+  "_IyJryVnY.js": {
+    "file": "assets/IyJryVnY.js",
+    "name": "select",
+    "imports": [
+      "resources/js/app.jsx",
+      "_BdKs9FHu.js",
+      "_DLyaNGsp.js",
+      "_a_XWxsz5.js",
+      "_CLBRjDnP.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_BXn6Jrdl.js",
+      "_ClN2HWF5.js"
+    ]
+  },
+  "_KQ0ZSL1G.js": {
+    "file": "assets/KQ0ZSL1G.js",
+    "name": "PaginationFAQ",
+    "imports": [
+      "resources/js/app.jsx",
+      "_BeW4Y_Jj.js"
+    ]
+  },
+  "_KYyiEPZ8.js": {
+    "file": "assets/KYyiEPZ8.js",
+    "name": "sheet",
+    "imports": [
+      "_Cw9KlwPi.js",
+      "resources/js/app.jsx",
+      "_C410qOe_.js",
+      "_a_XWxsz5.js",
+      "_CLBRjDnP.js",
+      "_LIaDX6C_.js"
+    ]
+  },
+  "_LIaDX6C_.js": {
+    "file": "assets/LIaDX6C_.js",
+    "name": "createLucideIcon",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_VURlX9nZ.js": {
+    "file": "assets/VURlX9nZ.js",
+    "name": "gunung",
+    "assets": [
+      "assets/DPWCexpX.png"
+    ]
+  },
+  "_a30AbYcg.js": {
+    "file": "assets/a30AbYcg.js",
+    "name": "dialog",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Cw9KlwPi.js",
+      "_C410qOe_.js",
+      "_a_XWxsz5.js"
+    ]
+  },
+  "_aCPDaISk.js": {
+    "file": "assets/aCPDaISk.js",
+    "name": "data-table",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_DCE6C9jE.js",
+      "_DjnmRtTq.js",
+      "_DLyaNGsp.js",
+      "_BzE44elF.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js"
+    ]
+  },
+  "_a_XWxsz5.js": {
+    "file": "assets/a_XWxsz5.js",
+    "name": "index",
+    "imports": [
+      "_LIaDX6C_.js",
+      "resources/js/app.jsx",
+      "_C410qOe_.js"
+    ]
+  },
+  "_bM37MfT9.js": {
+    "file": "assets/bM37MfT9.js",
+    "name": "useAos",
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "css": [
+      "assets/B0a9OMnn.css"
+    ]
+  },
+  "_cODHpOt1.js": {
+    "file": "assets/cODHpOt1.js",
+    "name": "crown",
+    "assets": [
+      "assets/PsvMi6cu.svg"
+    ]
+  },
+  "_dKO6cs-5.js": {
+    "file": "assets/dKO6cs-5.js",
+    "name": "IconBrandLinkedin",
+    "imports": [
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_ehdbQKtA.js": {
+    "file": "assets/ehdbQKtA.js",
+    "name": "sponsor-overlay",
+    "assets": [
+      "assets/DzsWn7_a.png"
+    ]
+  },
+  "_mExKfzIx.js": {
+    "file": "assets/mExKfzIx.js",
+    "name": "RelasiLoading",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Cw9KlwPi.js"
+    ]
+  },
+  "_n3GRt1DH.js": {
+    "file": "assets/n3GRt1DH.js",
+    "name": "relasi",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_DjnmRtTq.js",
+      "_Cw9KlwPi.js",
+      "_uBZNdCZ5.js"
+    ]
+  },
+  "_qMFz18Pk.js": {
+    "file": "assets/qMFz18Pk.js",
+    "name": "chevron-left",
+    "imports": [
+      "_LIaDX6C_.js"
+    ]
+  },
+  "_uBZNdCZ5.js": {
+    "file": "assets/uBZNdCZ5.js",
+    "name": "ProfileCard",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_CzmROYJN.js"
+    ]
+  },
+  "node_modules/@zxing/library/esm/index.js": {
+    "file": "assets/nzheIepH.js",
+    "name": "index",
+    "src": "node_modules/@zxing/library/esm/index.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Ble8ih0Z.js",
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/assets/alas-filosofi.png": {
+    "file": "assets/CN9LKn89.png",
+    "src": "resources/assets/alas-filosofi.png"
+  },
+  "resources/assets/awan.png": {
+    "file": "assets/CrYIRASi.png",
+    "src": "resources/assets/awan.png"
+  },
+  "resources/assets/background-login.png": {
+    "file": "assets/WOT81FCI.png",
+    "src": "resources/assets/background-login.png"
+  },
+  "resources/assets/banpt.png": {
+    "file": "assets/urH81EIQ.png",
+    "src": "resources/assets/banpt.png"
+  },
+  "resources/assets/bawahanDekan/1/fti.png": {
+    "file": "assets/DLN3F9av.png",
+    "src": "resources/assets/bawahanDekan/1/fti.png"
+  },
+  "resources/assets/bawahanDekan/1/ftik.png": {
+    "file": "assets/B1cqK5NR.png",
+    "src": "resources/assets/bawahanDekan/1/ftik.png"
+  },
+  "resources/assets/bawahanDekan/1/sains.png": {
+    "file": "assets/CzVFb1O3.png",
+    "src": "resources/assets/bawahanDekan/1/sains.png"
+  },
+  "resources/assets/bawahanDekan/2/fti.png": {
+    "file": "assets/Bnx0eoGI.png",
+    "src": "resources/assets/bawahanDekan/2/fti.png"
+  },
+  "resources/assets/bawahanDekan/2/sains.png": {
+    "file": "assets/B_N9iKiH.png",
+    "src": "resources/assets/bawahanDekan/2/sains.png"
+  },
+  "resources/assets/bawahanDekan/3/sains.png": {
+    "file": "assets/Ddb_bG2I.png",
+    "src": "resources/assets/bawahanDekan/3/sains.png"
+  },
+  "resources/assets/bkkm.png": {
+    "file": "assets/DKI6p-XI.png",
+    "src": "resources/assets/bkkm.png"
+  },
+  "resources/assets/dekanFakultas/fti.png": {
+    "file": "assets/BgtgOdt4.png",
+    "src": "resources/assets/dekanFakultas/fti.png"
+  },
+  "resources/assets/dekanFakultas/ftik.png": {
+    "file": "assets/zt1Sq3R-.png",
+    "src": "resources/assets/dekanFakultas/ftik.png"
+  },
+  "resources/assets/dekanFakultas/sains.png": {
+    "file": "assets/CQLA_ill.png",
+    "src": "resources/assets/dekanFakultas/sains.png"
+  },
+  "resources/assets/desktop-hero-background.png": {
+    "file": "assets/Dk4ytRnq.png",
+    "src": "resources/assets/desktop-hero-background.png"
+  },
+  "resources/assets/elang-hero.png": {
+    "file": "assets/BwiULnQt.png",
+    "src": "resources/assets/elang-hero.png"
+  },
+  "resources/assets/fakultas-sains.png": {
+    "file": "assets/hCi2bDOk.png",
+    "src": "resources/assets/logoFakultas/fakultas-sains.png"
+  },
+  "resources/assets/fakultas-teknologi-industri.png": {
+    "file": "assets/NuUEbG-R.png",
+    "src": "resources/assets/fakultas-teknologi-industri.png"
+  },
+  "resources/assets/fakultas-teknologi-infrastruktur-dan-kewilayahan.png": {
+    "file": "assets/6FGNSNsh.png",
+    "src": "resources/assets/fakultas-teknologi-infrastruktur-dan-kewilayahan.png"
+  },
+  "resources/assets/filosofi-pilar/4-pilar-sgds.png": {
+    "file": "assets/BlxXP3kS.png",
+    "src": "resources/assets/filosofi-pilar/4-pilar-sgds.png"
+  },
+  "resources/assets/filosofi-pilar/angka-10.png": {
+    "file": "assets/ZBl8kuSA.png",
+    "src": "resources/assets/filosofi-pilar/angka-10.png"
+  },
+  "resources/assets/filosofi-pilar/biji-emas.png": {
+    "file": "assets/CgMr2p-5.png",
+    "src": "resources/assets/filosofi-pilar/biji-emas.png"
+  },
+  "resources/assets/filosofi-pilar/helai-daun.png": {
+    "file": "assets/CK_jSwe_.png",
+    "src": "resources/assets/filosofi-pilar/helai-daun.png"
+  },
+  "resources/assets/filosofi-pilar/naungan-tangan.png": {
+    "file": "assets/BTUVjtmB.png",
+    "src": "resources/assets/filosofi-pilar/naungan-tangan.png"
+  },
+  "resources/assets/filosofi-pilar/pulau-sumatera.png": {
+    "file": "assets/DXyEp3zZ.png",
+    "src": "resources/assets/filosofi-pilar/pulau-sumatera.png"
+  },
+  "resources/assets/filosofi-pilar/tetes-air.png": {
+    "file": "assets/SJ45SN-2.png",
+    "src": "resources/assets/filosofi-pilar/tetes-air.png"
+  },
+  "resources/assets/fonts/Avigea/Avigea-Italic.otf": {
+    "file": "assets/BUopdluu.otf",
+    "src": "resources/assets/fonts/Avigea/Avigea-Italic.otf"
+  },
+  "resources/assets/fonts/Avigea/Avigea.otf": {
+    "file": "assets/C4707jmp.otf",
+    "src": "resources/assets/fonts/Avigea/Avigea.otf"
+  },
+  "resources/assets/fonts/Festival-Budaya/FestivalBudayaXXXI.otf": {
+    "file": "assets/QqWFEU4D.otf",
+    "src": "resources/assets/fonts/Festival-Budaya/FestivalBudayaXXXI.otf"
+  },
+  "resources/assets/fonts/NovaMono/novamono.ttf": {
+    "file": "assets/BEi4fzSD.ttf",
+    "src": "resources/assets/fonts/NovaMono/novamono.ttf"
+  },
+  "resources/assets/gedung-sponsor.png": {
+    "file": "assets/D-5eIxnc.png",
+    "src": "resources/assets/gedung-sponsor.png"
+  },
+  "resources/assets/gunung.png": {
+    "file": "assets/DPWCexpX.png",
+    "src": "resources/assets/gunung.png"
+  },
+  "resources/assets/info.png": {
+    "file": "assets/BVbdTp-4.png",
+    "src": "resources/assets/info.png"
+  },
+  "resources/assets/kegiatanFakultas/1/fti.png": {
+    "file": "assets/B5qhHsp4.png",
+    "src": "resources/assets/kegiatanFakultas/1/fti.png"
+  },
+  "resources/assets/kegiatanFakultas/1/ftik.png": {
+    "file": "assets/Dve4o5HD.png",
+    "src": "resources/assets/kegiatanFakultas/1/ftik.png"
+  },
+  "resources/assets/kegiatanFakultas/1/sains.png": {
+    "file": "assets/DwDX1A3Z.png",
+    "src": "resources/assets/kegiatanFakultas/1/sains.png"
+  },
+  "resources/assets/kegiatanFakultas/2/fti.png": {
+    "file": "assets/Bhwb55DN.png",
+    "src": "resources/assets/kegiatanFakultas/2/fti.png"
+  },
+  "resources/assets/kegiatanFakultas/2/ftik.png": {
+    "file": "assets/DDDpxT8c.png",
+    "src": "resources/assets/kegiatanFakultas/2/ftik.png"
+  },
+  "resources/assets/kegiatanFakultas/2/sains.png": {
+    "file": "assets/CIqFXO4S.png",
+    "src": "resources/assets/kegiatanFakultas/2/sains.png"
+  },
+  "resources/assets/kegiatanFakultas/3/fti.png": {
+    "file": "assets/B1Iyijei.png",
+    "src": "resources/assets/kegiatanFakultas/3/fti.png"
+  },
+  "resources/assets/kegiatanFakultas/3/ftik.png": {
+    "file": "assets/DJ1dpXuw.png",
+    "src": "resources/assets/kegiatanFakultas/3/ftik.png"
+  },
+  "resources/assets/kegiatanFakultas/3/sains.png": {
+    "file": "assets/BpaO7QEp.png",
+    "src": "resources/assets/kegiatanFakultas/3/sains.png"
+  },
+  "resources/assets/kegiatanUnggulan/1/upa-kebun-raya.png": {
+    "file": "assets/CxGkI9vi.png",
+    "src": "resources/assets/kegiatanUnggulan/1/upa-kebun-raya.png"
+  },
+  "resources/assets/kegiatanUnggulan/1/upa-lab-1.png": {
+    "file": "assets/BcbwpaYt.png",
+    "src": "resources/assets/kegiatanUnggulan/1/upa-lab-1.png"
+  },
+  "resources/assets/kegiatanUnggulan/1/upa-mkg.png": {
+    "file": "assets/sJi9icXn.png",
+    "src": "resources/assets/kegiatanUnggulan/1/upa-mkg.png"
+  },
+  "resources/assets/kegiatanUnggulan/1/upa-oail.png": {
+    "file": "assets/BUSXKdjU.png",
+    "src": "resources/assets/kegiatanUnggulan/1/upa-oail.png"
+  },
+  "resources/assets/kegiatanUnggulan/1/upa-perpustakaan.png": {
+    "file": "assets/X_l4Eu60.png",
+    "src": "resources/assets/kegiatanUnggulan/1/upa-perpustakaan.png"
+  },
+  "resources/assets/kegiatanUnggulan/1/upa-tik.png": {
+    "file": "assets/C6LZxmc-.png",
+    "src": "resources/assets/kegiatanUnggulan/1/upa-tik.png"
+  },
+  "resources/assets/kegiatanUnggulan/1/upt-k3l.png": {
+    "file": "assets/BtPy125O.png",
+    "src": "resources/assets/kegiatanUnggulan/1/upt-k3l.png"
+  },
+  "resources/assets/kegiatanUnggulan/2/upa-kebun-raya.png": {
+    "file": "assets/DqoaVwwi.png",
+    "src": "resources/assets/kegiatanUnggulan/2/upa-kebun-raya.png"
+  },
+  "resources/assets/kegiatanUnggulan/2/upa-lab-1.png": {
+    "file": "assets/DHxH_Xob.png",
+    "src": "resources/assets/kegiatanUnggulan/2/upa-lab-1.png"
+  },
+  "resources/assets/kegiatanUnggulan/2/upa-lab-2.png": {
+    "file": "assets/D_iVJPo7.png",
+    "src": "resources/assets/kegiatanUnggulan/2/upa-lab-2.png"
+  },
+  "resources/assets/kegiatanUnggulan/2/upa-mkg.png": {
+    "file": "assets/C6dd77TP.png",
+    "src": "resources/assets/kegiatanUnggulan/2/upa-mkg.png"
+  },
+  "resources/assets/kegiatanUnggulan/2/upa-oail.png": {
+    "file": "assets/Bmt-o7hp.png",
+    "src": "resources/assets/kegiatanUnggulan/2/upa-oail.png"
+  },
+  "resources/assets/kegiatanUnggulan/2/upa-perpustakaan.png": {
+    "file": "assets/C2WpI23Z.png",
+    "src": "resources/assets/kegiatanUnggulan/2/upa-perpustakaan.png"
+  },
+  "resources/assets/kegiatanUnggulan/2/upa-tik.png": {
+    "file": "assets/Br1U5jVT.png",
+    "src": "resources/assets/kegiatanUnggulan/2/upa-tik.png"
+  },
+  "resources/assets/kegiatanUnggulan/2/upt-k3l.png": {
+    "file": "assets/D1WDxYKC.png",
+    "src": "resources/assets/kegiatanUnggulan/2/upt-k3l.png"
+  },
+  "resources/assets/kegiatanUnggulan/3/upa-kebun-raya.jpg": {
+    "file": "assets/B3tqX4PE.jpg",
+    "src": "resources/assets/kegiatanUnggulan/3/upa-kebun-raya.jpg"
+  },
+  "resources/assets/kegiatanUnggulan/3/upa-mkg.png": {
+    "file": "assets/GrF_X3En.png",
+    "src": "resources/assets/kegiatanUnggulan/3/upa-mkg.png"
+  },
+  "resources/assets/kegiatanUnggulan/3/upa-oail.png": {
+    "file": "assets/DXy2l8gp.png",
+    "src": "resources/assets/kegiatanUnggulan/3/upa-oail.png"
+  },
+  "resources/assets/kegiatanUnggulan/3/upa-perpustakaan.png": {
+    "file": "assets/CFIT0rWL.png",
+    "src": "resources/assets/kegiatanUnggulan/3/upa-perpustakaan.png"
+  },
+  "resources/assets/kegiatanUnggulan/3/upa-tik.png": {
+    "file": "assets/CSV5xd99.png",
+    "src": "resources/assets/kegiatanUnggulan/3/upa-tik.png"
+  },
+  "resources/assets/kegiatanUnggulan/3/upt-k3l.png": {
+    "file": "assets/BGxtRQUY.png",
+    "src": "resources/assets/kegiatanUnggulan/3/upt-k3l.png"
+  },
+  "resources/assets/kepalaUpt/upa-kebun-raya.png": {
+    "file": "assets/BzggiY3D.png",
+    "src": "resources/assets/kepalaUpt/upa-kebun-raya.png"
+  },
+  "resources/assets/kepalaUpt/upa-lab.png": {
+    "file": "assets/BaYJNaZB.png",
+    "src": "resources/assets/kepalaUpt/upa-lab.png"
+  },
+  "resources/assets/kepalaUpt/upa-mkg.png": {
+    "file": "assets/BW0AoNho.png",
+    "src": "resources/assets/kepalaUpt/upa-mkg.png"
+  },
+  "resources/assets/kepalaUpt/upa-oail.png": {
+    "file": "assets/BEgRlbp2.png",
+    "src": "resources/assets/kepalaUpt/upa-oail.png"
+  },
+  "resources/assets/kepalaUpt/upa-perpustakaan.png": {
+    "file": "assets/C3HDOoEh.png",
+    "src": "resources/assets/kepalaUpt/upa-perpustakaan.png"
+  },
+  "resources/assets/kepalaUpt/upa-tik.png": {
+    "file": "assets/pvHpwdcD.png",
+    "src": "resources/assets/kepalaUpt/upa-tik.png"
+  },
+  "resources/assets/kepalaUpt/upt-k3l.png": {
+    "file": "assets/Ds094SIq.png",
+    "src": "resources/assets/kepalaUpt/upt-k3l.png"
+  },
+  "resources/assets/kotakajaib.png": {
+    "file": "assets/COk4CYUB.png",
+    "src": "resources/assets/kotakajaib.png"
+  },
+  "resources/assets/logo-diesnat.png": {
+    "file": "assets/BcRVHF28.png",
+    "src": "resources/assets/logo-diesnat.png"
+  },
+  "resources/assets/logo-pplk-20204-white.png": {
+    "file": "assets/BPXXQUDH.png",
+    "src": "resources/assets/logo-pplk-20204-white.png"
+  },
+  "resources/assets/logo-pplk-2024.png": {
+    "file": "assets/D98J2HoG.png",
+    "src": "resources/assets/logo-pplk-2024.png"
+  },
+  "resources/assets/logo-pplk-footer.png": {
+    "file": "assets/CNe9yWmR.png",
+    "src": "resources/assets/logo-pplk-footer.png"
+  },
+  "resources/assets/logo-pplk-hd.png": {
+    "file": "assets/D0bWTZjB.png",
+    "src": "resources/assets/logo-pplk-hd.png"
+  },
+  "resources/assets/logo-tendiesnat-white.png": {
+    "file": "assets/l6HTSsEo.png",
+    "src": "resources/assets/logo-tendiesnat-white.png"
+  },
+  "resources/assets/logoFakultas/fakultas-sains.png": {
+    "file": "assets/hCi2bDOk.png",
+    "src": "resources/assets/logoFakultas/fakultas-sains.png"
+  },
+  "resources/assets/logoFakultas/fti.png": {
+    "file": "assets/C9wFxuA7.png",
+    "src": "resources/assets/logoFakultas/fti.png"
+  },
+  "resources/assets/logoFakultas/ftik-hd.png": {
+    "file": "assets/CI-i1OCm.png",
+    "src": "resources/assets/logoFakultas/ftik-hd.png"
+  },
+  "resources/assets/logodivisi/Airasta.png": {
+    "file": "assets/CHQucuXy.png",
+    "src": "resources/assets/logodivisi/Airasta.png"
+  },
+  "resources/assets/logodivisi/Amphorta.png": {
+    "file": "assets/lmyyToae.png",
+    "src": "resources/assets/logodivisi/Amphorta.png"
+  },
+  "resources/assets/logodivisi/Berdhana.png": {
+    "file": "assets/DxcdX4a8.png",
+    "src": "resources/assets/logodivisi/Berdhana.png"
+  },
+  "resources/assets/logodivisi/Caetana.png": {
+    "file": "assets/DLmM3VfI.png",
+    "src": "resources/assets/logodivisi/Caetana.png"
+  },
+  "resources/assets/logodivisi/Darsatica.png": {
+    "file": "assets/DX_6z6Zy.png",
+    "src": "resources/assets/logodivisi/Darsatica.png"
+  },
+  "resources/assets/logodivisi/Dharmaleus.png": {
+    "file": "assets/B84P5u7Q.png",
+    "src": "resources/assets/logodivisi/Dharmaleus.png"
+  },
+  "resources/assets/logodivisi/Karceus.png": {
+    "file": "assets/Bm7fSGWf.png",
+    "src": "resources/assets/logodivisi/Karceus.png"
+  },
+  "resources/assets/logodivisi/Kartatera.png": {
+    "file": "assets/c3-ERpCD.png",
+    "src": "resources/assets/logodivisi/Kartatera.png"
+  },
+  "resources/assets/logodivisi/Kracias.png": {
+    "file": "assets/CDF2Duq8.png",
+    "src": "resources/assets/logodivisi/Kracias.png"
+  },
+  "resources/assets/logodivisi/Lixus.png": {
+    "file": "assets/BApQFv4B.png",
+    "src": "resources/assets/logodivisi/Lixus.png"
+  },
+  "resources/assets/logodivisi/Mercopium.png": {
+    "file": "assets/BQKlpIKQ.png",
+    "src": "resources/assets/logodivisi/Mercopium.png"
+  },
+  "resources/assets/logodivisi/Prajamusi.png": {
+    "file": "assets/DWD25zaG.png",
+    "src": "resources/assets/logodivisi/Prajamusi.png"
+  },
+  "resources/assets/logodivisi/Ragita.png": {
+    "file": "assets/DJU1XPzy.png",
+    "src": "resources/assets/logodivisi/Ragita.png"
+  },
+  "resources/assets/logodivisi/Rakula.png": {
+    "file": "assets/CYbZ1A2n.png",
+    "src": "resources/assets/logodivisi/Rakula.png"
+  },
+  "resources/assets/logodivisi/Sakasella.png": {
+    "file": "assets/C6DO7ysT.png",
+    "src": "resources/assets/logodivisi/Sakasella.png"
+  },
+  "resources/assets/logodivisi/Utsala.png": {
+    "file": "assets/BPtkDe27.png",
+    "src": "resources/assets/logodivisi/Utsala.png"
+  },
+  "resources/assets/logodivisi/Vagiotesis.png": {
+    "file": "assets/Dzqf9H8D.png",
+    "src": "resources/assets/logodivisi/Vagiotesis.png"
+  },
+  "resources/assets/logofooter/dieswarna.png": {
+    "file": "assets/DeChAuyg.png",
+    "src": "resources/assets/logofooter/dieswarna.png"
+  },
+  "resources/assets/logofooter/iterawarna.png": {
+    "file": "assets/BnWKIFou.png",
+    "src": "resources/assets/logofooter/iterawarna.png"
+  },
+  "resources/assets/logofooter/kmwarna.png": {
+    "file": "assets/DaOo2YTV.png",
+    "src": "resources/assets/logofooter/kmwarna.png"
+  },
+  "resources/assets/logofooter/pplkwarna.png": {
+    "file": "assets/Cje5GL1k.png",
+    "src": "resources/assets/logofooter/pplkwarna.png"
+  },
+  "resources/assets/logokm/KMITERA.png": {
+    "file": "assets/_KZkog-U.png",
+    "src": "resources/assets/logokm/KMITERA.png"
+  },
+  "resources/assets/logokm/Lup.png": {
+    "file": "assets/DAFWwU38.png",
+    "src": "resources/assets/logokm/Lup.png"
+  },
+  "resources/assets/logokm/Swarna.png": {
+    "file": "assets/uCljlL9I.png",
+    "src": "resources/assets/logokm/Swarna.png"
+  },
+  "resources/assets/logokm/Toga.png": {
+    "file": "assets/BJmTHzn6.png",
+    "src": "resources/assets/logokm/Toga.png"
+  },
+  "resources/assets/logokm/U.png": {
+    "file": "assets/CbAkYrmD.png",
+    "src": "resources/assets/logokm/U.png"
+  },
+  "resources/assets/logokm/itera.png": {
+    "file": "assets/B9XViH_a.png",
+    "src": "resources/assets/logokm/itera.png"
+  },
+  "resources/assets/logokm/km.png": {
+    "file": "assets/CebcCv2b.png",
+    "src": "resources/assets/logokm/km.png"
+  },
+  "resources/assets/logoprodi/fotokaprodiaktuaria.jpeg": {
+    "file": "assets/CkikjnYV.jpeg",
+    "src": "resources/assets/logoprodi/fotokaprodiaktuaria.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaprodiarsitektur.jpg": {
+    "file": "assets/NQ8JzFFD.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodiarsitektur.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodibiologi.png": {
+    "file": "assets/BaXsX0Tb.png",
+    "src": "resources/assets/logoprodi/fotokaprodibiologi.png"
+  },
+  "resources/assets/logoprodi/fotokaprodibiomedis.jpg": {
+    "file": "assets/B1Xppxu-.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodibiomedis.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodidkv.jpg": {
+    "file": "assets/BGAZHFe9.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodidkv.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodifarmasi.jpg": {
+    "file": "assets/BP10wJzU.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodifarmasi.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodifisika.jpg": {
+    "file": "assets/xvjYzJgJ.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodifisika.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodigeofisika.png": {
+    "file": "assets/RpNLD2Gm.png",
+    "src": "resources/assets/logoprodi/fotokaprodigeofisika.png"
+  },
+  "resources/assets/logoprodi/fotokaprodigeologi.jpg": {
+    "file": "assets/lEwx2BUY.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodigeologi.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodigeomatika.jpg": {
+    "file": "assets/cywv11ta.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodigeomatika.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodiindustri.jpeg": {
+    "file": "assets/Biujq8GU.jpeg",
+    "src": "resources/assets/logoprodi/fotokaprodiindustri.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaprodiinformatika.jpg": {
+    "file": "assets/B_CLnL-Y.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodiinformatika.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodikelautan.jpg": {
+    "file": "assets/BBfS8kmJ.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodikelautan.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodikimia.jpg": {
+    "file": "assets/Bc0cdnA3.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodikimia.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodikosmetik.jpeg": {
+    "file": "assets/BNj6wP-q.jpeg",
+    "src": "resources/assets/logoprodi/fotokaprodikosmetik.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaprodilanskap.png": {
+    "file": "assets/9YndyqWp.png",
+    "src": "resources/assets/logoprodi/fotokaprodilanskap.png"
+  },
+  "resources/assets/logoprodi/fotokaprodilingkungan.png": {
+    "file": "assets/F4JERe04.png",
+    "src": "resources/assets/logoprodi/fotokaprodilingkungan.png"
+  },
+  "resources/assets/logoprodi/fotokaprodimatematika.jpeg": {
+    "file": "assets/NNcFYyeO.jpeg",
+    "src": "resources/assets/logoprodi/fotokaprodimatematika.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaprodimaterial.jpeg": {
+    "file": "assets/BQ2clKex.jpeg",
+    "src": "resources/assets/logoprodi/fotokaprodimaterial.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaprodimesin.jpg": {
+    "file": "assets/DynQAzpO.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodimesin.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodipariwisata.jpg": {
+    "file": "assets/HKw9VlUt.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodipariwisata.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodipertambangan.jpg": {
+    "file": "assets/DhGn8PWd.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodipertambangan.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodipertanian.jpg": {
+    "file": "assets/CSROb3Cv.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodipertanian.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodipwk.jpeg": {
+    "file": "assets/CC1GHjAy.jpeg",
+    "src": "resources/assets/logoprodi/fotokaprodipwk.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaprodirekayasakehutanan.jpg": {
+    "file": "assets/B0OsJD_G.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodirekayasakehutanan.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodirekayasakeolahragaan.jpg": {
+    "file": "assets/BOlcQ0zH.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodirekayasakeolahragaan.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodirekayasaminyak.png": {
+    "file": "assets/QzOlTxK0.png",
+    "src": "resources/assets/logoprodi/fotokaprodirekayasaminyak.png"
+  },
+  "resources/assets/logoprodi/fotokaprodisainsdata.jpg": {
+    "file": "assets/CzfvhZYP.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodisainsdata.jpg"
+  },
+  "resources/assets/logoprodi/fotokaprodisap.png": {
+    "file": "assets/DDsrho6j.png",
+    "src": "resources/assets/logoprodi/fotokaprodisap.png"
+  },
+  "resources/assets/logoprodi/fotokaprodisipil.jpeg": {
+    "file": "assets/BTDnUf1g.jpeg",
+    "src": "resources/assets/logoprodi/fotokaprodisipil.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaprodisistemenergi.jpeg": {
+    "file": "assets/hpOddi-2.jpeg",
+    "src": "resources/assets/logoprodi/fotokaprodisistemenergi.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaprodisll.jpg": {
+    "file": "assets/3Qkfoldu.jpg",
+    "src": "resources/assets/logoprodi/fotokaprodisll.jpg"
+  },
+  "resources/assets/logoprodi/fotokaproditeknikkimia.jpeg": {
+    "file": "assets/Bh2TNvWT.jpeg",
+    "src": "resources/assets/logoprodi/fotokaproditeknikkimia.jpeg"
+  },
+  "resources/assets/logoprodi/fotokaproditekpang.jpg": {
+    "file": "assets/DhZhgWLf.jpg",
+    "src": "resources/assets/logoprodi/fotokaproditekpang.jpg"
+  },
+  "resources/assets/logoprodi/fotokaproditkap.jpg": {
+    "file": "assets/1rgW7W1S.jpg",
+    "src": "resources/assets/logoprodi/fotokaproditkap.jpg"
+  },
+  "resources/assets/logoprodi/kegiatandefault.jpg": {
+    "file": "assets/DyBY9sr-.jpg",
+    "src": "resources/assets/logoprodi/kegiatandefault.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimafa1.jpg": {
+    "file": "assets/CEi65Znc.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimafa1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimafa2.jpg": {
+    "file": "assets/OITz1Bh0.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimafa2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimafa3.jpg": {
+    "file": "assets/DwrrYD5C.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimafa3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimafi1.jpg": {
+    "file": "assets/COEwWNUY.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimafi1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimafi2.jpg": {
+    "file": "assets/p9k1EEik.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimafi2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimafi3.jpg": {
+    "file": "assets/Ddi_Mxn-.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimafi3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimagrin1.jpg": {
+    "file": "assets/byL_530h.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimagrin1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimagrin2.jpg": {
+    "file": "assets/CS2gachq.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimagrin2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimagrin3.jpg": {
+    "file": "assets/vPAbbc37.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimagrin3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimagrin4.jpg": {
+    "file": "assets/COs3yYeO.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimagrin4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimaka1.jpg": {
+    "file": "assets/Dm_AdtPc.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimaka1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimaka2.jpg": {
+    "file": "assets/C6rN0eC-.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimaka2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimaka3.jpg": {
+    "file": "assets/BQZ4PcS3.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimaka3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimakos1.jpg": {
+    "file": "assets/CqayIkeM.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimakos1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimakos2.jpg": {
+    "file": "assets/b_IMTtWL.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimakos2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimakos3.jpg": {
+    "file": "assets/C6zd-TdY.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimakos3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimaktu1.jpg": {
+    "file": "assets/D7GLw0P3.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimaktu1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimaktu2.jpg": {
+    "file": "assets/ejgwmEsD.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimaktu2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimaktu3.jpg": {
+    "file": "assets/CI6eiwfE.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimaktu3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimaktu4.jpg": {
+    "file": "assets/CTUmhP37.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimaktu4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimapar1.jpg": {
+    "file": "assets/Bv1vpzQx.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimapar1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimapar2.jpg": {
+    "file": "assets/Dz-WWoe5.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimapar2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimarskap1.jpg": {
+    "file": "assets/EyaxEsLL.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimarskap1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimarskap2.jpg": {
+    "file": "assets/pRDDdOlE.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimarskap2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimarskap3.jpg": {
+    "file": "assets/DC_-vnVl.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimarskap3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimarskap4.jpg": {
+    "file": "assets/BmkYpqhe.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimarskap4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimasaka1.jpg": {
+    "file": "assets/BFT4y2rs.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimasaka1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimataka1.jpg": {
+    "file": "assets/DXvoSsj-.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimataka1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimataka2.jpg": {
+    "file": "assets/D3wJwyT-.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimataka2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimataka3.jpg": {
+    "file": "assets/DfxOSaYx.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimataka3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimataka4.jpg": {
+    "file": "assets/RGf5A4mr.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimataka4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatekia1.jpeg": {
+    "file": "assets/DKWoFAOz.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhimatekia1.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatekla1.jpg": {
+    "file": "assets/CrsrK2_D.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatekla1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatekla2.jpg": {
+    "file": "assets/B2c5kJfQ.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatekla2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatekla3.jpg": {
+    "file": "assets/DksE6p74.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatekla3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatekla4.jpg": {
+    "file": "assets/EpMusvQW.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatekla4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatepa1.jpg": {
+    "file": "assets/Dxed3bA4.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatepa1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatepa2.jpg": {
+    "file": "assets/BkiCkJFd.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatepa2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatepa3.jpg": {
+    "file": "assets/DEgK5jBB.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatepa3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatepa4.jpg": {
+    "file": "assets/CgCXusZV.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatepa4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatika1.jpg": {
+    "file": "assets/CXDkQaAH.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatika1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhimatika2.jpg": {
+    "file": "assets/ByVy1Qee.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhimatika2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmbm1.jpg": {
+    "file": "assets/DLXJaSCx.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmbm1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmbm2.jpg": {
+    "file": "assets/miRFGher.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmbm2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmbm3.jpg": {
+    "file": "assets/Ld4fRRjn.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmbm3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmbm4.jpg": {
+    "file": "assets/YfdOGRaE.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmbm4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmdkv1.jpg": {
+    "file": "assets/zMrn_3GG.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmdkv1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmdkv2.jpg": {
+    "file": "assets/CEjs3Vve.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmdkv2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmdkv3.jpg": {
+    "file": "assets/jpm2aILT.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmdkv3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmdkv4.jpg": {
+    "file": "assets/CLBhoxy2.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmdkv4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmia1.jpg": {
+    "file": "assets/DjB_yQ9j.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmia1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmif1.jpg": {
+    "file": "assets/DvpK8WET.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmif1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmif2.jpg": {
+    "file": "assets/C1XpIxU9.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmif2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmk1.jpg": {
+    "file": "assets/Bhxg92pO.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmk1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmk2.jpg": {
+    "file": "assets/DWXf6ZzP.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmk2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmk3.jpg": {
+    "file": "assets/xh206_CN.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmk3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmk4.jpg": {
+    "file": "assets/CRzYx333.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmk4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmm1.png": {
+    "file": "assets/Dgw1JOQC.png",
+    "src": "resources/assets/logoprodi/kegiatanhmm1.png"
+  },
+  "resources/assets/logoprodi/kegiatanhmm2.jpg": {
+    "file": "assets/CXIQ9atN.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmm2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmm3.jpg": {
+    "file": "assets/wq5LGksT.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmm3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmm4.jpg": {
+    "file": "assets/C7mmYrD9.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmm4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmmt1.jpg": {
+    "file": "assets/DaLBu3pK.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmmt1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmmt2.jpg": {
+    "file": "assets/D-7bEvKf.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmmt2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmmt3.jpg": {
+    "file": "assets/yfkHZ7Ja.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmmt3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmmt4.jpg": {
+    "file": "assets/B1V19MnC.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmmt4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmp1.jpeg": {
+    "file": "assets/QtL_WI0i.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmp1.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmp2.jpeg": {
+    "file": "assets/BkRRIhX0.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmp2.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmp3.jpeg": {
+    "file": "assets/BX8LUQzt.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmp3.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhms1.jpg": {
+    "file": "assets/CKdD8FkT.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhms1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhms2.jpg": {
+    "file": "assets/Bv5o_e7Q.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhms2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhms3.jpg": {
+    "file": "assets/DiWjw0Hx.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhms3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhms4.jpg": {
+    "file": "assets/LgE2M_7n.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhms4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmsd1.jpeg": {
+    "file": "assets/dxeir_6o.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmsd1.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmsd2.jpg": {
+    "file": "assets/B1bIEcZR.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmsd2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmsd3.jpg": {
+    "file": "assets/CilrjLwG.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmsd3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmsd4.jpg": {
+    "file": "assets/DG_Ipgrb.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmsd4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmse1.jpeg": {
+    "file": "assets/C7NTvhFN.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmse1.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmse2.jpeg": {
+    "file": "assets/DbFlTUU3.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmse2.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmse3.jpeg": {
+    "file": "assets/Bryt32Qs.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmse3.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmse4.jpeg": {
+    "file": "assets/BZdxUrD0.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmse4.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmta1.jpg": {
+    "file": "assets/Czar9m2g.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmta1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmta2.jpg": {
+    "file": "assets/Cb0rDpoj.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmta2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmta3.jpg": {
+    "file": "assets/Dj66O6rQ.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmta3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmta4.jpg": {
+    "file": "assets/CLbVjHm8.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmta4.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmtg1.jpg": {
+    "file": "assets/BmRbw-_m.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmtg1.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmtg2.jpg": {
+    "file": "assets/D_Obo_wI.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmtg2.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmtg3.jpg": {
+    "file": "assets/DitaT1qa.jpg",
+    "src": "resources/assets/logoprodi/kegiatanhmtg3.jpg"
+  },
+  "resources/assets/logoprodi/kegiatanhmti1.jpeg": {
+    "file": "assets/CpNzx48m.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmti1.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmti2.jpeg": {
+    "file": "assets/9-4ajzrk.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmti2.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmti3.jpeg": {
+    "file": "assets/BqRWgECi.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmti3.jpeg"
+  },
+  "resources/assets/logoprodi/kegiatanhmti4.jpeg": {
+    "file": "assets/DxXCOu7L.jpeg",
+    "src": "resources/assets/logoprodi/kegiatanhmti4.jpeg"
+  },
+  "resources/assets/logoprodi/logoaktuaria.png": {
+    "file": "assets/BLcCcUN3.png",
+    "src": "resources/assets/logoprodi/logoaktuaria.png"
+  },
+  "resources/assets/logoprodi/logoarsitektur.png": {
+    "file": "assets/BSUJr1KN.png",
+    "src": "resources/assets/logoprodi/logoarsitektur.png"
+  },
+  "resources/assets/logoprodi/logobiologi.png": {
+    "file": "assets/DvDCT7oR.png",
+    "src": "resources/assets/logoprodi/logobiologi.png"
+  },
+  "resources/assets/logoprodi/logobiomedis.png": {
+    "file": "assets/DSjooqQb.png",
+    "src": "resources/assets/logoprodi/logobiomedis.png"
+  },
+  "resources/assets/logoprodi/logobiosistem.png": {
+    "file": "assets/CKPrPyUZ.png",
+    "src": "resources/assets/logoprodi/logobiosistem.png"
+  },
+  "resources/assets/logoprodi/logodkv.png": {
+    "file": "assets/MJEs75fz.png",
+    "src": "resources/assets/logoprodi/logodkv.png"
+  },
+  "resources/assets/logoprodi/logoelektro.png": {
+    "file": "assets/DFdbV_Zn.png",
+    "src": "resources/assets/logoprodi/logoelektro.png"
+  },
+  "resources/assets/logoprodi/logofarmasi.png": {
+    "file": "assets/A_8WIiNs.png",
+    "src": "resources/assets/logoprodi/logofarmasi.png"
+  },
+  "resources/assets/logoprodi/logofisika.png": {
+    "file": "assets/Dde67jNT.png",
+    "src": "resources/assets/logoprodi/logofisika.png"
+  },
+  "resources/assets/logoprodi/logoforesta.png": {
+    "file": "assets/BdjkMdr1.png",
+    "src": "resources/assets/logoprodi/logoforesta.png"
+  },
+  "resources/assets/logoprodi/logogeofisika.png": {
+    "file": "assets/Dly_T-81.png",
+    "src": "resources/assets/logoprodi/logogeofisika.png"
+  },
+  "resources/assets/logoprodi/logogeologi.png": {
+    "file": "assets/Bf5GivPk.png",
+    "src": "resources/assets/logoprodi/logogeologi.png"
+  },
+  "resources/assets/logoprodi/logogeomatika.png": {
+    "file": "assets/CFv21wgO.png",
+    "src": "resources/assets/logoprodi/logogeomatika.png"
+  },
+  "resources/assets/logoprodi/logohimafa.png": {
+    "file": "assets/DnLfm1X8.png",
+    "src": "resources/assets/logoprodi/logohimafa.png"
+  },
+  "resources/assets/logoprodi/logohimafi.png": {
+    "file": "assets/DX1VOAEx.png",
+    "src": "resources/assets/logoprodi/logohimafi.png"
+  },
+  "resources/assets/logoprodi/logohimagrin.png": {
+    "file": "assets/YhZjTJmD.png",
+    "src": "resources/assets/logoprodi/logohimagrin.png"
+  },
+  "resources/assets/logoprodi/logohimaka.png": {
+    "file": "assets/B4MML0mZ.png",
+    "src": "resources/assets/logoprodi/logohimaka.png"
+  },
+  "resources/assets/logoprodi/logohimakos.png": {
+    "file": "assets/IG6EihxB.png",
+    "src": "resources/assets/logoprodi/logohimakos.png"
+  },
+  "resources/assets/logoprodi/logohimaktu.png": {
+    "file": "assets/C5wyafNT.png",
+    "src": "resources/assets/logoprodi/logohimaktu.png"
+  },
+  "resources/assets/logoprodi/logohimapar.png": {
+    "file": "assets/BxukYFyw.png",
+    "src": "resources/assets/logoprodi/logohimapar.png"
+  },
+  "resources/assets/logoprodi/logohimarskap.png": {
+    "file": "assets/BbrWrlVC.png",
+    "src": "resources/assets/logoprodi/logohimarskap.png"
+  },
+  "resources/assets/logoprodi/logohimasaka.png": {
+    "file": "assets/DjbhUfPw.png",
+    "src": "resources/assets/logoprodi/logohimasaka.png"
+  },
+  "resources/assets/logoprodi/logohimataka.png": {
+    "file": "assets/D4KSjkQd.png",
+    "src": "resources/assets/logoprodi/logohimataka.png"
+  },
+  "resources/assets/logoprodi/logohimateb.png": {
+    "file": "assets/BZSa4831.png",
+    "src": "resources/assets/logoprodi/logohimateb.png"
+  },
+  "resources/assets/logoprodi/logohimatekia.png": {
+    "file": "assets/DvSwYYSL.png",
+    "src": "resources/assets/logoprodi/logohimatekia.png"
+  },
+  "resources/assets/logoprodi/logohimatekla.png": {
+    "file": "assets/BiD53Flk.png",
+    "src": "resources/assets/logoprodi/logohimatekla.png"
+  },
+  "resources/assets/logoprodi/logohimatel.png": {
+    "file": "assets/aPjpWceY.png",
+    "src": "resources/assets/logoprodi/logohimatel.png"
+  },
+  "resources/assets/logoprodi/logohimatepa.png": {
+    "file": "assets/CkFttF3r.png",
+    "src": "resources/assets/logoprodi/logohimatepa.png"
+  },
+  "resources/assets/logoprodi/logohimatika.png": {
+    "file": "assets/vytibhZO.png",
+    "src": "resources/assets/logoprodi/logohimatika.png"
+  },
+  "resources/assets/logoprodi/logohmb.png": {
+    "file": "assets/DAFy9C6a.png",
+    "src": "resources/assets/logoprodi/logohmb.png"
+  },
+  "resources/assets/logoprodi/logohmbm.png": {
+    "file": "assets/CUs-78ly.png",
+    "src": "resources/assets/logoprodi/logohmbm.png"
+  },
+  "resources/assets/logoprodi/logohmdkv.png": {
+    "file": "assets/DkgweriG.png",
+    "src": "resources/assets/logoprodi/logohmdkv.png"
+  },
+  "resources/assets/logoprodi/logohmg.png": {
+    "file": "assets/D8ugw1uL.png",
+    "src": "resources/assets/logoprodi/logohmg.png"
+  },
+  "resources/assets/logoprodi/logohmia.png": {
+    "file": "assets/DDHj53u4.png",
+    "src": "resources/assets/logoprodi/logohmia.png"
+  },
+  "resources/assets/logoprodi/logohmif.png": {
+    "file": "assets/B2N-jjpU.png",
+    "src": "resources/assets/logoprodi/logohmif.png"
+  },
+  "resources/assets/logoprodi/logohmk.png": {
+    "file": "assets/D2Dl3vji.png",
+    "src": "resources/assets/logoprodi/logohmk.png"
+  },
+  "resources/assets/logoprodi/logohmlk.png": {
+    "file": "assets/_IMTY9Re.png",
+    "src": "resources/assets/logoprodi/logohmlk.png"
+  },
+  "resources/assets/logoprodi/logohmm.png": {
+    "file": "assets/BafnyCz6.png",
+    "src": "resources/assets/logoprodi/logohmm.png"
+  },
+  "resources/assets/logoprodi/logohmmt.png": {
+    "file": "assets/exDAE_XD.png",
+    "src": "resources/assets/logoprodi/logohmmt.png"
+  },
+  "resources/assets/logoprodi/logohmp.png": {
+    "file": "assets/Bf4QhHIP.png",
+    "src": "resources/assets/logoprodi/logohmp.png"
+  },
+  "resources/assets/logoprodi/logohms.png": {
+    "file": "assets/D8RLDTeC.png",
+    "src": "resources/assets/logoprodi/logohms.png"
+  },
+  "resources/assets/logoprodi/logohmsd.png": {
+    "file": "assets/DyfpgntU.png",
+    "src": "resources/assets/logoprodi/logohmsd.png"
+  },
+  "resources/assets/logoprodi/logohmse.png": {
+    "file": "assets/2NL_j_5v.png",
+    "src": "resources/assets/logoprodi/logohmse.png"
+  },
+  "resources/assets/logoprodi/logohmta.png": {
+    "file": "assets/BHK9n3Vr.png",
+    "src": "resources/assets/logoprodi/logohmta.png"
+  },
+  "resources/assets/logoprodi/logohmtf.png": {
+    "file": "assets/PYKnfRNP.png",
+    "src": "resources/assets/logoprodi/logohmtf.png"
+  },
+  "resources/assets/logoprodi/logohmti.png": {
+    "file": "assets/mWy5HAAz.png",
+    "src": "resources/assets/logoprodi/logohmti.png"
+  },
+  "resources/assets/logoprodi/logohmtl.png": {
+    "file": "assets/TDnFN-7z.png",
+    "src": "resources/assets/logoprodi/logohmtl.png"
+  },
+  "resources/assets/logoprodi/logoindustri.png": {
+    "file": "assets/C-FNOb6e.png",
+    "src": "resources/assets/logoprodi/logoindustri.png"
+  },
+  "resources/assets/logoprodi/logoinformatika.png": {
+    "file": "assets/CxXvv7iO.png",
+    "src": "resources/assets/logoprodi/logoinformatika.png"
+  },
+  "resources/assets/logoprodi/logokelautan.png": {
+    "file": "assets/Bfct7I9h.png",
+    "src": "resources/assets/logoprodi/logokelautan.png"
+  },
+  "resources/assets/logoprodi/logokimia.png": {
+    "file": "assets/DOk5hp56.png",
+    "src": "resources/assets/logoprodi/logokimia.png"
+  },
+  "resources/assets/logoprodi/logokmro.png": {
+    "file": "assets/jcisJQQe.png",
+    "src": "resources/assets/logoprodi/logorekayasakeolahragaan.png"
+  },
+  "resources/assets/logoprodi/logokosmetik.png": {
+    "file": "assets/QQtAJPaN.png",
+    "src": "resources/assets/logoprodi/logokosmetik.png"
+  },
+  "resources/assets/logoprodi/logolanskap.png": {
+    "file": "assets/Cc7e7MwH.png",
+    "src": "resources/assets/logoprodi/logolanskap.png"
+  },
+  "resources/assets/logoprodi/logolingkungan.png": {
+    "file": "assets/Bmz2SwlO.png",
+    "src": "resources/assets/logoprodi/logolingkungan.png"
+  },
+  "resources/assets/logoprodi/logomatematika.png": {
+    "file": "assets/DZ6fy86-.png",
+    "src": "resources/assets/logoprodi/logomatematika.png"
+  },
+  "resources/assets/logoprodi/logomaterial.png": {
+    "file": "assets/C2ytQREa.png",
+    "src": "resources/assets/logoprodi/logomaterial.png"
+  },
+  "resources/assets/logoprodi/logomesin.png": {
+    "file": "assets/Dhr6qCN_.png",
+    "src": "resources/assets/logoprodi/logomesin.png"
+  },
+  "resources/assets/logoprodi/logopariwisata.png": {
+    "file": "assets/CGF5PVLN.png",
+    "src": "resources/assets/logoprodi/logopariwisata.png"
+  },
+  "resources/assets/logoprodi/logoperkeretaapian.png": {
+    "file": "assets/88-w3nm6.png",
+    "src": "resources/assets/logoprodi/logoperkeretaapian.png"
+  },
+  "resources/assets/logoprodi/logopertambangan.png": {
+    "file": "assets/Dl6OuOsN.png",
+    "src": "resources/assets/logoprodi/logopertambangan.png"
+  },
+  "resources/assets/logoprodi/logopertanian.png": {
+    "file": "assets/CGUT9mXP.png",
+    "src": "resources/assets/logoprodi/logopertanian.png"
+  },
+  "resources/assets/logoprodi/logopwk.png": {
+    "file": "assets/ByUeGw47.png",
+    "src": "resources/assets/logoprodi/logopwk.png"
+  },
+  "resources/assets/logoprodi/logorekayasakeolahragaan.png": {
+    "file": "assets/jcisJQQe.png",
+    "src": "resources/assets/logoprodi/logorekayasakeolahragaan.png"
+  },
+  "resources/assets/logoprodi/logorekayasaminyak.png": {
+    "file": "assets/BZfevrf2.png",
+    "src": "resources/assets/logoprodi/logorekayasaminyak.png"
+  },
+  "resources/assets/logoprodi/logosainsdata.png": {
+    "file": "assets/BTpu2SBc.png",
+    "src": "resources/assets/logoprodi/logosainsdata.png"
+  },
+  "resources/assets/logoprodi/logosap.png": {
+    "file": "assets/BscSeKns.png",
+    "src": "resources/assets/logoprodi/logosap.png"
+  },
+  "resources/assets/logoprodi/logosipil.png": {
+    "file": "assets/CdMUdqeW.png",
+    "src": "resources/assets/logoprodi/logosipil.png"
+  },
+  "resources/assets/logoprodi/logosistemenergi.png": {
+    "file": "assets/DFZHPprq.png",
+    "src": "resources/assets/logoprodi/logosistemenergi.png"
+  },
+  "resources/assets/logoprodi/logosll.png": {
+    "file": "assets/CWxS7jb6.png",
+    "src": "resources/assets/logoprodi/logosll.png"
+  },
+  "resources/assets/logoprodi/logoteknikfisika.png": {
+    "file": "assets/BG3prL0f.png",
+    "src": "resources/assets/logoprodi/logoteknikfisika.png"
+  },
+  "resources/assets/logoprodi/logoteknikkimia.png": {
+    "file": "assets/DN28-sUo.png",
+    "src": "resources/assets/logoprodi/logoteknikkimia.png"
+  },
+  "resources/assets/logoprodi/logotekpang.png": {
+    "file": "assets/BKVwt4Gk.png",
+    "src": "resources/assets/logoprodi/logotekpang.png"
+  },
+  "resources/assets/logoprodi/logotelekomunikasi.png": {
+    "file": "assets/CY09mYH1.png",
+    "src": "resources/assets/logoprodi/logotelekomunikasi.png"
+  },
+  "resources/assets/logoukm/defaultimage.jpg": {
+    "file": "assets/Dt15LfNS.jpg",
+    "src": "resources/assets/logoukm/defaultimage.jpg"
+  },
+  "resources/assets/logoukm/kegiatanakai1.jpg": {
+    "file": "assets/D3hT5Xuk.jpg",
+    "src": "resources/assets/logoukm/kegiatanakai1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanakai2.jpg": {
+    "file": "assets/DfUq38Pi.jpg",
+    "src": "resources/assets/logoukm/kegiatanakai2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanakai3.jpg": {
+    "file": "assets/CxMpWwoM.jpg",
+    "src": "resources/assets/logoukm/kegiatanakai3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanakai4.jpg": {
+    "file": "assets/DVcbUQFi.jpg",
+    "src": "resources/assets/logoukm/kegiatanakai4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanaksara1.jpg": {
+    "file": "assets/lhAHPKOx.jpg",
+    "src": "resources/assets/logoukm/kegiatanaksara1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanarchery1.jpg": {
+    "file": "assets/DNHbnTU3.jpg",
+    "src": "resources/assets/logoukm/kegiatanarchery1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanarchery2.jpg": {
+    "file": "assets/7o2UIsdK.jpg",
+    "src": "resources/assets/logoukm/kegiatanarchery2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanarchery3.jpg": {
+    "file": "assets/mvaxHLrm.jpg",
+    "src": "resources/assets/logoukm/kegiatanarchery3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanarchery4.jpeg": {
+    "file": "assets/H4KfVuXt.jpeg",
+    "src": "resources/assets/logoukm/kegiatanarchery4.jpeg"
+  },
+  "resources/assets/logoukm/kegiatanbatavia1.jpg": {
+    "file": "assets/NJc1eDcN.jpg",
+    "src": "resources/assets/logoukm/kegiatanbatavia1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanbatavia2.jpg": {
+    "file": "assets/CQgBo_47.jpg",
+    "src": "resources/assets/logoukm/kegiatanbatavia2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanbatavia3.jpg": {
+    "file": "assets/B_Z1JGkI.jpg",
+    "src": "resources/assets/logoukm/kegiatanbatavia3.jpg"
+  },
+  "resources/assets/logoukm/kegiatandancecover1.jpg": {
+    "file": "assets/BG19PTg_.jpg",
+    "src": "resources/assets/logoukm/kegiatandancecover1.jpg"
+  },
+  "resources/assets/logoukm/kegiatangamahira1.jpg": {
+    "file": "assets/Dp75M50O.jpg",
+    "src": "resources/assets/logoukm/kegiatangamahira1.jpg"
+  },
+  "resources/assets/logoukm/kegiatangamahira2.jpg": {
+    "file": "assets/BjXv42QA.jpg",
+    "src": "resources/assets/logoukm/kegiatangamahira2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanhimalaya1.jpg": {
+    "file": "assets/ButFpLIO.jpg",
+    "src": "resources/assets/logoukm/kegiatanhimalaya1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanhimalaya2.jpg": {
+    "file": "assets/DFiW6VSv.jpg",
+    "src": "resources/assets/logoukm/kegiatanhimalaya2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanhimalaya3.jpg": {
+    "file": "assets/BPDiaE-I.jpg",
+    "src": "resources/assets/logoukm/kegiatanhimalaya3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanhimalaya4.jpg": {
+    "file": "assets/Dt6JJx11.jpg",
+    "src": "resources/assets/logoukm/kegiatanhimalaya4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanibc1.jpg": {
+    "file": "assets/CPf5k3bh.jpg",
+    "src": "resources/assets/logoukm/kegiatanibc1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanibc2.jpg": {
+    "file": "assets/xikceQHl.jpg",
+    "src": "resources/assets/logoukm/kegiatanibc2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanibc3.jpg": {
+    "file": "assets/Bz8-SP52.jpg",
+    "src": "resources/assets/logoukm/kegiatanibc3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanibt1.jpg": {
+    "file": "assets/Co1AAU_x.jpg",
+    "src": "resources/assets/logoukm/kegiatanibt1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanicc1.png": {
+    "file": "assets/s_f9O8Fh.png",
+    "src": "resources/assets/logoukm/kegiatanicc1.png"
+  },
+  "resources/assets/logoukm/kegiatanicc2.png": {
+    "file": "assets/BLcc5qUu.png",
+    "src": "resources/assets/logoukm/kegiatanicc2.png"
+  },
+  "resources/assets/logoukm/kegiatanicc3.png": {
+    "file": "assets/BZaT3EKE.png",
+    "src": "resources/assets/logoukm/kegiatanicc3.png"
+  },
+  "resources/assets/logoukm/kegiatanicc4.jpg": {
+    "file": "assets/DNntKBd1.jpg",
+    "src": "resources/assets/logoukm/kegiatanicc4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanidensity1.jpg": {
+    "file": "assets/JHqniH4W.jpg",
+    "src": "resources/assets/logoukm/kegiatanidensity1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanidensity2.jpg": {
+    "file": "assets/FautkpID.jpg",
+    "src": "resources/assets/logoukm/kegiatanidensity2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanidensity3.jpg": {
+    "file": "assets/DuqTEaiE.jpg",
+    "src": "resources/assets/logoukm/kegiatanidensity3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanikm1.jpg": {
+    "file": "assets/BWzQCjfu.jpg",
+    "src": "resources/assets/logoukm/kegiatanikm1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanikm2.jpg": {
+    "file": "assets/GnnpxwmS.jpg",
+    "src": "resources/assets/logoukm/kegiatanikm2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanikm3.jpg": {
+    "file": "assets/INwBwYF2.jpg",
+    "src": "resources/assets/logoukm/kegiatanikm3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanikm4.jpg": {
+    "file": "assets/fCsSMxGU.jpg",
+    "src": "resources/assets/logoukm/kegiatanikm4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanipsitera1.jpg": {
+    "file": "assets/Cdw6rbBY.jpg",
+    "src": "resources/assets/logoukm/kegiatanipsitera1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanipsitera2.jpg": {
+    "file": "assets/SzMThjlS.jpg",
+    "src": "resources/assets/logoukm/kegiatanipsitera2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanipsitera3.jpg": {
+    "file": "assets/SrplyfsA.jpg",
+    "src": "resources/assets/logoukm/kegiatanipsitera3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanipsitera4.png": {
+    "file": "assets/_9qm-GIt.png",
+    "src": "resources/assets/logoukm/kegiatanipsitera4.png"
+  },
+  "resources/assets/logoukm/kegiatankarate1.png": {
+    "file": "assets/DnH-Pcz2.png",
+    "src": "resources/assets/logoukm/kegiatankarate1.png"
+  },
+  "resources/assets/logoukm/kegiatankarate2.png": {
+    "file": "assets/0uZdiuoy.png",
+    "src": "resources/assets/logoukm/kegiatankarate2.png"
+  },
+  "resources/assets/logoukm/kegiatankarate3.png": {
+    "file": "assets/D_QKeDcB.png",
+    "src": "resources/assets/logoukm/kegiatankarate3.png"
+  },
+  "resources/assets/logoukm/kegiatankarate4.png": {
+    "file": "assets/DBt_UnHv.png",
+    "src": "resources/assets/logoukm/kegiatankarate4.png"
+  },
+  "resources/assets/logoukm/kegiatankmk1.png": {
+    "file": "assets/q-Plu-Rh.png",
+    "src": "resources/assets/logoukm/kegiatankmk1.png"
+  },
+  "resources/assets/logoukm/kegiatankmk2.jpeg": {
+    "file": "assets/C0yY8p5P.jpeg",
+    "src": "resources/assets/logoukm/kegiatankmk2.jpeg"
+  },
+  "resources/assets/logoukm/kegiatankraken1.png": {
+    "file": "assets/Bhyy-KnX.png",
+    "src": "resources/assets/logoukm/kegiatankraken1.png"
+  },
+  "resources/assets/logoukm/kegiatanlancangkuning1.png": {
+    "file": "assets/qa_d_VDJ.png",
+    "src": "resources/assets/logoukm/kegiatanlancangkuning1.png"
+  },
+  "resources/assets/logoukm/kegiatanlembagapers1.jpg": {
+    "file": "assets/Cc8zdPWu.jpg",
+    "src": "resources/assets/logoukm/kegiatanlembagapers1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanlembagapers2.jpg": {
+    "file": "assets/XZwyxyjr.jpg",
+    "src": "resources/assets/logoukm/kegiatanlembagapers2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanlembagapers3.jpg": {
+    "file": "assets/DJMBlxCr.jpg",
+    "src": "resources/assets/logoukm/kegiatanlembagapers3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanmadani1.jpg": {
+    "file": "assets/DVZk3V3e.jpg",
+    "src": "resources/assets/logoukm/kegiatanmadani1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanmadani2.jpg": {
+    "file": "assets/DJg5lBOW.jpg",
+    "src": "resources/assets/logoukm/kegiatanmadani2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanmadani3.jpg": {
+    "file": "assets/hujf5VD7.jpg",
+    "src": "resources/assets/logoukm/kegiatanmadani3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanmadani4.jpg": {
+    "file": "assets/DEBkm1bV.jpg",
+    "src": "resources/assets/logoukm/kegiatanmadani4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanmenwa1.jpg": {
+    "file": "assets/DcmE8bk1.jpg",
+    "src": "resources/assets/logoukm/kegiatanmenwa1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanmenwa2.jpg": {
+    "file": "assets/sn3irvZ0.jpg",
+    "src": "resources/assets/logoukm/kegiatanmenwa2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanmenwa3.jpg": {
+    "file": "assets/BW5xYvfH.jpg",
+    "src": "resources/assets/logoukm/kegiatanmenwa3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanmenwa4.jpg": {
+    "file": "assets/DjZp9HZo.jpg",
+    "src": "resources/assets/logoukm/kegiatanmenwa4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpetanque1.png": {
+    "file": "assets/tXXFE7bK.png",
+    "src": "resources/assets/logoukm/kegiatanpetanque1.png"
+  },
+  "resources/assets/logoukm/kegiatanpetanque2.png": {
+    "file": "assets/BwmdDJu-.png",
+    "src": "resources/assets/logoukm/kegiatanpetanque2.png"
+  },
+  "resources/assets/logoukm/kegiatanpmi1.png": {
+    "file": "assets/BKTXl5w1.png",
+    "src": "resources/assets/logoukm/kegiatanpmi1.png"
+  },
+  "resources/assets/logoukm/kegiatanpmi2.jpg": {
+    "file": "assets/DcNtdVEW.jpg",
+    "src": "resources/assets/logoukm/kegiatanpmi2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpmi3.jpg": {
+    "file": "assets/Ct11_a2w.jpg",
+    "src": "resources/assets/logoukm/kegiatanpmi3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpmi4.jpg": {
+    "file": "assets/CoEkpIPo.jpg",
+    "src": "resources/assets/logoukm/kegiatanpmi4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpmk1.jpg": {
+    "file": "assets/B_6OVb6V.jpg",
+    "src": "resources/assets/logoukm/kegiatanpmk1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpmk2.jpg": {
+    "file": "assets/7WN9tuOu.jpg",
+    "src": "resources/assets/logoukm/kegiatanpmk2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpmk3.jpg": {
+    "file": "assets/DykSOZm8.jpg",
+    "src": "resources/assets/logoukm/kegiatanpmk3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpramuka1.jpg": {
+    "file": "assets/CvFtodAH.jpg",
+    "src": "resources/assets/logoukm/kegiatanpramuka1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpramuka2.jpg": {
+    "file": "assets/DdIPQuJu.jpg",
+    "src": "resources/assets/logoukm/kegiatanpramuka2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpramuka3.jpg": {
+    "file": "assets/D3-YMIuy.jpg",
+    "src": "resources/assets/logoukm/kegiatanpramuka3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpramuka4.jpg": {
+    "file": "assets/C1h8Vzg0.jpg",
+    "src": "resources/assets/logoukm/kegiatanpramuka4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanpsm1.jpg": {
+    "file": "assets/BYnDGiox.jpg",
+    "src": "resources/assets/logoukm/kegiatanpsm1.jpg"
+  },
+  "resources/assets/logoukm/kegiatansaibatin1.jpg": {
+    "file": "assets/DxWyuD3Y.jpg",
+    "src": "resources/assets/logoukm/kegiatansaibatin1.jpg"
+  },
+  "resources/assets/logoukm/kegiatansaibatin2.jpg": {
+    "file": "assets/XubQtNcq.jpg",
+    "src": "resources/assets/logoukm/kegiatansaibatin2.jpg"
+  },
+  "resources/assets/logoukm/kegiatansaibatin3.jpg": {
+    "file": "assets/EpnXLxgc.jpg",
+    "src": "resources/assets/logoukm/kegiatansaibatin3.jpg"
+  },
+  "resources/assets/logoukm/kegiatansaibatin4.jpg": {
+    "file": "assets/D9d8mL55.jpg",
+    "src": "resources/assets/logoukm/kegiatansaibatin4.jpg"
+  },
+  "resources/assets/logoukm/kegiatansenireligi1.jpg": {
+    "file": "assets/CnHAcrdy.jpg",
+    "src": "resources/assets/logoukm/kegiatansenireligi1.jpg"
+  },
+  "resources/assets/logoukm/kegiatansenireligi2.jpg": {
+    "file": "assets/R1YDNu01.jpg",
+    "src": "resources/assets/logoukm/kegiatansenireligi2.jpg"
+  },
+  "resources/assets/logoukm/kegiatansenireligi3.jpg": {
+    "file": "assets/BH6mBg6u.jpg",
+    "src": "resources/assets/logoukm/kegiatansenireligi3.jpg"
+  },
+  "resources/assets/logoukm/kegiatansenireligi4.jpg": {
+    "file": "assets/CBdZ2DbK.jpg",
+    "src": "resources/assets/logoukm/kegiatansenireligi4.jpg"
+  },
+  "resources/assets/logoukm/kegiatansriwijaya1.jpeg": {
+    "file": "assets/CghkntTL.jpeg",
+    "src": "resources/assets/logoukm/kegiatansriwijaya1.jpeg"
+  },
+  "resources/assets/logoukm/kegiatansriwijaya2.jpeg": {
+    "file": "assets/DZzx6chH.jpeg",
+    "src": "resources/assets/logoukm/kegiatansriwijaya2.jpeg"
+  },
+  "resources/assets/logoukm/kegiatansriwijaya3.jpeg": {
+    "file": "assets/DaD41n7K.jpeg",
+    "src": "resources/assets/logoukm/kegiatansriwijaya3.jpeg"
+  },
+  "resources/assets/logoukm/kegiatansriwijaya4.jpeg": {
+    "file": "assets/D-uG2EpC.jpeg",
+    "src": "resources/assets/logoukm/kegiatansriwijaya4.jpeg"
+  },
+  "resources/assets/logoukm/kegiatanteraesport1.jpg": {
+    "file": "assets/CgE_AEMf.jpg",
+    "src": "resources/assets/logoukm/kegiatanteraesport1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanteraesport2.jpg": {
+    "file": "assets/uaCPUxwL.jpg",
+    "src": "resources/assets/logoukm/kegiatanteraesport2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanteraesport3.jpg": {
+    "file": "assets/DoRwSAcv.jpg",
+    "src": "resources/assets/logoukm/kegiatanteraesport3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanteraesport4.jpg": {
+    "file": "assets/D__PmZfB.jpg",
+    "src": "resources/assets/logoukm/kegiatanteraesport4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanukmbsm1.jpg": {
+    "file": "assets/IGep339R.jpg",
+    "src": "resources/assets/logoukm/kegiatanukmbsm1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanukmbsm2.jpg": {
+    "file": "assets/Dc34CpV_.jpg",
+    "src": "resources/assets/logoukm/kegiatanukmbsm2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanukmbsm3.jpg": {
+    "file": "assets/nKsPN0wm.jpg",
+    "src": "resources/assets/logoukm/kegiatanukmbsm3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanukmbsm4.jpg": {
+    "file": "assets/B6htnM6K.jpg",
+    "src": "resources/assets/logoukm/kegiatanukmbsm4.jpg"
+  },
+  "resources/assets/logoukm/kegiatanumpasa1.jpg": {
+    "file": "assets/DhG8vFEJ.jpg",
+    "src": "resources/assets/logoukm/kegiatanumpasa1.jpg"
+  },
+  "resources/assets/logoukm/kegiatanumpasa2.jpg": {
+    "file": "assets/DXzuXFwK.jpg",
+    "src": "resources/assets/logoukm/kegiatanumpasa2.jpg"
+  },
+  "resources/assets/logoukm/kegiatanumpasa3.jpg": {
+    "file": "assets/ZQ_3FA31.jpg",
+    "src": "resources/assets/logoukm/kegiatanumpasa3.jpg"
+  },
+  "resources/assets/logoukm/kegiatanumpasa4.jpg": {
+    "file": "assets/BFzvFGa_.jpg",
+    "src": "resources/assets/logoukm/kegiatanumpasa4.jpg"
+  },
+  "resources/assets/logoukm/logoakai.png": {
+    "file": "assets/DodZHxKK.png",
+    "src": "resources/assets/logoukm/logoakai.png"
+  },
+  "resources/assets/logoukm/logoaksara.png": {
+    "file": "assets/BPdHQlpr.png",
+    "src": "resources/assets/logoukm/logoaksara.png"
+  },
+  "resources/assets/logoukm/logoarchery.png": {
+    "file": "assets/BE5uqjYn.png",
+    "src": "resources/assets/logoukm/logoarchery.png"
+  },
+  "resources/assets/logoukm/logobatavia.png": {
+    "file": "assets/B2i-iq7w.png",
+    "src": "resources/assets/logoukm/logobatavia.png"
+  },
+  "resources/assets/logoukm/logodancecover.jpg": {
+    "file": "assets/C_HLhTz2.jpg",
+    "src": "resources/assets/logoukm/logodancecover.jpg"
+  },
+  "resources/assets/logoukm/logogamahira.jpg": {
+    "file": "assets/BLiNChut.jpg",
+    "src": "resources/assets/logoukm/logogamahira.jpg"
+  },
+  "resources/assets/logoukm/logohandball.png": {
+    "file": "assets/QBi2aZHX.png",
+    "src": "resources/assets/logoukm/logohandball.png"
+  },
+  "resources/assets/logoukm/logohimalaya.png": {
+    "file": "assets/BTXyAnoA.png",
+    "src": "resources/assets/logoukm/logohimalaya.png"
+  },
+  "resources/assets/logoukm/logoibc.png": {
+    "file": "assets/ClfN9KNZ.png",
+    "src": "resources/assets/logoukm/logoibc.png"
+  },
+  "resources/assets/logoukm/logoibt.png": {
+    "file": "assets/DBl6AKyl.png",
+    "src": "resources/assets/logoukm/logoibt.png"
+  },
+  "resources/assets/logoukm/logoicc.png": {
+    "file": "assets/B1FSml9h.png",
+    "src": "resources/assets/logoukm/logoicc.png"
+  },
+  "resources/assets/logoukm/logoidensity.jpg": {
+    "file": "assets/CS2rJiZW.jpg",
+    "src": "resources/assets/logoukm/logoidensity.jpg"
+  },
+  "resources/assets/logoukm/logoikm.png": {
+    "file": "assets/DdeUEYND.png",
+    "src": "resources/assets/logoukm/logoikm.png"
+  },
+  "resources/assets/logoukm/logoipsitera.jpg": {
+    "file": "assets/CFJ_nSEF.jpg",
+    "src": "resources/assets/logoukm/logoipsitera.jpg"
+  },
+  "resources/assets/logoukm/logokarate.png": {
+    "file": "assets/CTY9NzCE.png",
+    "src": "resources/assets/logoukm/logokarate.png"
+  },
+  "resources/assets/logoukm/logokmb.png": {
+    "file": "assets/DcdTyb59.png",
+    "src": "resources/assets/logoukm/logokmb.png"
+  },
+  "resources/assets/logoukm/logokmk.png": {
+    "file": "assets/DkFOezK7.png",
+    "src": "resources/assets/logoukm/logokmk.png"
+  },
+  "resources/assets/logoukm/logokmpa.png": {
+    "file": "assets/DcuuNpUU.png",
+    "src": "resources/assets/logoukm/logokmpa.png"
+  },
+  "resources/assets/logoukm/logokraken.png": {
+    "file": "assets/CVBJhHSF.png",
+    "src": "resources/assets/logoukm/logokraken.png"
+  },
+  "resources/assets/logoukm/logokukang.png": {
+    "file": "assets/Ci0Bbs1u.png",
+    "src": "resources/assets/logoukm/logokukang.png"
+  },
+  "resources/assets/logoukm/logolancangkuning.png": {
+    "file": "assets/DEpJO8sG.png",
+    "src": "resources/assets/logoukm/logolancangkuning.png"
+  },
+  "resources/assets/logoukm/logolembagapers.jpg": {
+    "file": "assets/r_8_zvOX.jpg",
+    "src": "resources/assets/logoukm/logolembagapers.jpg"
+  },
+  "resources/assets/logoukm/logomadani.png": {
+    "file": "assets/B6cDBfMc.png",
+    "src": "resources/assets/logoukm/logomadani.png"
+  },
+  "resources/assets/logoukm/logomenwa.png": {
+    "file": "assets/m7tSCEdP.png",
+    "src": "resources/assets/logoukm/logomenwa.png"
+  },
+  "resources/assets/logoukm/logopetanque.png": {
+    "file": "assets/hYF516pp.png",
+    "src": "resources/assets/logoukm/logopetanque.png"
+  },
+  "resources/assets/logoukm/logopmi.png": {
+    "file": "assets/BU9nH499.png",
+    "src": "resources/assets/logoukm/logopmi.png"
+  },
+  "resources/assets/logoukm/logopmk.png": {
+    "file": "assets/BNsCRTW6.png",
+    "src": "resources/assets/logoukm/logopmk.png"
+  },
+  "resources/assets/logoukm/logopramuka.jpg": {
+    "file": "assets/C06s-_xG.jpg",
+    "src": "resources/assets/logoukm/logopramuka.jpg"
+  },
+  "resources/assets/logoukm/logopsm.png": {
+    "file": "assets/BBJKNj6R.png",
+    "src": "resources/assets/logoukm/logopsm.png"
+  },
+  "resources/assets/logoukm/logosaibatin.jpg": {
+    "file": "assets/DhRpY5ZC.jpg",
+    "src": "resources/assets/logoukm/logosaibatin.jpg"
+  },
+  "resources/assets/logoukm/logosenireligi.png": {
+    "file": "assets/CaqczpmS.png",
+    "src": "resources/assets/logoukm/logosenireligi.png"
+  },
+  "resources/assets/logoukm/logosriwijaya.png": {
+    "file": "assets/3uqSAMsH.png",
+    "src": "resources/assets/logoukm/logosriwijaya.png"
+  },
+  "resources/assets/logoukm/logoteraesport.png": {
+    "file": "assets/z-pHQD1S.png",
+    "src": "resources/assets/logoukm/logoteraesport.png"
+  },
+  "resources/assets/logoukm/logoukmbsm.png": {
+    "file": "assets/BUFIywo9.png",
+    "src": "resources/assets/logoukm/logoukmbsm.png"
+  },
+  "resources/assets/logoukm/logoumpasa.png": {
+    "file": "assets/DbcxeILJ.png",
+    "src": "resources/assets/logoukm/logoumpasa.png"
+  },
+  "resources/assets/logoukm/logounitselam.jpg": {
+    "file": "assets/CIRTNO3-.jpg",
+    "src": "resources/assets/logoukm/logounitselam.jpg"
+  },
+  "resources/assets/logoupt/upa-kebun-raya.png": {
+    "file": "assets/BdwEM-wZ.png",
+    "src": "resources/assets/logoupt/upa-kebun-raya.png"
+  },
+  "resources/assets/logoupt/upa-lab.png": {
+    "file": "assets/BDi00XNp.png",
+    "src": "resources/assets/logoupt/upa-lab.png"
+  },
+  "resources/assets/logoupt/upa-mkg.png": {
+    "file": "assets/C8OaZpB-.png",
+    "src": "resources/assets/logoupt/upa-mkg.png"
+  },
+  "resources/assets/logoupt/upa-oail.png": {
+    "file": "assets/BuqfWaFD.png",
+    "src": "resources/assets/logoupt/upa-oail.png"
+  },
+  "resources/assets/logoupt/upa-perpustakaan.png": {
+    "file": "assets/CDK2YK0j.png",
+    "src": "resources/assets/logoupt/upa-perpustakaan.png"
+  },
+  "resources/assets/logoupt/upa-tik.png": {
+    "file": "assets/CmvsJ2K9.png",
+    "src": "resources/assets/logoupt/upa-tik.png"
+  },
+  "resources/assets/logoupt/upt-k3l.png": {
+    "file": "assets/KtcSMkwQ.png",
+    "src": "resources/assets/logoupt/upt-k3l.png"
+  },
+  "resources/assets/mading/bingkai.png": {
+    "file": "assets/DOHMLKT_.png",
+    "src": "resources/assets/mading/bingkai.png"
+  },
+  "resources/assets/mading/history-completed-mobile.png": {
+    "file": "assets/xhMjvcIF.png",
+    "src": "resources/assets/mading/history-completed-mobile.png"
+  },
+  "resources/assets/mading/history-completed.png": {
+    "file": "assets/Di7nQFMV.png",
+    "src": "resources/assets/mading/history-completed.png"
+  },
+  "resources/assets/mading/jampasir.png": {
+    "file": "assets/DNYviyd9.png",
+    "src": "resources/assets/mading/jampasir.png"
+  },
+  "resources/assets/mading/lampu.png": {
+    "file": "assets/BEL2OfrJ.png",
+    "src": "resources/assets/mading/lampu.png"
+  },
+  "resources/assets/maskot/maskot-pplk-man.png": {
+    "file": "assets/DAt4xXka.png",
+    "src": "resources/assets/maskot/maskot-pplk-man.png"
+  },
+  "resources/assets/maskot/maskot-pplk-woman.png": {
+    "file": "assets/YUpNqa-A.png",
+    "src": "resources/assets/maskot/maskot-pplk-woman.png"
+  },
+  "resources/assets/maskotchapabel.png": {
+    "file": "assets/5wh2r8dP.png",
+    "src": "resources/assets/maskotchapabel.png"
+  },
+  "resources/assets/mobile-hero-background.png": {
+    "file": "assets/B4rJx8P7.png",
+    "src": "resources/assets/mobile-hero-background.png"
+  },
+  "resources/assets/music/beep.mp3": {
+    "file": "assets/BXCTemS2.mp3",
+    "src": "resources/assets/music/beep.mp3"
+  },
+  "resources/assets/overlay-box.png": {
+    "file": "assets/CCTduJAQ.png",
+    "src": "resources/assets/overlay-box.png"
+  },
+  "resources/assets/overlay-box2.png": {
+    "file": "assets/KmF0DsVV.png",
+    "src": "resources/assets/overlay-box2.png"
+  },
+  "resources/assets/overlay-earth.png": {
+    "file": "assets/CU2VWmR4.png",
+    "src": "resources/assets/overlay-earth.png"
+  },
+  "resources/assets/pattern-black.png": {
+    "file": "assets/sXVQlF2a.png",
+    "src": "resources/assets/pattern-black.png"
+  },
+  "resources/assets/pattern-brown.png": {
+    "file": "assets/DGK2J5BF.png",
+    "src": "resources/assets/pattern-brown.png"
+  },
+  "resources/assets/pattern-white.png": {
+    "file": "assets/5Eb2L1hT.png",
+    "src": "resources/assets/pattern-white.png"
+  },
+  "resources/assets/patternbunga.png": {
+    "file": "assets/BizEuhh5.png",
+    "src": "resources/assets/patternbunga.png"
+  },
+  "resources/assets/pentung.png": {
+    "file": "assets/ClPoLZPt.png",
+    "src": "resources/assets/pentung.png"
+  },
+  "resources/assets/piano.png": {
+    "file": "assets/C1XcTihC.png",
+    "src": "resources/assets/piano.png"
+  },
+  "resources/assets/pilar/pilar1.png": {
+    "file": "assets/KM3zOF42.png",
+    "src": "resources/assets/pilar/pilar1.png"
+  },
+  "resources/assets/pilar/pilar2.png": {
+    "file": "assets/B3nA7Yhw.png",
+    "src": "resources/assets/pilar/pilar2.png"
+  },
+  "resources/assets/pilar/pilar3.png": {
+    "file": "assets/BCTDjeMt.png",
+    "src": "resources/assets/pilar/pilar3.png"
+  },
+  "resources/assets/pilar/pilar4.png": {
+    "file": "assets/CnLBTYHL.png",
+    "src": "resources/assets/pilar/pilar4.png"
+  },
+  "resources/assets/pillar-brown.png": {
+    "file": "assets/CeFKthon.png",
+    "src": "resources/assets/pillar-brown.png"
+  },
+  "resources/assets/pillar-brown2.png": {
+    "file": "assets/C2UXebzw.png",
+    "src": "resources/assets/pillar-brown2.png"
+  },
+  "resources/assets/sosmed/ig.png": {
+    "file": "assets/D18SsLW4.png",
+    "src": "resources/assets/sosmed/ig.png"
+  },
+  "resources/assets/sosmed/tiktok.png": {
+    "file": "assets/DD8ZtZiv.png",
+    "src": "resources/assets/sosmed/tiktok.png"
+  },
+  "resources/assets/sosmed/www.png": {
+    "file": "assets/BUr5kabj.png",
+    "src": "resources/assets/sosmed/www.png"
+  },
+  "resources/assets/sosmed/x.png": {
+    "file": "assets/BpVF5OOd.png",
+    "src": "resources/assets/sosmed/x.png"
+  },
+  "resources/assets/sosmed/yt.png": {
+    "file": "assets/O9A8ph4m.png",
+    "src": "resources/assets/sosmed/yt.png"
+  },
+  "resources/assets/sponsor-overlay.png": {
+    "file": "assets/DzsWn7_a.png",
+    "src": "resources/assets/sponsor-overlay.png"
+  },
+  "resources/assets/svg/crown.svg": {
+    "file": "assets/PsvMi6cu.svg",
+    "src": "resources/assets/svg/crown.svg"
+  },
+  "resources/assets/svg/kartatera-logo.svg": {
+    "file": "assets/CCtWrQ3u.svg",
+    "src": "resources/assets/svg/kartatera-logo.svg"
+  },
+  "resources/assets/tiang.png": {
+    "file": "assets/COEtbvF7.png",
+    "src": "resources/assets/tiang.png"
+  },
+  "resources/js/Pages/Asesmen/Page.tsx": {
+    "file": "assets/DeZsKj_e.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Asesmen/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_DLyaNGsp.js",
+      "_FqdEnJB7.js",
+      "_C410qOe_.js",
+      "_Bw_GOsU5.js",
+      "_BXeNE4YX.js",
+      "_BBTGNeRg.js",
+      "_Bu_KoUoA.js",
+      "_C1wBydXT.js",
+      "_a30AbYcg.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js",
+      "_ClN2HWF5.js"
+    ]
+  },
+  "resources/js/Pages/Asesmen/Result/Page.tsx": {
+    "file": "assets/DJmJucmm.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Asesmen/Result/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_BXeNE4YX.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js"
+    ]
+  },
+  "resources/js/Pages/Atribut/Page.tsx": {
+    "file": "assets/D27BWLdz.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Atribut/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_C_oSu1GE.js",
+      "_C46PLoNX.js",
+      "_bM37MfT9.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_BZtDV8eV.js"
+    ]
+  },
+  "resources/js/Pages/Auth/Absensi/Page.tsx": {
+    "file": "assets/DcYrb8yS.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Auth/Absensi/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/Assesment/Page.tsx": {
+    "file": "assets/Cs9rieuB.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Auth/Assesment/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/Booklet/Page.tsx": {
+    "file": "assets/9JHCcxpc.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Auth/Booklet/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/Dashboard/Dashboard.tsx": {
+    "file": "assets/D7IyIb5A.js",
+    "name": "Dashboard",
+    "src": "resources/js/Pages/Auth/Dashboard/Dashboard.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_Bu_KoUoA.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_C410qOe_.js",
+      "_CLBRjDnP.js",
+      "_ClN2HWF5.js"
+    ]
+  },
+  "resources/js/Pages/Auth/Dashboard/DashboardAdmin.tsx": {
+    "file": "assets/BIUb4jC3.js",
+    "name": "DashboardAdmin",
+    "src": "resources/js/Pages/Auth/Dashboard/DashboardAdmin.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/Dashboard/DashboardDapMen.tsx": {
+    "file": "assets/DzGC6EM8.js",
+    "name": "DashboardDapMen",
+    "src": "resources/js/Pages/Auth/Dashboard/DashboardDapMen.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/Dashboard/DashboardPJProdi.tsx": {
+    "file": "assets/DN-ajSVR.js",
+    "name": "DashboardPJProdi",
+    "src": "resources/js/Pages/Auth/Dashboard/DashboardPJProdi.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/FeedBack/Page.tsx": {
+    "file": "assets/CRhaBV-Q.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Auth/FeedBack/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/Game/Page.tsx": {
+    "file": "assets/CrV1ioSw.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Auth/Game/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/RelasiJaringan/Page.tsx": {
+    "file": "assets/ByF3L1Ag.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Auth/RelasiJaringan/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/Scoreboard/Page.tsx": {
+    "file": "assets/BEjrTa05.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Auth/Scoreboard/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Booklet/Page.tsx": {
+    "file": "assets/DJhYPUab.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Booklet/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_CzmROYJN.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_bM37MfT9.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/Page.tsx": {
+    "file": "assets/mqunRqQk.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_CzmROYJN.js",
+      "_C410qOe_.js",
+      "_BAQuY6YB.js",
+      "_CnuPZMgP.js",
+      "_Cw9KlwPi.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_Bw_GOsU5.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/absensi-maba/Page.tsx": {
+    "file": "assets/DDJu7UU_.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/absensi-maba/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Dashboard/absensi-maba/Presensi.tsx",
+      "_BRyySBr2.js",
+      "_DrOG5P5R.js",
+      "_Bw_GOsU5.js",
+      "_a30AbYcg.js",
+      "_CKUdLLXv.js",
+      "_BTOVjOCj.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_CzmROYJN.js",
+      "_IyJryVnY.js",
+      "_CnuPZMgP.js",
+      "_BzE44elF.js",
+      "_DjnmRtTq.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_DCE6C9jE.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js",
+      "_BXn6Jrdl.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/absensi-maba/Presensi.tsx": {
+    "file": "assets/BZVgl_Uu.js",
+    "name": "Presensi",
+    "src": "resources/js/Pages/Dashboard/absensi-maba/Presensi.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BzE44elF.js",
+      "_Bw_GOsU5.js",
+      "_CzmROYJN.js",
+      "_DjnmRtTq.js",
+      "_C410qOe_.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/absensi-maba/absensi/Page.tsx": {
+    "file": "assets/BCixwaQY.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/absensi-maba/absensi/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_CBT_1F9J.js",
+      "_BRyySBr2.js",
+      "_Bw_GOsU5.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/absensi-maba/absensi/QRScanner.tsx": {
+    "file": "assets/rl9CdE57.js",
+    "name": "QRScanner",
+    "src": "resources/js/Pages/Dashboard/absensi-maba/absensi/QRScanner.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Ble8ih0Z.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js"
+    ],
+    "dynamicImports": [
+      "node_modules/@zxing/library/esm/index.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/absensi-maba/absensi/result/Page.tsx": {
+    "file": "assets/YBZw0fWc.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/absensi-maba/absensi/result/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Dashboard/absensi-maba/absensi/result/ResultCardNotFound.tsx",
+      "resources/js/Pages/Dashboard/absensi-maba/absensi/result/ResultCardSuccess.tsx",
+      "_BRyySBr2.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_FiM0Gwvm.js",
+      "_LIaDX6C_.js",
+      "_CzmROYJN.js",
+      "_AgwDuxO4.js",
+      "_a_XWxsz5.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/absensi-maba/absensi/result/ResultCardNotFound.tsx": {
+    "file": "assets/CaUPHwIB.js",
+    "name": "ResultCardNotFound",
+    "src": "resources/js/Pages/Dashboard/absensi-maba/absensi/result/ResultCardNotFound.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/absensi-maba/absensi/result/ResultCardSuccess.tsx": {
+    "file": "assets/Bcm6ssR-.js",
+    "name": "ResultCardSuccess",
+    "src": "resources/js/Pages/Dashboard/absensi-maba/absensi/result/ResultCardSuccess.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_CzmROYJN.js",
+      "_AgwDuxO4.js",
+      "_FiM0Gwvm.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/atur-dapmen/Page.tsx": {
+    "file": "assets/C2KPK4Ml.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/atur-dapmen/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_DrOG5P5R.js",
+      "_Bw_GOsU5.js",
+      "_FqdEnJB7.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_BBTGNeRg.js",
+      "_DCE6C9jE.js",
+      "_DjnmRtTq.js",
+      "_BzE44elF.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/atur-korlap/Page.tsx": {
+    "file": "assets/BWpt0kqd.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/atur-korlap/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_DrOG5P5R.js",
+      "_Bw_GOsU5.js",
+      "_FqdEnJB7.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_BBTGNeRg.js",
+      "_DCE6C9jE.js",
+      "_DjnmRtTq.js",
+      "_BzE44elF.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/atur-maba/Page.tsx": {
+    "file": "assets/4dPAgLQL.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/atur-maba/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_DrOG5P5R.js",
+      "_Bw_GOsU5.js",
+      "_FqdEnJB7.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_BBTGNeRg.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_DCE6C9jE.js",
+      "_DjnmRtTq.js",
+      "_BzE44elF.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/atur-pjprodi/Page.tsx": {
+    "file": "assets/BOoSlLyv.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/atur-pjprodi/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_DrOG5P5R.js",
+      "_Bw_GOsU5.js",
+      "_FqdEnJB7.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_BBTGNeRg.js",
+      "_DCE6C9jE.js",
+      "_DjnmRtTq.js",
+      "_BzE44elF.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/booklet/Page.tsx": {
+    "file": "assets/BmY4ihZU.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/booklet/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_Cw9KlwPi.js",
+      "_BzE44elF.js",
+      "_Bw_GOsU5.js",
+      "_DjnmRtTq.js",
+      "_CKUdLLXv.js",
+      "_BBTGNeRg.js",
+      "_a30AbYcg.js",
+      "_C910vcZT.js",
+      "_BdKs9FHu.js",
+      "_aCPDaISk.js",
+      "_FqdEnJB7.js",
+      "_BmWlmpu1.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_DCE6C9jE.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/Page.tsx": {
+    "file": "assets/4OmdGHv1.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/cui/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Dashboard/cui/Presensi.tsx",
+      "_BRyySBr2.js",
+      "_Bw_GOsU5.js",
+      "_BAQuY6YB.js",
+      "_AgwDuxO4.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_CzmROYJN.js",
+      "_CnuPZMgP.js",
+      "_BzE44elF.js",
+      "_DjnmRtTq.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_DCE6C9jE.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/Presensi.tsx": {
+    "file": "assets/DRt7swgU.js",
+    "name": "Presensi",
+    "src": "resources/js/Pages/Dashboard/cui/Presensi.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BzE44elF.js",
+      "_Bw_GOsU5.js",
+      "_CzmROYJN.js",
+      "_DjnmRtTq.js",
+      "_C410qOe_.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/absensi/DetailMaba.tsx": {
+    "file": "assets/pblOjAF4.js",
+    "name": "DetailMaba",
+    "src": "resources/js/Pages/Dashboard/cui/absensi/DetailMaba.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardNotFound.tsx",
+      "_BRyySBr2.js",
+      "_Bw_GOsU5.js",
+      "_CzmROYJN.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_FiM0Gwvm.js",
+      "_LIaDX6C_.js",
+      "_AgwDuxO4.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/absensi/Page.tsx": {
+    "file": "assets/DOyI44Q8.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/cui/absensi/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_CBT_1F9J.js",
+      "_Bw_GOsU5.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/absensi/QRScanner.tsx": {
+    "file": "assets/CGipEJxx.js",
+    "name": "QRScanner",
+    "src": "resources/js/Pages/Dashboard/cui/absensi/QRScanner.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Ble8ih0Z.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js"
+    ],
+    "dynamicImports": [
+      "node_modules/@zxing/library/esm/index.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/absensi/result/Page.tsx": {
+    "file": "assets/Bxmn1tlm.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/cui/absensi/result/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardNotFound.tsx",
+      "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardSuccess.tsx",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_CzmROYJN.js",
+      "_AgwDuxO4.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardNotFound.tsx": {
+    "file": "assets/PAEDq5Pm.js",
+    "name": "ResultCardNotFound",
+    "src": "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardNotFound.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardSuccess.tsx": {
+    "file": "assets/lQ3DfVAg.js",
+    "name": "ResultCardSuccess",
+    "src": "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardSuccess.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_CzmROYJN.js",
+      "_FiM0Gwvm.js",
+      "_AgwDuxO4.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/cui/izin/Page.tsx": {
+    "file": "assets/DdX5InCm.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/cui/izin/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_BdKs9FHu.js",
+      "_Bw_GOsU5.js",
+      "_DjnmRtTq.js",
+      "_BN1q1RBU.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_FiM0Gwvm.js",
+      "_AgwDuxO4.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/detail-user/Page.tsx": {
+    "file": "assets/CHPJ631m.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/detail-user/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_DKMAaO_8.js",
+      "_BRyySBr2.js",
+      "_BdKs9FHu.js",
+      "_Bw_GOsU5.js",
+      "_DPdBf6DS.js",
+      "_Cw9KlwPi.js",
+      "_C410qOe_.js",
+      "_a30AbYcg.js",
+      "_LIaDX6C_.js",
+      "_DjnmRtTq.js",
+      "_CKUdLLXv.js",
+      "_a_XWxsz5.js",
+      "_KYyiEPZ8.js",
+      "_DLyaNGsp.js",
+      "_IyJryVnY.js",
+      "_BTOVjOCj.js",
+      "_BzE44elF.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_FfmO1YB6.js",
+      "_qMFz18Pk.js",
+      "_C1wBydXT.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_CLBRjDnP.js",
+      "_BXn6Jrdl.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/employee/Page.tsx": {
+    "file": "assets/GLqedy02.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/employee/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_BdKs9FHu.js",
+      "_Bw_GOsU5.js",
+      "_DCE6C9jE.js",
+      "_BN1q1RBU.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/faq/Page.tsx": {
+    "file": "assets/BZSr8oyp.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/faq/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_C5ApNRNs.js",
+      "_DrOG5P5R.js",
+      "_Bw_GOsU5.js",
+      "_a30AbYcg.js",
+      "_DjnmRtTq.js",
+      "_CKUdLLXv.js",
+      "_BTOVjOCj.js",
+      "_BBTGNeRg.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_BmWlmpu1.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_DCE6C9jE.js",
+      "_BzE44elF.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/game-offline/Page.tsx": {
+    "file": "assets/ppvHXdZb.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/game-offline/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_CBT_1F9J.js",
+      "_BRyySBr2.js",
+      "_DKMAaO_8.js",
+      "_Bw_GOsU5.js",
+      "_BdKs9FHu.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/informasi-kelompok/Page.tsx": {
+    "file": "assets/DDb1AXJ0.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/informasi-kelompok/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_C5ApNRNs.js",
+      "_Bw_GOsU5.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_a30AbYcg.js",
+      "_DjnmRtTq.js",
+      "_CKUdLLXv.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_BZtDV8eV.js",
+      "_FfmO1YB6.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_B0dZQ6sp.js",
+      "_DCE6C9jE.js",
+      "_BzE44elF.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/kanban/Page.tsx": {
+    "file": "assets/BrHKmSSl.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/kanban/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_BdKs9FHu.js",
+      "_DrOG5P5R.js",
+      "_Bw_GOsU5.js",
+      "_KYyiEPZ8.js",
+      "_DjnmRtTq.js",
+      "_BBTGNeRg.js",
+      "_C410qOe_.js",
+      "_CzmROYJN.js",
+      "_LIaDX6C_.js",
+      "_a30AbYcg.js",
+      "_BTOVjOCj.js",
+      "_DCE6C9jE.js",
+      "_a_XWxsz5.js",
+      "_qMFz18Pk.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_Cw9KlwPi.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_CLBRjDnP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/mading/Page.tsx": {
+    "file": "assets/CgnDCCv6.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/mading/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_Bw_GOsU5.js",
+      "_a30AbYcg.js",
+      "_CKUdLLXv.js",
+      "_DLyaNGsp.js",
+      "_DsM_GpWP.js",
+      "_BTOVjOCj.js",
+      "_C5ApNRNs.js",
+      "_aCPDaISk.js",
+      "_BN1q1RBU.js",
+      "_BdKs9FHu.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_DCE6C9jE.js",
+      "_DjnmRtTq.js",
+      "_BzE44elF.js",
+      "_BeW4Y_Jj.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/mading/user/Page.tsx": {
+    "file": "assets/DDi1VmSl.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/mading/user/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_Bw_GOsU5.js",
+      "_a30AbYcg.js",
+      "_CKUdLLXv.js",
+      "_DLyaNGsp.js",
+      "_DsM_GpWP.js",
+      "_BTOVjOCj.js",
+      "_BdKs9FHu.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/materi/Page.tsx": {
+    "file": "assets/DScpTs2g.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/materi/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_Cw9KlwPi.js",
+      "_BzE44elF.js",
+      "_Bw_GOsU5.js",
+      "_DjnmRtTq.js",
+      "_CKUdLLXv.js",
+      "_BBTGNeRg.js",
+      "_a30AbYcg.js",
+      "_C910vcZT.js",
+      "_BdKs9FHu.js",
+      "_aCPDaISk.js",
+      "_FqdEnJB7.js",
+      "_BmWlmpu1.js",
+      "_LIaDX6C_.js",
+      "_a_XWxsz5.js",
+      "_C410qOe_.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_DCE6C9jE.js",
+      "_BeW4Y_Jj.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/profile/Page.tsx": {
+    "file": "assets/ooq_gi0E.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/profile/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_C_oSu1GE.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_CKUdLLXv.js",
+      "_DCE6C9jE.js",
+      "_DjnmRtTq.js",
+      "_IyJryVnY.js",
+      "_BN1q1RBU.js",
+      "_LIaDX6C_.js",
+      "_BdKs9FHu.js",
+      "_a_XWxsz5.js",
+      "_qMFz18Pk.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_CLBRjDnP.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_BXn6Jrdl.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard/user/Page.tsx": {
+    "file": "assets/LMuQSYLT.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dashboard/user/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BRyySBr2.js",
+      "_C5ApNRNs.js",
+      "_Bw_GOsU5.js",
+      "_KYyiEPZ8.js",
+      "_BeW4Y_Jj.js",
+      "_LIaDX6C_.js",
+      "_C410qOe_.js",
+      "_a_XWxsz5.js",
+      "_BXn6Jrdl.js",
+      "_BdKs9FHu.js",
+      "_aCPDaISk.js",
+      "_DCE6C9jE.js",
+      "_BN1q1RBU.js",
+      "_qMFz18Pk.js",
+      "_C1wBydXT.js",
+      "_DLyaNGsp.js",
+      "_Cw9KlwPi.js",
+      "_ClN2HWF5.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_B0dZQ6sp.js",
+      "_a30AbYcg.js",
+      "_CLBRjDnP.js",
+      "_DjnmRtTq.js",
+      "_BzE44elF.js",
+      "_DsM_GpWP.js"
+    ]
+  },
+  "resources/js/Pages/Dev/Page.tsx": {
+    "file": "assets/BDn8AOh2.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Dev/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_bM37MfT9.js",
+      "_a30AbYcg.js",
+      "_B0dZQ6sp.js",
+      "_CNAeFkhN.js",
+      "_DPdBf6DS.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_C410qOe_.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ],
+    "css": [
+      "assets/BzYXF7LS.css"
+    ],
+    "assets": [
+      "assets/CCtWrQ3u.svg"
+    ]
+  },
+  "resources/js/Pages/Error.tsx": {
+    "file": "assets/COKvWq6-.js",
+    "name": "Error",
+    "src": "resources/js/Pages/Error.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Bw_GOsU5.js",
+      "_bM37MfT9.js",
+      "_CdlhT4iK.js",
+      "_C410qOe_.js"
+    ]
+  },
+  "resources/js/Pages/FAQ/Page.tsx": {
+    "file": "assets/CUbBXkC4.js",
+    "name": "Page",
+    "src": "resources/js/Pages/FAQ/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_C_oSu1GE.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_KQ0ZSL1G.js",
+      "_bM37MfT9.js",
+      "_C410qOe_.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_Cw9KlwPi.js",
+      "_KYyiEPZ8.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_BeW4Y_Jj.js",
+      "_Bw_GOsU5.js"
+    ]
+  },
+  "resources/js/Pages/Game/Page.tsx": {
+    "file": "assets/CT5fajtA.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Game/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/GantiPassword/Page.tsx": {
+    "file": "assets/LTRA8_8f.js",
+    "name": "Page",
+    "src": "resources/js/Pages/GantiPassword/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Error.tsx",
+      "_Bw_GOsU5.js",
+      "_DjnmRtTq.js",
+      "_CKUdLLXv.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_bM37MfT9.js",
+      "_CdlhT4iK.js",
+      "_C410qOe_.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_ClN2HWF5.js"
+    ]
+  },
+  "resources/js/Pages/Informasi/CaraouselInformasi.tsx": {
+    "file": "assets/rbiIc_Hz.js",
+    "name": "CaraouselInformasi",
+    "src": "resources/js/Pages/Informasi/CaraouselInformasi.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_C410qOe_.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_LIaDX6C_.js",
+      "_C1wBydXT.js"
+    ]
+  },
+  "resources/js/Pages/Informasi/ComponentInformasi.tsx": {
+    "file": "assets/BMrdzh4x.js",
+    "name": "ComponentInformasi",
+    "src": "resources/js/Pages/Informasi/ComponentInformasi.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Informasi/Fakultas/Page.tsx": {
+    "file": "assets/CSRw8a-e.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Fakultas/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_DXUPjsip.js",
+      "_Bq4vzlmi.js",
+      "_bM37MfT9.js",
+      "_3M3m1EwH.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_VURlX9nZ.js",
+      "_CyL-sgyv.js",
+      "_Dk_7dWwh.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_Dcu7TUH9.js",
+      "_ChGpu5en.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ]
+  },
+  "resources/js/Pages/Informasi/Km/Page.tsx": {
+    "file": "assets/BZuQydK0.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Km/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_DXUPjsip.js",
+      "_CzmROYJN.js",
+      "_3M3m1EwH.js",
+      "_CNAeFkhN.js",
+      "_bM37MfT9.js",
+      "_DsnVXMxa.js",
+      "_D8OyzxR9.js",
+      "_Dk_7dWwh.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ],
+    "assets": [
+      "assets/DKI6p-XI.png",
+      "assets/_KZkog-U.png",
+      "assets/DAFWwU38.png",
+      "assets/uCljlL9I.png",
+      "assets/BJmTHzn6.png",
+      "assets/CbAkYrmD.png",
+      "assets/B9XViH_a.png",
+      "assets/CebcCv2b.png",
+      "assets/D18SsLW4.png",
+      "assets/DD8ZtZiv.png",
+      "assets/BUr5kabj.png",
+      "assets/BpVF5OOd.png",
+      "assets/O9A8ph4m.png",
+      "assets/COEtbvF7.png"
+    ]
+  },
+  "resources/js/Pages/Informasi/Pplk/Page.tsx": {
+    "file": "assets/DCXNJ65U.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Pplk/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_DXUPjsip.js",
+      "_bM37MfT9.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_3M3m1EwH.js",
+      "_BtKYUuGJ.js",
+      "_C46PLoNX.js",
+      "_B5C8yXpc.js",
+      "_DsnVXMxa.js",
+      "_CdlhT4iK.js",
+      "_Dk_7dWwh.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ],
+    "assets": [
+      "assets/CHQucuXy.png",
+      "assets/lmyyToae.png",
+      "assets/DxcdX4a8.png",
+      "assets/DLmM3VfI.png",
+      "assets/DX_6z6Zy.png",
+      "assets/B84P5u7Q.png",
+      "assets/Bm7fSGWf.png",
+      "assets/c3-ERpCD.png",
+      "assets/CDF2Duq8.png",
+      "assets/BApQFv4B.png",
+      "assets/BQKlpIKQ.png",
+      "assets/DWD25zaG.png",
+      "assets/DJU1XPzy.png",
+      "assets/CYbZ1A2n.png",
+      "assets/C6DO7ysT.png",
+      "assets/BPtkDe27.png",
+      "assets/Dzqf9H8D.png"
+    ]
+  },
+  "resources/js/Pages/Informasi/Prodi/Detail/Page.tsx": {
+    "file": "assets/D8rL0BIg.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Prodi/Detail/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_G9cpeAgW.js",
+      "_ChGpu5en.js",
+      "_Dcu7TUH9.js",
+      "_DDOXGxyK.js",
+      "_C_oSu1GE.js",
+      "_bM37MfT9.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ],
+    "assets": [
+      "assets/KmF0DsVV.png",
+      "assets/C2UXebzw.png",
+      "assets/urH81EIQ.png"
+    ]
+  },
+  "resources/js/Pages/Informasi/Prodi/Page.tsx": {
+    "file": "assets/CwEEjJh9.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Prodi/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_KQ0ZSL1G.js",
+      "_DXUPjsip.js",
+      "_Bq4vzlmi.js",
+      "_bM37MfT9.js",
+      "_CzmROYJN.js",
+      "_G9cpeAgW.js",
+      "_Cw9KlwPi.js",
+      "_Dk_7dWwh.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_BeW4Y_Jj.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_LIaDX6C_.js",
+      "_KYyiEPZ8.js",
+      "_a_XWxsz5.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_Dcu7TUH9.js",
+      "_ChGpu5en.js"
+    ],
+    "assets": [
+      "assets/DGK2J5BF.png"
+    ]
+  },
+  "resources/js/Pages/Informasi/Ukm/Detail/Page.tsx": {
+    "file": "assets/DZTXeKf1.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Ukm/Detail/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Error.tsx",
+      "_BBVVcmnJ.js",
+      "_bM37MfT9.js",
+      "_Cw9KlwPi.js",
+      "_Bw_GOsU5.js",
+      "_a30AbYcg.js",
+      "_C410qOe_.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_ChGpu5en.js",
+      "_Dcu7TUH9.js",
+      "_DDOXGxyK.js",
+      "_DzW0UYMV.js",
+      "_D8OyzxR9.js",
+      "_CyL-sgyv.js",
+      "_CdlhT4iK.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_KYyiEPZ8.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js",
+      "_DegpNc8D.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ]
+  },
+  "resources/js/Pages/Informasi/Ukm/Page.tsx": {
+    "file": "assets/DDgDzFsG.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Ukm/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_DXUPjsip.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_bM37MfT9.js",
+      "_BeW4Y_Jj.js",
+      "_DzW0UYMV.js",
+      "_D8OyzxR9.js",
+      "_Dk_7dWwh.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ]
+  },
+  "resources/js/Pages/Informasi/Upa/Detail/Page.tsx": {
+    "file": "assets/DsCXEUMa.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Upa/Detail/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Error.tsx",
+      "_BBVVcmnJ.js",
+      "_DAaPK9hk.js",
+      "_3M3m1EwH.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_ehdbQKtA.js",
+      "_ChGpu5en.js",
+      "_Dcu7TUH9.js",
+      "_CyL-sgyv.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_bM37MfT9.js",
+      "_CdlhT4iK.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js",
+      "_DegpNc8D.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ]
+  },
+  "resources/js/Pages/Informasi/Upa/Page.tsx": {
+    "file": "assets/CLrkKEMr.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Informasi/Upa/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_DAaPK9hk.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js",
+      "_bM37MfT9.js"
+    ]
+  },
+  "resources/js/Pages/Lagu/Page.tsx": {
+    "file": "assets/Ca7fxA_Y.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Lagu/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_CzmROYJN.js",
+      "_CnuPZMgP.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js"
+    ]
+  },
+  "resources/js/Pages/LandingPage.tsx": {
+    "file": "assets/ux7eEnRW.js",
+    "name": "LandingPage",
+    "src": "resources/js/Pages/LandingPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_bM37MfT9.js",
+      "_DsnVXMxa.js",
+      "_3M3m1EwH.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_C46PLoNX.js",
+      "_BtKYUuGJ.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_BBS3-s2K.js",
+      "_CdlhT4iK.js",
+      "_CyL-sgyv.js",
+      "_DLhH0H2W.js",
+      "_ehdbQKtA.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ],
+    "assets": [
+      "assets/5wh2r8dP.png"
+    ]
+  },
+  "resources/js/Pages/Login/Page.tsx": {
+    "file": "assets/BMJ0n2ul.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Login/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_3M3m1EwH.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_Bw_GOsU5.js",
+      "_DjnmRtTq.js",
+      "_BZtDV8eV.js",
+      "_LIaDX6C_.js",
+      "_C410qOe_.js",
+      "_DegpNc8D.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ]
+  },
+  "resources/js/Pages/Mading/Page.tsx": {
+    "file": "assets/_VH639Ra.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Mading/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_Bw_GOsU5.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_B5C8yXpc.js",
+      "_Cw9KlwPi.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_DsnVXMxa.js",
+      "_VURlX9nZ.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_DegpNc8D.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js",
+      "_ClN2HWF5.js"
+    ],
+    "css": [
+      "assets/BvJi-8uu.css"
+    ],
+    "assets": [
+      "assets/DOHMLKT_.png",
+      "assets/xhMjvcIF.png",
+      "assets/Di7nQFMV.png",
+      "assets/DNYviyd9.png",
+      "assets/COk4CYUB.png",
+      "assets/BEL2OfrJ.png",
+      "assets/ClPoLZPt.png",
+      "assets/C1XcTihC.png"
+    ]
+  },
+  "resources/js/Pages/Mading/Pengumpulan/Page.tsx": {
+    "file": "assets/DxtqVbkq.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Mading/Pengumpulan/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BzE44elF.js",
+      "_BBVVcmnJ.js",
+      "_DXUPjsip.js",
+      "_Bw_GOsU5.js",
+      "_DjnmRtTq.js",
+      "_CKUdLLXv.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_qMFz18Pk.js",
+      "_Dk_7dWwh.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_ClN2HWF5.js"
+    ]
+  },
+  "resources/js/Pages/Mading/PengumpulanCover/Page.tsx": {
+    "file": "assets/C_mxhFAe.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Mading/PengumpulanCover/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_DXUPjsip.js",
+      "_Bw_GOsU5.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_qMFz18Pk.js",
+      "_B0dZQ6sp.js",
+      "_Dk_7dWwh.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_ClN2HWF5.js"
+    ]
+  },
+  "resources/js/Pages/Mading/kumpul/Page.tsx": {
+    "file": "assets/Dzld2pPg.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Mading/kumpul/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js"
+    ]
+  },
+  "resources/js/Pages/Maskot/Page.tsx": {
+    "file": "assets/B4brDP-Y.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Maskot/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_CzmROYJN.js",
+      "_bM37MfT9.js",
+      "_DLhH0H2W.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js"
+    ],
+    "assets": [
+      "assets/DAt4xXka.png",
+      "assets/YUpNqa-A.png"
+    ]
+  },
+  "resources/js/Pages/Materi/Page.tsx": {
+    "file": "assets/qxLw84Xd.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Materi/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_BBVVcmnJ.js",
+      "_CzmROYJN.js",
+      "_DegpNc8D.js",
+      "_Bw_GOsU5.js",
+      "_C410qOe_.js",
+      "_bM37MfT9.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js",
+      "_C46PLoNX.js"
+    ]
+  },
+  "resources/js/Pages/Profile/Page.tsx": {
+    "file": "assets/rA_8JbBZ.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Profile/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_DKMAaO_8.js",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_Bw_GOsU5.js",
+      "_BTOVjOCj.js",
+      "_BBTGNeRg.js",
+      "_dKO6cs-5.js",
+      "_ChGpu5en.js",
+      "_a30AbYcg.js",
+      "_DjnmRtTq.js",
+      "_CKUdLLXv.js",
+      "_FqdEnJB7.js",
+      "_FfmO1YB6.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_ClN2HWF5.js"
+    ],
+    "assets": [
+      "assets/BVbdTp-4.png"
+    ]
+  },
+  "resources/js/Pages/Relasi/Page.tsx": {
+    "file": "assets/Dyrewdcq.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Relasi/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_mExKfzIx.js",
+      "_n3GRt1DH.js",
+      "_Bw_GOsU5.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_bM37MfT9.js",
+      "_C410qOe_.js",
+      "_cODHpOt1.js",
+      "_BBS3-s2K.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C_oSu1GE.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_DjnmRtTq.js",
+      "_uBZNdCZ5.js",
+      "_CzmROYJN.js"
+    ]
+  },
+  "resources/js/Pages/Relasi/Profil/Page.tsx": {
+    "file": "assets/BrViZtYp.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Relasi/Profil/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_uBZNdCZ5.js",
+      "_mExKfzIx.js",
+      "_Bw_GOsU5.js",
+      "_CzmROYJN.js",
+      "_CNAeFkhN.js",
+      "_bM37MfT9.js",
+      "_LIaDX6C_.js",
+      "_ChGpu5en.js",
+      "_dKO6cs-5.js",
+      "_Cw9KlwPi.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_a_XWxsz5.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_DegpNc8D.js",
+      "_FiM0Gwvm.js",
+      "_C1wBydXT.js"
+    ]
+  },
+  "resources/js/Pages/Relasi/Search/Page.tsx": {
+    "file": "assets/B3niyLnx.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Relasi/Search/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Dk_7dWwh.js",
+      "_DXUPjsip.js",
+      "_mExKfzIx.js",
+      "_n3GRt1DH.js",
+      "_Bw_GOsU5.js",
+      "_FqdEnJB7.js",
+      "_BBTGNeRg.js",
+      "_bM37MfT9.js",
+      "_BBS3-s2K.js",
+      "_C46PLoNX.js",
+      "_BZtDV8eV.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_DjnmRtTq.js",
+      "_uBZNdCZ5.js",
+      "_CzmROYJN.js",
+      "_ClN2HWF5.js"
+    ]
+  },
+  "resources/js/Pages/Scoreboard/Page.tsx": {
+    "file": "assets/nE61vl1x.js",
+    "name": "Page",
+    "src": "resources/js/Pages/Scoreboard/Page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_DXUPjsip.js",
+      "_bM37MfT9.js",
+      "_cODHpOt1.js",
+      "_CzmROYJN.js",
+      "_mExKfzIx.js",
+      "_C410qOe_.js",
+      "_KYyiEPZ8.js",
+      "_Cw9KlwPi.js",
+      "_a_XWxsz5.js",
+      "_LIaDX6C_.js",
+      "_CLBRjDnP.js",
+      "_C_oSu1GE.js",
+      "_BZtDV8eV.js"
+    ]
+  },
+  "resources/js/app.jsx": {
+    "file": "assets/m6YpfbB7.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/Pages/Asesmen/Page.tsx",
+      "resources/js/Pages/Asesmen/Result/Page.tsx",
+      "resources/js/Pages/Atribut/Page.tsx",
+      "resources/js/Pages/Auth/Absensi/Page.tsx",
+      "resources/js/Pages/Auth/Assesment/Page.tsx",
+      "resources/js/Pages/Auth/Booklet/Page.tsx",
+      "resources/js/Pages/Auth/Dashboard/Dashboard.tsx",
+      "resources/js/Pages/Auth/Dashboard/DashboardAdmin.tsx",
+      "resources/js/Pages/Auth/Dashboard/DashboardDapMen.tsx",
+      "resources/js/Pages/Auth/Dashboard/DashboardPJProdi.tsx",
+      "resources/js/Pages/Auth/FeedBack/Page.tsx",
+      "resources/js/Pages/Auth/Game/Page.tsx",
+      "resources/js/Pages/Auth/RelasiJaringan/Page.tsx",
+      "resources/js/Pages/Auth/Scoreboard/Page.tsx",
+      "resources/js/Pages/Booklet/Page.tsx",
+      "resources/js/Pages/Dashboard/Page.tsx",
+      "resources/js/Pages/Dashboard/absensi-maba/Page.tsx",
+      "resources/js/Pages/Dashboard/absensi-maba/Presensi.tsx",
+      "resources/js/Pages/Dashboard/absensi-maba/absensi/Page.tsx",
+      "resources/js/Pages/Dashboard/absensi-maba/absensi/QRScanner.tsx",
+      "resources/js/Pages/Dashboard/absensi-maba/absensi/result/Page.tsx",
+      "resources/js/Pages/Dashboard/absensi-maba/absensi/result/ResultCardNotFound.tsx",
+      "resources/js/Pages/Dashboard/absensi-maba/absensi/result/ResultCardSuccess.tsx",
+      "resources/js/Pages/Dashboard/atur-dapmen/Page.tsx",
+      "resources/js/Pages/Dashboard/atur-korlap/Page.tsx",
+      "resources/js/Pages/Dashboard/atur-maba/Page.tsx",
+      "resources/js/Pages/Dashboard/atur-pjprodi/Page.tsx",
+      "resources/js/Pages/Dashboard/booklet/Page.tsx",
+      "resources/js/Pages/Dashboard/cui/Page.tsx",
+      "resources/js/Pages/Dashboard/cui/Presensi.tsx",
+      "resources/js/Pages/Dashboard/cui/absensi/DetailMaba.tsx",
+      "resources/js/Pages/Dashboard/cui/absensi/Page.tsx",
+      "resources/js/Pages/Dashboard/cui/absensi/QRScanner.tsx",
+      "resources/js/Pages/Dashboard/cui/absensi/result/Page.tsx",
+      "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardNotFound.tsx",
+      "resources/js/Pages/Dashboard/cui/absensi/result/ResultCardSuccess.tsx",
+      "resources/js/Pages/Dashboard/cui/izin/Page.tsx",
+      "resources/js/Pages/Dashboard/detail-user/Page.tsx",
+      "resources/js/Pages/Dashboard/employee/Page.tsx",
+      "resources/js/Pages/Dashboard/faq/Page.tsx",
+      "resources/js/Pages/Dashboard/game-offline/Page.tsx",
+      "resources/js/Pages/Dashboard/informasi-kelompok/Page.tsx",
+      "resources/js/Pages/Dashboard/kanban/Page.tsx",
+      "resources/js/Pages/Dashboard/mading/Page.tsx",
+      "resources/js/Pages/Dashboard/mading/user/Page.tsx",
+      "resources/js/Pages/Dashboard/materi/Page.tsx",
+      "resources/js/Pages/Dashboard/profile/Page.tsx",
+      "resources/js/Pages/Dashboard/user/Page.tsx",
+      "resources/js/Pages/Dev/Page.tsx",
+      "resources/js/Pages/Error.tsx",
+      "resources/js/Pages/FAQ/Page.tsx",
+      "resources/js/Pages/Game/Page.tsx",
+      "resources/js/Pages/GantiPassword/Page.tsx",
+      "resources/js/Pages/Informasi/CaraouselInformasi.tsx",
+      "resources/js/Pages/Informasi/ComponentInformasi.tsx",
+      "resources/js/Pages/Informasi/Fakultas/Page.tsx",
+      "resources/js/Pages/Informasi/Km/Page.tsx",
+      "resources/js/Pages/Informasi/Pplk/Page.tsx",
+      "resources/js/Pages/Informasi/Prodi/Detail/Page.tsx",
+      "resources/js/Pages/Informasi/Prodi/Page.tsx",
+      "resources/js/Pages/Informasi/Ukm/Detail/Page.tsx",
+      "resources/js/Pages/Informasi/Ukm/Page.tsx",
+      "resources/js/Pages/Informasi/Upa/Detail/Page.tsx",
+      "resources/js/Pages/Informasi/Upa/Page.tsx",
+      "resources/js/Pages/Lagu/Page.tsx",
+      "resources/js/Pages/LandingPage.tsx",
+      "resources/js/Pages/Login/Page.tsx",
+      "resources/js/Pages/Mading/Page.tsx",
+      "resources/js/Pages/Mading/Pengumpulan/Page.tsx",
+      "resources/js/Pages/Mading/PengumpulanCover/Page.tsx",
+      "resources/js/Pages/Mading/kumpul/Page.tsx",
+      "resources/js/Pages/Maskot/Page.tsx",
+      "resources/js/Pages/Materi/Page.tsx",
+      "resources/js/Pages/Profile/Page.tsx",
+      "resources/js/Pages/Relasi/Page.tsx",
+      "resources/js/Pages/Relasi/Profil/Page.tsx",
+      "resources/js/Pages/Relasi/Search/Page.tsx",
+      "resources/js/Pages/Scoreboard/Page.tsx"
+    ],
+    "css": [
+      "assets/CiKfRBFt.css"
+    ],
+    "assets": [
+      "assets/C4707jmp.otf",
+      "assets/BUopdluu.otf",
+      "assets/QqWFEU4D.otf",
+      "assets/BEi4fzSD.ttf",
+      "assets/WOT81FCI.png",
+      "assets/BizEuhh5.png",
+      "assets/Di7nQFMV.png",
+      "assets/B4rJx8P7.png",
+      "assets/sXVQlF2a.png",
+      "assets/5Eb2L1hT.png",
+      "assets/Dk4ytRnq.png"
+    ]
+  }
+}
