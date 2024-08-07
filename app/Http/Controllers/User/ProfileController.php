@@ -108,4 +108,39 @@ class ProfileController extends Controller
       }
       return redirect()->route('myprofile')->with('success', 'Profile updated successfully.');
    }
+   public function resetPassword(Request $request)
+   {
+      $validated = $request->validate([
+         'new_password' => 'required|string|min:8',
+         'confirm_new_password' => 'required|string',
+      ]);
+
+      if ($validated['new_password'] !== $validated['confirm_new_password']) {
+         return redirect()->back()->with('response', [
+            'status' => 400,
+            'message' => 'Password tidak sama'
+         ]);
+      }
+
+      $user = User::findOrFail(auth()->id());
+      DB::beginTransaction();
+      try {
+         $user->update([
+            'password' => bcrypt($validated['new_password']),
+            'isFirstTime' => False
+         ]);
+         DB::commit();
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         report($th);
+         return redirect()->back()->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah password'
+         ]);
+      }
+      return redirect()->route('welcome')->with('response', [
+         'status' => 200,
+         'message' => 'Password berhasil diubah'
+      ]);
+   }
 }

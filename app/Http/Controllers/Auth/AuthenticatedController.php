@@ -38,6 +38,10 @@ class AuthenticatedController extends Controller
 
       $request->session()->regenerate();
 
+      if (Auth::user()->isFirstTime == 1) {
+         return redirect()->intended(route('ganti-password', absolute: false));
+      }
+
       return redirect()->intended(route('welcome', absolute: false));
    }
 
