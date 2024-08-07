@@ -26,7 +26,7 @@ function ProfileCard({
                     className="md:w-24 w-16 md:h-24 h-16 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full select-none"
                     // src={user.photo_profile_url}
                     src={
-                        user.profileImageUrl ??
+                        user.photo_profile_url ??
                         "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
                     }
                     alt={user.name}

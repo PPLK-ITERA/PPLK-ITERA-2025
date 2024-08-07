@@ -32,6 +32,8 @@ export default function TopUser({
         }, 100);
     }, []);
 
+    console.log(user);
+
     return (
         <div
             style={{
@@ -58,8 +60,11 @@ export default function TopUser({
                         </div>
                     ) : null}
                     <img
-                        // src={user.photo_profile_url}
-                        src={generateRandomImage()}
+                        src={
+                            user.photo_profile_url ??
+                            "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                        }
+                        // src={generateRandomImage()}
                         alt={user.name}
                         className="z-0 bg-gray-400 rounded-full"
                     />

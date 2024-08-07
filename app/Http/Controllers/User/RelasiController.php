@@ -42,7 +42,7 @@ class RelasiController extends Controller
             'name' => $user->name,
             'nim' => $user->nim,
             'prodi' => $user->prodi->nama_prodi,
-            'photo_profile_url' => asset('storage/' . $user->photo_profile_url),
+            'photo_profile_url' => $user->photo_profile_url,
             'kelompok' => [
                'nama_kelompok' => $user->kelompok->nama_kelompok,
                'no_kelompok' => $user->kelompok->no_kelompok,
@@ -191,7 +191,7 @@ class RelasiController extends Controller
          'name' => $user->name,
          'nim' => $user->nim,
          'prodi' => $user->prodi->nama_prodi,
-         'photo_profile_url' => asset('storage/' . $user->photo_profile_url),
+         'photo_profile_url' => $user->photo_profile_url,
          'linkedin_url' => $user->linkedin_url,
          'instagram_url' => $user->instagram_url,
          'kelompok' => [
@@ -225,7 +225,7 @@ class RelasiController extends Controller
                'name' => $user->name,
                'nim' => $user->nim,
                'prodi' => $user->prodi->nama_prodi,
-               'photo_profile_url' => asset('storage/' . $user->photo_user_url),
+               'photo_profile_url' => $user->photo_user_url,
                'kelompok' => [
                   'nama_kelompok' => $user->kelompok->nama_kelompok,
                   'no_kelompok' => $user->kelompok->no_kelompok,
@@ -274,7 +274,7 @@ class RelasiController extends Controller
             'name' => $profile->name,
             'nim' => $profile->nim,
             'prodi' => $profile->prodi->nama_prodi,
-            'photo_profile_url' => asset('storage/' . $profile->photo_profile_url),
+            'photo_profile_url' => $profile->photo_profile_url,
             'kelompok' => [
                'nama_kelompok' => $profile->kelompok->nama_kelompok,
                'no_kelompok' => $profile->kelompok->no_kelompok,
