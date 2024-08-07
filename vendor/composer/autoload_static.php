@@ -614,6 +614,7 @@ class ComposerStaticInit0f91a2c638c357aebf0b9b0ce9fe8e1e
     public static $classMap = array (
         'App\\Helpers\\PoinResponseHelper' => __DIR__ . '/../..' . '/app/Helpers/PoinResponseHelper.php',
         'App\\Http\\Controllers\\Admin\\DapmenController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DapmenController.php',
+        'App\\Http\\Controllers\\Admin\\Dashboard\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Dashboard/DashboardController.php',
         'App\\Http\\Controllers\\Admin\\Dashboard\\KelompokController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Dashboard/KelompokController.php',
         'App\\Http\\Controllers\\Admin\\TugasController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TugasController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',

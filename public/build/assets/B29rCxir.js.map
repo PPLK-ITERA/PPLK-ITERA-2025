@@ -1,1 +1,0 @@
-{"version":3,"file":"B29rCxir.js","sources":["../../../resources/js/Pages/Auth/Dashboard/DashboardDapMen.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction DashboardDapMen() {\n    return <div>DashboardDapMen</div>;\n}\n\nexport default DashboardDapMen;\n"],"names":["DashboardDapMen","jsx","children"],"mappings":"kCAEA,SAASA,IACE,SAAAC,IAAC,OAAIC,SAAe,mBAC/B"}

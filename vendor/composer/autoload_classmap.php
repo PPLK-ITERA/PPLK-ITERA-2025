@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Helpers\\PoinResponseHelper' => $baseDir . '/app/Helpers/PoinResponseHelper.php',
     'App\\Http\\Controllers\\Admin\\DapmenController' => $baseDir . '/app/Http/Controllers/Admin/DapmenController.php',
+    'App\\Http\\Controllers\\Admin\\Dashboard\\DashboardController' => $baseDir . '/app/Http/Controllers/Admin/Dashboard/DashboardController.php',
     'App\\Http\\Controllers\\Admin\\Dashboard\\KelompokController' => $baseDir . '/app/Http/Controllers/Admin/Dashboard/KelompokController.php',
     'App\\Http\\Controllers\\Admin\\TugasController' => $baseDir . '/app/Http/Controllers/Admin/TugasController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
