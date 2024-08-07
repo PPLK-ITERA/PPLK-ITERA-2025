@@ -30,7 +30,7 @@ class RelasiController extends Controller
    {
       $topFollowers = User::withCount('followers')
          ->where('role_id', 1)
-         ->whereNotNull("kelompok_id")->whereNotNull("penyakit_id")->whereNotNull("prodi_id")
+         ->whereNotNull("kelompok_id")->whereNotNull("prodi_id")
          ->orderBy('followers_count', 'desc')
          ->take(3)
          ->get();
@@ -69,7 +69,7 @@ class RelasiController extends Controller
          ]);
       }
 
-      $query = User::with('kelompok')->where('role_id', 1)->whereNotNull(["kelompok_id", "prodi_id", "penyakit_id"]);
+      $query = User::with('kelompok')->where('role_id', 1)->whereNotNull(["kelompok_id", "prodi_id"]);
 
       switch ($orderBy) {
          case 'followers':
@@ -165,7 +165,7 @@ class RelasiController extends Controller
       $views = Views::where('viewing_user_id', $viewingUserId)
          ->where('viewed_user_id', $viewedUserId)
          ->exists();
-      if(!$views){
+      if (!$views) {
          DB::beginTransaction();
          try {
             // If not following, follow the user
@@ -217,7 +217,6 @@ class RelasiController extends Controller
          ->take(9)
          ->where('role_id', 1)
          ->whereNotNull("kelompok_id")
-         ->whereNotNull("penyakit_id")
          ->whereNotNull("prodi_id")
          ->get()
          ->transform(function ($user) {
@@ -256,7 +255,7 @@ class RelasiController extends Controller
       $searchTerm = preg_replace('/[^a-zA-Z0-9_ ]/', '', substr($inputSearch, 0, 99));
 
       $query = User::query()->where('role_id', 1)
-         ->whereNotNull("kelompok_id")->whereNotNull("penyakit_id")->whereNotNull("prodi_id")
+         ->whereNotNull("kelompok_id")->whereNotNull("prodi_id")
          ->when($searchTerm, function ($query) use ($searchTerm) {
             return $query->where('name', 'like', '%' . $searchTerm . '%')
                ->orWhere('nim', 'like', '%' . $searchTerm . '%');
