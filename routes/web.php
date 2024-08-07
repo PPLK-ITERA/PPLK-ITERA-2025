@@ -59,7 +59,6 @@ Route::middleware('auth')->group(function () {
    Route::put('ganti-password', [ProfileController::class, 'resetPassword'])->name('first.change.password');
 
    Route::prefix('mading')->name('mading.')->group(function () {
-      abort(404);
 
       // Route::get('/', [MadingController::class, 'index'])->name('index');
       Route::get('/card', [MadingController::class, 'index'])->name('card');

@@ -295,7 +295,6 @@ Route::middleware('auth')->group(function () {
    // Dashboard Mading (Auth)
    // =====================================
    Route::get('dashboard/mading', function () {
-      abort(404);
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');
 
@@ -373,7 +372,6 @@ Route::middleware('auth')->group(function () {
    // Mading (Auth)
    // =====================================
    Route::get('mading', function () {
-      abort(404);
       return Inertia::render('Mading/Page');
    })->name('mading');
 
@@ -402,7 +400,6 @@ Route::middleware('auth')->group(function () {
       // if ($pengumpulanTugas && !$pengumpulanTugas->isReturn) {
       //    return to_route("mading");
       // }
-      abort(404);
 
 
       return Inertia::render('Mading/Pengumpulan/Page', [
