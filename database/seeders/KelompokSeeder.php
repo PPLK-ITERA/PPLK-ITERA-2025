@@ -11,31 +11,72 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class KelompokSeeder extends Seeder
 {
-   /**
-    * Run the database seeds.
-    */
-   public function run(): void
+   protected $kelompokCount = 0;
+
+   public function run()
    {
-      for ($i = 0; $i < 10; $i++) {
-         // Create users and save them to get their IDs
-         $daplokUser = User::factory()->create([
-            'role_id' => 2, // Assuming role_id 2 is for daplok
-            'kelompok_id' => $i + 1
-         ]);
+      // Import mentors and daplok users
+      $mentorIds = $this->importUsers(base_path("database/csv/akunMentor.csv"), 4);
+      $daplokIds = $this->importUsers(base_path("database/csv/akunDaplok.csv"), 2);
 
-         $mentorUser = User::factory()->create([
-            'role_id' => 4, // Assuming role_id 4 is for mentor
-            'kelompok_id' => $i + 1
-         ]);
+      // Optionally, you can handle any additional logic with $mentorIds and $daplokIds here
+   }
 
-         // Now create Kelompok using the IDs from the created users
-         Kelompok::create([
-            'no_kelompok' => $i + 1,
-            'nama_kelompok' => 'Kelompok ' . ($i + 1),
-            'logo_kelompok' => 'kelompok' . ($i + 1) . '.png',
-            'daplok_id' => $daplokUser->id,
-            'mentor_id' => $mentorUser->id
-         ]);
+   private function importUsers($filePath, $roleId)
+   {
+      $csvFile = fopen($filePath, "r");
+      $firstline = true;
+      $users = [];
+      $fileSize = filesize($filePath);
+      $totalProcessed = 0;
+      $userIds = [];
+
+      while (($data = fgetcsv($csvFile, 2000, ";")) !== FALSE) {
+         if (!$firstline) {
+            $userId = DB::table('users')->insertGetId([
+               "name" => $data[1],
+               "email" => $data[3],
+               "password" => bcrypt($data[4]),
+               "prodi_id" => $data[14],
+               "role_id" => $roleId,
+            ]);
+
+            $userIds[] = $userId;
+            $kelompokId = $this->createOrUpdateKelompok($data, $userId, $roleId);
+            $users[] = [
+               "id" => $userId,
+               "kelompok_id" => $kelompokId,
+            ];
+            $totalProcessed++;
+         } else {
+            $firstline = false;
+         }
+
+         if (count($users) >= 500) {
+            User::upsert($users, ['id'], ['kelompok_id']);
+            $users = [];
+         }
       }
+
+      if (!empty($users)) {
+         User::upsert($users, ['id'], ['kelompok_id']);
+      }
+
+      fclose($csvFile);
+      return $userIds;
+   }
+
+   private function createOrUpdateKelompok($data, $userId, $roleId)
+   {
+      $kelompok = Kelompok::updateOrCreate(
+         ['no_kelompok' => $data[11]],
+         [
+            'nama_kelompok' => 'Kelompok ' . ++$this->kelompokCount,
+            'logo_kelompok' => $data[13] ?? null,
+            'daplok_id' => $roleId == 2 ? $userId : null,
+            'mentor_id' => $roleId == 4 ? $userId : null,
+         ]
+      );
+      return $kelompok->id;
    }
 }
