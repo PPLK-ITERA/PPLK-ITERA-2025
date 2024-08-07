@@ -11,13 +11,20 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TugasController extends Controller
 {
    public function getTugasUser($id)
    {
       try {
-         $tugas = PengumpulanTugas::where('user_id', $id)->get();
+         $tugas = PengumpulanTugas::with([
+            'tugas' => function ($query) {
+               $query->select('id', 'judul');
+            }
+         ])->where('user_id', $id)->get();
+
+         $nama = User::findOrFail($id)->name;
       } catch (\Exception $e) {
          return response()->json([
             'response' => [
@@ -26,19 +33,35 @@ class TugasController extends Controller
             ]
          ]);
       }
+      $response = $tugas->transform(function ($item) {
+         return [
+            'id' => $item->id,
+            'nama_tugas' => $item->tugas->judul,
+            'jawaban' => $item->jawaban,
+            'isReturn' => $item->isReturn,
+            'tanggal_submit' => $item->tanggal_submit,
+            'catatan' => $item->catatan
+         ];
+      });
       return response()->json([
          'response' => [
             'status' => 200,
             'message' => 'Berhasil mendapatkan data',
-            'data' => $tugas
-         ]
+            'data' => $response
+         ],
+         'nama' => $nama
       ]);
    }
    public function getTugasKelompok()
    {
       try {
          $ketua = User::where('kelompok_id', Auth::user()->kelompok_id)->where('isKetua', true)->first();
-         $tugas = Tugas::with('pengumpulanTugas')
+         $tugas = Tugas::with([
+            'pengumpulanTugas' => function ($query) use ($ketua) {
+               $query->select('id', 'tugas_id', 'jawaban', 'isReturn', 'catatan')
+                  ->where('user_id', $ketua->id); // Filter right in the 'with' to double-check
+            }
+         ])
             ->where('kategori', 'kelompok')
             ->whereHas('pengumpulanTugas', function ($query) use ($ketua) {
                $query->where('user_id', $ketua->id);
@@ -56,19 +79,29 @@ class TugasController extends Controller
             'status' => 200,
             'message' => 'Berhasil mendapatkan data',
             'data' => $tugas
-         ]
+         ],
       ]);
    }
    public function returnTugas(Request $request)
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'catatan' => 'required|string',
+         'catatan' => 'required|string|max:120|alpha_num:ascii',
       ]);
 
       $kelompokId = Auth::user()->kelompok_id;
 
       $tugas = PengumpulanTugas::find($validated['id']);
+      if ($tugas->isReturn) {
+         return redirect()->back()->with(
+            'response',
+            [
+               'status' => 400,
+               'message' => "Tugas sudah dikembalikan"
+            ]
+         );
+      }
+
       DB::beginTransaction();
       try {
          $tugas->update([
@@ -82,7 +115,7 @@ class TugasController extends Controller
             'response',
             [
                'status' => 500,
-               'message' => $e->getMessage()
+               'message' => "Kesalahan server internal"
             ]
          );
       }
@@ -116,6 +149,10 @@ class TugasController extends Controller
 
       DB::beginTransaction();
       try {
+         $storagePath = substr($poster->poster, strlen('/storage/'));
+         if (Storage::disk('public')->exists($storagePath)) {
+            Storage::disk('public')->delete($storagePath);
+         }
          $poster->update([
             'url_poster' => null,
             'isReturn' => true,

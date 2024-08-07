@@ -105,7 +105,7 @@ function Page() {
                 <div>
                     <Navbar isSolid={true} isFixed={false} />
 
-                    <div className="max-w-7xl md:pt-28 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 py-16 pt-10 px-4 mx-auto text-base text-black">
+                    <div className="max-w-7xl md:pt-28 lg:pt-32 font-montserrat md:text-md flex flex-col gap-8 px-4 py-16 pt-10 mx-auto text-base text-black">
                         <div className="relative w-full max-w-3xl mx-auto">
                             <RelasiSearch
                                 onsubmit={(search) => goToSearch(search)}
@@ -147,8 +147,8 @@ function Page() {
                         </div>
 
                         <div className="w-full max-w-5xl mx-auto">
-                            <div className="flex max-md:flex-col place-content-center justify-between">
-                                <h4 className="text-lg lg:text-2xl font-bold capitalize text-center">
+                            <div className="max-md:flex-col place-content-center flex justify-between">
+                                <h4 className="lg:text-2xl text-lg font-bold text-center capitalize">
                                     Profil Berdasarkan {sort}
                                 </h4>
                                 <SortDropdown
@@ -157,13 +157,13 @@ function Page() {
                                 />
                             </div>
                             {sortLoading ? (
-                                <RelasiLoading className="mx-auto min-h-48" />
+                                <RelasiLoading className="min-h-48 mx-auto" />
                             ) : (
                                 <UserList users={users} />
                             )}
                         </div>
 
-                        <ul className="flex gap-2 mx-auto flex-wrap place-content-center place-items-center">
+                        <ul className="place-content-center place-items-center flex flex-wrap gap-2 mx-auto">
                             <li>
                                 <Button
                                     size="sm"
@@ -172,7 +172,7 @@ function Page() {
                                             Math.max(currentPage - 1, 1),
                                         )
                                     }
-                                    className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition "
+                                    className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110  transition"
                                 >
                                     <IconChevronLeft></IconChevronLeft>
                                 </Button>

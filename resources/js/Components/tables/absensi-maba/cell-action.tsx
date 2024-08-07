@@ -92,95 +92,98 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
     return (
         <>
-            <div className="flex gap-1 p-2">
-                <AlertDialog>
-                    <AlertDialogTrigger asChild>
-                        <Button size="sm">Absen</Button>
-                    </AlertDialogTrigger>
-                    <AlertDialogContent>
-                        <AlertDialogHeader>
-                            <AlertDialogTitle>
-                                Apakah Anda yakin ingin meng-Absen{" "}
-                                {data.user.name}
-                            </AlertDialogTitle>
-                            <AlertDialogDescription>
-                                Aksi ini akan mengubah status maba menjadi
-                                hadir.
-                            </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={handleAbsen}>
-                                Continue
-                            </AlertDialogAction>
-                        </AlertDialogFooter>
-                    </AlertDialogContent>
-                </AlertDialog>
+            {data.action === false ? null : (
+                <div className="flex gap-1 p-2">
+                    <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                            <Button size="sm">Absen</Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>
+                                    Apakah Anda yakin ingin meng-Absen{" "}
+                                    {data.user.name}
+                                </AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    Aksi ini akan mengubah status maba menjadi
+                                    hadir.
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction onClick={handleAbsen}>
+                                    Continue
+                                </AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
 
-                {data.user.status !== "Hadir" ? (
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button
-                                className="gap-2"
-                                size={"sm"}
-                                variant={"outline"}
-                            >
-                                Set Izin
-                            </Button>
-                        </DialogTrigger>
+                    {data.user.status !== "Hadir" ? (
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button
+                                    className="gap-2"
+                                    size={"sm"}
+                                    variant={"outline"}
+                                >
+                                    Set Izin
+                                </Button>
+                            </DialogTrigger>
 
-                        <DialogContent className="sm:max-w-[425px]">
-                            <DialogHeader>
-                                <DialogTitle>
-                                    Ingin Set Izin {data.user.name} ?
-                                </DialogTitle>
-                                <DialogDescription>
-                                    Isi bagian catatan dan aksi ini akan
-                                    mengubah status maba menjadi izin
-                                </DialogDescription>
-                            </DialogHeader>
+                            <DialogContent className="sm:max-w-[425px]">
+                                <DialogHeader>
+                                    <DialogTitle>
+                                        Ingin Set Izin {data.user.name} ?
+                                    </DialogTitle>
+                                    <DialogDescription>
+                                        Isi bagian catatan dan aksi ini akan
+                                        mengubah status maba menjadi izin
+                                    </DialogDescription>
+                                </DialogHeader>
 
-                            <div className="grid gap-4 py-4">
-                                <div className="flex flex-col">
-                                    <Label
-                                        htmlFor="asnwer"
-                                        className="text-left"
-                                    >
-                                        Catatan
-                                    </Label>
+                                <div className="grid gap-4 py-4">
+                                    <div className="flex flex-col">
+                                        <Label
+                                            htmlFor="asnwer"
+                                            className="text-left"
+                                        >
+                                            Catatan
+                                        </Label>
 
-                                    <Textarea
-                                        id="asnwer"
-                                        value={dataFormAbsensi.keterangan}
-                                        onChange={(e) =>
-                                            setDataFormAbsensi(
-                                                "keterangan",
-                                                e.target.value,
-                                            )
-                                        }
-                                        placeholder="Berikan catatan izin"
-                                        className="mt-1"
-                                    />
+                                        <Textarea
+                                            id="asnwer"
+                                            value={dataFormAbsensi.keterangan}
+                                            onChange={(e) =>
+                                                setDataFormAbsensi(
+                                                    "keterangan",
+                                                    e.target.value,
+                                                )
+                                            }
+                                            placeholder="Berikan catatan izin"
+                                            className="mt-1"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <DialogFooter>
-                                <DialogClose asChild>
-                                    <Button variant={"outline"}>
-                                        Batalkan
-                                    </Button>
-                                </DialogClose>
+                                <DialogFooter>
+                                    <DialogClose asChild>
+                                        <Button variant={"outline"}>
+                                            Batalkan
+                                        </Button>
+                                    </DialogClose>
 
-                                <DialogClose asChild>
-                                    <Button onClick={handleIzin}>
-                                        Lanjutkan
-                                    </Button>
-                                </DialogClose>
-                            </DialogFooter>
-                        </DialogContent>
-                    </Dialog>
-                ) : null}
-            </div>
+                                    <DialogClose asChild>
+                                        <Button onClick={handleIzin}>
+                                            Lanjutkan
+                                        </Button>
+                                    </DialogClose>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
+                    ) : null}
+                </div>
+            )}
+
             <Toaster />
         </>
     );

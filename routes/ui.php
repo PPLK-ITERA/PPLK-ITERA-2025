@@ -422,4 +422,10 @@ Route::middleware('auth')->group(function () {
    Route::get('/dashboard/mading/detail', function () {
       return Inertia::render('ManageTugas/Detail/Page');
    })->name('/dasboard/mading/detail');
+
+   Route::get('/dashboard/mading/user/{id}', function ($id) {
+      return Inertia::render('Dashboard/mading/user/Page', [
+         'id' => $id
+      ]);
+   })->name('/dashboard/mading/user/{id}');
 });
