@@ -29,9 +29,7 @@ Route::get('/', function () {
 
 //Auth Route
 Route::middleware('auth')->group(function () {
-   Route::get('/csrf-token', function (Request $request) {
-      return response()->json(['csrfToken' => csrf_token()]);
-   })->name("csrf");
+   
 
    Route::get("/mading-preview", [MadingController::class, 'previewMading'])->name("mading.preview");
 
@@ -61,6 +59,8 @@ Route::middleware('auth')->group(function () {
    Route::put('ganti-password', [ProfileController::class, 'resetPassword'])->name('first.change.password');
 
    Route::prefix('mading')->name('mading.')->group(function () {
+      abort(404);
+
       // Route::get('/', [MadingController::class, 'index'])->name('index');
       Route::get('/card', [MadingController::class, 'index'])->name('card');
       Route::get('/tugas/{hari}', [MadingController::class, 'getTugas'])->name('tugas');

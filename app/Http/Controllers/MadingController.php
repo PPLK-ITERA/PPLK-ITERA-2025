@@ -260,6 +260,8 @@ class MadingController extends Controller
 
    public function previewMading()
    {
+      abort(404);
+
       $kelompok_id = Auth::user()->kelompok_id;
       $urls = Poster::where('kelompok_id', $kelompok_id)
          ->pluck('url_poster')->toArray();

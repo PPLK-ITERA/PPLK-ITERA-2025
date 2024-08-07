@@ -295,6 +295,7 @@ Route::middleware('auth')->group(function () {
    // Dashboard Mading (Auth)
    // =====================================
    Route::get('dashboard/mading', function () {
+      abort(404);
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');
 
@@ -372,6 +373,7 @@ Route::middleware('auth')->group(function () {
    // Mading (Auth)
    // =====================================
    Route::get('mading', function () {
+      abort(404);
       return Inertia::render('Mading/Page');
    })->name('mading');
 
@@ -400,6 +402,8 @@ Route::middleware('auth')->group(function () {
       // if ($pengumpulanTugas && !$pengumpulanTugas->isReturn) {
       //    return to_route("mading");
       // }
+      abort(404);
+
 
       return Inertia::render('Mading/Pengumpulan/Page', [
          'id' => $id
@@ -407,6 +411,8 @@ Route::middleware('auth')->group(function () {
    })->name('mading/pengumpulan');
 
    Route::get('mading/pengumpulan-cover/{hari}', function (string $hari) {
+      abort(404);
+
       return Inertia::render('Mading/PengumpulanCover/Page', [
          'hari' => $hari
       ]);
