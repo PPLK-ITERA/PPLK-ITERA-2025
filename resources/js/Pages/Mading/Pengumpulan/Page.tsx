@@ -1,4 +1,5 @@
-import { set } from "date-fns";
+import { format, set } from "date-fns";
+import { id as indo } from "date-fns/locale";
 import { useDebouncedCallback } from "use-debounce";
 
 import React, { useEffect, useState } from "react";
@@ -128,6 +129,9 @@ export default function Page({ id }) {
             case "drive":
                 validateGDriveUrl(tugas_id, url, index);
                 break;
+            case "linkedin":
+                validateLinkedIn(tugas_id, url, index);
+                break;
         }
     };
 
@@ -161,6 +165,25 @@ export default function Page({ id }) {
                         tugas_id,
                         "link harus dari Instagram",
                     ),
+                );
+                return;
+            }
+
+            setUrlError(new Map(urlError).set(tugas_id, ""));
+            addOrUpdateJawaban(index, url); // Update jawaban
+        },
+        200,
+    );
+
+    const validateLinkedIn = useDebouncedCallback(
+        async (tugas_id, url, index) => {
+            if (
+                !/^(http(s)?:\/\/)?([\w]+\.)?linkedin\.com\/(pub|in|profile)/g.test(
+                    url,
+                )
+            ) {
+                setUrlError(
+                    new Map(urlError).set(tugas_id, "link harus dari LinkedIn"),
                 );
                 return;
             }
@@ -255,14 +278,25 @@ export default function Page({ id }) {
                                 Pengumpulan Tugas Day - {id}
                             </h2>
 
-                            <div className="flex flex-col mt-10">
+                            <div className="flex flex-col mt-10 gap-6">
                                 {tugasData?.tugas.map((tugas, index) => (
                                     <div className="flex flex-col" key={index}>
                                         <Label
                                             htmlFor="input-tugas"
-                                            className="text-left capitalize"
+                                            className="text-left flex md:flex-row flex-col gap-1 justify-between"
                                         >
-                                            Link {tugas.tipe_link}
+                                            <p className="capitalize font-bold">
+                                                Link pengumpulan tugas{" "}
+                                                {tugas.judul}
+                                            </p>
+                                            <p className="text-red-600">
+                                                Batas pengumpulan:{" "}
+                                                {format(
+                                                    new Date(tugas.deadline),
+                                                    "dd MMMM yyyy",
+                                                    { locale: indo },
+                                                )}
+                                            </p>
                                         </Label>
 
                                         <Input
@@ -285,7 +319,7 @@ export default function Page({ id }) {
                                                       : tugas.tipe_link ===
                                                           "drive"
                                                         ? "https://drive.google.com/..."
-                                                        : "Yeuu gaada kocakkkkk!"
+                                                        : "https://www.linkedin.com/in/..."
                                             }
                                             className="mt-2"
                                         />

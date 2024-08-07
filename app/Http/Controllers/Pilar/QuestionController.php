@@ -13,7 +13,6 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        abort(404);
         $answered_activities = AnswerActivity::where('user_id', auth()->user()->id)->get();
         if ($answered_activities->count() == 15) {
             return to_route('asesmen.result');
