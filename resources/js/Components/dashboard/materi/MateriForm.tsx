@@ -49,7 +49,6 @@ function MateriForm({ materi }: Props) {
         });
 
         if (materi) {
-            console.log(data);
             put(route("dashboard.materi.update"), {
                 onError: () => {
                     toast({

@@ -69,7 +69,7 @@ class RelasiController extends Controller
          ]);
       }
 
-      $query = User::with('kelompok')->where('role_id', 1)->whereNotNull(["kelompok_id", "prodi_id"]);
+      $query = User::with('kelompok')->withCount('viewers')->where('role_id', 1)->whereNotNull(["kelompok_id", "prodi_id"]);
 
       switch ($orderBy) {
          case 'followers':
@@ -79,7 +79,7 @@ class RelasiController extends Controller
             $query->withCount('followings')->orderBy('followings_count', $direction);
             break;
          case 'viewer':
-            $query->orderBy('view_count', $direction);
+            $query->orderBy('viewers_count', $direction);
             break;
          case 'name':
             $query->orderBy('name', $direction);
