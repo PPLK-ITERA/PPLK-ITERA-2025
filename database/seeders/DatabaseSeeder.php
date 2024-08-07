@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
          AssesmenQuestionSeeder::class,
          AssesmenAnswerSeeder::class,
          PilarSeeder::class,
-         PengumpulanTugasSeeder::class,
+         // PengumpulanTugasSeeder::class,
          // Add more seeders if needed
       ]);
    }
