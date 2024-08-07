@@ -35,7 +35,9 @@ export interface UserMaba {
         nim: string;
         email: string;
         role: string;
+        isKetua: boolean;
     };
+    // isKetuaExist: boolean;
 }
 
 export interface UserAuthProps {

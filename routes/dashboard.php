@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
             // =====================================
             // CRUD USER
             // =====================================
-            Route::get('store', [UserController::class, 'store'])->name('store');
+            Route::post('store', [UserController::class, 'store'])->name('store');
          });
          Route::middleware('checkRole:Admin')->group(function () {
             Route::delete('delete', [UserController::class, 'destroy'])->name('destroy');
@@ -170,6 +170,7 @@ Route::middleware('auth')->group(function () {
          // Route::get('data', [KelompokController::class, 'index'])->name('data');
          Route::put('update', [KelompokController::class, 'update'])->name('update');
          Route::get('data', [KelompokController::class, 'getKelompok'])->name('data');
+         Route::put('set-ketua', [UserController::class, 'setKetua'])->name('set-ketua');
       });
 
       // =====================================

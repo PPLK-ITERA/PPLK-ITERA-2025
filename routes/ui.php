@@ -432,4 +432,9 @@ Route::middleware('auth')->group(function () {
    Route::get('ganti-password', function () {
       return Inertia::render('GantiPassword/Page');
    })->name('ganti-password');
+
+
+   Route::get('dashboard/create-user', function () {
+      return Inertia::render('Dashboard/create-user/Page');
+   })->name('dashboard/create-user');
 });

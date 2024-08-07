@@ -74,7 +74,9 @@ class UserController extends Controller
                'email' => $user->email,
                'role' => $user->role->role,
                'kelompok' => $user->kelompok->nama_kelompok,
+               'isKetua' => $user->isKetua
             ],
+            // isKetuaExists =>
          ];
       });
 
@@ -234,41 +236,89 @@ class UserController extends Controller
    /**
     * Store a newly created resource in storage.
     */
-   public function store(UserStoreRequest $request)
+
+
+   public function store(Request $request)
    {
+
+      $validated = $request->validate([
+         'name' => ['required', 'string', 'max:120', "regex:/^[a-zA-Z\' .]+$/"],
+         'kelompok_id' => ['nullable', 'integer', 'max:130 '],
+         'prodi_id' => ['nullable', 'integer', 'max:41'],
+         'role_id' => ['required', 'integer', 'digits:1']
+      ]);
+
+      $jumlah = User::where('kelompok_id', $validated['kelompok_id'])->count();
+      $urut = $jumlah + 1;
+      $password = "naramuda2024";
+
+      // Define the closure for email generation inside the store method
+      $generateEmail = function ($number, $name, $code) {
+         // Sanitize the name to make it suitable for use in an email address
+         $sanitized_name = strtolower(preg_replace('/\s+/', '', $name));
+
+         // Format the email
+         $email = sprintf('%03d.%s.%03d@pplk.com', $number, $sanitized_name, $code);
+
+         return $email;
+      };
+
+      switch ($validated['role_id']):
+         case 1:
+            $email = $generateEmail($jumlah, $validated['name'], $validated['kelompok_id']);
+            break;
+         case 2:
+            $email = "daplok" . $validated['kelompok_id'] . "@pplk.com";
+            break;
+         case 4:
+            $email = "mentor" . $validated['kelompok_id'] . "@pplk.com";
+            break;
+         case 6:
+            $email = "korlap@pplk.com";
+            break;
+         case 7:
+            $email = "mamet@pplk.com";
+            break;
+      endswitch;
+
+      DB::beginTransaction();
       try {
-         $penyakit = Penyakit::create(
+         $user = User::create(
             [
-               'pita' => $request->pita,
-               'ket_penyakit' => $request->ket_penyakit,
+               'name' => $validated['name'],
+               'password' => bcrypt($password),
+               'email' => $email,
+               'role_id' => $validated['role_id'],
+               'kelompok_id' => $validated['kelompok_id']
             ]
          );
-         User::create(
-            [
-               'username' => $request->username,
-               'password' => bcrypt($request->password),
-               'name' => $request->name,
-               'nim' => $request->nim,
-               'role_id' => $request->role_id,
-               'penyakit' => $penyakit->id
-            ]
-         );
+
+         if ($user->role_id == 1) {
+            $qrcode = Qrcode::create([
+               'user_id' => $user->id,
+               'code' => \Str::random(10)
+            ]);
+         }
+         DB::commit();
       } catch (\Exception $e) {
-         return redirect()->route('dashboard.user.index')->with([
-            'response' => [
+         DB::rollback();
+         return redirect()->route('dashboard/create-user')->with(
+            'response',
+            [
                'status' => 500,
-               'message' => 'Gagal menambahkan user',
-               'data' => $e->getMessage()
+               'message' => $e->getMessage(),
             ]
-         ]);
+         );
       }
-      return redirect()->route('dashboard.user.index')->with([
-         'response' => [
-            'status' => 201,
+      return redirect()->route('dashboard/create-user')->with(
+         'response',
+         [
+            'status' => 200,
             'message' => 'Berhasil menambahkan user',
          ]
-      ]);
+      );
    }
+
 
    /**
     * Display the specified resource.
@@ -517,6 +567,58 @@ class UserController extends Controller
    /**
     * Remove the specified resource from storage.
     */
+
+   public function setKetua(Request $request)
+   {
+      $validated = $request->validate([
+         'id' => ['required', 'integer']
+      ]);
+
+      DB::beginTransaction();
+      try {
+         $user = User::findOrFail($validated['id']);
+         if ($user->kelompok_id != Auth::user()->kelompok_id) {
+            return redirect()->back()->with(
+               'response',
+               [
+                  'status' => 403,
+                  'message' => "You are not authorized"
+               ]
+            );
+         }
+         $status = User::where('kelompok_id', $user->kelompok_id)->where('isKetua', true);
+
+         if ($status->exists()) {
+            $ketua = $status->first();
+            $ketua->update([
+               'isKetua' => false,
+            ]);
+         }
+         if (!$user->isKetua) {
+            $user->update([
+               'isKetua' => true,
+            ]);
+         } else {
+            $user->update([
+               'isKetua' => false,
+            ]);
+         }
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollback();
+         return redirect()->back()
+            ->with('response', [
+               'status' => 500,
+               'message' => 'Gagal memilih Ketua Kelompok',
+            ]);
+      }
+
+      return redirect()->back()
+         ->with('response', [
+            'status' => 200,
+            'message' => 'Berhasil memilih Ketua Kelompok',
+         ]);
+   }
    public function destroy(Request $request)
    {
       $validated = $request->validate(

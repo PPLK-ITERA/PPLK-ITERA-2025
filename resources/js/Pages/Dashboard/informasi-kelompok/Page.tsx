@@ -2,7 +2,7 @@ import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resource
 
 import React, { useEffect, useState } from "react";
 
-import { useForm, usePage } from "@inertiajs/react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 
 import { IconPencil } from "@tabler/icons-react";
 
@@ -10,7 +10,7 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { KelompokClient } from "@/Components/tables/kelompok/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
-import { Button } from "@/Components/ui/button";
+import { Button, buttonVariants } from "@/Components/ui/button";
 import {
     Dialog,
     DialogClose,
@@ -63,7 +63,6 @@ export default function Page({ auth }: { auth: any }) {
                     variant: "destructive",
                 });
             }
-
             window.location.reload();
         }
     }, [flash, toast]);
@@ -192,6 +191,8 @@ export default function Page({ auth }: { auth: any }) {
                                             <img
                                                 src={
                                                     dataKelompok?.logo_kelompok
+                                                        ? dataKelompok?.logo_kelompok
+                                                        : logopplk
                                                 }
                                                 alt={`logo kelompok ${dataKelompok?.nama_kelompok}`}
                                             />
@@ -291,7 +292,12 @@ export default function Page({ auth }: { auth: any }) {
                 <div className="flex flex-col items-center justify-center max-w-sm px-10 py-5 border-2 rounded-md">
                     <h2 className="font-semibold">Absensi Maba</h2>
 
-                    <Button className="mt-3">Mulai Absen Maba</Button>
+                    <Link
+                        href={route("dashboard.absensi-maba/presensi")}
+                        className={`${buttonVariants()} mt-2`}
+                    >
+                        Mulai Absen Maba
+                    </Link>
                 </div>
 
                 <KelompokClient />

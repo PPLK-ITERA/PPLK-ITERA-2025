@@ -32,87 +32,12 @@ import {
 } from "@/Components/ui/select";
 import { Textarea } from "@/Components/ui/textarea";
 
+import { PRODI_DATA } from "@/lib/data/programStudi";
 import { cn } from "@/lib/utils";
 
 interface InformasiUmumFormProps {
     currentUser: DetailUser;
 }
-
-const PRODI_DATA = [
-    { id: 1, value: "biologi", label: "BIOLOGI" },
-    { id: 2, value: "farmasi", label: "FARMASI" },
-    { id: 3, value: "fisika", label: "FISIKA" },
-    { id: 4, value: "kimia", label: "KIMIA" },
-    { id: 5, value: "matematika", label: "MATEMATIKA" },
-    { id: 6, value: "sains aktuaria", label: "SAINS AKTUARIA" },
-    {
-        id: 7,
-        value: "sains atmosfir dan keplanetan",
-        label: "SAINS ATMOSFIR DAN KEPLANETAN",
-    },
-    { id: 8, value: "sains data", label: "SAINS DATA" },
-    {
-        id: 9,
-        value: "sains lingkungan kelautan",
-        label: "SAINS LINGKUNGAN KELAUTAN",
-    },
-    { id: 10, value: "arsitektur", label: "ARSITEKTUR" },
-    { id: 11, value: "arsitektur lanskap", label: "ARSITEKTUR LANSKAP" },
-    {
-        id: 12,
-        value: "desain komunikasi visual",
-        label: "DESAIN KOMUNIKASI VISUAL",
-    },
-    { id: 13, value: "pariwisata", label: "PARIWISATA" },
-    {
-        id: 14,
-        value: "rekayasa tata kelola air terpadu",
-        label: "REKAYASA TATA KELOLA AIR TERPADU",
-    },
-    { id: 15, value: "teknik geomatika", label: "TEKNIK GEOMATIKA" },
-    { id: 16, value: "teknik kelautan", label: "TEKNIK KELAUTAN" },
-    { id: 17, value: "teknik lingkungan", label: "TEKNIK LINGKUNGAN" },
-    { id: 18, value: "teknik perkeretaapian", label: "TEKNIK PERKERETAAPIAN" },
-    { id: 19, value: "teknik sipil", label: "TEKNIK SIPIL" },
-    {
-        id: 20,
-        value: "perencanaan wilayah dan kota",
-        label: "PERENCANAAN WILAYAH DAN KOTA",
-    },
-    {
-        id: 21,
-        value: "rekayasa instrumentasi dan automasi",
-        label: "REKAYASA INSTRUMENTASI DAN AUTOMASI",
-    },
-    { id: 22, value: "rekayasa kehutanan", label: "REKAYASA KEHUTANAN" },
-    { id: 23, value: "rekayasa keolahragaan", label: "REKAYASA KEOLAHRAGAAN" },
-    { id: 24, value: "rekayasa kosmetik", label: "REKAYASA KOSMETIK" },
-    {
-        id: 25,
-        value: "rekayasa minyak dan gas",
-        label: "REKAYASA MINYAK DAN GAS",
-    },
-    { id: 26, value: "teknik biomedis", label: "TEKNIK BIOMEDIS" },
-    { id: 27, value: "teknik elektro", label: "TEKNIK ELEKTRO" },
-    { id: 28, value: "teknik fisika", label: "TEKNIK FISIKA" },
-    { id: 29, value: "teknik geofisika", label: "TEKNIK GEOFISIKA" },
-    { id: 30, value: "teknik geologi", label: "TEKNIK GEOLOGI" },
-    { id: 31, value: "teknik industri", label: "TEKNIK INDUSTRI" },
-    { id: 32, value: "teknik informatika", label: "TEKNIK INFORMATIKA" },
-    { id: 33, value: "teknik kimia", label: "TEKNIK KIMIA" },
-    { id: 34, value: "teknik material", label: "TEKNIK MATERIAL" },
-    { id: 35, value: "teknik mesin", label: "TEKNIK MESIN" },
-    { id: 36, value: "teknik pertambangan", label: "TEKNIK PERTAMBANGAN" },
-    { id: 37, value: "teknik sistem energi", label: "TEKNIK SISTEM ENERGI" },
-    { id: 38, value: "teknik telekomunikasi", label: "TEKNIK TELEKOMUNIKASI" },
-    { id: 39, value: "teknik biosistem", label: "TEKNIK BIOSISTEM" },
-    {
-        id: 40,
-        value: "teknologi industri pertanian",
-        label: "TEKNOLOGI INDUSTRI PERTANIAN",
-    },
-    { id: 41, value: "teknologi pangan", label: "TEKNOLOGI PANGAN" },
-];
 
 const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
     const { data, setData, put } = useForm({

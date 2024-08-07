@@ -32,6 +32,12 @@ export const columns: ColumnDef<UserMaba>[] = [
         cell: ({ row }) => row.original.user.email,
     },
     {
+        id: "status",
+        accessorKey: "user.isKetua",
+        header: "Status",
+        cell: ({ row }) => (row.original.user.isKetua ? "Ketua" : "Anggota"),
+    },
+    {
         id: "actions",
         header: "Aksi",
         cell: ({ row }) => <CellAction data={row.original} />,
