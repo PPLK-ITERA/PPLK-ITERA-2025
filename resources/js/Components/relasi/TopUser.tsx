@@ -68,7 +68,7 @@ export default function TopUser({
 
             {user && (
                 <a
-                    className="text-lg font-bold hover:scale-105 hover:underline transition"
+                    className="hover:scale-105 hover:underline text-lg font-bold transition"
                     href={route("relasi.profil", { id: user.id })}
                 >
                     {user.name}
