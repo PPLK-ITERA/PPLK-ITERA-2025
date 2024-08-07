@@ -6,14 +6,10 @@ import { Head } from "@inertiajs/react";
 
 function Page() {
     const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
-        loaderUrl:
-            "https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/Build/naramuda_explorer.loader.js",
-        dataUrl:
-            "https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/Build/naramuda_explorer.data",
-        frameworkUrl:
-            "https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/Build/naramuda_explorer.framework.js",
-        codeUrl:
-            "https://cdn.jsdelivr.net/gh/krossmanzs/test-naramuda-explorer@main/Build/optimized.wasm",
+        loaderUrl: "/naramuda_explorer/Build/naramuda_explorer.loader.js",
+        dataUrl: "/naramuda_explorer/Build/naramuda_explorer.data",
+        frameworkUrl: "/naramuda_explorer/Build/naramuda_explorer.framework.js",
+        codeUrl: "/naramuda_explorer/Build/naramuda_explorer.wasm",
     });
 
     return (

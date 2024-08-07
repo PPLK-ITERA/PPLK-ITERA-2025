@@ -23,9 +23,7 @@ export default function Maskot() {
                 </h2>
 
                 <p className="mt-5 font-montserrat text-[16px] font-normal text-white/80 md:text-lg lg:max-w-[80%] lg:text-2xl">
-                    Hai, Aku ChaBud, Maskot PPLK 2024, Barang siapa ? barang
-                    gwehh! Aku hadir untuk memberikan informasi seputar PPLK
-                    2024 nih, yuk kenalan lebih jauh sama aku!
+                    Coming Soon
                 </p>
 
                 <Link
@@ -36,7 +34,7 @@ export default function Maskot() {
                 </Link>
             </div>
 
-            <div className="md:w-[50%] lg:w-2/5 flex items-center justify-center w-full h-full text-white">
+            <div className="md:w-[50%] lg:w-2/5 flex items-center justify-center w-full h-full text-white hidden">
                 <Carousel
                     opts={{
                         align: "center",
