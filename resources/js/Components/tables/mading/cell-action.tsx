@@ -41,7 +41,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             />
             <div className="flex gap-1 p-2">
                 <Link
-                    href={`/dashboard/user/edit/${data.id}`}
+                    href={`/dashboard/mading/user/${data.id}`}
                     className={`${buttonVariants({ size: "sm" })}`}
                 >
                     Lihat Semua Tugas

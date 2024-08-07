@@ -25,34 +25,43 @@ import {
 } from "@/Components/ui/table";
 import { Textarea } from "@/Components/ui/textarea";
 
-interface Task {
+interface PengumpulanTugas {
     id: number;
-    judul: string;
-    deskripsi: string;
-    hari: string;
-    tipe_link: string;
-    kategori: string;
-    deadline: string;
-    pengumpulan_tugas: Submission[];
+    created_at: string;
+    updated_at: string;
+    tanggal_submit: string;
+    jawaban: string;
+    tugas_id: number;
+    user_id: number;
+    isReturn: number;
+    catatan: string | null;
 }
 
-interface Submission {
+interface TaskWithSubmission {
     id: number;
-    tugas_id: number;
-    jawaban: string;
-    isReturn: number;
+    created_at: string;
+    updated_at: string;
+    deadline: string;
+    deskripsi: string;
+    judul: string;
+    kartu_id: number;
+    kategori: string;
+    pengumpulan: string;
+    pengumpulan_tugas: PengumpulanTugas;
 }
 
 interface TugasKelompokProps {}
 
-const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
+const CoverMading: FC<TugasKelompokProps> = ({}) => {
     const [loading, setLoading] = useState<boolean>(true);
-    const [dataTugasKelompok, setDataTugasKelompok] = useState<Task[]>([]);
+    const [dataTugasKelompok, setDataTugasKelompok] = useState<
+        TaskWithSubmission[]
+    >([]);
 
     const getTugasKelompokData = async () => {
         setLoading(true);
 
-        const response = await fetch(route("dashboard.tugas.data.kelompok"), {
+        const response = await fetch(route("dashboard.tugas.data.poster"), {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -61,7 +70,7 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
 
         const tugas = await response.json();
         setDataTugasKelompok(tugas.response.data);
-        console.log("tugasKelompok", tugas.response.data);
+        console.log(tugas.response.data);
 
         setLoading(false);
     };
@@ -124,38 +133,30 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
                                             <a
                                                 className="line-clamp-1 text-wrap"
                                                 href={
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
+                                                    tugas.pengumpulan_tugas
+                                                        ?.jawaban
                                                 }
                                                 target="_blank"
                                             >
                                                 {
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
+                                                    tugas.pengumpulan_tugas
+                                                        ?.jawaban
                                                 }
                                             </a>
                                         </TableCell>
                                         <TableCell>
-                                            {tugas.pengumpulan_tugas[index]
-                                                .isReturn
+                                            {tugas.pengumpulan_tugas?.isReturn
                                                 ? "Dikembalikan"
                                                 : "Diterima"}
                                         </TableCell>
                                         <TableCell className="flex gap-1">
-                                            <a
-                                                href={`${
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
-                                                }`}
-                                                target="_blank"
+                                            <Link
+                                                href={`${tugas.pengumpulan_tugas?.jawaban}`}
                                             >
                                                 <Button size="sm">
                                                     Lihat Tugas
                                                 </Button>
-                                            </a>
+                                            </Link>
 
                                             <Dialog>
                                                 <DialogTrigger asChild>
@@ -167,9 +168,8 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
                                                             setData(
                                                                 "id",
                                                                 tugas
-                                                                    .pengumpulan_tugas[
-                                                                    index
-                                                                ].id,
+                                                                    .pengumpulan_tugas
+                                                                    .id,
                                                             )
                                                         }
                                                     >
@@ -246,4 +246,4 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
     );
 };
 
-export default TugasKelompok;
+export default CoverMading;

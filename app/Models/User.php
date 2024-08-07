@@ -78,7 +78,7 @@ class User extends Authenticatable
    {
       return $this->hasMany(Views::class, 'viewing_user_id');
    }
-   
+
 
    public function kelompok()
    {
@@ -109,7 +109,7 @@ class User extends Authenticatable
    }
    public function presensi()
    {
-      return $this->hasOne(PresensiPplk::class, 'user_id', 'id');
+      return $this->hasMany(PresensiPplk::class, 'user_id', 'id');
    }
    public function prodi()
    {

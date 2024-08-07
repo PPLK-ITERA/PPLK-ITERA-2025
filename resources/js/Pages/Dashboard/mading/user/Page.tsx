@@ -1,12 +1,13 @@
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { usePage } from "@inertiajs/react";
 
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import CoverMading from "@/Components/dashboard/mading/CoverMading";
+import DetailTugasUser from "@/Components/dashboard/mading/DetailTugasUser";
 import TugasKelompok from "@/Components/dashboard/mading/TugasKelompok";
 import { MadingClient } from "@/Components/tables/mading/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
@@ -17,6 +18,7 @@ import { useToast } from "@/Components/ui/use-toast";
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
     { title: "Mading", link: "/dashboard/mading" },
+    { title: "Detail Tugas", link: "/dashboard/mading/user" },
 ];
 
 interface flashresponse extends PageProps {
@@ -28,7 +30,7 @@ interface flashresponse extends PageProps {
     };
 }
 
-export default function Page({ auth }) {
+export default function Page({ auth, id }) {
     const { toast } = useToast();
     const { flash } = usePage<flashresponse>().props;
 
@@ -56,21 +58,8 @@ export default function Page({ auth }) {
         <>
             <DashboardLayout user={auth.user}>
                 <Breadcrumbs items={breadcrumbItems} />
-                <h2 className="text-3xl font-bold tracking-tight">Mading</h2>
 
-                <MadingClient />
-
-                {/* Tugas Kelompok */}
-
-                <h2 className="text-3xl font-bold tracking-tight">
-                    Tugas Kelompok
-                </h2>
-                <TugasKelompok />
-
-                <h2 className="text-3xl font-bold tracking-tight">
-                    Cover Mading
-                </h2>
-                {/* <CoverMading /> */}
+                <DetailTugasUser id={id} />
             </DashboardLayout>
 
             <Toaster />

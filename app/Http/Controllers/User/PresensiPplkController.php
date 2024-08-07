@@ -194,16 +194,22 @@ class PresensiPplkController extends Controller
    {
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
-      if($date == null){
-         $date = Carbon::today();
-      }
+      $date = $date ?: Carbon::today()->toDateString();
 
+      // Define the time window when actions are allowed
+      $currentTime = Carbon::now();
+      $start = Carbon::today()->setHour(7); // 7 AM today
+      $end = Carbon::today()->setHour(20); // 8 PM today
+
+      // Check if the action is permissible based on the date and current time
+      $action = $date === Carbon::today()->toDateString() &&
+         $currentTime->between($start, $end);
 
       if (!in_array(Auth::user()->role_id, [2, 4, 5, 3])) {
          return response()->json([
             'response' => [
                'status' => 403,
-               'message' => 'Anda tidak memiliki akses',
+               'message' => 'You do not have access',
             ]
          ], 403);
       }
@@ -216,39 +222,43 @@ class PresensiPplkController extends Controller
          $query->where('prodi_id', Auth::user()->prodi_id);
       }
 
-      $query->with(['penyakit', 'kelompok', 'presensi'])
-         ->where(function ($q) use ($searchTerm, $date) {
-            $q->where('name', 'like', '%' . $searchTerm . '%')
-               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-               ->orWhere('email', 'like', '%' . $searchTerm . '%')
-               ->orWhereHas('presensi', function ($query) use ($searchTerm, $date) {
-                  $query->where('kehadiran', 'like', '%' . $searchTerm . '%')
-                     ->orWhere('tanggal_presensi', $date);
-               });
-         });
+      $query->with([
+         'penyakit',
+         'kelompok',
+         'presensi' => function ($q) use ($date) {
+            $q->where('tanggal_presensi', $date);
+         }
+      ]);
+
+      $query->where(function ($q) use ($searchTerm) {
+         $q->where('name', 'like', '%' . $searchTerm . '%')
+            ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+            ->orWhere('email', 'like', '%' . $searchTerm . '%');
+      });
 
       $attendances = $query->paginate($perPage);
 
-      $attendances->getCollection()->transform(function ($user, $key) use ($perPage, $attendances) {
-         $currentIndex = ($attendances->currentPage() - 1) * $perPage + $key + 1;
+      // Add the action boolean to the pagination result
+      $attendances->getCollection()->transform(function ($user) use ($action) {
+         $presence = optional($user->presensi)->first(); // Safe access
          return [
-            'no' => $currentIndex,
             'id' => $user->id,
             'user' => [
                'name' => $user->name,
                'nim' => $user->nim,
                'email' => $user->email,
-               'photo_profile_url' => $user->photo_profile_url,
+               'photo_profile_url' => $user->photo_profile_url ?? null,
                'qrcode' => optional($user->qrcode)->code,
                'nama_kelompok' => optional($user->kelompok)->nama_kelompok,
                'penyakit' => [
                   'pita' => optional($user->penyakit)->pita,
                   'ket_penyakit' => optional($user->penyakit)->ket_penyakit,
                ],
-               'status' => optional($user->presensi)->kehadiran ?: 'Tidak Hadir',
-               'tanggal_presensi' => optional($user->presensi)->tanggal_presensi ?: '-',
-               'ket_izin' => optional($user->presensi)->kehadiran === 'Izin' ? $user->presensi->keterangan : '-',
+               'status' => $presence ? $presence->kehadiran : 'Tidak Hadir',
+               'tanggal_presensi' => $presence ? $presence->tanggal_presensi : '-',
+               'ket_izin' => ($presence && $presence->kehadiran === 'Izin') ? $presence->keterangan : '-',
             ],
+            'action' => $action // Include the action key here
          ];
       });
 
@@ -256,32 +266,54 @@ class PresensiPplkController extends Controller
    }
 
 
+
+
+
    public function store(Request $request)
    {
+      // Check if the current time is within the allowed range
+      $currentTime = Carbon::now();
+      $start = Carbon::today()->setHour(7); // 7 AM today
+      $end = Carbon::today()->setHour(20); // 8 PM today
+
+      if (!$currentTime->between($start, $end)) {
+         return redirect()->route('dashboard.absensi-maba')->with('response', [
+            'status' => 403,
+            'message' => 'Presensi hanya dapat ditambahkan antara jam 7 pagi dan 8 malam.'
+         ]);
+      }
+
+      // Validation rules
       $validated = $request->validate([
          'id' => 'required|integer',
          'kehadiran' => 'required|in:Hadir,Izin',
          'keterangan' => 'string|nullable'
       ]);
 
+      // Start transaction
       DB::beginTransaction();
       try {
-         $presensi = PresensiPplk::create(
-            [
-               'user_id' => $validated['id'],
-               'tanggal_presensi' => Carbon::today(),
-               'kehadiran' => $validated['kehadiran'],
-               'keterangan' => $validated['keterangan']
-            ]
-         );
+         $presensi = PresensiPplk::create([
+            'user_id' => $validated['id'],
+            'tanggal_presensi' => Carbon::today(),
+            'kehadiran' => $validated['kehadiran'],
+            'keterangan' => $validated['keterangan']
+         ]);
          DB::commit();
       } catch (\Throwable $th) {
+         // Rollback and return with error
          DB::rollBack();
-         return redirect()->route('dashboard.absensi-maba')->with('failed', 'Presensi gagal ditambahkan');
+         return redirect()->route('dashboard.absensi-maba')->with('response', [
+            'status' => 500,
+            'message' => 'Terjadi kesalahan saat menyimpan data.'
+         ]);
       }
-
-      return redirect()->route('dashboard.absensi-maba')->with('success', 'Presensi berhasil ditambahkan');
+      return redirect()->route('dashboard.absensi-maba')->with('response', [
+         'status' => 200,
+         'message' => 'Presensi berhasil ditambahkan'
+      ]);
    }
+
 
    public function updateKehadiran(Request $request)
    {

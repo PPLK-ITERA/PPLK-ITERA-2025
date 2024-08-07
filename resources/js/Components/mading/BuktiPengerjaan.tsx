@@ -45,10 +45,18 @@ export default function BuktiPengerjaan({
                             className={`bg-white ${data.card.cardOpen[index] ? "" : "bg-jaffa-700"} xl:w-[400px] md:w-[350px] lg:w-[350px] md:h-[550px] w-[280px] h-[400px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserrat`}
                         >
                             <CardContent className="relative flex flex-col items-center justify-center h-full p-0 text-white">
+                                {index !== 0 ? (
+                                    <h2
+                                        className={`font-avigea text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
+                                    >
+                                        Day {index}
+                                    </h2>
+                                ) : null}
+
                                 {data.card.cardOpen[index] ? (
                                     <>
                                         <Link
-                                            className="text-[48px] font-bold text-jaffa-700 bg-transparent"
+                                            className="text-[48px] font-bold text-jaffa-700 aspect-square flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent"
                                             href={`/mading/pengumpulan/${index}`}
                                         >
                                             +
@@ -70,11 +78,7 @@ export default function BuktiPengerjaan({
                                             <div className="flex flex-col w-full">
                                                 {index !== 0 ? (
                                                     <>
-                                                        <h2 className="font-avigea text-[44px] text-center">
-                                                            Day {index}
-                                                        </h2>
-
-                                                        <div className="scale-50">
+                                                        <div className="w-[50%] mx-auto">
                                                             <CircularProgressbarWithChildren
                                                                 value={percent}
                                                                 text={`${Math.floor(percent)}%`}

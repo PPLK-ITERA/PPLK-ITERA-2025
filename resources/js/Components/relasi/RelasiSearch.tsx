@@ -14,7 +14,6 @@ function RelasiSearch({
     className?: string;
     onsubmit: (search: string) => void;
 }) {
-    
     const [search, setSearch] = useState("");
     return (
         <form

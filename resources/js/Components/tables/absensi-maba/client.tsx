@@ -5,7 +5,11 @@ import { columns } from "./columns";
 import { DataTable } from "@/Components/ui/data-table";
 import { Separator } from "@/Components/ui/separator";
 
-export const AbsensiMabaClient = () => {
+interface AbsensiMabaClientProps {
+    day: string;
+}
+
+export const AbsensiMabaClient = ({ day }: AbsensiMabaClientProps) => {
     return (
         <>
             <div className="flex items-start justify-between"></div>
@@ -13,7 +17,7 @@ export const AbsensiMabaClient = () => {
             <DataTable
                 searchKey="name"
                 columns={columns}
-                apiEndpoint={route("dashboard.presensi.data")}
+                apiEndpoint={route("dashboard.presensi.data", { date: day })}
                 title={"Data Absensi Maba"}
                 description={
                     "Gunakan sistem informasi ini untuk manajemen kehadiran maba!"

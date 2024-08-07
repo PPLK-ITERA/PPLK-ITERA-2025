@@ -1,6 +1,6 @@
 import Presensi from "./Presensi";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
@@ -24,16 +24,45 @@ const breadcrumbItems = [
 ];
 
 export default function Page({ auth, response }) {
+    const [hadir, setHadir] = useState(0);
+    const [tidakHadir, setTidakHadir] = useState(0);
+    const [izin, setIzin] = useState(0);
+    const [selectedDay, setSelectedDay] = useState("2024-08-10"); // State untuk menyimpan hari yang dipilih
+
     const handleDate = (value) => {
-        console.log("date", value);
+        setSelectedDay(value); // Update state ketika pengguna memilih hari
     };
+
+    const getCountPresensi = async () => {
+        const response = await fetch(
+            route("dashboard.presensi.count", { date: selectedDay }),
+        );
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        const data = await response.json();
+
+        setHadir(data.response.data.hadir);
+        setTidakHadir(data.response.data.tidakHadir);
+        setIzin(data.response.data.izin);
+    };
+
+    useEffect(() => {
+        getCountPresensi();
+    }, []);
+
+    useEffect(() => {
+        getCountPresensi();
+    }, [handleDate]);
 
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />
             <h2 className="text-3xl font-bold tracking-tight">Absensi Maba</h2>
 
-            <Select onValueChange={handleDate}>
+            <Select onValueChange={handleDate} defaultValue={selectedDay}>
                 <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Pilih Hari/Tanggal" />
                 </SelectTrigger>
@@ -41,7 +70,7 @@ export default function Page({ auth, response }) {
                     <SelectGroup>
                         <SelectLabel>Day PPLK</SelectLabel>
 
-                        <SelectItem value="2024-08-01">Pra-PPLK</SelectItem>
+                        <SelectItem value="2024-08-10">Pra-PPLK</SelectItem>
                         <SelectItem value="2024-08-12">Day 1 PPLK</SelectItem>
                         <SelectItem value="2024-08-13">Day 2 PPLK</SelectItem>
                         <SelectItem value="2024-08-14">Day 3 PPLK</SelectItem>
@@ -69,7 +98,7 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold"></div>
+                        <div className="text-2xl font-bold">{hadir}</div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -88,7 +117,7 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold"></div>
+                        <div className="text-2xl font-bold">{tidakHadir}</div>
                     </CardContent>
                 </Card>
                 <Card>
@@ -107,7 +136,7 @@ export default function Page({ auth, response }) {
                         </svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold"></div>
+                        <div className="text-2xl font-bold">{izin}</div>
                     </CardContent>
                 </Card>
             </div>
@@ -123,7 +152,7 @@ export default function Page({ auth, response }) {
                     <Presensi />
                 </TabsContent>
                 <TabsContent value="tabel-kehadiran">
-                    <AbsensiMabaClient />
+                    <AbsensiMabaClient day={selectedDay} />
                 </TabsContent>
             </Tabs>
         </DashboardLayout>

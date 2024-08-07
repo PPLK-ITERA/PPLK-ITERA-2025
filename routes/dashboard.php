@@ -115,6 +115,7 @@ Route::middleware('auth')->group(function () {
             Route::post('store', [PresensiPplkController::class, 'store'])->name('absen');
             Route::post('izin/{id}', [PresensiPplkController::class, 'izin'])->name('izin');
             Route::post('scan', [PresensiPplkController::class, 'QRScan'])->name('scan');
+            Route::get('count', [PresensiPplkController::class, 'dataHadir'])->name('count');
          });
       });
 

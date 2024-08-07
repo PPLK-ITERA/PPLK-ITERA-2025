@@ -68,7 +68,7 @@ export function DataTable<TData, TValue>({
 
     useEffect(() => {
         fetchTableData();
-    }, [page, perPage, search]);
+    }, [apiEndpoint, page, perPage, search]);
 
     const table = useReactTable({
         data,

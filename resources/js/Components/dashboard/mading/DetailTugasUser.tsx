@@ -25,49 +25,55 @@ import {
 } from "@/Components/ui/table";
 import { Textarea } from "@/Components/ui/textarea";
 
-interface Task {
+interface TaskSubmission {
     id: number;
-    judul: string;
-    deskripsi: string;
-    hari: string;
-    tipe_link: string;
-    kategori: string;
-    deadline: string;
-    pengumpulan_tugas: Submission[];
-}
-
-interface Submission {
-    id: number;
+    user_id: number;
     tugas_id: number;
     jawaban: string;
+    nama: string;
     isReturn: number;
+    tanggal_submit: string;
+    nama_tugas: string;
+    catatan: string | null;
 }
 
-interface TugasKelompokProps {}
+// Optionally, you can use an array type for multiple submissions
+type TaskSubmissions = TaskSubmission[];
 
-const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
+interface TugasKelompokProps {
+    id: number;
+}
+
+const DetailTugasUser: FC<TugasKelompokProps> = ({ id }) => {
     const [loading, setLoading] = useState<boolean>(true);
-    const [dataTugasKelompok, setDataTugasKelompok] = useState<Task[]>([]);
+    const [tugas, setTugas] = useState<TaskSubmissions>([]);
+    const [nama, setNama] = useState<string>("");
 
-    const getTugasKelompokData = async () => {
+    const getTugasUser = async () => {
         setLoading(true);
 
-        const response = await fetch(route("dashboard.tugas.data.kelompok"), {
+        const response = await fetch(route("dashboard.tugas.data.user", id), {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                Accept: "application/json",
             },
         });
 
-        const tugas = await response.json();
-        setDataTugasKelompok(tugas.response.data);
-        console.log("tugasKelompok", tugas.response.data);
+        if (!response.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        const data = await response.json();
+
+        setTugas(data.response.data);
+        setNama(data.nama);
 
         setLoading(false);
     };
 
     useEffect(() => {
-        getTugasKelompokData();
+        getTugasUser();
     }, []);
 
     const { data, setData, put } = useForm({
@@ -82,6 +88,10 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
 
     return (
         <>
+            <h2 className="text-3xl font-bold tracking-tight">
+                Detail Tugas {nama}
+            </h2>
+
             <ScrollArea className="whitespace-nowrap max-w-7xl mt-5 overflow-hidden rounded-md">
                 <Table className="relative border">
                     <TableHeader>
@@ -110,46 +120,33 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
                             </TableRow>
                         ) : (
                             <>
-                                {dataTugasKelompok.map((tugas, index) => (
+                                {tugas.map((tugas, index) => (
                                     <TableRow key={index}>
                                         <TableCell className="font-medium">
                                             {index + 1}
                                         </TableCell>
                                         <TableCell>
                                             <p className="line-clamp-1">
-                                                {tugas.judul}
+                                                {tugas.nama_tugas}
                                             </p>
                                         </TableCell>
                                         <TableCell>
                                             <a
                                                 className="line-clamp-1 text-wrap"
-                                                href={
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
-                                                }
+                                                href={tugas.jawaban}
                                                 target="_blank"
                                             >
-                                                {
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
-                                                }
+                                                {tugas.jawaban}
                                             </a>
                                         </TableCell>
                                         <TableCell>
-                                            {tugas.pengumpulan_tugas[index]
-                                                .isReturn
+                                            {tugas.isReturn
                                                 ? "Dikembalikan"
                                                 : "Diterima"}
                                         </TableCell>
                                         <TableCell className="flex gap-1">
                                             <a
-                                                href={`${
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
-                                                }`}
+                                                href={tugas.jawaban}
                                                 target="_blank"
                                             >
                                                 <Button size="sm">
@@ -158,24 +155,23 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
                                             </a>
 
                                             <Dialog>
-                                                <DialogTrigger asChild>
-                                                    <Button
-                                                        className="gap-2"
-                                                        variant="outline"
-                                                        size="sm"
-                                                        onClick={() =>
-                                                            setData(
-                                                                "id",
-                                                                tugas
-                                                                    .pengumpulan_tugas[
-                                                                    index
-                                                                ].id,
-                                                            )
-                                                        }
-                                                    >
-                                                        Kembalikan Tugas
-                                                    </Button>
-                                                </DialogTrigger>
+                                                {tugas.isReturn ? null : (
+                                                    <DialogTrigger asChild>
+                                                        <Button
+                                                            className="gap-2"
+                                                            variant="outline"
+                                                            size="sm"
+                                                            onClick={() =>
+                                                                setData(
+                                                                    "id",
+                                                                    tugas.id,
+                                                                )
+                                                            }
+                                                        >
+                                                            Kembalikan Tugas
+                                                        </Button>
+                                                    </DialogTrigger>
+                                                )}
 
                                                 <DialogContent className="sm:max-w-[425px]">
                                                     <DialogHeader>
@@ -246,4 +242,4 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
     );
 };
 
-export default TugasKelompok;
+export default DetailTugasUser;
