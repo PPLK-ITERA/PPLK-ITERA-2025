@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
    Route::get('/myprofile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
    Route::put('/myprofile', [ProfileController::class, 'update'])->name('profile.update');
    Route::put('/myprofileupload', [ProfileController::class, 'updateProfile'])->name('profile.update.profile');
+   Route::put('ganti-password', [ProfileController::class, 'resetPassword'])->name('first.change.password');
 
    Route::prefix('mading')->name('mading.')->group(function () {
       // Route::get('/', [MadingController::class, 'index'])->name('index');

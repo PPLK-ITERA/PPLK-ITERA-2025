@@ -26,6 +26,7 @@ class User extends Authenticatable
       'instagram_url',
       'link_sertif',
       'kelompok_id',
+      'isFirstTime',
       'isKetua',
       'pilar',
       'qrcode_id',

@@ -428,4 +428,8 @@ Route::middleware('auth')->group(function () {
          'id' => $id
       ]);
    })->name('/dashboard/mading/user/{id}');
+
+   Route::get('ganti-password', function () {
+      return Inertia::render('GantiPassword/Page');
+   })->name('ganti-password');
 });

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
@@ -14,6 +14,7 @@ import VideoSection from "@/Components/landing-page/VideoSection";
 import What from "@/Components/landing-page/What";
 
 import { useAos } from "@/lib/hooks/useAos";
+import { UserAuthProps } from "@/lib/types/User";
 
 import elang from "!assets/elang-hero.png";
 import overlay_box from "!assets/overlay-box.png";
@@ -90,7 +91,7 @@ export default function LandingPage() {
                     data-aos="fade-up"
                     data-aos-duration={1000}
                     className="bg-pattern-white pt-40 pb-20"
-                >   
+                >
                     <InfoSection />
                 </div>
 
