@@ -8,6 +8,8 @@ import { Kelompok } from "@/lib/types/Scoreboard";
 
 import crown from "!assets/svg/crown.svg";
 
+import logoPplk from "!assets/logo-pplk-hd.png";
+
 type Props = {
     kelompok?: Kelompok;
     rank: number;
@@ -62,7 +64,7 @@ export default function TopKelompok({
                         src={
                             kelompok.logo_kelompok
                                 ? kelompok.logo_kelompok
-                                : "https://picsum.photos/200"
+                                : logoPplk
                         }
                         alt={kelompok.nama_kelompok}
                         className="z-0 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full w-full h-full object-contain object-center"
