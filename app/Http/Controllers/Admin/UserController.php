@@ -437,7 +437,7 @@ class UserController extends Controller
       // Validate additional fields for admins
       if ($user->role_id == 1) {
          $adminValidated = $request->validate([
-            'pita' => ['required', 'string', 'in:hijau,kuning,merah'],
+            'pita' => ['nullable', 'string', 'in:hijau,kuning,merah'],
             'ket_penyakit' => ['nullable', 'string', 'max:120'],
          ]);
       }
