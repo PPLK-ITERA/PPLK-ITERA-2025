@@ -61,11 +61,7 @@ export default function LandingPage() {
 
                 <FilosofiLogo />
 
-                <div
-                    data-aos="fade-up"
-                    data-aos-duration={1000}
-                    className="relative bg-[#170C0A] -mt-1 bg-pattern-white"
-                >
+                <div className="relative bg-[#170C0A] -mt-1 bg-pattern-white">
                     <MaxWidthWrapper>
                         <Maskot />
                     </MaxWidthWrapper>
@@ -87,11 +83,7 @@ export default function LandingPage() {
                     className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
                 />
 
-                <div
-                    data-aos="fade-up"
-                    data-aos-duration={1000}
-                    className="bg-pattern-white pt-40 pb-20"
-                >
+                <div className="bg-pattern-white pt-40 pb-20">
                     <InfoSection />
                 </div>
 

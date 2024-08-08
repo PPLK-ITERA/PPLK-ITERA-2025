@@ -10,6 +10,12 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
+import elmufid from "!assets/logo-sponsor/elmufid.png";
+import goodday from "!assets/logo-sponsor/goodday.png";
+import khaf from "!assets/logo-sponsor/khaf.png";
+import lirik_kita from "!assets/logo-sponsor/lirik-kita.png";
+import mandiri from "!assets/logo-sponsor/mandiri.png";
+import wardah from "!assets/logo-sponsor/wardah.png";
 import a_radio from "!assets/media-patners/a-radio.png";
 import eventlampung from "!assets/media-patners/eventlampungdotcom.png";
 import infokyai from "!assets/media-patners/infokyai.jpg";
@@ -49,6 +55,33 @@ const data_media_partner = [
     },
 ];
 
+const data_sponsor = [
+    {
+        name: "Elmufid",
+        src: elmufid,
+    },
+    {
+        name: "Good Day",
+        src: goodday,
+    },
+    {
+        name: "Khaf",
+        src: khaf,
+    },
+    {
+        name: "Lirik Kita",
+        src: lirik_kita,
+    },
+    {
+        name: "Mandiri",
+        src: mandiri,
+    },
+    {
+        name: "Wardah",
+        src: wardah,
+    },
+];
+
 export default function Sponsorship() {
     return (
         <MaxWidthWrapper className="relative flex flex-col items-center w-full bg-white">
@@ -72,17 +105,19 @@ export default function Sponsorship() {
                     ]}
                 >
                     <CarouselContent>
-                        {Array.from({ length: 10 }).map((_, index) => (
+                        {data_sponsor.map((_, index) => (
                             <CarouselItem
                                 key={index}
                                 className="min-h-[200px] min-w-[200px] basis-1/5"
                             >
                                 <div className="p-1">
-                                    <Card className="p-1">
-                                        <CardContent className="aspect-square flex items-center justify-center p-6">
-                                            <span className="text-3xl font-semibold">
-                                                {index + 1}
-                                            </span>
+                                    <Card className="overflow-hidden border-none shadow-none">
+                                        <CardContent className="aspect-square flex items-center justify-center w-full h-full p-0">
+                                            <img
+                                                src={_.src}
+                                                alt={_.name}
+                                                className="object-contain w-full h-full"
+                                            />
                                         </CardContent>
                                     </Card>
                                 </div>

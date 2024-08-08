@@ -16,16 +16,7 @@ const SosmedKM = () => {
                 <div className="sm:gap-6 sm:pt-10 flex flex-row gap-2 pt-2 pb-1">
                     <div className="flex items-center justify-center overflow-hidden bg-white rounded-full">
                         <a
-                            href="https://www.instagram.com/thebugitself/"
-                            target="_blank"
-                        >
-                            <img src={x} alt="x" className="p-3" />
-                        </a>
-                    </div>
-
-                    <div className="flex items-center justify-center overflow-hidden bg-white rounded-full">
-                        <a
-                            href="https://www.instagram.com/thebugitself/"
+                            href="https://www.instagram.com/km_itera/"
                             target="_blank"
                         >
                             <img src={ig} alt="instagram" className="p-3" />
@@ -34,7 +25,7 @@ const SosmedKM = () => {
 
                     <div className="flex items-center justify-center overflow-hidden bg-white rounded-full">
                         <a
-                            href="https://www.instagram.com/thebugitself/"
+                            href="https://www.youtube.com/@KMITERA"
                             target="_blank"
                         >
                             <img src={yt} alt="youtube" className="p-2" />
@@ -43,7 +34,7 @@ const SosmedKM = () => {
 
                     <div className="flex items-center justify-center overflow-hidden bg-white rounded-full">
                         <a
-                            href="https://www.instagram.com/thebugitself/"
+                            href="https://www.tiktok.com/@kmitera"
                             target="_blank"
                         >
                             <img src={tiktok} alt="tiktok" className="p-3" />

@@ -20,7 +20,7 @@ const LYRICS = {
             id: 1,
             lines: [
                 "Institut Teknologi Sumatera",
-                "Pewaris perdaban bangsa",
+                "Pewaris peradaban bangsa",
                 "Junjung martabat tiada cela",
                 "Nilai budaya nusantara",
             ],
@@ -230,12 +230,23 @@ export default function Page() {
         <DefaultLayout isSolid={true}>
             <div className="min-h-screen py-[100px] bg-pattern-white font-montserrat">
                 <Tabs defaultValue="hymne-itera" className="max-w-6xl mx-auto">
-                    <TabsList className="grid w-full grid-cols-3 lg:h-14">
-                        <TabsTrigger className="h-full lg:text-lg" value="hymne-itera">
+                    <TabsList className="lg:h-14 grid w-full grid-cols-3">
+                        <TabsTrigger
+                            className="lg:text-lg h-full"
+                            value="hymne-itera"
+                        >
                             Hymne Itera
                         </TabsTrigger>
-                        <TabsTrigger className="h-full lg:text-lg" value="mars-itera">Mars Itera</TabsTrigger>
-                        <TabsTrigger className="h-full lg:text-lg" value="anthem-pplk">
+                        <TabsTrigger
+                            className="lg:text-lg h-full"
+                            value="mars-itera"
+                        >
+                            Mars Itera
+                        </TabsTrigger>
+                        <TabsTrigger
+                            className="lg:text-lg h-full"
+                            value="anthem-pplk"
+                        >
                             Anthem PPLK
                         </TabsTrigger>
                     </TabsList>

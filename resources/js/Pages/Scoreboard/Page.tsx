@@ -10,6 +10,8 @@ import { useAos } from "@/lib/hooks/useAos";
 import { DataKelompokScore, DataTopTen } from "@/lib/types/Scoreboard";
 import RelasiLoading from "@/Components/relasi/RelasiLoading";
 
+import logoPplk from "!assets/logo-pplk-hd.png";
+
 function Page() {
     useAos();
 
@@ -23,7 +25,6 @@ function Page() {
         });
 
         const data = await response.json();
-        console.log(data)
         setDataTopTen(data);
     };
 
@@ -125,7 +126,7 @@ function Page() {
                                                                     ? scoreboard
                                                                           .kelompok
                                                                           .logo_kelompok
-                                                                    : "https://picsum.photos/200"
+                                                                    : logoPplk
                                                             }
                                                             alt={
                                                                 scoreboard

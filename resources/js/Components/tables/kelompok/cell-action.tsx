@@ -3,11 +3,22 @@
 // import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { Link } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 
 import { AlertModal } from "@/Components/dashboard/modal/alert-modal";
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/Components/ui/alert-dialog";
 import { Button, buttonVariants } from "@/Components/ui/button";
 import {
     DropdownMenu,
@@ -25,20 +36,21 @@ interface CellActionProps {
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-    const [loading, setLoading] = useState(false);
-    const [open, setOpen] = useState(false);
-    // const router = useRouter();
+    const {
+        data: dataForm,
+        setData,
+        put,
+    } = useForm({
+        id: data.id,
+        _method: "put",
+    });
 
-    const onConfirm = async () => {};
+    const handleSubmitIsKetua = () => {
+        put(route("dashboard.kelompok.set-ketua"));
+    };
 
     return (
         <>
-            <AlertModal
-                isOpen={open}
-                onClose={() => setOpen(false)}
-                onConfirm={onConfirm}
-                loading={loading}
-            />
             <div className="flex gap-1 p-2">
                 <Link
                     href={`/dashboard/user/edit/${data.id}`}
@@ -46,6 +58,31 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                 >
                     Edit
                 </Link>
+
+                <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                        <Button variant="outline" size={"sm"}>
+                            Set Ketua Kelompok
+                        </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                        <AlertDialogHeader>
+                            <AlertDialogTitle>
+                                Apakah kamu yakin?
+                            </AlertDialogTitle>
+                            <AlertDialogDescription>
+                                Kamu akan mengubah status user ini menjadi ketua
+                                kelompok.
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction onClick={handleSubmitIsKetua}>
+                                Continue
+                            </AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
             </div>
         </>
     );

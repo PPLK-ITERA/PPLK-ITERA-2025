@@ -178,6 +178,8 @@ export default function Page({ response }) {
         post(route("dashboard.user.edit-foto"));
     };
 
+    console.log(currentUser.photo_profile_url);
+
     return (
         <>
             <DashboardLayout user={auth.user}>
@@ -191,7 +193,11 @@ export default function Page({ response }) {
                     <div className="md:mx-0 mx-auto">
                         <div className="w-[200px] h-[220px] border rounded-sm overflow-hidden">
                             <img
-                                src={currentUser.photo_profile_url}
+                                src={
+                                    currentUser.photo_profile_url
+                                        ? currentUser.photo_profile_url
+                                        : logopplk
+                                }
                                 alt={`${currentUser.name} photo profile`}
                                 className="w-full h-full bg-center bg-cover"
                             />
@@ -226,6 +232,8 @@ export default function Page({ response }) {
                                                 <img
                                                     src={
                                                         currentUser.photo_profile_url
+                                                            ? currentUser.photo_profile_url
+                                                            : logopplk
                                                     }
                                                     alt={`${currentUser.name} photo profile`}
                                                     className="object-cover object-center w-full h-full"

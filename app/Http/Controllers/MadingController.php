@@ -123,6 +123,8 @@ class MadingController extends Controller
 
    public function getTugas($hari)
    {
+      $userId = Auth::id();
+
       $tugass = Tugas::where('hari', $hari)->get();
 
       $isSubmitted = false;
@@ -134,11 +136,17 @@ class MadingController extends Controller
          }
       }
 
+      $tugas = Tugas::where('hari', $hari)
+         ->whereDoesntHave('pengumpulanTugas', function ($query) use ($userId) {
+            $query->where('user_id', $userId)->where('isReturn', false);
+         })->get();
+
+
       if ($isSubmitted) {
          return redirect()->route('mading')->with(['message' => 'Task already submitted']);
       }
 
-      return response()->json(['tugas' => $tugass, 'isSubmitted' => $isSubmitted]);
+      return response()->json(['tugas' => $tugas, 'isSubmitted' => $isSubmitted]);
    }
 
    public function storeTugas(Request $request)

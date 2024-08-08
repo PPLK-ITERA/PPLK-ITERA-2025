@@ -16,6 +16,8 @@ interface TentangPPLKFormProps {
 const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
     const [urlError, setUrlError] = useState<string | null>(null);
 
+    console.log(currentUser);
+
     const { data, setData, put } = useForm({
         id: currentUser.id,
         sertif: "",
@@ -112,7 +114,11 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
                 <Input
                     type="text"
                     id="pilar-maba"
-                    value={currentUser.pilar.pilar_name}
+                    value={
+                        currentUser.pilar
+                            ? currentUser.pilar.pilar_name
+                            : "Belum ada pilar"
+                    }
                     disabled
                     placeholder="Pilar User"
                     className="mt-1"

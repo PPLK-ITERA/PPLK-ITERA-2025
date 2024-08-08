@@ -27,95 +27,95 @@ export const navItems: NavItem[] = [
         role_id: [2, 3, 4, 5, 6, 7],
     },
     {
-        title: "Profile",
-        href: "/dashboard/profile",
-        icon: "profile",
-        label: "profile",
-        role_id: [2, 3, 4, 5, 6, 7],
+        title: "Tambah User",
+        href: "/dashboard/create-user",
+        icon: "user",
+        label: "tambah-user",
+        role_id: [3, 8],
     },
     {
         title: "Atur Maba",
         href: "/dashboard/atur-maba",
         icon: "user",
         label: "atur-maba",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [3],
     },
     {
         title: "Atur Dapmen",
         href: "/dashboard/atur-dapmen",
         icon: "user",
         label: "atur-dapmen",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [3, 8],
     },
     {
         title: "Atur PJ Prodi",
         href: "/dashboard/atur-pjprodi",
         icon: "user",
         label: "atur-pjprodi",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [3, 8],
     },
     {
         title: "Atur Korlap",
         href: "/dashboard/atur-korlap",
         icon: "user",
         label: "atur-korlap",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [3, 8],
     },
     {
         title: "Absensi Maba",
         href: "/dashboard/absensi-maba",
         icon: "notebook",
         label: "atur-absensi-maba",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [2, 3, 4, 5],
     },
     {
         title: "Booklet",
         href: "/dashboard/booklet",
         icon: "book",
         label: "atur-booklet",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [3, 7, 8],
     },
     {
         title: "Materi",
         href: "/dashboard/materi",
         icon: "books",
         label: "atur-materi",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [3, 7, 8],
     },
     {
         title: "FAQ",
         href: "/dashboard/faq",
         icon: "question",
         label: "atur-faq",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [3, 8],
     },
     {
         title: "Mading",
         href: "/dashboard/mading",
         icon: "map",
         label: "atur-mading",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [2, 3, 4, 8],
     },
     {
         title: "Informasi Kelompok",
         href: "/dashboard/informasi-kelompok",
         icon: "map",
         label: "atur-informasi-kelompok",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [2, 3, 4, 8],
     },
     {
         title: "Game Offline",
         href: "/dashboard/game-offline",
         icon: "game",
         label: "atur-informasi-kelompok",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [2, 3, 4, 5, 8],
     },
     {
         title: "CUI",
         href: "/dashboard/cui",
         icon: "ticket",
         label: "atur-cui",
-        role_id: [2, 3, 4, 5, 6, 7],
+        role_id: [3],
     },
 ];
 
@@ -275,7 +275,7 @@ export const DataFilosofiLogo = [
 export const InformasiInfoSection = [
     { title: "Informasi Fakultas", href: "/informasi/fakultas" },
     { title: "Informasi HMPS & PRODI", href: "/informasi/prodi" },
-    { title: "Informasi UPT", href: "/informasi/upt" },
+    { title: "Informasi UPA", href: "/informasi/upa" },
     { title: "Informasi KM ITERA", href: "/informasi/km" },
     { title: "Informasi UKM ITERA", href: "/informasi/ukm" },
 ];
@@ -290,9 +290,8 @@ export const InformasiFooter = [
 ];
 
 export const FooterLink = [
-    { title: "Instagram", href: "https://instagram.com/pplk.itera" },
-    { title: "Twitter", href: "https://twitter.com/pplkitera" },
-    { title: "Youtube", href: "https://youtube.com/pplkitera" },
+    { title: "Instagram", href: "https://www.instagram.com/pplkitera/" },
+    { title: "Youtube", href: "https://www.youtube.com/@pplkitera413" },
 ];
 
 export const DataAtribut = [

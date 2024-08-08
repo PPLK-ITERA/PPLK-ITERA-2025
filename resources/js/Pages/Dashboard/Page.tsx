@@ -18,6 +18,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
 
 const roles = [
+    "DataEntry",
     "Maba",
     "Daplok",
     "Admin",
@@ -91,7 +92,7 @@ export default function Page({ auth }) {
                                 </CardTitle>
                                 <IconRibbonHealth />
                             </CardHeader>
-                            <CardContent className="flex justify-around text-center place-content-center">
+                            <CardContent className="place-content-center flex justify-around text-center">
                                 <div>
                                     <span className="text-2xl font-bold text-red-500">
                                         250
@@ -119,7 +120,7 @@ export default function Page({ auth }) {
                             </CardContent>
                         </Card>
                     </div>
-                    <div className="grid-cols-3 grid gap-4">
+                    <div className="grid grid-cols-3 gap-4">
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                                 <CardTitle className="text-sm font-medium">
@@ -163,7 +164,7 @@ export default function Page({ auth }) {
                             </CardContent>
                         </Card>
                     </div>
-                    <div className="w-full h-1 bg-gray-400/50" />
+                    <div className="bg-gray-400/50 w-full h-1" />
                     <div className="md:grid-cols-2 lg:grid-cols-7 grid grid-cols-1 gap-4">
                         <div className="col-span-4">
                             <BarGraph

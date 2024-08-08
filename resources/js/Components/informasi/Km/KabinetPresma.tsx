@@ -52,7 +52,7 @@ const kabinetData: Kabinet[] = [
     },
     {
         year: "2023/2024",
-        name: "Erza Refanza",
+        name: "Erza Refenza",
         department: "Teknik Geologi 2020",
         kabinet: "Kabinet Wangsabatih",
     },

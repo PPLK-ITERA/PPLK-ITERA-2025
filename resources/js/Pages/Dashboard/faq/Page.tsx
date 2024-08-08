@@ -1,10 +1,10 @@
-import DashboardLayout from "@/Layouts/DashboardLayout";
-
 import React from "react";
 
 import { useForm } from "@inertiajs/react";
 
 import { IconPlus, IconSearch } from "@tabler/icons-react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { FAQTable } from "@/Components/dashboard/faq/FAQTable";
 import { FAQClient } from "@/Components/tables/faq/client";

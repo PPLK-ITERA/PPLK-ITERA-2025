@@ -1,26 +1,3 @@
-export const FunFact = [
-    {
-        title: "Geh",
-        subtitle: "Dong",
-        desc: "Kata ini sering disisipkan di awal dan akhir kalimat dan berfungsi sama dengan kata 'dong' di dalam bahasa Indonesia.",
-    },
-    {
-        title: "Geh",
-        subtitle: "Dong",
-        desc: "Kata ini sering disisipkan di awal dan akhir kalimat dan berfungsi sama dengan kata 'dong' di dalam bahasa Indonesia.",
-    },
-    {
-        title: "Geh",
-        subtitle: "Dong",
-        desc: "Kata ini sering disisipkan di awal dan akhir kalimat dan berfungsi sama dengan kata 'dong' di dalam bahasa Indonesia.",
-    },
-    {
-        title: "Geh",
-        subtitle: "Dong",
-        desc: "Kata ini sering disisipkan di awal dan akhir kalimat dan berfungsi sama dengan kata 'dong' di dalam bahasa Indonesia.",
-    },
-];
-
 export const DATA_FUNFACT = [
     {
         nama: "Nayla",
@@ -242,5 +219,205 @@ export const DATA_FUNFACT = [
                 desc: "ITERA memiliki fasilitas RIMA (Rumah Ibadah Multi Agama) yang terdiri dari 6 ruangan agama yaitu Islam, Protestan, Katolik, Hindu, Buddha, dan Konghucu.",
             },
         ],
+    },
+];
+
+export const dataInfoSection = [
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki Unit Kegiatan Mahasiswa yang masing-masing mewakili provinsi di Sumatera dan sekitarnya untuk mempererat kekeluargaan mahasiswa asal daerah.",
+        additional: "(UKM Perwakilan Daerah)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Beberapa program studi di ITERA bekerja sama dengan rumah makan kecil di daerah BELWIS (Belakang Wisma). Misalnya, Warsin (Warung Mesin), Wardat (Warung Data)",
+        additional: "(Kolaborasi Kuliner)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki akun menfess di X yang berfungsi sebagai wadah bertanya, menyampaikan informasi, promosi jualan, sampai ajang untuk confess loh!",
+        additional: "(Akun Menfess ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki beberapa program study yang cukup unik yang ternyata hanya ada satu loh di Indonesia beberapa prodi tersebut yaitu Prodi Rekayasa Kosmetik, Rekayasa Minyak dan Gas, dan Rekayasa Keolahragaan.",
+        additional: "(Prodi Unik di Indonesia)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki Observatorium Astronomi Lampung (OAIL) dengan teleskop robotik pertama yang ada di Asia Tenggara.",
+        additional: "(Observatorium Astronomi Lampung (OAIL))",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki lahan yang sangat luas loh, yaitu sebesar 275 ha.",
+        additional: "(Lahan Kampus yang Luas)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Prodi Sains Atmosfer dan Keplanetan(SAP) hanya ada di ITERA loh!",
+        additional: "(Prodi Sains Atmosfer dan Keplanetan (SAP))",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Sebelum di provinsi Lampung, ITERA rencana dibangun nya di Sumatera Selatan tepatnya di daerah Talang Betutu.",
+        additional: "(Lokasi Awal ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Tau ga sih? Kalau di ITERA punya layanan konseling bersama psikolog langsung loh dan gratis untuk semua civitas kampus.",
+        additional: "(Layanan Konseling Gratis)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki bus tayo yang memiliki jadwal mengantar jemput Mahasiswa, Khususnya anak anak asrama.",
+        additional: "(Bus Tayo ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA merupakan kampus pertama di Lampung yang memiliki labirin, labirin itu terletak di Kebun Raya ITERA.",
+        additional: "(Labirin Kebun Raya ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA pada setiap akhir masa TPB memiliki sebuah penghargaan kepada Mahasiswa TPB. Penghargaan itu bernama OZT AWARD yang diambil dari nama alm. Rektor pertama ITERA.",
+        additional: "(OZT Award)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA didirikan karena potensi energi besar di Sumatera seperti minyak, gas, batubara, dan panas bumi.",
+        additional: "(Potensi Energi Sumatera)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA merupakan anak dari ITB, berkontribusi dalam pendidikan bermutu di Indonesia.",
+        additional: "(ITERA, Anak ITB)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki 7 embung untuk bersantai dan jogging, termasuk embung Kebun Raya dengan monumen berbentuk Sumatera.",
+        additional: "(Embung-Embung di ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Walaupun Kampus Teknik of course kita juga ada Fakultas Sains loh!",
+        additional: "(Fakultas Sains di ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Itera punya lahan yang kira kira luasnya bisa sampe 275 hektar (bayangin deh seluas apa?)",
+        additional: "(Lahan Luas ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Tau ga si? Kalau itera itu punya spot titik yang bisa dijadiin objek studi ataupun wisata?",
+        additional: "(Spot Studi dan Wisata)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki teleskop yang canggih untuk memantau luar angkasa",
+        additional: "(Teleskop Canggih ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Salah satu kampus yang ngadain ospek tapi bonus nya bisa ngonser juga",
+        additional: "(Ospek dan Konser)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Memiliki laboraturium prodi lengkap, seperti IOT, Laboratium Sipil dll",
+        additional: "(Laboratorium Lengkap)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Tahun pertama di ITERA melalui TPB untuk menyamaratakan pengetahuan mahasiswa sebelum memasuki penjurusan.",
+        additional: "(Tahap Persiapan Bersama (TPB))",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA menjalankan program penanaman pohon untuk menciptakan lingkungan kampus yang hijau dan nyaman.",
+        additional: "(Kampus Hijau ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki banyak dosen muda yang membuat lingkungan belajar lebih aktif dan kreatif.",
+        additional: "(Dosen-Dosen Muda)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA adalah satu-satunya perguruan tinggi institut teknik di Sumatera.",
+        additional: "(Satu-satunya Institut Teknik di Sumatera)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Galeri ITERA adalah minimarket di kampus yang menjual makanan, minuman, dan alat tulis.",
+        additional: "(Galeri ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki PLTS terbesar di Indonesia, seluas 1 hektare dan berkapasitas 1MWP.",
+        additional: "(Pembangkit Listrik Tenaga Surya)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA adalah satu satunya kampus yang memiliki program studi Aktuaria di Sumatera.",
+        additional: "(Program Studi Aktuaria)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA juga memiliki Kebun Raya sebagai fasilitas pendukung konservasi tumbuhan yang dapat dikunjungi masyarakat umum. Kebun Raya ITERA punya labirin juga loh!",
+        additional: "(Kebun Raya ITERA)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "Pada 2023 ITERA sukses jadi tuan rumah untuk Kontes Robot Terbang Indonesia",
+        additional: "(Kontes Robot Terbang)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description: "ITERA memiliki Gedung Serbaguna (GSG) yang tersembunyi.",
+        additional: "(Gedung Serbaguna (GSG))",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki fasilitas Masjid yang unik karena dindingnya tersusun atas batu-batu sungai yang dinamakan Masjid Raya At-Tanwir",
+        additional: "(Masjid Raya At-Tanwir)",
+    },
+    {
+        title: "Tahukah Kamu?",
+        description:
+            "ITERA memiliki fasilitas RIMA (Rumah Ibadah Multi Agama) yang terdiri dari 6 ruangan agama yaitu Islam, Protestan, Katolik, Hindu, Buddha, dan Konghucu.",
+        additional: "(Rumah Ibadah Multi Agama (RIMA))",
     },
 ];

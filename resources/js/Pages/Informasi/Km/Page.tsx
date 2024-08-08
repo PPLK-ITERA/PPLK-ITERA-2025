@@ -4,9 +4,7 @@ import { Head } from "@inertiajs/react";
 
 import DefaultLayout from "@/Layouts/DefaultLayout";
 
-import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
-import Navbar from "@/Components/Navbar";
 import BadanKM from "@/Components/informasi/Km/BadanKM";
 import FilosofiLogoKm from "@/Components/informasi/Km/FilosofiLogoKm";
 import KabinetPresma from "@/Components/informasi/Km/KabinetPresma";

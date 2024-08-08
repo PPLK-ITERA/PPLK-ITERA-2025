@@ -47,9 +47,11 @@ function Page() {
                         </p>
                         <div className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7"></div>
                         <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-                            Nama
+                            Riansyah Izhar, S.T., M.P.W.K
                         </p>
-                        <p className="font-montserrat text-[16px]">Jabatan</p>
+                        <p className="font-montserrat text-[16px]">
+                            Pembina PPLK 2024
+                        </p>
                     </div>
 
                     <div className="flex sm:h-[439px] sm:w-[330px] h-[350px] w-[280px] flex-col items-center rounded-[3px] bg-white shadow-2xl">
@@ -58,9 +60,11 @@ function Page() {
                         </p>
                         <div className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7"></div>
                         <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-                            Nama
+                            Ikbar Raihansyah
                         </p>
-                        <p className="font-montserrat text-[16px]">Jabatan</p>
+                        <p className="font-montserrat text-[16px]">
+                            Ketua Pelaksana PPLK 2024
+                        </p>
                     </div>
                 </div>
             </div>
