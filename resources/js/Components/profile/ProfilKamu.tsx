@@ -152,7 +152,6 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                 className="flex justify-center items-center xl:w-[396px] xl:h-[40px] w-full h-full p-2 bg-gradient-to-b from-[#B9822F] to-[#A6680C] rounded-sm md:mt-4"
                 onClick={() => {
                     handleSubmit();
-                    window.location.reload();
                 }}
             >
                 <h2 className="text-[14px] font-montserrat font-semibold text-center text-white">

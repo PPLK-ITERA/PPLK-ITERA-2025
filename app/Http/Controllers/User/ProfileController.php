@@ -55,9 +55,9 @@ class ProfileController extends Controller
    {
       $user = auth()->user(); // More direct and readable
       $validated = $request->validate([
-         'linkedinURL' => 'required|url',
-         'instagramURL' => 'required|url',
-         'bio' => 'required|string|max:150', // Assuming a reasonable max length for bio
+         'instagramURL' => ['nullable', 'url', 'max:120', 'regex:#^((https?:\/\/)?(www\.)?)?instagram\.com\/[a-zA-Z0-9._]{1,30}\/?$#i'],
+         'linkedinURL' => ['nullable', 'url', 'max:120', 'regex:#^((https?:\/\/)?(www\.)?)?linkedin\.com\/in\/[a-zA-Z0-9\-_]{1,100}\/?$#i'],
+         'bio' => 'string|max:150', // Assuming a reasonable max length for bio
       ]);
 
       DB::beginTransaction();
