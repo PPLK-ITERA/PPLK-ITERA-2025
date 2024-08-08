@@ -415,10 +415,10 @@ class UserController extends Controller
       // Validate input
       $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'name' => ['required', 'string', "regex:/^[\pL\s\-']+$/u", 'max:120'],
-         'nim' => ['required', 'string'],
-         'email' => ['required', 'email'],
-         'prodi_id' => ['required', 'integer'],
+         'name' => ['nullable', 'string', "regex:/^[\pL\s\-']+$/u", 'max:120'],
+         'nim' => ['nullable', 'string'],
+         'email' => ['nullable', 'email'],
+         'prodi_id' => ['nullable', 'integer'],
          'bio' => ['nullable', 'string', 'max:150'],
       ]);
 
