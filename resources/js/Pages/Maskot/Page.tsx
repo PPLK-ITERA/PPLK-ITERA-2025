@@ -21,14 +21,14 @@ const MASKOTS = [
         key: "maskot-man",
         name: "Maskot Man",
         description:
-            "Hai, Aku Maskot Man, Maskot PPLK 2024 Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse non porta dolor.Interdum et malesuada fames ac ante ipsum primis in faucibus. Fuscecongue ac elit non sollicitudin.Aenean dictum ultricies massa, nontristique nunc.",
+            "Hai, Aku Maskot Man, Maskot PPLK ITERA 2024! tunggu kehadiranku di PPLK ITERA 2024!",
         image: maskot_pplk_man,
     },
     {
         key: "maskot-woman",
         name: "Maskot Woman",
         description:
-            "Hai, Aku Maskot Woman, Maskot PPLK 2024 Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse non porta dolor.Interdum et malesuada fames ac ante ipsum primis in faucibus. Fuscecongue ac elit non sollicitudin.Aenean dictum ultricies massa, nontristique nunc.",
+            "Hai, Aku Maskot Woman, Maskot PPLK ITERA 2024! tunggu kehadiranku di PPLK ITERA 2024!",
         image: maskot_pplk_woman,
     },
 ];

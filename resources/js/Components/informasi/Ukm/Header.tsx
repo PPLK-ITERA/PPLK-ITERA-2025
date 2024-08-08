@@ -7,7 +7,7 @@ interface HeaderProps {
 export const InfoHeaderUPT = {
     "upa-perpustakaan": {
         title: "UPA Perpustakaan",
-        description: `UPA Perpustakaan, Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, sint nisi laborum, ut dolor impedit amet placeat minus velit.`,
+        description: `deskripsi UPA Perpustakaan`,
     },
 };
 

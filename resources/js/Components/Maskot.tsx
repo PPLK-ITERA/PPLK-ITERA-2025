@@ -17,15 +17,13 @@ export function CarouselMaskot() {
         {
             h2: "Hai! Aku,",
             h1: "Chapabel",
-            description:
-                "Hai, Aku Cephabel, Maskot PPLK 2023 Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse non porta dolor.Interdum et malesuada fames ac ante ipsum primis in faucibus. Fuscecongue ac elit non sollicitudin.Aenean dictum ultricies massa, nontristique nunc.",
+            description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2024!",
             imageSrc: maskot_pplk_man,
         },
         {
             h2: "Hai! Aku,",
             h1: "Chapabel",
-            description:
-                "Hai, Aku Cephabel, Maskot PPLK 2023 Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse non porta dolor.Interdum et malesuada fames ac ante ipsum primis in faucibus. Fuscecongue ac elit non sollicitudin.Aenean dictum ultricies massa, nontristique nunc.",
+            description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2024!",
             imageSrc: maskot_pplk_woman,
         },
     ];

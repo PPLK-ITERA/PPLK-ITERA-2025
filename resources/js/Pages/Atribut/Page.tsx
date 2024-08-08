@@ -194,11 +194,9 @@ function Page() {
                         </h2>
 
                         <p className="mt-5 text-center text-[16px] sm:text-[20px]">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Libero, quia? Ut veniam eveniet natus,
-                            architecto quos accusamus, velit fuga dolor aliquam
-                            minima dolorum ea similique labore quia in
-                            perspiciatis molestiae?
+                            Halaman ini menampilkan atribut untuk kegiatan PPLK ITERA
+                            2024 untuk setiap harinya. Pastikan kamu menggunakan atribut
+                            yang tepat sesuai dengan ketentuan yang berlaku ya!
                         </p>
                     </div>
 
