@@ -126,7 +126,7 @@ export default function NavMobile({
                                             </Link>
                                         ))}
                                         <a
-                                            href="https://drive.google.com/file/d/1L6NUCvhWmhNp_of1u8z81hBwn5UK24vD/view?usp=sharing"
+                                            href="https://drive.google.com/drive/folders/1jsJHZSWUynxDs1P_URlCwz2l1um6voUf?usp=sharing"
                                             target="_blank"
                                             className={`ml-2 text-[18px] font-bold text-white transition duration-200 ease-in`}
                                         >

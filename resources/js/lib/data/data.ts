@@ -275,7 +275,7 @@ export const DataFilosofiLogo = [
 export const InformasiInfoSection = [
     { title: "Informasi Fakultas", href: "/informasi/fakultas" },
     { title: "Informasi HMPS & PRODI", href: "/informasi/prodi" },
-    { title: "Informasi UPT", href: "/informasi/upt" },
+    { title: "Informasi UPA", href: "/informasi/upa" },
     { title: "Informasi KM ITERA", href: "/informasi/km" },
     { title: "Informasi UKM ITERA", href: "/informasi/ukm" },
 ];

@@ -10,11 +10,19 @@ import {
     CarouselPrevious,
 } from "@/Components/CarouselMaskot";
 
+import { useAos } from "@/lib/hooks/useAos";
+
 import maskot from "!assets/maskotchapabel.png";
 
 export default function Maskot() {
+    useAos();
+
     return (
-        <div className="flex min-h-[100vh] flex-col-reverse items-center justify-center gap-10 pb-20 md:flex-row md:gap-0 md:pb-10 lg:pb-0">
+        <div
+            data-aos="fade-up"
+            data-aos-duration={1000}
+            className="flex min-h-[100vh] flex-col-reverse items-center justify-center gap-10 pb-20 md:flex-row md:gap-0 md:pb-10 lg:pb-0"
+        >
             <div className="md:w-[50%] md:items-start md:text-left lg:w-3/5 z-10 flex flex-col items-center justify-center w-full px-10 text-center">
                 <h2 className="font-avigea md:text-2xl lg:text-4xl w-full text-xl text-white">
                     Kenalan Sama
@@ -34,7 +42,7 @@ export default function Maskot() {
                 </Link>
             </div>
 
-            <div className="md:w-[50%] lg:w-2/5 flex items-center justify-center w-full h-full text-white hidden">
+            <div className="md:w-[50%] lg:w-2/5 items-center justify-center w-full h-full text-white hidden">
                 <Carousel
                     opts={{
                         align: "center",

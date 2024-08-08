@@ -47,7 +47,7 @@ function Page() {
                         </p>
                         <div className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7"></div>
                         <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-                            Nama
+                            Nama Pembina
                         </p>
                         <p className="font-montserrat text-[16px]">Jabatan</p>
                     </div>
@@ -58,9 +58,11 @@ function Page() {
                         </p>
                         <div className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7"></div>
                         <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-                            Nama
+                            Ikbar Raihansyah
                         </p>
-                        <p className="font-montserrat text-[16px]">Jabatan</p>
+                        <p className="font-montserrat text-[16px]">
+                            Ketua Pelaksana PPLK 2024
+                        </p>
                     </div>
                 </div>
             </div>
