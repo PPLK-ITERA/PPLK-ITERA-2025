@@ -61,7 +61,7 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
 
         const tugas = await response.json();
         setDataTugasKelompok(tugas.response.data);
-        console.log("tugasKelompok", tugas.response.data);
+        //console.log("tugasKelompok", tugas.response.data);
 
         setLoading(false);
     };

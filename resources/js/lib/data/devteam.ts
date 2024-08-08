@@ -1,3 +1,5 @@
+import bangkiki from "!assets/dev/bangkiki.jpg";
+
 export const devTeam = {
     kadiv: [
         {
@@ -31,7 +33,7 @@ export const devTeam = {
             name: "Virdio Samuel Saragih",
             instagram: "virdiosam",
             role: "Kepala Sub-Divisi VVD",
-            quote: "Barangsiapa yang gk pake design system, niscaya hidupnya penuh revisi",
+            quote: "Barangsiapa yang gk pake design system, niscaya hidupnya penuh revisi. Big shout out to Hanea Arrouza & divisi Amphorta, desainnya keren 🙌🏻",
             photo: "https://picsum.photos/536",
         },
         {
@@ -89,6 +91,20 @@ export const devTeam = {
             role: "Staff VVD",
             quote: "Laid-back, but not relentless",
             photo: "https://picsum.photos/545",
+        },
+        {
+            name: "Khusnun Nisa",
+            instagram: "khusnun_nisa335",
+            role: "Staff VVD",
+            quote: "Yang paling dekat dengan diri kita adalah kematian",
+            photo: "https://picsum.photos/548",
+        },
+        {
+            name: "Abit Ahmad Oktarian",
+            instagram: "abitahmad",
+            role: "Staff VVD",
+            quote: "Di Ancika MC-nya Dilan, kalo ini Bitlan",
+            photo: "https://picsum.photos/548",
         },
     ],
     frontend: [
@@ -155,7 +171,7 @@ export const devTeam = {
             instagram: "rizkialfariz_11",
             role: "Staff Back-End",
             quote: "Gas",
-            photo: "https://picsum.photos/515",
+            photo: bangkiki,
         },
         {
             name: "Dito Rifki Irawan",

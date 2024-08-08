@@ -519,6 +519,7 @@ class UserController extends Controller
       try {
          $user->update([
             'password' => bcrypt($validated['new_password']),
+            'isFirstTime' => true,
          ]);
          DB::commit();
       } catch (\Exception $e) {

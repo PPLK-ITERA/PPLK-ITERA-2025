@@ -2,7 +2,7 @@ import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resource
 
 import { useEffect, useState } from "react";
 
-import { Link, usePage } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
@@ -81,7 +81,7 @@ const Mading = ({ succes }: { succes?: string }) => {
             }
 
             const data: TaskSystem = await response.json();
-            console.log(data);
+            //console.log(data);
             setData(data);
         } catch (error) {}
     };
@@ -92,6 +92,8 @@ const Mading = ({ succes }: { succes?: string }) => {
 
     return (
         <div>
+            <Head title="Mading" />
+
             <Navbar isSolid={true} isFixed={true} />
 
             <div className="bg-pattern-white md:pt-36 flex flex-col items-center justify-center min-h-screen pt-20 pb-20">

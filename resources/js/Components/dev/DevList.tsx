@@ -79,7 +79,7 @@ function DevList({
                     title={`Sub-Divisi ${devRoleName}`}
                 ></RunningText>
                 <div className="md:grow"></div>
-                <div className="lg:border-l-4 lg:pl-4 max-lg:border-t-2 border-yellow-400">
+                <div className="lg:border-l-4 lg:pl-4 max-lg:border-t-2 border-cyan-primary">
                     <h2
                         className={`${loading ? "opacity-40" : "opacity-100"} max-lg:mt-2 text-lg lg:text-3xl font-bold`}
                     >
@@ -96,7 +96,7 @@ function DevList({
                         "{displayQuote}"
                     </p>
                     <a
-                        className={`${loading ? "opacity-40" : "opacity-100"} text-xs lg:text-sm underline text-yellow-400 hover:text-white transition duration-300`}
+                        className={`${loading ? "opacity-40" : "opacity-100"} text-xs lg:text-sm underline text-cyan-primary hover:text-white transition duration-300`}
                         href={`https://instagram.com/${displayInstagram}`}
                         target="_blank"
                     >
@@ -112,7 +112,7 @@ function DevList({
                 />
             </div>
             <DevCard
-                className="w-44 lg:w-64 h-[300px] lg:h-[400px] shadow-2xl shadow-yellow-500/40"
+                className="w-44 lg:w-64 h-[300px] lg:h-[400px] shadow-2xl shadow-cyan-primary/40"
                 developer={developer}
             />
         </div>

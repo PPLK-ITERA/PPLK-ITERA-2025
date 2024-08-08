@@ -80,7 +80,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                     htmlFor="linkedin"
                     className="font-montserrat text-[14px] mb-2 block"
                 >
-                    LinkedIn
+                    Link LinkedIn
                 </label>
                 <div className="relative">
                     <input
@@ -90,6 +90,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                         onChange={(e) => {
                             setData("linkedinURL", e.target.value);
                         }}
+                        placeholder="https://www.linkedin.com/in/..."
                         className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
                     />
                     <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
@@ -108,7 +109,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                     htmlFor="instagram"
                     className="font-montserrat text-[14px] mb-2 block"
                 >
-                    Instagram
+                    Link Instagram
                 </label>
 
                 <div className="relative">
@@ -119,6 +120,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                         onChange={(e) => {
                             setData("instagramURL", e.target.value);
                         }}
+                        placeholder="https://www.instagram.com/..."
                         className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
                     />
                     <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
@@ -145,6 +147,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                     onChange={(e) => {
                         setData("bio", e.target.value);
                     }}
+                    placeholder="Tulis bio kamu disini..."
                     className="xl:max-w-[396px] xl:h-[88px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] max-h-[150px]"
                 />
             </div>

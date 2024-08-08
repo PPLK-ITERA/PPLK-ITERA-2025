@@ -12,7 +12,7 @@ export async function getResult(token: string): Promise<Result> {
         method: "GET",
     });
 
-    // console.log(response.body);
+    //  //console.log(response.body);
 
     return await response.json();
 }

@@ -61,7 +61,7 @@ function Page({ auth, response }) {
         >
             <a
                 href={route("myprofile")}
-                className="flex gap-2 place-content-center place-items-center"
+                className="place-content-center place-items-center flex gap-2"
             >
                 <UserCircle className="w-6 h-6 mr-2" />
                 <p className="font-bold">Edit Profil</p>
@@ -73,7 +73,7 @@ function Page({ auth, response }) {
             onClick={follow}
         >
             {!followLoading ? (
-                <div className="flex gap-2 place-content-center place-items-center">
+                <div className="place-content-center place-items-center flex gap-2">
                     <UserPlus className="w-6 h-6 mr-2" />
                     <p className="font-bold">
                         {user.followed ? "Mengikuti" : "Ikuti"}
@@ -95,7 +95,7 @@ function Page({ auth, response }) {
                         <div className="flex flex-col justify-between gap-4">
                             <div>
                                 <img
-                                    className="aspect-square max-md:w-36 object-cover w-48 border-2 rounded-full select-none bg-gray-400"
+                                    className="aspect-square max-md:w-36 object-cover w-48 bg-gray-400 border-2 rounded-full select-none"
                                     // src={user.photo_profile_url}
                                     src={
                                         user.photo_profile_url ??
@@ -172,7 +172,7 @@ function Page({ auth, response }) {
                                 </p>
                             </div>
 
-                            <div className="md:w-full flex gap-3 my-3 md:mt-auto md:mb-0">
+                            <div className="md:w-full md:mt-auto md:mb-0 flex gap-3 my-3">
                                 <a
                                     className={`w-full flex gap-1 border-black justify-center items-center p-1 px-2 rounded-md border shadow hover:shadow-lg bg-[#ECAA25] hover:bg-[#F7B938] transition duration-300 ease-in-out text-black`}
                                     href={user.instagram_url}
@@ -183,7 +183,7 @@ function Page({ auth, response }) {
                                         stroke={1.8}
                                     />
                                     <span className="md:text-[14px] text-xs font-semibold max-sm:hidden">
-                                        @nusantaramuda
+                                        Instagram
                                     </span>
                                 </a>
 
@@ -195,7 +195,7 @@ function Page({ auth, response }) {
                                     <IconBrandLinkedin size={32} stroke={1.8} />
 
                                     <span className="md:text-[14px] text-xs font-semibold max-sm:hidden">
-                                        Nusantara Muda
+                                        LinkedIn
                                     </span>
                                 </a>
                             </div>

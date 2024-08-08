@@ -22,6 +22,9 @@ const ResetPasswordForm: FC<ResetPasswordFormProps> = ({ currentUser }) => {
 
     const handleSubmit = () => {
         put(route("dashboard.user.edit-password"));
+
+        data.new_password = "";
+        data.confirm_new_password = "";
     };
 
     return (

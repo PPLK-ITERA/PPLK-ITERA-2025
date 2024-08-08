@@ -181,8 +181,8 @@ Route::get('materi', [MateriController::class, 'guestIndex'])->name('materi');
 // =====================================
 Route::get('informasi/maskot', function () {
    // lempar ke 404
-   abort(404);
-   // return Inertia::render('Maskot/Page');
+   // abort(404);
+   return Inertia::render('Maskot/Page');
 })->name('informasi/maskot');
 
 Route::middleware('auth')->group(function () {
@@ -408,7 +408,7 @@ Route::middleware('auth')->group(function () {
    })->name('mading/pengumpulan');
 
    Route::get('mading/pengumpulan-cover/{hari}', function (string $hari) {
-      abort(404);
+      // abort(404);
 
       return Inertia::render('Mading/PengumpulanCover/Page', [
          'hari' => $hari

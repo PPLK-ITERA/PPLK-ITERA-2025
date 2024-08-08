@@ -27,6 +27,6 @@ export async function fetchSearch(
         `${route("relasi.index.search")}?search=${search}&page=${page}`,
     );
     const json = await response.json();
-    console.log(json)
+    //console.log(json)
     return json;
 }

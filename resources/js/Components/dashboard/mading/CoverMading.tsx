@@ -25,81 +25,62 @@ import {
 } from "@/Components/ui/table";
 import { Textarea } from "@/Components/ui/textarea";
 
-interface PengumpulanTugas {
+interface Poster {
     id: number;
-    created_at: string;
-    updated_at: string;
-    tanggal_submit: string;
-    jawaban: string;
-    tugas_id: number;
-    user_id: number;
-    isReturn: number;
-    catatan: string | null;
-}
-
-interface TaskWithSubmission {
-    id: number;
-    created_at: string;
-    updated_at: string;
-    deadline: string;
-    deskripsi: string;
-    judul: string;
-    kartu_id: number;
-    kategori: string;
-    pengumpulan: string;
-    pengumpulan_tugas: PengumpulanTugas;
+    isReturn: boolean;
+    url_poster: string;
+    hari: string;
 }
 
 interface TugasKelompokProps {}
 
 const CoverMading: FC<TugasKelompokProps> = ({}) => {
     const [loading, setLoading] = useState<boolean>(true);
-    const [dataTugasKelompok, setDataTugasKelompok] = useState<
-        TaskWithSubmission[]
-    >([]);
+    const [dataPostersTugas, setDataPostersTugas] = useState<Poster[]>([]);
 
-    const getTugasKelompokData = async () => {
+    const getPosterTugas = async () => {
         setLoading(true);
 
         const response = await fetch(route("dashboard.tugas.data.poster"), {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                Accept: "application/json",
             },
         });
 
-        const tugas = await response.json();
-        setDataTugasKelompok(tugas.response.data);
-        console.log(tugas.response.data);
+        const poster = await response.json();
+        setDataPostersTugas(poster);
 
         setLoading(false);
     };
 
     useEffect(() => {
-        getTugasKelompokData();
+        getPosterTugas();
     }, []);
 
     const { data, setData, put } = useForm({
-        id: 0,
-        catatan: "",
+        hari: "",
         _method: "put",
     });
 
-    const handleKembalikanTugas = () => {
-        put(route("dashboard.tugas.return"));
+    const handleKembalikanPoster = () => {
+        put(route("dashboard.tugas.return-poster"));
     };
 
     return (
         <>
+            <div>
+                {dataPostersTugas.length > 0
+                    ? dataPostersTugas[0].url_poster
+                    : null}
+            </div>
             <ScrollArea className="whitespace-nowrap max-w-7xl mt-5 overflow-hidden rounded-md">
                 <Table className="relative border">
                     <TableHeader>
                         <TableRow className="hover:bg-current bg-current">
                             <TableHead className="w-[50px] text-white">
                                 No
-                            </TableHead>
-                            <TableHead className="text-white w-[200px]">
-                                Nama Tugas
                             </TableHead>
                             <TableHead className="text-white w-[400px]">
                                 Link
@@ -119,45 +100,29 @@ const CoverMading: FC<TugasKelompokProps> = ({}) => {
                             </TableRow>
                         ) : (
                             <>
-                                {dataTugasKelompok.map((tugas, index) => (
+                                {dataPostersTugas.map((poster, index) => (
                                     <TableRow key={index}>
                                         <TableCell className="font-medium">
                                             {index + 1}
                                         </TableCell>
                                         <TableCell>
-                                            <p className="line-clamp-1">
-                                                {tugas.judul}
-                                            </p>
+                                            {poster.url_poster !== null ? (
+                                                <>
+                                                    <img
+                                                        className="line-clamp-1 text-wrap w-[50%] h-[50%]"
+                                                        src={poster.url_poster}
+                                                    />
+                                                </>
+                                            ) : (
+                                                <p>Belum ada poster</p>
+                                            )}
                                         </TableCell>
                                         <TableCell>
-                                            <a
-                                                className="line-clamp-1 text-wrap"
-                                                href={
-                                                    tugas.pengumpulan_tugas
-                                                        ?.jawaban
-                                                }
-                                                target="_blank"
-                                            >
-                                                {
-                                                    tugas.pengumpulan_tugas
-                                                        ?.jawaban
-                                                }
-                                            </a>
-                                        </TableCell>
-                                        <TableCell>
-                                            {tugas.pengumpulan_tugas?.isReturn
+                                            {poster.isReturn
                                                 ? "Dikembalikan"
                                                 : "Diterima"}
                                         </TableCell>
-                                        <TableCell className="flex gap-1">
-                                            <Link
-                                                href={`${tugas.pengumpulan_tugas?.jawaban}`}
-                                            >
-                                                <Button size="sm">
-                                                    Lihat Tugas
-                                                </Button>
-                                            </Link>
-
+                                        <TableCell className="gap-1">
                                             <Dialog>
                                                 <DialogTrigger asChild>
                                                     <Button
@@ -166,21 +131,19 @@ const CoverMading: FC<TugasKelompokProps> = ({}) => {
                                                         size="sm"
                                                         onClick={() =>
                                                             setData(
-                                                                "id",
-                                                                tugas
-                                                                    .pengumpulan_tugas
-                                                                    .id,
+                                                                "hari",
+                                                                poster.hari,
                                                             )
                                                         }
                                                     >
-                                                        Kembalikan Tugas
+                                                        Kembalikan Poster
                                                     </Button>
                                                 </DialogTrigger>
 
                                                 <DialogContent className="sm:max-w-[425px]">
                                                     <DialogHeader>
                                                         <DialogTitle>
-                                                            Kembalikan Tugas
+                                                            Kembalikan Poster
                                                         </DialogTitle>
                                                         <DialogDescription>
                                                             Kembalikan tugas
@@ -191,29 +154,6 @@ const CoverMading: FC<TugasKelompokProps> = ({}) => {
                                                         </DialogDescription>
                                                     </DialogHeader>
 
-                                                    <div className="grid gap-4 py-4">
-                                                        <div className="flex flex-col">
-                                                            <Label
-                                                                htmlFor="catatan"
-                                                                className="text-left"
-                                                            >
-                                                                Catatan
-                                                            </Label>
-
-                                                            <Textarea
-                                                                id="catatan"
-                                                                onChange={(e) =>
-                                                                    setData(
-                                                                        "catatan",
-                                                                        e.target
-                                                                            .value,
-                                                                    )
-                                                                }
-                                                                placeholder="Berikan catatan pengembalian tugas"
-                                                                className="mt-1"
-                                                            />
-                                                        </div>
-                                                    </div>
                                                     <DialogFooter>
                                                         <DialogClose asChild>
                                                             <Button variant="outline">
@@ -224,7 +164,7 @@ const CoverMading: FC<TugasKelompokProps> = ({}) => {
                                                         <DialogClose asChild>
                                                             <Button
                                                                 onClick={
-                                                                    handleKembalikanTugas
+                                                                    handleKembalikanPoster
                                                                 }
                                                             >
                                                                 Lanjutkan

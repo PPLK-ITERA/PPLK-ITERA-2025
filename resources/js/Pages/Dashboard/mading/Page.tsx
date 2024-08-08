@@ -70,7 +70,7 @@ export default function Page({ auth }) {
                 <h2 className="text-3xl font-bold tracking-tight">
                     Cover Mading
                 </h2>
-                {/* <CoverMading /> */}
+                <CoverMading />
             </DashboardLayout>
 
             <Toaster />

@@ -42,10 +42,10 @@ export default function BuktiPengerjaan({
                         className="basis-72 md:basis-[370px] xl:basis-[26rem]"
                     >
                         <Card
-                            className={`bg-white ${data.card.cardOpen[index] ? "" : "bg-jaffa-700"} xl:w-[400px] md:w-[350px] lg:w-[350px] md:h-[550px] w-[280px] h-[400px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserrat`}
+                            className={`bg-white ${data.card.cardOpen[index] ? "" : "bg-jaffa-700"} ${!isKetua && index === 0 ? "bg-jaffa-700" : ""} xl:w-[400px] md:w-[350px] lg:w-[350px] md:h-[550px] w-[280px] h-[400px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserrat`}
                         >
                             <CardContent className="relative flex flex-col items-center justify-center h-full p-0 text-white">
-                                {index !== 0 ? (
+                                {index !== 0 && data.card.cardOpen[index] ? (
                                     <h2
                                         className={`font-avigea text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
                                     >
@@ -55,12 +55,49 @@ export default function BuktiPengerjaan({
 
                                 {data.card.cardOpen[index] ? (
                                     <>
-                                        <Link
-                                            className="text-[48px] font-bold text-jaffa-700 aspect-square flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent"
-                                            href={`/mading/pengumpulan/${index}`}
-                                        >
-                                            +
-                                        </Link>
+                                        {isKetua && index === 0 ? (
+                                            <>
+                                                <h2
+                                                    className={`font-avigea text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
+                                                >
+                                                    Tugas Kelompok
+                                                </h2>
+                                                <Link
+                                                    className="text-[48px] font-bold text-jaffa-700 aspect-square flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent"
+                                                    href={`/mading/pengumpulan/${index}`}
+                                                >
+                                                    +
+                                                </Link>
+                                            </>
+                                        ) : !isKetua && index === 0 ? (
+                                            <div className="flex flex-col gap-5 mx-auto">
+                                                <div className="md:h-32 md:w-32 w-24 h-24 overflow-hidden bg-white rounded-full">
+                                                    <img
+                                                        src={logo_pplk_itera}
+                                                        alt="logo_pplk_itera"
+                                                        className="object-contain w-full h-full"
+                                                    />
+                                                </div>
+
+                                                <div className="md:h-32 md:w-32 w-24 h-24 overflow-hidden bg-white rounded-full">
+                                                    <img
+                                                        src={
+                                                            data.logo_kelompok
+                                                                .logo_kelompok
+                                                        }
+                                                        alt="logo_kelompok"
+                                                        className="object-contain w-full h-full"
+                                                    />
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <Link
+                                                className="text-[48px] font-bold text-jaffa-700 aspect-square flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent"
+                                                href={`/mading/pengumpulan/${index}`}
+                                            >
+                                                +
+                                            </Link>
+                                        )}
                                     </>
                                 ) : (
                                     <>
@@ -135,10 +172,14 @@ export default function BuktiPengerjaan({
                                                     </div>
                                                 )}
 
-                                                {isKetua && index !== 0 ? (
+                                                {isKetua &&
+                                                index !== 0 &&
+                                                data.card.completionPercentage[
+                                                    index
+                                                ] === 100 ? (
                                                     <Link
                                                         href={`/mading/pengumpulan-cover/${index}`}
-                                                        className={`${buttonVariants()} hover:bg-white/90 flex items-center justify-center gap-2 mx-auto bg-white shadow-sm`}
+                                                        className={`${buttonVariants()} hover:bg-white/90 flex items-center justify-center gap-2 mx-auto bg-white shadow-sm mt-10`}
                                                     >
                                                         <IconPhotoUp
                                                             color="#b54419"

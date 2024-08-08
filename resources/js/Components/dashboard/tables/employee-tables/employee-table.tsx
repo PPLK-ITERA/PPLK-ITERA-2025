@@ -73,7 +73,7 @@
 //     // const fallbackPerPage = isNaN(perPageAsNumber) ? 10 : perPageAsNumber;
 
 //     /* this can be used to get the selectedrows
-//   console.log("value", table.getFilteredSelectedRowModel()); */
+//    //console.log("value", table.getFilteredSelectedRowModel()); */
 
 //     // Create query string
 //     // const createQueryString = React.useCallback(

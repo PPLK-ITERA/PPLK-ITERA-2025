@@ -47,7 +47,7 @@ function KadivSection({}: Props) {
                         >
                             <DevCard
                                 developer={devTeam.sekdiv[0]}
-                                className="w-full h-full md:h-[320px] lg:h-[350px] xl:h-[380px] 2xl:h-[400px] shadow-xl shadow-yellow-500/30"
+                                className="w-full h-full md:h-[320px] lg:h-[350px] xl:h-[380px] 2xl:h-[400px] shadow-xl shadow-cyan-primary/30"
                                 tiltInitialX={
                                     window.screen.width < 767 ? 0 : -12
                                 }
@@ -61,7 +61,7 @@ function KadivSection({}: Props) {
                         >
                             <DevCard
                                 developer={devTeam.kadiv[0]}
-                                className="w-full h-full md:h-[380px] lg:h-[410px] 2xl:h-[450px] shadow-xl shadow-yellow-500/30"
+                                className="w-full h-full md:h-[380px] lg:h-[410px] 2xl:h-[450px] shadow-xl shadow-cyan-primary/30"
                             />
                         </div>
                         <div
@@ -72,7 +72,7 @@ function KadivSection({}: Props) {
                         >
                             <DevCard
                                 developer={devTeam.bendiv[0]}
-                                className="w-full h-full md:h-[320px] lg:h-[350px] xl:h-[380px] 2xl:h-[400px] shadow-xl shadow-yellow-500/30"
+                                className="w-full h-full md:h-[320px] lg:h-[350px] xl:h-[380px] 2xl:h-[400px] shadow-xl shadow-cyan-primary/30"
                                 tiltInitialX={
                                     window.screen.width < 767 ? 0 : 12
                                 }

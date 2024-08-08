@@ -16,7 +16,7 @@ interface TentangPPLKFormProps {
 const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
     const [urlError, setUrlError] = useState<string | null>(null);
 
-    console.log(currentUser);
+    //console.log(currentUser);
 
     const { data, setData, put } = useForm({
         id: currentUser.id,

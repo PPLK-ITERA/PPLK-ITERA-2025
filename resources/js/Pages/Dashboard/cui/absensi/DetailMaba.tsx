@@ -53,15 +53,15 @@ function DetailMaba({ auth, data, response, flash }) {
                         <ArrowLeft className="mr-2" />
                         Kembali
                     </Button>
-                    <div className="mt-4 relative flex h-full flex-col justify-center md:justify-between items-center">
+                    <div className="md:justify-between relative flex flex-col items-center justify-center h-full mt-4">
                         <div>
-                            <div className="w-full flex flex-col justify-center items-center">
+                            <div className="flex flex-col items-center justify-center w-full">
                                 <img
                                     className="w-32 aspect-[3/4] border border-black rounded-xl"
                                     src={data.imgUrl}
                                     alt="Foto Maba"
                                 />
-                                <p className="font-bold text-lg mt-2">
+                                <p className="mt-2 text-lg font-bold">
                                     {data.nama}
                                 </p>
                                 <p className="font-medium">{data.prodi}</p>
@@ -70,7 +70,7 @@ function DetailMaba({ auth, data, response, flash }) {
                             <Card className="w-[calc(100vw-30px)] md:w-96 pt-4 mt-4 rounded-lg mb-3">
                                 <CardContent>
                                     <div className="flex flex-col gap-2">
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex items-center justify-between">
                                             <p className="font-bold">Status</p>
                                             <div className="flex items-center gap-2">
                                                 <p
@@ -213,7 +213,7 @@ function DetailMaba({ auth, data, response, flash }) {
 
                         <Link
                             href={route("dashboard.cui.absensi")}
-                            className="mt-2 bg-slate-600 rounded-full w-12 h-12 flex items-center self-center justify-center p-2"
+                            className="bg-slate-600 flex items-center self-center justify-center w-12 h-12 p-2 mt-2 rounded-full"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +233,7 @@ function DetailMaba({ auth, data, response, flash }) {
                                 <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
                             </svg>
                         </Link>
-                        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col justify-center items-center gap-2 mt-5 pb-5"></div>
+                        <div className="left-1/2 md:static md:translate-x-0 fixed bottom-0 flex flex-col items-center justify-center gap-2 pb-5 mt-5 -translate-x-1/2"></div>
                     </div>
                 </div>
             )}

@@ -32,7 +32,7 @@ export default function TopUser({
         }, 100);
     }, []);
 
-    // console.log(user);
+    //  //console.log(user);
 
     return (
         <div

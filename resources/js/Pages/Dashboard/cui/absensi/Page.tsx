@@ -1,10 +1,11 @@
 import QRScanner from "./QRScanner";
-import DashboardLayout from "@/Layouts/DashboardLayout";
 import { IDetectedBarcode, Scanner, outline } from "@yudiel/react-qr-scanner";
 
 import React, { useEffect, useState } from "react";
 
 import { router, useForm } from "@inertiajs/react";
+
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { Button } from "@/Components/ui/button";
 
@@ -63,12 +64,12 @@ function Page({ auth }) {
                                     onScan={function (
                                         detectedCodes: IDetectedBarcode[],
                                     ): void {
-                                        // console.log(detectedCodes.at(-1)?.rawValue);
+                                        //  //console.log(detectedCodes.at(-1)?.rawValue);
                                         handleScan(
                                             detectedCodes.at(-1)?.rawValue ||
                                                 "",
                                         );
-                                        // console.log(detectedCodes);
+                                        //  //console.log(detectedCodes);
                                     }}
                                     components={{
                                         finder: true,

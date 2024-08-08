@@ -55,9 +55,9 @@ class ProfileController extends Controller
    {
       $user = auth()->user(); // More direct and readable
       $validated = $request->validate([
-         'linkedinURL' => 'required|url',
-         'instagramURL' => 'required|url',
-         'bio' => 'required|string|max:150', // Assuming a reasonable max length for bio
+         'instagramURL' => ['nullable', 'url', 'max:120', 'regex:#^((https?:\/\/)?(www\.)?)?instagram\.com\/[a-zA-Z0-9._]{1,30}\/?$#i'],
+         'linkedinURL' => ['nullable', 'url', 'max:120', 'regex:#^((https?:\/\/)?(www\.)?)?linkedin\.com\/in\/[a-zA-Z0-9\-_]{1,100}\/?$#i'],
+         'bio' => 'string|max:150', // Assuming a reasonable max length for bio
       ]);
 
       DB::beginTransaction();
@@ -69,11 +69,17 @@ class ProfileController extends Controller
          ]);
 
          DB::commit();
-         return redirect()->route('myprofile')->with('success', 'Profile successfully updated.');
+         return redirect()->route('myprofile')->with('response', [
+            'status' => 200,
+            'message' => 'Berhasil mengubah data profile'
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
          report($th); // Ensure that the error is logged
-         return redirect()->route('myprofile')->with('error', 'Failed to update profile.');
+         return redirect()->route('myprofile')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah data profile'
+         ]);
       }
    }
 
@@ -104,9 +110,15 @@ class ProfileController extends Controller
          DB::commit();
       } catch (\Exception $e) {
          DB::rollBack();
-         return redirect()->route('myprofile')->with('error', 'Failed to update profile.');
+         return redirect()->route('myprofile')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah foto profile'
+         ]);
       }
-      return redirect()->route('myprofile')->with('success', 'Profile updated successfully.');
+      return redirect()->route('myprofile')->with('response', [
+         'status' => 200,
+         'message' => 'Berhasil mengubah foto profile'
+      ]);
    }
    public function resetPassword(Request $request)
    {

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
+import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import TopKelompok from "@/Components/scoreboard/TopKelompok";
 import { Card } from "@/Components/ui/card";
 import { Progress } from "@/Components/ui/progress";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { DataKelompokScore, DataTopTen } from "@/lib/types/Scoreboard";
-import RelasiLoading from "@/Components/relasi/RelasiLoading";
 
 import logoPplk from "!assets/logo-pplk-hd.png";
 
@@ -53,7 +53,7 @@ function Page() {
 
                     <div className="md:max-w-2xl w-full max-w-sm mx-auto">
                         {dataTopTen.length === 0 ? (
-                            <RelasiLoading className="my-16 w-full h-full text-center text-white" />
+                            <RelasiLoading className="w-full h-full my-16 text-center text-white" />
                         ) : (
                             <div className="sm:gap-4 md:max-w-2xl lg:gap-8 flex justify-center w-full max-w-lg gap-2 pt-4 overflow-y-hidden text-center">
                                 <TopKelompok
@@ -86,7 +86,7 @@ function Page() {
                 </MaxWidthWrapper>
             </div>
 
-            <div className="bg-pattern-white md:py-24 relative w-full h-full py-10 border">
+            <div className="bg-pattern-white md:py-24 relative w-full h-full py-10 overflow-hidden border">
                 <div
                     data-aos="fade-up"
                     data-aos-duration="1000"

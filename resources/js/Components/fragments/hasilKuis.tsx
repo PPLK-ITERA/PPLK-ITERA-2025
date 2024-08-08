@@ -24,7 +24,7 @@
 //     useEffect(() => {
 //         setloading(true);
 //         const token = window.localStorage.getItem("access_token");
-//         console.log(`TESTES ${token}`);
+//          //console.log(`TESTES ${token}`);
 
 //         if (token) {
 //             try {
@@ -35,11 +35,11 @@
 //                     setnilai3(data.sifat3_score);
 //                     setnilai4(data.sifat4_score);
 
-//                     console.log("TESTES");
-//                     console.log(data);
+//                      //console.log("TESTES");
+//                      //console.log(data);
 //                 });
 //             } catch (error) {
-//                 console.log(error);
+//                  //console.log(error);
 //                 toast({
 //                     variant: "destructive",
 //                     title: "Gagal mendapatkan hasil assesment kamu, mohon coba lagi hehe",

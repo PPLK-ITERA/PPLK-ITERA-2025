@@ -77,6 +77,7 @@ export interface DetailUser {
 
 interface flashresponse extends PageProps {
     flash: {
+        error: string;
         response: {
             status: number;
             message: string;
@@ -107,7 +108,7 @@ export default function Page({ response }) {
             } else {
                 toast({
                     title: "Gagal",
-                    description: flash.response.message,
+                    description: flash.error,
                     variant: "destructive",
                 });
             }
@@ -178,7 +179,7 @@ export default function Page({ response }) {
         post(route("dashboard.user.edit-foto"));
     };
 
-    console.log(currentUser.photo_profile_url);
+    //console.log(currentUser.photo_profile_url);
 
     return (
         <>

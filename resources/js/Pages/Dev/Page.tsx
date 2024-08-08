@@ -45,7 +45,7 @@ function Page() {
                 {/* 
             fitur ga penting ga usah dimasukin
             
-            <div className="fixed right-0 top-0">
+            <div className="fixed top-0 right-0">
                 <Button
                     className="bg-transparent"
                     onClick={() => window.history.back()}
