@@ -401,12 +401,15 @@ Route::middleware('auth')->group(function () {
       //    return to_route("mading");
       // }
 
+
       return Inertia::render('Mading/Pengumpulan/Page', [
          'id' => $id
       ]);
    })->name('mading/pengumpulan');
 
    Route::get('mading/pengumpulan-cover/{hari}', function (string $hari) {
+      abort(404);
+
       return Inertia::render('Mading/PengumpulanCover/Page', [
          'hari' => $hari
       ]);
