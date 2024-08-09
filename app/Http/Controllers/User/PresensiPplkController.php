@@ -24,7 +24,7 @@ class PresensiPplkController extends Controller
 
       // Define the time window when actions are allowed
       $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(7); // 7 AM today
+      $start = Carbon::today()->setHour(6); // 7 AM today
       $end = Carbon::today()->setHour(20); // 8 PM today
 
       // Check if the action is permissible based on the date and current time
@@ -237,7 +237,7 @@ class PresensiPplkController extends Controller
 
       // Define the time window when actions are allowed
       $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(7); // 7 AM today
+      $start = Carbon::today()->setHour(6); // 7 AM today
       $end = Carbon::today()->setHour(20); // 8 PM today
 
       // Check if the action is permissible based on the date and current time
@@ -312,7 +312,7 @@ class PresensiPplkController extends Controller
    {
       // Check if the current time is within the allowed range
       $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(7); // 7 AM today
+      $start = Carbon::today()->setHour(6); // 7 AM today
       $end = Carbon::today()->setHour(20); // 8 PM today
 
       if (!$currentTime->between($start, $end)) {

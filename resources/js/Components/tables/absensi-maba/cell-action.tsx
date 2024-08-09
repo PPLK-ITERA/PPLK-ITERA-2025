@@ -52,7 +52,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         title: "Berhasil",
                         description: `Berhasil mengizinkan ${data.user.name}`,
                     });
-                    window.location.reload();
                 },
             },
         );
@@ -77,7 +76,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         title: "Berhasil",
                         description: `Berhasil mengabsen ${data.user.name}`,
                     });
-                    window.location.reload();
                 },
             },
         );
