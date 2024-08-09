@@ -76,7 +76,7 @@ export const InformasiDropDown = [
         icon: <IconTie size={24} color="#fcedd8" />,
     },
     {
-        title: "Unit Kegiatan Mahasiswa",
+        title: "UKM & Komunitas",
         href: "/informasi/ukm",
         icon: <IconBallFootball size={24} color="#fcedd8" />,
     },

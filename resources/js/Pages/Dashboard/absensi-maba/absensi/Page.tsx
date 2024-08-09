@@ -37,7 +37,7 @@ function Page({ auth }) {
                 });
 
                 const getResult = await response.json();
-                // console.log(getResult.response);
+                //  //console.log(getResult.response);
 
                 if (getResult.response.status === 200) {
                     toast({
@@ -99,12 +99,12 @@ function Page({ auth }) {
                                         onScan={function (
                                             detectedCodes: IDetectedBarcode[],
                                         ): void {
-                                            // console.log(detectedCodes.at(-1)?.rawValue);
+                                            //  //console.log(detectedCodes.at(-1)?.rawValue);
                                             handleScan(
                                                 detectedCodes.at(-1)
                                                     ?.rawValue || "",
                                             );
-                                            // console.log(detectedCodes);
+                                            //  //console.log(detectedCodes);
                                         }}
                                         components={{
                                             finder: true,

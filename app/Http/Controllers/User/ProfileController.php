@@ -69,11 +69,17 @@ class ProfileController extends Controller
          ]);
 
          DB::commit();
-         return redirect()->route('myprofile')->with('success', 'Profile successfully updated.');
+         return redirect()->route('myprofile')->with('response', [
+            'status' => 200,
+            'message' => 'Berhasil mengubah data profile'
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
          report($th); // Ensure that the error is logged
-         return redirect()->route('myprofile')->with('error', 'Failed to update profile.');
+         return redirect()->route('myprofile')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah data profile'
+         ]);
       }
    }
 
@@ -104,9 +110,15 @@ class ProfileController extends Controller
          DB::commit();
       } catch (\Exception $e) {
          DB::rollBack();
-         return redirect()->route('myprofile')->with('error', 'Failed to update profile.');
+         return redirect()->route('myprofile')->with('response', [
+            'status' => 500,
+            'message' => 'Gagal mengubah foto profile'
+         ]);
       }
-      return redirect()->route('myprofile')->with('success', 'Profile updated successfully.');
+      return redirect()->route('myprofile')->with('response', [
+         'status' => 200,
+         'message' => 'Berhasil mengubah foto profile'
+      ]);
    }
    public function resetPassword(Request $request)
    {

@@ -1,7 +1,7 @@
 import { QRCodeCanvas } from "qrcode.react";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { useForm, usePage } from "@inertiajs/react";
 
@@ -29,9 +29,9 @@ import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
+import { useFlashToast } from "@/lib/hooks/useFlashToast";
 import { UserAuthProps } from "@/lib/types/User";
 
-// import { User } from "@/lib/types/User";
 import logopplk from "!assets/logo-pplk-2024.png";
 
 export interface DetailUser {
@@ -77,6 +77,7 @@ export interface DetailUser {
 
 interface flashresponse extends PageProps {
     flash: {
+        error: string;
         response: {
             status: number;
             message: string;
@@ -85,34 +86,16 @@ interface flashresponse extends PageProps {
 }
 
 export default function Page({ response }) {
-    const { toast } = useToast();
-
     type MyPage = PageProps<{
         auth: {
             user: UserAuthProps;
         };
     }>;
-
     const { auth } = usePage<MyPage>().props;
-    const { flash } = usePage<flashresponse>().props;
 
-    useEffect(() => {
-        if (flash.response) {
-            if (flash.response.status === 200) {
-                toast({
-                    title: "Berhasil",
-                    description: flash.response.message,
-                    variant: "default",
-                });
-            } else {
-                toast({
-                    title: "Gagal",
-                    description: flash.response.message,
-                    variant: "destructive",
-                });
-            }
-        }
-    }, [flash, toast]);
+    const { toast } = useToast();
+
+    useFlashToast();
 
     const breadcrumbItems = [
         { title: "Dashboard", link: "/dashboard" },
@@ -178,7 +161,7 @@ export default function Page({ response }) {
         post(route("dashboard.user.edit-foto"));
     };
 
-    console.log(currentUser.photo_profile_url);
+    //console.log(currentUser.photo_profile_url);
 
     return (
         <>

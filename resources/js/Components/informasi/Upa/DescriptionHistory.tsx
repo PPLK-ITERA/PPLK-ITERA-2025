@@ -17,9 +17,7 @@ export default function DescriptionHistory({
                 </h2>
 
                 <p className="font-montserrat font-3xl self-stretch pb-20 not-italic font-normal leading-9 text-justify text-black">
-                    {description
-                        ? description
-                        : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores unde reiciendis eveniet, distinctio nam odio dicta quas blanditiis! Alias animi iure dolor illo ut ullam fugiat, temporibus enim ex vitae. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur deleniti saepe quo in impedit, harum eaque soluta unde distinctio eius numquam enim minima repellendus! Ratione aspernatur natus ullam necessitatibus consequatur!`}
+                    {description ? description : `...`}
                 </p>
             </div>
 
@@ -29,9 +27,7 @@ export default function DescriptionHistory({
                 </h2>
 
                 <p className="font-montserrat font-3xl self-stretch pb-20 not-italic font-normal leading-9 text-justify text-black">
-                    {history
-                        ? history
-                        : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores unde reiciendis eveniet, distinctio nam odio dicta quas blanditiis! Alias animi iure dolor illo ut ullam fugiat, temporibus enim ex vitae. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur deleniti saepe quo in impedit, harum eaque soluta unde distinctio eius numquam enim minima repellendus! Ratione aspernatur natus ullam necessitatibus consequatur!`}
+                    {history ? history : `...`}
                 </p>
             </div>
         </div>

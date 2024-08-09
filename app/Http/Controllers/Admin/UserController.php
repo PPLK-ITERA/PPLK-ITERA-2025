@@ -88,17 +88,13 @@ class UserController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
+      $query = User::query()->whereIn('role_id', [2, 4])->with(['penyakit', 'kelompok']);
       if ($searchTerm) {
-         $query = User::query()
-            ->whereIn('role_id', [2, 4]) // Hanya user dengan role Maba
-            ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
-            ->when($searchTerm, function ($query) use ($searchTerm) {
-               return $query->whereHas('user', function ($q) use ($searchTerm) {
-                  $q->where('name', 'like', '%' . $searchTerm . '%')
-                     ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                     ->orWhere('email', 'like', '%' . $searchTerm . '%');
-               });
-            });
+         $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
+         });
       }
 
       $users = $query->paginate($perPage);
@@ -129,15 +125,13 @@ class UserController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
+      $query = User::query()->where('role_id', 5)->with(['penyakit', 'kelompok']);
       if ($searchTerm) {
-         $query = User::query()
-            ->where('role_id', 5) // Hanya user dengan role Maba
-            ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
-            ->when($searchTerm, function ($query) use ($searchTerm) {
-               $query->where('name', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
-            });
+         $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
+         });
       }
 
       $users = $query->paginate($perPage);
@@ -168,16 +162,15 @@ class UserController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
+      $query = User::query()->where('role_id', 6)->with(['penyakit', 'kelompok']);
       if ($searchTerm) {
-         $query = User::query()
-            ->where('role_id', 6) // Hanya user dengan role Maba
-            ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
-            ->when($searchTerm, function ($query) use ($searchTerm) {
-               $query->where('name', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
-            });
+         $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
+         });
       }
+
       $users = $query->paginate($perPage);
 
       $currentPage = $users->currentPage(); // Halaman saat ini
@@ -205,16 +198,16 @@ class UserController extends Controller
    {
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
+
+      $query = User::query()->where('role_id', 7)->with(['penyakit', 'kelompok']);
       if ($searchTerm) {
-         $query = User::query()
-            ->where('role_id', 7) // Hanya user dengan role Maba
-            ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
-            ->when($searchTerm, function ($query) use ($searchTerm) {
-               $query->where('name', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
-            });
+         $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
+         });
       }
+
       $users = $query->paginate($perPage);
 
       $currentPage = $users->currentPage(); // Halaman saat ini
@@ -250,7 +243,7 @@ class UserController extends Controller
          'name' => ['required', 'string', 'max:120', "regex:/^[a-zA-Z\' .]+$/"],
          'kelompok_id' => ['nullable', 'integer', 'max:130 '],
          'prodi_id' => ['nullable', 'integer', 'max:41'],
-         'role_id' => ['required', 'integer', 'digits:1']
+         'role_id' => ['required', 'integer', 'max:8']
       ]);
 
       $jumlah = User::where('kelompok_id', $validated['kelompok_id'])->count();
@@ -415,10 +408,10 @@ class UserController extends Controller
       // Validate input
       $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'name' => ['nullable', 'string', "regex:/^[\pL\s\-']+$/u", 'max:120'],
+         'name' => ['required', 'string', "regex:/^[\pL\s\-']+$/u", 'max:120'],
          'nim' => ['nullable', 'string'],
-         'email' => ['nullable', 'email'],
-         'prodi_id' => ['nullable', 'integer'],
+         'email' => ['required', 'email'],
+         'prodi_id' => ['required', 'integer'],
          'bio' => ['nullable', 'string', 'max:150'],
       ]);
 
@@ -437,6 +430,7 @@ class UserController extends Controller
       // Validate additional fields for admins
       if ($user->role_id == 1) {
          $adminValidated = $request->validate([
+            'pita' => ['nullable', 'string', 'in:hijau,kuning,merah'],
             'pita' => ['nullable', 'string', 'in:hijau,kuning,merah'],
             'ket_penyakit' => ['nullable', 'string', 'max:120'],
          ]);
@@ -524,6 +518,7 @@ class UserController extends Controller
       try {
          $user->update([
             'password' => bcrypt($validated['new_password']),
+            'isFirstTime' => true,
          ]);
          DB::commit();
       } catch (\Exception $e) {

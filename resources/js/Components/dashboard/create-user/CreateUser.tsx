@@ -76,7 +76,7 @@ export default function CreateUser() {
         });
         const data = await response.json();
         setKelompokData(data);
-        console.log(data);
+        //console.log(data);
     };
 
     useEffect(() => {

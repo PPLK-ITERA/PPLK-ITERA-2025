@@ -5,12 +5,16 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import { AturPJProdiClient } from "@/Components/tables/atur-pjprodi/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 
+import { useFlashToast } from "@/lib/hooks/useFlashToast";
+
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
     { title: "Atur Pj Prodi", link: "/dashboard/atur-pjprodi" },
 ];
 
 export default function Page({ auth }) {
+    useFlashToast();
+
     return (
         <DashboardLayout user={auth.user}>
             <Breadcrumbs items={breadcrumbItems} />

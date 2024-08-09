@@ -104,7 +104,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 // await axios.post(`/api/products/edit-product/${initialData._id}`, data);
             } else {
                 // const res = await axios.post(`/api/products/create-product`, data);
-                // console.log("product", res);
+                //  //console.log("product", res);
             }
             // router.refresh();
             // router.push(`/dashboard/products`);

@@ -136,8 +136,8 @@ Route::middleware('auth')->group(function () {
          // Korlap Role
          // ====================================
          Route::middleware('checkRole:Korlap,Admin')->group(function () {
-            Route::get('index/{user_id}', [PoinController::class, 'index'])->name('index');
-            Route::post('/store/{user_id}', [PoinController::class, 'store'])->name('store');
+            Route::get('index', [PoinController::class, 'index'])->name('index');
+            Route::post('store', [PoinController::class, 'store'])->name('store');
          });
       });
 

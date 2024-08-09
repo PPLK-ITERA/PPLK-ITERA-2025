@@ -86,7 +86,7 @@ class TugasController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'catatan' => 'required|string|max:120|alpha_num:ascii',
+         'catatan' => "required|string|max:120|regex:/^[a-zA-Z0-9\' .\-_]+$/",
       ]);
 
       $kelompokId = Auth::user()->kelompok_id;
@@ -126,6 +126,15 @@ class TugasController extends Controller
             'message' => 'Berhasil mengembalikan tugas'
          ]
       );
+   }
+
+   public function getPoster()
+   {
+      $kelompok_id = Auth::user()->kelompok_id;
+      $urls = Poster::where('kelompok_id', $kelompok_id)
+         ->get();
+
+      return response()->json($urls);
    }
 
    public function returnPoster(Request $request)

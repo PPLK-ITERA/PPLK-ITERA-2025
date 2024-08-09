@@ -119,15 +119,15 @@ function Page() {
                         <RelasiLoading className="min-h-72 w-full" />
                     ) : (
                         <div className="w-full max-w-5xl mx-auto">
-                            <div className="flex  place-content-center place-items-center">
-                                <h4 className="text-lg lg:text-2xl font-bold text-center">
+                            <div className="place-content-center place-items-center flex">
+                                <h4 className="lg:text-2xl text-lg font-bold text-center">
                                     {searchTitle}
                                 </h4>
                             </div>
                             {users.length > 0 ? (
                                 <UserList users={users} />
                             ) : (
-                                <div className="mx-auto text-wrap text-sm text-center my-16">
+                                <div className="text-wrap mx-auto my-16 text-sm text-center">
                                     Maaf, kami tidak dapat menemukan Naramuda
                                     yang kamu cari 😕
                                 </div>
@@ -135,13 +135,13 @@ function Page() {
                         </div>
                     )}
 
-                    <ul className="flex gap-2 mx-auto place-content-center flex-wrap">
+                    <ul className="place-content-center flex flex-wrap gap-2 mx-auto">
                         <li>
                             <Button
                                 onClick={() =>
                                     setCurrentPage(Math.max(currentPage - 1, 1))
                                 }
-                                className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition "
+                                className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110  transition"
                             >
                                 <IconChevronLeft></IconChevronLeft>
                             </Button>

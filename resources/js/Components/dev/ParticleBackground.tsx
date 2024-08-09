@@ -19,7 +19,7 @@ export default function ParticleBackground({ children }: Props) {
     }, []);
 
     // const particlesLoaded = async (container) => {
-    //     console.log(container);
+    //      //console.log(container);
     // };
 
     if (init) {

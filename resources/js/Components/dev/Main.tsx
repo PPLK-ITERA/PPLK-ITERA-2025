@@ -1,19 +1,13 @@
 import BackendDivision from "./BackendDivision";
 import CrSection from "./CrSection";
 import FrontendDivision from "./FrontendSection";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import React, { useState } from "react";
 
 // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-import { Carousel } from "@/Components/CarouselMaskot";
-import DevCard from "@/Components/dev/DevCard";
 import KadivSection from "@/Components/dev/KadivSection";
 import NavButton from "@/Components/dev/NavButton";
-import ParticleBackground from "@/Components/dev/ParticleBackground";
-import RunningTitle from "@/Components/dev/RunningText";
 import VvdSection from "@/Components/dev/VvdSection";
 
 type Props = {};
@@ -49,7 +43,7 @@ function Main({}: Props) {
     }
 
     return (
-        <div>
+        <div className="max-md:py-20 overflow-y-auto">
             <main>
                 <TransitionGroup>
                     <CSSTransition

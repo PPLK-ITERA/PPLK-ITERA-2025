@@ -87,13 +87,14 @@ export default function Footer() {
 
                             <div className="flex flex-col mt-2">
                                 {FooterLink.map((info, index) => (
-                                    <Link
+                                    <a
                                         key={index}
                                         href={info.href}
+                                        target="_blank"
                                         className="font-montserrat text-[12px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
                                     >
                                         {info.title}
-                                    </Link>
+                                    </a>
                                 ))}
                             </div>
                         </div>

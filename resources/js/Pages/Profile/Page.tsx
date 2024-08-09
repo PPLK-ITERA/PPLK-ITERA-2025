@@ -1,8 +1,9 @@
 import { QRCodeCanvas } from "qrcode.react";
+import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import { useEffect, useState } from "react";
 
-import { Head, useForm } from "@inertiajs/react";
+import { Head, useForm, usePage } from "@inertiajs/react";
 
 import { IconPencil } from "@tabler/icons-react";
 
@@ -23,7 +24,9 @@ import {
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
-import { toast } from "@/Components/ui/use-toast";
+import { toast, useToast } from "@/Components/ui/use-toast";
+
+import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 import info from "!assets/info.png";
 import logopplk from "!assets/logo-pplk-hd.png";
@@ -57,6 +60,8 @@ export interface UserResponse {
 }
 
 const Page = ({ response }) => {
+    useFlashToast();
+
     const UserData: UserResponse = response.data;
 
     const [file, setFile] = useState(null);
@@ -124,14 +129,11 @@ const Page = ({ response }) => {
 
     useEffect(() => {
         setQrData(UserData.qrcode);
-        // setFile(UserData.photoProfileUrl);
     }, []);
 
     const changeProfile = () => {
         post(route("profile.update.profile"));
     };
-
-    // !assets/
 
     return (
         <>
@@ -147,13 +149,13 @@ const Page = ({ response }) => {
                                 <img
                                     src={previewUrl}
                                     alt="preview-image-kelompok"
-                                    className="object-contain object-center w-full h-full"
+                                    className="object-cover object-center w-full h-full"
                                 />
                             ) : (
                                 <img
                                     src={UserData.photo_profile_url}
                                     alt="logopplk"
-                                    className="object-contain object-center w-full h-full"
+                                    className="object-cover object-center w-full h-full"
                                 />
                             )}
                         </div>
@@ -183,7 +185,7 @@ const Page = ({ response }) => {
                                                     <img
                                                         src={previewUrl}
                                                         alt="preview-image-kelompok"
-                                                        className="object-contain object-center w-full h-full"
+                                                        className="object-cover object-center w-full h-full"
                                                     />
                                                 ) : (
                                                     <img
@@ -191,7 +193,7 @@ const Page = ({ response }) => {
                                                             UserData.photo_profile_url
                                                         }
                                                         alt="logopplk"
-                                                        className="object-contain object-center w-full h-full"
+                                                        className="object-cover object-center w-full h-full"
                                                     />
                                                 )}
                                             </div>
@@ -323,6 +325,8 @@ const Page = ({ response }) => {
                 </div>
                 <Footer />
             </div>
+
+            <Toaster />
         </>
     );
 };

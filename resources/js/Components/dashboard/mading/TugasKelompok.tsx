@@ -61,7 +61,7 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
 
         const tugas = await response.json();
         setDataTugasKelompok(tugas.response.data);
-        console.log("tugasKelompok", tugas.response.data);
+        //console.log("tugasKelompok", tugas.response.data);
 
         setLoading(false);
     };
@@ -110,132 +110,159 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
                             </TableRow>
                         ) : (
                             <>
-                                {dataTugasKelompok.map((tugas, index) => (
-                                    <TableRow key={index}>
-                                        <TableCell className="font-medium">
-                                            {index + 1}
-                                        </TableCell>
-                                        <TableCell>
-                                            <p className="line-clamp-1">
-                                                {tugas.judul}
-                                            </p>
-                                        </TableCell>
-                                        <TableCell>
-                                            <a
-                                                className="line-clamp-1 text-wrap"
-                                                href={
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
-                                                }
-                                                target="_blank"
-                                            >
-                                                {
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
-                                                }
-                                            </a>
-                                        </TableCell>
-                                        <TableCell>
-                                            {tugas.pengumpulan_tugas[index]
-                                                .isReturn
-                                                ? "Dikembalikan"
-                                                : "Diterima"}
-                                        </TableCell>
-                                        <TableCell className="flex gap-1">
-                                            <a
-                                                href={`${
-                                                    tugas.pengumpulan_tugas[
-                                                        index
-                                                    ].jawaban
-                                                }`}
-                                                target="_blank"
-                                            >
-                                                <Button size="sm">
-                                                    Lihat Tugas
-                                                </Button>
-                                            </a>
-
-                                            <Dialog>
-                                                <DialogTrigger asChild>
-                                                    <Button
-                                                        className="gap-2"
-                                                        variant="outline"
-                                                        size="sm"
-                                                        onClick={() =>
-                                                            setData(
-                                                                "id",
+                                {dataTugasKelompok.length > 0 ? (
+                                    <>
+                                        {dataTugasKelompok.map(
+                                            (tugas, index) => (
+                                                <TableRow key={index}>
+                                                    <TableCell className="font-medium">
+                                                        {index + 1}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <p className="line-clamp-1">
+                                                            {tugas.judul}
+                                                        </p>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <a
+                                                            className="line-clamp-1 text-wrap"
+                                                            href={
                                                                 tugas
                                                                     .pengumpulan_tugas[
                                                                     index
-                                                                ].id,
-                                                            )
-                                                        }
-                                                    >
-                                                        Kembalikan Tugas
-                                                    </Button>
-                                                </DialogTrigger>
-
-                                                <DialogContent className="sm:max-w-[425px]">
-                                                    <DialogHeader>
-                                                        <DialogTitle>
-                                                            Kembalikan Tugas
-                                                        </DialogTitle>
-                                                        <DialogDescription>
-                                                            Kembalikan tugas
-                                                            yang sudah
-                                                            dikerjakan oleh
-                                                            mahasiswa ini agar
-                                                            diperbaiki
-                                                        </DialogDescription>
-                                                    </DialogHeader>
-
-                                                    <div className="grid gap-4 py-4">
-                                                        <div className="flex flex-col">
-                                                            <Label
-                                                                htmlFor="catatan"
-                                                                className="text-left"
-                                                            >
-                                                                Catatan
-                                                            </Label>
-
-                                                            <Textarea
-                                                                id="catatan"
-                                                                onChange={(e) =>
-                                                                    setData(
-                                                                        "catatan",
-                                                                        e.target
-                                                                            .value,
-                                                                    )
-                                                                }
-                                                                placeholder="Berikan catatan pengembalian tugas"
-                                                                className="mt-1"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <DialogFooter>
-                                                        <DialogClose asChild>
-                                                            <Button variant="outline">
-                                                                Batalkan
+                                                                ].jawaban
+                                                            }
+                                                            target="_blank"
+                                                        >
+                                                            {
+                                                                tugas
+                                                                    .pengumpulan_tugas[
+                                                                    index
+                                                                ].jawaban
+                                                            }
+                                                        </a>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {tugas
+                                                            .pengumpulan_tugas[
+                                                            index
+                                                        ].isReturn
+                                                            ? "Dikembalikan"
+                                                            : "Diterima"}
+                                                    </TableCell>
+                                                    <TableCell className="flex gap-1">
+                                                        <a
+                                                            href={`${
+                                                                tugas
+                                                                    .pengumpulan_tugas[
+                                                                    index
+                                                                ].jawaban
+                                                            }`}
+                                                            target="_blank"
+                                                        >
+                                                            <Button size="sm">
+                                                                Lihat Tugas
                                                             </Button>
-                                                        </DialogClose>
+                                                        </a>
 
-                                                        <DialogClose asChild>
-                                                            <Button
-                                                                onClick={
-                                                                    handleKembalikanTugas
-                                                                }
+                                                        <Dialog>
+                                                            <DialogTrigger
+                                                                asChild
                                                             >
-                                                                Lanjutkan
-                                                            </Button>
-                                                        </DialogClose>
-                                                    </DialogFooter>
-                                                </DialogContent>
-                                            </Dialog>
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
+                                                                <Button
+                                                                    className="gap-2"
+                                                                    variant="outline"
+                                                                    size="sm"
+                                                                    onClick={() =>
+                                                                        setData(
+                                                                            "id",
+                                                                            tugas
+                                                                                .pengumpulan_tugas[
+                                                                                index
+                                                                            ]
+                                                                                .id,
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    Kembalikan
+                                                                    Tugas
+                                                                </Button>
+                                                            </DialogTrigger>
+
+                                                            <DialogContent className="sm:max-w-[425px]">
+                                                                <DialogHeader>
+                                                                    <DialogTitle>
+                                                                        Kembalikan
+                                                                        Tugas
+                                                                    </DialogTitle>
+                                                                    <DialogDescription>
+                                                                        Kembalikan
+                                                                        tugas
+                                                                        yang
+                                                                        sudah
+                                                                        dikerjakan
+                                                                        oleh
+                                                                        mahasiswa
+                                                                        ini agar
+                                                                        diperbaiki
+                                                                    </DialogDescription>
+                                                                </DialogHeader>
+
+                                                                <div className="grid gap-4 py-4">
+                                                                    <div className="flex flex-col">
+                                                                        <Label
+                                                                            htmlFor="catatan"
+                                                                            className="text-left"
+                                                                        >
+                                                                            Catatan
+                                                                        </Label>
+
+                                                                        <Textarea
+                                                                            id="catatan"
+                                                                            onChange={(
+                                                                                e,
+                                                                            ) =>
+                                                                                setData(
+                                                                                    "catatan",
+                                                                                    e
+                                                                                        .target
+                                                                                        .value,
+                                                                                )
+                                                                            }
+                                                                            placeholder="Berikan catatan pengembalian tugas"
+                                                                            className="mt-1"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                                <DialogFooter>
+                                                                    <DialogClose
+                                                                        asChild
+                                                                    >
+                                                                        <Button variant="outline">
+                                                                            Batalkan
+                                                                        </Button>
+                                                                    </DialogClose>
+
+                                                                    <DialogClose
+                                                                        asChild
+                                                                    >
+                                                                        <Button
+                                                                            onClick={
+                                                                                handleKembalikanTugas
+                                                                            }
+                                                                        >
+                                                                            Lanjutkan
+                                                                        </Button>
+                                                                    </DialogClose>
+                                                                </DialogFooter>
+                                                            </DialogContent>
+                                                        </Dialog>
+                                                    </TableCell>
+                                                </TableRow>
+                                            ),
+                                        )}
+                                    </>
+                                ) : null}
                             </>
                         )}
                     </TableBody>

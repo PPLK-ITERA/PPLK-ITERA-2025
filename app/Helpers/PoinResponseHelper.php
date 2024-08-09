@@ -8,27 +8,23 @@ class PoinResponseHelper
 {
    public function poinSuccess($ketua_kelompok)
    {
-      return Inertia::render('Dashboard/game-offline/Page', [
-         'response' => [
+      return redirect()->back()->with(
+         'response',
+         [
             'status' => 200,
-            'message' => 'success',
-            'data' => [
-               'ketua_kelompok' => $ketua_kelompok
-            ]
+            'message' => 'Berhasil menambahkan poin kelompok ' . $ketua_kelompok->kelompok->nama_kelompok,
          ]
-      ]);
+      );
    }
    public function poinError($message, $status)
    {
-      return Inertia::render('Dashboard/game-offline/Page', [
-         'response' => [
+      return redirect()->back()->with(
+         'response',
+         [
             'status' => $status,
-            'message' => 'failed',
-            'data' => [
-               'error' => $message
-            ]
+            'message' => $message
          ]
-      ]);
+      );
    }
 
    public function createQr()
@@ -52,13 +48,13 @@ class PoinResponseHelper
       //       ]
       //    ]
       // ]);
-      return response()->json([
-         'status' => $status,
-         'message' => 'failed',
-         'data' => [
-            'error' => $message
+      return redirect()->back()->with(
+         'response',
+         [
+            'status' => $status,
+            'message' => $message
          ]
-      ]);
+      );
    }
 
    public function qrSuccess($code)

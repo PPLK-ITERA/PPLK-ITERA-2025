@@ -32,7 +32,7 @@ class User extends Authenticatable
       'qrcode_id',
       'prodi_id',
       'score',
-      'role',
+      'role_id',
       'bio',
    ];
    /**

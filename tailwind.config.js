@@ -99,6 +99,10 @@ export default {
                     900: "#74211a",
                     950: "#450f0a",
                 },
+                cyan: {
+                    primary: "#75ABAD",
+                    secondary: "#C4DDDD",
+                },
             },
             borderRadius: {
                 lg: "var(--radius)",

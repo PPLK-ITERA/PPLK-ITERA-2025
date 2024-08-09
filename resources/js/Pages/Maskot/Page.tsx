@@ -7,7 +7,6 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 import Footer from "@/Components/Footer";
 import { CarouselMaskot } from "@/Components/Maskot";
 import Navbar from "@/Components/Navbar";
-import { description } from "@/Components/dashboard/charts/bar-graph";
 import { Card, CardContent, CardTitle } from "@/Components/ui/card";
 
 import { useAos } from "@/lib/hooks/useAos";
@@ -19,16 +18,16 @@ import overlay_earth from "!assets/overlay-earth.png";
 const MASKOTS = [
     {
         key: "maskot-man",
-        name: "Maskot Man",
+        name: "KANAKA",
         description:
-            "Hai, Aku Maskot Man, Maskot PPLK 2024 Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse non porta dolor.Interdum et malesuada fames ac ante ipsum primis in faucibus. Fuscecongue ac elit non sollicitudin.Aenean dictum ultricies massa, nontristique nunc.",
+            "Hai, Aku Maskot Man, Maskot PPLK ITERA 2024! tunggu kehadiranku di PPLK ITERA 2024!",
         image: maskot_pplk_man,
     },
     {
         key: "maskot-woman",
-        name: "Maskot Woman",
+        name: "CALANDRA",
         description:
-            "Hai, Aku Maskot Woman, Maskot PPLK 2024 Lorem ipsum dolor sit amet,consectetur adipiscing elit.Suspendisse non porta dolor.Interdum et malesuada fames ac ante ipsum primis in faucibus. Fuscecongue ac elit non sollicitudin.Aenean dictum ultricies massa, nontristique nunc.",
+            "Hai, Aku Maskot Woman, Maskot PPLK ITERA 2024! tunggu kehadiranku di PPLK ITERA 2024!",
         image: maskot_pplk_woman,
     },
 ];
@@ -83,7 +82,7 @@ function Page() {
                                                 (_, indexArray) => (
                                                     <span
                                                         key={index}
-                                                        className={`xl:text-[80px] md:text-[40px] lg:text-[50px] text-[30px] blur-[1px] md:blur-[3px] xl:blur-[6px] font-extrabold italic ${indexArray % 2 === 0 ? "drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] text-white" : `${viewMaskot === maskot.key ? "text-jaffa-800" : "text-black"}`} flex flex-col transition-all duration-300 ease-in-out ${index === 0 ? "tracking-widest" : ""}`}
+                                                        className={`xl:text-[80px] md:text-[40px] lg:text-[50px] text-[30px] blur-[1px] md:blur-[3px] xl:blur-[6px] font-extrabold italic ${indexArray % 2 === 0 ? "drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] text-white" : `${viewMaskot === maskot.key ? "text-jaffa-800" : "text-black"}`} flex flex-col transition-all duration-300 ease-in-out ${index === 0 ? "tracking-[0.2em]" : ""}`}
                                                     >
                                                         {maskot.name}
                                                     </span>

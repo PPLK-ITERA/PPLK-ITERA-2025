@@ -44,8 +44,8 @@ function StaffCarousel({ staffList, onclick }: Props) {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className=" max-lg:w-5 max-lg:h-5 bg-yellow-400/50 w-6 h-6 text-yellow-300 translate-x-8" />
-            <CarouselNext className=" max-lg:w-5 max-lg:h-5 bg-yellow-400/50 w-6 h-6 text-yellow-300 -translate-x-8" />
+            <CarouselPrevious className=" max-lg:w-5 max-lg:h-5 bg-cyan-primary/50 text-cyan-secondary w-6 h-6 translate-x-8" />
+            <CarouselNext className=" max-lg:w-5 max-lg:h-5 bg-cyan-primary/50 text-cyan-secondary w-6 h-6 -translate-x-8" />
         </Carousel>
     );
 }

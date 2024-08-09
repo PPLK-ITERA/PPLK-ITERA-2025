@@ -80,7 +80,7 @@ function Page() {
     useEffect(() => {
         let direction = "desc";
         if (sort === "name") direction = "asc";
-        mFetchSort(sort, "desc");
+        mFetchSort(sort, direction);
     }, [sort]);
 
     useEffect(() => {
@@ -172,7 +172,7 @@ function Page() {
                                             Math.max(currentPage - 1, 1),
                                         )
                                     }
-                                    className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110  transition"
+                                    className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition"
                                 >
                                     <IconChevronLeft></IconChevronLeft>
                                 </Button>

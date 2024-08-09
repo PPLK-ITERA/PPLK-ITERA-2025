@@ -188,7 +188,7 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
                     value={data.bio}
                     onChange={(e) => setData("bio", e.target.value)}
                     placeholder="Pucuk ubi pucuk kangkung"
-                    className="mt-1"
+                    className="mt-1 max-h-[150px]"
                 />
             </div>
 

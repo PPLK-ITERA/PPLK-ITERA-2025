@@ -224,7 +224,7 @@ export const ukmData = [
         sejarah:
             "UKM IKM ITERA adalah sebuah organisasi mahasiswa berbasis kebudayaan. IKM-ITERA ini berasaskan musyawarah dan kekeluargaan, yang sesuai dengan asas Institut Teknologi Sumatera dan tidak bertentangan dengan Adat Basandi Syarak, Syarak basandi kitabullah. Tujuannya untuk merangkul dan menghimpun mahasiswa minang yang ada di itera. Unit Kegiatan Mahasiswa yang bernama ‘Ikatan Keluarga Minangkabau - Institut Teknologi Sumatera’ disingkat IKM-ITERA didirikan pada tanggal 20 Oktober 2015 di Lampung Selatan Provinsi Lampung.",
         visi: "Menjadikan UKM Ikatan Keluarga Minangkabau sebagai tempat paguyuban, pengembangan budaya, dan sebagai sarana penampung kreativitas, inspirasi, dan aspirasi mahasiswa minangkabau",
-        misi: "1. Mengaktifkan dan memajukan kebudayaan yang ada di dalam UKM Ikatan Keluarga Minangkabau. \n2. Menjalin hubungan yang harmonis dengan semua anggota atau keluarga yang ada di dalam UKM Ikatan Keluarga Minangkabau. \n3. Melaksanakan program-program yang telah ada dan meningkatkan program yang telah tersusun sesuai rencana. \n4. Meningkatkan kemajuan UKM Ikatan Keluarga Minangkabau menjadi yang lebih baik. \n4. Mengadakan kegiatan-kegiatan di bidang kebudayaan, pendidikan, dan keagamaan",
+        misi: "1. Mengaktifkan dan memajukan kebudayaan yang ada di dalam UKM Ikatan Keluarga Minangkabau. \n2. Menjalin hubungan yang harmonis dengan semua anggota atau keluarga yang ada di dalam UKM Ikatan Keluarga Minangkabau. \n3. Melaksanakan program-program yang telah ada dan meningkatkan program yang telah tersusun sesuai rencana. \n4. Meningkatkan kemajuan UKM Ikatan Keluarga Minangkabau menjadi yang lebih baik. \n5. Mengadakan kegiatan-kegiatan di bidang kebudayaan, pendidikan, dan keagamaan",
 
         allprestasi: [
             {
@@ -1383,8 +1383,8 @@ export const ukmData = [
         prodi: "Matematika'21",
         sejarah:
             "Seni Religi Itera yang mulanya bernama Seni Rebana Itera merupakan organisasi yang didirikan dengan tujuan untuk mewadahi mahasiswa ITERA dalam mengembangkan minat dan bakat dalam kesenin rebana. Organisasi ini dibentuk oleh beberapa mahasiswa ITERA yang memiliki bakat dalam bidang kesenian rebana atau hadroh, dimana pada saat itu belum terdapat organisasi di ITERA yang mewadahi mahasiswa pada bidang tersebut. Sehingga mereka berinisiatif untuk membuat perkumpulan mahasiswa ITERA yang memiliki bakat rebana atau hadroh. Organisasi ini berbentuk komunitas yang didirikan pada tanggal 1 November 2018",
-        visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-        misi: "1. Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
+        visi: "Menjadi pusat pengembangan dan pelestarian kesenian Islam yang unggul guna mencetak generasi prestatif serta religius di Institut Teknologi Sumatera.",
+        misi: "1. Mewadahi dan menyalurkan bakat anggota UKM Seni Religi ITERA dalam mengembangkan kesenian Islam.\n2. Menjadikan anggota Seni Religi ITERA yang memiliki jiwa kreatif, berprestasi, bertaqwa, serta berakhlaqul karimah.\n3. Menumbuhkan rasa cinta terhadap budaya dan kesenian Islam",
 
         allprestasi: [
             {

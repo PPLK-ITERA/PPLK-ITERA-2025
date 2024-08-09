@@ -4,6 +4,8 @@ import Tilt from "react-parallax-tilt";
 
 import React from "react";
 
+import { IconX } from "@tabler/icons-react";
+
 import {
     Dialog,
     DialogClose,
@@ -12,7 +14,6 @@ import {
 } from "@/Components/ui/dialog";
 
 import { Developer } from "@/lib/types/Developer";
-import { IconX } from "@tabler/icons-react";
 
 type Props = { dev: Developer; className?: string };
 
@@ -20,15 +21,15 @@ function DevPreview({ dev, className }: Props) {
     return (
         <Dialog>
             <DialogTrigger className={`${className}`}></DialogTrigger>
-            <DialogContent className="backdrop-blur-md max-md:place-items-center max-w-7xl h-4/5 max-lg:flex-col-reverse lg:place-content-between flex items-center w-full gap-4 p-16 px-8 text-white bg-transparent">
+            <DialogContent className="backdrop-blur-md max-md:place-items-center max-w-7xl max-lg:flex-col-reverse lg:place-content-between max-w-h-full h-4/5 lg:px-20 flex items-center w-full gap-4 p-16 px-8 text-white bg-transparent">
                 <DialogClose
-                    className="absolute top-4 right-4 text-white/50 hover:text-white"
+                    className="top-4 right-4 text-white/50 hover:text-white absolute"
                     asChild
                 >
                     <IconX size={24} />
                 </DialogClose>
 
-                <div className="fade-up lg:w-1/2 max-lg:text-center flex flex-col w-full gap-2">
+                <div className="fade-up lg:w-2/3 max-lg:text-center flex flex-col w-full gap-2">
                     <RunningText
                         title={dev.name}
                         delay={40}
@@ -47,15 +48,16 @@ function DevPreview({ dev, className }: Props) {
                     <a
                         href={`https://instagram.com/${dev.instagram}`}
                         target="_blank"
-                        className="hover:text-white w-full -mt-2 text-lg text-yellow-400 underline cursor-pointer"
+                        className="hover:text-white text-cyan-primary w-full -mt-2 text-lg underline cursor-pointer"
                     >
                         - @{dev.instagram}
                     </a>
                 </div>
-                <div className="lg:w-1/2 place-content-center grid">
+
+                <div className="lg:w-1/2 place-content-end grid">
                     <Tilt
                         tiltReverse={true}
-                        className="lg:w-64 lg:h-96 h-72 w-48 overflow-hidden rounded-md border border-yellow-400 shadow-xl shadow-yellow-400/20"
+                        className="lg:w-64 lg:h-96 h-72 border-cyan-secondary shadow-cyan-primary/20 w-48 overflow-hidden border rounded-md shadow-xl"
                     >
                         <img
                             src={dev.photo}

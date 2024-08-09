@@ -39,7 +39,7 @@ function KadivSection({}: Props) {
                 </div>
                 <div className="grow place-content-center col-span-2">
                     <div className="max-md:flex-col max-md:h-full place-content-center place-items-center flex w-full gap-6">
-                        <div
+                        {/* <div
                             data-aos="fade-up"
                             data-aos-duration={1000}
                             data-aos-delay={1000}
@@ -47,12 +47,12 @@ function KadivSection({}: Props) {
                         >
                             <DevCard
                                 developer={devTeam.sekdiv[0]}
-                                className="w-full h-full md:h-[320px] lg:h-[350px] xl:h-[380px] 2xl:h-[400px] shadow-xl shadow-yellow-500/30"
+                                className="w-full h-full md:h-[320px] lg:h-[350px] xl:h-[380px] 2xl:h-[400px] shadow-xl shadow-cyan-primary/30"
                                 tiltInitialX={
                                     window.screen.width < 767 ? 0 : -12
                                 }
                             />
-                        </div>
+                        </div> */}
                         <div
                             data-aos="fade-up"
                             data-aos-duration={1000}
@@ -61,10 +61,10 @@ function KadivSection({}: Props) {
                         >
                             <DevCard
                                 developer={devTeam.kadiv[0]}
-                                className="w-full h-full md:h-[380px] lg:h-[410px] 2xl:h-[450px] shadow-xl shadow-yellow-500/30"
+                                className="w-full h-full md:h-[380px] lg:h-[410px] 2xl:h-[450px] shadow-xl shadow-cyan-primary/30"
                             />
                         </div>
-                        <div
+                        {/* <div
                             data-aos="fade-up"
                             data-aos-duration={1000}
                             data-aos-delay={1500}
@@ -72,12 +72,12 @@ function KadivSection({}: Props) {
                         >
                             <DevCard
                                 developer={devTeam.bendiv[0]}
-                                className="w-full h-full md:h-[320px] lg:h-[350px] xl:h-[380px] 2xl:h-[400px] shadow-xl shadow-yellow-500/30"
+                                className="w-full h-full md:h-[320px] lg:h-[350px] xl:h-[380px] 2xl:h-[400px] shadow-xl shadow-cyan-primary/30"
                                 tiltInitialX={
                                     window.screen.width < 767 ? 0 : 12
                                 }
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="max-lg:hidden flex flex-col items-center justify-center col-span-1 p-4">
