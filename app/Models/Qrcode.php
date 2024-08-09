@@ -12,11 +12,13 @@ class Qrcode extends Model
    protected $primaryKey = 'id';
 
    protected $fillable = [
+      'user_id',
       'code'
    ];
 
    protected $hidden = [
-      'created_at', 'updated_at'
+      'created_at',
+      'updated_at'
    ];
 
    public function user()

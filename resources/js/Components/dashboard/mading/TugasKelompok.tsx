@@ -110,7 +110,7 @@ const TugasKelompok: FC<TugasKelompokProps> = ({}) => {
                             </TableRow>
                         ) : (
                             <>
-                                {dataTugasKelompok.length > 0 ? (
+                                {dataTugasKelompok ? (
                                     <>
                                         {dataTugasKelompok.map(
                                             (tugas, index) => (

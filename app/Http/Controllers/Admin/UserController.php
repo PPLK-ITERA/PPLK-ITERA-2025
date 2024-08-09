@@ -241,7 +241,7 @@ class UserController extends Controller
 
       $validated = $request->validate([
          'name' => ['required', 'string', 'max:120', "regex:/^[a-zA-Z\' .]+$/"],
-         'kelompok_id' => ['nullable', 'integer', 'max:130 '],
+         'kelompok_id' => ['nullable', 'integer', 'max:131 '],
          'prodi_id' => ['nullable', 'integer', 'max:41'],
          'role_id' => ['required', 'integer', 'max:8']
       ]);

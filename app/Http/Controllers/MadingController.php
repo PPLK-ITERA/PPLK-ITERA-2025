@@ -83,13 +83,18 @@ class MadingController extends Controller
          }
       }
 
+
       // Update completion percentages and determine if posters should be displayed
       foreach ($days as $hari) {
-         $completionPercentage[$hari] = ($memberCompletion[$hari] / ($tugasCount[$hari] * $totalMembers)) * 100;
+         if ($hari == 0 && $memberCompletion[$hari] > 0) {
+            $completionPercentage[$hari] = 100;
+         } else {
+            $completionPercentage[$hari] = ($memberCompletion[$hari] / ($tugasCount[$hari] * $totalMembers)) * 100;
+         }
          if ($completionPercentage[$hari] >= 100) {
             $posters[$hari] = Poster::where('kelompok_id', auth()->user()->kelompok_id)->where('hari', $hari)->first();
             if (!$posters[$hari]) {
-               $cardOpen[$hari] = null;
+               $cardOpen[$hari] = false;
             }
          }
       }
@@ -111,9 +116,6 @@ class MadingController extends Controller
             'hari' => $days
          ],
          'history' => $riwayat,  // Ensure $riwayat is defined and assigned appropriately before this point
-         'memberCompletion' => $memberCompletion,
-         'count' => $tugasCount,
-         'tugass' => $tugass,
          'logo_kelompok' => $logo,
       ];
 
@@ -123,11 +125,22 @@ class MadingController extends Controller
 
    public function getTugas($hari)
    {
-      $userId = Auth::id();
+      $user = Auth::user();
+      $userId = $user->id;
 
-      $tugass = Tugas::where('hari', $hari)->get();
 
       $isSubmitted = false;
+
+      if ($user->isKetua == 1) {
+         $tugass = Tugas::where('hari', $hari)->whereIn('kategori', ['individu', 'kelompok']);
+      } else {
+         $tugass = Tugas::where('hari', $hari)->where('kategori', 'individu');
+      }
+
+      $tugass = $tugass
+         ->whereDoesntHave('pengumpulanTugas', function ($query) use ($userId) {
+            $query->where('user_id', $userId)->where('isReturn', false);
+         })->get();
 
       foreach ($tugass as $tugas) {
          $isSubmitted = PengumpulanTugas::where('tugas_id', $tugas->id)->where('user_id', Auth::id())->where('isReturn', false)->exists();
@@ -136,17 +149,11 @@ class MadingController extends Controller
          }
       }
 
-      $tugas = Tugas::where('hari', $hari)
-         ->whereDoesntHave('pengumpulanTugas', function ($query) use ($userId) {
-            $query->where('user_id', $userId)->where('isReturn', false);
-         })->get();
-
-
       if ($isSubmitted) {
          return redirect()->route('mading')->with(['message' => 'Task already submitted']);
       }
 
-      return response()->json(['tugas' => $tugas, 'isSubmitted' => $isSubmitted]);
+      return response()->json(['tugas' => $tugass, 'isSubmitted' => $isSubmitted]);
    }
 
    public function storeTugas(Request $request)
@@ -167,14 +174,16 @@ class MadingController extends Controller
       DB::beginTransaction();
       try {
          foreach ($validated['tugas_id'] as $key => $tugasId) {
-            PengumpulanTugas::updateOrCreate([
-               'user_id' => $userId,
-               'tugas_id' => $tugasId,
-            ], [
-               'jawaban' => $validated['jawaban'][$key],
-               'tanggal_submit' => Carbon::now(),
-               'isReturn' => false,
-            ]);
+            if (isset($validated['jawaban'][$key])) {
+               PengumpulanTugas::updateOrCreate([
+                  'user_id' => $userId,
+                  'tugas_id' => $tugasId,
+               ], [
+                  'jawaban' => $validated['jawaban'][$key],
+                  'tanggal_submit' => Carbon::now(),
+                  'isReturn' => false,
+               ]);
+            }
          }
 
          DB::commit();
