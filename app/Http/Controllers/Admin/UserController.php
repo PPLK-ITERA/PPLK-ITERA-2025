@@ -411,7 +411,7 @@ class UserController extends Controller
       $validated = $request->validate([
          'id' => ['required', 'integer'],
          'name' => ['required', 'string', "regex:/^[\pL\s\-']+$/u", 'max:120'],
-         'nim' => ['required', 'string'],
+         'nim' => ['nullable', 'string'],
          'email' => ['required', 'email'],
          'prodi_id' => ['required', 'integer'],
          'bio' => ['nullable', 'string', 'max:150'],
@@ -432,7 +432,7 @@ class UserController extends Controller
       // Validate additional fields for admins
       if ($user->role_id == 1) {
          $adminValidated = $request->validate([
-            'pita' => ['required', 'string', 'in:hijau,kuning,merah'],
+            'pita' => ['nullable', 'string', 'in:hijau,kuning,merah'],
             'ket_penyakit' => ['nullable', 'string', 'max:120'],
          ]);
       }

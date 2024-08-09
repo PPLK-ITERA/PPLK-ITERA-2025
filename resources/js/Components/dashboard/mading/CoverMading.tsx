@@ -70,11 +70,6 @@ const CoverMading: FC<TugasKelompokProps> = ({}) => {
 
     return (
         <>
-            <div>
-                {dataPostersTugas.length > 0
-                    ? dataPostersTugas[0].url_poster
-                    : null}
-            </div>
             <ScrollArea className="whitespace-nowrap max-w-7xl mt-5 overflow-hidden rounded-md">
                 <Table className="relative border">
                     <TableHeader>

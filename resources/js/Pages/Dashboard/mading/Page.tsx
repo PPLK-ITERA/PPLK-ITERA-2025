@@ -10,7 +10,6 @@ import CoverMading from "@/Components/dashboard/mading/CoverMading";
 import TugasKelompok from "@/Components/dashboard/mading/TugasKelompok";
 import { MadingClient } from "@/Components/tables/mading/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
-import { Button } from "@/Components/ui/button";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
@@ -59,8 +58,6 @@ export default function Page({ auth }) {
                 <h2 className="text-3xl font-bold tracking-tight">Mading</h2>
 
                 <MadingClient />
-
-                {/* Tugas Kelompok */}
 
                 <h2 className="text-3xl font-bold tracking-tight">
                     Tugas Kelompok

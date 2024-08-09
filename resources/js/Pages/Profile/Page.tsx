@@ -26,6 +26,8 @@ import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
 import { toast, useToast } from "@/Components/ui/use-toast";
 
+import { useFlashToast } from "@/lib/hooks/useFlashToast";
+
 import info from "!assets/info.png";
 import logopplk from "!assets/logo-pplk-hd.png";
 
@@ -57,38 +59,8 @@ export interface UserResponse {
     bio: string;
 }
 
-interface flashresponse extends PageProps {
-    flash: {
-        response: {
-            status: number;
-            message: string;
-        };
-    };
-}
-
 const Page = ({ response }) => {
-    const { toast } = useToast();
-    const { flash } = usePage<flashresponse>().props;
-
-    useEffect(() => {
-        if (flash.response) {
-            if (flash.response.status === 200) {
-                toast({
-                    title: "Berhasil",
-                    description: flash.response.message,
-                    variant: "default",
-                });
-            } else {
-                toast({
-                    title: "Gagal",
-                    description: flash.response.message,
-                    variant: "destructive",
-                });
-            }
-
-            window.location.reload();
-        }
-    }, [flash, toast]);
+    useFlashToast();
 
     const UserData: UserResponse = response.data;
 
@@ -157,14 +129,11 @@ const Page = ({ response }) => {
 
     useEffect(() => {
         setQrData(UserData.qrcode);
-        // setFile(UserData.photoProfileUrl);
     }, []);
 
     const changeProfile = () => {
         post(route("profile.update.profile"));
     };
-
-    // !assets/
 
     return (
         <>

@@ -25,6 +25,7 @@ import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
+import { useFlashToast } from "@/lib/hooks/useFlashToast";
 import { Kelompok } from "@/lib/types/InformasiKelompok";
 
 import logopplk from "!assets/logo-pplk-2024.png";
@@ -46,26 +47,7 @@ interface flashresponse extends PageProps {
 export default function Page({ auth }: { auth: any }) {
     const { toast } = useToast();
 
-    const { flash } = usePage<flashresponse>().props;
-
-    useEffect(() => {
-        if (flash.response) {
-            if (flash.response.status === 200) {
-                toast({
-                    title: "Berhasil",
-                    description: flash.response.message,
-                    variant: "default",
-                });
-            } else {
-                toast({
-                    title: "Gagal",
-                    description: flash.response.message,
-                    variant: "destructive",
-                });
-            }
-            window.location.reload();
-        }
-    }, [flash, toast]);
+    useFlashToast();
 
     const [file, setFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState("");

@@ -11,41 +11,15 @@ import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
+import { useFlashToast } from "@/lib/hooks/useFlashToast";
+
 const breadcrumbItems = [
     { title: "Dashboard", link: "/dashboard" },
     { title: "Create User", link: "/dashboard/create-user" },
 ];
 
-interface flashresponse extends PageProps {
-    flash: {
-        response: {
-            status: number;
-            message: string;
-        };
-    };
-}
-
 export default function Page({ auth }) {
-    const { toast } = useToast();
-    const { flash } = usePage<flashresponse>().props;
-
-    useEffect(() => {
-        if (flash.response) {
-            if (flash.response.status === 200) {
-                toast({
-                    title: "Berhasil",
-                    description: flash.response.message,
-                    variant: "default",
-                });
-            } else {
-                toast({
-                    title: "Gagal",
-                    description: flash.response.message,
-                    variant: "destructive",
-                });
-            }
-        }
-    }, [flash, toast]);
+    useFlashToast();
 
     return (
         <>
