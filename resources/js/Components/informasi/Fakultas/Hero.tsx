@@ -31,12 +31,12 @@ const Hero = ({ fakultas }) => {
                 </div>
             </div>
 
-            <div data-aos="fade-up" data-aos-duration="600" className="md:px-8 md:text-center lg:text-start lg:px-0 md:mt-20 max-w-4xl px-4 mx-auto mt-16 space-y-3">
+            {/* <div data-aos="fade-up" data-aos-duration="600" className="md:px-8 md:text-center lg:text-start lg:px-0 md:mt-20 max-w-4xl px-4 mx-auto mt-16 space-y-3">
                 <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-bold tracking-widest">
                     Sejarah
                 </p>
                 <p>{selectedFakultas.history}</p>
-            </div>
+            </div> */}
         </div>
     );
 };

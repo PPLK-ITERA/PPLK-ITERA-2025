@@ -23,7 +23,7 @@ function ProfileCard({
         >
             <CardContent className="flex flex-col items-center h-full p-4 text-sm font-medium text-center text-black bg-white">
                 <img
-                    className="md:w-24 w-16 md:h-24 h-16 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full select-none"
+                    className="md:w-24 w-16 md:h-24 h-16 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full select-none object-cover object-center"
                     // src={user.photo_profile_url}
                     src={
                         user.photo_profile_url ??

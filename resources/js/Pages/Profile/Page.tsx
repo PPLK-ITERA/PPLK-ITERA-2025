@@ -147,13 +147,19 @@ const Page = ({ response }) => {
                         <div className="w-[212px] h-[212px] overflow-hidden flex justify-center items-center rounded-full border">
                             {previewUrl ? (
                                 <img
-                                    src={previewUrl}
+                                    src={
+                                        previewUrl ??
+                                        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                    }
                                     alt="preview-image-kelompok"
                                     className="object-cover object-center w-full h-full"
                                 />
                             ) : (
                                 <img
-                                    src={UserData.photo_profile_url}
+                                    src={
+                                        UserData.photo_profile_url ??
+                                        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                    }
                                     alt="logopplk"
                                     className="object-cover object-center w-full h-full"
                                 />

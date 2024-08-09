@@ -67,7 +67,7 @@ function Page({ nama_ukm }) {
                                 <img
                                     src={overlay_box}
                                     alt="pillar_brown"
-                                    className="z-20 w-full -mt-[200px]"
+                                    className="z-0 w-full -mt-[200px]"
                                 />
                             </div>
                         </div>

@@ -4,6 +4,7 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
+import { Head } from "@inertiajs/react";
 
 const embedLinks = {
     "hymne-itera":
@@ -228,6 +229,8 @@ const LYRICS = {
 export default function Page() {
     return (
         <DefaultLayout isSolid={true}>
+            <Head title={`Lagu`} />
+
             <div className="min-h-screen py-[100px] bg-pattern-white font-montserrat">
                 <Tabs defaultValue="hymne-itera" className="max-w-6xl mx-auto">
                     <TabsList className="lg:h-14 grid w-full grid-cols-3">
@@ -247,7 +250,7 @@ export default function Page() {
                             className="lg:text-lg h-full"
                             value="anthem-pplk"
                         >
-                            Anthem PPLK
+                            Melodi Mimpi
                         </TabsTrigger>
                     </TabsList>
 

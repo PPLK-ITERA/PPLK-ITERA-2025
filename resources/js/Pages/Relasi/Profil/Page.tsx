@@ -1,5 +1,3 @@
-import Autoplay from "embla-carousel-autoplay";
-
 import React, { useState } from "react";
 
 import { Link, router, usePage } from "@inertiajs/react";
@@ -9,16 +7,14 @@ import { UserCircle, UserPlus } from "lucide-react";
 import {
     IconBrandInstagram,
     IconBrandLinkedin,
-    IconMoodAngry,
     IconMoodSearch,
 } from "@tabler/icons-react";
 
 import Footer from "@/Components/Footer";
-import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
 import ProfileCard from "@/Components/relasi/ProfileCard";
 import RelasiLoading from "@/Components/relasi/RelasiLoading";
-import { Button, buttonVariants } from "@/Components/ui/button";
+import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
     Carousel,
@@ -30,10 +26,6 @@ import {
 
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
-import { generateRandomImage } from "@/lib/utils";
-
-import instagramIcon from "!assets/svg/instagram.svg";
-import linkedinIcon from "!assets/svg/linkedin.svg";
 
 // type Props = { response };
 

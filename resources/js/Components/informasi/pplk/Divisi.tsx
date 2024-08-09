@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+
+
 // Importing the division logos
 import Airasta from "!assets/logodivisi/Airasta.png";
 import Amphorta from "!assets/logodivisi/Amphorta.png";
@@ -19,87 +21,88 @@ import Sakasella from "!assets/logodivisi/Sakasella.png";
 import Utsala from "!assets/logodivisi/Utsala.png";
 import Vagiotesis from "!assets/logodivisi/Vagiotesis.png";
 
+
 // Data for divisions
 const DATA_DIVISI = [
     {
         nama: "Prajamusi",
         logo: Prajamusi,
-        link: "https://www.instagram.com/p/C97pj5fSTUI/",
+        link: "https://www.instagram.com/p/C-XJo8ipyvj/",
     },
     {
         nama: "Sakasella",
         logo: Sakasella,
-        link: "https://www.instagram.com/p/C97pf9iyo51/",
+        link: "https://www.instagram.com/p/C-XJyvtpp28/",
     },
     {
         nama: "Utsala",
         logo: Utsala,
-        link: "https://www.instagram.com/p/C97pcHtSVRt/",
+        link: "https://www.instagram.com/p/C-XJWXGp1ZS/",
     },
     {
         nama: "Rakula",
         logo: Rakula,
-        link: "https://www.instagram.com/p/C97pXU0yk4O/",
+        link: "https://www.instagram.com/p/C-XC-hcpC7U/",
     },
     {
         nama: "Darsatica",
         logo: Darsatica,
-        link: "https://www.instagram.com/p/C97pTTIyYfO/",
+        link: "https://www.instagram.com/p/C-XJb17pLME/",
     },
     {
         nama: "Berdhana",
         logo: Berdhana,
-        link: "https://www.instagram.com/p/C97pPHAyZq8/",
+        link: "https://www.instagram.com/p/C-XJb17pLME/",
     },
     {
         nama: "Amphorta",
         logo: Amphorta,
-        link: "https://www.instagram.com/p/C97pLPUSqGw/",
+        link: "https://www.instagram.com/p/C-XIBBZJ5vi/",
     },
     {
         nama: "Lixus",
         logo: Lixus,
-        link: "https://www.instagram.com/p/C97pGl8y5PY/",
+        link: "https://www.instagram.com/p/C-XFdmXJUN1/",
     },
     {
         nama: "Caetana",
         logo: Caetana,
-        link: "https://www.instagram.com/p/C97pBrgSMpV/",
+        link: "https://www.instagram.com/p/C-XIrP1JNnP/",
     },
     {
         nama: "Ragita",
         logo: Ragita,
-        link: "https://www.instagram.com/p/C97o6nlyVua/",
+        link: "https://www.instagram.com/p/C-XHaZaJezW/",
     },
     {
         nama: "Kartatera",
         logo: Kartatera,
-        link: "https://www.instagram.com/p/C97oSi9yMGm/",
+        link: "https://www.instagram.com/p/C-XGK7Fpkgx/",
     },
     {
         nama: "Mercopium",
         logo: Mercopium,
-        link: "https://www.instagram.com/p/C97oL9mSByb/",
+        link: "https://www.instagram.com/p/C-XDyMaJFi7/",
     },
     {
         nama: "Dharmaleus",
         logo: Dharmaleus,
-        link: "https://www.instagram.com/p/C97oAmZS1dk/",
+        link: "https://www.instagram.com/p/C-XC-hcpC7U/",
     },
     {
         nama: "Karceus",
         logo: Karceus,
-        link: "https://www.instagram.com/p/C97niYNyWXt/",
+        link: "https://www.instagram.com/p/C-XC-hcpC7U/",
     },
     {
         nama: "Airasta",
         logo: Airasta,
-        link: "https://www.instagram.com/p/C97nHIBSARF/",
+        link: "https://www.instagram.com/p/C-XC-hcpC7U/",
     },
     {
         nama: "Kracias",
         logo: Kracias,
-        link: "https://www.instagram.com/p/C97m276yOBv/",
+        link: "https://www.instagram.com/p/C-XCJlqJTt7/",
     },
 ];
 
@@ -145,7 +148,7 @@ const Divisi = () => {
                 SEMUA DIVISI PPLK
             </h2>
 
-            <a href="https://www.instagram.com/p/C97ptk8yRtG/" target="_blank">
+            <a href="https://www.instagram.com/p/C-XJ8LlpZJa/" target="_blank">
                 <img
                     src={Vagiotesis}
                     alt={"Vagiotesis"}

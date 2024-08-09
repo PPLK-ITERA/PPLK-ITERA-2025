@@ -304,7 +304,7 @@ export const ukmData = [
         prodi: "Farmasi '21",
         sejarah:
             "UKM Lancang Kuning ITERA merupakan unit kegiatan mahasiswa yang bergerak dibidang sosial, kekeluargaan, kesenian, dan kebudaayan. UKM Lancang Kuning ITERA menjadi wadah kekeluargaan bagi mahasiswa ITERA yang berasal dari Riau dan Kepulauan Riau. UKM Lancang Kuning ITERA membawa ciri khas kebudayaan melayu dan memiliki pepatah yang mengatakan “takkan  melayu  hilang di bumi”, artinya kebudayaan melayu tidak akan hilang di bumi nusantara ini. UKM Lancang Kuning ITERA merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera tepatnya di Provinsi Lampung. Diresmikan sesuai keputusan rektor Institut Teknologi Sumatera Nomor 214/A/SK/KM/X/2016. Terbentuknya UKM Lancang Kuning ITERA disepakati pada 10 September 2015.",
-        visi: "1. Sebagai wadah berkumpulnya mahasiswa dan mahasiswi yang berasal dari Provinsi Riau dan Kepulauan Riau. \n2. Sebagai wadah pembinaan dan pengembangan potensi anggota untuk mempererat tali persaudaraan dan kebersamaan..",
+        visi: "1. Sebagai wadah berkumpulnya mahasiswa dan mahasiswi yang berasal dari Provinsi Riau dan Kepulauan Riau. \n2. Sebagai wadah pembinaan dan pengembangan potensi anggota untuk mempererat tali persaudaraan dan kebersamaan.",
         misi: "1. Mempererat tali persaudaraan dan kebersamaan antar mahasiswa yang berasal dari Provinsi Riau dan Kepualauan Riau. \n2. Mengembangkan potensi anggota dalam memperkenalkan budaya asal yaitu Riau dan Kepulauan Riau di Institut Teknologi Sumatera.",
 
         allprestasi: [
@@ -332,7 +332,7 @@ export const ukmData = [
         ketum: "Usmar Andoyo Sianturi",
         prodi: "Teknik Pertambangan'21",
         sejarah:
-            "UKM UMPASA ITERA merupakan organisasi mahasiswa yang terdiri dari 8 etnis sumatera Utara yaitu batak Toba, simalungun, karo, pakpak, mandailing, nias, Melayu dan angkola yang bertujuan untuk mengembangkan serta melestarikan kedelapan etnis tersebut serta dapat megembangkan minat dan bakat anggotanya, tidak hanya yang berasal dari Sumatera utara, UMPASA ITERA juga memberikan kesempatan bagi mahasiswa yang berasal dari luar Sumatera Utara yang ingin belajar dan mengenal budaya Sumatera Utara. Berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No. 072/A/SK/KM/IV/2016. Hari jadi UMPASA ITERA disepakati jatuh pada 27 Oktober 2016",
+            "UKM UMPASA ITERA merupakan organisasi mahasiswa yang terdiri dari 8 etnis sumatera Utara yaitu Batak Toba, Batak Simalungun, Batak Karo, Pakpak, Mandailing, Nias, Angkola, dan Melayu yang bertujuan untuk mengembangkan serta melestarikan kedelapan etnis tersebut serta dapat megembangkan minat dan bakat anggotanya, tidak hanya yang berasal dari Sumatera utara, UMPASA ITERA juga memberikan kesempatan bagi mahasiswa yang berasal dari luar Sumatera Utara yang ingin belajar dan mengenal budaya Sumatera Utara. Berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No. 072/A/SK/KM/IV/2016. Hari jadi UMPASA ITERA disepakati jatuh pada 27 Oktober 2016",
         visi: "Sebagai wadah untuk membina anggota dalam mengemban, melestarikan serta mengembangkan Seni dan Budaya Sumatera Utara.",
         misi: "1.Menghimpun segenap mahasiswa Institut Teknologi Sumatera yang tertarik dan cinta terhadap budaya Sumatera Utara tanpa membedakan SARA. \n2. Mengenalkan, mengembangkan, serta melestarikan seni dan budaya Sumatera Utara di Institut Teknologi Sumatera dan Indonesia. \n3.Membina rasa persaudaraan dan kekeluargaan sesama anggota yang bersifat kritis, bertanggung jawab, dan bermasyarakat.",
 
@@ -355,7 +355,7 @@ export const ukmData = [
             {
                 prestasi: kegiatanumpasa4,
                 deskripsi:
-                    "UMAPAS DAY yang merupakan program kerja dari Departemen pengembangan dan pelestarian budaya yang bertujuan memperkenalkan UMPASA ITERA ke dalam maupun luar ITERA dengan penampilan musik dan tarian dari 8 etnis Sumatera Utara ",
+                    "UMPASA DAY yang merupakan program kerja dari Departemen pengembangan dan pelestarian budaya yang bertujuan memperkenalkan UMPASA ITERA ke dalam maupun luar ITERA dengan penampilan musik dan tarian dari 8 etnis Sumatera Utara ",
             },
         ],
 
@@ -603,9 +603,9 @@ export const ukmData = [
         ketum: "Afiqa Najla Sifana",
         prodi: "Farmasi'20",
         sejarah:
-            "Aspirasi Kepeminatan Sastra ITERA adalah sebuah komunitas yang berfokus dalam pengembangan sastra di ITERA yang bertujuan untuk menciptakan antusisas terhadap wawasan kesusastraan dan literasi sastrawi pada lingkup mahasiswa/i ITERA guna mendukung Pengembangan, Pembinaan, dan Pelindungan Bahasa dan Sastra, serta Peningkatan Fungsi Bahasa Indonesia. Aspirasi Kepeminatan Sastra ITERA (AKSARA ITERA) telah berdiri sejak tahun 2018.",
+            "Aspirasi Kepeminatan Sastra ITERA adalah sebuah komunitas yang berfokus dalam pengembangan sastra di ITERA yang bertujuan untuk menciptakan antusias terhadap wawasan kesusastraan dan literasi sastrawi pada lingkup mahasiswa/i ITERA guna mendukung Pengembangan, Pembinaan, dan Pelindungan Bahasa dan Sastra, serta Peningkatan Fungsi Bahasa Indonesia. Aspirasi Kepeminatan Sastra ITERA (AKSARA ITERA) telah berdiri sejak tahun 2018.",
         visi: "1. Menciptakan mahasiswa yang antusias terhadap wawasan kesusastraan serta literasi sastrawi. \n2. Memberi nilai tambah kepeminatan, pengetahuan, serta keterampilan di bidang sastra kepada mahasiswa Institut Teknologi Sumatera baik yang ikut andil dalam keanggotaan komunitas maupun di luar komunitas.",
-        misi: "1. Meningkatkan wawasan sastra dengan kegiatan-kegiatan edukatif baik  berupa bimbingan maupun diskusi antar anggota. \n 2. Memberikan pemahaman dan pengalaman yang menyenangkan tentang  sastra melalui kegiatan partisipatif seperti malam sastra.",
+        misi: "1. Meningkatkan wawasan sastra dengan kegiatan-kegiatan edukatif baik berupa bimbingan maupun diskusi antar anggota. \n 2. Memberikan pemahaman dan pengalaman yang menyenangkan tentang  sastra melalui kegiatan partisipatif seperti malam sastra.",
 
         allprestasi: [
             {
@@ -1206,7 +1206,7 @@ export const ukmData = [
         ketum: "Andreas Ananda Situmorang",
         prodi: "Teknik pertambangan'21",
         sejarah:
-            "PMK ITERA adalah wadah untuk memfasilitasi kebutuhan spiritual mahasiswa Kristen Protes an dalam menjalankan ibadah, memperkuat ikatan antar umat beragama, dan menjadi 'keluarga' dalam menumbuhkan nilai-nilai Kristen yang diajarkan oleh Tuhan Yesus Kristus di dalam kehidupan mahasiswa Kristen Protestan Institut Teknologi Sumatera.Untuk mendukung tujuan tersebut, PMK ITERA didirikan sebagai UKM di ITERA.Ini menjadi wadah bagi mahasiswa Kristen Protestan untuk mengembangkan sikap yang sesuai dengan ajaran Firman Tuhan dan meneladani Yesus Kristus dalam kehidupan mereka.Diharapkan bahwa UKM ini akan tumbuh dan memiliki dampak yang lebih besar seiring berjalannya waktu. Dahulu bernama KMKK kemudian berubah pada tanggal 14 Febuari 2020 sesuai keputusan rektor",
+            "PMK ITERA adalah wadah untuk memfasilitasi kebutuhan spiritual mahasiswa Kristen Protestan dalam menjalankan ibadah, memperkuat ikatan antar umat beragama, dan menjadi 'keluarga' dalam menumbuhkan nilai-nilai Kristen yang diajarkan oleh Tuhan Yesus Kristus di dalam kehidupan mahasiswa Kristen Protestan Institut Teknologi Sumatera.Untuk mendukung tujuan tersebut, PMK ITERA didirikan sebagai UKM di ITERA.Ini menjadi wadah bagi mahasiswa Kristen Protestan untuk mengembangkan sikap yang sesuai dengan ajaran Firman Tuhan dan meneladani Yesus Kristus dalam kehidupan mereka.Diharapkan bahwa UKM ini akan tumbuh dan memiliki dampak yang lebih besar seiring berjalannya waktu. Dahulu bernama KMKK kemudian berubah pada tanggal 14 Febuari 2020 sesuai keputusan rektor",
         visi: "Menjadikan mahasiswa ITERA garam dan terang dunia, rajin melakukan kegiatan-kegiatan positif, dan dapat berkembang dalam hal spiritual, intelektual, serta kedewasaan dalam iman seperti Yesus Kristus.",
         misi: "Melaksanakan misi pembekalan, pelatihan, pengutusan PMK, dan dalam memasuki kehidupan masyarakat dan profesi. \n Prinsip-prinsip keorganisasian PMK ITERA:\n1. Interdenominasi. \n2. Tidak menginduk pada lembaga, gereja dan organisasi apapun. \n3. Tidak berpolitik praktis.",
 
@@ -1640,7 +1640,7 @@ interface UKMData {
 //         ketum: "Nama Ketua Umum",
 //         prodi: "Prodi '21",
 //         sejarah:
-//             "UKM IKM ITERA adalah sebuah organisasi mahasiswa berbasis kebudayaan. IKM-ITERA ini berasaskan musyawarah dan kekeluargaan, yang sesuai dengan asas Institut Teknologi Sumatera dan tidak bertentangan dengan Adat Basandi Syarak, Syarak basandi kitabullah. Tujuannya untuk merangkul dan menghimpun mahasiswa minang yang ada di itera. Unit Kegiatan Mahasiswa yang bernama ‘Ikatan Keluarga Minangkabau - Institut Teknologi Sumatera’ disingkat IKM-ITERA didirikan pada tanggal 20 Oktober 2015 di Lampung Selatan Provinsi Lampung.",
+//             "UKM ITERA adalah sebuah organisasi mahasiswa berbasis kebudayaan. IKM-ITERA ini berasaskan musyawarah dan kekeluargaan, yang sesuai dengan asas Institut Teknologi Sumatera dan tidak bertentangan dengan Adat Basandi Syarak, Syarak basandi kitabullah. Tujuannya untuk merangkul dan menghimpun mahasiswa minang yang ada di itera. Unit Kegiatan Mahasiswa yang bernama ‘Ikatan Keluarga Minangkabau - Institut Teknologi Sumatera’ disingkat IKM-ITERA didirikan pada tanggal 20 Oktober 2015 di Lampung Selatan Provinsi Lampung.",
 //         allprestasi: [
 //             {
 //                 prestasi: kegiatanikm1,
