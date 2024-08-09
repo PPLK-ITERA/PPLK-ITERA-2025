@@ -135,6 +135,8 @@ export default {
                 montserrat: ["Montserrat"],
                 novamono: ["NovaMono"],
                 spacegrotesk: ['"Space Grotesk"'],
+                anothertag: ["AnotherTag"],
+                lostar: ["Lostar"],
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",

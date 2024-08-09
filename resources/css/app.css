@@ -88,6 +88,15 @@
         font-family: "novaMono";
         src: local("NovaMono"), url("!assets/fonts/NovaMono/novamono.ttf");
     }
+    @font-face {
+        font-family: "Anothertag";
+        src: local("AnotherTag"),
+            url("!assets/fonts/AnotherTag/aAnotherTag.otf");
+    }
+    @font-face {
+        font-family: "Lostar";
+        src: local("Lostar"), url("!assets/fonts/Lostar/Lostar.ttf");
+    }
 }
 
 html {

@@ -16,7 +16,7 @@ type Props = { staffList: Developer[]; onclick?: (dev: Developer) => void };
 
 function StaffCarousel({ staffList, onclick }: Props) {
     return (
-        <Carousel className="lg:h-28 h-20 p-2 text-sm">
+        <Carousel className="lg:h-28 z-20 h-20 p-2 text-sm">
             <CarouselContent>
                 {staffList.map((dev, i) => (
                     <CarouselItem

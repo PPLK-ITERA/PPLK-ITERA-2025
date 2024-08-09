@@ -8,9 +8,10 @@ import { Button } from "@/Components/ui/button";
 
 interface DapmenProps {
     userId?: number;
+    score?: number;
 }
 
-export default function Dapmen({ userId }: DapmenProps) {
+export default function Dapmen({ userId, score }: DapmenProps) {
     const [loading, setLoading] = useState(false);
     const { data, setData } = useForm({
         code: "",
@@ -35,7 +36,7 @@ export default function Dapmen({ userId }: DapmenProps) {
             </p>
 
             <div className="w-fit p-2 text-white bg-green-600 rounded-md">
-                <p>Score Kelompok : 800</p>
+                <p>Score Kelompok : {score}</p>
             </div>
 
             <div className="flex flex-col items-center w-full gap-10">

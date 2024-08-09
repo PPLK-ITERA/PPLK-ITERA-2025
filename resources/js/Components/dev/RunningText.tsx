@@ -28,14 +28,14 @@ export default function RunningText({
     }, []);
 
     return (
-        <div>
+        <div className="z-20">
             <h1
-                className={`h-0 w-full opacity-0 ${className}`}
+                className={`h-0 w-full z-20 opacity-0 ${className}`}
                 style={style ?? {}}
             >
                 {runningTitle}
             </h1>
-            <h1 className={`${className}`}>{runningTitle}</h1>
+            <h1 className={`${className} z-20`}>{runningTitle}</h1>
         </div>
     );
 }

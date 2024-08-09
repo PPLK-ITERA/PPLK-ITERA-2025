@@ -9,6 +9,7 @@ use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
+use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\PresensiPplkController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -113,7 +114,7 @@ Route::middleware('auth')->group(function () {
          Route::middleware(['checkRole:Daplok,Mentor,PjProdi,Admin'])->group(function () {
             Route::get('data/{date}', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
             Route::post('store', [PresensiPplkController::class, 'store'])->name('absen');
-            Route::post('izin/{id}', [PresensiPplkController::class, 'izin'])->name('izin');
+            Route::post('izin/{id}', [PresensiPplkController::class, 'updateKehadiran'])->name('izin');
             Route::post('scan', [PresensiPplkController::class, 'QRScan'])->name('scan');
             Route::get('count', [PresensiPplkController::class, 'dataHadir'])->name('count');
          });
@@ -130,7 +131,10 @@ Route::middleware('auth')->group(function () {
             // =====================================
             // Generate QR Code untuk poin
             // =====================================
-            Route::get('/qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('qrcode');
+            Route::middleware('throttle:5,2')->group(function () {
+               Route::get('/qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('qrcode');
+            });
+            Route::get('score', [ScoreboardController::class, 'score'])->name('score');
          });
          // =====================================
          // Korlap Role

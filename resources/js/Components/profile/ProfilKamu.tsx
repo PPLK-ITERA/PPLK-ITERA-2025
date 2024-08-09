@@ -9,7 +9,6 @@ import { IconBrandInstagram, IconBrandLinkedin } from "@tabler/icons-react";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
-import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
 const ProfilKamu = ({ props }: { props: UserResponse }) => {
@@ -85,6 +84,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                 >
                     Link LinkedIn
                 </label>
+
                 <div className="relative">
                     <input
                         type="text"
@@ -93,7 +93,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                         onChange={(e) => {
                             setData("linkedinURL", e.target.value);
                         }}
-                        placeholder="https://www.linkedin.com/in/..."
+                        placeholder="ex. https://www.linkedin.com/in/username/"
                         className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
                     />
                     <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
@@ -123,7 +123,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                         onChange={(e) => {
                             setData("instagramURL", e.target.value);
                         }}
-                        placeholder="https://www.instagram.com/..."
+                        placeholder="ex. https://www.instagram.com/pplkitera/"
                         className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
                     />
                     <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
