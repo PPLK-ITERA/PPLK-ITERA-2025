@@ -22,12 +22,12 @@ import { useToast } from "@/Components/ui/use-toast";
 import { CardType } from "@/lib/types/Mading";
 
 const ketentuanUploadCover = [
-    "Kreativitas dan Daya Tarik Visual: Pilih gambar yang unik dan menarik perhatian pembaca. Gunakan desain yang kreatif dan harmonis untuk menciptakan tampilan yang memikat.",
-    "Kualitas dan Resolusi Gambar: Pastikan gambar yang diunggah memiliki resolusi tinggi agar tetap jelas dan tajam saat ditampilkan.",
-    "Kesesuaian Tema: Sesuaikan desain cover dengan tema atau topik mading. Hal ini membantu menyampaikan pesan yang ingin disampaikan dengan lebih efektif.",
-    "Keseimbangan Warna: Gunakan kombinasi warna yang sesuai dan tidak terlalu kontras agar tampilan lebih nyaman dilihat.",
-    "Keterbacaan Teks: Jika terdapat teks pada cover, pastikan font yang digunakan mudah dibaca dan tidak terlalu kecil.",
-    "Gambar yang Senonoh dan Tidak Menyinggung: Pastikan gambar yang diunggah tidak mengandung unsur SARA, pornografi, atau hal-hal yang dapat menyinggung orang lain.",
+    "Cover harus berbentuk kolase foto, seperti kolase kumpulan tugas, kolase foto saat kalian bekerja dalam kelompok, dan sebagainya.",
+    "Desain cover bebas, sesuai dengan kreativitas kelompok.",
+    "Kalian dapat membuat cover menggunakan Canva, Figma, atau aplikasi editing lain.",
+    "Pastikan ukuran cover adalah 700x1000 piksel.",
+    "Pastikan kalian membuat cover yang sesuai, tidak boleh mengandung SARA, serta harus sopan dan mencerminkan nilai-nilai yang positif."
+    "Contoh cover seperti dibawah ini. Semangat Naramuda!"
 ];
 
 export default function Page({ hari }) {

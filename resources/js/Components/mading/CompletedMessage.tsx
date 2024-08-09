@@ -41,13 +41,11 @@ function CompletedMessage() {
 
                     <div className="md:max-w-sm lg:max-w-lg xl:max-w-xl lg:text-2xl md:text-lg text-jaffa-950 lg:mt-10 z-10 mt-2 text-[12px] text-center">
                         <p>
-                            Selamat Nusantara Muda, kalian telah berhasil
-                            mengumpulkan 6 Sisi dari Artifak ini.
+                            Selamat Naramuda!, kalian telah berhasil mengumpulkan 6 sisi dari Mading ini!
                         </p>
 
                         <p className="mt-3 max-w-[85%] mx-auto">
-                            Dengan bangga kami berikan Artefak ini kepada
-                            kalian.
+                            Dengan bangga kami berikan Mading ini kepada kalian.
                         </p>
                     </div>
                 </div>
