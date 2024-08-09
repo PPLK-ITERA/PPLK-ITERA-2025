@@ -431,26 +431,26 @@ class UserController extends Controller
       if ($user->role_id == 1) {
          $adminValidated = $request->validate([
             'pita' => ['nullable', 'string', 'in:hijau,kuning,merah'],
-            'pita' => ['nullable', 'string', 'in:hijau,kuning,merah'],
             'ket_penyakit' => ['nullable', 'string', 'max:120'],
          ]);
+
+         DB::transaction(function () use ($user, $adminValidated) {
+            if ($user->role_id == 1 && $user->pita != null) {
+               $penyakit = Penyakit::updateOrCreate(
+                  ['pita' => $adminValidated['pita']],
+                  ['ket_penyakit' => $adminValidated['ket_penyakit']]
+               );
+
+               // Update user with penyakit_id
+               $user->update([
+                  'penyakit_id' => $penyakit->id,
+               ]);
+            }
+         });
+
+
       }
-
-      // Use DB transaction for multiple operations
-      DB::transaction(function () use ($user, $validated, $adminValidated) {
-         // Update or create 'penyakit' if user is admin
-         if ($user->role_id == 1 && $user->pita != null) {
-            $penyakit = Penyakit::updateOrCreate(
-               ['pita' => $adminValidated['pita']],
-               ['ket_penyakit' => $adminValidated['ket_penyakit']]
-            );
-
-            // Update user with penyakit_id
-            $user->update([
-               'penyakit_id' => $penyakit->id,
-            ]);
-         }
-
+      DB::transaction(function () use ($user, $validated) {
          // Update user details
          $user->update([
             'name' => $validated['name'],
