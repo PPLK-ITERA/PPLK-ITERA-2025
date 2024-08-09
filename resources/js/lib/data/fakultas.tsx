@@ -67,9 +67,9 @@ export const FAKULTAS_DATA = {
             "Sebagai Wadah Supaya Inovasi dan Pengetahuan Dapat Berkembang",
         logo: logo_sains,
         description:
-            "Jurusan Sains (JS) merupakan salah satu jurusan setingkat fakultas yang berkedudukan di Institut Teknologi Sumatera (Itera). Jurusan Sains, Itera memiliki 9 program studi yang berkaitan dengan kebutuhan sumber daya manusia (SDM) yang siap berkontribusi dalam perubahan. Juga dalam mengembangkan sains dan teknologi guna menggali potensi yang ada di Indonesia umumnya, dan Sumatera khususnya.",
+            "Fakultas Sains merupakan salah satu fakultas setingkat fakultas yang berkedudukan di Institut Teknologi Sumatera (Itera). Fakultas Sains, Itera memiliki 9 program studi yang berkaitan dengan kebutuhan sumber daya manusia (SDM) yang siap berkontribusi dalam perubahan. Juga dalam mengembangkan sains dan teknologi guna menggali potensi yang ada di Indonesia umumnya, dan Sumatera khususnya.",
         history: " ",
-        visi: "Menjadikan Jurusan Sains ITERA sebagai lembaga pendidikan tinggi yang menghasilkan sumber daya manusia di bidang sains mencakup pengembangan teknologi yang unggul dalam menyelenggarakan pendidikan dan penelitian, mandiri, dan memenuhi kebutuhan Sumber Daya Manusia (SDM) di Sumatera khususnya, dan Indonesia serta dunia",
+        visi: "Menjadikan Fakultas Sains ITERA sebagai lembaga pendidikan tinggi yang menghasilkan sumber daya manusia di bidang sains mencakup pengembangan teknologi yang unggul dalam menyelenggarakan pendidikan dan penelitian, mandiri, dan memenuhi kebutuhan Sumber Daya Manusia (SDM) di Sumatera khususnya, dan Indonesia serta dunia",
         misi: [
             "Menyelenggarakan dan mengembangkan pendidikan tinggi sains mencangkup pengembangan teknologi serta menjadi landasan dalam pengembangan teknologi dalam upaya menghasilkan lulusan yang memahami, mengembangkan, menerapkan ilmu sains dan berkarakter.",
             "Menyelenggarakan dan mengembangkan kegiatan penelitian dan pengabdian masyarakat untuk mendorong peningkatan sains mencakup pengembangan teknologi serta menjadi landasan dalam pengembangan teknologi yang inovatif dan tanggap terhadap tantangan lokal maupun global.",
@@ -167,7 +167,7 @@ export const FAKULTAS_DATA = {
         ],
         jumlah_prodi: 9,
         jumlah_mahasiswa: 3859,
-        jumlah_dosen: 50,
+        jumlah_dosen: 144,
     },
     "fakultas-ftik": {
         key: "fakultas-teknologi-infrastruktur-dan-kewilayahan",
@@ -264,7 +264,7 @@ export const FAKULTAS_DATA = {
         ],
         jumlah_prodi: 11,
         jumlah_mahasiswa: 6332,
-        jumlah_dosen: 70,
+        jumlah_dosen: 207,
     },
     "fakultas-fti": {
         key: "fakultas-teknologi-industri",
@@ -275,7 +275,7 @@ export const FAKULTAS_DATA = {
         description:
             "Fakultas Teknologi Industri (FTI) merupakan salah satu fakultas yang berkedudukan di Institut Teknologi Sumatera (Itera). Fakultas Teknologi Industri, Itera memiliki 21 program studi yang berkaitan dengan kebutuhan sumber daya manusia (SDM) yang siap berkontribusi dalam perubahan. Juga dalam mengembangkan teknologi dan inovasi guna menggali potensi yang ada di Indonesia umumnya, dan Sumatera khususnya.",
         history:
-            "Fakultas Teknologi Industri (FTI) Itera berasal dari Jurusan Teknologi Produksi dan Industri (JTPI) Itera yang terbentuk pada tahun 2018 sesuai SK rektor Nomor 870/IT9.A/SK/OT/2018. FTI Itera terbentuk berdasarkan Peraturan Menteri Pendidikan, Kebudayaan, Riset dan Teknologi Republik Indonesia Nomor 56 Tahun 2023 tanggal 20 September 2023 telah membuka beberapa program studi. Pada tahun 2022 telah berdiri resmi 20 program studi yang ada di Fakultas Teknologi Industri antara lain Teknik Kimia, Teknologi Industri Pertanian, Teknologi Pangan, Teknik Biosistem, Rekayasa Kehutanan, Teknik Geologi, Teknik Mesin, Teknik Geofisika, Teknik Industri, Teknik Material, Teknik Pertambangan, Teknik Informatika, Teknik Elektro, Teknik Fisika, Teknik Sistem Energi, Teknik Telekomunikasi, Teknik Biomedis, Rekayasa Kosmetik, Rekayasa Minyak dan Gas, Rekayasa Instrumentasi dan Automasi. Pada Tahun 2023 berdasarkan Keputusan Menteri Pendidikan, Kebudayaaan, Riset dan Teknologi Republik Indonesia Nomor: 426/E/2023 tanggal 16 Mei 2023 dibuka Program Studi Rekayasa Keolahragaan pada Fakultas Teknologi Industri.",
+            "Fakultas Teknologi Industri (FTI) Itera berasal dari Fakultas Teknologi Produksi dan Industri (JTPI) Itera yang terbentuk pada tahun 2018 sesuai SK rektor Nomor 870/IT9.A/SK/OT/2018. FTI Itera terbentuk berdasarkan Peraturan Menteri Pendidikan, Kebudayaan, Riset dan Teknologi Republik Indonesia Nomor 56 Tahun 2023 tanggal 20 September 2023 telah membuka beberapa program studi. Pada tahun 2022 telah berdiri resmi 20 program studi yang ada di Fakultas Teknologi Industri antara lain Teknik Kimia, Teknologi Industri Pertanian, Teknologi Pangan, Teknik Biosistem, Rekayasa Kehutanan, Teknik Geologi, Teknik Mesin, Teknik Geofisika, Teknik Industri, Teknik Material, Teknik Pertambangan, Teknik Informatika, Teknik Elektro, Teknik Fisika, Teknik Sistem Energi, Teknik Telekomunikasi, Teknik Biomedis, Rekayasa Kosmetik, Rekayasa Minyak dan Gas, Rekayasa Instrumentasi dan Automasi. Pada Tahun 2023 berdasarkan Keputusan Menteri Pendidikan, Kebudayaaan, Riset dan Teknologi Republik Indonesia Nomor: 426/E/2023 tanggal 16 Mei 2023 dibuka Program Studi Rekayasa Keolahragaan pada Fakultas Teknologi Industri.",
         visi: "Menjadi fakultas yang berkontribusi dalam pengembangan sumber daya manusia dan inovasi teknologi produksi dan industri yang berorientasi pada pengolahan potensi sumber daya alam di indonesia, khususnya di Sumatra pada tahun 2027",
         misi: [
             "Menyelenggarakan pendidikan, penelitian, dan pengabdian kepada masyarakat yang berorientasi pada pengelolaan potensi sumber daya alam Indonesia, khususnya Sumatera",
@@ -344,7 +344,7 @@ export const FAKULTAS_DATA = {
                 nama: "Dr. Sena Maulana, S.Hut., M.Si.",
                 foto: bawahan2_fti,
                 jabatan: "Wakil Dekan Bidang Umum dan Keuangan",
-            }
+            },
         ],
         sosmedFakultas: [
             {
@@ -391,6 +391,6 @@ export const FAKULTAS_DATA = {
         ],
         jumlah_prodi: 21,
         jumlah_mahasiswa: 10399,
-        jumlah_dosen: 100,
+        jumlah_dosen: 248,
     },
 };

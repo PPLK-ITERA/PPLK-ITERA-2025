@@ -39,7 +39,7 @@ function KadivSection({}: Props) {
                 </div>
                 <div className="grow place-content-center col-span-2">
                     <div className="max-md:flex-col max-md:h-full place-content-center place-items-center flex w-full gap-6">
-                        <div
+                        {/* <div
                             data-aos="fade-up"
                             data-aos-duration={1000}
                             data-aos-delay={1000}
@@ -52,7 +52,7 @@ function KadivSection({}: Props) {
                                     window.screen.width < 767 ? 0 : -12
                                 }
                             />
-                        </div>
+                        </div> */}
                         <div
                             data-aos="fade-up"
                             data-aos-duration={1000}
@@ -64,7 +64,7 @@ function KadivSection({}: Props) {
                                 className="w-full h-full md:h-[380px] lg:h-[410px] 2xl:h-[450px] shadow-xl shadow-cyan-primary/30"
                             />
                         </div>
-                        <div
+                        {/* <div
                             data-aos="fade-up"
                             data-aos-duration={1000}
                             data-aos-delay={1500}
@@ -77,7 +77,7 @@ function KadivSection({}: Props) {
                                     window.screen.width < 767 ? 0 : 12
                                 }
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="max-lg:hidden flex flex-col items-center justify-center col-span-1 p-4">

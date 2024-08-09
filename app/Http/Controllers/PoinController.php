@@ -65,7 +65,7 @@ class PoinController extends Controller
          ->where('created_at', '>=', Carbon::now()->subMinutes(10))
          ->orderBy('created_at', 'desc')
          ->first();
-      $kelompok_id = User::where('user_id', $poinqrcode->user_id)->first()->kelompok_id;
+      $kelompok_id = User::where('id', $poinqrcode->user_id)->first()->kelompok_id;
       $ketua_kelompok = User::where('kelompok_id', $kelompok_id)->where('isKetua', true)->first();
 
       if (!$qrCode || $qrCode->expired_at->isPast()) {
@@ -73,8 +73,11 @@ class PoinController extends Controller
       }
       DB::beginTransaction();
       try {
-         $ketua_kelompok->poin += 500;
+         $ketua_kelompok->score += 500;
          $ketua_kelompok->save();
+         $qrCode->update([
+            'expired_at' => Carbon::now()->toDateTimeString(),
+         ]);
          DB::commit();
          return $this->helper->poinSuccess($ketua_kelompok);
       } catch (\Throwable $th) {

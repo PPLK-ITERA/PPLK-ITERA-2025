@@ -88,16 +88,14 @@ class UserController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
-      $query = User::query()
-         ->whereIn('role_id', [2, 4]) // Hanya user dengan role Maba
-         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
-         ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->whereHas('user', function ($q) use ($searchTerm) {
-               $q->where('name', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-                  ->orWhere('email', 'like', '%' . $searchTerm . '%');
-            });
+      $query = User::query()->whereIn('role_id', [2, 4])->with(['penyakit', 'kelompok']);
+      if ($searchTerm) {
+         $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+               ->orWhere('email', 'like', '%' . $searchTerm . '%');
          });
+      }
 
       $users = $query->paginate($perPage);
 
@@ -127,14 +125,14 @@ class UserController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
-      $query = User::query()
-         ->where('role_id', 5) // Hanya user dengan role Maba
-         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
-         ->when($searchTerm, function ($query) use ($searchTerm) {
-            $query->where('name', 'like', '%' . $searchTerm . '%')
+      $query = User::query()->where('role_id', 5)->with(['penyakit', 'kelompok']);
+      if ($searchTerm) {
+         $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
                ->orWhere('nim', 'like', '%' . $searchTerm . '%')
                ->orWhere('email', 'like', '%' . $searchTerm . '%');
          });
+      }
 
       $users = $query->paginate($perPage);
 
@@ -164,14 +162,14 @@ class UserController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
-      $query = User::query()
-         ->where('role_id', 6) // Hanya user dengan role Maba
-         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
-         ->when($searchTerm, function ($query) use ($searchTerm) {
-            $query->where('name', 'like', '%' . $searchTerm . '%')
+      $query = User::query()->where('role_id', 6)->with(['penyakit', 'kelompok']);
+      if ($searchTerm) {
+         $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
                ->orWhere('nim', 'like', '%' . $searchTerm . '%')
                ->orWhere('email', 'like', '%' . $searchTerm . '%');
          });
+      }
 
       $users = $query->paginate($perPage);
 
@@ -201,14 +199,14 @@ class UserController extends Controller
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
 
-      $query = User::query()
-         ->where('role_id', 7) // Hanya user dengan role Maba
-         ->with(['penyakit', 'kelompok']) // Memastikan semua data yang diperlukan di eager load
-         ->when($searchTerm, function ($query) use ($searchTerm) {
-            $query->where('name', 'like', '%' . $searchTerm . '%')
+      $query = User::query()->where('role_id', 7)->with(['penyakit', 'kelompok']);
+      if ($searchTerm) {
+         $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', '%' . $searchTerm . '%')
                ->orWhere('nim', 'like', '%' . $searchTerm . '%')
                ->orWhere('email', 'like', '%' . $searchTerm . '%');
          });
+      }
 
       $users = $query->paginate($perPage);
 
@@ -245,7 +243,7 @@ class UserController extends Controller
          'name' => ['required', 'string', 'max:120', "regex:/^[a-zA-Z\' .]+$/"],
          'kelompok_id' => ['nullable', 'integer', 'max:130 '],
          'prodi_id' => ['nullable', 'integer', 'max:41'],
-         'role_id' => ['required', 'integer', 'digits:1']
+         'role_id' => ['required', 'integer', 'max:8']
       ]);
 
       $jumlah = User::where('kelompok_id', $validated['kelompok_id'])->count();

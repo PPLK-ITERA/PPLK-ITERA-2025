@@ -32,7 +32,7 @@ export default function HmpsActivity({ hmpsActivities }: Props) {
                                     <div className="bg-gradient-to-br from-black/70 via-transparent to-transparent absolute top-0 left-0 w-full h-full"></div>
 
                                     <div className="absolute top-0 left-0 w-full h-full p-4 text-left text-white">
-                                        <h5 className="line-clamp-4 w-1/3 text-lg font-semibold">
+                                        <h5 className="line-clamp-4 w-2/3 text-lg font-semibold">
                                             {a.description}
                                         </h5>
                                     </div>
@@ -64,8 +64,6 @@ export default function HmpsActivity({ hmpsActivities }: Props) {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
         </Carousel>
     );
 }

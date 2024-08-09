@@ -137,6 +137,8 @@ import kegiatanhmti1 from "!assets/logoprodi/kegiatanhmti1.jpeg";
 import kegiatanhmti2 from "!assets/logoprodi/kegiatanhmti2.jpeg";
 import kegiatanhmti3 from "!assets/logoprodi/kegiatanhmti3.jpeg";
 import kegiatanhmti4 from "!assets/logoprodi/kegiatanhmti4.jpeg";
+import logo_rekhut from "!assets/logoprodi/logo-rekhut.png";
+import logo_ria from "!assets/logoprodi/logo-ria.png";
 import logoaktuaria from "!assets/logoprodi/logoaktuaria.png";
 import logoarsitektur from "!assets/logoprodi/logoarsitektur.png";
 import logobiologi from "!assets/logoprodi/logobiologi.png";
@@ -342,8 +344,8 @@ export const programStudies: ProgramStudi[] = [
         kahim: "Fadiel Nurdiansyah",
         hmpsActivities: [
             {
-                title: "INFEST: Informtics Festival",
-                description: "Dies Natalis Program studi Teknik Informatik",
+                title: "INFEST: Informatics Festival",
+                description: "Dies Natalis Program studi Teknik Informatika",
                 documentation: kegiatanhmif1,
             },
             {
@@ -408,7 +410,7 @@ export const programStudies: ProgramStudi[] = [
             {
                 title: "Kunjungan ke Perusahaan ",
                 description:
-                    "untuk dapat melihat secara langsung proses yang terjadi di dunia kerja dan belajar mengenai segala kegiatan yang terjadi dalam perusahaan tersebut.",
+                    "Melihat secara langsung proses yang terjadi di dunia kerja dan belajar mengenai segala kegiatan yang terjadi dalam perusahaan tersebut.",
                 documentation: kegiatanhmtg2,
             },
             {
@@ -936,7 +938,7 @@ export const programStudies: ProgramStudi[] = [
         //DATA PROGRAM STUDI REKAYASA INSTRUMENTASI DAN AUTOMASI
         key: "rekayasa-instrumentasi-dan-automasi",
         name: "Rekayasa Instrumentasi dan Automasi ",
-        // imageUrl: logorekayasainstrumentasi,
+        imageUrl: logo_ria,
         description:
             "Program Studi Rekayasa Instrumentasi dan Automasi ITERA terdiri dari perpaduan Ilmu dasar dan ilmu rekayasa serta teknologi informasi dan internet yang membentuk suatu sistem kolaboratif yang digunakan untuk mendeteksi, mengukur, memantau dan mengendalikan besaran fisis dan proses termasuk didalamnya mengidentifikasi, mengoptimalkan dan sejenisnya secara otomatis. Kemudian konsep pengembangan keilmuan secara garis besar ditekankan pada bidang teknologi otomatisasi industri modern yang ada di Sumatera, serta penerapan Internet of Things (IoT) pada berbagai Industri.",
         history:
@@ -999,7 +1001,7 @@ export const programStudies: ProgramStudi[] = [
         //DATA PROGRAM STUDI REAKYASA KEHUTANAN
         key: "rekayasa-kehutanan",
         name: "Rekayasa Kehutanan ",
-        // imageUrl: logorekayasakehutanan,
+        imageUrl: logo_rekhut,
         description:
             "Program Studi Rekayasa Kehutanan ITERA merupakan interdisiplin Ilmu Kehutanan dan teknik yang diaplikasikan dalam perekayasaan berbasis bioproses serta biosistem untuk menjaga kelestarian hutan, memanipulasi hutan agar pemanfaatannya berkelanjutan, dan membangun atau hutan-hutan baru",
         history: "14 Maret 2019",
@@ -2061,7 +2063,7 @@ export const programStudies: ProgramStudi[] = [
         hmpsAcronym: "HMDKV",
         hmpsDescrption:
             "HMDKV “Muwaghei” ITERA merupakan sebuah organisasi yang menaungi seluruh mahasiswa Desain Komunikasi Visual (DKV) yang ada di Institut Teknologi Sumatera (ITERA). Terbentuknya HMDKV adalah sebagai wadah dari aspirasi mahasiswa DKV untuk menjaga hubungan kekeluargaan antar sesama mahasiswa DKV tersebut.",
-        kahim: "Desni Dwi Tiyolanda ",
+        kahim: "Desni Dwi Triyolanda",
         hmpsActivities: [
             {
                 title: "Peringkat 1 SINTA Score Overall dan SINTA Score 3Yr dari 120 program studi Desain Komunikasi Visual se-Indonesia.",

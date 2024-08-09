@@ -40,7 +40,7 @@ export const columns: ColumnDef<AbsensiMaba>[] = [
         header: "Foto Profil",
         cell: ({ row }) => (
             <img
-                className="h-[120px] w-[300px] object-cover aspect-3/4"
+                className="h-[150px] w-[100px] object-cover aspect-3/4"
                 src={row.original.user.photo_profile_url}
                 alt="Foto Profil"
             />

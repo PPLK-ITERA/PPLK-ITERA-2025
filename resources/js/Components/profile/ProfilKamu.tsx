@@ -42,6 +42,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                     className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border bg-gray-200 border-gray-400 font-montserrat text-[16px]"
                     value={props.name}
                     readOnly
+                    disabled
                 />
             </div>
             <div>
@@ -56,6 +57,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                     className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border bg-gray-200 border-gray-400 font-montserrat text-[16px]"
                     value={props.nim}
                     readOnly
+                    disabled
                 />
             </div>
             <div>
@@ -70,6 +72,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                     className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border bg-gray-200 border-gray-400 text-monserrat text-[16px]"
                     value={props.prodi.nama_prodi}
                     readOnly
+                    disabled
                 />
             </div>
             <h2 className="text-[20px] text-black font-montserrat font-bold mt-3">

@@ -28,6 +28,7 @@ const TentangPplk = ({ props }: { props: TentangPplkProps }) => {
                         className="xl:max-w-[190px] xl:max-h-[40px] max-w-[220px] w-full rounded-md border bg-gray-200 border-gray-400 font-montserrat text-[16px]"
                         value={props.nama_kelompok}
                         readOnly
+                        disabled
                     />
                 </div>
                 <div>
@@ -42,6 +43,7 @@ const TentangPplk = ({ props }: { props: TentangPplkProps }) => {
                         className="xl:max-w-[190px] xl:max-h-[40px] w-full rounded-md border bg-gray-200 border-gray-400 font-montserrat text-[16px]"
                         value={props.no_kelompok}
                         readOnly
+                        disabled
                     />
                 </div>
             </div>
@@ -57,6 +59,7 @@ const TentangPplk = ({ props }: { props: TentangPplkProps }) => {
                     className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-md border bg-gray-200 border-gray-400 font-montserrat text-[16px]"
                     value={props.nama_daplok}
                     readOnly
+                    disabled
                 />
             </div>
             <div>
@@ -71,6 +74,7 @@ const TentangPplk = ({ props }: { props: TentangPplkProps }) => {
                     className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-md border bg-gray-200 border-gray-400 font-montserrat text-[16px]"
                     value={props.nama_mentor}
                     readOnly
+                    disabled
                 />
             </div>
             <div>
@@ -83,7 +87,10 @@ const TentangPplk = ({ props }: { props: TentangPplkProps }) => {
                 <div className="xl:max-w-[396px] xl:max-h-[164px] w-full h-[160px] rounded-md border bg-white border-black "></div>
             </div>
 
-            <Button className="flex justify-center items-center xl:w-[396px] xl:h-[40px] w-full h-full p-2 bg-gradient-to-b from-[#B9822F] to-[#A6680C] rounded-md md:mt-4">
+            <Button
+                disabled
+                className="flex justify-center items-center xl:w-[396px] xl:h-[40px] w-full h-full p-2 bg-gradient-to-b from-[#B9822F] to-[#A6680C] rounded-md md:mt-4"
+            >
                 <h2 className="text-[14px] font-montserrat font-semibold text-center text-white">
                     Download Sertifikat
                 </h2>

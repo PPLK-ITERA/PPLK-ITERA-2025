@@ -11,9 +11,11 @@ import {
 } from "@/Components/ui/carousel";
 
 import elmufid from "!assets/logo-sponsor/elmufid.png";
+import fitbar from "!assets/logo-sponsor/fitbar.png";
 import goodday from "!assets/logo-sponsor/goodday.png";
 import khaf from "!assets/logo-sponsor/khaf.png";
 import lirik_kita from "!assets/logo-sponsor/lirik-kita.png";
+import asoka from "!assets/logo-sponsor/logo-asoka.jpg";
 import mandiri from "!assets/logo-sponsor/mandiri.png";
 import wardah from "!assets/logo-sponsor/wardah.png";
 import a_radio from "!assets/media-patners/a-radio.png";
@@ -80,13 +82,21 @@ const data_sponsor = [
         name: "Wardah",
         src: wardah,
     },
+    {
+        name: "Fitbar",
+        src: fitbar,
+    },
+    {
+        name: "Asoka",
+        src: asoka,
+    },
 ];
 
 export default function Sponsorship() {
     return (
         <MaxWidthWrapper className="relative flex flex-col items-center w-full bg-white">
             <div className="relative flex flex-col items-center justify-center">
-                <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea md:mt-20 md:text-4xl lg:text-5xl text-2xl text-center text-transparent">
+                <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea md:mt-20 md:text-4xl lg:text-5xl text-wrap text-lg text-center text-transparent">
                     Terimakasih Kepada Sponsor
                 </h2>
 
@@ -97,7 +107,7 @@ export default function Sponsorship() {
                         loop: true,
                         direction: "ltr",
                     }}
-                    className="scroll-smooth relative w-full mt-20"
+                    className="scroll-smooth lg:mt-20 relative w-full mt-10"
                     plugins={[
                         Autoplay({
                             delay: 1500,
@@ -108,7 +118,7 @@ export default function Sponsorship() {
                         {data_sponsor.map((_, index) => (
                             <CarouselItem
                                 key={index}
-                                className="min-h-[200px] min-w-[200px] basis-1/5"
+                                className="md:min-h-[200px] min-w-[100px] min-h-[100px] md:min-w-[200px] basis-1/5"
                             >
                                 <div className="p-1">
                                     <Card className="overflow-hidden border-none shadow-none">
@@ -134,13 +144,13 @@ export default function Sponsorship() {
             </div>
 
             <div className="relative flex flex-col items-center justify-center">
-                <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea md:mt-20 md:text-4xl lg:text-5xl text-2xl text-center text-transparent">
+                <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea md:mt-20 md:text-4xl lg:text-5xl text-wrap text-lg text-center text-transparent">
                     Terimakasih Kepada Media Partner
                 </h2>
 
                 {/* Media Patrner Logo */}
                 <Carousel
-                    className="scroll-smooth relative w-full mt-20"
+                    className="scroll-smooth lg:mt-20 relative w-full mt-10"
                     opts={{ loop: true }}
                     plugins={[
                         Autoplay({
@@ -152,7 +162,7 @@ export default function Sponsorship() {
                         {data_media_partner.map((_, index) => (
                             <CarouselItem
                                 key={index}
-                                className="min-h-[150px] border-none min-w-[150px] basis-1/5"
+                                className="md:min-h-[200px] min-w-[100px] min-h-[100px] md:min-w-[200px] basis-1/5"
                             >
                                 <div className="p-1">
                                     <Card className="overflow-hidden border rounded-full shadow-none">

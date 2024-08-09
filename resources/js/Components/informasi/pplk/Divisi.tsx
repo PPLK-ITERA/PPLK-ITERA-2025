@@ -21,22 +21,86 @@ import Vagiotesis from "!assets/logodivisi/Vagiotesis.png";
 
 // Data for divisions
 const DATA_DIVISI = [
-    { nama: "Prajamusi", logo: Prajamusi },
-    { nama: "Sakasella", logo: Sakasella },
-    { nama: "Utsala", logo: Utsala },
-    { nama: "Rakula", logo: Rakula },
-    { nama: "Darsatica", logo: Darsatica },
-    { nama: "Berdhana", logo: Berdhana },
-    { nama: "Amphorta", logo: Amphorta },
-    { nama: "Lixus", logo: Lixus },
-    { nama: "Caetana", logo: Caetana },
-    { nama: "Ragita", logo: Ragita },
-    { nama: "Kartatera", logo: Kartatera },
-    { nama: "Mercopium", logo: Mercopium },
-    { nama: "Dharmaleus", logo: Dharmaleus },
-    { nama: "Karceus", logo: Karceus },
-    { nama: "Airasta", logo: Airasta },
-    { nama: "Kracias", logo: Kracias },
+    {
+        nama: "Prajamusi",
+        logo: Prajamusi,
+        link: "https://www.instagram.com/p/C97pj5fSTUI/",
+    },
+    {
+        nama: "Sakasella",
+        logo: Sakasella,
+        link: "https://www.instagram.com/p/C97pf9iyo51/",
+    },
+    {
+        nama: "Utsala",
+        logo: Utsala,
+        link: "https://www.instagram.com/p/C97pcHtSVRt/",
+    },
+    {
+        nama: "Rakula",
+        logo: Rakula,
+        link: "https://www.instagram.com/p/C97pXU0yk4O/",
+    },
+    {
+        nama: "Darsatica",
+        logo: Darsatica,
+        link: "https://www.instagram.com/p/C97pTTIyYfO/",
+    },
+    {
+        nama: "Berdhana",
+        logo: Berdhana,
+        link: "https://www.instagram.com/p/C97pPHAyZq8/",
+    },
+    {
+        nama: "Amphorta",
+        logo: Amphorta,
+        link: "https://www.instagram.com/p/C97pLPUSqGw/",
+    },
+    {
+        nama: "Lixus",
+        logo: Lixus,
+        link: "https://www.instagram.com/p/C97pGl8y5PY/",
+    },
+    {
+        nama: "Caetana",
+        logo: Caetana,
+        link: "https://www.instagram.com/p/C97pBrgSMpV/",
+    },
+    {
+        nama: "Ragita",
+        logo: Ragita,
+        link: "https://www.instagram.com/p/C97o6nlyVua/",
+    },
+    {
+        nama: "Kartatera",
+        logo: Kartatera,
+        link: "https://www.instagram.com/p/C97oSi9yMGm/",
+    },
+    {
+        nama: "Mercopium",
+        logo: Mercopium,
+        link: "https://www.instagram.com/p/C97oL9mSByb/",
+    },
+    {
+        nama: "Dharmaleus",
+        logo: Dharmaleus,
+        link: "https://www.instagram.com/p/C97oAmZS1dk/",
+    },
+    {
+        nama: "Karceus",
+        logo: Karceus,
+        link: "https://www.instagram.com/p/C97niYNyWXt/",
+    },
+    {
+        nama: "Airasta",
+        logo: Airasta,
+        link: "https://www.instagram.com/p/C97nHIBSARF/",
+    },
+    {
+        nama: "Kracias",
+        logo: Kracias,
+        link: "https://www.instagram.com/p/C97m276yOBv/",
+    },
 ];
 
 const Divisi = () => {
@@ -81,26 +145,28 @@ const Divisi = () => {
                 SEMUA DIVISI PPLK
             </h2>
 
-            <div>
+            <a href="https://www.instagram.com/p/C97ptk8yRtG/" target="_blank">
                 <img
                     src={Vagiotesis}
                     alt={"Vagiotesis"}
                     className="hover:scale-110 hover:cursor-pointer object-contain w-full h-full mt-5 transition-all duration-300"
                 />
-            </div>
+            </a>
 
             <div className="md:grid-cols-3 lg:grid-cols-4 grid grid-cols-1 gap-4 mt-5 mb-10">
                 {DATA_DIVISI.slice(0, visibleCount).map((item, index) => (
-                    <div
+                    <a
                         key={index}
-                        className={`hover:scale-110 transition-all duration-300 hover:cursor-pointer`}
+                        href={item.link}
+                        target="_blank"
+                        className={`hover:scale-105 transition-all duration-300 hover:cursor-pointer`}
                     >
                         <img
                             src={item.logo}
                             alt={item.nama}
                             className="object-contain w-full h-full"
                         />
-                    </div>
+                    </a>
                 ))}
             </div>
 

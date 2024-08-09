@@ -1,5 +1,8 @@
 import React from "react";
 
+import ikbar from "!assets/ikbar.jpg";
+import ryansyah from "!assets/ryansyah.jpg";
+
 function Page() {
     return (
         <div className="flex items-center justify-center mt-4">
@@ -45,9 +48,14 @@ function Page() {
                         <p className="font-avigea mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">
                             PEMBINA
                         </p>
-                        <div className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7"></div>
+
+                        <img
+                            src={ryansyah}
+                            className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7 object-cover object-top"
+                        />
+
                         <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-                            Riansyah Izhar, S.T., M.P.W.K
+                            Ryansyah Izhar, S.T., M.P.W.K
                         </p>
                         <p className="font-montserrat text-[16px]">
                             Pembina PPLK 2024
@@ -58,7 +66,13 @@ function Page() {
                         <p className="font-avigea mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">
                             KETUA PELAKSANA
                         </p>
-                        <div className="sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] bg-gray-200 rounded-full mt-7"></div>
+
+                        <div className="overflow-hidden rounded-full sm:w-[192px] sm:h-[192px] w-[130px] h-[130px] object-bottom mt-7 p-4">
+                            <img
+                                src={ikbar}
+                                className="object-cover object-top scale-150 bg-gray-200 bg-bottom rounded-full"
+                            />
+                        </div>
                         <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
                             Ikbar Raihansyah
                         </p>

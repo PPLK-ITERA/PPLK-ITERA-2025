@@ -1,4 +1,5 @@
 import bangkiki from "!assets/dev/bangkiki.jpg";
+import linux from "!assets/dev/linux.jpg";
 
 export const devTeam = {
     kadiv: [
@@ -7,7 +8,7 @@ export const devTeam = {
             instagram: "corneliuslinux",
             role: "Kepala Divisi Implementasi Teknologi",
             quote: "Tidak perlu quotes, perlunya tidur.",
-            photo: "https://picsum.photos/528",
+            photo: linux,
         },
     ],
     sekdiv: [
