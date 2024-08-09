@@ -76,6 +76,16 @@ function Page() {
             return;
         }
 
+        // set search to url query params
+        let url = new URL(window.location.href);
+        url.searchParams.set("search", mSearch);
+        window.history.pushState({}, "", url.toString());
+
+        if (search != mSearch) {
+            setCurrentPage(1);
+        }
+
+        setSearch(mSearch);
         setSearchLoading(true);
         let response = await fetchSearch(mSearch, page);
         setSearchResponse(response);
