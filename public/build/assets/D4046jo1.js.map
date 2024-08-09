@@ -1,1 +1,0 @@
-{"version":3,"file":"D4046jo1.js","sources":["../../../resources/js/Pages/Auth/Scoreboard/Page.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Page() {\n    return <div>Scoreboard Page</div>;\n}\n\nexport default Page;\n"],"names":["Page","jsx","children"],"mappings":"kCAEA,SAASA,IACE,SAAAC,IAAC,OAAIC,SAAe,mBAC/B"}
