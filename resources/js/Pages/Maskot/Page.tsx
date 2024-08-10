@@ -118,7 +118,7 @@ function Page() {
                                     </Card>
                                 ))}
 
-                                <div className="place-content-center justify-items-center absolute inset-0 border">
+                                {/* <div className="place-content-center justify-items-center absolute inset-0 border">
                                     {selectedMaskot && (
                                         <Dialog>
                                             <DialogTrigger asChild>
@@ -173,7 +173,7 @@ function Page() {
                                             </DialogContent>
                                         </Dialog>
                                     )}
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
