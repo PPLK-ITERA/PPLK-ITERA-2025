@@ -955,7 +955,7 @@ export const ukmData = [
         ketum: "Hizkia Maratur Nababan ",
         prodi: "Teknik Material'21",
         sejarah:
-            "Komunitas SAIBATIN ITERA merupakan sebuah wadah yang dibentuk untuk menyalurkan hobby atau ketertarikan pada bidang remote control terkhusus pada kapal. Selain itu, SAIBATIN ITERA juga mempunyai misi untuk menaikkan nama ITERA di tingkat nasional dan internasional serta mendukung penuh anggota yang bergabung didalamnya untuk meningkatkan skill dan prestasi yang dimiliki. SAIBATIN ITERA terbentuk pada 9 Mei 2023.",
+            "Komunitas SAIBATIN ITERA merupakan sebuah wadah yang dibentuk untuk menyalurkan hobby atau ketertarikan pada bidang remote control terkhusus pada kapal. Selain itu, SAIBATIN ITERA juga mempunyai misi untuk menaikkan nama ITERA di tingkat nasional dan internasional serta mendukung penuh anggota yang bergabung didalamnya untuk meningkatkan skill dan prestasi yang dimiliki. SAIBATIN ITERA terbentuk pada 22 Maret 2023.",
         visi: "-",
         misi: "-",
 
