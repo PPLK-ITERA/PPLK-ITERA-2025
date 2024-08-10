@@ -14,28 +14,26 @@ import { useToast } from "@/Components/ui/use-toast";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-    { title: "Dashboard", link: "/dashboard" },
-    { title: "Create User", link: "/dashboard/create-user" },
+  { title: "Dashboard", link: "/dashboard" },
+  { title: "Create User", link: "/dashboard/create-user" },
 ];
 
 export default function Page({ auth }) {
-    useFlashToast();
+  useFlashToast();
 
-    return (
-        <>
-            <DashboardLayout user={auth.user}>
-                <Breadcrumbs items={breadcrumbItems} />
+  return (
+    <>
+      <DashboardLayout user={auth.user}>
+        <Breadcrumbs items={breadcrumbItems} />
 
-                <h2 className="text-3xl font-bold tracking-tight">
-                    Create User
-                </h2>
+        <h2 className="text-3xl font-bold tracking-tight">Create User</h2>
 
-                <div className="md:pb-20 max-w-sm pb-64">
-                    <CreateUser />
-                </div>
-            </DashboardLayout>
+        <div className="md:pb-20 max-w-sm pb-64">
+          <CreateUser />
+        </div>
+      </DashboardLayout>
 
-            <Toaster />
-        </>
-    );
+      <Toaster />
+    </>
+  );
 }

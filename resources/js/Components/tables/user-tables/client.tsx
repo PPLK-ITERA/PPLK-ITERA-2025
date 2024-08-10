@@ -13,27 +13,27 @@ import { Separator } from "@/Components/ui/separator";
 import { User } from "@/lib/data/data";
 
 interface ProductsClientProps {
-    data: User[];
+  data: User[];
 }
 
 export const UserClient: React.FC<ProductsClientProps> = ({ data }) => {
-    // const router = useRouter();
+  // const router = useRouter();
 
-    return (
-        <>
-            <div className="flex items-start justify-between">
-                <Heading
-                    title={`Jumlah Maba (${data.length})`}
-                    description="Manajemen absensi maba cui, gunakan tabel berikut jika terdapat kendala pada barcode scanner!"
-                />
-            </div>
-            <Separator />
-            <DataTable
-                searchKey="name"
-                // @ts-ignore
-                columns={columns}
-                data={data}
-            />
-        </>
-    );
+  return (
+    <>
+      <div className="flex items-start justify-between">
+        <Heading
+          title={`Jumlah Maba (${data.length})`}
+          description="Manajemen absensi maba cui, gunakan tabel berikut jika terdapat kendala pada barcode scanner!"
+        />
+      </div>
+      <Separator />
+      <DataTable
+        searchKey="name"
+        // @ts-ignore
+        columns={columns}
+        data={data}
+      />
+    </>
+  );
 };

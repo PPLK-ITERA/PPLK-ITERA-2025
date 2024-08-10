@@ -8,31 +8,30 @@ import { usePage } from "@inertiajs/react";
 import { useToast } from "@/Components/ui/use-toast";
 
 interface FlashResponse extends PageProps {
-    flash: {
-        error: string;
-        response: {
-            status: number;
-            message: string;
-        };
+  flash: {
+    error: string;
+    response: {
+      status: number;
+      message: string;
     };
+  };
 }
 
 export const useFlashToast = () => {
-    const { toast } = useToast();
-    const { flash } = usePage<FlashResponse>().props;
+  const { toast } = useToast();
+  const { flash } = usePage<FlashResponse>().props;
 
-    useEffect(() => {
-        if (flash && flash.response) {
-            const variant =
-                flash.response.status === 200 ? "default" : "destructive";
-            toast({
-                title: flash.response.status === 200 ? "Berhasil" : "Gagal",
-                description:
-                    flash.response.status === 200
-                        ? flash.response.message
-                        : flash.response.message || flash.error,
-                variant: variant,
-            });
-        }
-    }, [flash, toast]);
+  useEffect(() => {
+    if (flash && flash.response) {
+      const variant = flash.response.status === 200 ? "default" : "destructive";
+      toast({
+        title: flash.response.status === 200 ? "Berhasil" : "Gagal",
+        description:
+          flash.response.status === 200
+            ? flash.response.message
+            : flash.response.message || flash.error,
+        variant: variant,
+      });
+    }
+  }, [flash, toast]);
 };

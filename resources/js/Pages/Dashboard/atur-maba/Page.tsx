@@ -11,23 +11,23 @@ import { Toaster } from "@/Components/ui/toaster";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-    { title: "Dashboard", link: "/dashboard" },
-    { title: "Atur Maba", link: "/dashboard/atur-maba" },
+  { title: "Dashboard", link: "/dashboard" },
+  { title: "Atur Maba", link: "/dashboard/atur-maba" },
 ];
 
 export default function Page({ auth }) {
-    useFlashToast();
+  useFlashToast();
 
-    return (
-        <>
-            <DashboardLayout user={auth.user}>
-                <Breadcrumbs items={breadcrumbItems} />
-                <h2 className="text-3xl font-bold tracking-tight">Atur Maba</h2>
+  return (
+    <>
+      <DashboardLayout user={auth.user}>
+        <Breadcrumbs items={breadcrumbItems} />
+        <h2 className="text-3xl font-bold tracking-tight">Atur Maba</h2>
 
-                <AturMabaClient />
-            </DashboardLayout>
+        <AturMabaClient />
+      </DashboardLayout>
 
-            <Toaster />
-        </>
-    );
+      <Toaster />
+    </>
+  );
 }

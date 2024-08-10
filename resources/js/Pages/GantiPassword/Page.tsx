@@ -12,110 +12,101 @@ import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
 interface flashresponse extends PageProps {
-    flash: {
-        response: {
-            status: number;
-            message: string;
-        };
+  flash: {
+    response: {
+      status: number;
+      message: string;
     };
+  };
 }
 
 export default function Page({ auth }) {
-    const { toast } = useToast();
-    const { flash } = usePage<flashresponse>().props;
+  const { toast } = useToast();
+  const { flash } = usePage<flashresponse>().props;
 
-    useEffect(() => {
-        if (flash.response) {
-            if (flash.response.status === 200) {
-                toast({
-                    title: "Berhasil",
-                    description: flash.response.message,
-                    variant: "default",
-                });
-            } else {
-                toast({
-                    title: "Gagal",
-                    description: flash.response.message,
-                    variant: "destructive",
-                });
-            }
-        }
-    }, [flash, toast]);
-
-    if (!auth.user) {
-        return <Error status={404} />;
+  useEffect(() => {
+    if (flash.response) {
+      if (flash.response.status === 200) {
+        toast({
+          title: "Berhasil",
+          description: flash.response.message,
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Gagal",
+          description: flash.response.message,
+          variant: "destructive",
+        });
+      }
     }
+  }, [flash, toast]);
 
-    const { data, setData, put } = useForm({
-        new_password: "",
-        confirm_new_password: "",
-        _method: "put",
-    });
+  if (!auth.user) {
+    return <Error status={404} />;
+  }
 
-    const handleChangePassword = () => {
-        put(route("first.change.password"));
-    };
+  const { data, setData, put } = useForm({
+    new_password: "",
+    confirm_new_password: "",
+    _method: "put",
+  });
 
-    return (
-        <>
-            <div className="bg-pattern-white">
-                <div className="flex flex-col items-center justify-center max-w-sm min-h-screen mx-auto">
-                    <h2 className="text-xl font-bold tracking-tight text-center">
-                        Ini pertama kalinya kamu login, silahkan ganti password
-                    </h2>
+  const handleChangePassword = () => {
+    put(route("first.change.password"));
+  };
 
-                    <div className="h-fit w-full p-4 mt-10 space-y-5 bg-white border rounded-md shadow-md">
-                        <h2 className="text-xl font-bold tracking-tight">
-                            Reset Password
-                        </h2>
+  return (
+    <>
+      <div className="bg-pattern-white">
+        <div className="flex flex-col items-center justify-center max-w-sm min-h-screen mx-auto">
+          <h2 className="text-xl font-bold tracking-tight text-center">
+            Ini pertama kalinya kamu login, silahkan ganti password
+          </h2>
 
-                        <div className="flex flex-col">
-                            <Label htmlFor="nama-maba" className="text-left">
-                                Password Baru
-                            </Label>
+          <div className="h-fit w-full p-4 mt-10 space-y-5 bg-white border rounded-md shadow-md">
+            <h2 className="text-xl font-bold tracking-tight">Reset Password</h2>
 
-                            <Input
-                                type="text"
-                                id="nama-maba"
-                                value={data.new_password}
-                                onChange={(e) =>
-                                    setData("new_password", e.target.value)
-                                }
-                                placeholder="ex. 1234@Jamal#GG"
-                                className="mt-1"
-                            />
-                        </div>
+            <div className="flex flex-col">
+              <Label htmlFor="nama-maba" className="text-left">
+                Password Baru
+              </Label>
 
-                        <div className="flex flex-col">
-                            <Label htmlFor="email-maba" className="text-left">
-                                Konfirmasi Password
-                            </Label>
-
-                            <Input
-                                type="email"
-                                id="email-maba"
-                                value={data.confirm_new_password}
-                                onChange={(e) =>
-                                    setData(
-                                        "confirm_new_password",
-                                        e.target.value,
-                                    )
-                                }
-                                placeholder="ex. 1234@Jamal#GG"
-                                className="mt-1"
-                            />
-                        </div>
-
-                        <div className="flex justify-end">
-                            <Button onClick={handleChangePassword}>
-                                Ubah Password
-                            </Button>
-                        </div>
-                    </div>
-                </div>
+              <Input
+                type="text"
+                id="nama-maba"
+                value={data.new_password}
+                onChange={(e) => setData("new_password", e.target.value)}
+                placeholder="ex. 1234@Jamal#GG"
+                className="mt-1"
+              />
             </div>
 
-            <Toaster />
-        </>
-    );
+            <div className="flex flex-col">
+              <Label htmlFor="email-maba" className="text-left">
+                Konfirmasi Password
+              </Label>
+
+              <Input
+                type="email"
+                id="email-maba"
+                value={data.confirm_new_password}
+                onChange={(e) =>
+                  setData("confirm_new_password", e.target.value)
+                }
+                placeholder="ex. 1234@Jamal#GG"
+                className="mt-1"
+              />
+            </div>
+
+            <div className="flex justify-end">
+              <Button onClick={handleChangePassword}>Ubah Password</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Toaster />
+    </>
+  );
 }

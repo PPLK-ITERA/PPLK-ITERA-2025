@@ -7,8 +7,8 @@ import IconWorldWww from "@tabler/icons-react";
 export type Icon = TablerIcon;
 
 export const Icons = {
-    youtube: IconBrandYoutubeFilled,
-    instagram: IconBrandInstagramFilled,
-    tiktok: IconBrandTiktokFilled,
-    website: IconWorldWww,
+  youtube: IconBrandYoutubeFilled,
+  instagram: IconBrandInstagramFilled,
+  tiktok: IconBrandTiktokFilled,
+  website: IconWorldWww,
 };

@@ -1,23 +1,23 @@
 {
-    "plugins": [
-        "prettier-plugin-tailwindcss",
-        "@trivago/prettier-plugin-sort-imports"
-    ],
-    "importOrder": [
-        "^react$",
-        "^@inertiajs(.*)$",
-        "^lucide-react$",
-        "^@tabler/icons-react$",
-        "^@/Layouts(.*)$",
-        "^@/Components(.*)$",
-        "^@/hookform(.*)$",
-        "^@/lib(.*)$",
-        "^!assets(.*)$"
-    ],
-    "tabWidth": 4,
-    "trailingComma": "all",
-    "semi": true,
-    "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true,
-    "tailwindConfig": "./tailwind.config.js"
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^react$",
+    "^@inertiajs(.*)$",
+    "^lucide-react$",
+    "^@tabler/icons-react$",
+    "^@/Layouts(.*)$",
+    "^@/Components(.*)$",
+    "^@/hookform(.*)$",
+    "^@/lib(.*)$",
+    "^!assets(.*)$"
+  ],
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "semi": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "tailwindConfig": "./tailwind.config.js"
 }

@@ -8,21 +8,21 @@ import { Button } from "@/Components/ui/button";
 import { LogBookCui } from "@/lib/types/LogBookCui";
 
 interface CellActionProps {
-    data: LogBookCui;
+  data: LogBookCui;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-    const handleIzin = () => {
-        router.get(route("dashboard.cui.izin", data.user.nim));
-    };
+  const handleIzin = () => {
+    router.get(route("dashboard.cui.izin", data.user.nim));
+  };
 
-    return (
-        <>
-            <div className="flex gap-1 p-2">
-                <Button onClick={handleIzin} size="sm">
-                    Detail
-                </Button>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="flex gap-1 p-2">
+        <Button onClick={handleIzin} size="sm">
+          Detail
+        </Button>
+      </div>
+    </>
+  );
 };

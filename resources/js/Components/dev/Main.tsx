@@ -13,90 +13,90 @@ import VvdSection from "@/Components/dev/VvdSection";
 type Props = {};
 
 function Main({}: Props) {
-    const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    const [activeComponent, setActiveComponent] = useState<React.ReactNode>(
-        <KadivSection />,
-    );
+  const [activeComponent, setActiveComponent] = useState<React.ReactNode>(
+    <KadivSection />,
+  );
 
-    function handleSwitch(i: number) {
-        setActiveIndex(i);
-        switch (i) {
-            case 0:
-                setActiveComponent(<KadivSection />);
-                break;
-            case 1:
-                setActiveComponent(<VvdSection />);
-                break;
-            case 2:
-                setActiveComponent(<FrontendDivision />);
-                break;
-            case 3:
-                setActiveComponent(<BackendDivision />);
-                break;
-            case 4:
-                setActiveComponent(<CrSection />);
-                break;
-            default:
-                break;
-        }
+  function handleSwitch(i: number) {
+    setActiveIndex(i);
+    switch (i) {
+      case 0:
+        setActiveComponent(<KadivSection />);
+        break;
+      case 1:
+        setActiveComponent(<VvdSection />);
+        break;
+      case 2:
+        setActiveComponent(<FrontendDivision />);
+        break;
+      case 3:
+        setActiveComponent(<BackendDivision />);
+        break;
+      case 4:
+        setActiveComponent(<CrSection />);
+        break;
+      default:
+        break;
     }
+  }
 
-    return (
-        <div className="max-md:py-20 overflow-y-auto">
-            <main>
-                <TransitionGroup>
-                    <CSSTransition
-                        key={activeComponent!.type.name}
-                        timeout={500}
-                        classNames="fade"
-                    >
-                        {activeComponent}
-                    </CSSTransition>
-                </TransitionGroup>
-            </main>
+  return (
+    <div className="max-md:py-20 overflow-y-auto">
+      <main>
+        <TransitionGroup>
+          <CSSTransition
+            key={activeComponent!.type.name}
+            timeout={500}
+            classNames="fade"
+          >
+            {activeComponent}
+          </CSSTransition>
+        </TransitionGroup>
+      </main>
 
-            <footer className="bottom-2 fixed left-0 w-full">
-                <nav className="w-fit place-content-center lg:gap-8 backdrop-blur-md bg-white/5 lg:text-sm 2xl:text-base flex flex-wrap gap-2 px-4 mx-auto text-xs">
-                    <NavButton
-                        active={activeIndex == 0}
-                        label="KARTATERA"
-                        onClick={() => {
-                            handleSwitch(0);
-                        }}
-                    />
-                    <NavButton
-                        active={activeIndex == 1}
-                        label="VVD"
-                        onClick={() => {
-                            handleSwitch(1);
-                        }}
-                    />
-                    <NavButton
-                        active={activeIndex == 2}
-                        label="FRONTEND"
-                        onClick={() => {
-                            handleSwitch(2);
-                        }}
-                    />
-                    <NavButton
-                        active={activeIndex == 3}
-                        label="BACKEND"
-                        onClick={() => {
-                            handleSwitch(3);
-                        }}
-                    />
-                    <NavButton
-                        active={activeIndex == 4}
-                        label="CR"
-                        onClick={() => {
-                            handleSwitch(4);
-                        }}
-                    />
-                </nav>
-            </footer>
-        </div>
-    );
+      <footer className="bottom-2 fixed left-0 w-full">
+        <nav className="w-fit place-content-center lg:gap-8 backdrop-blur-md bg-white/5 lg:text-sm 2xl:text-base flex flex-wrap gap-2 px-4 mx-auto text-xs">
+          <NavButton
+            active={activeIndex == 0}
+            label="KARTATERA"
+            onClick={() => {
+              handleSwitch(0);
+            }}
+          />
+          <NavButton
+            active={activeIndex == 1}
+            label="VVD"
+            onClick={() => {
+              handleSwitch(1);
+            }}
+          />
+          <NavButton
+            active={activeIndex == 2}
+            label="FRONTEND"
+            onClick={() => {
+              handleSwitch(2);
+            }}
+          />
+          <NavButton
+            active={activeIndex == 3}
+            label="BACKEND"
+            onClick={() => {
+              handleSwitch(3);
+            }}
+          />
+          <NavButton
+            active={activeIndex == 4}
+            label="CR"
+            onClick={() => {
+              handleSwitch(4);
+            }}
+          />
+        </nav>
+      </footer>
+    </div>
+  );
 }
 
 export default Main;

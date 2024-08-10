@@ -16,53 +16,53 @@ import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
 const breadcrumbItems = [
-    { title: "Dashboard", link: "/dashboard" },
-    { title: "Mading", link: "/dashboard/mading" },
-    { title: "Detail Tugas", link: "/dashboard/mading/user" },
+  { title: "Dashboard", link: "/dashboard" },
+  { title: "Mading", link: "/dashboard/mading" },
+  { title: "Detail Tugas", link: "/dashboard/mading/user" },
 ];
 
 interface flashresponse extends PageProps {
-    flash: {
-        response: {
-            status: number;
-            message: string;
-        };
+  flash: {
+    response: {
+      status: number;
+      message: string;
     };
+  };
 }
 
 export default function Page({ auth, id }) {
-    const { toast } = useToast();
-    const { flash } = usePage<flashresponse>().props;
+  const { toast } = useToast();
+  const { flash } = usePage<flashresponse>().props;
 
-    useEffect(() => {
-        if (flash.response) {
-            if (flash.response.status === 200) {
-                toast({
-                    title: "Berhasil",
-                    description: flash.response.message,
-                    variant: "default",
-                });
-            } else {
-                toast({
-                    title: "Gagal",
-                    description: flash.response.message,
-                    variant: "destructive",
-                });
-            }
+  useEffect(() => {
+    if (flash.response) {
+      if (flash.response.status === 200) {
+        toast({
+          title: "Berhasil",
+          description: flash.response.message,
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Gagal",
+          description: flash.response.message,
+          variant: "destructive",
+        });
+      }
 
-            window.location.reload();
-        }
-    }, [flash, toast]);
+      window.location.reload();
+    }
+  }, [flash, toast]);
 
-    return (
-        <>
-            <DashboardLayout user={auth.user}>
-                <Breadcrumbs items={breadcrumbItems} />
+  return (
+    <>
+      <DashboardLayout user={auth.user}>
+        <Breadcrumbs items={breadcrumbItems} />
 
-                <DetailTugasUser id={id} />
-            </DashboardLayout>
+        <DetailTugasUser id={id} />
+      </DashboardLayout>
 
-            <Toaster />
-        </>
-    );
+      <Toaster />
+    </>
+  );
 }
