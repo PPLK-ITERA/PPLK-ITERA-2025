@@ -446,14 +446,14 @@ class UserController extends Controller
                if ($penyakit) {
                   $penyakit->update([
                      'pita' => $validated['pita'],
-                     'ket_penyakit' => $validated['ket_penyakit']
+                     'ket_penyakit' => isset($validated['ket_penyakit']) ? $validated['ket_penyakit'] : "",
                   ]);
                }
             } else {
                // Penyakit does not exist, so create it
                $penyakit = Penyakit::create([
                   'pita' => $validated['pita'],
-                  'ket_penyakit' => $validated['ket_penyakit']
+                  'ket_penyakit' => isset($validated['ket_penyakit']) ? $validated['ket_penyakit'] : "",
                ]);
                // Update user with new penyakit_id
                $user->penyakit_id = $penyakit->id;
