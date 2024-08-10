@@ -19,10 +19,12 @@ class ScoreboardController extends Controller
     */
    public function getTotalScoresFromDatabase()
    {
-      $kelompokScores = User::with(['kelompok' => function ($query) {
-         // Select specific fields from the kelompok relationship if necessary
-         $query->select('id', 'no_kelompok', 'nama_kelompok', 'logo_kelompok');
-      }])
+      $kelompokScores = User::with([
+         'kelompok' => function ($query) {
+            // Select specific fields from the kelompok relationship if necessary
+            $query->select('id', 'no_kelompok', 'nama_kelompok', 'logo_kelompok');
+         }
+      ])
          ->select('kelompok_id', DB::raw('SUM(score) as total_score'))
          ->whereNotNull('kelompok_id')
          ->groupBy('kelompok_id')
@@ -100,5 +102,19 @@ class ScoreboardController extends Controller
          ],
          'position' => $position
       ]);
+   }
+   public function score()
+   {
+      $user = Auth::user();
+      $kelompokScores = User::where('kelompok_id', $user->kelompok_id)->select(DB::raw('SUM(score) as total_score'))->first();
+
+      return response()->json([
+         'response' => [
+            'status' => 200,
+            'message' => "Berhasil mendapatkan score kelompok",
+            'data' => $kelompokScores,
+         ]
+      ], 200);
+
    }
 }

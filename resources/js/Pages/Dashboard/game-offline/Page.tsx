@@ -19,6 +19,8 @@ const breadcrumbItems = [
 ];
 
 export default function Page({ auth, response }) {
+    const [score, setScore] = useState(0);
+
     const { data, setData, post, processing } = useForm({
         qr_code: "",
     });
@@ -32,6 +34,22 @@ export default function Page({ auth, response }) {
             setData("qr_code", data);
         }
     };
+
+    const getDataScore = async () => {
+        const response = await fetch(route("dashboard.poin.score"), {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        const getResult = await response.json();
+        setScore(getResult.response.data.total_score);
+    };
+
+    useEffect(() => {
+        getDataScore();
+    }, []);
 
     useEffect(() => {
         if (data.qr_code) {
@@ -51,7 +69,9 @@ export default function Page({ auth, response }) {
                 auth.user.role_id === 3 ||
                 auth.user.role_id === 4 ? (
                     <>
-                        <Dapmen userId={auth.user.id} />
+                        {score ? (
+                            <Dapmen userId={auth.user.id} score={score} />
+                        ) : null}
                     </>
                 ) : null}
 

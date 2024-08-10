@@ -36,7 +36,7 @@ const Hmps = ({ prodi, className }: Props) => {
                                     : "https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg"
                             }
                             alt="Prodi"
-                            className="w-full h-full"
+                            className="w-full h-full object-cover"
                         />
                     </div>
 

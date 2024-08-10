@@ -14,6 +14,15 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/Components/ui/button";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/Components/ui/dialog";
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
@@ -21,13 +30,15 @@ import { useToast } from "@/Components/ui/use-toast";
 
 import { CardType } from "@/lib/types/Mading";
 
+import contohCover from "!assets/contoh_cover.png";
+
 const ketentuanUploadCover = [
-    "Kreativitas dan Daya Tarik Visual: Pilih gambar yang unik dan menarik perhatian pembaca. Gunakan desain yang kreatif dan harmonis untuk menciptakan tampilan yang memikat.",
-    "Kualitas dan Resolusi Gambar: Pastikan gambar yang diunggah memiliki resolusi tinggi agar tetap jelas dan tajam saat ditampilkan.",
-    "Kesesuaian Tema: Sesuaikan desain cover dengan tema atau topik mading. Hal ini membantu menyampaikan pesan yang ingin disampaikan dengan lebih efektif.",
-    "Keseimbangan Warna: Gunakan kombinasi warna yang sesuai dan tidak terlalu kontras agar tampilan lebih nyaman dilihat.",
-    "Keterbacaan Teks: Jika terdapat teks pada cover, pastikan font yang digunakan mudah dibaca dan tidak terlalu kecil.",
-    "Gambar yang Senonoh dan Tidak Menyinggung: Pastikan gambar yang diunggah tidak mengandung unsur SARA, pornografi, atau hal-hal yang dapat menyinggung orang lain.",
+    "Cover harus berbentuk kolase foto, seperti kolase kumpulan tugas, kolase foto saat kalian bekerja dalam kelompok, dan sebagainya.",
+    "Desain cover bebas, sesuai dengan kreativitas kelompok.",
+    "Kalian dapat membuat cover menggunakan Canva, Figma, atau aplikasi editing lain.",
+    "Pastikan ukuran cover adalah 700x1000 piksel.",
+    "Pastikan kalian membuat cover yang sesuai, tidak boleh mengandung SARA, serta harus sopan dan mencerminkan nilai-nilai yang positif.",
+    "Contoh cover seperti dibawah ini. Semangat Naramuda!",
 ];
 
 export default function Page({ hari }) {
@@ -148,10 +159,30 @@ export default function Page({ hari }) {
                                         ),
                                     )}
                                 </div>
-
-                                <Button className="bg-jaffa-700 hover:bg-jaffa-700/90 mt-5 transition duration-200">
-                                    Contoh cover yang sesuai
-                                </Button>
+                                <Dialog>
+                                    <DialogTrigger asChild>
+                                        <Button className="bg-jaffa-700 hover:bg-jaffa-700/90 mt-5 transition duration-200">
+                                            Contoh Cover
+                                        </Button>
+                                    </DialogTrigger>
+                                    <DialogContent className="sm:max-w-[425px] h-fit">
+                                        <DialogHeader>
+                                            <DialogTitle>
+                                                Contoh Cover Mading
+                                            </DialogTitle>
+                                            <DialogDescription>
+                                                Berikut adalah contoh cover
+                                                mading yang baik dan benar.
+                                            </DialogDescription>
+                                        </DialogHeader>
+                                        <div className="flex justify-center">
+                                            <img
+                                                src={contohCover}
+                                                className="w-[85%]"
+                                            />
+                                        </div>
+                                    </DialogContent>
+                                </Dialog>
                             </div>
 
                             <div className="max-w-fit flex flex-col mx-auto">

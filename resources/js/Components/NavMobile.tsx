@@ -57,7 +57,10 @@ export default function NavMobile({
     return (
         <div className="md:hidden block -mt-2">
             <Sheet>
-                <SheetTrigger asChild className="-mr-1 border-none">
+                <SheetTrigger
+                    asChild
+                    className="focus:border-none focus:outline-none ring-0 focus:ring-0 -mr-1 border-none outline-none"
+                >
                     <IconMenuDeep color="white" size={32} />
                 </SheetTrigger>
 
@@ -74,17 +77,14 @@ export default function NavMobile({
                         <Accordion type="single" collapsible className="w-full">
                             <Link
                                 href="/"
-                                className={`text-[18px] font-bold text-white transition duration-200 ease-in`}
+                                className={`text-[18px] font-bold text-white transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
                             >
                                 Beranda
                             </Link>
 
-                            <AccordionItem
-                                value="item-1"
-                                className="focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none"
-                            >
+                            <AccordionItem value="item-1">
                                 <AccordionTrigger
-                                    className={`text-[18px] font-bold text-white transition duration-200 ease-in`}
+                                    className={`text-[18px] font-bold text-white transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
                                 >
                                     Informasi
                                 </AccordionTrigger>
@@ -110,7 +110,7 @@ export default function NavMobile({
                                 className="-mt-4 border-none"
                             >
                                 <AccordionTrigger
-                                    className={`text-[18px] font-bold text-white transition duration-200 ease-in`}
+                                    className={`text-[18px] font-bold text-white transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
                                 >
                                     Mahasiswa Baru
                                 </AccordionTrigger>
@@ -138,7 +138,7 @@ export default function NavMobile({
 
                             <Link
                                 href="/faq"
-                                className={`text-[18px] font-bold text-white transition duration-200 ease-in`}
+                                className={`text-[18px] font-bold text-white transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
                             >
                                 FAQ
                             </Link>

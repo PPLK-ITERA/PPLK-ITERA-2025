@@ -36,14 +36,7 @@ interface CellActionProps {
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-    const {
-        data: dataFormAbsensi,
-        setData: setDataFormAbsensi,
-        get,
-        post,
-        processing,
-        errors,
-    } = useForm({
+    const { data: dataFormAbsensi, setData: setDataFormAbsensi } = useForm({
         id: data.id,
         kehadiran: "",
         keterangan: "",
@@ -51,7 +44,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
     const handleIzin = () => {
         router.post(
-            route("dashboard.presensi.absen"),
+            route("dashboard.presensi.izin", dataFormAbsensi.id),
             { ...dataFormAbsensi, kehadiran: "Izin" },
             {
                 onSuccess: () => {
@@ -59,7 +52,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         title: "Berhasil",
                         description: `Berhasil mengizinkan ${data.user.name}`,
                     });
-                    window.location.reload();
                 },
             },
         );
@@ -84,7 +76,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         title: "Berhasil",
                         description: `Berhasil mengabsen ${data.user.name}`,
                     });
-                    window.location.reload();
                 },
             },
         );
@@ -118,7 +109,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         </AlertDialogContent>
                     </AlertDialog>
 
-                    {data.user.status !== "Hadir" ? (
+                    {data.user.status !== "Izin" ? (
                         <Dialog>
                             <DialogTrigger asChild>
                                 <Button

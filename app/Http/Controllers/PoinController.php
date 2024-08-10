@@ -60,23 +60,54 @@ class PoinController extends Controller
       $validated = $request->validate([
          'qr_code' => 'required|string|max:10',
       ]);
+
+      // Restrict access to specific days, e.g., Monday to Friday
+      //  $allowedDays = "2024-08-10";
+      //  $today = Carbon::today();
+      //  if ($today !== $allowedDays) {
+      //      return $this->helper->qrError('Hanya bisa diakses saat pra PPLK', 403);
+      //  }
+
       $poinqrcode = PoinQrCode::where('code', $validated['qr_code'])->first();
+      if (!$poinqrcode) {
+         return $this->helper->qrError('Invalid QR code', 404);
+      }
+
       $qrCode = PoinQrCode::where('user_id', $poinqrcode->user_id)
          ->where('created_at', '>=', Carbon::now()->subMinutes(10))
          ->orderBy('created_at', 'desc')
          ->first();
-      $kelompok_id = User::where('id', $poinqrcode->user_id)->first()->kelompok_id;
+
+      $user = User::where('id', $poinqrcode->user_id)->first();
+      if (!$user) {
+         return $this->helper->qrError('User not found', 404);
+      }
+
+      $kelompok_id = $user->kelompok_id;
       $ketua_kelompok = User::where('kelompok_id', $kelompok_id)->where('isKetua', true)->first();
+
+      if (!$ketua_kelompok) {
+         return redirect()->back()->with('response', [
+            'status' => 400,
+            'message' => 'Kelompok Anda tidak memiliki ketua'
+         ]);
+      }
 
       if (!$qrCode || $qrCode->expired_at->isPast()) {
          return $this->helper->qrError('QR code expired', 400);
       }
+
+      // If QR code is not expired, do not update it
+      if ($qrCode && $qrCode->expired_at->isFuture()) {
+         return $this->helper->poinSuccess($ketua_kelompok);
+      }
+
       DB::beginTransaction();
       try {
          $ketua_kelompok->score += 500;
          $ketua_kelompok->save();
          $qrCode->update([
-            'expired_at' => Carbon::now()->toDateTimeString(),
+            'expired_at' => Carbon::now()->addMinutes(10)->toDateTimeString(),
          ]);
          DB::commit();
          return $this->helper->poinSuccess($ketua_kelompok);
@@ -85,6 +116,7 @@ class PoinController extends Controller
          return $this->helper->poinError($th->getMessage(), 500);
       }
    }
+
 
    /**
     * Handles the creation of a new QR code for a user.

@@ -117,11 +117,7 @@ const Mading = ({ succes }: { succes?: string }) => {
                             </h2>
 
                             <p className="text-[20px] text-sm text-justify text-black font-montserrat mb-2">
-                                Mading Tugas PPLK adalah sebuah media yang
-                                digunakan untuk menampilkan hasil pengerjaan
-                                tugas yang diberikan oleh panitia PPLK 2024.
-                                Mading ini berisi bukti pengerjaan tugas yang
-                                telah dikerjakan oleh kelompok masing-masing.
+                                Mading Tugas PPLK adalah sebuah media yang digunakan untuk menampilkan hasil pengerjaan tugas PPLK 2024. Mading ini berisi bukti pengerjaan tugas yang telah dikerjakan oleh kelompok masing-masing. Segera selesaikan tugas yang diberikan untuk membuka mading kelompok kamu!.
                             </p>
                         </div>
                     </div>
@@ -197,7 +193,7 @@ const Mading = ({ succes }: { succes?: string }) => {
                             <h2 className="lg:text-[25px] md:text-[20px] text-sm text-center font-montserrat text-white">
                                 Selesaikan semua tugas yang diberikan untuk{" "}
                                 <br />
-                                mendapatkan artefak dibawah ini
+                                mendapatkan hasil Mading dibawah ini
                             </h2>
                         </div>
 

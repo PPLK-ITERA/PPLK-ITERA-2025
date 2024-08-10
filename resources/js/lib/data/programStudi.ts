@@ -215,6 +215,7 @@ import logoteknikfisika from "!assets/logoprodi/logoteknikfisika.png";
 import logoteknikkimia from "!assets/logoprodi/logoteknikkimia.png";
 import logotekpang from "!assets/logoprodi/logotekpang.png";
 import logotelekomunikasi from "!assets/logoprodi/logotelekomunikasi.png";
+import logotkap from "!assets/logoprodi/logotkap.png";
 
 // import logotkap from "!assets/logoprodi/logotkap.png";
 
@@ -227,8 +228,8 @@ export const PRODI_DATA = [
     { id: 6, value: "sains aktuaria", label: "SAINS AKTUARIA" },
     {
         id: 7,
-        value: "sains atmosfir dan keplanetan",
-        label: "SAINS ATMOSFIR DAN KEPLANETAN",
+        value: "sains atmosfer dan keplanetan",
+        label: "SAINS ATMOSFER DAN KEPLANETAN",
     },
     { id: 8, value: "sains data", label: "SAINS DATA" },
     {
@@ -2291,7 +2292,7 @@ export const programStudies: ProgramStudi[] = [
         //DATA PROGRAM STUDI REKAYASA TATA KELOLA AIR TERPADU
         key: "rekayasa-tata-kelola-air-terpadu",
         name: "Rekayasa Tata Kelola Air Terpadu ",
-        // imageUrl: logotkap,
+        imageUrl: logotkap,
         description:
             "Menjadi program studi yang unggul dan mandiri dalam menghasilkan sumber daya manusia pada bidang rekayasa tata kelola air terpadu untuk penyelenggaraan tri dharma perguruan tinggi dan menghasilkan lulusan yang berkualitas, bermartabat, serta mampu menerapkan IPTEK dalam rekayasa tata kelola air terpadu di Indonesia dan dunia, khususnya di Pulau Sumatera.",
         history:
@@ -2774,7 +2775,7 @@ export const programStudies: ProgramStudi[] = [
         description:
             "Sains Data merupakan ilmu terapan yang secara khusus mempelajari dan menganalisis data. Fungsi ilmu Sains Data dalam era digital dan big data saat ini cukup penting karena begitu melimpahnya data yang tersedia. Data menyediakan informasi yang dapat menentukan keputusan penting dalam berbagai sektor industri.",
         history:
-            "Program Studi Sains Data di dirikan berdasarkan SK Menteri Pendidikan dan Kebudayaan Republik Indonesia Nomor 426/M/2020 pada tanggal 8 April 2020",
+            "Program Studi Sains Data didirikan berdasarkan SK Menteri Pendidikan dan Kebudayaan Republik Indonesia Nomor 426/M/2020 pada tanggal 8 April 2020",
         accreditation: "Baik",
         accreditationNo: "3024/SK/BAN-PT/Ak/S/VIII/2023",
         vision: "Menjadi Program Studi Sains Data yang unggul, bermartabat, dan diakui dunia untuk mengembangkan potensi Sumatera secara berkelanjutan dengan menerapkan karakteristik skill set of 21st century",
@@ -2807,7 +2808,7 @@ export const programStudies: ProgramStudi[] = [
         hmpsImageUrl: logohmsd,
         hmpsAcronym: "HMSD",
         hmpsDescrption:
-            "Himpunan Mahasiswa Sains Data adalah organisasi di bawah naungan prodi sains data yang di dirika n pada tanggal 22 Februari 2022, . HMSD Adyatama memiliki 5 Departemen yaitu Pengembangan Sumber Daya Anggota (PSDA), Internal, Eksternal, Media Kreatif (MedKraf), dan Storage Sains Data (SSD).",
+            "Himpunan Mahasiswa Sains Data adalah organisasi di bawah naungan prodi sains data yang didirikan pada tanggal 22 Februari 2022. HMSD Adyatama memiliki 5 Departemen yaitu Pengembangan Sumber Daya Anggota (PSDA), Internal, Eksternal, Media Kreatif (MedKraf), dan Storage Sains Data (SSD).",
         kahim: "Kharisma Gumilang",
         hmpsActivities: [
             {
@@ -2993,12 +2994,13 @@ export const programStudies: ProgramStudi[] = [
             "Sejalan dengan program pengembangan ITERA yang tertera dalam Masterplan Percepatan Pembangunan Kampus ITERA 2017-2027 dengan SK Rektor nomor 1515/IT9.A/LL/2017, maka dilakukan rencana pembukaan beberapa program studi baru, salah satunya adalah Program Studi Sains Lingkungan Kelautan ITERA. Pendirian prodi baru ini dilakukan dalam rangka pemenuhan kebutuhan sumber daya manusia yang dapat menerapkan ilmu atau bidang Sains Lingkungan Kelautan dalam pemanfaatan sumber hayati laut khususnya di Sumatera dan sekitarnya. Izin Pembukaan Program Studi Sains Lingkungan Kelautan Program Sarjana pada Institut Teknologi Sumatera di Kabupaten Lampung Selatan berdasarkan SK Program Studi No. 761/KPT/I/2019 tanggal 23 August 2019.",
         accreditation: "Baik",
         accreditationNo: "13272/SK/BAN-PT/Akred/S/XII/2021",
-        vision: "Program studi yang unggul dan berkualitas pada tahun 2045 melalui pengembangan ilmu hayati dan teknologi di bidang pendidikan, penelitian dan pengabdian berbasis bioprospeksi kearifan lokal Sumatera",
+        vision: "Menjadi program studi yang bereputasi serta menjadi center of excellence wilayah Sumatera untuk pengembangan dan penerapan Ilmu Sains Lingkungan Kelautan dalam melakukan perencanaan, pengelolaan dan pemanfaatan (planning, management dan utilization) sumber daya laut (hayati dan nirhayati) yang berkelanjutan di wilayah sumatera dan sekitarnya.",
         mission: [
-            "Menyelenggarakan pendidikan untuk menghasilkan lulusan sarjana biologi yang mampu berpikir saintis menerapkan prinsip-prinsip biologi di masyarakat, memiliki etos kerja, dan siap untuk menghadapi persaingan.",
-            "Mendidik dan menyiapkan mahasiswa untuk memiliki dasar keterampilan praktis dalam melaksanakan dan mengembangkan penelitian ilmu hayati berdasarkan kearifan lokal yang ada di Sumatera yang relevan dengan kondisi perkembangan Ilmu Pengetahuan, Teknologi, dan Sains (IPTEKS) secara global.",
-            "Melaksanakan pengabdian kepada masyarakat di bidang sains dengan rasa tanggung jawab dan empati untuk meningkatkan kualitas hidup masyarakat dengan mendorong pengembangan potensi masyarakat dan alam sekitar di Sumatera maupun global.",
-            "Menjadi bagian dari research- based university yang diharapkan dapat berkontribusi untuk  pengembangan IPTEKS melalui penelitian dan pengabdian kepada masyarakat baik di tingkat lokal, nasional, dan internasional.",
+            "Menghasilkan lulusan yang dapat menerapkan sains dalam bidang lingkungan kelautan untuk kesejahteraan bangsa.",
+            "Menyelenggarakan pendidikan dalam bidang Sains Lingkungan Kelautan.",
+            "Menyelenggarakan kegiatan penelitian dalam bidang Sains Lingkungan Kelautan.",
+            "Menyelenggarakan kegiatan pengabdian kepada masyarakat dalam bidang Sains Lingkungan Kelautan.",
+            "Menjadi Centre of Learning dalam bidang kelautan dan menerapkan Sains Lingkungan Kelautan yang bermanfaat bagi masyarakat, khususnya wilayah Sumatera dan sekitarnya.",
         ],
         coordinatorPhoto: fotokaprodisll,
         coordinatorName: "Dr. Meezan Ardhanu Asagabaldan, S.Pi., M.Si",

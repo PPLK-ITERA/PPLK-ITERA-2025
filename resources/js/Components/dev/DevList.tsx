@@ -73,46 +73,74 @@ function DevList({
     return (
         <div className="max-lg:flex-col-reverse backdrop-blur-md border-white/20 lg:p-8 place-items-center lg:gap-24 bg-opacity-10 flex justify-between w-full gap-8 p-6 overflow-hidden border rounded">
             <div className="flex flex-col h-fit w-full max-w-xl lg:h-[400px]">
+                <div className="absolute inset-0 z-10 flex items-center justify-center w-full h-full">
+                    <div className="relative">
+                        <h2
+                            // data-aos="fade-in"
+                            // data-aos-duration={1000}
+                            className="font-lostar select-none text-center text-[200px] blur-md leading-[10rem] text-white/30"
+                        >
+                            TECH
+                            <br />
+                            DIVISION
+                        </h2>
+
+                        <div className="left-1/2 top-1/3 absolute inset-0 -translate-x-1/2 -translate-y-1/2">
+                            <p className="font-anothertag text-cyan-primary/60 text-center fade-in text-[200px] flex justify-center items-center blur-sm select-none">
+                                <span>KARTATERA</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <RunningText
                     delay={40}
-                    className="md:text-2xl my-3 text-base font-bold"
+                    className="md:text-2xl z-20 my-3 text-base font-bold"
                     title={`Sub-Divisi ${devRoleName}`}
                 ></RunningText>
+
                 <div className="md:grow"></div>
-                <div className="lg:border-l-4 lg:pl-4 max-lg:border-t-2 border-cyan-primary">
+
+                <div className="lg:border-l-4 lg:pl-4 max-lg:border-t-2 border-cyan-primary z-20">
                     <h2
-                        className={`${loading ? "opacity-40" : "opacity-100"} max-lg:mt-2 text-lg lg:text-3xl font-bold`}
+                        className={`${loading ? "opacity-40" : "opacity-100"} z-20 max-lg:mt-2 text-lg lg:text-3xl font-bold`}
                     >
                         {displayName}
                     </h2>
+
                     <p
-                        className={`${loading ? "opacity-40" : "opacity-100"} text-base lg:text-xl -mt-1`}
+                        className={`${loading ? "opacity-40" : "opacity-100"} z-20 text-base lg:text-xl -mt-1`}
                     >
                         {displayRole}
                     </p>
+
                     <p
-                        className={`${loading ? "opacity-40" : "opacity-100"} text-xs lg:text-sm mt-2`}
+                        className={`${loading ? "opacity-40" : "opacity-100"} z-20 text-xs lg:text-sm mt-2`}
                     >
                         "{displayQuote}"
                     </p>
+
                     <a
-                        className={`${loading ? "opacity-40" : "opacity-100"} text-xs lg:text-sm underline text-cyan-primary hover:text-white transition duration-300`}
+                        className={`${loading ? "opacity-40" : "opacity-100"} z-20 text-xs lg:text-sm underline text-cyan-primary hover:text-white transition duration-300`}
                         href={`https://instagram.com/${displayInstagram}`}
                         target="_blank"
                     >
                         @{displayInstagram}
                     </a>
                 </div>
-                <p className="mt-8 text-sm">
+
+                <p className="z-20 mt-8 text-sm">
                     Daftar Staff Sub-Divisi {devRoleName}
                 </p>
+
                 <StaffCarousel
                     staffList={devList}
                     onclick={(dev: Developer) => setDeveloper(dev)}
                 />
             </div>
+
             <DevCard
-                className="w-44 lg:w-64 h-[300px] lg:h-[400px] shadow-2xl shadow-cyan-primary/40"
+                className="w-44 lg:w-64 h-[300px] lg:h-[400px] shadow-2xl shadow-cyan-primary/40 z-20"
                 developer={developer}
             />
         </div>

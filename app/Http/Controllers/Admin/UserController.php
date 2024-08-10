@@ -241,7 +241,7 @@ class UserController extends Controller
 
       $validated = $request->validate([
          'name' => ['required', 'string', 'max:120', "regex:/^[a-zA-Z\' .]+$/"],
-         'kelompok_id' => ['nullable', 'integer', 'max:130 '],
+         'kelompok_id' => ['nullable', 'integer', 'max:131 '],
          'prodi_id' => ['nullable', 'integer', 'max:41'],
          'role_id' => ['required', 'integer', 'max:8']
       ]);
@@ -408,11 +408,13 @@ class UserController extends Controller
       // Validate input
       $validated = $request->validate([
          'id' => ['required', 'integer'],
-         'name' => ['required', 'string', "regex:/^[\pL\s\-']+$/u", 'max:120'],
+         'name' => ['required', 'string', "regex:/^[\pL\s\-' ,.]+$/u", 'max:120'],
          'nim' => ['nullable', 'string'],
          'email' => ['required', 'email'],
          'prodi_id' => ['required', 'integer'],
          'bio' => ['nullable', 'string', 'max:150'],
+         'pita' => ['nullable', 'string', 'in:hijau,kuning,merah'],
+         'ket_penyakit' => ['nullable', 'string', 'max:120'],
       ]);
 
       // Find user
@@ -427,31 +429,11 @@ class UserController extends Controller
             ]);
       }
 
-      // Validate additional fields for admins
-      if ($user->role_id == 1) {
-         $adminValidated = $request->validate([
-            'pita' => ['nullable', 'string', 'in:hijau,kuning,merah'],
-            'ket_penyakit' => ['nullable', 'string', 'max:120'],
-         ]);
-
-         DB::transaction(function () use ($user, $adminValidated) {
-            if ($user->role_id == 1 && $user->pita != null) {
-               $penyakit = Penyakit::updateOrCreate(
-                  ['pita' => $adminValidated['pita']],
-                  ['ket_penyakit' => $adminValidated['ket_penyakit']]
-               );
-
-               // Update user with penyakit_id
-               $user->update([
-                  'penyakit_id' => $penyakit->id,
-               ]);
-            }
-         });
 
 
-      }
       DB::transaction(function () use ($user, $validated) {
          // Update user details
+
          $user->update([
             'name' => $validated['name'],
             'nim' => $validated['nim'],
@@ -459,6 +441,16 @@ class UserController extends Controller
             'prodi_id' => $validated['prodi_id'],
             'bio' => $validated['bio'],
          ]);
+         if ($user->role_id == 1 && $user->pita != null) {
+            $penyakit = Penyakit::updateOrCreate(
+               ['pita' => $validated['pita']],
+               ['ket_penyakit' => $validated['ket_penyakit']]
+            );
+            // Update user with penyakit_id
+            $user->update([
+               'penyakit_id' => $penyakit->id,
+            ]);
+         }
       });
       return redirect()->route('dashboard.user.edit', ['id' => $user->id])
          ->with('response', [

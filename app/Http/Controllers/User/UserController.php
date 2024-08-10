@@ -77,7 +77,7 @@ class UserController extends Controller
       }
    }
 
-    // Menampilkan profil pengguna
+   // Menampilkan profil pengguna
    //  public function profile($id)
    //  {
    //      $user = User::withCount(['followers', 'followings'])->findOrFail($id);

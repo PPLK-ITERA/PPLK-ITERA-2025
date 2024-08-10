@@ -22,6 +22,22 @@ class PresensiPplkController extends Controller
          'qr_code' => 'required|string|max:10',
       ]);
 
+      // Define the time window when actions are allowed
+      $currentTime = Carbon::now();
+      $start = Carbon::today()->setHour(6); // 7 AM today
+      $end = Carbon::today()->setHour(20); // 8 PM today
+
+      // Check if the action is permissible based on the date and current time
+      $action = Carbon::today()->toDateString() && $currentTime->between($start, $end);
+
+      if (!$action) {
+         return redirect()->back()->with('response', [
+            "status" => 403,
+            "message" => "Maaf hanya bisa dilakukan saat jam 7 Pagi hingga Jam 6 Sore",
+         ]);
+
+      }
+
       $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
       if (!$qrcode) {
          return response()->json([
@@ -32,6 +48,7 @@ class PresensiPplkController extends Controller
             ]
          ], 404);
       }
+
       $user = User::findorfail($qrcode->user_id);
       if (Auth::user()->role_id == 5) {
          if ($user->prodi_id != Auth::user()->prodi_id) {
@@ -135,37 +152,58 @@ class PresensiPplkController extends Controller
       $date = $request->input('date', Carbon::today()->toDateString());
 
       if ($user->role_id == 2 || $user->role_id == 4) {
-         // Role 2 and 4: Access users from the same kelompok
+         // Get latest attendance entries for the kelompok
+         $latestPresensiIds = PresensiPplk::whereHas('user', function ($query) use ($kelompok_id) {
+            $query->where('kelompok_id', $kelompok_id);
+         })->where('tanggal_presensi', $date)
+            ->selectRaw('MAX(id) as id')
+            ->groupBy('user_id');
+
          $users = User::where('kelompok_id', $kelompok_id)
             ->where('role_id', 1)
             ->count();
 
-         $hadir = PresensiPplk::whereHas('user', function ($query) use ($kelompok_id) {
-            $query->where('kelompok_id', $kelompok_id);
-         })->where('kehadiran', 'Hadir')->Where('tanggal_presensi', $date)->count();
+         $hadir = PresensiPplk::whereIn('id', $latestPresensiIds)
+            ->where('kehadiran', 'Hadir')
+            ->count();
 
-         $izin = PresensiPplk::whereHas('user', function ($query) use ($kelompok_id) {
-            $query->where('kelompok_id', $kelompok_id);
-         })->where('kehadiran', 'Izin')->Where('tanggal_presensi', $date)->count();
+         $izin = PresensiPplk::whereIn('id', $latestPresensiIds)
+            ->where('kehadiran', 'Izin')
+            ->count();
       } elseif ($user->role_id == 5) {
-         // Role 5: Access users by prodi_id
+         // Get latest attendance entries for the prodi
+         $latestPresensiIds = PresensiPplk::whereHas('user', function ($query) use ($prodi_id) {
+            $query->where('prodi_id', $prodi_id);
+         })->where('tanggal_presensi', $date)
+            ->selectRaw('MAX(id) as id')
+            ->groupBy('user_id');
+
          $users = User::where('prodi_id', $prodi_id)
             ->where('role_id', 1)
             ->count();
 
-         $hadir = PresensiPplk::whereHas('user', function ($query) use ($prodi_id) {
-            $query->where('prodi_id', $prodi_id);
-         })->where('kehadiran', 'Hadir')->Where('tanggal_presensi', $date)->count();
+         $hadir = PresensiPplk::whereIn('id', $latestPresensiIds)
+            ->where('kehadiran', 'Hadir')
+            ->count();
 
-         $izin = PresensiPplk::whereHas('user', function ($query) use ($prodi_id) {
-            $query->where('prodi_id', $prodi_id);
-         })->where('kehadiran', 'Izin')->Where('tanggal_presensi', $date)->count();
+         $izin = PresensiPplk::whereIn('id', $latestPresensiIds)
+            ->where('kehadiran', 'Izin')
+            ->count();
       } elseif ($user->role_id == 3) {
-         // Role 3: Access all users with role_id 1
+         // Get latest attendance entries for all users with role_id 1
+         $latestPresensiIds = PresensiPplk::where('tanggal_presensi', $date)
+            ->selectRaw('MAX(id) as id')
+            ->groupBy('user_id');
+
          $users = User::where('role_id', 1)->count();
 
-         $hadir = PresensiPplk::where('kehadiran', 'Hadir')->Where('tanggal_presensi', $date)->count();
-         $izin = PresensiPplk::where('kehadiran', 'Izin')->Where('tanggal_presensi', $date)->count();
+         $hadir = PresensiPplk::whereIn('id', $latestPresensiIds)
+            ->where('kehadiran', 'Hadir')
+            ->count();
+
+         $izin = PresensiPplk::whereIn('id', $latestPresensiIds)
+            ->where('kehadiran', 'Izin')
+            ->count();
       } else {
          // Unauthorized access
          return response()->json([
@@ -190,6 +228,7 @@ class PresensiPplkController extends Controller
       ], 200);
    }
 
+
    public function getAllPresensi(Request $request, $date = null)
    {
       $perPage = $request->input('perPage', 10);
@@ -198,12 +237,12 @@ class PresensiPplkController extends Controller
 
       // Define the time window when actions are allowed
       $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(7); // 7 AM today
+      $start = Carbon::today()->setHour(6); // 7 AM today
       $end = Carbon::today()->setHour(20); // 8 PM today
 
       // Check if the action is permissible based on the date and current time
-      $action = $date === Carbon::today()->toDateString() &&
-         $currentTime->between($start, $end);
+      $action = $date === Carbon::today()->toDateString();
+      // && $currentTime->between($start, $end);
 
       if (!in_array(Auth::user()->role_id, [2, 4, 5, 3])) {
          return response()->json([
@@ -273,7 +312,7 @@ class PresensiPplkController extends Controller
    {
       // Check if the current time is within the allowed range
       $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(7); // 7 AM today
+      $start = Carbon::today()->setHour(6); // 7 AM today
       $end = Carbon::today()->setHour(20); // 8 PM today
 
       if (!$currentTime->between($start, $end)) {
@@ -293,6 +332,18 @@ class PresensiPplkController extends Controller
       // Start transaction
       DB::beginTransaction();
       try {
+         // Check if there's a last attendance record for today
+         $lastPresensi = PresensiPplk::where('user_id', $validated['id'])
+            ->where('tanggal_presensi', Carbon::today())
+            ->latest()
+            ->first();
+
+         // If there is a last attendance, delete it
+         if ($lastPresensi) {
+            $lastPresensi->delete();
+         }
+
+         // Create the new attendance record
          $presensi = PresensiPplk::create([
             'user_id' => $validated['id'],
             'tanggal_presensi' => Carbon::today(),
@@ -314,7 +365,6 @@ class PresensiPplkController extends Controller
       ]);
    }
 
-
    public function updateKehadiran(Request $request)
    {
       $validated = $request->validate([
@@ -322,24 +372,38 @@ class PresensiPplkController extends Controller
          'kehadiran' => 'required|in:Hadir,Izin,Tidak Hadir',
          'keterangan' => 'string|nullable',
       ]);
-      // $presensi = PresensiPplk::where('user_id', $user_id)->where('tanggal_presensi', $tanggal_presensi);
+
+      $today = Carbon::today();
+      $presensi = PresensiPplk::where('user_id', $validated['id'])->where('tanggal_presensi', $today)->latest()->first();
+
       DB::beginTransaction();
       try {
-         $presensi = PresensiPplk::create(
-            [
-               'user_id' => $validated['id'],
-               'tanggal_presensi' => Carbon::today(),
-               'kehadiran' => 'Izin',
-               'keterangan' => $validated['keterangan']
-            ]
-         );
+         if ($presensi && $presensi->kehadiran === 'Hadir') {
+            $presensi->delete();
+         }
+
+         PresensiPplk::create([
+            'user_id' => $validated['id'],
+            'tanggal_presensi' => $today,
+            'kehadiran' => 'Izin',
+            'keterangan' => $validated['keterangan']
+         ]);
          DB::commit();
+         // Redirect with success message
+         return redirect()->back()->with('response', [
+            'status' => 200,
+            'message' => 'Presensi berhasil diperbarui'
+         ]);
       } catch (\Throwable $th) {
          DB::rollBack();
-         return redirect()->route('presensi.index')->with('failed', 'Presensi gagal ditambahkan');
+         // Redirect back with error details
+         return redirect()->back()->with('response', [
+            'status' => 500,
+            'message' => 'Gagal menghapus presensi'
+         ]);
       }
-      return redirect()->route('presensi.index')->with('success', 'Presensi berhasil ditambahkan');
    }
+
 
    public function destroyAbsen(Request $request)
    {
