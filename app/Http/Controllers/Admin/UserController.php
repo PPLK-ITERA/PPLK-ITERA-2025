@@ -438,28 +438,31 @@ class UserController extends Controller
             'bio' => $validated['bio'],
          ]);
 
-         // Check if user has role_id 1 and both pita and ket_penyakit are not null
-         if ($user->role_id == 1 && !is_null($validated['pita'])) {
-            if ($user->penyakit_id) {
-               // Penyakit exists, so update it
-               $penyakit = Penyakit::find($user->penyakit_id);
-               if ($penyakit) {
-                  $penyakit->update([
+         if (isset($validated['pita']) && isset($validated['ket_penyakit'])) {
+            // Check if user has role_id 1 and both pita and ket_penyakit are not null
+            if ($user->role_id == 1 && !is_null($validated['pita'])) {
+               if ($user->penyakit_id) {
+                  // Penyakit exists, so update it
+                  $penyakit = Penyakit::find($user->penyakit_id);
+                  if ($penyakit) {
+                     $penyakit->update([
+                        'pita' => $validated['pita'],
+                        'ket_penyakit' => isset($validated['ket_penyakit']) ? $validated['ket_penyakit'] : "",
+                     ]);
+                  }
+               } else {
+                  // Penyakit does not exist, so create it
+                  $penyakit = Penyakit::create([
                      'pita' => $validated['pita'],
-                     'ket_penyakit' => $validated['ket_penyakit']
+                     'ket_penyakit' => isset($validated['ket_penyakit']) ? $validated['ket_penyakit'] : "",
                   ]);
+                  // Update user with new penyakit_id
+                  $user->penyakit_id = $penyakit->id;
+                  $user->save();
                }
-            } else {
-               // Penyakit does not exist, so create it
-               $penyakit = Penyakit::create([
-                  'pita' => $validated['pita'],
-                  'ket_penyakit' => $validated['ket_penyakit']
-               ]);
-               // Update user with new penyakit_id
-               $user->penyakit_id = $penyakit->id;
-               $user->save();
             }
          }
+
       });
 
       return redirect()->route('dashboard.user.edit', ['id' => $user->id])
