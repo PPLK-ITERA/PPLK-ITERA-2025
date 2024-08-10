@@ -20,13 +20,14 @@ export default function Hero() {
                             Nagarika Anvensana : Exploration For The Future
                         </span>
                     </h2>
+
                     <p className="font-montserrat text-justify sm:text-[20px] text-[16px] mt-4">
                         Program Pengenalan Lingkungan Kampus Institut Teknologi
                         Sumatera 2024 atau PPLK ITERA 2024 adalah sebuah
                         kegiatan orientasi bagi seluruh Mahasiswa Baru Institut
                         Teknologi Sumatera tahun angkatan 2024. PPLK ITERA 2024
                         diusung dengan tajuk Nagarika Anvensana : Exploration
-                        For The Futre, dan bertema Futuristic Nusantara
+                        For The Future, dan bertema Futuristic Nusantara
                     </p>
                     <br />
                     <p className="font-montserrat text-justify sm:text-[20px] text-[16px]">

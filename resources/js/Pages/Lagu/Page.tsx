@@ -1,17 +1,18 @@
 import React from "react";
 
+import { Head } from "@inertiajs/react";
+
 import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
-import { Head } from "@inertiajs/react";
 
 const embedLinks = {
     "hymne-itera":
         "https://www.youtube.com/embed/DGXzReYJFkQ?si=mCJEGj4NQaNgdJZM",
     "mars-itera":
         "https://www.youtube.com/embed/4qMGuIJzZiE?si=GuHoxqZdrEMSQVoA",
-    "anthem-pplk":
+    "melodi-mimpi":
         "https://www.youtube.com/embed/G6U5Ub6v4SU?si=YFGiH8Ed4SImjL_C",
 };
 
@@ -110,7 +111,7 @@ const LYRICS = {
             ],
         },
     ],
-    "anthem-pplk": [
+    "melodi-mimpi": [
         {
             id: 1,
             lines: [
@@ -248,9 +249,9 @@ export default function Page() {
                         </TabsTrigger>
                         <TabsTrigger
                             className="lg:text-lg h-full"
-                            value="anthem-pplk"
+                            value="melodi-mimpi"
                         >
-                            Melodi Mimpi
+                            Anthem PPLK
                         </TabsTrigger>
                     </TabsList>
 
@@ -274,6 +275,7 @@ export default function Page() {
                                         {key.replace("-", " ").toUpperCase()}
                                     </CardTitle>
                                 </CardHeader>
+
                                 <CardContent className="space-y-6 text-center text-[14px] md:text-[20px]">
                                     {verses.map((verse) => (
                                         <div

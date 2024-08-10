@@ -7,7 +7,19 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 import Footer from "@/Components/Footer";
 import { CarouselMaskot } from "@/Components/Maskot";
 import Navbar from "@/Components/Navbar";
+import { Button } from "@/Components/ui/button";
 import { Card, CardContent, CardTitle } from "@/Components/ui/card";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/Components/ui/dialog";
+import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
 
 import { useAos } from "@/lib/hooks/useAos";
 
@@ -56,10 +68,6 @@ function Page() {
                                 ITERA 2024
                             </h2>
 
-                            {/* <div className="lg:py-20 w-full py-4">
-                                <CarouselMaskot />
-                            </div> */}
-
                             <div
                                 data-aos="fade-in"
                                 data-aos-duration="1000"
@@ -71,7 +79,7 @@ function Page() {
                                             viewMaskot === maskot.key
                                                 ? "grayscale-0"
                                                 : "grayscale scale-90"
-                                        } cursor-pointer transition relative bg-transparent border-none shadow-none overflow-hidden h-full w-full duration-300 ease-in-out`}
+                                        } cursor-pointer transition relative bg-transparent border-none shadow-none overflow-hidden h-full w-full duration-300 ease-in-out z-20`}
                                         key={index}
                                         onClick={() =>
                                             setViewMaskot(`${maskot.key}`)
@@ -109,6 +117,63 @@ function Page() {
                                         </div> */}
                                     </Card>
                                 ))}
+
+                                <div className="place-content-center justify-items-center absolute inset-0 border">
+                                    {selectedMaskot && (
+                                        <Dialog>
+                                            <DialogTrigger asChild>
+                                                <Button variant="outline">
+                                                    {selectedMaskot.name}
+                                                </Button>
+                                            </DialogTrigger>
+                                            <DialogContent className="sm:max-w-[425px]">
+                                                <DialogHeader>
+                                                    <DialogTitle>
+                                                        Edit profile
+                                                    </DialogTitle>
+                                                    <DialogDescription>
+                                                        Make changes to your
+                                                        profile here. Click save
+                                                        when you're done.
+                                                    </DialogDescription>
+                                                </DialogHeader>
+                                                <div className="grid gap-4 py-4">
+                                                    <div className="grid items-center grid-cols-4 gap-4">
+                                                        <Label
+                                                            htmlFor="name"
+                                                            className="text-right"
+                                                        >
+                                                            Name
+                                                        </Label>
+                                                        <Input
+                                                            id="name"
+                                                            defaultValue="Pedro Duarte"
+                                                            className="col-span-3"
+                                                        />
+                                                    </div>
+                                                    <div className="grid items-center grid-cols-4 gap-4">
+                                                        <Label
+                                                            htmlFor="username"
+                                                            className="text-right"
+                                                        >
+                                                            Username
+                                                        </Label>
+                                                        <Input
+                                                            id="username"
+                                                            defaultValue="@peduarte"
+                                                            className="col-span-3"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <DialogFooter>
+                                                    <Button type="submit">
+                                                        Save changes
+                                                    </Button>
+                                                </DialogFooter>
+                                            </DialogContent>
+                                        </Dialog>
+                                    )}
+                                </div>
                             </div>
                         </div>
 

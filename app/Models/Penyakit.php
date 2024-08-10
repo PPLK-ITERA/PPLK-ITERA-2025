@@ -13,11 +13,14 @@ class Penyakit extends Model
    protected $primaryKey = 'id';
 
    protected $fillable = [
-      'pita', 'ket_penyakit'
+      'pita',
+      'ket_penyakit'
    ];
 
    protected $hidden = [
-      'id', 'created_at', 'updated_at',
+      'id',
+      'created_at',
+      'updated_at',
    ];
 
    public function User()

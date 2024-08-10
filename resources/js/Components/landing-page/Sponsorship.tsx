@@ -10,7 +10,9 @@ import {
     CarouselItem,
 } from "@/Components/ui/carousel";
 
+import arutara from "!assets/logo-sponsor/arutara.jpg";
 import elmufid from "!assets/logo-sponsor/elmufid.png";
+import emina from "!assets/logo-sponsor/emina.png";
 import fitbar from "!assets/logo-sponsor/fitbar.png";
 import goodday from "!assets/logo-sponsor/goodday.png";
 import khaf from "!assets/logo-sponsor/khaf.png";
@@ -59,20 +61,8 @@ const data_media_partner = [
 
 const data_sponsor = [
     {
-        name: "Elmufid",
-        src: elmufid,
-    },
-    {
         name: "Good Day",
         src: goodday,
-    },
-    {
-        name: "Khaf",
-        src: khaf,
-    },
-    {
-        name: "Lirik Kita",
-        src: lirik_kita,
     },
     {
         name: "Mandiri",
@@ -83,8 +73,28 @@ const data_sponsor = [
         src: wardah,
     },
     {
+        name: "Emina",
+        src: emina,
+    },
+    {
+        name: "Khaf",
+        src: khaf,
+    },
+    {
+        name: "Lirik Kita",
+        src: lirik_kita,
+    },
+    {
         name: "Fitbar",
         src: fitbar,
+    },
+    {
+        name: "Elmufid",
+        src: elmufid,
+    },
+    {
+        name: "Arutara",
+        src: arutara,
     },
     {
         name: "Asoka",
@@ -103,7 +113,7 @@ export default function Sponsorship() {
                 {/* Sponsor Logo */}
                 <Carousel
                     opts={{
-                        align: "center",
+                        align: "start",
                         loop: true,
                         direction: "ltr",
                     }}

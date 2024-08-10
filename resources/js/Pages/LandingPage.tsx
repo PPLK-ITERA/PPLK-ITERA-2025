@@ -19,6 +19,7 @@ import { UserAuthProps } from "@/lib/types/User";
 import elang from "!assets/elang-hero.png";
 import overlay_box from "!assets/overlay-box.png";
 import overlay_earth from "!assets/overlay-earth.png";
+import pillar_brown2 from "!assets/pillar-brown2.png";
 import pillar_brown from "!assets/pillar-brown.png";
 import sponsor_overlay from "!assets/sponsor-overlay.png";
 
@@ -62,17 +63,21 @@ export default function LandingPage() {
                 <FilosofiLogo />
 
                 <div className="relative bg-[#170C0A] -mt-1 bg-pattern-white">
-                    <MaxWidthWrapper>
-                        <Maskot />
-                    </MaxWidthWrapper>
+                    <img
+                        src={pillar_brown2}
+                        alt="pillar_brown2"
+                        className="scale-x-[-1] xl:-mt-24 absolute right-0 w-[9%] hidden md:block"
+                    />
 
                     <img
-                        data-aos="slide-up"
-                        data-aos-duration={1000}
-                        src={pillar_brown}
-                        alt="pillar_brown"
-                        className="absolute bottom-0 z-0 w-full"
+                        src={pillar_brown2}
+                        alt="pillar_brown2"
+                        className="absolute left-0 xl:-mt-24 w-[9%] hidden md:block"
                     />
+
+                    <MaxWidthWrapper className="z-30">
+                        <Maskot />
+                    </MaxWidthWrapper>
                 </div>
 
                 <img

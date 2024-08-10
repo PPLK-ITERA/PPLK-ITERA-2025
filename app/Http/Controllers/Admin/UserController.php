@@ -286,6 +286,7 @@ class UserController extends Controller
                'name' => $validated['name'],
                'password' => bcrypt($password),
                'email' => $email,
+               'prodi_id' => $validated['prodi_id'],
                'role_id' => $validated['role_id'],
                'kelompok_id' => $validated['kelompok_id']
             ]
