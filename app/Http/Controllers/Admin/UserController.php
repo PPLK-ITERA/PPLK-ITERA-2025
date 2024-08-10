@@ -286,6 +286,7 @@ class UserController extends Controller
                'name' => $validated['name'],
                'password' => bcrypt($password),
                'email' => $email,
+               'prodi_id' => $validated['prodi_id'],
                'role_id' => $validated['role_id'],
                'kelompok_id' => $validated['kelompok_id']
             ]
@@ -417,10 +418,8 @@ class UserController extends Controller
          'ket_penyakit' => ['nullable', 'string', 'max:120'],
       ]);
 
-      // Find user
+      // Find user by ID
       $user = User::find($validated['id']);
-
-      // Check if user exists
       if (!$user) {
          return redirect()->route('dashboard.user.edit', ['id' => $validated['id']])
             ->with('response', [
@@ -429,11 +428,8 @@ class UserController extends Controller
             ]);
       }
 
-
-
       DB::transaction(function () use ($user, $validated) {
-         // Update user details
-
+         // Update basic user details
          $user->update([
             'name' => $validated['name'],
             'nim' => $validated['nim'],
@@ -441,23 +437,38 @@ class UserController extends Controller
             'prodi_id' => $validated['prodi_id'],
             'bio' => $validated['bio'],
          ]);
-         if ($user->role_id == 1 && $user->pita != null) {
-            $penyakit = Penyakit::updateOrCreate(
-               ['pita' => $validated['pita']],
-               ['ket_penyakit' => $validated['ket_penyakit']]
-            );
-            // Update user with penyakit_id
-            $user->update([
-               'penyakit_id' => $penyakit->id,
-            ]);
+
+         // Check if user has role_id 1 and both pita and ket_penyakit are not null
+         if ($user->role_id == 1 && !is_null($validated['pita'])) {
+            if ($user->penyakit_id) {
+               // Penyakit exists, so update it
+               $penyakit = Penyakit::find($user->penyakit_id);
+               if ($penyakit) {
+                  $penyakit->update([
+                     'pita' => $validated['pita'],
+                     'ket_penyakit' => $validated['ket_penyakit']
+                  ]);
+               }
+            } else {
+               // Penyakit does not exist, so create it
+               $penyakit = Penyakit::create([
+                  'pita' => $validated['pita'],
+                  'ket_penyakit' => $validated['ket_penyakit']
+               ]);
+               // Update user with new penyakit_id
+               $user->penyakit_id = $penyakit->id;
+               $user->save();
+            }
          }
       });
+
       return redirect()->route('dashboard.user.edit', ['id' => $user->id])
          ->with('response', [
             'status' => 200,
-            'message' => 'Berhasil mengubah profil user',
+            'message' => 'Successfully updated user profile',
          ]);
    }
+
 
    public function editSosmed(Request $request)
    {

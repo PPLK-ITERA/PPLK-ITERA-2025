@@ -12,22 +12,22 @@ import { Card, CardContent } from "@/Components/ui/card";
 import maskot_pplk_man from "!assets/maskot/maskot-pplk-man.png";
 import maskot_pplk_woman from "!assets/maskot/maskot-pplk-woman.png";
 
-export function CarouselMaskot() {
-    const maskots = [
-        {
-            h2: "Hai! Aku,",
-            h1: "Chapabel",
-            description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2024!",
-            imageSrc: maskot_pplk_man,
-        },
-        {
-            h2: "Hai! Aku,",
-            h1: "Chapabel",
-            description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2024!",
-            imageSrc: maskot_pplk_woman,
-        },
-    ];
+const maskots = [
+    {
+        h2: "Hai! Aku,",
+        h1: "Chapabel",
+        description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2024!",
+        imageSrc: maskot_pplk_man,
+    },
+    {
+        h2: "Hai! Aku,",
+        h1: "Chapabel",
+        description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2024!",
+        imageSrc: maskot_pplk_woman,
+    },
+];
 
+export function CarouselMaskot() {
     return (
         <Carousel
             opts={{

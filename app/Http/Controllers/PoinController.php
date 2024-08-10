@@ -61,13 +61,6 @@ class PoinController extends Controller
          'qr_code' => 'required|string|max:10',
       ]);
 
-      // Restrict access to specific days, e.g., Monday to Friday
-      //  $allowedDays = "2024-08-10";
-      //  $today = Carbon::today();
-      //  if ($today !== $allowedDays) {
-      //      return $this->helper->qrError('Hanya bisa diakses saat pra PPLK', 403);
-      //  }
-
       $poinqrcode = PoinQrCode::where('code', $validated['qr_code'])->first();
       if (!$poinqrcode) {
          return $this->helper->qrError('Invalid QR code', 404);
@@ -85,7 +78,6 @@ class PoinController extends Controller
 
       $kelompok_id = $user->kelompok_id;
       $ketua_kelompok = User::where('kelompok_id', $kelompok_id)->where('isKetua', true)->first();
-
       if (!$ketua_kelompok) {
          return redirect()->back()->with('response', [
             'status' => 400,
@@ -97,15 +89,9 @@ class PoinController extends Controller
          return $this->helper->qrError('QR code expired', 400);
       }
 
-      // If QR code is not expired, do not update it
-      if ($qrCode && $qrCode->expired_at->isFuture()) {
-         return $this->helper->poinSuccess($ketua_kelompok);
-      }
-
       DB::beginTransaction();
       try {
-         $ketua_kelompok->score += 500;
-         $ketua_kelompok->save();
+         $ketua_kelompok->increment('score', 500); // This will automatically save
          $qrCode->update([
             'expired_at' => Carbon::now()->addMinutes(10)->toDateTimeString(),
          ]);
@@ -116,6 +102,7 @@ class PoinController extends Controller
          return $this->helper->poinError($th->getMessage(), 500);
       }
    }
+
 
 
    /**

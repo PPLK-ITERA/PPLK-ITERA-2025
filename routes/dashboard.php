@@ -139,7 +139,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          // Korlap Role
          // ====================================
-         Route::middleware('checkRole:Korlap,Admin')->group(function () {
+         Route::middleware(['checkRole:Korlap,Admin'])->group(function () {
             Route::get('index', [PoinController::class, 'index'])->name('index');
             Route::post('store', [PoinController::class, 'store'])->name('store');
          });

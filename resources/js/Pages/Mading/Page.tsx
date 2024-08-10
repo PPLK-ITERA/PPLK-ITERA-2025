@@ -24,9 +24,10 @@ import { UserAuthProps } from "@/lib/types/User";
 import awan from "!assets/awan.png";
 import gunung from "!assets/gunung.png";
 import kotakajaib from "!assets/kotakajaib.png";
-import lampu from "!assets/mading/lampu.png";
+import lampu_mading from "!assets/lampu-mading.png";
 import pentung from "!assets/pentung.png";
 import piano from "!assets/piano.png";
+import podium_selesai from "!assets/podium-selesai.png";
 
 const SkeletonLoader = () => {
     return (
@@ -106,7 +107,7 @@ const Mading = ({ succes }: { succes?: string }) => {
                         Mading Tugas PPLK 2024
                     </h2>
 
-                    <div className="relative xl:max-h-[186px] md:max-w-[600px] xl:max-w-[800px] w-full h-full rounded-xl bg-history-completed bg-no-repeat bg-transparent bg-cover mt-14 p-4">
+                    <div className="relative xl:max-h-[186px] md:max-w-[600px] xl:max-w-[800px] w-full h-full rounded-xl bg-history-completed bg-no-repeat bg-transparent bg-cover mt-14 p-3">
                         <div className="left-4 top-4 border-jaffa-800 absolute p-2 border rounded-full shadow-sm">
                             <img src={piano} alt="Piano" className="w-6 h-6" />
                         </div>
@@ -117,7 +118,13 @@ const Mading = ({ succes }: { succes?: string }) => {
                             </h2>
 
                             <p className="text-[20px] text-sm text-justify text-black font-montserrat mb-2">
-                                Mading Tugas PPLK adalah sebuah media yang digunakan untuk menampilkan hasil pengerjaan tugas PPLK 2024. Mading ini berisi bukti pengerjaan tugas yang telah dikerjakan oleh kelompok masing-masing. Segera selesaikan tugas yang diberikan untuk membuka mading kelompok kamu!.
+                                Mading Tugas PPLK adalah sebuah media yang
+                                digunakan untuk menampilkan hasil pengerjaan
+                                tugas PPLK 2024. Mading ini berisi bukti
+                                pengerjaan tugas yang telah dikerjakan oleh
+                                kelompok masing-masing. Segera selesaikan tugas
+                                yang diberikan untuk membuka mading kelompok
+                                kamu!.
                             </p>
                         </div>
                     </div>
@@ -163,20 +170,20 @@ const Mading = ({ succes }: { succes?: string }) => {
                         </h2>
 
                         <img
-                            src={lampu}
+                            src={lampu_mading}
                             alt="lampu"
-                            className="absolute top-0 z-10"
+                            className="absolute top-0 z-20"
                         />
 
                         <img
-                            src={kotakajaib}
+                            src={podium_selesai}
                             alt="kotakajaib"
-                            className="xl:scale-100 md:mt-0 z-20 -mt-20 scale-50"
+                            className="md:mt-0 z-10 md:w-[40%] w-[50%] mx-auto"
                         />
 
                         <a
                             href={route("mading.preview")}
-                            className={`z-20 xl:mt-32 -mt-10 cursor-pointer text-sm text-white bg-jaffa-800 hover:bg-jaffa-800 shadow-md inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 px-4 py-2`}
+                            className={`z-20 xl:mt-32 cursor-pointer text-sm text-white bg-jaffa-800 hover:bg-jaffa-800 shadow-md inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 px-4 py-2`}
                         >
                             Lihat Preview Mading Kelompokmu
                         </a>
