@@ -952,7 +952,7 @@ export const ukmData = [
     ketum: "Hizkia Maratur Nababan ",
     prodi: "Teknik Material'21",
     sejarah:
-      "Komunitas SAIBATIN ITERA merupakan sebuah wadah yang dibentuk untuk menyalurkan hobby atau ketertarikan pada bidang remote control terkhusus pada kapal. Selain itu, SAIBATIN ITERA juga mempunyai misi untuk menaikkan nama ITERA di tingkat nasional dan internasional serta mendukung penuh anggota yang bergabung didalamnya untuk meningkatkan skill dan prestasi yang dimiliki. SAIBATIN ITERA terbentuk pada 9 Mei 2023.",
+      "Komunitas SAIBATIN ITERA merupakan sebuah wadah yang dibentuk untuk menyalurkan hobby atau ketertarikan pada bidang remote control terkhusus pada kapal. Selain itu, SAIBATIN ITERA juga mempunyai misi untuk menaikkan nama ITERA di tingkat nasional dan internasional serta mendukung penuh anggota yang bergabung didalamnya untuk meningkatkan skill dan prestasi yang dimiliki. SAIBATIN ITERA terbentuk pada 22 Maret 2023.",
     visi: "-",
     misi: "-",
 
@@ -1076,8 +1076,8 @@ export const ukmData = [
     ketum: "Adit Setiawan ",
     prodi: "Teknik Telekomunikasi'21",
     sejarah:
-      "UKM ATTARASHII SEKAI ITERA adalah sebuah organisasi mahasiswa yang menampung setiap mahasiswa itera yang memiliki ketertarikan mempelajari  bahasa dan budaya  Jepang , serta mengembangkan berbagai minat bakat untuk kemajuan dan perkembangan anggota. UKM ATTARASHII SEKAI ITERA (Akai ITERA) merupakan organisasi mahasiswa yang berada di institut teknologi Sumatera, Lampung yang berdiri pada 24 September 2016 dan di resmikan oleh institut teknologi Sumatera sesuai keputusan rektor ITERA. Hari jadi Atarashii Sekai Itera di sepakati jatuh pada  24 September 2016",
-    visi: "Sebagai wadah untuk mengembangkan  minat bakat mahasiswa Institut Teknologi Sumatera (Itera) yang terorganisir dan berkesinambungan dalam bidang bahasa dan kebudayaan Negara Jepang.",
+      "UKM ATTARASHII SEKAI ITERA adalah sebuah organisasi mahasiswa yang menampung setiap mahasiswa itera yang memiliki ketertarikan mempelajari  bahasa dan budaya  Jepang , serta mengembangkan berbagai minat bakat untuk kemajuan dan perkembangan anggota. UKM ATTARASHII SEKAI ITERA (Akai ITERA) merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera, Lampung yang berdiri pada 24 September 2016 dan di resmikan oleh Institut Teknologi Sumatera sesuai keputusan rektor ITERA. Hari jadi Atarashii Sekai Itera di sepakati jatuh pada  24 September 2016",
+    visi: "Sebagai wadah untuk mengembangkan  minat bakat mahasiswa Institut Teknologi Sumatera (ITERA) yang terorganisir dan berkesinambungan dalam bidang bahasa dan kebudayaan Negara Jepang.",
     misi: "1.Menghimpun segenap Mahasiswa Itera yang tertarik untuk mempelajari bahasa dan kebudayaan Jepang. \n2. Memperkenalkan dan mempelajari bahasa dan kebudayaan Jepang khususnya di Itera dan Indonesia pada umumnya. \n3.membina persaudaraan serta kekeluargaan sesama anggota. \n4. Membina anggota-anggota menjadi mahasiswa yang kritis, analitis, bertanggung jawab, dan berwawasan masyarakat global.",
 
     allprestasi: [
