@@ -305,7 +305,7 @@ export const programStudies: ProgramStudi[] = [
         description:
             "Bidang Informatika merupakan bidang keilmuan yang kemajuannya sangat pesat. Kemampuan pemrosesan komputasi berpindah ke berbagai perangkat khusus, seperti handphone dan berbagai sensor yang terdapat pada benda yang digunakan sehari-hari, seperti meja, bolpen, toilet, setrika dan lain-lain, yang saling terhubung (Internet of Things). Interaksi manusia dengan komputer juga berkembang ke arah berbagai model yang lebih alami, seperti sentuhan, suara, virtual reality, bau, mimik muka dan lainnya. Pengelolaan data berkembang dalam skala yang jauh lebih besar, sejalan dengan perkembangan kemampuan pemrosesan dan penyimpanan data, serta produksi data yang terjadi. ",
         history:
-            "Berdasarkan Surat Keputusan Menteri Riset, Teknologi dan Pendidikan Tinggi (SK KEMENRISTEKDIKTI) Nomor 64/M/Kp/III/2015 terkait dengan izin operasional Institut Teknologi Sumatera maka dimulailah kegiatan operasional Tri Dharma Perguruan Tinggi di ITERA. Pembukaan program studi baru di bidang teknik merupakan prioritas utama dari sebuah institut teknologi. Hal tersebut diharapkan dapat berkontribusi dalam pemberdayaan potensi di wilayah Sumatera pada khususnya, dan Indonesia serta dunia pada umumnya. Berdasarkan hal tersebut, maka ITERA membentuk Program Studi Teknik Informatika dengan harapan dapat meningkatkan potensi tersebut di bidang teknologi informasi.\nProgram Studi Teknik Informatika (PS IF) Institut Teknologi Sumatera merupakan program studi yang dibuka di tahun ke-2 (tahun 2013) setelah Institut Teknologi Sumatera memulai penyelenggaraan perkuliahan di tahun 2012. PS IF ITERA diresmikan pada tahun 2015 melalui SK Mentri Riset, Teknologi dan Pendidikan Tinggi No. 64/M/Kp/III/2015.",
+            "Berdasarkan Surat Keputusan Menteri Riset, Teknologi dan Pendidikan Tinggi (SK KEMENRISTEKDIKTI) Nomor 64/M/Kp/III/2015 terkait dengan izin operasional Institut Teknologi Sumatera maka dimulailah kegiatan operasional Tri Dharma Perguruan Tinggi di ITERA. Pembukaan program studi baru di bidang teknik merupakan prioritas utama dari sebuah Institut Teknologi. Hal tersebut diharapkan dapat berkontribusi dalam pemberdayaan potensi di wilayah Sumatera pada khususnya, dan Indonesia serta dunia pada umumnya. Berdasarkan hal tersebut, maka ITERA membentuk Program Studi Teknik Informatika dengan harapan dapat meningkatkan potensi tersebut di bidang teknologi informasi.\nProgram Studi Teknik Informatika (PS IF) Institut Teknologi Sumatera merupakan program studi yang dibuka di tahun ke-2 (tahun 2013) setelah Institut Teknologi Sumatera memulai penyelenggaraan perkuliahan di tahun 2012. PS IF ITERA diresmikan pada tahun 2015 melalui SK Mentri Riset, Teknologi dan Pendidikan Tinggi No. 64/M/Kp/III/2015.",
         accreditation: "B",
         accreditationNo: "6845/SK/BAN-PT/Ak.KP/S/X/2022",
         vision: "Menjadi Program Studi Teknik Informatika terkemuka dan unggul pada Tahun 2030, dalam penyelenggaraan pendidikan, penelitian dan pengabdian kepada masyarakat di bidang teknologi informasi berbasis intelligent system, untuk pengembangan potensi di Pulau Sumatera dan Indonesia pada umumnya",
@@ -341,7 +341,7 @@ export const programStudies: ProgramStudi[] = [
         hmpsImageUrl: logohmif,
         hmpsAcronym: "HMIF",
         hmpsDescrption:
-            "HMIF ITERA (Himpunan Mahasiswa Informatika Institut Teknologi Sumatera) merupakan organisasi mahasiswa yang beranggotakan mahasiswa informatika institut teknologi sumatera yang bergerak berdasarkan tridharma pendidikan",
+            "HMIF ITERA (Himpunan Mahasiswa Informatika Institut Teknologi Sumatera) merupakan organisasi mahasiswa yang beranggotakan mahasiswa informatika Institut Teknologi Sumatera yang bergerak berdasarkan tridharma pendidikan",
         kahim: "Fadiel Nurdiansyah",
         hmpsActivities: [
             {
@@ -436,7 +436,7 @@ export const programStudies: ProgramStudi[] = [
         history: "Cooming Soon",
         accreditation: "Baik    ",
         accreditationNo: "0274/SK/LAM Teknik/AS/VIII/2023",
-        vision: "Menjadi Program Studi Teknik Geologi yang unggul, bekualitas, dan berprestasi, secara nasional maupun internasional dalam mengembangkan ilmu kebumian, teknologi eksplorasi sumber daya mineral dan energi sehinga memajukan wilayah sumatera khususnya dan mendukung pembangunan Negara.",
+        vision: "Menjadi Program Studi Teknik Geologi yang unggul, bekualitas, dan berprestasi, secara nasional maupun internasional dalam mengembangkan ilmu kebumian, teknologi eksplorasi sumber daya mineral dan energi sehinga memajukan wilayah Sumatera khususnya dan mendukung pembangunan Negara.",
         mission: [
             "Menyelenggarakan pendidikan tinggi Teknik Geologi yang kompeten dan mampu bersaing secara global.",
             "Mengembangkan ilmu pengetahuan dan teknologi di bidang geologi melalui penelitian dan pengabdian masyarakat.",
@@ -561,7 +561,7 @@ export const programStudies: ProgramStudi[] = [
         description:
             "Program Studi Teknik Pertambangan mempelajari berbagai macam hal yang berhubungan dengan proses penambangan terutama mineral, batubara, batuan, logam dan non logam.  Teknik Pertambangan adalah ilmu yang menggabungkan pengetahuan dan teknologi untuk mengekstraksi mineral berharga dari dalam bumi, mulai dari proses pencarian (eksplorasi), penggalian (eksploitasi), hingga pengolahan mineral tersebut menjadi bahan yang siap digunakan.  Prospek kerjanya pun beragam mulai dari industri pertambangan, perusahaan pembangkit listrik, dan lainnya.",
         history:
-            "Institut Teknologi Sumatera (ITERA) menambah Teknik Pertambangan. Penambahan prodi baru tersebut telah mendapat izin dari Kementerian Riset Teknologi dan Pendidikan Tinggi (Kemenristekdikti) melalui Surat Keputusan Menristekdikti Nomor 972/KPT/I/2018 tanggal 8 November 2018. Prof. Mitra Kampus mengatakan bahwa pulau sumatera kaya akan potensi tambang, maka dari itu didirikan Teknik Pertambangan.",
+            "Institut Teknologi Sumatera (ITERA) menambah Teknik Pertambangan. Penambahan prodi baru tersebut telah mendapat izin dari Kementerian Riset Teknologi dan Pendidikan Tinggi (Kemenristekdikti) melalui Surat Keputusan Menristekdikti Nomor 972/KPT/I/2018 tanggal 8 November 2018. Prof. Mitra Kampus mengatakan bahwa pulau Sumatera kaya akan potensi tambang, maka dari itu didirikan Teknik Pertambangan.",
         accreditation: "Baik",
         accreditationNo: "9507/SK/BAN-PT/Ak/S/XI/2022",
         vision: "Menjadi Program Studi Teknik Sistem Energi yang berkualitas dan berprestasi secara nasional maupun internasional dalam mengembangkan ilmu pengetahuan dan teknologi di bidang Teknik Energi Baru dan Terbarukan dengan memanfaatkan sumber daya alam dan sumber daya manusia di wilayah Sumatera sehingga dapat memajukan wilayah Sumatera khususnya dan mendukung pembangunan negara.",
@@ -628,7 +628,7 @@ export const programStudies: ProgramStudi[] = [
         name: "Teknologi Industri Pertanian",
         imageUrl: logopertanian,
         description:
-            "Prodi Teknologi Industri Pertanian Institut Teknologi Sumatera  mempersiapkan lulusan dengan kemampuan untuk merancang, mengembangkan, melaksanakan, mengendalikan, mengevaluasi dan memperbaiki kinerja sistem agroindustri berkelanjutan melalui pendekatan terintegrasi aspek-aspek teknologi proses, rekayasa sistem, manajemen industri dan lingkungan untuk meningkatkan nilai tambah sumberdaya pertanian dan memajukan agroindustri sumatera.",
+            "Prodi Teknologi Industri Pertanian Institut Teknologi Sumatera  mempersiapkan lulusan dengan kemampuan untuk merancang, mengembangkan, melaksanakan, mengendalikan, mengevaluasi dan memperbaiki kinerja sistem agroindustri berkelanjutan melalui pendekatan terintegrasi aspek-aspek teknologi proses, rekayasa sistem, manajemen industri dan lingkungan untuk meningkatkan nilai tambah sumberdaya pertanian dan memajukan agroindustri Sumatera.",
         history:
             "Pendirian Program Studi Teknologi Industri Pertanian ITERA diarahkan untuk memberikan solusi atas berbagai tantangan dalam pengembangan sistem pendidikan tinggi agroindustri, serta memfasilitasi pengembangan agroindustri, menitikberatkan pada pemberian nilai tambah bagi hasil pertanian, menghasilkan produk agroindustri bermutu tinggi terkhusus di pulau Sumatera. Program studi Teknologi Industri Pertanian resmi berdiri pada tanggal 16 April 2018",
         accreditation: "Baik",
@@ -890,7 +890,7 @@ export const programStudies: ProgramStudi[] = [
         mission: [
             "Memajukan pendidikan tinggi, penelitian, pengabdian kepada masyarakat, dalam menciptakan lulusan teknik elektro yang berciri khas di bidang Kendali, Tenaga Elektrik, Elektronika, dan Telekomunikasi, untuk mengedepankan potensi pulau Sumatera yang unggul, inovatif, mandiri, kolaboratif, kuat, martabat, maslahat, dan diakui dunia.",
             "Melaksanakan penyebaran perkembangan ilmu pengetahuan teknik elektro dalam segala aspek dengan ciri khas di bidang Kendali, Tenaga Elektrik, Elektronika, dan Telekomunikasi yang unggul, inovatif, mandiri, kolaboratif, kuat, martabat, maslahat, dan diakui dunia.",
-            "Membangun, menjalin, dan mempererat kerjasama kepada seluruh civitas akademik, alumni, institusi, asosiasi, kelembagaan, dunia usaha, dan dunia industri untuk memperkuat identitas program studi yang memberikan dampak langsung untuk masyarakat di pulau sumatera, Indonesia, dan dunia.",
+            "Membangun, menjalin, dan mempererat kerjasama kepada seluruh civitas akademik, alumni, institusi, asosiasi, kelembagaan, dunia usaha, dan dunia industri untuk memperkuat identitas program studi yang memberikan dampak langsung untuk masyarakat di pulau Sumatera, Indonesia, dan dunia.",
             "Menyelenggarakan tata kelola manajemen administrasi program studi dalam pelaksanaan tridharma yang berorientasi pelayanan berlandaskan sikap akuntabel, kompeten, harmonis, loyal, adaptif, dan kolaboratif.",
         ],
         // coordinatorPhoto: fotokaprodielektro,
@@ -950,7 +950,7 @@ export const programStudies: ProgramStudi[] = [
         mission: [
             "Memajukan pendidikan tinggi, penelitian, pengabdian kepada masyarakat, dalam menciptakan lulusan teknik elektro yang berciri khas di bidang Kendali, Tenaga Elektrik, Elektronika, dan Telekomunikasi, untuk mengedepankan potensi pulau Sumatera yang unggul, inovatif, mandiri, kolaboratif, kuat, martabat, maslahat, dan diakui dunia.",
             "Melaksanakan penyebaran perkembangan ilmu pengetahuan teknik elektro dalam segala aspek dengan ciri khas di bidang Kendali, Tenaga Elektrik, Elektronika, dan Telekomunikasi yang unggul, inovatif, mandiri, kolaboratif, kuat, martabat, maslahat, dan diakui dunia.",
-            "Membangun, menjalin, dan mempererat kerjasama kepada seluruh civitas akademik, alumni, institusi, asosiasi, kelembagaan, dunia usaha, dan dunia industri untuk memperkuat identitas program studi yang memberikan dampak langsung untuk masyarakat di pulau sumatera, Indonesia, dan dunia.",
+            "Membangun, menjalin, dan mempererat kerjasama kepada seluruh civitas akademik, alumni, institusi, asosiasi, kelembagaan, dunia usaha, dan dunia industri untuk memperkuat identitas program studi yang memberikan dampak langsung untuk masyarakat di pulau Sumatera, Indonesia, dan dunia.",
             "Menyelenggarakan tata kelola manajemen administrasi program studi dalam pelaksanaan tridharma yang berorientasi pelayanan berlandaskan sikap akuntabel, kompeten, harmonis, loyal, adaptif, dan kolaboratif.",
         ],
         // coordinatorPhoto: fotokaprodirekayasainstrumentasi,
@@ -1775,7 +1775,7 @@ export const programStudies: ProgramStudi[] = [
         description:
             "Bidang keahlian atau profesi Perencanaan Wilayah dan Kota adalah bidang keahlian atau profesi yang terkait dengan perumusan alternatif tindakan secara sistematis, komprehensif dan terpadu dalam ranah publik dengan mempertimbangkan kebutuhan dan ketersediaan sumberdaya untuk mencapai kemajuan wilayah dan kota pada masa depan.",
         history:
-            "Program studi perencanaan wilayah dan kota itera lahir dari ide besar 'Itera for sumatera'. Penerimaan Mahasiswa Ps Pwk sudah dilakukan semenjak tahun 2012di Itb jatinangor. Namun perkuliahan di kampus itera yaitu tepatnya di Lampung selatan baru di lakukan pada tahun 2014 dan di resmikan pada SK penyelenggara pada tanggal 20 maret 2015 (64/M/Kp/III/2015)",
+            "Program studi perencanaan wilayah dan kota itera lahir dari ide besar 'Itera for Sumatera'. Penerimaan Mahasiswa Ps Pwk sudah dilakukan semenjak tahun 2012di Itb jatinangor. Namun perkuliahan di kampus itera yaitu tepatnya di Lampung selatan baru di lakukan pada tahun 2014 dan di resmikan pada SK penyelenggara pada tanggal 20 maret 2015 (64/M/Kp/III/2015)",
         accreditation: "B",
         accreditationNo: "4387/SK/BAN-PT/Ak.Ppj/S/V/2024",
         vision: "Program Studi Perencanaan Wilayah dan Kota ITERA Sebagai Program Studi Unggulan Di Pulau Sumatera yang Menghasilkan Perencana Wilayah dan Kota Berwawasan Teknologi, Inklusif dan Pembangunan Berkelanjutan.",
@@ -2366,7 +2366,7 @@ export const programStudies: ProgramStudi[] = [
         description:
             "Program studi pariwisata adalah program pendidikan yang dirancang untuk mempersiapkan mahasiswa agar memiliki pengetahuan, keterampilan, dan sikap yang dibutuhkan untuk berkarir di industri pariwisata. Prodi S1 Pariwisata ITERA memiliki konsentrasi di bidang perencanaan destinasi pariwisata, kajian dan manajemen pariwisata, serta kajian fisik dan lingkungan pariwisata.",
         history:
-            "Pulau Sumatera membutuhkan program sarjana di bidang pariwisata yang mampu secara komprehensif menyusun perencanaan, kebijakan, daya tampung, lingkungan, pengelolaan hingga strategi melakukan marketing. dengan Terbentuknya Program Studi Pariwisata Institut Teknologi Sumatera akan menjadi program studi yang secara teknis dan komprehensif mampu menciptakan kepariwisataan dari hulu (Proses Perencanaan) ke hilir (Proses Pemasaran) yang dapat memberikan jawaban atas permasalahan yang ada di pulau sumatera. program studi pariwisata berdiri pada tanggal 13 Januari 2023",
+            "Pulau Sumatera membutuhkan program sarjana di bidang pariwisata yang mampu secara komprehensif menyusun perencanaan, kebijakan, daya tampung, lingkungan, pengelolaan hingga strategi melakukan marketing. dengan Terbentuknya Program Studi Pariwisata Institut Teknologi Sumatera akan menjadi program studi yang secara teknis dan komprehensif mampu menciptakan kepariwisataan dari hulu (Proses Perencanaan) ke hilir (Proses Pemasaran) yang dapat memberikan jawaban atas permasalahan yang ada di pulau Sumatera. program studi pariwisata berdiri pada tanggal 13 Januari 2023",
         accreditation: "Baik",
         accreditationNo: "2151/SK/BAN-PT/Ak.P/S/VI/2023",
         vision: "Menjadi Program Studi yang berorientasi pada Teknologi secara Berkelanjutan dan Berdaya Saing dalam aspek Destinasi Pariwisata sehingga mampu memberikan sumbangsih terhadap Kepariwisataan wilayah Sumatera, Nasional dan Global",
@@ -2573,7 +2573,7 @@ export const programStudies: ProgramStudi[] = [
             "Program studi farmasi (PSFA) ITERA resmi berdiri pada 19 September 2017 dengan memfokuskan penyelenggaraan pendidikan farmasi pada bidang farmasi klinik komunitas dan bahan alam. Kurikulum program sarjana PSFA ITERA ditempuh melalui proses pembelajaran sebanyak 144 SKS selama 8 semester. Lulusan PSFA ITERA diharapkan mampu mengenal berbagai produk farmasi dan alat kesehatan, berkontribusi aktif dalam penemuan dan pengembangan bahan obat dan sediaan obat tradisional, mengidentifikasi masalah terkait obat seperti dalam penyiapan sediaan, pelayanan produk, dan pemberian informasi, serta melakukan praktik layanan kefarmasian sesuai dengan dasar pharmaceutical care yaitu obat sampai ke penderita dalam keadaan baik, efektif dan aman.",
         accreditation: "Baik Sekali",
         accreditationNo: "0288/LAM-PTKes/Akr/Sar/V/2024",
-        vision: "Terselenggaranya pendidikan farmasi yang unggul dan mandiri dalam memenuhi kebutuhan SDM di bidang Farmasi klinik dan komunitas serta pengembangan potensi bahan alam di sumatera.",
+        vision: "Terselenggaranya pendidikan farmasi yang unggul dan mandiri dalam memenuhi kebutuhan SDM di bidang Farmasi klinik dan komunitas serta pengembangan potensi bahan alam di Sumatera.",
         mission: [
             "Menyelenggarakan pendidikan farmasi klinik dan komunitas serta pengembangan potensi bahan alam yang unggul, berkualitas dan relevan dengan tuntutan masyarakat serta berdaya saing internasional.",
             "Menyelenggarakan penelitian yang kreatif, inovatif, kompetitif dan berkesinambungan dalam bidang farmasi khususnya untuk pengembangan potensi bahan alam dalam pelayanan kesehatan.",
@@ -2947,7 +2947,7 @@ export const programStudies: ProgramStudi[] = [
             {
                 title: "Basic Biology",
                 description:
-                    "KK Sains dan Manajemen Sumber Daya Hayati mewadahi bidang inti biologi seperti zoologi, botani, ekologi. yang terdiri dari fisiologi, anatomi, perkembangan, genetika, biokimia dan sebagainya. Berbagai penelitian yang ditujukan dalam rangka memahami, membuktikan teori, maupun mekanisme yang terkait dengan fenomena dalam kehidupan, banyak di kaji di kelompok keahlian ini. Riset-riset yang saat ini digalakkan yakni berkolaborasi dengan berbagai disiplin ilmu. KK Basic Biology ITERA berupaya menginventarisasi, memanfaatkan dan mengembangkan potensi sumber daya sumatera baik flora maupun fauna dengan mengedepankan konservasi dan pemanfaatan yang berkelanjutan pada wilayah sumatera khususnya, dan Indonesia. Selain itu pengungkapan biodiversitas sumatera dengan kajian geospasial diharapkan dapat membantu pemerintah dalam mengambil kebijakan konservasi.Sains dan Manajemen Sumber Daya Hayati",
+                    "KK Sains dan Manajemen Sumber Daya Hayati mewadahi bidang inti biologi seperti zoologi, botani, ekologi. yang terdiri dari fisiologi, anatomi, perkembangan, genetika, biokimia dan sebagainya. Berbagai penelitian yang ditujukan dalam rangka memahami, membuktikan teori, maupun mekanisme yang terkait dengan fenomena dalam kehidupan, banyak di kaji di kelompok keahlian ini. Riset-riset yang saat ini digalakkan yakni berkolaborasi dengan berbagai disiplin ilmu. KK Basic Biology ITERA berupaya menginventarisasi, memanfaatkan dan mengembangkan potensi sumber daya Sumatera baik flora maupun fauna dengan mengedepankan konservasi dan pemanfaatan yang berkelanjutan pada wilayah Sumatera khususnya, dan Indonesia. Selain itu pengungkapan biodiversitas Sumatera dengan kajian geospasial diharapkan dapat membantu pemerintah dalam mengambil kebijakan konservasi.Sains dan Manajemen Sumber Daya Hayati",
             },
             {
                 title: "Applied Biology",
@@ -2994,7 +2994,7 @@ export const programStudies: ProgramStudi[] = [
             "Sejalan dengan program pengembangan ITERA yang tertera dalam Masterplan Percepatan Pembangunan Kampus ITERA 2017-2027 dengan SK Rektor nomor 1515/IT9.A/LL/2017, maka dilakukan rencana pembukaan beberapa program studi baru, salah satunya adalah Program Studi Sains Lingkungan Kelautan ITERA. Pendirian prodi baru ini dilakukan dalam rangka pemenuhan kebutuhan sumber daya manusia yang dapat menerapkan ilmu atau bidang Sains Lingkungan Kelautan dalam pemanfaatan sumber hayati laut khususnya di Sumatera dan sekitarnya. Izin Pembukaan Program Studi Sains Lingkungan Kelautan Program Sarjana pada Institut Teknologi Sumatera di Kabupaten Lampung Selatan berdasarkan SK Program Studi No. 761/KPT/I/2019 tanggal 23 August 2019.",
         accreditation: "Baik",
         accreditationNo: "13272/SK/BAN-PT/Akred/S/XII/2021",
-        vision: "Menjadi program studi yang bereputasi serta menjadi center of excellence wilayah Sumatera untuk pengembangan dan penerapan Ilmu Sains Lingkungan Kelautan dalam melakukan perencanaan, pengelolaan dan pemanfaatan (planning, management dan utilization) sumber daya laut (hayati dan nirhayati) yang berkelanjutan di wilayah sumatera dan sekitarnya.",
+        vision: "Menjadi program studi yang bereputasi serta menjadi center of excellence wilayah Sumatera untuk pengembangan dan penerapan Ilmu Sains Lingkungan Kelautan dalam melakukan perencanaan, pengelolaan dan pemanfaatan (planning, management dan utilization) sumber daya laut (hayati dan nirhayati) yang berkelanjutan di wilayah Sumatera dan sekitarnya.",
         mission: [
             "Menghasilkan lulusan yang dapat menerapkan sains dalam bidang lingkungan kelautan untuk kesejahteraan bangsa.",
             "Menyelenggarakan pendidikan dalam bidang Sains Lingkungan Kelautan.",

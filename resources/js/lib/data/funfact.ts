@@ -166,7 +166,7 @@ export const DATA_FUNFACT = [
             {
                 title: "Satu-satunya Institut Teknik di Sumatera",
                 subtitle: "ITERA, Kebanggaan Sumatera",
-                desc: "ITERA adalah satu-satunya perguruan tinggi institut teknik di Sumatera.",
+                desc: "ITERA adalah satu-satunya perguruan tinggi Institut Teknik di Sumatera.",
             },
             {
                 title: "Galeri ITERA",
@@ -370,7 +370,7 @@ export const dataInfoSection = [
     {
         title: "Tahukah Kamu?",
         description:
-            "ITERA adalah satu-satunya perguruan tinggi institut teknik di Sumatera.",
+            "ITERA adalah satu-satunya perguruan tinggi Institut Teknik di Sumatera.",
         additional: "(Satu-satunya Institut Teknik di Sumatera)",
     },
     {

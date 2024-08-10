@@ -86,7 +86,7 @@ export const DetailUPTData: UptData[] = [
         visi: "Menjadi Unit Penunjang Akademik yang terkemuka dan unggul dalam menyelenggarakan layanan teknologi informasi demi mewujudkan cita-cita dan Tri Darma Institut Teknologi Sumatera",
         misi: [
             "Menyelenggarakan layanan teknologi informasi yang berdaya saing global.",
-            "Berkontribusi pada pemberdayaan potensi sumber daya yang ada di wilayah sumatera khususnya, dan Indonesia serta dunia melalui keunggulan teknologi informasi dan komunikasi.",
+            "Berkontribusi pada pemberdayaan potensi sumber daya yang ada di wilayah Sumatera khususnya, dan Indonesia serta dunia melalui keunggulan teknologi informasi dan komunikasi.",
         ],
         kepalaUpt: {
             nama: "Andre Febrianto, S.Kom., M.Eng",
