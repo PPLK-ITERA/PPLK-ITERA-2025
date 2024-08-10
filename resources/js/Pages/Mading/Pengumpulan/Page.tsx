@@ -146,7 +146,9 @@ export default function Page({ id }) {
     };
 
     const validateTiktokUrl = useDebouncedCallback((tugas_id, url, index) => {
-        if (!/^https:\/\/(www\.)?tiktok\.com\/.*$/g.test(url)) {
+        if (
+            !/^https:\/\/(www\.)?(tiktok\.com|vt\.tiktok\.com)\/.*$/g.test(url)
+        ) {
             setUrlError(
                 new Map(urlError).set(tugas_id, "link harus dari TikTok"),
             );
