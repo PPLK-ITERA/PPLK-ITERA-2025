@@ -1,14 +1,16 @@
 <?php
+
 use App\Http\Controllers\Pilar\AnswerController;
 use App\Http\Controllers\Pilar\PilarController;
 use App\Http\Controllers\Pilar\QuestionController;
 use App\Http\Controllers\Pilar\ResultController;
 
-
-
 Route::middleware('auth')->prefix('asesmen')->group(function () {
-    Route::get('/', [QuestionController::class, 'index'])->name('asesmen.index');
-    Route::get('/questions', [QuestionController::class, 'getQuestions'])->name('asesmen.question');
-    Route::post('/question/{question_id}/answer/{answer_id}', [AnswerController::class, 'store'])->name('asesmen.answer');
-    Route::get('/result', [PilarController::class, 'index'])->name('asesmen.result');
+   Route::get('/', [QuestionController::class, 'index'])->name('asesmen.index');
+   Route::get('/questions', [QuestionController::class, 'getQuestions'])->name('asesmen.question');
+   Route::post('/question/{question_id}/answer/{answer_id}', [AnswerController::class, 'store'])->name('asesmen.answer');
+   Route::get('/result', [PilarController::class, 'index'])->name('asesmen.result');
+   Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+      Route::get('/result/{id}', [PilarController::class, 'show'])->name('asesmen.result.show');
+   });
 });

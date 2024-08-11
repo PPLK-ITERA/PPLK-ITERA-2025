@@ -7,8 +7,10 @@ use App\Http\Requests\Admin\User\UserStoreRequest;
 use App\Http\Requests\Admin\User\UserUpdateRequest;
 use App\Models\Kelompok;
 use App\Models\Penyakit;
+use App\Models\Pilar;
 use App\Models\Prodi;
 use App\Models\Qrcode;
+use App\Models\Result;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -65,16 +67,36 @@ class UserController extends Controller
       $currentIndex = ($currentPage - 1) * $perPage;
 
       $users->getCollection()->transform(function ($user) use (&$currentIndex) {
+         if (!is_null($user->pilar)) {
+            $pilar = Pilar::find($user->pilar);
+            $pilarNama = $pilar->pilar_name;
+            $result = Result::where('user_id', $user->id)->first();
+            $pilarId = $pilar->id;
+         } else {
+            $pilarId = null;
+            $pilarNama = "Belum memiliki Pilar";
+            $result = null;
+         }
          return [
             'no' => ++$currentIndex,
             'id' => $user->id,
+
             'user' => [
                'name' => $user->name,
                'nim' => $user->nim,
                'email' => $user->email,
                'role' => $user->role->role,
                'kelompok' => $user->kelompok->nama_kelompok,
-               'isKetua' => $user->isKetua
+               'isKetua' => $user->isKetua,
+               'pilar' => [
+                  'id' => $pilarId,
+                  'nama' => $pilarNama,
+                  'hasil' => [
+                     'sifat_1' => $result->sifat_1_score ?? null,
+                     'sifat_2' => $result->sifat_2_score ?? null,
+                     'sifat_3' => $result->sifat_3_score ?? null,
+                  ],
+               ],
             ],
          ];
       });
@@ -256,7 +278,7 @@ class UserController extends Controller
          $sanitized_name = strtolower(preg_replace('/\s+/', '', $name));
 
          // Format the email
-         $email = sprintf('%03d.%s.%03d@pplk.com', $number, $sanitized_name, $code);
+         $email = sprintf('%03d.%s.%03d@pplkitera.com', $number, $sanitized_name, $code);
 
          return $email;
       };
@@ -266,16 +288,21 @@ class UserController extends Controller
             $email = $generateEmail($jumlah, $validated['name'], $validated['kelompok_id']);
             break;
          case 2:
-            $email = "daplok" . $validated['kelompok_id'] . "@pplk.com";
+            $email = "daplok" . $validated['kelompok_id'] . "@pplkitera.com";
             break;
          case 4:
-            $email = "mentor" . $validated['kelompok_id'] . "@pplk.com";
+            $email = "mentor" . $validated['kelompok_id'] . "@pplkitera.com";
+            break;
+         case 5:
+            $prodi = Prodi::find($validated['prodi_id']);
+            $nama_prodi = strtolower(preg_replace('/\s+/', '', $prodi->nama_prodi));
+            $email = $nama_prodi . "@pplkitera.com";
             break;
          case 6:
-            $email = "korlap@pplk.com";
+            $email = "korlap@pplkitera.com";
             break;
          case 7:
-            $email = "mamet@pplk.com";
+            $email = "mamet@pplkitera.com";
             break;
       endswitch;
 
@@ -318,14 +345,6 @@ class UserController extends Controller
       );
    }
 
-
-   /**
-    * Display the specified resource.
-    */
-   public function show(string $id)
-   {
-      //
-   }
 
    /**
     * Show the form for editing the specified resource.
@@ -438,26 +457,28 @@ class UserController extends Controller
             'bio' => $validated['bio'],
          ]);
 
-         // Check if user has role_id 1 and both pita and ket_penyakit are not null
-         if ($user->role_id == 1 && !is_null($validated['pita'])) {
-            if ($user->penyakit_id) {
-               // Penyakit exists, so update it
-               $penyakit = Penyakit::find($user->penyakit_id);
-               if ($penyakit) {
-                  $penyakit->update([
+         if (isset($validated['pita'])) {
+            // Check if user has role_id 1 and both pita and ket_penyakit are not null
+            if ($user->role_id == 1 && !is_null($validated['pita'])) {
+               if ($user->penyakit_id) {
+                  // Penyakit exists, so update it
+                  $penyakit = Penyakit::find($user->penyakit_id);
+                  if ($penyakit) {
+                     $penyakit->update([
+                        'pita' => $validated['pita'],
+                        'ket_penyakit' => isset($validated['ket_penyakit']) ? $validated['ket_penyakit'] : "",
+                     ]);
+                  }
+               } else {
+                  // Penyakit does not exist, so create it
+                  $penyakit = Penyakit::create([
                      'pita' => $validated['pita'],
                      'ket_penyakit' => isset($validated['ket_penyakit']) ? $validated['ket_penyakit'] : "",
                   ]);
+                  // Update user with new penyakit_id
+                  $user->penyakit_id = $penyakit->id;
+                  $user->save();
                }
-            } else {
-               // Penyakit does not exist, so create it
-               $penyakit = Penyakit::create([
-                  'pita' => $validated['pita'],
-                  'ket_penyakit' => isset($validated['ket_penyakit']) ? $validated['ket_penyakit'] : "",
-               ]);
-               // Update user with new penyakit_id
-               $user->penyakit_id = $penyakit->id;
-               $user->save();
             }
          }
       });

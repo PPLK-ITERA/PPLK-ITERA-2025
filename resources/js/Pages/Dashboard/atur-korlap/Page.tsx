@@ -8,19 +8,19 @@ import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-    { title: "Dashboard", link: "/dashboard" },
-    { title: "Atur Korlap", link: "/dashboard/atur-korlap" },
+  { title: "Dashboard", link: "/dashboard" },
+  { title: "Atur Korlap", link: "/dashboard/atur-korlap" },
 ];
 
 export default function Page({ auth }) {
-    useFlashToast();
+  useFlashToast();
 
-    return (
-        <DashboardLayout user={auth.user}>
-            <Breadcrumbs items={breadcrumbItems} />
-            <h2 className="text-3xl font-bold tracking-tight">Atur Korlap</h2>
+  return (
+    <DashboardLayout user={auth.user}>
+      <Breadcrumbs items={breadcrumbItems} />
+      <h2 className="text-3xl font-bold tracking-tight">Atur Korlap</h2>
 
-            <AturKorlapClient />
-        </DashboardLayout>
-    );
+      <AturKorlapClient />
+    </DashboardLayout>
+  );
 }
