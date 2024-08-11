@@ -24,11 +24,11 @@ const chartConfig = {
   },
   hadir: {
     label: "Hadir",
-    color: "hsl(var(--chart-1))",
+    color: "hsl(var(--chart-2))",
   },
   tidakHadir: {
     label: "Tidak Hadir",
-    color: "hsl(var(--chart-2))",
+    color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
 
@@ -61,11 +61,11 @@ export function BarGraph({ chartData }: { chartData: any[] }) {
                 className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
                 onClick={() => setActiveChart(chart)}
               >
-                <span className="text-muted-foreground text-xs">
-                  {chartConfig[chart].label}
-                </span>
-                <span className="sm:text-3xl text-lg font-bold leading-none">
+                {/* <span className="text-muted-foreground text-xs">
                   {total[key as keyof typeof total].toLocaleString()}
+                </span> */}
+                <span className="text-lg font-bold leading-none">
+                  {chartConfig[chart].label}
                 </span>
               </button>
             );

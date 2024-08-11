@@ -15,8 +15,6 @@ import { ukmData } from "@/lib/data/ukm";
 import { useAos } from "@/lib/hooks/useAos";
 
 import gedung from "!assets/gedung-sponsor.png";
-import overlay_box from "!assets/overlay-box.png";
-import pillar_brown from "!assets/pillar-brown.png";
 
 function Page({ nama_ukm }) {
   useAos();
@@ -31,7 +29,7 @@ function Page({ nama_ukm }) {
       <Head title={`Informasi UKM ${ukm.title}`} />
 
       <DefaultLayout isSolid={true}>
-        <div className="bg-pattern-white py-36 lg:pb-64">
+        <div className="bg-pattern-white py-36 lg:pb-64 relative">
           <div className="max-w-7xl gap-36 flex flex-col px-4 mx-auto">
             <Judul title={ukm.title} sejarah={ukm.sejarah} logo={ukm.logo} />
 
@@ -42,7 +40,7 @@ function Page({ nama_ukm }) {
               misi={ukm.misi}
             />
 
-            <div className="place-items-center flex flex-col gap-10">
+            <div className="place-items-center flex flex-col gap-10 overflow-hidden">
               <h2
                 data-aos="fade-down"
                 data-aos-duration="1000"
@@ -52,16 +50,6 @@ function Page({ nama_ukm }) {
               </h2>
 
               <Prestasi allprestasi={ukm.allprestasi} />
-
-              <div className="md:visible absolute flex flex-col invisible w-full">
-                <img src={pillar_brown} alt="pillar_brown" className="w-full" />
-
-                <img
-                  src={overlay_box}
-                  alt="pillar_brown"
-                  className="z-0 w-full -mt-[200px]"
-                />
-              </div>
             </div>
 
             <div className="place-content-center place-items-center flex flex-col gap-10">
