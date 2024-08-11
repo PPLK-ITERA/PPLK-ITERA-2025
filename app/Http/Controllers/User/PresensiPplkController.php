@@ -343,7 +343,15 @@ class PresensiPplkController extends Controller
          if (in_array(Carbon::today()->toDateString(), $day)) {
             return redirect()->back()->with('response', [
                "status" => 403,
-               "message" => "Maaf tidak bisa melakukan presensi pada tanggal ini",
+               "message" => "Maaf presensi hari ini hanya bisa dilakukan oleh Daplok dan Mentor",
+            ]);
+         }
+      }
+      if (in_array(Auth::user()->role_id, [2, 4])) {
+         if (!in_array(Carbon::today()->toDateString(), $day)) {
+            return redirect()->back()->with('response', [
+               "status" => 403,
+               "message" => "Maaf presensi hari ini hanya bisa dilakukan oleh PJ Prodi",
             ]);
          }
       }
