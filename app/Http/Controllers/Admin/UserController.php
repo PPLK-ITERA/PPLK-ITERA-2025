@@ -74,7 +74,8 @@ class UserController extends Controller
                'email' => $user->email,
                'role' => $user->role->role,
                'kelompok' => $user->kelompok->nama_kelompok,
-               'isKetua' => $user->isKetua
+               'isKetua' => $user->isKetua,
+               'pilar' => $user->pilar->pillar_name,
             ],
          ];
       });
@@ -320,14 +321,6 @@ class UserController extends Controller
 
 
    /**
-    * Display the specified resource.
-    */
-   public function show(string $id)
-   {
-      //
-   }
-
-   /**
     * Show the form for editing the specified resource.
     */
    public function edit(string $id)
@@ -462,7 +455,6 @@ class UserController extends Controller
                }
             }
          }
-
       });
 
       return redirect()->route('dashboard.user.edit', ['id' => $user->id])
@@ -661,4 +653,6 @@ class UserController extends Controller
          ]
       ]);
    }
+
+
 }
