@@ -29,7 +29,6 @@ import { toast, useToast } from "@/Components/ui/use-toast";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 import info from "!assets/info.png";
-import logopplk from "!assets/logo-pplk-hd.png";
 
 export interface UserResponse {
     name: string;

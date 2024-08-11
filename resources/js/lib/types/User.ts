@@ -3,6 +3,7 @@ export interface Kelompok {
     no_kelompok: string;
     daplok: string;
     mentor: string;
+    logo_kelompok: string;
 }
 
 export interface User {

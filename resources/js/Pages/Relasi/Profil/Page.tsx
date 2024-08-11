@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link, router, usePage } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 
 import { UserCircle, UserPlus } from "lucide-react";
 
@@ -12,6 +12,7 @@ import {
 
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
+import FollowingDialog from "@/Components/relasi/FollowingDialog";
 import ProfileCard from "@/Components/relasi/ProfileCard";
 import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import { Button } from "@/Components/ui/button";
@@ -23,9 +24,13 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/Components/ui/carousel";
+import { Dialog, DialogContent, DialogTrigger } from "@/Components/ui/dialog";
+import { Toaster } from "@/Components/ui/toaster";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
+
+import logoPplkHd from "!assets/logo-pplk-hd.png";
 
 // type Props = { response };
 
@@ -35,6 +40,7 @@ function Page({ auth, response }) {
     const user: User = response.data.user;
 
     const [followLoading, setFollowLoading] = useState(false);
+    const [followingCount, setFollowingCount] = useState(user.followings_count);
     const isSelf = auth.user.id == user.id;
 
     function follow() {
@@ -77,8 +83,39 @@ function Page({ auth, response }) {
         </Button>
     );
 
+    const followingDialog = (
+        <FollowingDialog
+            selfId={auth.user.id}
+            userId={user.id}
+            following={true}
+            onUnfollow={() => {
+                setFollowingCount((c) => c - 1);
+            }}
+        >
+            <p className="max-md:flex-col max-lg:text-sm flex gap-2 hover:underline w-fit">
+                <span className="block font-bold">{followingCount}</span>{" "}
+                Followings
+            </p>
+        </FollowingDialog>
+    );
+
+    const followersDialog = (
+        <FollowingDialog
+            selfId={auth.user.id}
+            userId={user.id}
+            following={false}
+        >
+            <p className="max-md:flex-col max-lg:text-sm flex gap-2 hover:underline w-fit">
+                <span className="block font-bold">{user.followers_count}</span>{" "}
+                Followers
+            </p>
+        </FollowingDialog>
+    );
+
     return (
         <div className="bg-pattern-white flex flex-col w-full min-h-screen">
+            <Head title={`${user.name}`} />
+
             <div>
                 <Navbar isSolid={true} isFixed={false} />
 
@@ -86,15 +123,41 @@ function Page({ auth, response }) {
                     <div className="max-md:flex-col max-md:text-center max-md:items-center place-content-center flex w-full max-w-5xl gap-8 mx-auto">
                         <div className="flex flex-col justify-between gap-4">
                             <div>
-                                <img
-                                    className="aspect-square max-md:w-36 object-cover w-48 bg-gray-400 border-2 rounded-full select-none"
-                                    // src={user.photo_profile_url}
-                                    src={
-                                        user.photo_profile_url ??
-                                        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-                                    }
-                                    alt={user.name}
-                                />
+                                <div className="relative w-48 h-48 max-md:w-36 max-md:h-36">
+                                    <Dialog>
+                                        <DialogTrigger>
+                                            <img
+                                                className="aspect-square  object-cover w-full h-full bg-gray-400 border-1 rounded-full select-none"
+                                                // src={user.photo_profile_url}
+                                                src={
+                                                    user.photo_profile_url ??
+                                                    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                                }
+                                                alt={user.name}
+                                            />
+                                        </DialogTrigger>
+                                        <DialogContent>
+                                            <img
+                                                className="object-contain w-full h-full  rounded-xl"
+                                                // src={user.photo_profile_url}
+                                                src={
+                                                    user.photo_profile_url ??
+                                                    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                                }
+                                                alt={user.name}
+                                            />
+                                        </DialogContent>
+                                    </Dialog>
+                                    <img
+                                        className="absolute -bottom-3 -right-3 aspect-square w-1/2 h-1/2 object-cover bg-gray-400 border-1 rounded-full select-none"
+                                        // src={user.photo_profile_url}
+                                        src={
+                                            user.photo_profile_url ?? logoPplkHd
+                                        }
+                                        alt={user.name}
+                                    />
+                                </div>
+
                                 <p className="max-md:hidden mt-2 text-center">
                                     <span className="font-bold">
                                         {user.view_count}
@@ -107,41 +170,21 @@ function Page({ auth, response }) {
                         </div>
 
                         <div className="flex flex-col justify-between w-full md:w-[28rem]">
-                            <div className="md:hidden place-content-center flex flex-wrap w-full gap-8 my-4 text-sm">
-                                <p>
+                            <div className="md:hidden place-content-center place-items-center flex flex-wrap w-full gap-8 my-4 text-sm">
+                                <p className="max-md:flex-col max-lg:text-sm flex gap-2 hover:underline w-fit">
                                     <span className="block font-bold">
                                         {user.view_count}
                                     </span>{" "}
                                     viewers
                                 </p>
-                                <p>
-                                    <span className="block font-bold">
-                                        {user.followers_count}
-                                    </span>{" "}
-                                    Followers
-                                </p>
-                                <p>
-                                    <span className="block font-bold">
-                                        {user.followings_count}
-                                    </span>{" "}
-                                    Following
-                                </p>
+                                {followingDialog}
+                                {followersDialog}
                             </div>
 
                             <div className="flex flex-col gap-2 mt-1">
                                 <div className="max-md:hidden flex gap-12">
-                                    <p>
-                                        <span className="font-bold">
-                                            {user.followers_count}
-                                        </span>{" "}
-                                        Followers
-                                    </p>
-                                    <p>
-                                        <span className="font-bold">
-                                            {user.followings_count}
-                                        </span>{" "}
-                                        Following
-                                    </p>
+                                    {followingDialog}
+                                    {followersDialog}
                                 </div>
 
                                 <h3 className="font-bold">{user.name}</h3>
@@ -247,6 +290,8 @@ function Page({ auth, response }) {
 
                 <Footer />
             </div>
+
+            <Toaster />
         </div>
     );
 }

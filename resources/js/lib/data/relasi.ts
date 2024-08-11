@@ -1,4 +1,5 @@
 import { User } from "../types/User";
+import { UserFollowingResponse } from "../types/UserFollowingResponse";
 import { UserSearchResponse } from "../types/UserSearchResponse";
 import { UserSortResponse } from "../types/UserSortResponse";
 
@@ -28,5 +29,31 @@ export async function fetchSearch(
     );
     const json = await response.json();
     //console.log(json)
+    return json;
+}
+
+export async function fetchFollowing(
+    user_id: number,
+): Promise<UserFollowingResponse> {
+    const response = await fetch(`${route("relasi.followings")}?id=${user_id}`);
+    const json = await response.json();
+    return json;
+}
+
+export async function fetchFollower(
+    user_id: number,
+): Promise<UserFollowingResponse> {
+    const response = await fetch(`${route("relasi.followers")}?id=${user_id}`);
+    const json = await response.json();
+    return json;
+}
+
+export async function followUserJson(
+    user_id: number,
+): Promise<UserFollowingResponse> {
+    const response = await fetch(
+        `${route("relasi.followJson", { id: user_id })}`,
+    );
+    const json = await response.json();
     return json;
 }
