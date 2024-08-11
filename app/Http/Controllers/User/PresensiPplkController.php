@@ -30,7 +30,7 @@ class PresensiPplkController extends Controller
       // Check if the action is permissible based on the date and current time
       $action = Carbon::today()->toDateString() && $currentTime->between($start, $end);
 
-      $day = ['2024-08-12', '2024-08-14'];
+      $day = ['2024-08-12', '2024-08-15'];
       if (Auth::user()->role_id === 5) {
          if (in_array(Carbon::today()->toDateString(), $day)) {
             return redirect()->back()->with('response', [
@@ -257,7 +257,7 @@ class PresensiPplkController extends Controller
       // Check if the action is permissible based on the date and current time
       $action = $date === Carbon::today()->toDateString() && $currentTime->between($start, $end);
       if (Auth::user()->role_id === 5) {
-         $action = $action && !in_array($date, ['2024-08-12', '2024-08-14']);
+         $action = $action && !in_array($date, ['2024-08-12', '2024-08-15']);
       }
 
       if (!in_array(Auth::user()->role_id, [2, 4, 5, 3])) {
@@ -338,7 +338,7 @@ class PresensiPplkController extends Controller
          ]);
       }
 
-      $day = ['2024-08-12', '2024-08-14'];
+      $day = ['2024-08-12', '2024-08-15'];
       if (Auth::user()->role_id === 5) {
          if (in_array(Carbon::today()->toDateString(), $day)) {
             return redirect()->back()->with('response', [
