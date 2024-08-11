@@ -30,12 +30,20 @@ class PresensiPplkController extends Controller
       // Check if the action is permissible based on the date and current time
       $action = Carbon::today()->toDateString() && $currentTime->between($start, $end);
 
+      $day = ['2024-08-12', '2024-08-14'];
+      if (Auth::user()->role_id === 5) {
+         if (in_array(Carbon::today()->toDateString(), $day)) {
+            return redirect()->back()->with('response', [
+               "status" => 403,
+               "message" => "Maaf tidak bisa melakukan presensi pada tanggal ini",
+            ]);
+         }
+      }
       if (!$action) {
          return redirect()->back()->with('response', [
             "status" => 403,
             "message" => "Maaf hanya bisa dilakukan saat jam 7 Pagi hingga Jam 6 Sore",
          ]);
-
       }
 
       $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
@@ -195,14 +203,20 @@ class PresensiPplkController extends Controller
             ->selectRaw('MAX(id) as id')
             ->groupBy('user_id');
 
-         $users = User::where('role_id', 1)->count();
+         $users = User::where('role_id', 1)->whereNot('kelompok_id', 131)->count();
 
          $hadir = PresensiPplk::whereIn('id', $latestPresensiIds)
             ->where('kehadiran', 'Hadir')
+            ->whereHas('user', function ($query) {
+               $query->whereNot('kelompok_id', 131);
+            })
             ->count();
 
          $izin = PresensiPplk::whereIn('id', $latestPresensiIds)
             ->where('kehadiran', 'Izin')
+            ->whereHas('user', function ($query) {
+               $query->whereNot('kelompok_id', 131);
+            })
             ->count();
       } else {
          // Unauthorized access
@@ -241,8 +255,10 @@ class PresensiPplkController extends Controller
       $end = Carbon::today()->setHour(20); // 8 PM today
 
       // Check if the action is permissible based on the date and current time
-      $action = $date === Carbon::today()->toDateString();
-      // && $currentTime->between($start, $end);
+      $action = $date === Carbon::today()->toDateString() && $currentTime->between($start, $end);
+      if (Auth::user()->role_id === 5) {
+         $action = $action && !in_array($date, ['2024-08-12', '2024-08-14']);
+      }
 
       if (!in_array(Auth::user()->role_id, [2, 4, 5, 3])) {
          return response()->json([
@@ -320,6 +336,16 @@ class PresensiPplkController extends Controller
             'status' => 403,
             'message' => 'Presensi hanya dapat ditambahkan antara jam 7 pagi dan 8 malam.'
          ]);
+      }
+
+      $day = ['2024-08-12', '2024-08-14'];
+      if (Auth::user()->role_id === 5) {
+         if (in_array(Carbon::today()->toDateString(), $day)) {
+            return redirect()->back()->with('response', [
+               "status" => 403,
+               "message" => "Maaf tidak bisa melakukan presensi pada tanggal ini",
+            ]);
+         }
       }
 
       // Validation rules

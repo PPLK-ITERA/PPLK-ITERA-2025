@@ -46,57 +46,57 @@
 // }
 
 export interface TugasMading {
-    id: number;
-    judul: string;
+  id: number;
+  judul: string;
 }
 
 // export Interface for an entry in the history log
 export interface HistoryEntry {
-    id: number;
-    user_id: number;
-    tugas_id: number;
-    jawaban: string;
-    isReturn: boolean;
-    tanggal_submit: string;
-    catatan: string | null;
-    tugas: TugasMading;
+  id: number;
+  user_id: number;
+  tugas_id: number;
+  jawaban: string;
+  isReturn: boolean;
+  tanggal_submit: string;
+  catatan: string | null;
+  tugas: TugasMading;
 }
 
 // export Interface for the properties related to the card
 export interface CardType {
-    completionPercentage: number[];
-    cardOpen: boolean[];
-    posters: ({
-        id: number;
-        url_poster: string;
-        isReturn: boolean;
-    } | null)[];
+  completionPercentage: number[];
+  cardOpen: boolean[];
+  posters: ({
+    id: number;
+    url_poster: string;
+    isReturn: boolean;
+  } | null)[];
 }
 
 // Root export interface to hold all data
 export interface TaskSystem {
-    isSelesai: boolean;
-    card: CardType;
-    history: HistoryEntry[];
-    logo_kelompok: {
-        logo_kelompok: string;
-    };
+  isSelesai: boolean;
+  card: CardType;
+  history: HistoryEntry[];
+  logo_kelompok: {
+    logo_kelompok: string;
+  };
 }
 
 export interface Tugas {
-    id: number;
-    judul: string;
-    deskripsi: string;
-    hari: string;
-    tipe_link: string;
-    kategori: string;
-    deadline: string;
+  id: number;
+  judul: string;
+  deskripsi: string;
+  hari: string;
+  tipe_link: string;
+  kategori: string;
+  deadline: string;
 }
 
 // Root interface for the whole data structure
 export interface TaskData {
-    tugas: Tugas[];
-    isSubmitted: boolean;
+  tugas: Tugas[];
+  isSubmitted: boolean;
 }
 
 // export interface History {

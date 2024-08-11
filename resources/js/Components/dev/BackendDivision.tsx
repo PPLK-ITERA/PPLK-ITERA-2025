@@ -14,13 +14,13 @@ import kartateraLogo from "!assets/svg/kartatera-logo.svg";
 type Props = {};
 
 function BackendDivision({}: Props) {
-    return (
-        <section className="max-lg:pb-16 max-lg:pt-8 flex items-center justify-center w-full h-screen">
-            <div className="max-lg:text-center flex flex-col items-center justify-center w-full max-w-5xl mx-4 text-white">
-                <DevList devList={devTeam.backend} devRoleName="Back-End" />
-            </div>
-        </section>
-    );
+  return (
+    <section className="max-lg:pb-16 max-lg:pt-8 flex items-center justify-center w-full h-screen">
+      <div className="max-lg:text-center flex flex-col items-center justify-center w-full max-w-5xl mx-4 text-white">
+        <DevList devList={devTeam.backend} devRoleName="Back-End" />
+      </div>
+    </section>
+  );
 }
 
 export default BackendDivision;

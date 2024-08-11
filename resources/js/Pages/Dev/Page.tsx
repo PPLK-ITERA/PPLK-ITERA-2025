@@ -15,34 +15,34 @@ import { useAos } from "@/lib/hooks/useAos";
 import kartateraLogo from "!assets/svg/kartatera-logo.svg";
 
 function Page() {
-    useAos();
+  useAos();
 
-    return (
-        <>
-            <Head title="Dev Team" />
+  return (
+    <>
+      <Head title="Dev Team" />
 
-            <div className="font-montserrat relative w-screen min-h-screen overflow-hidden text-white">
-                <div className="max-lg:hidden top-1/2 opacity-20 h-3/4 fixed left-0 -translate-x-1/2 -translate-y-1/2">
-                    <img
-                        data-aos="fade-right"
-                        data-aos-duration={2000}
-                        src={kartateraLogo}
-                        alt="Kartatera Logo"
-                        className="h-full"
-                    />
-                </div>
-                <div className="lg:hidden top-1/2 left-1/2 opacity-20 h-3/4 fixed w-3/4 -translate-x-1/2 -translate-y-1/2">
-                    <img
-                        data-aos="fade-up"
-                        data-aos-duration={1000}
-                        src={kartateraLogo}
-                        alt="Kartatera Logo"
-                        className="h-full"
-                    />
-                </div>
-                <ParticleBackground />
+      <div className="font-montserrat relative w-screen min-h-screen overflow-hidden text-white">
+        <div className="max-lg:hidden top-1/2 opacity-20 h-3/4 fixed left-0 -translate-x-1/2 -translate-y-1/2">
+          <img
+            data-aos="fade-right"
+            data-aos-duration={2000}
+            src={kartateraLogo}
+            alt="Kartatera Logo"
+            className="h-full"
+          />
+        </div>
+        <div className="lg:hidden top-1/2 left-1/2 opacity-20 h-3/4 fixed w-3/4 -translate-x-1/2 -translate-y-1/2">
+          <img
+            data-aos="fade-up"
+            data-aos-duration={1000}
+            src={kartateraLogo}
+            alt="Kartatera Logo"
+            className="h-full"
+          />
+        </div>
+        <ParticleBackground />
 
-                {/* 
+        {/* 
             fitur ga penting ga usah dimasukin
             
             <div className="fixed top-0 right-0">
@@ -54,10 +54,10 @@ function Page() {
                 </Button>
             </div> */}
 
-                <Main />
-            </div>
-        </>
-    );
+        <Main />
+      </div>
+    </>
+  );
 }
 
 export default Page;

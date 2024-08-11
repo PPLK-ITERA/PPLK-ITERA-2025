@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::middleware('auth')->group(function () {
-   Route::prefix('dashboard')->name('dashboard.')->middleware('checkRole:Daplok,Mentor,Admin,PjProdi,Mamet,CustomerService,Korlap')->group(function () {
+   Route::prefix('dashboard')->name('dashboard.')->middleware('checkRole:Daplok,Mentor,Admin,Pjprodi,Mamet,CustomerService,Korlap')->group(function () {
       Route::get('/', [DashboardController::class, 'index'])->name('index');
       // =====================================
       // USER
@@ -111,7 +111,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          // PRESENSI
          // =====================================
-         Route::middleware(['checkRole:Daplok,Mentor,PjProdi,Admin'])->group(function () {
+         Route::middleware(['checkRole:Daplok,Mentor,Pjprodi,Admin'])->group(function () {
             Route::get('data/{date}', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
             Route::post('store', [PresensiPplkController::class, 'store'])->name('absen');
             Route::post('izin/{id}', [PresensiPplkController::class, 'updateKehadiran'])->name('izin');
