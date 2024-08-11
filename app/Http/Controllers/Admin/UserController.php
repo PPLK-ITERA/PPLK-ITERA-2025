@@ -457,7 +457,7 @@ class UserController extends Controller
             'bio' => $validated['bio'],
          ]);
 
-         if (isset($validated['pita']) && isset($validated['ket_penyakit'])) {
+         if (isset($validated['pita'])) {
             // Check if user has role_id 1 and both pita and ket_penyakit are not null
             if ($user->role_id == 1 && !is_null($validated['pita'])) {
                if ($user->penyakit_id) {
