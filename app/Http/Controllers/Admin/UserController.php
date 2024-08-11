@@ -257,7 +257,7 @@ class UserController extends Controller
          $sanitized_name = strtolower(preg_replace('/\s+/', '', $name));
 
          // Format the email
-         $email = sprintf('%03d.%s.%03d@pplk.com', $number, $sanitized_name, $code);
+         $email = sprintf('%03d.%s.%03d@pplkitera.com', $number, $sanitized_name, $code);
 
          return $email;
       };
@@ -267,16 +267,20 @@ class UserController extends Controller
             $email = $generateEmail($jumlah, $validated['name'], $validated['kelompok_id']);
             break;
          case 2:
-            $email = "daplok" . $validated['kelompok_id'] . "@pplk.com";
+            $email = "daplok" . $validated['kelompok_id'] . "@pplkitera.com";
             break;
          case 4:
-            $email = "mentor" . $validated['kelompok_id'] . "@pplk.com";
+            $email = "mentor" . $validated['kelompok_id'] . "@pplkitera.com";
             break;
+         case 5:
+            $prodi = Prodi::find($validated['prodi_id']);
+            $nama_prodi = strtolower(preg_replace('/\s+/', '', $prodi->nama_prodi));
+            $email = $nama_prodi . "@pplkitera.com";
          case 6:
-            $email = "korlap@pplk.com";
+            $email = "korlap@pplkitera.com";
             break;
          case 7:
-            $email = "mamet@pplk.com";
+            $email = "mamet@pplkitera.com";
             break;
       endswitch;
 
@@ -653,6 +657,4 @@ class UserController extends Controller
          ]
       ]);
    }
-
-
 }
