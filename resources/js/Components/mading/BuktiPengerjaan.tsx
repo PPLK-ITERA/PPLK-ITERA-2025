@@ -134,7 +134,9 @@ export default function BuktiPengerjaan({
                                                 Number(currentValue),
                                               )
                                             : index === 5
-                                              ? setCountPercent5(currentValue)
+                                              ? setCountPercent5(
+                                                  Number(currentValue),
+                                                )
                                               : 0;
                                   }}
                                 />
@@ -242,13 +244,13 @@ export default function BuktiPengerjaan({
                             </p>
                           </div>
                         ) : index !== 0 &&
-                        data.card.completionPercentage[index] == 0 ? (
-                        <div className="flex items-center justify-center gap-2 mx-auto shadow-sm mt-10">
-                          <p className="w-full text-center px-6">
-                            {`Kelompokmu belum mulai mengerjakan tugas day ${index}!`}
-                          </p>
-                        </div>
-                      ) : null}
+                          data.card.completionPercentage[index] == 0 ? (
+                          <div className="flex items-center justify-center gap-2 mx-auto shadow-sm mt-10">
+                            <p className="w-full text-center px-6">
+                              {`Kelompokmu belum mulai mengerjakan tugas day ${index}!`}
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
                     )}
                   </>
