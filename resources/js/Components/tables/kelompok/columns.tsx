@@ -1,6 +1,7 @@
 "use client";
 
 import { CellAction } from "./cell-action";
+import { DetailPilar } from "./DetailPilar";
 import { ColumnDef } from "@tanstack/react-table";
 import { format } from "date-fns";
 import QRCode from "react-qr-code";
@@ -30,6 +31,11 @@ export const columns: ColumnDef<UserMaba>[] = [
     accessorKey: "user.email",
     header: "Email",
     cell: ({ row }) => row.original.user.email,
+  },
+  {
+    id: "pilar",
+    header: "Pilar",
+    cell: ({ row }) => <DetailPilar dataPilar={row.original} />,
   },
   {
     id: "status",

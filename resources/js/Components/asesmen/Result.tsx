@@ -37,7 +37,7 @@ export default function AsesmenResult({
                   ? "Sharing is Caring"
                   : angka === 3
                     ? "Equity"
-                    : "Common")}
+                    : "Refinement")}
           </p>
           <p className={`${textColor} self-end font-medium `}>
             {hasil}/{maxPoin}

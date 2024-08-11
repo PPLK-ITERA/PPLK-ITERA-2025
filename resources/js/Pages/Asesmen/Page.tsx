@@ -24,7 +24,7 @@ const DATA_PILAR = [
   { img: pilar1, title: "Work Hard" },
   { img: pilar2, title: "Sharing Is Caring" },
   { img: pilar3, title: "Equity" },
-  { img: pilar4, title: "Common" },
+  { img: pilar4, title: "Refinement" },
 ];
 
 function Page() {

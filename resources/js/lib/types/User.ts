@@ -36,6 +36,15 @@ export interface UserMaba {
     email: string;
     role: string;
     isKetua: boolean;
+    pilar: {
+      id: number;
+      nama: string;
+      hasil: {
+        sifat_1: number;
+        sifat_2: number;
+        sifat_3: number;
+      };
+    };
   };
   // isKetuaExist: boolean;
 }

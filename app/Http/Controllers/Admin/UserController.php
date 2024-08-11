@@ -7,8 +7,10 @@ use App\Http\Requests\Admin\User\UserStoreRequest;
 use App\Http\Requests\Admin\User\UserUpdateRequest;
 use App\Models\Kelompok;
 use App\Models\Penyakit;
+use App\Models\Pilar;
 use App\Models\Prodi;
 use App\Models\Qrcode;
+use App\Models\Result;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -65,9 +67,20 @@ class UserController extends Controller
       $currentIndex = ($currentPage - 1) * $perPage;
 
       $users->getCollection()->transform(function ($user) use (&$currentIndex) {
+         if (!is_null($user->pilar)) {
+            $pilar = Pilar::find($user->pilar);
+            $pilarNama = $pilar->pilar_name;
+            $result = Result::where('user_id', $user->id)->first();
+            $pilarId = $pilar->id;
+         } else {
+            $pilarId = null;
+            $pilarNama = "Belum memiliki Pilar";
+            $result = null;
+         }
          return [
             'no' => ++$currentIndex,
             'id' => $user->id,
+
             'user' => [
                'name' => $user->name,
                'nim' => $user->nim,
@@ -75,7 +88,15 @@ class UserController extends Controller
                'role' => $user->role->role,
                'kelompok' => $user->kelompok->nama_kelompok,
                'isKetua' => $user->isKetua,
-               'pilar' => $user->pilar->pillar_name,
+               'pilar' => [
+                  'id' => $pilarId,
+                  'nama' => $pilarNama,
+                  'hasil' => [
+                     'sifat_1' => $result->sifat_1_score ?? null,
+                     'sifat_2' => $result->sifat_2_score ?? null,
+                     'sifat_3' => $result->sifat_3_score ?? null,
+                  ],
+               ],
             ],
          ];
       });
@@ -276,6 +297,7 @@ class UserController extends Controller
             $prodi = Prodi::find($validated['prodi_id']);
             $nama_prodi = strtolower(preg_replace('/\s+/', '', $prodi->nama_prodi));
             $email = $nama_prodi . "@pplkitera.com";
+            break;
          case 6:
             $email = "korlap@pplkitera.com";
             break;

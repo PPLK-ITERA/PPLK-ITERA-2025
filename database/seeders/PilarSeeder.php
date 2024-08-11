@@ -24,7 +24,7 @@ class PilarSeeder extends Seeder
                 'pilar_name' => 'Equity',
             ],
             [
-                'pilar_name' => 'Common',
+                'pilar_name' => 'Refinement',
             ],
         ];
         Pilar::query()->insert($pilars);
