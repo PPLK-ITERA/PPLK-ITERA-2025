@@ -185,4 +185,66 @@ class TugasController extends Controller
          ]
       );
    }
+
+   public function getAllTugas(Request $request)
+   {
+      $perPage = $request->input('perPage', 10);
+      $searchTerm = $request->input('search', '');
+      $tugasId = $request->input('tugasId', 1);
+
+      if (!in_array($tugasId, [1, 2, 3, 4, 5, 6, 7])) {
+         return response()->json([
+            'response' => [
+               'status' => 400,
+               'message' => 'Invalid tugasId'
+            ]
+         ]);
+      }
+
+      $query = User::query()
+         ->where('role_id', 1) // Ensure only users with role_id = 1 are shown
+         ->leftJoin('pengumpulan_tugas', function ($join) use ($tugasId) {
+            $join->on('users.id', '=', 'pengumpulan_tugas.user_id')
+               ->where('pengumpulan_tugas.tugas_id', '=', $tugasId);
+         })
+         ->leftJoin('kelompok', 'users.kelompok_id', '=', 'kelompok.id')
+         ->leftJoin('prodis', 'users.prodi_id', '=', 'prodis.id') // Assuming there is a `prodi_id` in users
+         ->select(
+            'users.id',
+            'users.name',
+            'users.email',
+            'kelompok.id as kelompok_id',
+            'prodis.nama_prodi',
+            'kelompok.nama_kelompok',
+            'users.isKetua',
+            'pengumpulan_tugas.id as submission_id'
+         )
+         ->when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->where('users.name', 'like', '%' . $searchTerm . '%')
+               ->orWhere('users.email', 'like', '%' . $searchTerm . '%')
+               ->orWhere('kelompok.nama_kelompok', 'like', '%' . $searchTerm . '%')
+               ->orWhere('prodis.nama_prodi', 'like', '%' . $searchTerm . '%');
+         });
+
+      $users = $query->paginate($perPage);
+
+      $currentPage = $users->currentPage();
+      $perPage = $users->perPage();
+      $currentIndex = ($currentPage - 1) * $perPage;
+
+      $users->getCollection()->transform(function ($user, $key) use (&$currentIndex) {
+         return [
+            'no' => ++$currentIndex,
+            'user' => $user,
+            'has_submitted' => !is_null($user->submission_id) ? 'Yes' : 'No'
+         ];
+      });
+
+      return response()->json($users);
+   }
+
+
+
+
+
 }
