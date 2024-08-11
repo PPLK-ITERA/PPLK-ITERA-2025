@@ -195,14 +195,20 @@ class PresensiPplkController extends Controller
             ->selectRaw('MAX(id) as id')
             ->groupBy('user_id');
 
-         $users = User::where('role_id', 1)->count();
+         $users = User::where('role_id', 1)->whereNot('kelompok_id', 131)->count();
 
          $hadir = PresensiPplk::whereIn('id', $latestPresensiIds)
             ->where('kehadiran', 'Hadir')
+            ->whereHas('user', function ($query) {
+               $query->whereNot('kelompok_id', 131);
+            })
             ->count();
 
          $izin = PresensiPplk::whereIn('id', $latestPresensiIds)
             ->where('kehadiran', 'Izin')
+            ->whereHas('user', function ($query) {
+               $query->whereNot('kelompok_id', 131);
+            })
             ->count();
       } else {
          // Unauthorized access
