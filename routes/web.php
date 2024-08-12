@@ -48,7 +48,10 @@ Route::middleware('auth')->group(function () {
 
    Route::get('/relasi/search', [RelasiController::class, 'searchIndex'])->name('relasi.search'); // search page
    Route::get('/relasi/follow/{id}', [RelasiController::class, 'follow'])->name('relasi.follow');
+   Route::get('/relasi/followJson/{id}', [RelasiController::class, 'followJson'])->name('relasi.followJson');
    Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('relasi.profil');
+   Route::get('/relasi/following', [RelasiController::class, 'getFollowings'])->name('relasi.followings');
+   Route::get('/relasi/followers', [RelasiController::class, 'getFollowers'])->name('relasi.followers');
    // });
 
    //melihat my profile

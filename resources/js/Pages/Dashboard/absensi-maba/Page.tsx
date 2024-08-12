@@ -30,7 +30,11 @@ export default function Page({ auth, response }) {
   const [hadir, setHadir] = useState(0);
   const [tidakHadir, setTidakHadir] = useState(0);
   const [izin, setIzin] = useState(0);
-  const [selectedDay, setSelectedDay] = useState(auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10"); // State untuk menyimpan hari yang dipilih
+  const [selectedDay, setSelectedDay] = useState(
+    auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10",
+  ); // State untuk menyimpan hari yang dipilih
+
+  useFlashToast();
 
   const handleDate = (value) => {
     setSelectedDay(value); // Update state ketika pengguna memilih hari
@@ -51,8 +55,6 @@ export default function Page({ auth, response }) {
     setTidakHadir(data.response.data.tidakHadir);
     setIzin(data.response.data.izin);
   };
-
-  useFlashToast();
 
   useEffect(() => {
     getCountPresensi();

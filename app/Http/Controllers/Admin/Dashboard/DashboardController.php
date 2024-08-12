@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\PresensiPplk;
 use App\Models\User;
+use App\Models\Tugas;
+use App\Models\PengumpulanTugas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +22,7 @@ class DashboardController extends Controller
 
       // Base query for users with role_id = 1
       $baseMabaQuery = function () {
-         return User::where('role_id', 1);
+         return User::where('role_id', 1)->whereNot('kelompok_id', 131);
       };
 
       // Total count of users with role_id = 1
@@ -46,17 +48,34 @@ class DashboardController extends Controller
       $presensiCount = $presensi->count();
 
       $korlap = User::where('role_id', 6)->count();
-      $daplok = User::where('role_id', 2)->count();
-      $mentor = User::where('role_id', 4)->count();
+      $daplok = User::where('role_id', 2)->whereNot('kelompok_id', 131)->count();
+      $mentor = User::where('role_id', 4)->whereNot('kelompok_id', 131)->count();
 
 
 
       $days = ['2024-08-10', '2024-08-12', '2024-08-13', '2024-08-14', '2024-08-15', '2024-08-16', '2024-08-17'];
-      $presensiCount = [];
+      $presensiCounts = [];
       foreach ($days as $index => $day) {
          $presensi = PresensiPplk::where('tanggal_presensi', $day);
-         $presensiCount[$index] = $presensi->count();
+         $presensiCounts[$index] = $presensi->count();
       }
+
+      $works = Tugas::all();
+      $worksPercentage = [];
+      foreach ($works as $work) {
+         $tugasCount = PengumpulanTugas::where('tugas_id', $work->id)->whereHas('user', function ($q) {
+            $q->whereNot('kelompok_id', 131);
+         })->count();
+
+         $percentage = number_format($mabaCount > 0 ? ($tugasCount / $mabaCount) * 100 : 0, 3);
+
+         $worksPercentage[] = [
+            'nama_tugas' => $work->judul,
+            'persen' => $percentage,
+            'deadline' => $work->deadline
+         ];
+      }
+
 
       return Inertia::render('Dashboard/Page', [
          'response' => [
@@ -72,8 +91,10 @@ class DashboardController extends Controller
                'daplok' => $daplok,
                'mentor' => $mentor,
                'presensi' => [
-                  'count' => $presensiCount
-               ]
+                  'today' => $presensiCount,
+                  'all' => $presensiCounts,
+               ],
+               'tugas' => $worksPercentage,
             ]
          ]
       ]);

@@ -54,6 +54,105 @@ class RelasiController extends Controller
       return response()->json($topFollowers);
    }
 
+   public function getFollowers(Request $request)
+   {
+      $validated = $request->validate([
+         'id' => 'required|integer'
+      ]);
+
+      // if current user is not following the user, return empty array
+      $followingUserId = Auth::id();
+
+      $follow = Follow::where('following_user_id', $followingUserId)
+         ->where('followed_user_id', $validated['id'])
+         ->exists();
+
+      if (!$follow && $followingUserId !== $validated['id']) {
+         return response()->json([
+            'status' => 404,
+            'message' => 'User not found',
+            'data' => []
+         ]);
+      }
+
+      // dont use paging
+      $followers = Follow::with('followingUser')
+         ->where('followed_user_id', $validated['id'])
+         ->get()
+         ->transform(function ($follow) {
+            return [
+               'id' => $follow->followingUser->id,
+               'name' => $follow->followingUser->name,
+               'photo_profile_url' => $follow->followingUser->photo_profile_url,
+               'kelompok' => [
+                  'nama_kelompok' => $follow->followingUser->kelompok ? $follow->followingUser->kelompok->nama_kelompok : null,
+                  'no_kelompok' => $follow->followingUser->kelompok ? $follow->followingUser->kelompok->no_kelompok : null,
+               ],
+            ];
+         });
+
+
+      return response()->json([
+         'status' => 200,
+         'message' => 'Followers retrieved successfully',
+         'data' => $followers
+      ]);
+   }
+
+   public function getFollowings(Request $request)
+   {
+      $validated = $request->validate([
+         'id' => 'required|integer'
+      ]);
+
+      // if current user is not following the user, return empty array
+      $followingUserId = Auth::id();
+
+      $follow = Follow::where('following_user_id', $followingUserId)
+         ->where('followed_user_id', $validated['id'])
+         ->exists();
+
+      if ($follow || strval($followingUserId) === strval($validated['id'])) {
+         // dont use paging
+         $followings = User::withCount('followers')
+            ->where('role_id', 1)
+            ->whereNotNull("kelompok_id")->whereNotNull("prodi_id")
+            ->whereHas('followers', function ($query) use ($validated) {
+               $query->where('following_user_id', $validated['id']);
+            })
+            ->orderBy('followers_count', 'desc')
+            ->get();
+
+         $followings = $followings->transform(function ($user) {
+            return [
+               'id' => $user->id,
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi->nama_prodi,
+               'photo_profile_url' => $user->photo_profile_url,
+               'kelompok' => [
+                  'nama_kelompok' => $user->kelompok ? $user->kelompok->nama_kelompok : null,
+                  'no_kelompok' => $user->kelompok ? $user->kelompok->no_kelompok : null,
+               ],
+               'followers_count' => $user->followers_count,
+            ];
+         });
+
+         return response()->json([
+            'status' => 200,
+            'message' => 'Followings retrieved successfully',
+            'data' => $followings
+         ]);
+      }
+
+      return response()->json([
+         'status' => 404,
+         'message' => 'User not found',
+         'data' => []
+      ]);
+
+   }
+
    public function sort(Request $request)
    {
       $validOrders = ['viewer', 'followers', 'followings', 'name'];
@@ -157,6 +256,61 @@ class RelasiController extends Controller
       }
    }
 
+   public function followJson($id)
+   {
+      $followingUserId = Auth::id();
+      $followedUserId = $id;
+
+      // reject if the user tries to follow themselves
+      if ($followingUserId === $followedUserId) {
+         return response()->json([
+            'status' => 400,
+            'message' => 'Anda Tidak dapat mengikuti diri sendiri',
+            'data' => []
+         ]);
+      }
+
+      // Validate that the user exists
+      User::findOrFail($followedUserId);
+
+      // Check if already following
+      $follow = Follow::where('following_user_id', $followingUserId)
+         ->where('followed_user_id', $followedUserId)
+         ->first();
+
+      if ($follow) {
+         // If already following, unfollow the user
+         $follow->delete();
+         return response()->json([
+            'status' => 200,
+            'message' => 'Berhasil unfollow pengguna',
+            'data' => []
+         ]);
+      }
+
+      DB::beginTransaction();
+      try {
+         // If not following, follow the user
+         Follow::create([
+            'following_user_id' => $followingUserId,
+            'followed_user_id' => $followedUserId
+         ]);
+         DB::commit();
+         return response()->json([
+            'status' => 200,
+            'message' => 'Berhasil mengikuti pengguna',
+            'data' => []
+         ]);
+      } catch (\Throwable $th) {
+         DB::rollBack();
+         return response()->json([
+            'status' => 500,
+            'message' => 'Gagal mengikuti atau unfollow pengguna',
+            'data' => []
+         ]);
+      }
+   }
+
    // Menampilkan profil pengguna
    public function profile($id)
    {
@@ -197,6 +351,7 @@ class RelasiController extends Controller
          'kelompok' => [
             'nama_kelompok' => $user->kelompok->nama_kelompok,
             'no_kelompok' => $user->kelompok->no_kelompok,
+            'logo_kelompok' => $user->kelompok->logo_kelompok,
          ],
          'view_count' => $user->viewers_count,
          'followers_count' => $user->followers_count,

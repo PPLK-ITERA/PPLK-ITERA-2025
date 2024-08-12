@@ -11,6 +11,8 @@ import { Button, buttonVariants } from "@/Components/ui/button";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
+import { useFlashToast } from "@/lib/hooks/useFlashToast";
+
 function Page({ auth }) {
   const { toast } = useToast();
 

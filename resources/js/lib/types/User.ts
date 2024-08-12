@@ -3,6 +3,7 @@ export interface Kelompok {
   no_kelompok: string;
   daplok: string;
   mentor: string;
+  logo_kelompok: string;
 }
 
 export interface User {
@@ -55,4 +56,5 @@ export interface UserAuthProps {
   name: string;
   role_id: number;
   isKetua: boolean;
+  email_verified_at?: string;
 }

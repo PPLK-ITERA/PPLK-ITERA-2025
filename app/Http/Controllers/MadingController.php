@@ -97,6 +97,10 @@ class MadingController extends Controller
                $cardOpen[$hari] = false;
             }
          }
+
+         if ($user->role_id != 1) {
+            $cardOpen[$hari] = false;
+         }
       }
 
       if (

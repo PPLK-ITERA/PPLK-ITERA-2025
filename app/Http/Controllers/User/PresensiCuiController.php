@@ -193,12 +193,12 @@ class PresensiCuiController extends Controller
       $user = User::find($userid);
 
       if (!$user->exists()) {
-        return redirect()->back()->with([
+         return redirect()->back()->with([
             'response' => [
-                'status' => 404,
-                'message'=> 'User tidak ditemukan'
+               'status' => 404,
+               'message' => 'User tidak ditemukan'
             ]
-        ]);
+         ]);
       }
 
       $log = LogCui::where('user_id', $userid)->latest('created_at')->first();
@@ -215,27 +215,27 @@ class PresensiCuiController extends Controller
          } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->with([
-                'response' => [
-                    'status' => 500,
-                    'message'=> 'Gagal melakukan izin'
-                ]
+               'response' => [
+                  'status' => 500,
+                  'message' => 'Gagal melakukan izin'
+               ]
             ]);
          }
          return redirect()->back()->with([
             'response' => [
-                'status' => 200,
-                'message' => 'Izin peserta berhasil'
+               'status' => 200,
+               'message' => 'Izin peserta berhasil'
             ]
          ]);
-        //  return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Izin peserta berhasil');
+         //  return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Izin peserta berhasil');
       }
       return redirect()->back()->with([
-        'response' => [
+         'response' => [
             'status' => 200,
-            'message'=> 'Peserta sedang izin'
-        ]
-     ]);
-    //   return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Peserta sedang izin');
+            'message' => 'Peserta sedang izin'
+         ]
+      ]);
+      //   return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Peserta sedang izin');
    }
 
    public function destroyIzin($code)
@@ -245,10 +245,10 @@ class PresensiCuiController extends Controller
       if (!$user->exists()) {
          return redirect()->back()->with([
             'response' => [
-                'status' => 404,
-                'message'=> 'User tidak ditemukan'
+               'status' => 404,
+               'message' => 'User tidak ditemukan'
             ]
-        ]);
+         ]);
       }
       DB::beginTransaction();
       try {
@@ -265,19 +265,19 @@ class PresensiCuiController extends Controller
          DB::rollback();
          return redirect()->back()->with([
             'response' => [
-                'status' => 500,
-                'message'=> 'Gagal mencabut izin'
+               'status' => 500,
+               'message' => 'Gagal mencabut izin'
             ]
-        ]);
-        //  return response()->json(['message' => 'Gagal mencabut izin'], 500);
+         ]);
+         //  return response()->json(['message' => 'Gagal mencabut izin'], 500);
       }
-        return redirect()->back()->with([
-            'response' => [
-                'status' => 200,
-                'message'=> 'Izin peserta berhasil dicabut'
-            ]
-        ]);
-    //   return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Izin peserta berhasil dicabut');
+      return redirect()->back()->with([
+         'response' => [
+            'status' => 200,
+            'message' => 'Izin peserta berhasil dicabut'
+         ]
+      ]);
+      //   return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Izin peserta berhasil dicabut');
    }
 
    public function status($code)

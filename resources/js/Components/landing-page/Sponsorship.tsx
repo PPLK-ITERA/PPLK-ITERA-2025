@@ -11,6 +11,7 @@ import {
 } from "@/Components/ui/carousel";
 
 import arutara from "!assets/logo-sponsor/arutara.jpg";
+import earnest_aparel from "!assets/logo-sponsor/earnest-aparel.png";
 import elmufid from "!assets/logo-sponsor/elmufid.png";
 import emina from "!assets/logo-sponsor/emina.png";
 import fitbar from "!assets/logo-sponsor/fitbar.png";
@@ -19,6 +20,7 @@ import khaf from "!assets/logo-sponsor/khaf.png";
 import lirik_kita from "!assets/logo-sponsor/lirik-kita.png";
 import asoka from "!assets/logo-sponsor/logo-asoka.jpg";
 import mandiri from "!assets/logo-sponsor/mandiri.png";
+import rumah_masker from "!assets/logo-sponsor/rumah-masker.png";
 import wardah from "!assets/logo-sponsor/wardah.png";
 import a_radio from "!assets/media-patners/a-radio.png";
 import eventlampung from "!assets/media-patners/eventlampungdotcom.png";
@@ -99,6 +101,14 @@ const data_sponsor = [
   {
     name: "Asoka",
     src: asoka,
+  },
+  {
+    name: "Earnest Aparel",
+    src: earnest_aparel,
+  },
+  {
+    name: "Rumah Masker",
+    src: rumah_masker,
   },
 ];
 

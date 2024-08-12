@@ -301,7 +301,7 @@ export const ukmData = [
     logo: lancangkuning,
     title: "LANCANG KUNING",
     ketum: "Vania Kahana Lie H",
-    prodi: "Farmasi '21",
+    prodi: "Farmasi '22",
     sejarah:
       "UKM Lancang Kuning ITERA merupakan unit kegiatan mahasiswa yang bergerak dibidang sosial, kekeluargaan, kesenian, dan kebudaayan. UKM Lancang Kuning ITERA menjadi wadah kekeluargaan bagi mahasiswa ITERA yang berasal dari Riau dan Kepulauan Riau. UKM Lancang Kuning ITERA membawa ciri khas kebudayaan melayu dan memiliki pepatah yang mengatakan “takkan  melayu  hilang di bumi”, artinya kebudayaan melayu tidak akan hilang di bumi nusantara ini. UKM Lancang Kuning ITERA merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera tepatnya di Provinsi Lampung. Diresmikan sesuai keputusan rektor Institut Teknologi Sumatera Nomor 214/A/SK/KM/X/2016. Terbentuknya UKM Lancang Kuning ITERA disepakati pada 10 September 2015.",
     visi: "1. Sebagai wadah berkumpulnya mahasiswa dan mahasiswi yang berasal dari Provinsi Riau dan Kepulauan Riau. \n2. Sebagai wadah pembinaan dan pengembangan potensi anggota untuk mempererat tali persaudaraan dan kebersamaan.",
@@ -417,13 +417,13 @@ export const ukmData = [
     key: "ukmbsm",
     link: "/informasi/ukm/ukmbsm",
     logo: ukmbsm,
-    title: "UKMBSM",
+    title: "BSM",
     ketum: "Rhenald Melki Kastanja",
     prodi: "Teknik Elektro'21",
     sejarah:
-      "UKMBSM ITERA merupakan oraganisasi yang berada dibawah naungan Institut Teknologi Sumatera yang bergerak di bidang seni musik. UKMBSM ITERA ditunjang dengan adanya studio musik yang terletak di gedung D lantai 3 sebagai wadah untuk menyalurkan dan mengembangkan minat bakat yang dimiliki anggotanya. UKMBSM ITERA memiliki acara yang rutin digelar setiap tahunnya antara lain Hi-Klas, Mantaru, Choaching Clinic, ArtCall, dan banyak acara lainnya yang gak kalah seru. UKMBSM ITERA didirikan pada tanggal 15 Oktober 2016",
-    visi: "UKMBSM ITERA sebagai wadah dalam menyalurkan dan mengembangkan minat, bakat, serta kreativitas di bidang seni musik secara mandiri dan profesional.",
-    misi: "1. Optimalisasi kualitas sistem internal.\n2. Mewadahi anggota UKMBSM ITERA dalam bidang seni musik.\n3. Menyelenggarakan kegiatan yang meningkatkan kreativitas dan produktivitas anggota.\n4. Membangun keharmonisan di internal dan eksternal UKMBSM ITERA.\n5. Memperluas jaringan kerja sama dan kolaborasi dengan mitra industri musik.",
+      "BSM ITERA merupakan oraganisasi yang berada dibawah naungan Institut Teknologi Sumatera yang bergerak di bidang seni musik. BSM ITERA ditunjang dengan adanya studio musik yang terletak di gedung D lantai 3 sebagai wadah untuk menyalurkan dan mengembangkan minat bakat yang dimiliki anggotanya. BSM ITERA memiliki acara yang rutin digelar setiap tahunnya antara lain Hi-Klas, Mantaru, Choaching Clinic, ArtCall, dan banyak acara lainnya yang gak kalah seru. BSM ITERA didirikan pada tanggal 15 Oktober 2016",
+    visi: "BSM ITERA sebagai wadah dalam menyalurkan dan mengembangkan minat, bakat, serta kreativitas di bidang seni musik secara mandiri dan profesional.",
+    misi: "1. Optimalisasi kualitas sistem internal.\n2. Mewadahi anggota BSM ITERA dalam bidang seni musik.\n3. Menyelenggarakan kegiatan yang meningkatkan kreativitas dan produktivitas anggota.\n4. Membangun keharmonisan di internal dan eksternal BSM ITERA.\n5. Memperluas jaringan kerja sama dan kolaborasi dengan mitra industri musik.",
 
     allprestasi: [
       {
@@ -949,7 +949,7 @@ export const ukmData = [
     link: "/informasi/ukm/saibatin",
     logo: saibatin,
     title: "SAIBATIN",
-    ketum: "Hizkia Maratur Nababan ",
+    ketum: "Hizkia Maratur Nababan",
     prodi: "Teknik Material'21",
     sejarah:
       "Komunitas SAIBATIN ITERA merupakan sebuah wadah yang dibentuk untuk menyalurkan hobby atau ketertarikan pada bidang remote control terkhusus pada kapal. Selain itu, SAIBATIN ITERA juga mempunyai misi untuk menaikkan nama ITERA di tingkat nasional dan internasional serta mendukung penuh anggota yang bergabung didalamnya untuk meningkatkan skill dan prestasi yang dimiliki. SAIBATIN ITERA terbentuk pada 22 Maret 2023.",
