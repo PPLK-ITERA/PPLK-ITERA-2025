@@ -20,7 +20,8 @@ class ProfileController extends Controller
    public function show()
    {
       $user = User::withCount(['followers', 'followings'])->findOrFail(auth()->id());
-      $code = $user->qrcode->code;
+
+
       $response = [
          'name' => $user->name,
          'nim' => $user->nim,
@@ -30,17 +31,17 @@ class ProfileController extends Controller
          'linkedin_url' => $user->linkedin_url,
          'instagram_url' => $user->instagram_url,
          'kelompok' => [
-            'nama_kelompok' => $user->kelompok->nama_kelompok,
-            'no_kelompok' => $user->kelompok->no_kelompok,
-            'daplok' => $user->kelompok->daplok->name,
-            'mentor' => $user->kelompok->mentor->name,
+            'nama_kelompok' => $user->kelompok ? $user->kelompok->nama_kelompok : null,
+            'no_kelompok' => $user->kelompok ? $user->kelompok->no_kelompok : null,
+            'daplok' => $user->kelompok ? $user->kelompok->daplok->name : null,
+            'mentor' => $user->kelompok ? $user->kelompok->mentor->name : null,
          ],
          'pilar' => $user->pilar,
          'view_count' => $user->view_count,
          'followers_count' => $user->followers_count,
          'followings_count' => $user->followings_count,
          'bio' => $user->bio,
-         'qrcode' => $code,
+         'qrcode' => $user->qrcode ? $user->qrcode->code : "pplkitera.com",
       ];
 
       return Inertia::render('Profile/Page', [

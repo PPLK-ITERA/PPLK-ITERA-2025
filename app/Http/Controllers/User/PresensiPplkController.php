@@ -354,11 +354,20 @@ class PresensiPplkController extends Controller
       }
 
       $day = ['2024-08-12', '2024-08-15'];
+      $day = ['2024-08-12', '2024-08-15'];
       if (Auth::user()->role_id === 5) {
          if (!in_array(Carbon::today()->toDateString(), $day)) {
             return redirect()->back()->with('response', [
                "status" => 403,
-               "message" => "Maaf tidak bisa melakukan presensi pada tanggal ini",
+               "message" => "Maaf presensi hari ini hanya bisa dilakukan oleh Daplok dan Mentor",
+            ]);
+         }
+      }
+      if (in_array(Auth::user()->role_id, [2, 4])) {
+         if (!in_array(Carbon::today()->toDateString(), $day)) {
+            return redirect()->back()->with('response', [
+               "status" => 403,
+               "message" => "Maaf presensi hari ini hanya bisa dilakukan oleh PJ Prodi",
             ]);
          }
       }
