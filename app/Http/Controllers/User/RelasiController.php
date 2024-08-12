@@ -74,7 +74,7 @@ class RelasiController extends Controller
             'data' => []
          ]);
       }
-      
+
       // dont use paging
       $followers = Follow::with('followingUser')
          ->where('followed_user_id', $validated['id'])
@@ -85,11 +85,12 @@ class RelasiController extends Controller
                'name' => $follow->followingUser->name,
                'photo_profile_url' => $follow->followingUser->photo_profile_url,
                'kelompok' => [
-                  'nama_kelompok' => $follow->followingUser->kelompok->nama_kelompok,
-                  'no_kelompok' => $follow->followingUser->kelompok->no_kelompok,
+                  'nama_kelompok' => $follow->followingUser->kelompok ? $follow->followingUser->kelompok->nama_kelompok : null,
+                  'no_kelompok' => $follow->followingUser->kelompok ? $follow->followingUser->kelompok->no_kelompok : null,
                ],
             ];
          });
+
 
       return response()->json([
          'status' => 200,
@@ -121,7 +122,22 @@ class RelasiController extends Controller
             })
             ->orderBy('followers_count', 'desc')
             ->get();
-   
+
+         $followings = $followings->transform(function ($user) {
+            return [
+               'id' => $user->id,
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi->nama_prodi,
+               'photo_profile_url' => $user->photo_profile_url,
+               'kelompok' => [
+                  'nama_kelompok' => $user->kelompok ? $user->kelompok->nama_kelompok : null,
+                  'no_kelompok' => $user->kelompok ? $user->kelompok->no_kelompok : null,
+               ],
+               'followers_count' => $user->followers_count,
+            ];
+         });
+
          return response()->json([
             'status' => 200,
             'message' => 'Followings retrieved successfully',

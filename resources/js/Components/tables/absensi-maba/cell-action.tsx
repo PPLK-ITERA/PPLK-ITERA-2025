@@ -46,14 +46,21 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     router.post(
       route("dashboard.presensi.izin", dataFormAbsensi.id),
       { ...dataFormAbsensi, kehadiran: "Izin" },
-      {
-        onSuccess: () => {
-          toast({
-            title: "Berhasil",
-            description: `Berhasil mengizinkan ${data.user.name}`,
-          });
-        },
-      },
+      // {
+      //   onSuccess: (message) => {
+      //     toast({
+      //       title: "Berhasil",
+      //       description: `${message}`,
+      //     });
+      //   },
+      //   onError: (message) => {
+      //     toast({
+      //       title: "Gagal",
+      //       description: `${message}`,
+      //       variant: "destructive",
+      //     });
+      //   },
+      // },
     );
   };
 
@@ -70,14 +77,21 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     router.post(
       route("dashboard.presensi.absen"),
       { ...dataFormAbsensi, kehadiran: "Hadir" },
-      {
-        onSuccess: () => {
-          toast({
-            title: "Berhasil",
-            description: `Berhasil mengabsen ${data.user.name}`,
-          });
-        },
-      },
+      // {
+      //   onSuccess: (message) => {
+      //     toast({
+      //       title: "Berhasil",
+      //       description: `${message}`,
+      //     });
+      //   },
+      //   onError: (message) => {
+      //     toast({
+      //       title: "Gagal",
+      //       description: `${message}`,
+      //       variant: "destructive",
+      //     });
+      //   },
+      // },
     );
   };
 
@@ -156,8 +170,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           ) : null}
         </div>
       )}
-
-      <Toaster />
     </>
   );
 };

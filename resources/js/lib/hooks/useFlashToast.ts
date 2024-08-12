@@ -32,6 +32,10 @@ export const useFlashToast = () => {
             : flash.response.message || flash.error,
         variant: variant,
       });
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
     }
   }, [flash, toast]);
 };

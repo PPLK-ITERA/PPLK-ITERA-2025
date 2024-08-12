@@ -1,16 +1,9 @@
 export interface Kelompok {
-<<<<<<< HEAD
-    nama_kelompok: string;
-    no_kelompok: string;
-    daplok: string;
-    mentor: string;
-    logo_kelompok: string;
-=======
   nama_kelompok: string;
   no_kelompok: string;
   daplok: string;
   mentor: string;
->>>>>>> 7f7f4927139ccf54acf4b372c8d925166372b8fa
+  logo_kelompok: string;
 }
 
 export interface User {
@@ -63,4 +56,5 @@ export interface UserAuthProps {
   name: string;
   role_id: number;
   isKetua: boolean;
+  email_verified_at?: string;
 }

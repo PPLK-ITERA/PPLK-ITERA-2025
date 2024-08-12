@@ -23,7 +23,7 @@ function ProfileCard({
     >
       <CardContent className="flex flex-col items-center h-full p-4 text-sm font-medium text-center text-black bg-white">
         <img
-          className="md:w-24 w-16 md:h-24 h-16 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full select-none object-cover object-center"
+          className="md:w-24 md:h-24 bg-gradient-to-br from-gray-400 to-gray-500 object-cover object-center w-16 h-16 rounded-full select-none"
           // src={user.photo_profile_url}
           src={
             user.photo_profile_url ??
@@ -32,10 +32,10 @@ function ProfileCard({
           alt={user.name}
         />
         <h3 className="max-md:text-sm text-wrap mt-4 font-bold">{user.name}</h3>
-        <p className="capitalize line-clamp-1 text-ellipsis text-xs md:text-sm mt-1">
+        <p className="line-clamp-1 text-ellipsis md:text-sm mt-1 text-xs capitalize">
           {user.prodi!.toLowerCase()}
         </p>
-        <div className="flex gap-1 text-xs md:text-sm">
+        <div className="md:text-sm flex gap-1 text-xs">
           <p>{user.kelompok!.nama_kelompok}</p>
           <p>({user.kelompok!.no_kelompok})</p>
         </div>

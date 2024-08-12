@@ -30,7 +30,11 @@ export default function Page({ auth, response }) {
   const [hadir, setHadir] = useState(0);
   const [tidakHadir, setTidakHadir] = useState(0);
   const [izin, setIzin] = useState(0);
-  const [selectedDay, setSelectedDay] = useState(auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10"); // State untuk menyimpan hari yang dipilih
+  const [selectedDay, setSelectedDay] = useState(
+    auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10",
+  ); // State untuk menyimpan hari yang dipilih
+
+  useFlashToast();
 
   const handleDate = (value) => {
     setSelectedDay(value); // Update state ketika pengguna memilih hari
@@ -51,8 +55,6 @@ export default function Page({ auth, response }) {
     setTidakHadir(data.response.data.tidakHadir);
     setIzin(data.response.data.izin);
   };
-
-  useFlashToast();
 
   useEffect(() => {
     getCountPresensi();
@@ -77,17 +79,17 @@ export default function Page({ auth, response }) {
               <SelectLabel>Day PPLK</SelectLabel>
               {auth.user.role_id == 5 ? (
                 <>
-                  <SelectItem value="2024-08-12">Day 1 PPLK</SelectItem>
-                  <SelectItem value="2024-08-14">Day 3 PPLK</SelectItem>
+                  <SelectItem value="2024-08-12">Day 0 PPLK</SelectItem>
+                  <SelectItem value="2024-08-15">Day 3 PPLK</SelectItem>
                 </>
               ) : (
                 <>
                   <SelectItem value="2024-08-10">Pra-PPLK</SelectItem>
-                  <SelectItem value="2024-08-12">Day 1 PPLK</SelectItem>
-                  <SelectItem value="2024-08-13">Day 2 PPLK</SelectItem>
-                  <SelectItem value="2024-08-14">Day 3 PPLK</SelectItem>
-                  <SelectItem value="2024-08-15">Day 4 PPLK</SelectItem>
-                  <SelectItem value="2024-08-16">Day 5 PPLK</SelectItem>
+                  <SelectItem value="2024-08-12">Day 0 PPLK</SelectItem>
+                  <SelectItem value="2024-08-13">Day 1 PPLK</SelectItem>
+                  <SelectItem value="2024-08-14">Day 2 PPLK</SelectItem>
+                  <SelectItem value="2024-08-15">Day 3 PPLK</SelectItem>
+                  <SelectItem value="2024-08-16">Day 4 PPLK</SelectItem>
                   <SelectItem value="2024-08-17">CUI</SelectItem>
                 </>
               )}
