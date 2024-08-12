@@ -116,6 +116,13 @@ export const navItems: NavItem[] = [
     label: "atur-cui",
     role_id: [3],
   },
+  {
+    title: "Pengumpulan Tugas",
+    href: "/dashboard/pengumpulan-tugas",
+    icon: "bookCheck",
+    label: "atur-pengumpulan-tugas",
+    role_id: [7],
+  },
 ];
 
 export type Employee = {
