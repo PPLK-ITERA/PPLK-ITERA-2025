@@ -31,13 +31,19 @@ function ProfileCard({
           }
           alt={user.name}
         />
-        <h3 className="max-md:text-sm text-wrap mt-4 font-bold">{user.name}</h3>
+        <h3 className="line-clamp-1 text-ellipsis max-md:text-sm text-wrap mt-4 font-bold">
+          {user.name}
+        </h3>
         <p className="line-clamp-1 text-ellipsis md:text-sm mt-1 text-xs capitalize">
           {user.prodi!.toLowerCase()}
         </p>
         <div className="md:text-sm flex gap-1 text-xs">
-          <p>{user.kelompok!.nama_kelompok}</p>
-          <p>({user.kelompok!.no_kelompok})</p>
+          <p className="line-clamp-1 text-ellipsis">
+            {user.kelompok!.nama_kelompok}
+          </p>
+          <p className="line-clamp-1 text-ellipsis">
+            ({user.kelompok!.no_kelompok})
+          </p>
         </div>
         <div className="grow"></div>
         <Link href={route("relasi.profil", { id: user.id })}>
