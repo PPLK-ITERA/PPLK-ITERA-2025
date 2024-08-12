@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
    Route::get('/relasi/profil/{id}', [RelasiController::class, 'profile'])->name('relasi.profil');
    Route::get('/relasi/following', [RelasiController::class, 'getFollowings'])->name('relasi.followings');
    Route::get('/relasi/followers', [RelasiController::class, 'getFollowers'])->name('relasi.followers');
+   Route::get('/relasi/kelompok', [RelasiController::class, 'getAnggotaKelompok'])->name('relasi.kelompok');
    // });
 
    //melihat my profile

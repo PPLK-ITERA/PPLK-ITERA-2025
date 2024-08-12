@@ -33,27 +33,37 @@ export async function fetchSearch(
 }
 
 export async function fetchFollowing(
-    user_id: number,
+  user_id: number,
 ): Promise<UserFollowingResponse> {
-    const response = await fetch(`${route("relasi.followings")}?id=${user_id}`);
-    const json = await response.json();
-    return json;
+  const response = await fetch(`${route("relasi.followings")}?id=${user_id}`);
+  const json = await response.json();
+  return json;
 }
 
 export async function fetchFollower(
-    user_id: number,
+  user_id: number,
 ): Promise<UserFollowingResponse> {
-    const response = await fetch(`${route("relasi.followers")}?id=${user_id}`);
-    const json = await response.json();
-    return json;
+  const response = await fetch(`${route("relasi.followers")}?id=${user_id}`);
+  const json = await response.json();
+  return json;
 }
 
 export async function followUserJson(
-    user_id: number,
+  user_id: number,
 ): Promise<UserFollowingResponse> {
-    const response = await fetch(
-        `${route("relasi.followJson", { id: user_id })}`,
-    );
-    const json = await response.json();
-    return json;
+  const response = await fetch(
+    `${route("relasi.followJson", { id: user_id })}`,
+  );
+  const json = await response.json();
+  return json;
+}
+
+export async function fetchAnggotaKelompok(
+  kelompokId: number,
+): Promise<UserFollowingResponse> {
+  const response = await fetch(
+    `${route("relasi.kelompok", { id: kelompokId })}`,
+  );
+  const json = await response.json();
+  return json;
 }
