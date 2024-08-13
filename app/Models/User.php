@@ -97,9 +97,9 @@ class User extends Authenticatable
       return $this->belongsTo(Pilar::class, 'pilar', 'id');
    }
 
-   public function tugas()
+   public function pengumpulan_tugas()
    {
-      return $this->hasMany(Tugas::class, 'user_id');
+      return $this->hasMany(PengumpulanTugas::class, 'user_id');
    }
    public function QuizActivity()
    {

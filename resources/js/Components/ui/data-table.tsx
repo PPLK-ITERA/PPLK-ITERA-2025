@@ -36,6 +36,7 @@ interface DataTableProps<TData, TValue> {
   apiEndpoint: string;
   title: string;
   description: string;
+  status?: number;
 }
 
 export function DataTable<TData, TValue>({
@@ -44,6 +45,7 @@ export function DataTable<TData, TValue>({
   apiEndpoint,
   title,
   description,
+  status = 0,
 }: DataTableProps<TData, TValue>) {
   const [data, setData] = useState<TData[]>([]);
   const [loading, setLoading] = useState(false);
@@ -58,7 +60,7 @@ export function DataTable<TData, TValue>({
   const fetchTableData = async () => {
     setLoading(true);
     const response = await fetch(
-      `${apiEndpoint}?page=${page}&perPage=${perPage}&search=${search}`,
+      `${apiEndpoint}?page=${page}&perPage=${perPage}&search=${search}${status ? `&status=${status}` : ""}`,
     );
     const json = await response.json();
     setData(json.data);
@@ -89,6 +91,7 @@ export function DataTable<TData, TValue>({
   const debounced = useDebouncedCallback(
     // function
     (value) => {
+      setPage(1);
       setSearch(value);
     },
     // delay in ms0
