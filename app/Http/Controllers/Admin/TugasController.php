@@ -187,17 +187,18 @@ class TugasController extends Controller
       );
    }
 
-   public function getAllTugas(Request $request)
+   public function getAllTugas(Request $request, $tugas_id, $kelompok_id, $status)
    {
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
-      $tugasId = $request->input('id_tugas', 1);
-      $kelompok = $request->input('no_kelompok', null);
-      $status = $request->input('status', null);
+      $tugasId = intval($tugas_id);
+      $kelompok = intval($kelompok_id);
+      $status = intval($status);
 
       $tugass = Tugas::find($tugasId);
 
-      dd($request->all());
+
+      // dd($request->all(), $tugasId, $kelompok, $status);
 
       if (!$tugass) {
          return response()->json([
@@ -213,7 +214,7 @@ class TugasController extends Controller
          ->whereNotIn('kelompok_id', [131, 132]);
 
       // Filtering by kelompok if it's provided and not 'NaN'
-      if ($kelompok !== 'NaN') {
+      if ($kelompok !== 0) {
          $query->where('kelompok_id', $kelompok);
       }
 
@@ -222,7 +223,7 @@ class TugasController extends Controller
          // jika tugasnya merupakan kelompok, ambil tugas yang dikumpulkan oleh ketua kelompok saja
          if ($tugass->kategori == 'kelompok') {
             $query->with('pengumpulan_tugas')->where('isKetua', true);
-         } else { // lainnya (individu), ambil semua tugas yang dikumpulkan
+         } else if ($tugass->kategori == 'individu') { // lainnya (individu), ambil semua tugas yang dikumpulkan
             $query->with([
                'pengumpulan_tugas' => function ($q) use ($tugasId) {
                   $q->where('tugas_id', $tugasId);
@@ -231,45 +232,46 @@ class TugasController extends Controller
          }
       }
 
-      // // Apply search criteria
-      // $query->where(function ($q) use ($searchTerm) {
-      //    $q->where('name', 'like', '%' . $searchTerm . '%')
-      //       ->orWhere('nim', 'like', '%' . $searchTerm . '%')
-      //       ->orWhere('email', 'like', '%' . $searchTerm . '%');
-      // });
+      // Apply search criteria
+      $query->where(function ($q) use ($searchTerm) {
+         $q->where('name', 'like', '%' . $searchTerm . '%')
+            ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+            ->orWhere('email', 'like', '%' . $searchTerm . '%');
+      });
 
-      // // Status filter
-      // if ($status !== 0 && $tugasId) {
-      //    switch ($status) {
-      //       case 1: // Submitted
-      //          $query->whereHas('pengumpulan_tugas', function ($query) use ($tugass) {
-      //             $query->where('isReturn', false)
-      //                // check if the submission date is before the deadline
-      //                ->where('tanggal_submit', '<=', $tugass->deadline);
-      //          });
-      //          break;
-      //       case 2: // Submitted late
-      //          $query->whereHas('pengumpulan_tugas', function ($query) use ($tugass) {
-      //             $query->where('tanggal_submit', '>', $tugass->deadline);
-      //          });
-      //          break;
-      //       case 3: // Not submitted
-      //          $query->whereHas('pengumpulan_tugas', function ($query) {
-      //             $query->where('isReturn', true);
-      //          });
-      //          break;
-      //       case 4: // Returned
-      //          $query->whereDoesntHave('pengumpulan_tugas');
-      //          break;
-      //    }
-      // }
+      // Status filter
+      switch ($status) {
+         case 1: // Submitted
+            $query->whereHas('pengumpulan_tugas', function ($query) use ($tugass) {
+               $query->where('tugas_id', $tugass->id)->where('isReturn', false)
+                  ->where('tanggal_submit', '<=', $tugass->deadline);
+            });
+            break;
+         case 2: // Submitted late
+            $query->whereHas('pengumpulan_tugas', function ($query) use ($tugass) {
+               $query->where('tugas_id', $tugass->id)->where('tanggal_submit', '>', $tugass->deadline);
+            });
+            break;
+         case 3: // Not submitted
+            $query->whereHas('pengumpulan_tugas', function ($query) use ($tugass) {
+               $query->where('tugas_id', $tugass->id)->where('isReturn', true);
+            });
+            break;
+         case 4: // Returned
+            $query->whereDoesntHave('pengumpulan_tugas', function ($query) use ($tugass) {
+               $query->where('tugas_id', $tugass->id);
+            });
+            break;
+         default:
+            break;
+      }
 
       $tugas = $query->paginate($perPage);
 
       // Transform collection to include detailed data
       $tugas->getCollection()->transform(function ($user) use ($tugass) {
-         $pengumpulan = $user->pengumpulan_tugas->first();
-         $isLate = $pengumpulan && $pengumpulan->tanggal_submit > $pengumpulan->tugas->deadline;
+         $pengumpulan = $user->pengumpulan_tugas->where('tugas_id', $tugass->id)->first();
+         $isLate = $pengumpulan && $pengumpulan->tanggal_submit > $tugass->deadline;
 
          $status = $pengumpulan ? ($pengumpulan->isReturn ? 'Returned' : ($isLate ? 'Submitted late' : 'Submitted')) : 'Not submitted';
          return [
@@ -290,6 +292,33 @@ class TugasController extends Controller
       });
 
       return response()->json($tugas);
+
+      // $tugasId = $request->input('tugas_id');
+      // $kelompokId = $request->input('no_kelompok');
+      // $status = $request->input('status');
+
+      // $query = PengumpulanTugas::query();
+
+      // // Filter by 'tugas_id' if it is provided and is a valid number
+      // if (!is_null($tugasId) && is_numeric($tugasId)) {
+      //    $query->where('tugas_id', $tugasId);
+      // }
+
+      // // Filter by 'no_kelompok' if it is provided and is a valid number
+      // if (!is_null($kelompokId) && is_numeric($kelompokId)) {
+      //    $query->where('kelompok_id', $kelompokId);
+      // }
+
+      // // Filter by 'status' if it is provided and is a valid number
+      // if (!is_null($status) && is_numeric($status)) {
+      //    $query->where('status', $status);
+      // }
+
+      // // Paginate the results
+      // $submissions = $query->paginate();
+
+      // // Optionally, you can add additional transformations or metadata to the response here
+      // return response()->json($submissions);
    }
 
 

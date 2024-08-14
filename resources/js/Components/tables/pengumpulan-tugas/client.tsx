@@ -14,44 +14,77 @@ interface PengumpulanTugasClientProps {
   status: number;
 }
 
-export const PengumpulanTugasClient = ({ tugas_id, no_kelompok, status }) => {
+export const PengumpulanTugasClient = ({
+  tugas_id,
+  no_kelompok,
+  status,
+}: PengumpulanTugasClientProps) => {
   const [requestParams, setRequestParams] = useState({
-    tugas_id,
-    no_kelompok,
-    status,
+    status: status ? status : null,
+    no_kelompok: no_kelompok ? no_kelompok : null,
+    tugas_id: tugas_id,
   });
 
-  // Function to update request parameters state
-  const handleApplyClick = () => {
-    setRequestParams({
-      no_kelompok: no_kelompok,
-      status: status,
-      tugas_id: tugas_id,
+  // Function to fetch data based on requestParams
+  const fetchTableData = async () => {
+    // Construct API endpoint dynamically based on current state
+
+    const apiEndpoint = route("dashboard.tugas.data", {
+      no_kelompok: requestParams.no_kelompok ?? 0,
+      status: requestParams.status ?? 0,
+      tugas_id: requestParams.tugas_id,
     });
-    console.log("Request params updated:", requestParams);
+
+    // ..../data/alll/2?status=1&no_kelompok=1
+
+    console.log("Fetching data for:", apiEndpoint);
+    // You would typically fetch data here using the updated apiEndpoint
   };
 
-  // Construct the API endpoint dynamically
-  const apiEndpoint = route("dashboard.tugas.data", requestParams);
-
-  // Fetch data when requestParams changes
+  // Call fetchTableData only when parameters change and are not null
   useEffect(() => {
-    console.log("Fetching data for:", requestParams);
-    console.log(apiEndpoint);
-    // You would typically fetch data here using the updated apiEndpoint
-  }, [requestParams]); // Dependency on requestParams to re-fetch when it changes
+    if (
+      requestParams.no_kelompok ||
+      requestParams.status ||
+      requestParams.tugas_id
+    ) {
+      fetchTableData();
+    }
+  }, [requestParams]);
+
+  const handleApplyClick = () => {
+    setRequestParams({
+      tugas_id: tugas_id,
+      no_kelompok: no_kelompok ? no_kelompok : null,
+      status: status ? status : null,
+    });
+  }; // Dependency on requestParams to re-fetch when it changes
+
+  const handleResetFilter = () => {
+    window.location.reload();
+  }; // Dependency on requestParams to re-fetch when it changes
 
   return (
     <>
-      <Button onClick={handleApplyClick}>Terapkan</Button>
+      <div className="flex gap-2">
+        <Button onClick={handleApplyClick}>Terapkan</Button>
+        <Button onClick={handleResetFilter} variant={"outline"}>
+          Reset Filter
+        </Button>
+      </div>
+
       <Separator />
       <DataTable
         searchKey="Nama, Nim, Email"
         columns={columns}
-        apiEndpoint={apiEndpoint}
+        apiEndpoint={route("dashboard.tugas.data", {
+          tugas_id: requestParams.tugas_id,
+          no_kelompok: requestParams.no_kelompok ?? 0,
+          status: requestParams.status ?? 0,
+        })}
         title="Data Pengumpulan Tugas"
         description="Gunakan sistem informasi ini untuk melihat data pengumpulan tugas mahasiswa baru!"
-        status={status}
+        // status={status}
       />
     </>
   );

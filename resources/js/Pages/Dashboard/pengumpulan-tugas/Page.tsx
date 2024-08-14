@@ -95,7 +95,6 @@ export default function Page({ auth, response }) {
 
     const data = await response.json();
     setKelompokData(data);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -188,7 +187,7 @@ export default function Page({ auth, response }) {
                                 setOpenKelompok(false);
                               }}
                             >
-                              {kelompok.nama_kelompok}
+                              {kelompok.no_kelompok}-{kelompok.nama_kelompok}
                               <CheckIcon
                                 className={cn(
                                   "ml-auto h-4 w-4",
