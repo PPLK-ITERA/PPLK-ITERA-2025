@@ -1,1 +1,0 @@
-{"version":3,"file":"Ca1Go3US.js","sources":["../../../resources/js/Pages/Auth/RelasiJaringan/Page.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Page() {\n  return <div>Relasi & Jaringan Page</div>;\n}\n\nexport default Page;\n"],"names":["Page","jsx","children"],"mappings":"kCAEA,SAASA,IACA,SAAAC,IAAC,OAAIC,SAAsB,0BACpC"}
