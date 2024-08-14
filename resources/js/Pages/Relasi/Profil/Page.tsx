@@ -13,6 +13,7 @@ import {
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import FollowingDialog from "@/Components/relasi/FollowingDialog";
+import KelompokDialog from "@/Components/relasi/KelompokDialog";
 import ProfileCard from "@/Components/relasi/ProfileCard";
 import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import { Button } from "@/Components/ui/button";
@@ -24,7 +25,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/Components/ui/carousel";
-import { Dialog, DialogContent, DialogTrigger } from "@/Components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/Components/ui/dialog";
 import { Toaster } from "@/Components/ui/toaster";
 
 import { useAos } from "@/lib/hooks/useAos";
@@ -116,12 +122,11 @@ function Page({ auth, response }) {
           <div className="max-md:flex-col max-md:text-center max-md:items-center place-content-center flex w-full max-w-5xl gap-8 mx-auto">
             <div className="flex flex-col justify-between gap-4">
               <div>
-                <div className="max-md:w-36 max-md:h-36 relative w-48 h-48">
+                <div className="max-md:w-36 max-md:h-36 w-48 h-48 relative ">
                   <Dialog>
                     <DialogTrigger>
                       <img
-                        className="aspect-square border-1 object-cover w-full h-full bg-gray-400 rounded-full select-none"
-                        // src={user.photo_profile_url}
+                        className="aspect-square border-1 object-cover max-md:w-36 max-md:h-36 w-48 h-48 bg-gray-400 rounded-full select-none"
                         src={
                           user.photo_profile_url ??
                           "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
@@ -130,23 +135,27 @@ function Page({ auth, response }) {
                       />
                     </DialogTrigger>
                     <DialogContent>
-                      <img
-                        className="rounded-xl object-contain w-full h-full"
-                        // src={user.photo_profile_url}
-                        src={
-                          user.photo_profile_url ??
-                          "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-                        }
-                        alt={user.name}
-                      />
+                      <div className="w-full h-full grid place-content-center place-items-center">
+                        <img
+                          className="rounded-xl object-contain"
+                          src={
+                            user.photo_profile_url ??
+                            "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                          }
+                          alt={user.name}
+                        />
+                      </div>
                     </DialogContent>
                   </Dialog>
-                  <img
-                    className="bottom-2 right-2 aspect-square h-1/4 border-1 absolute object-cover w-1/4 bg-gray-400 rounded-full select-none"
-                    // src={user.photo_profile_url}
-                    src={user.photo_profile_url ?? logoPplkHd}
-                    alt={user.name}
-                  />
+
+                  <KelompokDialog kelompok={user.kelompok}>
+                    <img
+                      className="bottom-2 right-2 aspect-square h-1/3 border-1 absolute object-cover w-1/3 bg-gray-400 rounded-full select-none"
+                      // src={user.photo_profile_url}
+                      src={user.kelompok.logo_kelompok ?? logoPplkHd}
+                      alt={user.kelompok.nama_kelompok}
+                    />
+                  </KelompokDialog>
                 </div>
 
                 <p className="max-md:hidden mt-2 text-center">

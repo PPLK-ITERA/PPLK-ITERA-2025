@@ -298,6 +298,10 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/mading/Page');
    })->name('dashboard/mading');
 
+   Route::get('dashboard/pengumpulan-tugas', function () {
+      return Inertia::render('Dashboard/pengumpulan-tugas/Page');
+   })->name('dashboard/pengumpulan-tugas');
+
 
    // =====================================
    // Dashboard Dapmen Menu (Auth)

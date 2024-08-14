@@ -28,7 +28,17 @@ export default function LandingPage() {
 
   return (
     <>
-      <Head title="Beranda" />
+      <Head title="Beranda">
+        <meta
+          name="description"
+          content="Program Pengenalan Lingkungan Kampus (PPLK) 2024 di Institut Teknologi Sumatera adalah kegiatan orientasi yang dirancang untuk membantu mahasiswa baru mengenal lingkungan kampus, nilai-nilai akademik, serta budaya di ITERA. Program ini memberikan kesempatan bagi para mahasiswa untuk beradaptasi dengan kehidupan kampus, memahami fasilitas yang tersedia, dan membangun koneksi dengan sesama mahasiswa serta dosen. PPLK 2024 diharapkan dapat menjadi fondasi yang kuat bagi mahasiswa baru untuk memulai perjalanan akademik mereka dengan percaya diri dan semangat."
+        />
+        <meta property="og:title" content="Beranda - PPLK 2024" />
+        <meta property="og:url" content="https://pplkitera.com/" />
+        <meta property="og:type" content="website" />
+
+        <link rel="canonical" href="https://pplkitera.com/" />
+      </Head>
 
       <div className="scrollbar-hide relative overflow-hidden">
         <MaxWidthWrapper className="relative">

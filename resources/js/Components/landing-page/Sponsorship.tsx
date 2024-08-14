@@ -14,6 +14,7 @@ import arutara from "!assets/logo-sponsor/arutara.jpg";
 import earnest_aparel from "!assets/logo-sponsor/earnest-aparel.png";
 import elmufid from "!assets/logo-sponsor/elmufid.png";
 import emina from "!assets/logo-sponsor/emina.png";
+import erlangga from "!assets/logo-sponsor/erlangga.png";
 import fitbar from "!assets/logo-sponsor/fitbar.png";
 import goodday from "!assets/logo-sponsor/goodday.png";
 import khaf from "!assets/logo-sponsor/khaf.png";
@@ -109,6 +110,10 @@ const data_sponsor = [
   {
     name: "Rumah Masker",
     src: rumah_masker,
+  },
+  {
+    name: "Erlangga",
+    src: erlangga,
   },
 ];
 

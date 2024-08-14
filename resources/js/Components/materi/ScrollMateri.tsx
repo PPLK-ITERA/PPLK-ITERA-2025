@@ -44,6 +44,9 @@ export function CarouselMateri({ materis }: { materis: Materi[] }) {
           >
             <Card className="h-full rounded-none">
               <CardContent className="overflow-hidden relative flex flex-col h-full p-0">
+                <div data-aos="slide-right" data-aos-duration="1500" className="absolute top-1 left-0 w-24 text-sm text-white p-1 line-clamp-1 bg-gradient-to-r from-jaffa-500 to-jaffa-700 z-10 rounded-r-full font-semibold">
+                  Hari ke-{materi.hari}
+                </div>
                 <div className="h-60 w-full bg-pattern-black">
                   {getBookletDriveId(materi) ? (
                     <img

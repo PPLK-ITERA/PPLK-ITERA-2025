@@ -47,7 +47,7 @@ class RelasiController extends Controller
                'nama_kelompok' => $user->kelompok->nama_kelompok,
                'no_kelompok' => $user->kelompok->no_kelompok,
             ],
-            'followers_count' => $user->followers_count,
+            'followers_count' => $user->followers_count ?? 0,
          ];
       });
 
@@ -67,35 +67,36 @@ class RelasiController extends Controller
          ->where('followed_user_id', $validated['id'])
          ->exists();
 
-      if (!$follow && $followingUserId !== $validated['id']) {
+      if ($follow || strval($followingUserId) === strval($validated['id'])) {
+         // dont use paging
+         $followers = Follow::with('followingUser')
+            ->where('followed_user_id', $validated['id'])
+            ->get()
+            ->transform(function ($follow) {
+               return [
+                  'id' => $follow->followingUser->id,
+                  'name' => $follow->followingUser->name,
+                  'photo_profile_url' => $follow->followingUser->photo_profile_url,
+                  'kelompok' => [
+                     'nama_kelompok' => $follow->followingUser->kelompok ? $follow->followingUser->kelompok->nama_kelompok : null,
+                     'no_kelompok' => $follow->followingUser->kelompok ? $follow->followingUser->kelompok->no_kelompok : null,
+                  ],
+                  'followers_count' => $follow->followingUser->followers_count ?? 0,
+               ];
+            });
+
+
          return response()->json([
-            'status' => 404,
-            'message' => 'User not found',
-            'data' => []
+            'status' => 200,
+            'message' => 'Followers retrieved successfully',
+            'data' => $followers
          ]);
       }
 
-      // dont use paging
-      $followers = Follow::with('followingUser')
-         ->where('followed_user_id', $validated['id'])
-         ->get()
-         ->transform(function ($follow) {
-            return [
-               'id' => $follow->followingUser->id,
-               'name' => $follow->followingUser->name,
-               'photo_profile_url' => $follow->followingUser->photo_profile_url,
-               'kelompok' => [
-                  'nama_kelompok' => $follow->followingUser->kelompok ? $follow->followingUser->kelompok->nama_kelompok : null,
-                  'no_kelompok' => $follow->followingUser->kelompok ? $follow->followingUser->kelompok->no_kelompok : null,
-               ],
-            ];
-         });
-
-
       return response()->json([
-         'status' => 200,
-         'message' => 'Followers retrieved successfully',
-         'data' => $followers
+         'status' => 404,
+         'message' => 'User not found',
+         'data' => []
       ]);
    }
 
@@ -134,7 +135,7 @@ class RelasiController extends Controller
                   'nama_kelompok' => $user->kelompok ? $user->kelompok->nama_kelompok : null,
                   'no_kelompok' => $user->kelompok ? $user->kelompok->no_kelompok : null,
                ],
-               'followers_count' => $user->followers_count,
+               'followers_count' => $user->followers_count ?? 0,
             ];
          });
 
@@ -150,7 +151,40 @@ class RelasiController extends Controller
          'message' => 'User not found',
          'data' => []
       ]);
+   }
 
+   public function getAnggotaKelompok(Request $request) {
+      try {
+         $validated = $request->validate([
+         'id' => 'required|integer'
+      ]);
+
+      $anggotaKelompok = User::where('kelompok_id', $validated['id'])
+         ->where('role_id', 1)
+         ->whereNotNull("kelompok_id")
+         ->get();
+
+      $anggotaKelompok = $anggotaKelompok->transform(function ($user) {
+         return [
+            'id' => $user->id,
+            'name' => $user->name,
+            'photo_profile_url' => $user->photo_profile_url,
+            'followers_count' => $user->followers_count ?? 0,
+         ];
+      });
+
+      return response()->json([
+         'status' => 200,
+         'message' => 'Anggota kelompok berhasil diambil',
+         'data' => $anggotaKelompok
+      ]);
+      } catch (\Throwable $th) {
+         return response()->json([
+            'status' => 500,
+            'message' => 'Gagal mengambil anggota kelompok',
+            'data' => []
+         ]);
+      }
    }
 
    public function sort(Request $request)
@@ -353,9 +387,9 @@ class RelasiController extends Controller
             'no_kelompok' => $user->kelompok->no_kelompok,
             'logo_kelompok' => $user->kelompok->logo_kelompok,
          ],
-         'view_count' => $user->viewers_count,
-         'followers_count' => $user->followers_count,
-         'followings_count' => $user->followings_count,
+         'view_count' => $user->viewers_count ?? 0,
+         'followers_count' => $user->followers_count ?? 0,
+         'followings_count' => $user->followings_count ?? 0,
          'followed' => $follow,
          'bio' => $user->bio,
       ];
@@ -380,14 +414,14 @@ class RelasiController extends Controller
                'name' => $user->name,
                'nim' => $user->nim,
                'prodi' => $user->prodi->nama_prodi,
-               'photo_profile_url' => $user->photo_user_url,
+               'photo_profile_url' => $user->photo_profile_url,
                'kelompok' => [
                   'nama_kelompok' => $user->kelompok->nama_kelompok,
                   'no_kelompok' => $user->kelompok->no_kelompok,
                ],
-               'view_count' => $user->view_count,
-               'followers_count' => $user->followers_count,
-               'followings_count' => $user->followings_count,
+               'view_count' => $user->view_count ?? 0,
+               'followers_count' => $user->followers_count ?? 0,
+               'followings_count' => $user->followings_count ?? 0,
             ];
          });
 
@@ -434,9 +468,9 @@ class RelasiController extends Controller
                'nama_kelompok' => $profile->kelompok->nama_kelompok,
                'no_kelompok' => $profile->kelompok->no_kelompok,
             ],
-            'view_count' => $profile->view_count,
-            'followers_count' => $profile->followers_count,
-            'followings_count' => $profile->followings_count,
+            'view_count' => $profile->view_count ?? 0,
+            'followers_count' => $profile->followers_count ?? 0,
+            'followings_count' => $profile->followings_count ?? 0,
          ];
       });
 

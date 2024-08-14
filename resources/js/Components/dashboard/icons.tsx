@@ -2,6 +2,7 @@ import {
   AlertTriangle,
   ArrowRight,
   Book,
+  BookCheck,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -94,4 +95,5 @@ export const Icons = {
   ticket: TicketPercent,
   books: IconBooks,
   game: IconDeviceGamepad2,
+  bookCheck: BookCheck,
 };
