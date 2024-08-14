@@ -8,6 +8,7 @@ use App\Models\PengumpulanTugas;
 use App\Models\Poster;
 use App\Models\Tugas;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -186,65 +187,139 @@ class TugasController extends Controller
       );
    }
 
-   public function getAllTugas(Request $request)
+   public function getAllTugas(Request $request, $tugas_id, $kelompok_id, $status)
    {
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
-      $tugasId = $request->input('tugasId', 1);
+      $tugasId = intval($tugas_id);
+      $kelompok = intval($kelompok_id);
+      $status = intval($status);
 
-      if (!in_array($tugasId, [1, 2, 3, 4, 5, 6, 7])) {
+      $tugass = Tugas::find($tugasId);
+
+
+      // dd($request->all(), $tugasId, $kelompok, $status);
+
+      if (!$tugass) {
          return response()->json([
             'response' => [
-               'status' => 400,
-               'message' => 'Invalid tugasId'
+               'status' => 404,
+               'message' => 'Tugas tidak ditemukan'
             ]
          ]);
       }
 
       $query = User::query()
-         ->where('role_id', 1) // Ensure only users with role_id = 1 are shown
-         ->leftJoin('pengumpulan_tugas', function ($join) use ($tugasId) {
-            $join->on('users.id', '=', 'pengumpulan_tugas.user_id')
-               ->where('pengumpulan_tugas.tugas_id', '=', $tugasId);
-         })
-         ->leftJoin('kelompok', 'users.kelompok_id', '=', 'kelompok.id')
-         ->leftJoin('prodis', 'users.prodi_id', '=', 'prodis.id') // Assuming there is a `prodi_id` in users
-         ->select(
-            'users.id',
-            'users.name',
-            'users.email',
-            'kelompok.id as kelompok_id',
-            'prodis.nama_prodi',
-            'kelompok.nama_kelompok',
-            'users.isKetua',
-            'pengumpulan_tugas.id as submission_id'
-         )
-         ->when($searchTerm, function ($query) use ($searchTerm) {
-            return $query->where('users.name', 'like', '%' . $searchTerm . '%')
-               ->orWhere('users.email', 'like', '%' . $searchTerm . '%')
-               ->orWhere('kelompok.nama_kelompok', 'like', '%' . $searchTerm . '%')
-               ->orWhere('prodis.nama_prodi', 'like', '%' . $searchTerm . '%');
-         });
+         ->where('role_id', 1)
+         ->whereNotIn('kelompok_id', [131, 132]);
 
-      $users = $query->paginate($perPage);
+      // Filtering by kelompok if it's provided and not 'NaN'
+      if ($kelompok !== 0) {
+         $query->where('kelompok_id', $kelompok);
+      }
 
-      $currentPage = $users->currentPage();
-      $perPage = $users->perPage();
-      $currentIndex = ($currentPage - 1) * $perPage;
+      // Base query for pengumpulan_tugas based on tugas_id
+      if ($tugasId != 0) {
+         // jika tugasnya merupakan kelompok, ambil tugas yang dikumpulkan oleh ketua kelompok saja
+         if ($tugass->kategori == 'kelompok') {
+            $query->with('pengumpulan_tugas')->where('isKetua', true);
+         } else if ($tugass->kategori == 'individu') { // lainnya (individu), ambil semua tugas yang dikumpulkan
+            $query->with([
+               'pengumpulan_tugas' => function ($q) use ($tugasId) {
+                  $q->where('tugas_id', $tugasId);
+               }
+            ]);
+         }
+      }
 
-      $users->getCollection()->transform(function ($user, $key) use (&$currentIndex) {
+      // Apply search criteria
+      $query->where(function ($q) use ($searchTerm) {
+         $q->where('name', 'like', '%' . $searchTerm . '%')
+            ->orWhere('nim', 'like', '%' . $searchTerm . '%')
+            ->orWhere('email', 'like', '%' . $searchTerm . '%');
+      });
+
+      // Status filter
+      switch ($status) {
+         case 1: // Submitted
+            $query->whereHas('pengumpulan_tugas', function ($query) use ($tugass) {
+               $query->where('tugas_id', $tugass->id)->where('isReturn', false)
+                  ->where('tanggal_submit', '<=', $tugass->deadline);
+            });
+            break;
+         case 2: // Submitted late
+            $query->whereHas('pengumpulan_tugas', function ($query) use ($tugass) {
+               $query->where('tugas_id', $tugass->id)->where('tanggal_submit', '>', $tugass->deadline);
+            });
+            break;
+         case 3: // Not submitted
+            $query->whereHas('pengumpulan_tugas', function ($query) use ($tugass) {
+               $query->where('tugas_id', $tugass->id)->where('isReturn', true);
+            });
+            break;
+         case 4: // Returned
+            $query->whereDoesntHave('pengumpulan_tugas', function ($query) use ($tugass) {
+               $query->where('tugas_id', $tugass->id);
+            });
+            break;
+         default:
+            break;
+      }
+
+      $tugas = $query->paginate($perPage);
+
+      // Transform collection to include detailed data
+      $tugas->getCollection()->transform(function ($user) use ($tugass) {
+         $pengumpulan = $user->pengumpulan_tugas->where('tugas_id', $tugass->id)->first();
+         $isLate = $pengumpulan && $pengumpulan->tanggal_submit > $tugass->deadline;
+
+         $status = $pengumpulan ? ($pengumpulan->isReturn ? 'Returned' : ($isLate ? 'Submitted late' : 'Submitted')) : 'Not submitted';
          return [
-            'no' => ++$currentIndex,
-            'user' => $user,
-            'has_submitted' => !is_null($user->submission_id) ? 'Yes' : 'No'
+            'id' => $user->id,
+            'user' => [
+               'name' => $user->name,
+               'nim' => $user->nim,
+               'nama_kelompok' => optional($user->kelompok)->nama_kelompok,
+            ],
+            'tugas' => [
+               'judul' => $tugass->judul,
+               'jawaban' => optional($pengumpulan)->jawaban,
+               'isReturn' => optional($pengumpulan)->isReturn,
+               'catatan' => optional($pengumpulan)->catatan,
+            ],
+            'status' => $status,
          ];
       });
 
-      return response()->json($users);
+      return response()->json($tugas);
+
+      // $tugasId = $request->input('tugas_id');
+      // $kelompokId = $request->input('no_kelompok');
+      // $status = $request->input('status');
+
+      // $query = PengumpulanTugas::query();
+
+      // // Filter by 'tugas_id' if it is provided and is a valid number
+      // if (!is_null($tugasId) && is_numeric($tugasId)) {
+      //    $query->where('tugas_id', $tugasId);
+      // }
+
+      // // Filter by 'no_kelompok' if it is provided and is a valid number
+      // if (!is_null($kelompokId) && is_numeric($kelompokId)) {
+      //    $query->where('kelompok_id', $kelompokId);
+      // }
+
+      // // Filter by 'status' if it is provided and is a valid number
+      // if (!is_null($status) && is_numeric($status)) {
+      //    $query->where('status', $status);
+      // }
+
+      // // Paginate the results
+      // $submissions = $query->paginate();
+
+      // // Optionally, you can add additional transformations or metadata to the response here
+      // return response()->json($submissions);
    }
-
-
-
 
 
 }

@@ -121,7 +121,7 @@ export const navItems: NavItem[] = [
     href: "/dashboard/pengumpulan-tugas",
     icon: "bookCheck",
     label: "atur-pengumpulan-tugas",
-    role_id: [7],
+    role_id: [7, 3, 8],
   },
 ];
 

@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          // Daplok Mentor Role
          // =====================================
-         Route::middleware(['checkRole:Daplok,Mentor,CustomerService,Admin'])->group(function () {
+         Route::middleware(['checkRole:Daplok,Mentor,CustomerService,Admin,Mamet'])->group(function () {
             // =====================================
             // USER DATA MABA
             // =====================================
@@ -153,7 +153,7 @@ Route::middleware('auth')->group(function () {
          // Mamet Role
          // =====================================
          Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
-            Route::get('data/all', [TugasController::class, 'getAllTugas'])->name('data');
+            Route::get('data/all/{tugas_id}/{no_kelompok}/{status}', [TugasController::class, 'getAllTugas'])->name('data');
          });
          Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
             Route::put('/return', [TugasController::class, 'returnTugas'])->name('return');
