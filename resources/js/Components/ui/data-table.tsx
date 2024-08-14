@@ -90,6 +90,7 @@ export function DataTable<TData, TValue>({
     // function
     (value) => {
       setSearch(value);
+      setPage(1);
     },
     // delay in ms0
     500,

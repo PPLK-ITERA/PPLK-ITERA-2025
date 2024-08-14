@@ -30,11 +30,22 @@ export default function Page({ auth, response }) {
   const [hadir, setHadir] = useState(0);
   const [tidakHadir, setTidakHadir] = useState(0);
   const [izin, setIzin] = useState(0);
-  const [selectedDay, setSelectedDay] = useState(
-    auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10",
-  ); // State untuk menyimpan hari yang dipilih
+  // const [selectedDay, setSelectedDay] = useState(
+  //   auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10",
+  // ); // State untuk menyimpan hari yang dipilih
+
+  const defaultDay = auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10";
+  const [selectedDay, setSelectedDay] = useState(() => {
+    // Retrieve from local storage or use the default
+    return localStorage.getItem("selectedDay") || defaultDay;
+  });
 
   useFlashToast();
+
+  useEffect(() => {
+    // Save to local storage whenever selectedDay changes
+    localStorage.setItem("selectedDay", selectedDay);
+  }, [selectedDay]);
 
   const handleDate = (value) => {
     setSelectedDay(value); // Update state ketika pengguna memilih hari

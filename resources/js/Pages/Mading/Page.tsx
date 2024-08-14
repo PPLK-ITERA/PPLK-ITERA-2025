@@ -2,19 +2,28 @@ import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resource
 
 import { useEffect, useState } from "react";
 
-import { Head, Link, usePage } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import BuktiPengerjaan from "@/Components/mading/BuktiPengerjaan";
 import CompletedMessage from "@/Components/mading/CompletedMessage";
 import RiwayatTugas from "@/Components/mading/RiwayatTugas";
+// import { Button } from "@/Components/ui/button";
 import { Button } from "@/Components/ui/button";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/Components/ui/carousel";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/Components/ui/dialog";
 import { Toaster } from "@/Components/ui/toaster";
 import { toast } from "@/Components/ui/use-toast";
 
@@ -22,12 +31,12 @@ import { TaskSystem } from "@/lib/types/Mading";
 import { UserAuthProps } from "@/lib/types/User";
 
 import awan from "!assets/awan.png";
+import contohCover from "!assets/contoh_cover.png";
 import gunung from "!assets/gunung.png";
 import kotakajaib from "!assets/kotakajaib.png";
-import lampu_mading from "!assets/lampu-mading.png";
+import lampu from "!assets/mading/lampu.png";
 import pentung from "!assets/pentung.png";
 import piano from "!assets/piano.png";
-import podium_selesai from "!assets/podium-selesai.png";
 
 const SkeletonLoader = () => {
   return (
@@ -58,6 +67,16 @@ const SkeletonLoader = () => {
 };
 
 const Mading = ({ succes }: { succes?: string }) => {
+  const ketentuanUploadCover = [
+    "Ketua Kelompok mengupload cover jika persentase pada Day telah mencapai 100%",
+    "Cover harus berbentuk kolase foto, seperti kolase kumpulan tugas, kolase foto saat kalian bekerja dalam kelompok, dan sebagainya.",
+    "Desain cover bebas, sesuai dengan kreativitas kelompok.",
+    "Terdapat deskripsi singkat pada gambar cover",
+    "Kalian dapat membuat cover menggunakan Canva, Figma, atau aplikasi editing lain.",
+    "Pastikan ukuran cover adalah 700x1000 piksel.",
+    "Pastikan kalian membuat cover yang sesuai, tidak boleh mengandung SARA, serta harus sopan dan mencerminkan nilai-nilai yang positif.",
+    "Contoh cover seperti dibawah ini. Semangat Naramuda!",
+  ];
   type MyPage = PageProps<{
     auth: {
       user: UserAuthProps;
@@ -89,6 +108,7 @@ const Mading = ({ succes }: { succes?: string }) => {
 
   useEffect(() => {
     getCard();
+    console.log(auth.user);
   }, []);
 
   return (
@@ -107,7 +127,7 @@ const Mading = ({ succes }: { succes?: string }) => {
             Mading Tugas PPLK 2024
           </h2>
 
-          <div className="relative xl:max-h-[186px] md:max-w-[600px] xl:max-w-[800px] w-full h-full rounded-xl bg-history-completed bg-no-repeat bg-transparent bg-cover mt-14 p-3">
+          <div className="relative xl:max-h-[186px] md:max-w-[600px] xl:max-w-[800px] w-full h-full rounded-xl bg-history-completed bg-no-repeat bg-transparent bg-cover mt-14 p-4">
             <div className="left-4 top-4 border-jaffa-800 absolute p-2 border rounded-full shadow-sm">
               <img src={piano} alt="Piano" className="w-6 h-6" />
             </div>
@@ -127,7 +147,42 @@ const Mading = ({ succes }: { succes?: string }) => {
             </div>
           </div>
         </div>
+        {!!auth.user.isKetua ? (
+          <div className="md:mt-10 rounded bg-white border border-r-amber-100 shadow p-5 md:max-w-[800px]">
+            <h2 className="text-jaffa-700 font-montserrat text-xl font-bold">
+              Cek Ketentuan Cover Mading
+            </h2>
 
+            <div className="mt-5">
+              {ketentuanUploadCover.map((ketentuan, index) => (
+                <div key={index} className="flex gap-2">
+                  <p>{index + 1}.</p>
+                  <p>{ketentuan}</p>
+                </div>
+              ))}
+            </div>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="bg-jaffa-700 hover:bg-jaffa-700/90 mt-5 transition duration-200">
+                  Contoh Cover Mading
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px] h-fit">
+                <DialogHeader>
+                  <DialogTitle>Contoh Cover Mading</DialogTitle>
+                  <DialogDescription>
+                    Berikut adalah contoh cover mading yang baik dan benar.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="flex justify-center">
+                  <img src={contohCover} className="w-[85%]" />
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
+        ) : (
+          <></>
+        )}
         <div className="relative z-10 w-full">
           <div className="flex flex-col justify-center mt-24">
             <h2 className="font-avigea md:text-[25px] mx-auto md:max-w-[600px] xl:max-w-[800px] max-w-[280px] text-[20px] font-bold text-jaffa-800 text-center">
@@ -160,21 +215,17 @@ const Mading = ({ succes }: { succes?: string }) => {
               MADING TUGAS SELESAI
             </h2>
 
-            <img
-              src={lampu_mading}
-              alt="lampu"
-              className="absolute top-0 z-20"
-            />
+            <img src={lampu} alt="lampu" className="absolute top-0 z-10" />
 
             <img
-              src={podium_selesai}
+              src={kotakajaib}
               alt="kotakajaib"
-              className="md:mt-0 z-10 md:w-[40%] w-[50%] mx-auto"
+              className="xl:scale-100 md:mt-0 z-20 -mt-20 scale-50"
             />
 
             <a
               href={route("mading.preview")}
-              className={`z-20 xl:mt-32 cursor-pointer text-sm text-white bg-jaffa-800 hover:bg-jaffa-800 shadow-md inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 px-4 py-2`}
+              className={`z-20 xl:mt-32 -mt-10 cursor-pointer text-sm text-white bg-jaffa-800 hover:bg-jaffa-800 shadow-md inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 px-4 py-2`}
             >
               Lihat Preview Mading Kelompokmu
             </a>
