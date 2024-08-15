@@ -155,7 +155,7 @@ Route::middleware('auth')->group(function () {
          Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
             Route::get('data/all/{tugas_id}/{no_kelompok}/{status}', [TugasController::class, 'getAllTugas'])->name('data');
          });
-         Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+         Route::middleware(['checkRole:Daplok,Mentor,Admin,Mamet'])->group(function () {
             Route::put('/return', [TugasController::class, 'returnTugas'])->name('return');
             Route::put('/return-poster', [TugasController::class, 'returnPoster'])->name('return-poster');
 
