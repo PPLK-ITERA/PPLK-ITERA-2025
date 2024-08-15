@@ -53,33 +53,36 @@ class MadingController extends Controller
       $isSelesai = false;
 
       foreach ($tugass as $tugas) {
-         $hari = $tugas->hari;
-         // Initialize daily data if not already set
-         if (!isset($tugasCount[$hari])) {
-            $days[$hari] = $hari;
-            $tugasCount[$hari] = 0;
-            $memberCompletion[$hari] = 0;
-            $completionPercentage[$hari] = 0;
-            $cardOpen[$hari] = false;  // Assume card should be closed unless a condition below sets it to open
-            $posters[$hari] = null;
-         }
+         if ($tugas->updated_at < Carbon::now()) {
+            $hari = $tugas->hari;
 
-         $tugasCount[$hari] += 1;
-
-         // Evaluate task submissions
-         $userTaskSubmitted = false;  // Flag to check if the current user has submitted this task
-         foreach ($tugas->pengumpulanTugas as $pengumpulanTugas) {
-            if (!$pengumpulanTugas->isReturn) {
-               $memberCompletion[$hari] += 1;
+            // Initialize daily data if not already set
+            if (!isset($tugasCount[$hari])) {
+               $days[$hari] = $hari;
+               $tugasCount[$hari] = 0;
+               $memberCompletion[$hari] = 0;
+               $completionPercentage[$hari] = 0;
+               $cardOpen[$hari] = false;  // Assume card should be closed unless a condition below sets it to open
+               $posters[$hari] = null;
             }
-            if ($pengumpulanTugas->user_id == $userId && !$pengumpulanTugas->isReturn) {
-               $userTaskSubmitted = true;
-            }
-         }
 
-         // Set card to open only if the current user has not submitted their task
-         if (!$userTaskSubmitted) {
-            $cardOpen[$hari] = true;
+            $tugasCount[$hari] += 1;
+
+            // Evaluate task submissions
+            $userTaskSubmitted = false;  // Flag to check if the current user has submitted this task
+            foreach ($tugas->pengumpulanTugas as $pengumpulanTugas) {
+               if (!$pengumpulanTugas->isReturn) {
+                  $memberCompletion[$hari] += 1;
+               }
+               if ($pengumpulanTugas->user_id == $userId && !$pengumpulanTugas->isReturn) {
+                  $userTaskSubmitted = true;
+               }
+            }
+
+            // Set card to open only if the current user has not submitted their task
+            if (!$userTaskSubmitted) {
+               $cardOpen[$hari] = true;
+            }
          }
       }
 
