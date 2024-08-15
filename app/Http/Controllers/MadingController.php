@@ -53,7 +53,7 @@ class MadingController extends Controller
       $isSelesai = false;
 
       foreach ($tugass as $tugas) {
-         if ($tugas->updated_at < Carbon::now()) {
+         if ($tugas->updated_at <= Carbon::now()) {
             $hari = $tugas->hari;
 
             // Initialize daily data if not already set
