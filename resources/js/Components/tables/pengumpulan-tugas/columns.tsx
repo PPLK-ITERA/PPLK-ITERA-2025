@@ -2,10 +2,6 @@
 
 import { CellAction } from "./cell-action";
 import { ColumnDef } from "@tanstack/react-table";
-import { format } from "date-fns";
-import QRCode from "react-qr-code";
-
-import { UserMaba } from "@/lib/types/User";
 
 // Define the type for the user information
 interface User {
@@ -16,6 +12,7 @@ interface User {
 
 // Define the type for the task (tugas) information
 interface Tugas {
+  id: number;
   judul: string;
   jawaban: string; // Assuming 'jawaban' will always be a URL as a string
   isReturn: number; // Assuming 'isReturn' is an integer (0 or 1)
@@ -43,12 +40,6 @@ export const columns: ColumnDef<TaskEntry>[] = [
     cell: ({ row }) => row.original.user.name,
   },
   {
-    id: "nim",
-    accessorKey: "user.nim",
-    header: "NIM",
-    cell: ({ row }) => row.original.user.nim,
-  },
-  {
     id: "judul",
     accessorKey: "tugas.judul",
     header: "Nama Tugas",
@@ -62,9 +53,15 @@ export const columns: ColumnDef<TaskEntry>[] = [
   },
   {
     id: "status",
-    accessorKey: "status",
+    accessorKey: "tugas.status",
     header: "Status",
     cell: ({ row }) => row.original.status,
+  },
+  {
+    id: "catatan",
+    accessorKey: "tugas.catatan",
+    header: "Catatan",
+    cell: ({ row }) => row.original.tugas.catatan,
   },
   {
     id: "actions",

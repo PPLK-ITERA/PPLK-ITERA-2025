@@ -282,6 +282,7 @@ class TugasController extends Controller
                'nama_kelompok' => optional($user->kelompok)->nama_kelompok,
             ],
             'tugas' => [
+               'id' => optional($pengumpulan)->id,
                'judul' => $tugass->judul,
                'jawaban' => optional($pengumpulan)->jawaban,
                'isReturn' => optional($pengumpulan)->isReturn,
