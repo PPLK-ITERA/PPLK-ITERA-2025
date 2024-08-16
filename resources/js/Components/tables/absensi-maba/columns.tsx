@@ -26,6 +26,7 @@ export interface AbsensiMaba {
     ket_izin: string;
   };
   action: boolean;
+  date: string;
 }
 
 export const columns: ColumnDef<AbsensiMaba>[] = [

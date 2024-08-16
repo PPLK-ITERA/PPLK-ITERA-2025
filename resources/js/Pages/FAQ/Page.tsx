@@ -21,6 +21,7 @@ export default function Page({ response }) {
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
+      setCurrentPage(1);
     }, 500);
 
     return () => {

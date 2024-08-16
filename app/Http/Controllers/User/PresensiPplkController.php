@@ -30,6 +30,10 @@ class PresensiPplkController extends Controller
       // Check if the action is permissible based on the date and current time
       $action = Carbon::today()->toDateString() && $currentTime->between($start, $end);
 
+      if (Auth::user()->role_id === 3) {
+         $action = Carbon::today()->toDateString();
+      }
+
       $day = ['2024-08-12', '2024-08-15'];
       if (Auth::user()->role_id === 5) {
          if (!in_array(Carbon::today()->toDateString(), $day)) {
@@ -273,6 +277,8 @@ class PresensiPplkController extends Controller
       $action = $date === Carbon::today()->toDateString() && $currentTime->between($start, $end);
       if (Auth::user()->role_id === 5) {
          $action = $action && in_array($date, ['2024-08-12', '2024-08-15']);
+      } else if (Auth::user()->role_id === 3) {
+         $action = true;
       }
 
       if (!in_array(Auth::user()->role_id, [2, 4, 5, 3])) {
@@ -309,7 +315,7 @@ class PresensiPplkController extends Controller
       $attendances = $query->paginate($perPage);
 
       // Add the action boolean to the pagination result
-      $attendances->getCollection()->transform(function ($user) use ($action) {
+      $attendances->getCollection()->transform(function ($user) use ($action, $date) {
          $presence = optional($user->presensi)->first(); // Safe access
          return [
             'id' => $user->id,
@@ -328,7 +334,8 @@ class PresensiPplkController extends Controller
                'tanggal_presensi' => $presence ? $presence->tanggal_presensi : '-',
                'ket_izin' => ($presence && $presence->kehadiran === 'Izin') ? $presence->keterangan : '-',
             ],
-            'action' => $action // Include the action key here
+            'action' => $action, // Include the action key here
+            'date' => $date
          ];
       });
 
@@ -362,6 +369,7 @@ class PresensiPplkController extends Controller
             ]);
          }
       }
+
       if (in_array(Auth::user()->role_id, [2, 4])) {
          if (in_array(Carbon::today()->toDateString(), $day)) {
             return redirect()->back()->with('response', [
@@ -371,34 +379,57 @@ class PresensiPplkController extends Controller
          }
       }
 
+
       // Validation rules
       $validated = $request->validate([
          'id' => 'required|integer',
          'kehadiran' => 'required|in:Hadir,Izin',
-         'keterangan' => 'string|nullable'
+         'keterangan' => 'string|nullable',
+         'date' => 'string|nullable'
       ]);
 
       // Start transaction
       DB::beginTransaction();
       try {
-         // Check if there's a last attendance record for today
-         $lastPresensi = PresensiPplk::where('user_id', $validated['id'])
-            ->where('tanggal_presensi', Carbon::today())
-            ->latest()
-            ->first();
+         if (Auth::user()->role_id === 3) {
+            // Check if there's a last attendance record for today
+            $lastPresensi = PresensiPplk::where('user_id', $validated['id'])
+               ->where('tanggal_presensi', $validated['date'])
+               ->latest()
+               ->first();
 
-         // If there is a last attendance, delete it
-         if ($lastPresensi) {
-            $lastPresensi->delete();
+            // If there is a last attendance, delete it
+            if ($lastPresensi) {
+               $lastPresensi->delete();
+            }
+
+            // Create the new attendance record
+            $presensi = PresensiPplk::create([
+               'user_id' => $validated['id'],
+               'tanggal_presensi' => $validated['date'],
+               'kehadiran' => $validated['kehadiran'],
+               'keterangan' => $validated['keterangan']
+            ]);
+         } else {
+            // Check if there's a last attendance record for today
+            $lastPresensi = PresensiPplk::where('user_id', $validated['id'])
+               ->where('tanggal_presensi', Carbon::today())
+               ->latest()
+               ->first();
+
+            // If there is a last attendance, delete it
+            if ($lastPresensi) {
+               $lastPresensi->delete();
+            }
+
+            // Create the new attendance record
+            $presensi = PresensiPplk::create([
+               'user_id' => $validated['id'],
+               'tanggal_presensi' => Carbon::today(),
+               'kehadiran' => $validated['kehadiran'],
+               'keterangan' => $validated['keterangan']
+            ]);
          }
-
-         // Create the new attendance record
-         $presensi = PresensiPplk::create([
-            'user_id' => $validated['id'],
-            'tanggal_presensi' => Carbon::today(),
-            'kehadiran' => $validated['kehadiran'],
-            'keterangan' => $validated['keterangan']
-         ]);
          DB::commit();
       } catch (\Throwable $th) {
          // Rollback and return with error
@@ -420,9 +451,13 @@ class PresensiPplkController extends Controller
          'id' => 'required|integer',
          'kehadiran' => 'required|in:Hadir,Izin,Tidak Hadir',
          'keterangan' => 'string|nullable',
+         'date' => 'string|nullable'
       ]);
 
       $today = Carbon::today();
+      if (Auth::user()->role_id === 3) {
+         $today = $validated['date'];
+      }
       $presensi = PresensiPplk::where('user_id', $validated['id'])->where('tanggal_presensi', $today)->latest()->first();
 
       DB::beginTransaction();
