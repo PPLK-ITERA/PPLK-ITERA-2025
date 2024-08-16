@@ -8,6 +8,8 @@ import { Button } from "@/Components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Input } from "@/Components/ui/input";
 
+import { checkImageExists } from "@/lib/utils";
+
 type DataMaba = {
   message: string;
   nama: string;
@@ -16,7 +18,8 @@ type DataMaba = {
   pita: string;
   riwayat: string;
   profil_url: string;
-  qr_code: string;
+  qr_code: string | null;
+  kelompok: string;
 };
 
 function Presensi({ response }) {
@@ -24,6 +27,7 @@ function Presensi({ response }) {
   const [dataMaba, setDataMaba] = useState<DataMaba | null>(null);
   const [inputNim, setInputNim] = useState("");
   const [loading, setLoading] = useState(false);
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
 
   const handleSubmit = (e) => {
     setInputNim(e.target.value);
@@ -38,7 +42,7 @@ function Presensi({ response }) {
 
   const getDataMaba = async (nim: string) => {
     setLoading(true);
-    await fetch(route("dashboard.cui.detail", { nim: nim }))
+    await fetch(route("dashboard.cui.detail", { name: nim }))
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -58,6 +62,14 @@ function Presensi({ response }) {
       });
   };
 
+  const testImage = async () => {
+    const url = dataMaba?.profil_url; // Replace with your image URL
+    const defaultUrl =
+      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"; // Replace with your default image URL
+    const finalUrl = await checkImageExists(url, defaultUrl);
+    setImageSrc(finalUrl as string);
+  };
+
   const debounced = useDebouncedCallback(
     // function
     (value) => {
@@ -66,6 +78,10 @@ function Presensi({ response }) {
     // delay in ms
     500,
   );
+
+  useEffect(() => {
+    testImage();
+  }, []);
 
   // useEffect(() => {
   //     if (data.qr_code) {
@@ -90,7 +106,7 @@ function Presensi({ response }) {
         disabled={loading}
         value={inputNim}
         onChange={handleSubmit}
-        placeholder="Cari mahasiswa berdasarkan NIM. cth: "
+        placeholder="Cari Nama dan Kelompok. cth (Ujang 99)"
       />
 
       {error && <p className="font-bold text-red-600">{error}</p>}
@@ -101,8 +117,8 @@ function Presensi({ response }) {
           <div className="flex w-full gap-5 mt-3">
             <div>
               <img
-                className="w-48 h-64 mb-2 bg-cover rounded-lg"
-                src={dataMaba.profil_url}
+                className="bg-fill object-cover w-56 h-64 mb-2 rounded-lg"
+                src={imageSrc ?? ""}
                 alt="Foto profil"
               />
               {dataMaba.pita === "hijau" && (
@@ -128,17 +144,20 @@ function Presensi({ response }) {
               )}
             </div>
             <div>
-              <div className="ring-1 ring-black/30 rounded-xl  p-2 text-xl">
+              <div className="ring-1 ring-black/30 rounded-xl p-2 text-xl">
                 <p className="font-bold">{dataMaba.nama}</p>
                 <p>{dataMaba.prodi}</p>
                 <p>{dataMaba.nim}</p>
+                <p>{dataMaba.kelompok}</p>
               </div>
-              <Button
-                onClick={() => handlePresensi(dataMaba.qr_code)}
-                className="w-full mt-2"
-              >
-                Presensi
-              </Button>
+              {dataMaba.qr_code ? (
+                <Button
+                  onClick={() => handlePresensi(dataMaba.qr_code ?? "")}
+                  className="w-full mt-2"
+                >
+                  Presensi
+                </Button>
+              ) : null}
             </div>
           </div>
         </div>

@@ -33,3 +33,19 @@ export function generateRandomImage() {
   // generate random picsum photos with size between 200 and 300 randomly
   return `https://picsum.photos/${Math.max(Math.floor(Math.random() * 100) + 200, 300)}`;
 }
+
+export function checkImageExists(
+  url: string | null | undefined,
+  defaultUrl: string,
+) {
+  if (!url) {
+    return Promise.resolve(defaultUrl);
+  }
+
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(url);
+    img.onerror = () => resolve(defaultUrl);
+    img.src = url;
+  });
+}

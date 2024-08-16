@@ -1,7 +1,7 @@
 import { ResultCardNotFound } from "./result/ResultCardNotFound";
 import { format } from "date-fns";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, router, usePage } from "@inertiajs/react";
 
@@ -14,8 +14,12 @@ import { Card, CardContent } from "@/Components/ui/card";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
+import { checkImageExists } from "@/lib/utils";
+
 function DetailMaba({ auth, data, response, flash }) {
   const { toast } = useToast();
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+
   useEffect(() => {
     if (flash.response) {
       if (flash.response.status === 200) {
@@ -33,6 +37,18 @@ function DetailMaba({ auth, data, response, flash }) {
       }
     }
   }, [flash, toast]);
+
+  const testImage = async () => {
+    const url = data?.profil_url; // Replace with your image URL
+    const defaultUrl =
+      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"; // Replace with your default image URL
+    const finalUrl = await checkImageExists(url, defaultUrl);
+    setImageSrc(finalUrl as string);
+  };
+
+  useEffect(() => {
+    testImage();
+  }, []);
 
   return (
     <DashboardLayout user={auth.user}>
@@ -57,8 +73,11 @@ function DetailMaba({ auth, data, response, flash }) {
             <div>
               <div className="flex flex-col items-center justify-center w-full">
                 <img
-                  className="w-32 aspect-[3/4] border border-black rounded-xl"
-                  src={data.imgUrl}
+                  className="w-32 aspect-[3/4] border object-cover border-black rounded-xl"
+                  src={
+                    imageSrc ??
+                    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                  }
                   alt="Foto Maba"
                 />
                 <p className="mt-2 text-lg font-bold">{data.nama}</p>
@@ -116,7 +135,10 @@ function DetailMaba({ auth, data, response, flash }) {
                       <div
                         className={`${data.pita === "merah" ? "bg-red-600" : data.pita === "kuning" ? "bg-yellow-500" : "bg-green-500"} px-3 rounded-md text-white font-bold`}
                       >
-                        {data.pita.charAt(0).toUpperCase() + data.pita.slice(1)}
+                        {data.pita
+                          ? data.pita.charAt(0).toUpperCase() +
+                            data.pita.slice(1)
+                          : "-"}
                       </div>
                     </div>
                     <div className="flex justify-between">
@@ -138,7 +160,7 @@ function DetailMaba({ auth, data, response, flash }) {
               {data.status === "hadir" ? (
                 <Button
                   onClick={() =>
-                    router.get(route("dashboard.cui.izin", data.nim))
+                    router.get(route("dashboard.cui.izin", data.qr_code))
                   }
                   className="w-fit"
                 >
