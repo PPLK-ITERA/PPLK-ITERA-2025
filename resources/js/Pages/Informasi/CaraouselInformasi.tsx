@@ -5,8 +5,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/Components/ui/carousel";
 
 const CarouselInformasi = ({ children }) => {
@@ -25,7 +23,7 @@ const CarouselMisi = () => {
   return (
     <div className="sm:hidden px-6">
       <div className="text-center">
-        <p className="font-bold text-jaffa-600 font-avigea text-xl tracking-widest">
+        <p className="text-jaffa-600 font-avigea text-xl font-bold tracking-widest">
           MISI
         </p>
       </div>
@@ -35,7 +33,7 @@ const CarouselMisi = () => {
             <CarouselItem key={index}>
               <div>
                 <Card>
-                  <CardContent className="bg-jaffa-700 text-center rounded-lg pt-4">
+                  <CardContent className="bg-jaffa-700 pt-4 text-center rounded-lg">
                     <span className="text-white">{text}</span>
                   </CardContent>
                 </Card>
@@ -50,8 +48,8 @@ const CarouselMisi = () => {
 
 const CarouselPembina = () => {
   return (
-    <div className="mt-8 sm:mt-14 px-4 sm:px-0">
-      <div className="mx-auto max-w-2xl  ">
+    <div className="sm:mt-14 sm:px-0 px-4 mt-8">
+      <div className=" max-w-2xl mx-auto">
         <Carousel
           opts={{
             align: "start",
@@ -61,15 +59,15 @@ const CarouselPembina = () => {
           <CarouselContent>
             {Array.from({ length: 10 }).map((_, index) => (
               <CarouselItem key={index} className="md:basis-1/2 ">
-                <div className="p-1 flex justify-between">
+                <div className="flex justify-between p-1">
                   <Card className="xl:w-[80%] sm:w-[60%] rounded-lg mx-auto shadow-xl">
                     <CardContent className="aspect-square p-6 text-center">
                       <div>
-                        <p className="text-xl font-bold text-jaffa-600">
+                        <p className="text-jaffa-600 text-xl font-bold">
                           PEMBINA
                         </p>
                       </div>
-                      <div className="flex justify-center items-center  bg-slate-400 rounded-full my-4 sm:my-10">
+                      <div className="bg-slate-400 sm:my-10 flex items-center justify-center my-4 rounded-full">
                         <img src="/assets/logo-pplk-2024.png" alt="logo" />
                       </div>
                       <div>

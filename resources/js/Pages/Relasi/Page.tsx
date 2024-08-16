@@ -1,28 +1,11 @@
-import Autoplay from "embla-carousel-autoplay";
-import { CircularProgressbar } from "react-circular-progressbar";
-import { useSearchParams } from "react-router-dom";
-
 import React, { useEffect, useState } from "react";
 
-import { Head, Link, router } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
 
-import { ChevronLeft, UserPlus } from "lucide-react";
-
-import {
-  IconAdjustmentsHorizontal,
-  IconChevronLeft,
-  IconChevronRight,
-  IconFilter,
-  IconMoodAngry,
-  IconMoodSearch,
-  IconSearch,
-} from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
 import Footer from "@/Components/Footer";
-import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
-import GoldPodium from "@/Components/relasi/Podium";
-import ProfileCard from "@/Components/relasi/ProfileCard";
 import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import RelasiSearch from "@/Components/relasi/RelasiSearch";
 import SortDropdown from "@/Components/relasi/SortDropdown";
@@ -44,6 +27,7 @@ const sortOptions = [
 
 function Page() {
   useAos();
+
   const [sortLoading, setSortLoading] = useState(false);
   const [topLoading, setTopLoading] = useState(false);
   const [topFollowers, setTopFollowers] = useState<User[]>([]);

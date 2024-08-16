@@ -12,6 +12,7 @@ function Page({ response }: { response: any }) {
   const materis = response.data;
 
   useAos();
+
   return (
     <>
       <Head title="Materi" />

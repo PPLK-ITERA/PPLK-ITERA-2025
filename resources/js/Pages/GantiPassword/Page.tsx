@@ -11,36 +11,10 @@ import { Label } from "@/Components/ui/label";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
-interface flashresponse extends PageProps {
-  flash: {
-    response: {
-      status: number;
-      message: string;
-    };
-  };
-}
+import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 export default function Page({ auth }) {
-  const { toast } = useToast();
-  const { flash } = usePage<flashresponse>().props;
-
-  useEffect(() => {
-    if (flash.response) {
-      if (flash.response.status === 200) {
-        toast({
-          title: "Berhasil",
-          description: flash.response.message,
-          variant: "default",
-        });
-      } else {
-        toast({
-          title: "Gagal",
-          description: flash.response.message,
-          variant: "destructive",
-        });
-      }
-    }
-  }, [flash, toast]);
+  useFlashToast();
 
   if (!auth.user) {
     return <Error status={404} />;
