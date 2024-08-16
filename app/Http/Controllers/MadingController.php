@@ -179,9 +179,7 @@ class MadingController extends Controller
       try {
          foreach ($validated['tugas_id'] as $key => $tugasId) {
             if (isset($validated['jawaban'][$key])) {
-               $tugas = Tugas::find($tugasId)->where('tipe_link', 'linkedin')->first();
-
-               if ($tugas) {
+               if (Tugas::find($tugasId)->where('tipe_link', 'linkedin')->exists()) {
                   Auth::user()->update(['linkedin_url' => $validated['jawaban'][$key]]);
                }
 
