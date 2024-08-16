@@ -329,9 +329,9 @@ Route::middleware('auth')->group(function () {
    Route::get('dashboard/cui/data', [PresensiCuiController::class, 'getLogBook'])
       ->name('dashboard.cui.data');
 
-   Route::get('dashboard/cui/{nim}', [PresensiCuiController::class, 'getMabaByNim'])->name('dashboard.cui.detail');
+   Route::get('dashboard/cui/{name}', [PresensiCuiController::class, 'getMabaByName'])->name('dashboard.cui.detail');
 
-   Route::get('dashboard/cui/izin/{nim}', [PresensiCuiController::class, 'indexIzin'])
+   Route::get('dashboard/cui/izin/{qrcode}', [PresensiCuiController::class, 'indexIzin'])
       ->name('dashboard.cui.izin');
 
 

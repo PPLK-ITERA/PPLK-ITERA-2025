@@ -165,15 +165,23 @@ class MadingController extends Controller
 
    public function storeTugas(Request $request)
    {
+      $request->merge([
+         'jawaban' => array_filter($request->input('jawaban')),
+      ]);
+
+
       $validated = $request->validate([
          'tugas_id.*' => 'required|integer',
-         'jawaban.*' => 'required|url',
+         'jawaban.*' => 'url',
       ]);
 
       $isPengumpulanTugasExist = PengumpulanTugas::whereIn('tugas_id', $validated['tugas_id'])->where('user_id', Auth::id())->where('isReturn', false)->exists();
 
       if ($isPengumpulanTugasExist) {
-         return redirect()->route('mading')->with(['message' => 'Task already submitted']);
+         return redirect()->route('mading')->with([
+            'response' =>
+               ['message' => 'Task already submitted']
+         ]);
       }
 
       $userId = Auth::id();
@@ -182,11 +190,16 @@ class MadingController extends Controller
       try {
          foreach ($validated['tugas_id'] as $key => $tugasId) {
             if (isset($validated['jawaban'][$key])) {
-               $tugas = Tugas::find($tugasId)->where('tipe_link', 'linkedin')->first();
+               // check if tugas tipe_link is linkedin, then set linkedin_url in user
 
-               if ($tugas) {
+               if (Tugas::find($tugasId)->tipe_link == 'linkedin') {
                   Auth::user()->update(['linkedin_url' => $validated['jawaban'][$key]]);
                }
+
+
+               // if (Tugas::find($tugasId)->where('tipe_link', 'linkedin')->exists()) {
+               //    Auth::user()->update(['linkedin_url' => $validated['jawaban'][$key]]);
+               // }
 
                PengumpulanTugas::updateOrCreate([
                   'user_id' => $userId,

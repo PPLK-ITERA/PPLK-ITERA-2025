@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { router, useForm, usePage } from "@inertiajs/react";
 
@@ -16,6 +16,8 @@ import { Separator } from "@/Components/ui/separator";
 import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
+import { checkImageExists } from "@/lib/utils";
+
 const breadcrumbItems = [
   { title: "Dashboard", link: "/dashboard" },
   { title: "CUI", link: "/dashboard/cui" },
@@ -25,16 +27,16 @@ const breadcrumbItems = [
 function TextBox({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex items-center gap-2">
-      <p className="outline outline-1 py-1 px-2 rounded-full">{label}</p>
-      <p className="outline outline-1 py-1 px-2 rounded-full">{value}</p>
+      <p className="outline outline-1 px-2 py-1 rounded-full">{label}</p>
+      <p className="outline outline-1 px-2 py-1 rounded-full">{value}</p>
     </div>
   );
 }
 
 function DateTimeBox({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex items-center gap-2 ">
-      <div className="bg-gray-200 w-40 py-1 px-2 outline outline-1 outline-black/30 rounded-md font-medium">
+    <div className=" flex items-center gap-2">
+      <div className="outline outline-1 outline-black/30 w-40 px-2 py-1 font-medium bg-gray-200 rounded-md">
         {label}
       </div>
       {value ? format(value, "dd/MM/yyyy HH:mm") : "-"}
@@ -42,26 +44,30 @@ function DateTimeBox({ value, label }: { value: string; label: string }) {
   );
 }
 
-function StatusPita({ pita }: { pita: string }) {
-  if (pita === "hijau") {
-    return (
-      <div className="bg-green-500 flex justify-center items-center p-2 rounded-lg">
-        <p className="font-bold text-lg text-white">Pita Hijau</p>
+function StatusPita({ pita, riwayat }: { pita: string; riwayat: string }) {
+  return (
+    <>
+      {pita === "hijau" ? (
+        <div className="flex items-center justify-center p-2 bg-green-500 rounded-lg">
+          <p className="text-lg font-bold text-white">Pita Hijau</p>
+        </div>
+      ) : pita === "kuning" ? (
+        <div className="flex items-center justify-center p-2 bg-yellow-500 rounded-lg">
+          <p className="text-lg font-bold text-white">Pita Kuning</p>
+        </div>
+      ) : (
+        <div className="flex items-center justify-center p-2 bg-red-500 rounded-lg">
+          <p className="text-lg font-bold text-white">Pita Merah</p>
+        </div>
+      )}{" "}
+      <div className=" flex items-center gap-2">
+        <div className="outline outline-1 outline-black/30 w-40 px-2 py-1 font-medium bg-gray-200 rounded-md">
+          Riwayat Penyakit
+        </div>
+        {riwayat}
       </div>
-    );
-  } else if (pita === "kuning") {
-    return (
-      <div className="bg-yellow-500 flex justify-center items-center p-2 rounded-lg">
-        <p className="font-bold text-lg text-white">Pita Kuning</p>
-      </div>
-    );
-  } else {
-    return (
-      <div className="bg-red-500 flex justify-center items-center p-2 rounded-lg">
-        <p className="font-bold text-lg text-white">Pita Merah</p>
-      </div>
-    );
-  }
+    </>
+  );
 }
 
 function Page({ auth, data, flash }) {
@@ -75,6 +81,15 @@ function Page({ auth, data, flash }) {
     ket_izin: "",
   });
   const { toast } = useToast();
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+
+  const testImage = async () => {
+    const url = data.photo_profile_url; // Replace with your image URL
+    const defaultUrl =
+      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"; // Replace with your default image URL
+    const finalUrl = await checkImageExists(url, defaultUrl);
+    setImageSrc(finalUrl as string);
+  };
 
   React.useEffect(() => {
     if (flash.response) {
@@ -91,8 +106,13 @@ function Page({ auth, data, flash }) {
           variant: "destructive",
         });
       }
+      setFormData("ket_izin", "");
     }
   }, [flash, toast]);
+
+  useEffect(() => {
+    testImage();
+  }, []);
 
   const handleIzin = () => {
     post(route("cui.izin", data.qr_code));
@@ -119,26 +139,29 @@ function Page({ auth, data, flash }) {
         >
           <ArrowLeft className="mr-2" /> Kembali
         </Button>
-        <div className="flex flex-col md:flex-row md:items-start justify-center items-center gap-4">
+        <div className="md:flex-row md:items-start flex flex-col items-center justify-center gap-4">
           <img
-            className="w-64 h-96 rounded-lg drop-shadow-lg"
-            src={data.photo_profile_url}
+            className="h-96 drop-shadow-lg object-cover w-64 rounded-lg"
+            src={
+              imageSrc ??
+              "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+            }
             alt="Foto Profil"
           />
-          <div className="flex flex-col w-full gap-2 ml-3 outline rounded-md outline-1 outline-black/30 p-2">
-            <p className="font-bold text-lg">Deskripsi</p>
+          <div className="outline outline-1 outline-black/30 flex flex-col w-full gap-2 p-2 ml-3 rounded-md">
+            <p className="text-lg font-bold">Deskripsi</p>
             <TextBox value={data.nama} label="Nama" />
             <TextBox value={data.nim} label="NIM" />
             <TextBox value={data.prodi} label="Prodi" />
             <Separator />
 
             <div className="flex items-center gap-2">
-              <p className="font-bold text-lg">Status</p>
-              <p className="uppercase outline px-2 rounded-md bg-slate-200 font-medium outline-black/30 outline-1">
+              <p className="text-lg font-bold">Status</p>
+              <p className="outline bg-slate-200 outline-black/30 outline-1 px-2 font-medium uppercase rounded-md">
                 {data.status}
               </p>
             </div>
-            <StatusPita pita={data.pita} />
+            <StatusPita pita={data.pita} riwayat={data.riwayat} />
             <DateTimeBox label={"Waktu Hadir"} value={data.waktu_hadir} />
             <DateTimeBox label={"Waktu Izin"} value={data.waktu_izin} />
             <DateTimeBox
@@ -147,8 +170,8 @@ function Page({ auth, data, flash }) {
             />
           </div>
 
-          <div className="flex flex-col w-full gap-2 ml-3 outline rounded-md outline-1 outline-black/30 p-2">
-            <p className="font-bold text-lg">Atur Izin</p>
+          <div className="outline outline-1 outline-black/30 flex flex-col w-full gap-2 p-2 ml-3 rounded-md">
+            <p className="text-lg font-bold">Atur Izin</p>
             <Separator />
             {data.status === "hadir" ? (
               <div className="flex flex-col gap-2">

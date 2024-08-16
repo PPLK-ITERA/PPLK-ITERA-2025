@@ -286,7 +286,6 @@ return array(
     'Database\\Seeders\\PengumpulanTugasSeeder' => $baseDir . '/database/seeders/PengumpulanTugasSeeder.php',
     'Database\\Seeders\\PenyakitSeeder' => $baseDir . '/database/seeders/PenyakitSeeder.php',
     'Database\\Seeders\\PilarSeeder' => $baseDir . '/database/seeders/PilarSeeder.php',
-    'Database\\Seeders\\PresensiPplkSeeder' => $baseDir . '/database/seeders/PresensiPplkSeeder.php',
     'Database\\Seeders\\ProdiSeeder' => $baseDir . '/database/seeders/ProdiSeeder.php',
     'Database\\Seeders\\QrcodeSeeder' => $baseDir . '/database/seeders/QrcodeSeeder.php',
     'Database\\Seeders\\QuizActivitySeeder' => $baseDir . '/database/seeders/QuizActivitySeeder.php',

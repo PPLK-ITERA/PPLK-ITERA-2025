@@ -2838,7 +2838,7 @@ export const programStudies: ProgramStudi[] = [
     tiktokUrl: "",
     hmpsName: "Himpunan Mahasiswa Sains Data Adyatama",
     hmpsImageUrl: logohmsd,
-    hmpsAcronym: "HMSD",
+    hmpsAcronym: "HMSD Adyatama",
     hmpsDescrption:
       "Himpunan Mahasiswa Sains Data adalah organisasi di bawah naungan prodi sains data yang didirikan pada tanggal 22 Februari 2022. HMSD Adyatama memiliki 5 Departemen yaitu Pengembangan Sumber Daya Anggota (PSDA), Internal, Eksternal, Media Kreatif (MedKraf), dan Storage Sains Data (SSD).",
     kahim: "Kharisma Gumilang",

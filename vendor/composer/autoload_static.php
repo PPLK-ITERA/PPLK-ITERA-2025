@@ -892,7 +892,6 @@ class ComposerStaticInit0f91a2c638c357aebf0b9b0ce9fe8e1e
         'Database\\Seeders\\PengumpulanTugasSeeder' => __DIR__ . '/../..' . '/database/seeders/PengumpulanTugasSeeder.php',
         'Database\\Seeders\\PenyakitSeeder' => __DIR__ . '/../..' . '/database/seeders/PenyakitSeeder.php',
         'Database\\Seeders\\PilarSeeder' => __DIR__ . '/../..' . '/database/seeders/PilarSeeder.php',
-        'Database\\Seeders\\PresensiPplkSeeder' => __DIR__ . '/../..' . '/database/seeders/PresensiPplkSeeder.php',
         'Database\\Seeders\\ProdiSeeder' => __DIR__ . '/../..' . '/database/seeders/ProdiSeeder.php',
         'Database\\Seeders\\QrcodeSeeder' => __DIR__ . '/../..' . '/database/seeders/QrcodeSeeder.php',
         'Database\\Seeders\\QuizActivitySeeder' => __DIR__ . '/../..' . '/database/seeders/QuizActivitySeeder.php',

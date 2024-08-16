@@ -26,14 +26,7 @@ export default function Page({ id }) {
 
   const { toast } = useToast();
 
-  const {
-    data: formData,
-    setData: setFormData,
-    post,
-    put,
-    processing,
-    errors,
-  } = useForm<{
+  const { data: formData, setData: setFormData } = useForm<{
     tugas_id: number[];
     jawaban: string[];
   }>({
@@ -41,29 +34,10 @@ export default function Page({ id }) {
     jawaban: [],
   });
 
-  // Update tugas_id and jawaban arrays
-  const addOrUpdateTugasId = (index, value) => {
-    const newTugasId = [...formData.tugas_id];
-    newTugasId[index] = value;
-    setFormData("tugas_id", newTugasId);
-  };
-
   const addOrUpdateJawaban = (index, value) => {
     const newJawaban = [...formData.jawaban];
     newJawaban[index] = value;
     setFormData("jawaban", newJawaban);
-  };
-
-  // Function to remove a value from tugas_id array
-  const removeTugasId = (index) => {
-    const newTugasId = formData.tugas_id.filter((_, i) => i !== index); // Filter out the value
-    setFormData("tugas_id", newTugasId); // Update the form data
-  };
-
-  // Function to remove a value from jawaban array
-  const removeJawaban = (index) => {
-    const newJawaban = formData.jawaban.filter((_, i) => i !== index); // Filter out the value
-    setFormData("jawaban", newJawaban); // Update the form data
   };
 
   const getTugasData = async () => {
@@ -235,6 +209,11 @@ export default function Page({ id }) {
 
       if (!response.ok) {
         throw new Error("HTTP status " + response.status);
+      } else {
+        toast({
+          title: "Berhasil",
+          description: "Tugas berhasil disubmit",
+        });
       }
 
       router.replace(route("mading"));
@@ -268,14 +247,14 @@ export default function Page({ id }) {
                 Pengumpulan Tugas Day - {id}
               </h2>
 
-              <div className="flex flex-col mt-10 gap-6">
+              <div className="flex flex-col gap-6 mt-10">
                 {tugasData?.tugas.map((tugas, index) => (
                   <div className="flex flex-col" key={index}>
                     <Label
                       htmlFor="input-tugas"
-                      className="text-left flex md:flex-row flex-col gap-1 justify-between"
+                      className="md:flex-row flex flex-col justify-between gap-1 text-left"
                     >
-                      <p className="capitalize font-bold">
+                      <p className="font-bold capitalize">
                         Link pengumpulan tugas {tugas.judul}
                       </p>
                       <p className="text-red-600">

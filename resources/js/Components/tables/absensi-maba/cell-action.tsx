@@ -40,6 +40,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     id: data.id,
     kehadiran: "",
     keterangan: "",
+    date: data.date,
   });
 
   const handleIzin = () => {

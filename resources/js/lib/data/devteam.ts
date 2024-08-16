@@ -1,8 +1,10 @@
 // import bangkiki from "!assets/dev/bangkiki.jpg";
 // import linux from "!assets/dev/linux.jpg";
+import abit from "!assets/dev-team/abit.png";
 import akhdan from "!assets/dev-team/akhdan.png";
 import almajulio from "!assets/dev-team/almajulio.png";
 import apri from "!assets/dev-team/apri.png";
+import arip from "!assets/dev-team/arip.png";
 import aul from "!assets/dev-team/aul.png";
 import aulia_nur from "!assets/dev-team/aulia-nur.png";
 import ayu_bendahara from "!assets/dev-team/ayu-bendahara.png";
@@ -24,6 +26,7 @@ import irma from "!assets/dev-team/irma.png";
 import joshua from "!assets/dev-team/joshua.png";
 import khusnun from "!assets/dev-team/khusnun.png";
 import linux from "!assets/dev-team/linux.png";
+import muharyan from "!assets/dev-team/muharyan.png";
 import nate from "!assets/dev-team/nate.png";
 import nayla from "!assets/dev-team/nayla.png";
 import rachel from "!assets/dev-team/rachel.png";
@@ -35,6 +38,7 @@ import stevanus from "!assets/dev-team/stevanus.png";
 import virdio from "!assets/dev-team/virdio.png";
 import yola from "!assets/dev-team/yola.png";
 import yusuf from "!assets/dev-team/yusuf.png";
+import zefanya from "!assets/dev-team/zefanya.png";
 import zidan from "!assets/dev-team/zidan.png";
 
 export const devTeam = {
@@ -144,7 +148,7 @@ export const devTeam = {
       instagram: "abitahmad",
       role: "Staff VVD",
       quote: "Di Ancika MC-nya Dilan, kalo ini Bitlan",
-      photo: "https://picsum.photos/548",
+      photo: abit,
     },
   ],
   frontend: [
@@ -167,7 +171,7 @@ export const devTeam = {
       instagram: "arriefrahman_",
       role: "Staff Front-End",
       quote: "Pucuk Ubi Pucuk Kangkung, .. itu aja",
-      photo: "https://picsum.photos/534",
+      photo: arip,
     },
     {
       name: "Machzaul Harmansyah",
@@ -188,7 +192,7 @@ export const devTeam = {
       instagram: "zefanyaadt",
       role: "Staff Front-End",
       quote: "Mau Sprei Geratis",
-      photo: "https://picsum.photos/522",
+      photo: zefanya,
     },
     {
       name: "Edu Juanda Pratama",
@@ -197,6 +201,13 @@ export const devTeam = {
       quote:
         "Seorang web developer adalah seorang seniman yang menyulap kode menjadi pengalaman, dan setiap bug adalah kesempatan untuk membuat karya seni yang lebih baik",
       photo: edu,
+    },
+    {
+      name: "Muharyan Syaifullah",
+      instagram: "mhryn__",
+      role: "Staff Front-End",
+      quote: "Remember why u started",
+      photo: muharyan,
     },
   ],
   backend: [
