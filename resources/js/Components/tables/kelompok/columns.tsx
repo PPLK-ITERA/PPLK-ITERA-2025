@@ -1,7 +1,5 @@
-"use client";
-
-import { CellAction } from "./cell-action";
 import { DetailPilar } from "./DetailPilar";
+import { CellAction } from "./cell-action";
 import { ColumnDef } from "@tanstack/react-table";
 import { format } from "date-fns";
 import QRCode from "react-qr-code";

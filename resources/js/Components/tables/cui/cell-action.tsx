@@ -1,6 +1,3 @@
-"use client";
-
-// import { useRouter } from "next/navigation";
 import { router } from "@inertiajs/react";
 
 import { Button } from "@/Components/ui/button";

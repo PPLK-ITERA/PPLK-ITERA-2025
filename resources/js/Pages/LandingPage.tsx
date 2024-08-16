@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { Head, usePage } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
@@ -14,13 +14,11 @@ import VideoSection from "@/Components/landing-page/VideoSection";
 import What from "@/Components/landing-page/What";
 
 import { useAos } from "@/lib/hooks/useAos";
-import { UserAuthProps } from "@/lib/types/User";
 
 import elang from "!assets/elang-hero.png";
 import overlay_box from "!assets/overlay-box.png";
 import overlay_earth from "!assets/overlay-earth.png";
 import pillar_brown2 from "!assets/pillar-brown2.png";
-import pillar_brown from "!assets/pillar-brown.png";
 import sponsor_overlay from "!assets/sponsor-overlay.png";
 
 export default function LandingPage() {

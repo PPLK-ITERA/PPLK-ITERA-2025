@@ -9,12 +9,9 @@ import { IconBrandInstagram, IconBrandLinkedin } from "@tabler/icons-react";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
-import { useToast } from "@/Components/ui/use-toast";
 
 const ProfilKamu = ({ props }: { props: UserResponse }) => {
-  const { toast } = useToast();
-
-  const { data, setData, put, processing, errors } = useForm({
+  const { data, setData, put } = useForm({
     linkedinURL: props.linkedin_url || "",
     instagramURL: props.instagram_url || "",
     bio: props.bio || "",
@@ -36,6 +33,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
         >
           Nama Lengkap
         </label>
+
         <input
           type="text"
           className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border bg-gray-200 border-gray-400 font-montserrat text-[16px]"

@@ -1,5 +1,3 @@
-"use client";
-
 import { columns } from "./columns";
 
 import { DataTable } from "@/Components/ui/data-table";

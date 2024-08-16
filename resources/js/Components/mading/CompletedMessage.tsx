@@ -4,7 +4,6 @@ import bingkai from "!assets/mading/bingkai.png";
 import historyCompletedMobile from "!assets/mading/history-completed-mobile.png";
 import historyCompleted from "!assets/mading/history-completed.png";
 import jampasir from "!assets/mading/jampasir.png";
-import kompas from "!assets/mading/kompas.png";
 
 function CompletedMessage() {
   return (

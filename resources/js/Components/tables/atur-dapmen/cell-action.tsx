@@ -1,9 +1,7 @@
-"use client";
-
 import { DataDapmen } from "./columns";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
-import { Link, router, useForm, usePage } from "@inertiajs/react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 
 import {
   AlertDialog,
@@ -26,14 +24,6 @@ interface CellActionProps {
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-  const { delete: deleteUser } = useForm({
-    id: data.id,
-  });
-
-  const handleDelete = () => {
-    deleteUser(route("dashboard.user.destroy"));
-  };
-
   type MyPage = PageProps<{
     auth: {
       user: UserAuthProps;
@@ -41,6 +31,14 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   }>;
 
   const { auth } = usePage<MyPage>().props;
+
+  const { delete: deleteUser } = useForm({
+    id: data.id,
+  });
+
+  const handleDelete = () => {
+    deleteUser(route("dashboard.user.destroy"));
+  };
 
   return (
     <>

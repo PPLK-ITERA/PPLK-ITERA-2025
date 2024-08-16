@@ -1,5 +1,3 @@
-"use client";
-
 import { DialogClose } from "@radix-ui/react-dialog";
 
 import { FormEvent, useEffect, useState } from "react";

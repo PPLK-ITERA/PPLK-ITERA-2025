@@ -8,7 +8,6 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 
 import PaginationFAQ from "@/Components/PaginationFAQ";
 import Header from "@/Components/informasi/prodi/Header";
-import { Button } from "@/Components/ui/button";
 import { Card } from "@/Components/ui/card";
 
 import { FAKULTAS_DATA } from "@/lib/data/fakultas";
@@ -22,10 +21,11 @@ import patternBrown from "!assets/pattern-brown.png";
 
 export default function Page() {
   useAos();
+  
   const itemsPerPage = 8;
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [selectedFakultas, setSelectedFakultas] = React.useState(
+  const [selectedFakultas, setSelectedFakultas] = useState(
     localStorage.getItem("selectedFakultas") || "fakultas-sains",
   );
 

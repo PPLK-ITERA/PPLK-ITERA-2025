@@ -1,4 +1,3 @@
-import { Card, CardContent } from "../ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -6,9 +5,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./CarouselMateri";
-import { DialogMateri } from "./DialogMateri";
 
 import { useState } from "react";
+
+import { Card, CardContent } from "@/Components/ui/card";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { Materi } from "@/lib/types/Materi";
@@ -44,7 +44,11 @@ export function CarouselMateri({ materis }: { materis: Materi[] }) {
           >
             <Card className="h-full rounded-none">
               <CardContent className="overflow-hidden relative flex flex-col h-full p-0">
-                <div data-aos="slide-right" data-aos-duration="1500" className="absolute top-1 left-0 w-24 text-sm text-white p-1 line-clamp-1 bg-gradient-to-r from-jaffa-500 to-jaffa-700 z-10 rounded-r-full font-semibold">
+                <div
+                  data-aos="slide-right"
+                  data-aos-duration="1500"
+                  className="absolute top-1 left-0 w-24 text-sm text-white p-1 line-clamp-1 bg-gradient-to-r from-jaffa-500 to-jaffa-700 z-10 rounded-r-full font-semibold"
+                >
                   Hari ke-{materi.hari}
                 </div>
                 <div className="h-60 w-full bg-pattern-black">

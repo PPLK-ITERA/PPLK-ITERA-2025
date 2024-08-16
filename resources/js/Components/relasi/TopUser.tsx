@@ -1,11 +1,9 @@
-import GoldPodium from "./Podium";
 import Podium from "./Podium";
 
 import React, { useEffect, useState } from "react";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
-import { generateRandomImage } from "@/lib/utils";
 
 import crown from "!assets/svg/crown.svg";
 

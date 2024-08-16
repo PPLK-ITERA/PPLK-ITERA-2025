@@ -1,5 +1,3 @@
-"use client";
-
 import { AbsensiMaba } from "./columns";
 
 import { router, useForm } from "@inertiajs/react";
@@ -28,7 +26,6 @@ import {
 } from "@/Components/ui/dialog";
 import { Label } from "@/Components/ui/label";
 import { Textarea } from "@/Components/ui/textarea";
-import { Toaster } from "@/Components/ui/toaster";
 import { toast } from "@/Components/ui/use-toast";
 
 interface CellActionProps {
@@ -47,21 +44,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     router.post(
       route("dashboard.presensi.izin", dataFormAbsensi.id),
       { ...dataFormAbsensi, kehadiran: "Izin" },
-      // {
-      //   onSuccess: (message) => {
-      //     toast({
-      //       title: "Berhasil",
-      //       description: `${message}`,
-      //     });
-      //   },
-      //   onError: (message) => {
-      //     toast({
-      //       title: "Gagal",
-      //       description: `${message}`,
-      //       variant: "destructive",
-      //     });
-      //   },
-      // },
     );
   };
 
@@ -78,21 +60,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     router.post(
       route("dashboard.presensi.absen"),
       { ...dataFormAbsensi, kehadiran: "Hadir" },
-      // {
-      //   onSuccess: (message) => {
-      //     toast({
-      //       title: "Berhasil",
-      //       description: `${message}`,
-      //     });
-      //   },
-      //   onError: (message) => {
-      //     toast({
-      //       title: "Gagal",
-      //       description: `${message}`,
-      //       variant: "destructive",
-      //     });
-      //   },
-      // },
     );
   };
 

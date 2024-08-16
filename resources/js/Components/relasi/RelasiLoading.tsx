@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IconLoader, IconLoader2 } from "@tabler/icons-react";
+import { IconLoader2 } from "@tabler/icons-react";
 
 type Props = { className?: string };
 

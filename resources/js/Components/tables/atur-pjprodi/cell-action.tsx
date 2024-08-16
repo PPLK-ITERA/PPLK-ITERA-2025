@@ -1,5 +1,3 @@
-"use client";
-
 import { DataPJProdi } from "./columns";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 

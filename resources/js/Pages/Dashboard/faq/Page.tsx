@@ -2,11 +2,10 @@ import React from "react";
 
 import { useForm } from "@inertiajs/react";
 
-import { IconPlus, IconSearch } from "@tabler/icons-react";
+import { IconPlus } from "@tabler/icons-react";
 
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-import { FAQTable } from "@/Components/dashboard/faq/FAQTable";
 import { FAQClient } from "@/Components/tables/faq/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
@@ -28,9 +27,7 @@ const breadcrumbItems = [
   { title: "Faq", link: "/dashboard/faq" },
 ];
 
-export default function Page({ auth, response }) {
-  // const dataFAQS = response.data;
-
+export default function Page({ auth }) {
   const { data, setData, post, processing, errors } = useForm({
     pertanyaan: "",
     jawaban: "",
@@ -115,7 +112,6 @@ export default function Page({ auth, response }) {
         </DialogContent>
       </Dialog>
 
-      {/* <FAQTable dataFAQS={dataFAQS} /> */}
       <FAQClient />
     </DashboardLayout>
   );
