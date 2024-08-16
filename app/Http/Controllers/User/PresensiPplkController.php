@@ -275,6 +275,7 @@ class PresensiPplkController extends Controller
 
       // Check if the action is permissible based on the date and current time
       $action = $date === Carbon::today()->toDateString() && $currentTime->between($start, $end);
+
       if (Auth::user()->role_id === 5) {
          $action = $action && in_array($date, ['2024-08-12', '2024-08-15']);
       } else if (Auth::user()->role_id === 3) {
