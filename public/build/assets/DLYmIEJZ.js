@@ -1,1 +1,0 @@
-import{j as t}from"./DHzcBOCv.js";const s=({title:s,description:e})=>t.jsxs("div",{children:[t.jsx("h2",{className:"text-3xl font-bold tracking-tight",children:s}),t.jsx("p",{className:"text-muted-foreground mt-1 text-sm",children:e})]});export{s as H};

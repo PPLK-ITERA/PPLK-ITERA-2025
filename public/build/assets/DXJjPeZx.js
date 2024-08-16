@@ -1,7 +1,0 @@
-import{r as a,j as e}from"./DHzcBOCv.js";import{B as s}from"./D1zTt9zJ.js";import{I as t}from"./DsrOXr0n.js";import{c as r}from"./DJztuVAY.js";import{P as o}from"./S6Wsq9pj.js";
-/**
- * @license @tabler/icons-react v3.11.0 - MIT
- *
- * This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory of this source tree.
- */var n=r("outline","search","IconSearch",[["path",{d:"M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0",key:"svg-0"}],["path",{d:"M21 21l-6 -6",key:"svg-1"}]]);function l({className:r,onsubmit:o}){const[l,m]=a.useState("");return e.jsxs("form",{className:`${r} w-full`,onSubmit:a=>{a.preventDefault(),o(l)},children:[e.jsx(t,{type:"text",placeholder:"Cari Nusantara Muda yang Lain",className:"p-4 border rounded-[10px]",onChange:a=>m(a.target.value)}),e.jsx(s,{type:"submit",className:"absolute top-1/2 -translate-y-1/2 right-0 bg-gradient-to-tr from-[#864D0D] to-[#A6680C] rounded-r-lg rounded-l-none",children:e.jsx(n,{className:"w-4 h-4"})})]})}function m({users:a,className:s}){return e.jsx("div",{className:`flex flex-wrap max-w-7xl mx-auto place-content-center place-items-center gap-4 mt-8 ${s}`,children:a.length>0&&a.slice(0,10).map(((a,s)=>e.jsx(o,{className:"h-72 md:h-72 w-36 md:w-44",user:a})))})}export{l as R,m as U};
