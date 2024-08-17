@@ -1,6 +1,3 @@
-import { tree } from "next/dist/build/templates/app-page";
-import { title } from "process";
-
 import React from "react";
 import { useEffect, useState } from "react";
 
@@ -17,7 +14,6 @@ import Sponsorship from "@/Components/landing-page/Sponsorship";
 import VideoSection from "@/Components/landing-page/VideoSection";
 import What from "@/Components/landing-page/What";
 import { Button } from "@/Components/ui/button";
-import { Card, CardContent } from "@/Components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -25,25 +21,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/Components/ui/carousel";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/Components/ui/dialog";
-import { Input } from "@/Components/ui/input";
-import { Label } from "@/Components/ui/label";
+import { Dialog, DialogContent } from "@/Components/ui/dialog";
 
 import { useAos } from "@/lib/hooks/useAos";
 
-import alert from "!assets/alert.png";
+import bronzemedal from "!assets/bronzemedal.png";
 import elang from "!assets/elang-hero.png";
+import goldmedal from "!assets/goldmedal.png";
 import overlay_box from "!assets/overlay-box.png";
 import overlay_earth from "!assets/overlay-earth.png";
 import pillar_brown2 from "!assets/pillar-brown2.png";
+import silvermedal from "!assets/silvermedal.png";
 import sponsor_overlay from "!assets/sponsor-overlay.png";
 
 export default function LandingPage() {
@@ -52,16 +40,19 @@ export default function LandingPage() {
       title: "kelompok 30",
       link: "//www.tiktok.com/@gandhetrida_130/video/7401871592940162310?_r=1&_t=8omkbw2PuvA",
       description: "juara 1",
+      img: goldmedal,
     },
     {
       title: "kelompok 36",
       link: "//www.tiktok.com/@arculus.36/video/7401153500958313734?_t=8okJeIvoqCG&_r=1",
       description: "juara 2",
+      img: silvermedal,
     },
     {
       title: "kelompok 58",
       link: "https://www.tiktok.com/@_ceppppppp/video/7401828392716356869?_r=1&_t=8omY3kS0aFW",
       description: "juara 3",
+      img: bronzemedal,
     },
   ];
 
@@ -175,60 +166,51 @@ export default function LandingPage() {
 
       {isVisible ? (
         <Dialog defaultOpen={isVisible}>
-          <DialogContent className="w-[90%] mx-auto bg-[url(!assets/alert.png)] bg-center bg-cover aspect-square md:h-4/5 ">
-            <DialogHeader className="text-center">
-              <DialogTitle className="text-center font-bold text-6xl text-black font-avigea tracking-widest">
-                Juara
-              </DialogTitle>
-              <DialogDescription className="text-center font-bold font-sans text-black text-2xl bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent p-4 shadow-lg rounded-lg">
-                Ini adalah kelompok yang meraih juara pada tugas
-                <span className="block text-3xl text-yellow-500 font-extrabold underline decoration-wavy mt-2">
-                  DIRETRA PPLK 2024
-                </span>
-              </DialogDescription>
-            </DialogHeader>
-
+          <DialogContent className="w-[90%] mx-auto bg-[url(!assets/alert.png)] bg-center bg-cover aspect-square md:h-4/5 flex justify-center items-center flex-col">
             <div className="overflow-hidden min-h-[200px] md:min-h-none">
-              <Carousel className="w-[60%] mx-auto flex justify-center backdrop-blur-lg ">
+              <Carousel className="w-[60%] mx-auto flex justify-center backdrop-blur-lg mt-20">
                 <CarouselContent>
                   {dataJuara.map((item, index) => (
                     <CarouselItem key={index}>
                       <div className="p-1">
-                        <Card>
-                          <CardContent className="flex aspect-square items-center justify-center p-6">
-                            <div className="text-center">
-                              <div className="text-3xl font-bold font-avigea">
-                                {item.title}
-                              </div>
-                              <div className="text-xl font-bold font-avigea">
-                                {item.description}
-                              </div>
-                              <div className="text-xl font-bold font-avigea underline text-blue-600">
-                                <a
-                                  href={item.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  Lihat Video
-                                </a>
-                              </div>
+                        <div className="aspect-square flex items-center justify-center p-6">
+                          <div className="text-center">
+                            <div className="w-[50%] h-[50%] mx-auto">
+                              <img src={item.img} alt={item.title} />
                             </div>
-                          </CardContent>
-                        </Card>
+
+                            <div className="font-avigea md:text-3xl text-xl font-bold text-white">
+                              {item.description} Diretra
+                            </div>
+
+                            <div className="font-avigea text-black-600 md:text-xl mt-2 text-lg font-semibold underline">
+                              <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Lihat Video
+                              </a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
+                <CarouselNext />
+                <CarouselPrevious />
               </Carousel>
             </div>
 
-            <div className="item-end self-end">
-              <button
-                className="border flex rounded-lg py-3 px-2 bg-jaffa-700 text-white tracking-widest font-semibold hover:opacity-45 text-xl font-avigea "
+            <div className="bottom-2 left-2 absolute">
+              <Button
+                className="flex px-2 py-3 text-sm text-white border rounded-lg"
                 onClick={() => handleCloseShow()}
+                size={"sm"}
               >
-                Jangan Tampilkan
-              </button>
+                Jangan Tampilkan Lagi
+              </Button>
             </div>
           </DialogContent>
         </Dialog>
