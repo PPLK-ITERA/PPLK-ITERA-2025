@@ -1,5 +1,3 @@
-"use client";
-
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
 import { Dispatch, SetStateAction } from "react";

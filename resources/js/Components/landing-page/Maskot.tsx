@@ -14,24 +14,6 @@ import { useAos } from "@/lib/hooks/useAos";
 
 import maskot_pplk_man from "!assets/maskot/maskot-pplk-man.png";
 import maskot_pplk_woman from "!assets/maskot/maskot-pplk-woman.png";
-import maskot from "!assets/maskotchapabel.png";
-
-const MASKOTS = [
-  {
-    key: "maskot-man",
-    name: "KANAKA",
-    description:
-      "Hai, Aku Maskot Man, Maskot PPLK ITERA 2024! tunggu kehadiranku di PPLK ITERA 2024!",
-    image: maskot_pplk_man,
-  },
-  {
-    key: "maskot-woman",
-    name: "CALANDRA",
-    description:
-      "Hai, Aku Maskot Woman, Maskot PPLK ITERA 2024! tunggu kehadiranku di PPLK ITERA 2024!",
-    image: maskot_pplk_woman,
-  },
-];
 
 export default function Maskot() {
   useAos();

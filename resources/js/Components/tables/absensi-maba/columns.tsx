@@ -1,11 +1,5 @@
-"use client";
-
 import { CellAction } from "./cell-action";
 import { ColumnDef } from "@tanstack/react-table";
-import { format } from "date-fns";
-import QRCode from "react-qr-code";
-
-import { LogBookCui } from "@/lib/types/LogBookCui";
 
 export interface AbsensiMaba {
   no: number;
@@ -59,12 +53,12 @@ export const columns: ColumnDef<AbsensiMaba>[] = [
   },
   {
     id: "status",
-    accessorKey: "user.status", // Access status from the nested user object
+    accessorKey: "user.status",
     header: "Status",
   },
   {
     id: "ket_status",
-    accessorKey: "user.ket_izin", // Access status from the nested user object
+    accessorKey: "user.ket_izin",
     header: "Keterangan Izin",
   },
   {

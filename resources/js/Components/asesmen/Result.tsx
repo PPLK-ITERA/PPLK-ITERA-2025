@@ -1,5 +1,3 @@
-"use client";
-
 import { Progress } from "../ui/progress";
 
 import pilar1 from "!assets/pilar/pilar1.png";

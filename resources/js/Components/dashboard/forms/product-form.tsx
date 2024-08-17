@@ -1,5 +1,3 @@
-"use client";
-
 // import FileUpload from "../file-upload";
 // import FileUpload from "@/components/FileUpload";
 import { zodResolver } from "@hookform/resolvers/zod";

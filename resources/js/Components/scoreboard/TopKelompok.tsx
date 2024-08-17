@@ -1,4 +1,3 @@
-import GoldPodium from "./Podium";
 import Podium from "./Podium";
 
 import React, { useEffect, useState } from "react";

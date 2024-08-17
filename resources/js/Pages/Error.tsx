@@ -40,36 +40,36 @@ export default function Error({ status }) {
   useAos();
 
   return (
-    <div className="w-screen h-screen md:overflow-hidden text-jaffa-100 grid place-content-center place-items-center bg-mobile-hero-background md:bg-desktop-hero-background bg-bottom bg-cover">
+    <div className="md:overflow-hidden text-jaffa-100 place-content-center place-items-center bg-mobile-hero-background md:bg-desktop-hero-background grid w-screen h-screen bg-bottom bg-cover">
       {/* content */}
-      <div className="w-full flex place-content-center place-items-center mx-auto max-w-4xl h-1/2 gap-8 max-md:flex-col-reverse px-8">
+      <div className="place-content-center place-items-center h-1/2 max-md:flex-col-reverse flex w-full max-w-4xl gap-8 px-8 mx-auto">
         <div
-          className="grow w-full flex flex-col gap-8 max-md:text-center"
+          className="grow max-md:text-center flex flex-col w-full gap-8"
           data-aos="fade-right"
           data-aos-duration="1500"
         >
           <div className="font-avigea ">
-            <h1 className="text-3xl md:text-6xl">PPLK</h1>
-            <h1 className="text-5xl md:text-8xl">ITERA</h1>
-            <h1 className="text-3xl md:text-6xl">2024</h1>
+            <h1 className="md:text-6xl text-3xl">PPLK</h1>
+            <h1 className="md:text-8xl text-5xl">ITERA</h1>
+            <h1 className="md:text-6xl text-3xl">2024</h1>
           </div>
 
           <div className="font-montserrat">
-            <span className="text-xs text-red-300/70 animate-pulse">
+            <span className="text-red-300/70 animate-pulse text-xs">
               Error {status}
             </span>
 
-            <p className="text-lg md:text-xl font-semibold">
+            <p className="md:text-xl text-lg font-semibold">
               {title} {emoji}
             </p>
-            <p className="text-sm md:text-lg">
+            <p className="md:text-lg text-sm">
               {description} {reactionEmoji}
             </p>
           </div>
 
           <Button
             onClick={() => window.history.back()}
-            className="rounded p-3 bg-jaffa-400/80 hover:bg-jaffa-400 backdrop-blur-md md:w-fit transition"
+            className="bg-jaffa-400/80 hover:bg-jaffa-400 backdrop-blur-md md:w-fit p-3 transition rounded"
           >
             Kembali
           </Button>

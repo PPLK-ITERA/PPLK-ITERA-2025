@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import React from "react";
 
 import { Link } from "@inertiajs/react";
@@ -8,7 +6,6 @@ import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 
 import { type User } from "@/lib/types/User";
-import { generateRandomImage } from "@/lib/utils";
 
 function ProfileCard({
   user,

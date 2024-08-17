@@ -25,20 +25,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/Components/ui/carousel";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTrigger,
-} from "@/Components/ui/dialog";
-import { Toaster } from "@/Components/ui/toaster";
+import { Dialog, DialogContent, DialogTrigger } from "@/Components/ui/dialog";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 
 import logoPplkHd from "!assets/logo-pplk-hd.png";
-
-// type Props = { response };
 
 function Page({ auth, response }) {
   useAos();
@@ -122,11 +114,11 @@ function Page({ auth, response }) {
           <div className="max-md:flex-col max-md:text-center max-md:items-center place-content-center flex w-full max-w-5xl gap-8 mx-auto">
             <div className="flex flex-col justify-between gap-4">
               <div>
-                <div className="max-md:w-36 max-md:h-36 w-48 h-48 relative ">
+                <div className="max-md:w-36 max-md:h-36  relative w-48 h-48">
                   <Dialog>
                     <DialogTrigger>
                       <img
-                        className="aspect-square border-1 object-cover max-md:w-36 max-md:h-36 w-48 h-48 bg-gray-400 rounded-full select-none"
+                        className="aspect-square border-1 max-md:w-36 max-md:h-36 object-cover w-48 h-48 bg-gray-400 rounded-full select-none"
                         src={
                           user.photo_profile_url ??
                           "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
@@ -135,7 +127,7 @@ function Page({ auth, response }) {
                       />
                     </DialogTrigger>
                     <DialogContent>
-                      <div className="w-full h-full grid place-content-center place-items-center">
+                      <div className="place-content-center place-items-center grid w-full h-full">
                         <img
                           className="rounded-xl object-contain"
                           src={

@@ -1,5 +1,3 @@
-"use client";
-
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { Toast } from "../ui/toast";
 import { Toaster } from "../ui/toaster";

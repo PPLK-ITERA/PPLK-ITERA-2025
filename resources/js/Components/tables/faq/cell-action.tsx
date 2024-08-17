@@ -1,11 +1,7 @@
-"use client";
-
 // import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { useForm } from "@inertiajs/react";
-
-import { Edit, MoreHorizontal, Trash } from "lucide-react";
 
 import { AlertModal } from "@/Components/dashboard/modal/alert-modal";
 import {
@@ -35,18 +31,13 @@ import { Label } from "@/Components/ui/label";
 import { Textarea } from "@/Components/ui/textarea";
 import { useToast } from "@/Components/ui/use-toast";
 
-import { User } from "@/lib/data/data";
 import { FAQ } from "@/lib/data/faq";
-import { LogBookCui } from "@/lib/types/LogBookCui";
 
 interface CellActionProps {
   data: FAQ;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-  const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
-
   const { toast } = useToast();
 
   const {
@@ -55,7 +46,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     put,
     delete: destroy,
     processing,
-    errors,
   } = useForm({
     id: 0,
     teks_pertanyaan: "",
@@ -91,16 +81,8 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     });
   };
 
-  const onConfirm = async () => {};
-
   return (
     <>
-      <AlertModal
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        onConfirm={onConfirm}
-        loading={loading}
-      />
       <div className="flex gap-1 p-2">
         <Dialog>
           <DialogTrigger asChild>

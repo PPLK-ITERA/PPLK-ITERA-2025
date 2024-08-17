@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 
 import {
   ChevronLeft,
@@ -66,8 +66,6 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({
   onSearchChange,
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  //  //console.log(data);
 
   const handleItemsPerPageChange = (
     event: React.ChangeEvent<HTMLSelectElement>,

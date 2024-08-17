@@ -1,5 +1,3 @@
-"use client";
-
 // import GoogleSignInButton from "../github-auth-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 // import { signIn } from "next-auth/react";

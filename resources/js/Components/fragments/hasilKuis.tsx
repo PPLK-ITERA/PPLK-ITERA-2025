@@ -1,4 +1,4 @@
-// "use client";
+//
 
 // import { useToast } from "../ui/use-toast";
 // import { getResult } from "@/lib/data/result";

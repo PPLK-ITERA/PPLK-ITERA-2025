@@ -1,5 +1,3 @@
-"use client";
-
 import { Label, Pie, PieChart } from "recharts";
 
 import * as React from "react";

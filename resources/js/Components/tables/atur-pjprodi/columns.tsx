@@ -1,6 +1,5 @@
 import { CellAction } from "./cell-action";
 import { ColumnDef } from "@tanstack/react-table";
-import { format } from "date-fns";
 
 export interface DataPJProdi {
   no: number;

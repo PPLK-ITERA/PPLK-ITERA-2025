@@ -1,5 +1,3 @@
-"use client";
-
 import { UniqueIdentifier } from "@dnd-kit/core";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 

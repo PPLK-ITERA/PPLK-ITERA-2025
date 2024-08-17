@@ -1,5 +1,3 @@
-"use client";
-
 import type { Column } from "./board-column";
 import { BoardColumn, BoardContainer } from "./board-column";
 import NewSectionDialog from "./new-section-dialog";

@@ -1,9 +1,7 @@
-"use client";
-
 import { DataMaba } from "./columns";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
-import { Link, router, useForm, usePage } from "@inertiajs/react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 
 import {
   AlertDialog,

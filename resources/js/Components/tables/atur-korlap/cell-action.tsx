@@ -1,9 +1,7 @@
-"use client";
-
 import { DatKorlap } from "./columns";
 import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
 
-import { Link, router, useForm, usePage } from "@inertiajs/react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 
 import {
   AlertDialog,
@@ -17,20 +15,7 @@ import {
   AlertDialogTrigger,
 } from "@/Components/ui/alert-dialog";
 import { Button, buttonVariants } from "@/Components/ui/button";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/Components/ui/dialog";
-import { Label } from "@/Components/ui/label";
-import { Textarea } from "@/Components/ui/textarea";
 import { Toaster } from "@/Components/ui/toaster";
-import { toast } from "@/Components/ui/use-toast";
 
 import { UserAuthProps } from "@/lib/types/User";
 
@@ -39,14 +24,6 @@ interface CellActionProps {
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-  const { delete: deleteUser } = useForm({
-    id: data.id,
-  });
-
-  const handleDelete = () => {
-    deleteUser(route("dashboard.user.destroy"));
-  };
-
   type MyPage = PageProps<{
     auth: {
       user: UserAuthProps;
@@ -54,6 +31,14 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   }>;
 
   const { auth } = usePage<MyPage>().props;
+
+  const { delete: deleteUser } = useForm({
+    id: data.id,
+  });
+
+  const handleDelete = () => {
+    deleteUser(route("dashboard.user.destroy"));
+  };
 
   return (
     <>

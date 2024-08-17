@@ -5,25 +5,12 @@ import React, { useEffect, useState } from "react";
 
 import { UserPlus } from "lucide-react";
 
-import {
-  IconAdjustmentsHorizontal,
-  IconChevronLeft,
-  IconChevronRight,
-  IconFilter,
-  IconMoodAngry,
-  IconMoodSearch,
-  IconSearch,
-} from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
 import Footer from "@/Components/Footer";
-import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import Navbar from "@/Components/Navbar";
-import GoldPodium from "@/Components/relasi/Podium";
-import ProfileCard from "@/Components/relasi/ProfileCard";
 import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import RelasiSearch from "@/Components/relasi/RelasiSearch";
-import SortDropdown from "@/Components/relasi/SortDropdown";
-import TopUser from "@/Components/relasi/TopUser";
 import UserList from "@/Components/relasi/UserList";
 import { Button } from "@/Components/ui/button";
 import { Toaster } from "@/Components/ui/toaster";
@@ -33,13 +20,6 @@ import { fetchSearch } from "@/lib/data/relasi";
 import { useAos } from "@/lib/hooks/useAos";
 import { User } from "@/lib/types/User";
 import { UserSearchResponse } from "@/lib/types/UserSearchResponse";
-
-const sortOptions = [
-  { label: "Viewer", value: "viewer" },
-  { label: "Follower", value: "follower" },
-  { label: "Following", value: "following" },
-  { label: "Nama", value: "nama" },
-];
 
 function Page() {
   useAos();
@@ -146,7 +126,7 @@ function Page() {
             <li>
               <Button
                 onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
-                className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110  transition"
+                className="bg-gradient-to-br from-jaffa-600 to-jaffa-700 hover:scale-110 transition"
               >
                 <IconChevronLeft></IconChevronLeft>
               </Button>

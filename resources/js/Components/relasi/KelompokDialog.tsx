@@ -2,17 +2,11 @@ import React from "react";
 
 import { Link } from "@inertiajs/react";
 
-import { Button } from "@/Components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/Components/ui/dialog";
 import { ScrollArea, ScrollBar } from "@/Components/ui/scroll-area";
 import { useToast } from "@/Components/ui/use-toast";
 
-import {
-  fetchAnggotaKelompok,
-  fetchFollower,
-  fetchFollowing,
-  followUserJson,
-} from "@/lib/data/relasi";
+import { fetchAnggotaKelompok } from "@/lib/data/relasi";
 import { Kelompok, User } from "@/lib/types/User";
 import { UserFollowingResponse } from "@/lib/types/UserFollowingResponse";
 
@@ -42,10 +36,14 @@ const KelompokDialog = ({
       </DialogTrigger>
       <DialogContent className="text-center">
         <div className="flex place-content-center place-items-center gap-2">
-            <img src={kelompok.logo_kelompok ?? logoPplkHd} alt={kelompok.nama_kelompok} className="rounded-full w-10 h-10 shadow" />
-            <h2 className="text-lg font-semibold">
-              {kelompok.nama_kelompok} ({kelompok.no_kelompok})
-            </h2>
+          <img
+            src={kelompok.logo_kelompok ?? logoPplkHd}
+            alt={kelompok.nama_kelompok}
+            className="rounded-full w-10 h-10 shadow"
+          />
+          <h2 className="text-lg font-semibold">
+            {kelompok.nama_kelompok} ({kelompok.no_kelompok})
+          </h2>
         </div>
 
         <div className="h-[1px] w-full bg-gray-400 my-1"></div>

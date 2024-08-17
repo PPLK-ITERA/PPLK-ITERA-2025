@@ -42,17 +42,16 @@ function Page() {
         </div>
         <ParticleBackground />
 
-        {/* 
-            fitur ga penting ga usah dimasukin
-            
-            <div className="fixed top-0 right-0">
-                <Button
-                    className="bg-transparent"
-                    onClick={() => window.history.back()}
-                >
-                    <IconX />
-                </Button>
-            </div> */}
+        {/* fitur ga penting ga usah dimasukin */}
+
+        {/* <div className="fixed top-0 right-0">
+          <Button
+            className="hover:bg-transparent bg-transparent"
+            onClick={() => window.history.back()}
+          >
+            <IconX />
+          </Button>
+        </div> */}
 
         <Main />
       </div>

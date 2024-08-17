@@ -1,6 +1,6 @@
 import Autoplay from "embla-carousel-autoplay";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Card, CardContent } from "@/Components/ui/card";
 import {
@@ -15,10 +15,10 @@ import { DataFilosofiLogo } from "@/lib/data/data";
 import alas_filosofi from "!assets/alas-filosofi.png";
 
 export default function FilosofiLogo() {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) {
       return;
     }
