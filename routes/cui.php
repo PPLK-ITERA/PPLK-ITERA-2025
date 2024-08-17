@@ -3,7 +3,7 @@
 use App\Http\Controllers\User\PresensiCuiController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'checkRole:Korlap,Admin'])->group(function () {
    Route::post('dashboard/cui/absensi', [PresensiCuiController::class, 'QRScan'])->name('cui.scan');
 
    Route::prefix('cui')->group(function () {
