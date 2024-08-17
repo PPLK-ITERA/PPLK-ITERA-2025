@@ -189,7 +189,7 @@ export default function LandingPage() {
             </DialogHeader>
 
             <div className="overflow-hidden min-h-[200px] md:min-h-none">
-              <Carousel className="w-[60%] mx-auto flex justify-center">
+              <Carousel className="w-[60%] mx-auto flex justify-center backdrop-blur-lg ">
                 <CarouselContent>
                   {dataJuara.map((item, index) => (
                     <CarouselItem key={index}>
