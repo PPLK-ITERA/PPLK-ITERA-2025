@@ -412,7 +412,7 @@ class PresensiCuiController extends Controller
    {
       // Count for 'pita hijau' - Count unique users only
       $pitahijau = LogCui::whereHas('user.penyakit', function ($q) {
-         $q->where('pita', 'hijau');
+         $q->whereIn('pita', ['hijau', null]);
       })->distinct('user_id')->count('user_id');
 
       // Count for 'pita kuning' - Count unique users only
@@ -488,8 +488,8 @@ class PresensiCuiController extends Controller
                'qrcode' => $logbook->user->qrcode->code,
                'nama_kelompok' => $logbook->user->kelompok->nama_kelompok,
                'penyakit' => [
-                  'pita' => $logbook->user->penyakit->pita,
-                  'ket_penyakit' => $logbook->user->penyakit->ket_penyakit,
+                  'pita' => $logbook->user->penyakit->pita ?? "hijau",
+                  'ket_penyakit' => $logbook->user->penyakit->ket_penyakit ?? "-",
                ],
             ],
          ];
@@ -545,7 +545,7 @@ class PresensiCuiController extends Controller
             'nama' => $log->user->name,
             'nim' => $log->user->nim,
             'status' => $log->status,
-            'pita' => $log->user->penyakit->pita,
+            'pita' => $log->user->penyakit->pita ?? "hijau",
             'prodi' => $log->user->prodi->nama_prodi,
             'photo_profile_url' => $log->user->photo_profile_url,
             'waktu_hadir' => $log->created_at,
@@ -553,7 +553,7 @@ class PresensiCuiController extends Controller
             'waktu_selesai' => $log->waktu_selesai,
             'ket_izin' => $log->ket_izin,
             'qr_code' => $log->user->qrcode->code,
-            'riwayat' => $log->user->penyakit->ket_penyakit,
+            'riwayat' => $log->user->penyakit->ket_penyakit ?? "-",
          ]
       ]);
    }

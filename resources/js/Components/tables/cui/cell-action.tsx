@@ -10,7 +10,7 @@ interface CellActionProps {
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const handleIzin = () => {
-    router.get(route("dashboard.cui.izin", data.user.nim));
+    router.get(route("dashboard.cui.izin", data.user.qrcode));
   };
 
   return (
