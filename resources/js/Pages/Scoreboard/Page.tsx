@@ -41,6 +41,7 @@ function Page() {
     getTopTen();
     getKelompokScore();
   }, []);
+
   return (
     <>
       <Navbar isFixed={true} />

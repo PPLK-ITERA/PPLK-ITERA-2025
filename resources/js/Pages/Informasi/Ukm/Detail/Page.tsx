@@ -18,6 +18,7 @@ import gedung from "!assets/gedung-sponsor.png";
 
 function Page({ nama_ukm }) {
   useAos();
+
   const ukm = ukmData.find((ukm) => ukm.key === nama_ukm);
 
   if (!ukm) {

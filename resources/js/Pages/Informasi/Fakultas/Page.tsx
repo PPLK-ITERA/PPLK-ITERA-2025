@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Head } from "@inertiajs/react";
 
@@ -22,7 +22,7 @@ import pillar_brown from "!assets/pillar-brown.png";
 export default function Page() {
   useAos();
 
-  const [selectedFakultas, setSelectedFakultas] = React.useState(
+  const [selectedFakultas, setSelectedFakultas] = useState(
     localStorage.getItem("selectedFakultas") || "fakultas-sains",
   );
 
@@ -77,7 +77,7 @@ export default function Page() {
         </div>
 
         <div className="bg-pattern-white relative pt-20">
-          <div className="relative max-w-5xl mx-auto flex flex-col gap-24">
+          <div className="relative flex flex-col max-w-5xl gap-24 mx-auto">
             <div
               data-aos="fade-up"
               data-aos-duration="600"

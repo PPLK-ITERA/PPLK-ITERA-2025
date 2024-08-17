@@ -38,7 +38,7 @@ export default function Sponsorship() {
             {data_sponsor.map((_, index) => (
               <CarouselItem
                 key={index}
-                className="md:min-h-[200px] min-w-[100px] min-h-[100px] md:min-w-[200px] basis-1/5"
+                className="md:min-h-[150px] min-w-[100px] min-h-[100px] md:min-w-[150px] basis-1/5"
               >
                 <div className="p-1">
                   <Card className="overflow-hidden border-none shadow-none">
