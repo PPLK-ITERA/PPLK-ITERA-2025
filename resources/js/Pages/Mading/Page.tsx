@@ -251,17 +251,12 @@ const Mading = ({ succes }: { succes?: string }) => {
               className="md:scale-75 xl:scale-100 scale-75"
             />
 
-            <Button
-              onClick={() =>
-                toast({
-                  title: "Selesaikan semua tugasmu terlebih dahulu",
-                  variant: "destructive",
-                })
-              }
-              className={`z-20 cursor-pointer text-sm text-white disabled:bg-jaffa-800 disabled:hover:bg-jaffa-800 bg-jaffa-800 hover:bg-jaffa-800 shadow-md inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50`}
+            <a
+              href={route("mading.preview")}
+              className={`z-20 xl:mt-32 -mt-10 cursor-pointer text-sm text-white bg-jaffa-800 hover:bg-jaffa-800 shadow-md inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 px-4 py-2`}
             >
               Lihat Preview Mading Kelompokmu
-            </Button>
+            </a>
 
             <div className="md:pb-96 xl:pb-[500px] pb-32" />
 
