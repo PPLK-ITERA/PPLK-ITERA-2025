@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Kelompok;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class KelompokController extends Controller
@@ -64,24 +66,32 @@ class KelompokController extends Controller
    }
    public function update(Request $request)
    {
-      $id  = auth()->user()->kelompok_id;
+      $id = auth()->user()->kelompok_id;
       $kelompok = Kelompok::find($id);
       $validated = $request->validate([
-         'no_kelompok' => 'required|integer',
-         'nama_kelompok' => 'required|string|unique:kelompoks,nama_kelompok,' . $id,
-         'logo_kelompok' => 'required'
+         'nama_kelompok' => 'sometimes|string',
+         'logo_kelompok' => 'sometimes|image|mimes:jpeg,png,jpg|max:2048|nullable',
       ]);
+      if ($request->hasFile('logo_kelompok')) {
+         $storagePath = substr($kelompok->logo_kelompok, strlen('/storage/'));
+         if (Storage::disk('public')->exists($storagePath)) {
+            Storage::disk('public')->delete($storagePath);
+         }
+         $path = $request->file('logo_kelompok')->store('images/logoKelompok', 'public');
+         $path_image = '/storage/' . $path;
+      } else {
+         $path_image = $kelompok->logo_kelompok;
+      }
       DB::BeginTransaction();
       try {
          $kelompok->update([
-            'no_kelompok' => $validated['no_kelompok'],
             'nama_kelompok' => $validated['nama_kelompok'],
-            'logo_kelompok' => $validated['logo_kelompok']
+            'logo_kelompok' => $path_image,
          ]);
          DB::commit();
       } catch (\Exception $e) {
          DB::rollback();
-         return redirect()->route('kelompok.index')->with(
+         return redirect()->route('informasi-kelompok')->with(
             [
                'response' => [
                   'status' => 500,
@@ -90,7 +100,7 @@ class KelompokController extends Controller
             ]
          );
       }
-      return redirect()->route('kelompok.index')->with(
+      return redirect()->route('informasi-kelompok')->with(
          [
             'response' => [
                'status' => 200,
@@ -98,5 +108,28 @@ class KelompokController extends Controller
             ]
          ]
       );
+   }
+
+   public function getKelompok()
+   {
+      $id = Auth::user()->kelompok_id;
+      $kelompok = Kelompok::with([
+         'mentor' => function ($query) {
+            // Eager load the related prodi and select specific fields
+            $query->with([
+               'prodi' => function ($subQuery) {
+               $subQuery->select('id', 'nama_prodi');
+            }
+            ])->select('id', 'name', 'prodi_id');
+         },
+         'daplok' => function ($query) {
+            $query->with([
+               'prodi' => function ($subQuery) {
+                  $subQuery->select('id', 'nama_prodi');
+               }
+            ])->select('id', 'name', 'prodi_id');
+         }
+      ])->find($id);
+      return response()->json($kelompok);
    }
 }

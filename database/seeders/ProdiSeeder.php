@@ -36,7 +36,7 @@ class ProdiSeeder extends Seeder
          ['fakultas_id' => $fs, 'nama_prodi' => 'KIMIA'],
          ['fakultas_id' => $fs, 'nama_prodi' => 'MATEMATIKA'],
          ['fakultas_id' => $fs, 'nama_prodi' => 'SAINS AKTUARIA'],
-         ['fakultas_id' => $fs, 'nama_prodi' => 'SAINS ATMOSFIR DAN KEPLANETAN'],
+         ['fakultas_id' => $fs, 'nama_prodi' => 'SAINS ATMOSFER DAN KEPLANETAN'],
          ['fakultas_id' => $fs, 'nama_prodi' => 'SAINS DATA'],
          ['fakultas_id' => $fs, 'nama_prodi' => 'SAINS LINGKUNGAN KELAUTAN'],
          ['fakultas_id' => $ftik, 'nama_prodi' => 'ARSITEKTUR'],

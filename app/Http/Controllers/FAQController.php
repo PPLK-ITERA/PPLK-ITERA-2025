@@ -41,8 +41,8 @@ class FAQController extends Controller
    public function store(Request $request)
    {
       $validated = $request->validate([
-         'pertanyaan' => 'required|string',
-         'jawaban' => 'required|string',
+         'pertanyaan' => 'required|string|max:120',
+         'jawaban' => 'required|string|max:120',
       ]);
 
       DB::beginTransaction();
@@ -93,8 +93,8 @@ class FAQController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'teks_pertanyaan' => 'required|string',
-         'teks_jawaban' => 'required|string',
+         'teks_pertanyaan' => 'required|string|max:120',
+         'teks_jawaban' => 'required|string|max:120',
       ]);
 
       DB::beginTransaction();

@@ -1,29 +1,72 @@
+import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/types";
+
+import React, { useEffect } from "react";
+
+import { usePage } from "@inertiajs/react";
+
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-import React from "react";
-
-import { Link, useForm } from "@inertiajs/react";
-
-import AdminView from "@/Components/dashboard/manage-tugas/AdminView";
-import MentorView from "@/Components/dashboard/manage-tugas/MentorView";
-import { TugasClient } from "@/Components/tables/tugas/client";
+import CoverMading from "@/Components/dashboard/mading/CoverMading";
+import TugasKelompok from "@/Components/dashboard/mading/TugasKelompok";
+import { MadingClient } from "@/Components/tables/mading/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
-import { Button } from "@/Components/ui/button";
+import { Toaster } from "@/Components/ui/toaster";
+import { useToast } from "@/Components/ui/use-toast";
 
 const breadcrumbItems = [
-    { title: "Dashboard", link: "/dashboard" },
-    { title: "Manage Tugas", link: "/dashboard/manage-tugas" },
+  { title: "Dashboard", link: "/dashboard" },
+  { title: "Mading", link: "/dashboard/mading" },
 ];
 
+interface flashresponse extends PageProps {
+  flash: {
+    response: {
+      status: number;
+      message: string;
+    };
+  };
+}
+
 export default function Page({ auth }) {
-    return (
-        <DashboardLayout user={auth.user}>
-            <Breadcrumbs items={breadcrumbItems} />
-            <h2 className="text-3xl font-bold tracking-tight">Manage Tugas</h2>
+  const { toast } = useToast();
+  const { flash } = usePage<flashresponse>().props;
 
-            <TugasClient />
+  useEffect(() => {
+    if (flash.response) {
+      if (flash.response.status === 200) {
+        toast({
+          title: "Berhasil",
+          description: flash.response.message,
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Gagal",
+          description: flash.response.message,
+          variant: "destructive",
+        });
+      }
 
-            {auth.user.role_id === 3 ? <MentorView /> : null}
-        </DashboardLayout>
-    );
+      window.location.reload();
+    }
+  }, [flash, toast]);
+
+  return (
+    <>
+      <DashboardLayout user={auth.user}>
+        <Breadcrumbs items={breadcrumbItems} />
+        <h2 className="text-3xl font-bold tracking-tight">Mading</h2>
+
+        <MadingClient />
+
+        <h2 className="text-3xl font-bold tracking-tight">Tugas Kelompok</h2>
+        <TugasKelompok />
+
+        <h2 className="text-3xl font-bold tracking-tight">Cover Mading</h2>
+        <CoverMading />
+      </DashboardLayout>
+
+      <Toaster />
+    </>
+  );
 }

@@ -6,15 +6,14 @@ import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { users } from "@/lib/data/data";
 
 const breadcrumbItems = [
-    { title: "Dashboard", link: "/dashboard" },
-    { title: "User", link: "/dashboard/user" },
+  { title: "Dashboard", link: "/dashboard" },
+  { title: "User", link: "/dashboard/user" },
 ];
 export default function Page({ auth, response }) {
-    console.log(response);
-    return (
-        <DashboardLayout user={auth.user}>
-            <Breadcrumbs items={breadcrumbItems} />
-            <UserClient data={response} />
-        </DashboardLayout>
-    );
+  return (
+    <DashboardLayout user={auth.user}>
+      <Breadcrumbs items={breadcrumbItems} />
+      <UserClient data={response} />
+    </DashboardLayout>
+  );
 }

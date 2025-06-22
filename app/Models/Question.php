@@ -23,7 +23,9 @@ class Question extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'created_at', 'updated_at'
+        'sifat',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -37,7 +39,11 @@ class Question extends Model
             'teks_pertanyaan' => 'string',
         ];
     }
-    public function Answer()
+    public function Pilar()
+    {
+        return $this->hasOne(Pilar::class, 'id', 'pilar_id');
+    }
+    public function Answers()
     {
         return $this->hasMany(Answer::class, 'question_id', 'id');
     }

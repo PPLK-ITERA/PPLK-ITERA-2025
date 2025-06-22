@@ -1,0 +1,1 @@
+import{j as s}from"./DaAfJSkj.js";import{F as i}from"./BNeXMmr0.js";import{N as r}from"./DsodX9Nc.js";function o({isSolid:o=!1,children:j}){return s.jsxs(s.Fragment,{children:[s.jsx(r,{isFixed:!0,isSolid:o}),j,s.jsx(i,{})]})}export{o as D};

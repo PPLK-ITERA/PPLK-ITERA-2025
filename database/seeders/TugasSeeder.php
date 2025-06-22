@@ -17,34 +17,68 @@ class TugasSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::pluck('id')->toArray();
-        $materiOptions = ['materi1', 'materi2', 'materi3'];
-        $kategoriOptions = ['individu', 'kelompok'];
+        $tugas = [
+            [
+                'judul' => 'Tugas 1',
+                'deskripsi' => 'Deskripsi Tugas 1',
+                'hari' => '0',
+                'tipe_link' => 'drive',
+                'kategori' => 'kelompok',
+                'deadline' => Carbon::now()->addDays(1),
+            ],
+            [
+                'judul' => 'Tugas 2 - Tiktok',
+                'deskripsi' => 'Deskripsi Tugas 2',
+                'hari' => '1',
+                'tipe_link' => 'tiktok',
+                'kategori' => 'individu',
+                'deadline' => Carbon::now()->addDays(2),
+            ],
+            // [
+            //     'judul' => 'Tugas 2 - Drive',
+            //     'deskripsi' => 'Deskripsi Tugas 2',
+            //     'hari' => '1',
+            //     'tipe_link' => 'drive',
+            //     'kategori' => 'individu',
+            //     'deadline' => Carbon::now()->addDays(2),
+            // ],
+            // [
+            //     'judul' => 'Tugas 3',
+            //     'deskripsi' => 'Deskripsi Tugas 3',
+            //     'hari' => '2',
+            //     'tipe_link' => 'drive',
+            //     'kategori' => 'individu',
+            //     'deadline' => Carbon::now()->addDays(3),
+            // ],
+            // [
+            //     'judul' => 'Tugas 4',
+            //     'deskripsi' => 'Deskripsi Tugas 4',
+            //     'hari' => '3',
+            //     'tipe_link' => 'drive',
+            //     'kategori' => 'individu',
+            //     'deadline' => Carbon::now()->addDays(4),
+            // ],
+            // [
+            //     'judul' => 'Tugas 5',
+            //     'deskripsi' => 'Deskripsi Tugas 5',
+            //     'hari' => '4',
+            //     'tipe_link' => 'drive',
+            //     'kategori' => 'individu',
+            //     'deadline' => Carbon::now()->addDays(5),
+            // ],
+            // [
+            //     'judul' => 'Tugas 6',
+            //     'deskripsi' => 'Deskripsi Tugas 6',
+            //     'hari' => '5',
+            //     'tipe_link' => 'drive',
+            //     'kategori' => 'individu',
+            //     'deadline' => Carbon::now()->addDays(6),
+            // ],
+        ];
 
-        Tugas::insert([
-            [
-                'link' => 'https://example.com/task1',
-                'user_id' => $users[0],
-                'materi' => $materiOptions[0],
-                'tanggal_submit' => Carbon::now()->subDays(5),
-                'kategori_tugas' => $kategoriOptions[0],
-            ],
-            [
-                'link' => 'https://example.com/task2',
-                'user_id' => $users[1],
-                'materi' => $materiOptions[1],
-                'tanggal_submit' => Carbon::now()->subDays(10),
-                'kategori_tugas' => $kategoriOptions[1],
-            ],
-            [
-                'link' => 'https://example.com/task3',
-                'user_id' => $users[2],
-                'materi' => $materiOptions[2],
-                'tanggal_submit' => Carbon::now()->subDays(15),
-                'kategori_tugas' => $kategoriOptions[0],
-            ],
-            // Tambahkan lebih banyak data sesuai kebutuhan
-        ]);
+        foreach ($tugas as $t) {
+            Tugas::create($t);
+        }
     }
 }
 

@@ -14,10 +14,93 @@ use Inertia\Inertia;
 
 class PresensiCuiController extends Controller
 {
+   public function storeHadir(Request $request)
+   {
+      $validated = $request->validate([
+         'user_id' => 'required|integer',
+      ]);
+
+      $user = User::find($validated['user_id']);
+      if (!$user) {
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "response" => [
+               "status" => 404,
+               "message" => "User tidak ditemukan",
+               "data" => [
+                  'user_id' => $validated['user_id']
+               ]
+            ]
+         ]);
+      }
+
+      // cek apakah user merupakan maba
+      if ($user->role->role != 'Maba') {
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "response" => [
+               "status" => 400,
+               "message" => "User bukan merupakan maba",
+               "data" => [
+                  'user_id' => $validated['user_id']
+               ]
+            ]
+         ]);
+      }
+
+      $log = LogCui::where('user_id', $user->id)->first();
+
+      if ($log) {
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "data" => [
+               'status' => $log->status,
+               'nama' => $user->name,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi->nama_prodi,
+               'imgUrl' => $user->photo_profile_url,
+               'pita' => $user->penyakit->pita ?? null,
+               'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+               'qr_code' => $user->qrcode->code,
+            ]
+         ]);
+      }
+
+      DB::beginTransaction();
+      try {
+         $log = LogCui::create([
+            'user_id' => $user->id,
+            'status' => 'hadir',
+         ]);
+         DB::commit();
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "data" => [
+               'status' => 'hadir',
+               'nama' => $user->name,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi->nama_prodi,
+               'imgUrl' => $user->photo_profile_url,
+               'pita' => $user->penyakit->pita ?? null,
+               'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+               'qr_code' => $user->qrcode->code,
+               'waktu_hadir' => $log->created_at,
+            ]
+         ]);
+      } catch (\Exception $e) {
+         DB::rollback();
+         return Inertia::render("Dashboard/cui/absensi/DetailMaba", [
+            "response" => [
+               "status" => 500,
+               "message" => "Gagal melakukan presensi",
+               "data" => [
+                  'user_id' => $validated['user_id']
+               ]
+            ]
+         ]);
+      }
+   }
+
    public function QRScan(Request $request)
    {
       $validated = $request->validate([
-         'qr_code' => 'required|string',
+         'qr_code' => 'required|string|max:10',
       ]);
 
       $qrcode = Qrcode::where('code', $validated['qr_code'])->first();
@@ -45,39 +128,77 @@ class PresensiCuiController extends Controller
          ]);
       }
       $log = LogCui::where('user_id', $user->id);
+
+      // jika user belum melakukan presensi, tampilkan halaman presensi
       if (!$log->exists()) {
-         DB::beginTransaction();
-         try {
-            $logCui = LogCui::create([
-               'user_id' => $user->id,
-               'status' => 'hadir',
-            ]);
-            DB::commit();
-         } catch (\Exception $e) {
-            DB::rollback();
-            return response()->json(['message' => 'Gagal membuat log'], 500);
-         }
-         return redirect()->route('cui.status', ['code' => $validated['qr_code']])->with('message', 'Berhasil melakukan presensi CUI');
+         return Inertia::render('Dashboard/cui/absensi/DetailMaba', [
+            'data' => [
+               'status' => 'belum hadir',
+               'id' => $user->id,
+               'nama' => $user->name,
+               'imgUrl' => $user->photo_profile_url,
+               'nim' => $user->nim,
+               'prodi' => $user->prodi->nama_prodi,
+               'pita' => $user->penyakit->pita ?? null,
+               'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+               'qr_code' => $validated['qr_code'],
+            ]
+         ]);
       }
 
-      if ($log->first()->status == 'izin') {
-         return redirect()->route('cui.status', ['code' => $validated['qr_code']])->with('message', 'Peserta sedang izin');
+      // jika user sudah melakukan presensi dan sedang izin, tampilkan halaman status izin
+
+      if ($log->latest('created_at')->first()->status == 'izin') {
+         return Inertia::render('Dashboard/cui/absensi/DetailMaba', [
+            'data' => [
+               'status' => 'izin',
+               'id' => $user->id,
+               'nama' => $user->name,
+               'nim' => $user->nim,
+               'imgUrl' => $user->photo_profile_url,
+               'prodi' => $user->prodi->nama_prodi,
+               'pita' => $user->penyakit->pita ?? null,
+               'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+               'qr_code' => $validated['qr_code'],
+               'waktu_izin' => $log->first()->waktu_izin,
+               'ket_izin' => $log->first()->ket_izin,
+            ]
+         ]);
       }
 
-      return redirect()->route('cui.status', ['code' => $validated['qr_code']])->with('message', 'Peserta sudah melakukan presensi');
+      // jika user sudah melakukan presensi, tampilkan halaman status
+      return Inertia::render('Dashboard/cui/absensi/DetailMaba', [
+         'data' => [
+            'status' => 'hadir',
+            'id' => $user->id,
+            'nama' => $user->name,
+            'nim' => $user->nim,
+            'imgUrl' => $user->photo_profile_url,
+            'prodi' => $user->prodi->nama_prodi,
+            'pita' => $user->penyakit->pita ?? null,
+            'riwayat' => $user->penyakit->ket_penyakit ?? "-",
+            'qr_code' => $validated['qr_code'],
+            'waktu_hadir' => $log->first()->created_at,
+         ]
+      ]);
    }
 
    public function storeIzin(Request $request, $code)
    {
       $validated = $request->validate([
-         'ket_izin' => 'required|string',
+         'ket_izin' => 'required|string|max:120',
       ]);
 
       $userid = Qrcode::where('code', $code)->first()->user_id;
       $user = User::find($userid);
 
       if (!$user->exists()) {
-         return response()->json(['message' => 'User tidak ditemukan'], 404);
+         return redirect()->back()->with([
+            'response' => [
+               'status' => 404,
+               'message' => 'User tidak ditemukan'
+            ]
+         ]);
       }
 
       $log = LogCui::where('user_id', $userid)->latest('created_at')->first();
@@ -93,11 +214,28 @@ class PresensiCuiController extends Controller
             DB::commit();
          } catch (\Exception $e) {
             DB::rollback();
-            return response()->json(['message' => 'Gagal melakukan izin'], 500);
+            return redirect()->back()->with([
+               'response' => [
+                  'status' => 500,
+                  'message' => 'Gagal melakukan izin'
+               ]
+            ]);
          }
-         return redirect()->route('cui.status', ['code' => $code])->with('message', 'Izin peserta berhasil');
+         return redirect()->back()->with([
+            'response' => [
+               'status' => 200,
+               'message' => 'Izin peserta berhasil'
+            ]
+         ]);
+         //  return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Izin peserta berhasil');
       }
-      return redirect()->route('cui.status', ['code' => $code])->with('message', 'Peserta sedang izin');
+      return redirect()->back()->with([
+         'response' => [
+            'status' => 200,
+            'message' => 'Peserta sedang izin'
+         ]
+      ]);
+      //   return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Peserta sedang izin');
    }
 
    public function destroyIzin($code)
@@ -105,7 +243,12 @@ class PresensiCuiController extends Controller
       $userid = Qrcode::where('code', $code)->first()->user_id;
       $user = User::find($userid);
       if (!$user->exists()) {
-         return response()->json(['message' => 'User tidak ditemukan'], 404);
+         return redirect()->back()->with([
+            'response' => [
+               'status' => 404,
+               'message' => 'User tidak ditemukan'
+            ]
+         ]);
       }
       DB::beginTransaction();
       try {
@@ -120,9 +263,21 @@ class PresensiCuiController extends Controller
          DB::commit();
       } catch (\Exception $e) {
          DB::rollback();
-         return response()->json(['message' => 'Gagal mencabut izin'], 500);
+         return redirect()->back()->with([
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal mencabut izin'
+            ]
+         ]);
+         //  return response()->json(['message' => 'Gagal mencabut izin'], 500);
       }
-      return redirect()->route('cui.status', ['code' => $code])->with('message', 'Izin peserta berhasil dicabut');
+      return redirect()->back()->with([
+         'response' => [
+            'status' => 200,
+            'message' => 'Izin peserta berhasil dicabut'
+         ]
+      ]);
+      //   return redirect()->route('cui.scan', ['qr_code' => $code])->with('message', 'Izin peserta berhasil dicabut');
    }
 
    public function status($code)
@@ -171,54 +326,93 @@ class PresensiCuiController extends Controller
       ]);
    }
 
-   public function getMabaByNim(Request $request)
+   public function getMabaByName($searchParam)
    {
-      $validated = $request->validate([
-         'nim' => 'required|string',
-      ]);
-      $user = User::where('nim', $validated['nim'])->first();
+      // if ($validator->fails()) {
+      //    return response()->json([
+      //       'message' => $validator->errors()->first('nim') // Mengembalikan error pertama terkait NIM
+      //    ], 422);
+      // }
+
+      $searchTerms = explode(' ', $searchParam);
+
+      // Inisialisasi variabel untuk nama dan no_kelompok
+      $name = '';
+      $noKelompok = '';
+
+      // Loop melalui searchTerms untuk mendeteksi dan mengkategorikan
+      foreach ($searchTerms as $term) {
+         if (is_numeric($term)) {
+            $noKelompok = $term;
+         } else {
+            $name .= $term . ' ';
+         }
+      }
+
+      // check ifname is empty, return 404
+      if (empty($name)) {
+         return response()->json(['message' => 'Nama tidak boleh kosong'], 404);
+      }
+
+      // Trim whitespaces
+      $name = trim($name);
+
+      $user = User::query()
+         ->when($name, function ($query) use ($name) {
+            return $query->where('name', 'like', '%' . $name . '%');
+         })
+         ->when($noKelompok, function ($query) use ($noKelompok) {
+            return $query->whereHas('kelompok', function ($q) use ($noKelompok) {
+               $q->where('no_kelompok', $noKelompok);
+            });
+         })->first();
+
+      // $user = User::when($name, function ($query, $name) {
+      //    return $query->where('name', 'like', "%$name%");
+      // })->when($group, function ($query, $group) {
+      //    return $query->where('kelompok', 'like', "%$group%");
+      // })->first();
+
       if (!$user) {
-         return Inertia::render(
-            'Dashboard/cui/Page',
-            [
-               'response' => [
-                  'status' => 404,
-                  'message' => 'NIM ' . $validated['nim'] . ' tidak ditemukan',
-                  'data' => null
-               ]
-            ]
-         );
+         if ($noKelompok) {
+            return response()->json(['message' => 'Nama ' . $name . ' dengan no kelompok ' . $noKelompok . ' tidak ditemukan'], 404);
+         }
+         return response()->json(['message' => 'Nama ' . $name . ' tidak ditemukan'], 404);
       }
       $log = LogCui::where('user_id', $user->id)->latest('created_at');
-      $qrcode = Qrcode::where('user_id', $user->id)->first()->code;
+      $qrcode = Qrcode::where('user_id', $user->id)->first()->code ?? null;
 
       $response = [
-         'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
+         'message' => 'Berhasil mendapatkan Nama ' . $name,
          'nama' => $user->name,
          'nim' => $user->nim,
          'profil_url' => $user->photo_profile_url,
          'prodi' => $user->prodi->nama_prodi,
          'pita' => $user->penyakit->pita ?? null,
          'riwayat' => $user->penyakit->ket_penyakit ?? "-",
-         'qr_code' => $qrcode,
+         'qr_code' => $qrcode ?? null,
          'status' => $log->first()->status ?? null,
+         'kelompok' => $user->kelompok ? ($user->kelompok->nama_kelompok . '(' . $user->kelompok->no_kelompok . ')') : "Ini pasti panitia",
       ];
-      return Inertia::render(
-         'Dashboard/cui/Page',
-         [
-            'response' => [
-               'status' => 200,
-               'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
-               'data' => $response
-            ]
-         ]
+      return response()->json(
+         ['message' => 'Berhasil mendapatkan Nama ' . $name, 'data' => $response]
       );
+      // return Inertia::render(
+      //    'Dashboard/cui/Page',
+      //    [
+      //       'response' => [
+      //          'status' => 200,
+      //          'message' => 'Berhasil mendapatkan NIM ' . $validated['nim'],
+      //          'data' => $response
+      //       ]
+      //    ]
+      // );
    }
    public function index(Request $request)
    {
       // Count for 'pita hijau' - Count unique users only
       $pitahijau = LogCui::whereHas('user.penyakit', function ($q) {
-         $q->where('pita', 'hijau');
+         $q->whereIn('pita', ['hijau', null]);
       })->distinct('user_id')->count('user_id');
 
       // Count for 'pita kuning' - Count unique users only
@@ -294,8 +488,8 @@ class PresensiCuiController extends Controller
                'qrcode' => $logbook->user->qrcode->code,
                'nama_kelompok' => $logbook->user->kelompok->nama_kelompok,
                'penyakit' => [
-                  'pita' => $logbook->user->penyakit->pita,
-                  'ket_penyakit' => $logbook->user->penyakit->ket_penyakit,
+                  'pita' => $logbook->user->penyakit->pita ?? "hijau",
+                  'ket_penyakit' => $logbook->user->penyakit->ket_penyakit ?? "-",
                ],
             ],
          ];
@@ -309,11 +503,35 @@ class PresensiCuiController extends Controller
       return Inertia::render('Dashboard/cui/absensi/Page');
    }
 
-   public function indexIzin($nim)
+   public function indexIzin($qrcode)
    {
+      $qr = Qrcode::where('code', $qrcode)->first();
+      if (!$qr) {
+         return Inertia::render('Dashboard/cui/absensi/result/Page', [
+            'response' => [
+               'status' => 404,
+               'message' => 'QR Code tidak ditemukan',
+               'data' => [
+                  'qr_code' => $qrcode
+               ]
+            ]
+         ]);
+      }
+      $user = User::findorfail($qr->user_id);
+      if (!$user) {
+         return Inertia::render("Dashboard/cui/absensi/result/Page", [
+            "response" => [
+               "status" => 404,
+               "message" => "User tidak ditemukan",
+               "data" => [
+                  $qrcode
+               ]
+            ]
+         ]);
+      }
       $log = LogCui::with(['user', 'user.prodi', 'user.qrcode', 'user.penyakit'])
-         ->whereHas('user', function ($query) use ($nim) {
-            $query->where('nim', $nim);
+         ->whereHas('user', function ($query) use ($qr) {
+            $query->where('id', $qr->user_id);
          })
          ->latest('created_at')
          ->first();
@@ -327,13 +545,15 @@ class PresensiCuiController extends Controller
             'nama' => $log->user->name,
             'nim' => $log->user->nim,
             'status' => $log->status,
-            'pita' => $log->user->penyakit->pita,
+            'pita' => $log->user->penyakit->pita ?? "hijau",
             'prodi' => $log->user->prodi->nama_prodi,
             'photo_profile_url' => $log->user->photo_profile_url,
             'waktu_hadir' => $log->created_at,
             'waktu_izin' => $log->waktu_izin,
             'waktu_selesai' => $log->waktu_selesai,
-            'qr_code' => $log->user->qrcode->code
+            'ket_izin' => $log->ket_izin,
+            'qr_code' => $log->user->qrcode->code,
+            'riwayat' => $log->user->penyakit->ket_penyakit ?? "-",
          ]
       ]);
    }

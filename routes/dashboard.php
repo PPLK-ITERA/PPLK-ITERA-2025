@@ -1,18 +1,23 @@
 <?php
 //dashboard
 
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Dashboard\KelompokController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\TugasController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
-use App\Http\Controllers\TugasController;
+use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\PresensiPplkController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::middleware('auth')->group(function () {
-   Route::prefix('dashboard')->name('dashboard.')->group(function () {
-
+   Route::prefix('dashboard')->name('dashboard.')->middleware('checkRole:Daplok,Mentor,Admin,Pjprodi,Mamet,CustomerService,Korlap')->group(function () {
+      Route::get('/', [DashboardController::class, 'index'])->name('index');
       // =====================================
       // USER
       // =====================================
@@ -25,7 +30,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          // Admin Role
          // =====================================
-         Route::middleware(['checkRole:Admin'])->group(function () {
+         Route::middleware(['checkRole:CustomerService,Admin'])->group(function () {
             // =====================================
             // USER DATA EXCEPT MABA
             // =====================================
@@ -40,25 +45,36 @@ Route::middleware('auth')->group(function () {
             // =====================================
             // CRUD USER
             // =====================================
-            Route::get('store', [UserController::class, 'store'])->name('store');
-            Route::delete('delete', [UserController::class, 'delete'])->name('destroy');
+            Route::post('store', [UserController::class, 'store'])->name('store');
          });
+         Route::middleware('checkRole:Admin')->group(function () {
+            Route::delete('delete', [UserController::class, 'destroy'])->name('destroy');
+         });
+
 
          // =====================================
          // Daplok Mentor Role
          // =====================================
-         Route::middleware(['checkRole:Daplok,Mentor,Admin'])->group(function () {
+         Route::middleware(['checkRole:Daplok,Mentor,CustomerService,Admin,Mamet'])->group(function () {
             // =====================================
             // USER DATA MABA
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
                Route::get('maba', [UserController::class, 'getUsersMaba'])->name('maba');
+               Route::get('prodi', [UserController::class, 'getProdis'])->name('prodi');
+               Route::get('kelompok', [UserController::class, 'getKelompok'])->name('kelompok');
             });
 
             // =====================================
             // UPDATE DATA USER
             // =====================================
-            Route::put('user/update', [UserController::class, 'update'])->name('update');
+            Route::get('edit/{id}', [UserController::class, 'edit'])->name('edit');
+            Route::put('update', [UserController::class, 'update'])->name('update');
+            Route::put('edit-foto', [UserController::class, 'editFoto'])->name('edit-foto');
+            Route::put('edit-profil', [UserController::class, 'editProfil'])->name('edit-profil');
+            Route::put('edit-sosmed', [UserController::class, 'editSosmed'])->name('edit-sosmed');
+            Route::put('edit-password', [UserController::class, 'editPassword'])->name('edit-password');
+            Route::put('edit-sertif', [UserController::class, 'editSertif'])->name('edit-sertif');
          });
       });
 
@@ -76,16 +92,31 @@ Route::middleware('auth')->group(function () {
       });
 
       // =====================================
+      // Materi
+      // =====================================
+      Route::prefix('materi')->name('materi.')->group(function () {
+         Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
+            Route::get('data', [MateriController::class, 'getAllMateris'])->name('data');
+            Route::get('/', [MateriController::class, 'index'])->name('index');
+            Route::post('/store', [MateriController::class, 'store'])->name('store');
+            Route::put('/update', [MateriController::class, 'update'])->name('update');
+            Route::delete('/delete', [MateriController::class, 'destroy'])->name('destroy');
+         });
+      });
+
+      // =====================================
       // Presensi
       // =====================================
       Route::prefix('presensi')->name('presensi.')->group(function () {
          // =====================================
          // PRESENSI
          // =====================================
-         Route::middleware(['checkRole:Daplok,Mentor,PjProdi,Admin'])->group(function () {
-            Route::get('data', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
-            Route::post('store', [PresensiPplkController::class, 'store'])->name('store');
-            Route::post('izin/{id}', [PresensiPplkController::class, 'izin'])->name('izin');
+         Route::middleware(['checkRole:Daplok,Mentor,Pjprodi,Admin'])->group(function () {
+            Route::get('data/{date}', [PresensiPplkController::class, 'getAllPresensi'])->name('data');
+            Route::post('store', [PresensiPplkController::class, 'store'])->name('absen');
+            Route::post('izin/{id}', [PresensiPplkController::class, 'updateKehadiran'])->name('izin');
+            Route::post('scan', [PresensiPplkController::class, 'QRScan'])->name('scan');
+            Route::get('count', [PresensiPplkController::class, 'dataHadir'])->name('count');
          });
       });
 
@@ -100,14 +131,17 @@ Route::middleware('auth')->group(function () {
             // =====================================
             // Generate QR Code untuk poin
             // =====================================
-            Route::get('/qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('qrcode');
+            Route::middleware('throttle:5,2')->group(function () {
+               Route::get('/qrcode/{user_id}', [PoinController::class, 'generateQrCode'])->name('qrcode');
+            });
+            Route::get('score', [ScoreboardController::class, 'score'])->name('score');
          });
          // =====================================
          // Korlap Role
          // ====================================
-         Route::middleware('checkRole:Korlap,Admin')->group(function () {
-            Route::get('index/{user_id}', [PoinController::class, 'index'])->name('index');
-            Route::post('/store/{user_id}', [PoinController::class, 'store'])->name('dashboard.poin.store');
+         Route::middleware(['checkRole:Korlap,Admin'])->group(function () {
+            Route::get('index', [PoinController::class, 'index'])->name('index');
+            Route::post('store', [PoinController::class, 'store'])->name('store');
          });
       });
 
@@ -119,15 +153,19 @@ Route::middleware('auth')->group(function () {
          // Mamet Role
          // =====================================
          Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
-            Route::get('/return/{id}', [TugasController::class, 'return'])->name('return');
+            Route::get('data/all/{tugas_id}/{no_kelompok}/{status}', [TugasController::class, 'getAllTugas'])->name('data');
+         });
+         Route::middleware(['checkRole:Daplok,Mentor,Admin,Mamet'])->group(function () {
+            Route::put('/return', [TugasController::class, 'returnTugas'])->name('return');
+            Route::put('/return-poster', [TugasController::class, 'returnPoster'])->name('return-poster');
 
             // =====================================
             // Data
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
-               Route::get('/all', [TugasController::class, 'getAllTugas'])->name('all');
-               Route::get('/individu', [TugasController::class, 'getTugasIndividu'])->name('individu');
+               Route::get('/user/{id}', [TugasController::class, 'getTugasUser'])->name('user');
                Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
+               Route::get('/poster', [TugasController::class, 'getPoster'])->name('poster');
             });
          });
       });
@@ -135,15 +173,17 @@ Route::middleware('auth')->group(function () {
       // =====================================
       // Kelompok
       // =====================================
-      Route::prefix('kelompok')->name('kelompok.')->group(function () {
-         Route::get('data', [KelompokController::class, 'index'])->name('data');
+      Route::prefix('kelompok')->name('kelompok.')->middleware('checkRole:Daplok,Mentor,Admin')->group(function () {
+         // Route::get('data', [KelompokController::class, 'index'])->name('data');
          Route::put('update', [KelompokController::class, 'update'])->name('update');
+         Route::get('data', [KelompokController::class, 'getKelompok'])->name('data');
+         Route::put('set-ketua', [UserController::class, 'setKetua'])->name('set-ketua');
       });
 
       // =====================================
       // FAQ
       // =====================================
-      Route::prefix('faq')->name('faq.')->group(function () {
+      Route::prefix('faq')->name('faq.')->middleware('checkRole:CustomerService,Admin')->group(function () {
          Route::get('/data', [FAQController::class, 'getAllFAQ'])->name('data');
          Route::post('/', [FAQController::class, 'store'])->name('store');
          Route::put('/', [FAQController::class, 'update'])->name('update');

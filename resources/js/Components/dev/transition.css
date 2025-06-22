@@ -1,18 +1,27 @@
-/* transition */
-.fade-enter {
-    opacity: 0;
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.fade-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-.fade-exit {
-    opacity: 1;
+.fade-up {
+    animation: fadeUp 1s ease-out;
 }
 
-.fade-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-out;
+.fade-in {
+    animation: fadeIn 2s ease-out;
 }

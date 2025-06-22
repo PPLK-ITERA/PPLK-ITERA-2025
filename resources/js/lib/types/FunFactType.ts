@@ -1,10 +1,10 @@
 export interface FunFact {
-    title: string;
-    subtitle: string;
-    desc: string;
+  title: string;
+  subtitle: string;
+  desc: string;
 }
 
 export interface Person {
-    nama: string;
-    funfact: FunFact[];
+  nama: string;
+  funfact: FunFact[];
 }

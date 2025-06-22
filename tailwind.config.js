@@ -99,6 +99,10 @@ export default {
                     900: "#74211a",
                     950: "#450f0a",
                 },
+                cyan: {
+                    primary: "#75ABAD",
+                    secondary: "#C4DDDD",
+                },
             },
             borderRadius: {
                 lg: "var(--radius)",
@@ -131,6 +135,8 @@ export default {
                 montserrat: ["Montserrat"],
                 novamono: ["NovaMono"],
                 spacegrotesk: ['"Space Grotesk"'],
+                anothertag: ["AnotherTag"],
+                lostar: ["Lostar"],
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",
@@ -145,6 +151,9 @@ export default {
                 "pattern-white": "url('!assets/pattern-white.png')",
                 "pattern-brown": "url('!assets/pattern-brown.png')",
                 "pattern-black": "url('!assets/pattern-black.png')",
+                "history-completed":
+                    "url('!assets/mading/history-completed.png')",
+                scoreboard: "url('!assets/background-scoreboard.png')",
             },
         },
     },

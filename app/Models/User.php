@@ -20,17 +20,20 @@ class User extends Authenticatable
    protected $fillable = [
       'name',
       'email',
+      'nim',
       'password',
       'photo_profile_url',
       'linkedin_url',
       'instagram_url',
+      'link_sertif',
       'kelompok_id',
+      'isFirstTime',
       'isKetua',
       'pilar',
       'qrcode_id',
       'prodi_id',
       'score',
-      'role',
+      'role_id',
       'bio',
    ];
    /**
@@ -41,7 +44,6 @@ class User extends Authenticatable
    protected $hidden = [
       'password',
       'remember_token',
-      'pilar',
       'created_at',
       'updated_at',
    ];
@@ -69,6 +71,16 @@ class User extends Authenticatable
    {
       return $this->hasMany(Follow::class, 'following_user_id');
    }
+   public function viewers()
+   {
+      return $this->hasMany(Views::class, 'viewed_user_id');
+   }
+
+   public function viewing()
+   {
+      return $this->hasMany(Views::class, 'viewing_user_id');
+   }
+
 
    public function kelompok()
    {
@@ -82,12 +94,12 @@ class User extends Authenticatable
 
    public function pilar()
    {
-      return $this->belongsTo(pilar::class, 'pilar', 'id');
+      return $this->belongsTo(Pilar::class, 'pilar', 'id');
    }
 
-   public function tugas()
+   public function pengumpulan_tugas()
    {
-      return $this->hasMany(Tugas::class, 'user_id');
+      return $this->hasMany(PengumpulanTugas::class, 'user_id');
    }
    public function QuizActivity()
    {
@@ -99,7 +111,7 @@ class User extends Authenticatable
    }
    public function presensi()
    {
-      return $this->hasOne(PresensiPplk::class, 'user_id', 'id');
+      return $this->hasMany(PresensiPplk::class, 'user_id', 'id');
    }
    public function prodi()
    {
@@ -108,5 +120,14 @@ class User extends Authenticatable
    public function penyakit()
    {
       return $this->belongsTo(Penyakit::class, 'penyakit_id', 'id');
+   }
+   public function result()
+   {
+      return $this->hasOne(Result::class, 'user_id', 'id');
+   }
+
+   public function assesmenActivity()
+   {
+      return $this->hasMany(AnswerActivity::class, 'user_id', 'id');
    }
 }
