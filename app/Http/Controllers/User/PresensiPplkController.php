@@ -34,7 +34,7 @@ class PresensiPplkController extends Controller
          $action = Carbon::today()->toDateString();
       }
 
-      $day = ['2024-08-12', '2024-08-15'];
+      $day = ['2024-08-12', '2025-08-15'];
       if (Auth::user()->role_id === 5) {
          if (!in_array(Carbon::today()->toDateString(), $day)) {
             return response()->json([
@@ -277,7 +277,7 @@ class PresensiPplkController extends Controller
       $action = $date === Carbon::today()->toDateString() && $currentTime->between($start, $end);
 
       if (Auth::user()->role_id === 5) {
-         $action = $action && in_array($date, ['2024-08-12', '2024-08-15']);
+         $action = $action && in_array($date, ['2024-08-12', '2025-08-15']);
       } else if (Auth::user()->role_id === 3) {
          $action = true;
       }
@@ -361,7 +361,7 @@ class PresensiPplkController extends Controller
          ]);
       }
 
-      $day = ['2024-08-12', '2024-08-15'];
+      $day = ['2024-08-12', '2025-08-15'];
       if (Auth::user()->role_id === 5) {
          if (!in_array(Carbon::today()->toDateString(), $day)) {
             return redirect()->back()->with('response', [
