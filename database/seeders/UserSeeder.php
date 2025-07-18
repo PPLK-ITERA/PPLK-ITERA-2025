@@ -2,80 +2,89 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kelompok;
-use App\Models\Role;
-use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class UserSeeder extends Seeder
 {
-   /**
-    * Run the database seeds.
-    */
-   public function run(): void
-   {
-      $csvMaba = fopen(base_path("database/csv/akunMaba.csv"), "r");
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        // Path ke file CSV
+        $csvPath = base_path("database/csv/AkunMaba.csv");
 
-      // Start time for measuring duration
-      $startTime = microtime(true);
+        if (!file_exists($csvPath)) {
+            $this->command->error("File CSV tidak ditemukan di: " . $csvPath);
+            return;
+        }
 
-      $firstline = true;
-      $users = [];
-      $fileSize = filesize(base_path("database/csv/akunMentor.csv"));
-      $processedBytes = 0;
-      $totalProcessed = 0;  // Count total lines processed for progress calculation
+        // 1. Hitung total baris (di luar header) untuk progress bar yang akurat
+        $totalRows = count(file($csvPath)) - 1;
+        $progressBar = $this->command->getOutput()->createProgressBar($totalRows);
+        $this->command->info("Memulai seeder untuk Mahasiswa Baru (Maba)...");
 
-      while (($data = fgetcsv($csvMaba, 2000, ";")) !== FALSE) {
-         $currentPos = ftell($csvMaba); 
-          // Current position in the file after reading a line
-         if (!$firstline) {
-            if (count($data) < 15) {
-            echo "Skipping invalid row with only " . count($data) . " columns\n";
-            continue;
-         }
-            $users[] = [
-               "name" => $data[1],
-               "email" => $data[3],
-               "password" => bcrypt($data[4]),
-               "kelompok_id" => $data[11],
-               "prodi_id" => $data[14],
-               "role_id" => 1,
-               "created_at" => now(),
-               "updated_at" => now()
-            ];
-            $totalProcessed++;
-         } else {
-            $firstline = false;
-         }
+        $csvFile = fopen($csvPath, "r");
 
-         // Batch insert and reset the users array every 500 records
-         if (count($users) >= 500) {
-            DB::transaction(function () use ($users) {
-               User::insert($users);
-            });
-            $users = [];
-         }
+        $isFirstLine = true;
+        $usersBatch = [];
+        $batchSize = 500;
 
-         // Progress output every 500 records
-         if ($totalProcessed % 500 == 0) {
-            $progress = ($currentPos / $fileSize) * 100;
-            echo "Progress: " . number_format($progress, 2) . "%\r";
-         }
-      }
+        // Memulai progress bar
+        $progressBar->start();
 
-      // Insert any remaining users
-      if (!empty($users)) {
-         DB::transaction(function () use ($users) {
-            User::insert($users);
-         });
-      }
+        // Membungkus proses dalam transaction untuk memastikan integritas data
+        DB::transaction(function () use ($csvFile, &$isFirstLine, &$usersBatch, $batchSize, $progressBar) {
+            while (($data = fgetcsv($csvFile, 2000, ";")) !== false) {
+                // Lewati baris header
+                if ($isFirstLine) {
+                    $isFirstLine = false;
+                    continue;
+                }
 
-      fclose($csvMaba);
+                // Validasi jumlah kolom untuk menghindari error
+                if (count($data) < 15) {
+                    // Log::warning('Skipping invalid row in UserSeeder: ' . implode(';', $data));
+                    continue;
+                }
 
-      // Calculate and display elapsed time
-      $endTime = microtime(true);
-      $elapsedTime = $endTime - $startTime;
-      echo "\nImport completed in " . number_format($elapsedTime, 2) . " seconds.\n";
-   }
+                // Kumpulkan data user ke dalam batch
+                $usersBatch[] = [
+                    "name" => $data[1],
+                    "email" => $data[3],
+                    "password" => Hash::make($data[4]),
+                    "kelompok_id" => $data[11],
+                    "prodi_id" => $data[14],
+                    "role_id" => 1, // Role untuk Maba
+                    "created_at" => now(),
+                    "updated_at" => now()
+                ];
+
+                // Jika batch sudah mencapai ukuran yang ditentukan, insert ke database
+                if (count($usersBatch) >= $batchSize) {
+                    User::insert($usersBatch);
+                    $progressBar->advance(count($usersBatch)); // Majukan progress bar
+                    $usersBatch = []; // Kosongkan batch
+                }
+            }
+
+            // Insert sisa user yang ada di batch terakhir
+            if (!empty($usersBatch)) {
+                User::insert($usersBatch);
+                $progressBar->advance(count($usersBatch)); // Majukan progress bar untuk sisa data
+            }
+        });
+
+        fclose($csvFile);
+
+        // Selesaikan progress bar
+        $progressBar->finish();
+
+        // Beri baris baru setelah progress bar selesai
+        $this->command->info("\nSeeder untuk Mahasiswa Baru (Maba) telah selesai.");
+    }
 }
