@@ -145,7 +145,7 @@ function Page() {
               <img
                 src={overlay_earth}
                 alt="Overlay Earth"
-                className="w-full h-[305px] lg:h-[629px]"
+                className="w-10 h-[305px] lg:h-[629px]"
               />
             </div>
           </div>

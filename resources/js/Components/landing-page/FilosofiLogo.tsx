@@ -31,8 +31,8 @@ export default function FilosofiLogo() {
   }, [api]);
 
   return (
-    <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white pt-[250px] md:pt-[500px]">
-      <h2 className="text-jaffa-300 font-avigea md:text-4xl text-3xl">
+    <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-brown pt-[250px] md:pt-[500px]">
+      <h2 className="text-jaffa-300 font-greek md:text-4xl text-3xl">
         Filosofi Logo PPLK
       </h2>
 
@@ -75,7 +75,7 @@ export default function FilosofiLogo() {
               <img
                 src={alas_filosofi}
                 alt="alas_filosofi"
-                className="-mt-28 md:-mt-40 bg-cover"
+                className="w-[300px] md:w-[300px] lg:w-[400px] mx-auto"
               />
 
               <div className="flex min-h-[300px] max-w-[600px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[300px]">

@@ -97,6 +97,16 @@
         font-family: "Lostar";
         src: local("Lostar"), url("!assets/fonts/Lostar/Lostar.ttf");
     }
+    @font-face {
+        font-family: "Greek Freak";
+        src: local("Greek Freak"),
+            url("/public/build/assets/Greek-Freak.ttf");
+    }
+    @font-face {
+        font-family: "Montserrat";
+        src: local("Greek Freak-Italic"),
+            url("/public/build/assets/Greek-Freak-Italic.ttf");
+    }
 }
 
 html {

@@ -20,7 +20,7 @@ export default function Panduan() {
       className="lg:flex-row flex flex-col items-center justify-center w-full min-h-screen py-20"
     >
       <div className="lg:w-1/3 lg:items-start xl:w-1/2 flex flex-col items-center justify-center w-full text-left">
-        <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-3xl text-transparent md:text-4xl">
+        <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-greek text-7xl text-transparent md:text-7xl">
           Panduan
         </h2>
 

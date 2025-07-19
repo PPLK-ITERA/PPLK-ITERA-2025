@@ -24,22 +24,23 @@ export default function Maskot() {
       data-aos-duration={1000}
       className="flex min-h-[100vh] flex-col-reverse items-center justify-center gap-10 pb-20 md:flex-row md:gap-0 md:pb-10 lg:pb-0 z-30"
     >
-      <div className="md:w-[50%] md:items-start md:text-left lg:w-3/5 z-30 flex flex-col items-center justify-center w-full px-10 text-center">
-        <h2 className="font-avigea md:text-2xl lg:text-4xl z-30 w-full text-xl text-white">
+      <div className="md:w-[50%] md:items-start md:text-left lg:w-3/5 z-30 flex flex-col items-center justify-center w-full px-10 text-center -right-44">
+        <h2 className="font-greek md:text-2xl lg:text-4xl z-30 w-full text-xl text-white ml-44">
           Kenalan Sama
           <br />
           Maskot PPLK 2024!
         </h2>
 
-        <p className="mt-5 font-montserrat text-[16px] font-normal text-white/80 md:text-lg lg:max-w-[80%] lg:text-2xl z-30">
-          Temui Calandra dan Kanaka, maskot PPLK ITERA 2024 yang elegan dan
-          penuh semangat. Bersama, mereka mewakili karakter kuat dan visi ke
-          depan, membawa harapan bagi Indonesia Emas 2045.
+        <p className="mt-5 font-montserrat text-[16px] font-normal text-white/80 md:text-lg lg:max-w-[80%] lg:text-2xl z-30 ml-44">
+          Hai, Aku Cephabel, Maskot PPLK 2023 Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Suspendisse non porta dolor. Interdum et
+          malesuada fames ac ante ipsum primis in faucibus. Fusce congue ac elit
+          non sollicitudin. Aenean dictum ultricies massa, non tristique nunc.
         </p>
 
         <Link
           href="/informasi/maskot"
-          className="mt-10 rounded-[6px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm z-40"
+          className="mt-10 rounded-[6px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[16px] font-semibold text-white shadow-sm z-40 ml-44"
         >
           Informasi Maskot &#x2192;
         </Link>

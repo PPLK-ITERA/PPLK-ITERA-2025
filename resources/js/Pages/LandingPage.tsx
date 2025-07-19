@@ -26,9 +26,9 @@ import { Dialog, DialogContent } from "@/Components/ui/dialog";
 import { useAos } from "@/lib/hooks/useAos";
 
 import bronzemedal from "!assets/bronzemedal.png";
+import bukit from "!assets/bukit.png";
 import elang from "!assets/elang-hero.png";
 import goldmedal from "!assets/goldmedal.png";
-import overlay_box from "!assets/overlay-box.png";
 import overlay_earth from "!assets/overlay-earth.png";
 import pillar_brown2 from "!assets/pillar-brown2.png";
 import silvermedal from "!assets/silvermedal.png";
@@ -109,42 +109,43 @@ export default function LandingPage() {
             <What />
             <Panduan />
           </MaxWidthWrapper>
-
-          <img src={overlay_earth} alt="overlay_earth" className="w-full" />
+          <div className="relative max-w-10xl mx-auto">
+            <img
+              src={bukit}
+              alt="Dekorasi Bukit"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100%] h-auto z-10"
+            />
+            <img
+              src={overlay_earth}
+              alt="Pilar Kiri"
+              className="absolute bottom-0 left-0 w-[50%] max-w-xl h-auto  hidden md:block z-2 "
+            />
+            <img
+              src={overlay_earth}
+              alt="Pilar Kanan"
+              className="scale-x-[-1] absolute bottom-0 right-0 w-[50%] max-w-xl h-auto hidden md:block z-3 "
+            />
+            <div className="relative z-30">
+              <VideoSection />
+            </div>
+            
+          </div>
         </div>
 
-        <VideoSection />
-
-        <FilosofiLogo />
-
-        <div className="relative bg-[#170C0A] -mt-1 bg-pattern-white">
-          <img
-            src={pillar_brown2}
-            alt="pillar_brown2"
-            className="scale-x-[-1] xl:-mt-24 absolute right-0 w-[9%] hidden md:block"
-          />
-
-          <img
-            src={pillar_brown2}
-            alt="pillar_brown2"
-            className="absolute left-0 xl:-mt-24 w-[9%] hidden md:block"
-          />
-
+        <div className="relative bg-pattern-brown">
           <MaxWidthWrapper className="z-30">
+            <FilosofiLogo />
             <Maskot />
           </MaxWidthWrapper>
         </div>
 
-        <img
-          data-aos="slide-up"
-          data-aos-duration={1000}
-          src={overlay_box}
-          alt="pillar_brown"
-          className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
-        />
-
         <div className="bg-pattern-white pt-40 pb-20">
           <InfoSection />
+          <img
+            src={pillar_brown2}
+            alt="pillar_brown2"
+            className="absolute bottom-0 -left-[780px] w-[80%] h-auto z-0 hidden md:block mb-[2850px]"
+          />{" "}
         </div>
 
         <div className="h-[10px] w-full bg-candlelight-600" />
