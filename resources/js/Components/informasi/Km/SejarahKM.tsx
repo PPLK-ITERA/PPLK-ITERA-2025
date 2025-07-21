@@ -17,7 +17,7 @@ const SejarahKM = () => {
         </div>
 
         <div className="md:px-14 flex flex-col w-full px-3 mt-8">
-          <h2 className="font-avigea text-[20px] lg:text-[39px] text-white text-center">
+          <h2 className="font-greek text-[20px] lg:text-[39px] text-white text-center">
             SEJARAH & INFORMASI <br className="md:hidden" />
             KM ITERA <br />
           </h2>

@@ -35,7 +35,7 @@ const DataFilosofiLogo = [
     image: pilar_sdgs,
     title: "4 Pilar SDG's",
     description:
-      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2024",
+      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2025",
   },
   {
     image: pulau_sumatera,
@@ -82,7 +82,7 @@ export default function FilosofiLogo() {
 
   return (
     <div className="relative -mt-96 flex h-full flex-col items-center pt-[500px]">
-      <h2 className="font-avigea sm:text-3xl text-candlelight-600 text-2xl">
+      <h2 className="font-greek sm:text-3xl text-candlelight-600 text-2xl">
         FILOSOFI LOGO
       </h2>
       <div className="flex"></div>
@@ -169,7 +169,7 @@ export default function FilosofiLogo() {
               />
 
               <div className="flex max-w-[600px] flex-col items-center p-6 text-center text-black h-[300px]">
-                <h2 className="font-avigea sm:text-[39px] text-2xl text-black">
+                <h2 className="font-greek sm:text-[39px] text-2xl text-black">
                   {data.title}
                 </h2>
 

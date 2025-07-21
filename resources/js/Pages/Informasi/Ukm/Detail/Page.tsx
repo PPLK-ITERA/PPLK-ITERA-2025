@@ -45,7 +45,7 @@ function Page({ nama_ukm }) {
               <h2
                 data-aos="fade-down"
                 data-aos-duration="1000"
-                className="font-avigea md:text-4xl z-20 text-2xl text-center text-black"
+                className="font-greek md:text-4xl z-20 text-2xl text-center text-black"
               >
                 Prestasi & Kegiatan
               </h2>
@@ -57,7 +57,7 @@ function Page({ nama_ukm }) {
               <h2
                 data-aos="fade-down"
                 data-aos-duration="1000"
-                className="font-avigea md:text-4xl z-20 text-2xl text-center text-black"
+                className="font-greek md:text-4xl z-20 text-2xl text-center text-black"
               >
                 Sosial Media UKM
               </h2>

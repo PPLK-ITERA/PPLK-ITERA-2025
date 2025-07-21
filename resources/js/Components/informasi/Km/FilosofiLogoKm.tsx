@@ -74,7 +74,7 @@ const FilosofiLogoKm = () => {
   return (
     <div className="pt-40">
       <div className="relative -mt-5 flex h-full flex-col items-center bg-[#170C0A] bg-pattern-white">
-        <h2 className="font-avigea md:text-5xl z-40 text-3xl text-center text-white">
+        <h2 className="font-greek md:text-5xl z-40 text-3xl text-center text-white">
           FILOSOFI LOGO
         </h2>
 

@@ -20,7 +20,7 @@ import logopplk from "!assets/logo-pplk-2024.png";
 
 export const DataAtribut = [
   {
-    day: "Hari Pertama (12 Agustus 2024)",
+    day: "Hari Pertama (12 Agustus 2025)",
     options: [
       {
         gender: "Laki-Laki",
@@ -40,7 +40,7 @@ export const DataAtribut = [
     ],
   },
   {
-    day: "Hari Kedua (13 Agustus 2024)",
+    day: "Hari Kedua (13 Agustus 2025)",
     options: [
       {
         gender: "Laki-Laki",
@@ -60,7 +60,7 @@ export const DataAtribut = [
     ],
   },
   {
-    day: "Hari Ketiga (14 Agustus 2024)",
+    day: "Hari Ketiga (14 Agustus 2025)",
     options: [
       {
         gender: "Laki-Laki",
@@ -80,7 +80,7 @@ export const DataAtribut = [
     ],
   },
   {
-    day: "Hari Keempat (15 Agustus 2024)",
+    day: "Hari Keempat (15 Agustus 2025)",
     options: [
       {
         gender: "Laki-Laki",
@@ -100,7 +100,7 @@ export const DataAtribut = [
     ],
   },
   {
-    day: "Hari Kelima (16 Agustus 2024)",
+    day: "Hari Kelima (16 Agustus 2025)",
     options: [
       {
         gender: "Laki-Laki",
@@ -120,7 +120,7 @@ export const DataAtribut = [
     ],
   },
   {
-    day: "Hari Keenam (17 Agustus 2024)",
+    day: "Hari Keenam (17 Agustus 2025)",
     options: [
       {
         gender: "Laki-Laki",

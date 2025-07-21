@@ -40,7 +40,7 @@ const Hmps = ({ prodi, className }: Props) => {
             />
           </div>
 
-          <h1 className="font-avigea lg:text-4xl max-w-2xl mx-auto text-2xl">
+          <h1 className="font-greek lg:text-4xl max-w-2xl mx-auto text-2xl">
             {prodi.hmpsAcronym}
           </h1>
 
@@ -113,7 +113,7 @@ const Hmps = ({ prodi, className }: Props) => {
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <h1 className="font-avigea lg:text-3xl text-moccaccino-500 text-xl">
+          <h1 className="font-greek lg:text-3xl text-moccaccino-500 text-xl">
             Sosial Media {prodi.hmpsAcronym}
           </h1>
 
