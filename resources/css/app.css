@@ -97,6 +97,14 @@
         font-family: "Lostar";
         src: local("Lostar"), url("!assets/fonts/Lostar/Lostar.ttf");
     }
+    @font-face {
+        font-family: "Greek";
+        src: local("Greek"), url("!assets/fonts/Greek/Greek.ttf");
+    }
+    @font-face {
+        font-family: "Romanica";
+        src: local("Romanica"), url("!assets/fonts/Romanica/Romanica.ttf");
+    }
 }
 
 html {
