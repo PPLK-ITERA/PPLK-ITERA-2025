@@ -1,5 +1,5 @@
 # Gunakan image PHP dengan ekstensi yang dibutuhkan
-FROM php:8.2-cli
+FROM php:8.3-cli
 
 RUN apt-get update && apt-get install -y \
     git unzip curl libzip-dev libpng-dev libonig-dev libxml2-dev
@@ -43,6 +43,9 @@ RUN chown -R www-data:www-data storage bootstrap/cache && chmod -R 775 storage b
 
 # Buat symbolic link untuk storage
 RUN php artisan storage:link
+
+# Bersihkan cache konfigurasi
+RUN php artisan config:clear && php artisan config:cache
 
 # Expose port
 EXPOSE 8000
