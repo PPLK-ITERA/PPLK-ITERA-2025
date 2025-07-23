@@ -23,6 +23,9 @@ COPY storage/certs/isrgrootx.pem storage/certs/isrgrootx.pem
 # Copy seluruh source code ke container
 COPY . .
 
+# Install PHP GD extension (required by simplesoftwareio/simple-qrcode)
+RUN docker-php-ext-install gd
+
 # Install composer dependencies
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
@@ -34,9 +37,6 @@ RUN npm run build
 
 # Install database extension
 RUN docker-php-ext-install pdo_mysql
-
-# Install PHP GD extension (required by simplesoftwareio/simple-qrcode)
-RUN docker-php-ext-install gd
 
 # Pastikan permission folder
 RUN chown -R www-data:www-data storage bootstrap/cache && chmod -R 775 storage bootstrap/cache
