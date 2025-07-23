@@ -15,19 +15,19 @@ class UserSeeder extends Seeder
     */
    public function run(): void
    {
-      $csvMaba = fopen(base_path("database/csv/akunMaba.csv"), "r");
+      $csvMaba = fopen(base_path("database/csv/AkunMaba.csv"), "r");
 
       // Start time for measuring duration
       $startTime = microtime(true);
 
       $firstline = true;
       $users = [];
-      $fileSize = filesize(base_path("database/csv/akunMentor.csv"));
+      $fileSize = filesize(base_path("database/csv/AkunMentor.csv"));
       $processedBytes = 0;
       $totalProcessed = 0;  // Count total lines processed for progress calculation
 
       while (($data = fgetcsv($csvMaba, 2000, ";")) !== FALSE) {
-         $currentPos = ftell($csvMaba); 
+         $currentPos = ftell($csvMaba);
           // Current position in the file after reading a line
          if (!$firstline) {
             if (count($data) < 15) {
