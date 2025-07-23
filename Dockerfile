@@ -35,6 +35,9 @@ RUN npm run build
 # Install database extension
 RUN docker-php-ext-install pdo_mysql
 
+# Install PHP GD extension (required by simplesoftwareio/simple-qrcode)
+RUN docker-php-ext-install gd
+
 # Pastikan permission folder
 RUN chown -R www-data:www-data storage bootstrap/cache && chmod -R 775 storage bootstrap/cache
 
