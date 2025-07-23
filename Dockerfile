@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt-get install -y nodejs
 
-# Set working directory
+# Set working directorys
 WORKDIR /app
 
 # Copy composer dan npm files
