@@ -24,33 +24,38 @@ const Prodi = ({ prodi, className }: Props) => {
   return (
     <div className={className}>
       <div className="place-content-center flex flex-col w-full gap-16 py-24">
-        <div className="flex flex-col gap-6 text-center">
-          {prodi.imageUrl ? (
-            <div className="w-64 h-64 p-10 mx-auto overflow-hidden bg-white rounded-full shadow-md">
-              <img
-                src={prodi.imageUrl}
-                alt="Prodi"
-                className="object-contain w-full h-full mx-auto"
-                data-aos="fade-in"
-                data-aos-duration="1000"
-              />
+        <div className="place-content-center flex flex-col w-full gap-16 py-24">
+          {/* BAGIAN HERO (LOGO & DESKRIPSI) */}
+          <div className="relative rounded-2xl overflow-hidden">
+            {/* Konten Glassmorphism di atasnya */}
+            <div className="relative z-10 bg-black/30 backdrop-blur-lg p-32 shadow-lg border border-white/20">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                {prodi.imageUrl ? (
+                  <div className="w-48 h-48 p-4 rounded-full flex-shrink-0">
+                    <img
+                      src={prodi.imageUrl}
+                      alt="Prodi"
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                ) : null}
+
+                <div className="text-center md:text-left">
+                  <h1 className="font-greek lg:text-5xl text-white text-4xl">
+                    {prodi.name}
+                  </h1>
+                </div>
+              </div>
             </div>
-          ) : null}
-
-          <h1 className="font-greek lg:text-4xl text-moccaccino-600 text-2xl">
-            {prodi.name}
-          </h1>
-          <p className="max-lg:text-justify lg:text-lg lg:leading-7 text-sm font-medium">
-            {prodi.description}
-          </p>
+          </div>
+          <p className="font-medium text-justify mt-8">{prodi.description}</p>
         </div>
-
         <div
           className="flex flex-col gap-6"
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <h1 className="font-greek lg:text-3xl text-moccaccino-600 text-2xl">
+          <h1 className="font-greek lg:text-3xl text-moccaccino-600 text-6xl">
             Sejarah
           </h1>
 
