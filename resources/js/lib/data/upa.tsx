@@ -91,7 +91,7 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Andre Febrianto, S.Kom., M.Eng",
       foto: kepala_upa_tik,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "198602142019031008",
     },
     sosmedUPT: {
@@ -148,7 +148,7 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "M. ALVIEN GHIFARI, S.SI., M.SC.",
       foto: kepala_upa_perpustakaan,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "199511082022031010",
     },
     sosmedUPT: {
@@ -201,7 +201,7 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Dr. Tarmizi Taher, S.Si.",
       foto: kepala_upa_lab,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "1993032920211345",
     },
     sosmedUPT: {
@@ -259,7 +259,7 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Alawiyah, S.P., M.Hut.",
       foto: kepala_upa_kebun_raya,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "",
     },
     sosmedUPT: {
@@ -311,7 +311,7 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Dr. Moedji Raharto",
       foto: kepala_upa_oail,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "195411081981031002",
     },
     sosmedUPT: {
@@ -362,7 +362,7 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Drs. Zadrach Ledoufij Dupe, M.Si",
       foto: kepala_upa_mkg,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "195703221983031003",
     },
     sosmedUPT: {
