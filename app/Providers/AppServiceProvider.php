@@ -20,9 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        JsonResponse::macro('formatted', function () {
-            $this->setEncodingOptions(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            return $this;
-        });
+        if($this->app->environment('production')) {
+            // Force HTTPS in production
+            \URL::forceScheme('https');
+        }
     }
 }
