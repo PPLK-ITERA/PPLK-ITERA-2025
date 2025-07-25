@@ -4,14 +4,12 @@ import { useEffect, useState } from "react";
 
 import { Head } from "@inertiajs/react";
 
-import { Shield } from "lucide-react";
-
 import { AccordionFAQ, type FAQ } from "@/Components/AccordionFAQ";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import ProgramStudi from "@/Components/informasi/Fakultas/ProgramStudi";
 
-// import PaginationFAQ from "@/Components/PaginationFAQ";
+import PaginationFAQ from "@/Components/PaginationFAQ";
 import { useAos } from "@/lib/hooks/useAos";
 
 import man from "!assets/FAQ/man.png";
@@ -119,7 +117,7 @@ export default function Page({ response }) {
               className=" md:grid flex overflow-x-auto whitespace-nowrap scroll-smooth md:whitespace-normal md:overflow-visible md:space-x-0  grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16"
             >
               {/* Card 1 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col items-center object-fit: cover ">
+              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer  shadow-md hover:shadow-lg flex flex-col items-center object-fit: cover ">
                 <div className="text-center relative justify-center items-center w-[100%] mx-auto -top-3 mb-1">
                   <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center overflow-visible">
                     <div className="absolute -top-9 z-10">
@@ -134,7 +132,7 @@ export default function Page({ response }) {
               </div>
 
               {/* Card 2 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col items-center">
+              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center">
                 <div className="text-center relative justify-center items-center w-[100%] mx-auto -top-3 mb-1">
                   <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <div className="absolute -top-9 z-10">
@@ -149,7 +147,7 @@ export default function Page({ response }) {
               </div>
 
               {/* Card 3 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col items-center">
+              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer  shadow-md hover:shadow-lg flex flex-col items-center">
                 <div className="text-center  relative justify-center -top-3 mb-1 items-center w-[100%] mx-auto">
                   <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <div className="absolute -top-9 z-10">
@@ -171,29 +169,29 @@ export default function Page({ response }) {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
+              <div className="bg-white rounded-2xl  p-6 sticky top-24">
                 {/* Topik Umum */}
                 <div className="mb-8 hidden md:block">
                   <h3 className="font-bold font-montserrat text-[#000000] mb-4 text-lg">
                     Topik Umum
                   </h3>
                   <div className="space-y-2">
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       PPLK ITERA 20222
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       Fakultas
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       Prodi & HMPS
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       KM ITERA
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       UKM ITERA
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       Divisi PPLK
                     </button>
                   </div>
@@ -205,25 +203,25 @@ export default function Page({ response }) {
                     Topik Terkait
                   </h3>
                   <div className="space-y-2">
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Profil Maba
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Tesla
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       PETAKA
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Dokumentasi
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Relasi dan Jaringan
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Booklet
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Attribut
                     </button>
                   </div>
@@ -247,7 +245,7 @@ export default function Page({ response }) {
                         Ajukan pertanyaanmu dengan cara menekan tombol dibawah
                         dan akan kita bantu secepatnya
                       </p>
-                      <button className="bg-white mt-4  px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors duration-200">
+                      <button className="bg-white mt-4  px-4 py-2 rounded-lg font-semibold text-sm hover:bg-[#FF6A00] transition-colors duration-200 ">
                         AJUKAN PERTANYAAN!
                       </button>
                     </div>
@@ -263,78 +261,28 @@ export default function Page({ response }) {
                 <h2 className="text-2xl font-bold font-montserrat  text-center mb-2">
                   Pertanyaan Umum
                 </h2>
-                {/* Tambahkan judul di sini */}
-                <div className=" w-full max-w-4xl bg-gradient-to-br  from-[#FF6A00] to-[#FF5500DE]  text-white p-6 rounded-2xl shadow-md ">
-                  <div className="flex justify-between items-center mb-2">
-                    <h2 className="text-lg font-semibold">Judul Pertanyaan</h2>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 transform rotate-180"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 15l7-7 7 7"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-sm leading-relaxed">
-                    Lorem ipsum dolor sit amet consectetur. Quam porta et nisl
-                    iaculis. Interdum vitae risus euismod donec tincidunt tempus
-                    velit. Eu nibh egestas dis id tristique aliquam lacus dolor.
-                    Fusce et blandit maecenas felis aliquet. Scelerisque ut eget
-                    diam praesent duis.
-                  </p>
-                </div>
-
                 <div className="p-6">
                   <div data-aos="fade-up" data-aos-duration="10">
                     <AccordionFAQ items={currentItems} />
-                    {/* <PaginationFAQ
-                      currentPage={currentPage}
-                      totalPages={totalPages}
-                      onPageChange={setCurrentPage}
-                    /> */}
                   </div>
                 </div>
               </div>
 
               {/* Pertanyaan Teknis */}
-              <div className="text-center">
-                <h2 className="text-2xl font-montserrat font-bold mb-1 text-center">
+              <div className="bg-white rounded-2xl shadow-lg mb-8">
+                <h2 className="text-2xl font-bold font-montserrat text-center mb-2">
                   Pertanyaan Teknis
                 </h2>
-              </div>
-              <div className="p-6 space-y-4">
-                {[1, 2, 3, 4].map((item) => (
-                  <div
-                    key={item}
-                    className="border border-gray-200 rounded-lg hover:border-gray-300 transition-colors duration-200"
-                  >
-                    <button className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors duration-200">
-                      <span className="font-medium text-gray-800">
-                        Judul Pertanyaan {item}
-                      </span>
-                      <svg
-                        className="w-5 h-5 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
+                <div className="p-6">
+                  <div data-aos="fade-up" data-aos-duration="10">
+                    <AccordionFAQ items={currentItems} />
+                    <PaginationFAQ
+                      currentPage={currentPage}
+                      totalPages={totalPages}
+                      onPageChange={setCurrentPage}
+                    />
                   </div>
-                ))}
+                </div>
               </div>
 
               <div>
@@ -367,7 +315,7 @@ export default function Page({ response }) {
                       Ajukan pertanyaanmu dengan cara menekan tombol dibawah dan
                       akan kita bantu secepatnya
                     </p>
-                    <button className="bg-white mt-4  px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors duration-200">
+                    <button className="bg-white mt-4  px-4 py-2 rounded-lg font-semibold text-sm hover:bg-[#FF6A00]  transition-colors duration-200">
                       AJUKAN PERTANYAAN!
                     </button>
                   </div>
