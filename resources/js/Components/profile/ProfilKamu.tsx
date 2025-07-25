@@ -12,8 +12,8 @@ import { Textarea } from "@/Components/ui/textarea";
 
 const ProfilKamu = ({ props }: { props: UserResponse }) => {
   const { data, setData, put } = useForm({
-    linkedinURL: props.linkedin_url || "",
-    instagramURL: props.instagram_url || "",
+    linkedin_url: props.linkedin_url || "",  // Changed from linkedinURL
+    instagram_url: props.instagram_url || "", // Changed from instagramURL
     bio: props.bio || "",
   });
 
@@ -88,9 +88,9 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
           <input
             type="text"
             id="linkedin"
-            value={data.linkedinURL}
+            value={data.linkedin_url}  // Changed from linkedinURL
             onChange={(e) => {
-              setData("linkedinURL", e.target.value);
+            setData("linkedin_url", e.target.value);  // Changed from linkedinURL
             }}
             placeholder="ex. https://www.linkedin.com/in/username/"
             className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
@@ -115,9 +115,9 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
           <input
             type="text"
             id="instagram"
-            value={data.instagramURL}
+           value={data.instagram_url}  // Changed from instagramURL
             onChange={(e) => {
-              setData("instagramURL", e.target.value);
+              setData("instagram_url", e.target.value);  // Changed from instagramURL
             }}
             placeholder="ex. https://www.instagram.com/pplkitera/"
             className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"

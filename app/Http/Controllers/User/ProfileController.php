@@ -54,38 +54,81 @@ class ProfileController extends Controller
    }
    public function update(Request $request)
    {
-      $user = auth()->user(); // More direct and readable
+       $user = auth()->user();
 
-      $validated = $request->validate([
-         'instagramURL' => ['nullable', 'url', 'max:120', 'regex:#^((https?:\/\/)?(www\.)?)?instagram\.com\/[a-zA-Z0-9._]{1,30}\/?$#i'],
-         'linkedinURL' => ['nullable', 'url', 'max:120', 'regex:#^((https?:\/\/)?(www\.)?)?linkedin\.com\/in\/[a-zA-Z0-9\-_]{1,100}\/?$#i'],
-         'bio' => ['nullable', 'string', 'max:150'], // Assuming a reasonable max length for bio
-      ]);
+        $user = auth()->user();
 
-      DB::beginTransaction();
-      try {
+    $request->validate([
+        'instagram_url' => ['nullable', 'string', 'max:120'],
+        'linkedin_url' => ['nullable', 'string', 'max:120'],
+        'bio' => ['nullable', 'string', 'max:150'],
+    ]);
 
-         $user->update([
-            'linkedin_url' => $validated['linkedinURL'],
-            'instagram_url' => $validated['instagramURL'],
-            'bio' => $validated['bio'],
-         ]);
+    // Process Instagram URL
+    $instagramUrl = $request->input('instagram_url') ?: null; // Convert empty string to null
+    if ($instagramUrl) {
+        $instagramUrl = trim($instagramUrl);
+        // Add https:// if missing
+        if (!preg_match('/^https?:\/\//', $instagramUrl)) {
+            $instagramUrl = 'https://' . $instagramUrl;
+        }
+        // Remove query parameters and hash
+        $instagramUrl = strtok($instagramUrl, '?');
+        $instagramUrl = strtok($instagramUrl, '#');
+        
+        // Basic validation
+        if (!filter_var($instagramUrl, FILTER_VALIDATE_URL)) {
+            return redirect()->back()->with('response', [
+                'status' => 400,
+                'message' => 'URL Instagram tidak valid'
+            ]);
+        }
+    }
 
-         DB::commit();
+    // Process LinkedIn URL
+    $linkedinUrl = $request->input('linkedin_url') ?: null; // Convert empty string to null
+    if ($linkedinUrl) {
+        $linkedinUrl = trim($linkedinUrl);
+        // Add https:// if missing
+        if (!preg_match('/^https?:\/\//', $linkedinUrl)) {
+            $linkedinUrl = 'https://' . $linkedinUrl;
+        }
+        // Remove query parameters and hash
+        $linkedinUrl = strtok($linkedinUrl, '?');
+        $linkedinUrl = strtok($linkedinUrl, '#');
+        
+        // Basic validation
+        if (!filter_var($linkedinUrl, FILTER_VALIDATE_URL)) {
+            return redirect()->back()->with('response', [
+                'status' => 400,
+                'message' => 'URL LinkedIn tidak valid'
+            ]);
+        }
+    }
 
-         return redirect()->route('myprofile')->with('response', [
+    DB::beginTransaction();
+    try {
+        $user->update([
+            'linkedin_url' => $linkedinUrl,
+            'instagram_url' => $instagramUrl,
+            'bio' => $request->input('bio') ?: null, // Also handle bio properly
+        ]);   
+
+        DB::commit();
+
+        return redirect()->route('myprofile')->with('response', [
             'status' => 200,
             'message' => 'Berhasil mengubah data profile'
-         ]);
-      } catch (\Throwable $th) {
-         DB::rollBack();
-         report($th); // Ensure that the error is logged
-         return redirect()->route('myprofile')->with('response', [
+        ]);
+    } catch (\Throwable $th) {
+        DB::rollBack();
+        report($th);
+        return redirect()->route('myprofile')->with('response', [
             'status' => 500,
             'message' => 'Gagal mengubah data profile'
-         ]);
-      }
-   }
+        ]);
+    }
+}
 
    public function updateProfile(Request $request)
    {
