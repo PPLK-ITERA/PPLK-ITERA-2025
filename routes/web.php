@@ -30,7 +30,6 @@ Route::get('/', function () {
 //Auth Route
 Route::middleware('auth')->group(function () {
 
-
    Route::get("/mading-preview", [MadingController::class, 'previewMading'])->name("mading.preview");
 
 

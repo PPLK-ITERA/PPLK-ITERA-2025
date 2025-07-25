@@ -1,0 +1,297 @@
+name: "Integration"
+
+on: # yamllint disable-line rule:truthy
+    pull_request: null
+    push:
+        branches:
+            - "main"
+    schedule:
+        - cron: "0 0 1 * *"
+
+jobs:
+    coding-standards:
+        name: "Coding Standards"
+        runs-on: "ubuntu-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "8.3"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "none"
+                    php-version: "${{ matrix.php-version }}"
+                    tools: "phive"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Install ComposerNormalize"
+                run: "phive install composer-normalize --trust-gpg-keys C00543248C87FB13"
+
+            -   name: "Install PHP-CS-Fixer"
+                run: "phive install php-cs-fixer --trust-gpg-keys E82B2FB314E9906E"
+
+            -   name: "Prevent the CI to install PHIVE"
+                run: "echo '#!/usr/bin/env sh' > .phive/install-phive"
+
+            -   name: "Correct the PHIVE link"
+                run: "ln -sf $(which phive) ./tools/phive"
+
+            -   name: "Run the CS linter"
+                run: "make cs_lint"
+
+    auto-review:
+        name: "Auto-Review"
+        runs-on: "ubuntu-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "8.3"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "none"
+                    php-version: "${{ matrix.php-version }}"
+                    tools: "phive"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Run Auto-Review tests"
+                run: "make autoreview"
+
+    tests:
+        name: "Tests"
+        runs-on: "ubuntu-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "7.4"
+                    - "8.0"
+                    - "8.1"
+                    - "8.2"
+                    - "8.3"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "none"
+                    php-version: "${{ matrix.php-version }}"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Run the PHPUnit tests"
+                run: "make phpunit"
+
+    legacy-tests:
+        name: "Legacy Tests"
+        runs-on: "ubuntu-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "7.2"
+                    - "7.3"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Remove incompatible dev dependencies"
+                run: |
+                    composer remove --dev fidry/makefile --no-update --no-install;
+                    composer remove --dev fidry/php-cs-fixer-config --no-update --no-install;
+                    composer remove --dev webmozarts/strict-phpunit --no-update --no-install;
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "none"
+                    php-version: "${{ matrix.php-version }}"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Run the PHPUnit tests"
+                run: "vendor/bin/phpunit --configuration phpunit_legacy.xml.dist"
+
+    infection:
+        name: "Infection"
+        runs-on: "ubuntu-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "8.3"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "xdebug"
+                    php-version: "${{ matrix.php-version }}"
+                    tools: "phive"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Install Infection"
+                run: "phive install infection --trust-gpg-keys C5095986493B4AA0"
+
+            -   name: "Prevent the CI to install PHIVE"
+                run: "echo '#!/usr/bin/env sh' > .phive/install-phive"
+
+            -   name: "Correct the PHIVE link"
+                run: "ln -sf $(which phive) ./tools/phive"
+
+            -   name: "Run PHPUnit with coverage"
+                run: "make phpunit_coverage_infection"
+
+            -   name: "Run Infection"
+                run: "make infection"
+
+    e2e-ubuntu:
+        name: "End-to-End tests Ubuntu"
+        runs-on: "ubuntu-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "8.3"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "xdebug"
+                    php-version: "${{ matrix.php-version }}"
+                    tools: "phive"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Setup the expected output"
+                run: "mv e2e/expected-output-ubuntu e2e/expected-output"
+
+            -   name: "Run E2E tests"
+                run: "make e2e"
+
+    e2e-osx:
+        name: "End-to-End tests OSX"
+        runs-on: "macos-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "8.3"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "xdebug"
+                    php-version: "${{ matrix.php-version }}"
+                    tools: "phive"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Setup the expected output"
+                run: "mv e2e/expected-output-osx e2e/expected-output"
+
+            -   name: "Run E2E tests"
+                run: "make e2e"
+
+    e2e-windows:
+        name: "End-to-End tests Windows"
+        runs-on: "windows-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "8.3"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "xdebug"
+                    php-version: "${{ matrix.php-version }}"
+                    tools: "phive"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Setup the expected output"
+                run: "mv e2e/expected-output-windows e2e/expected-output"
+
+            -   name: "Run E2E tests"
+                run: "./e2e/test-finders.sh"
+
+    e2e-ubuntu-restricted:
+        name: "End-to-End tests Ubuntu (restricted)"
+        runs-on: "ubuntu-latest"
+        strategy:
+            matrix:
+                php-version:
+                    - "8.2"
+        steps:
+            -   name: "Checkout"
+                uses: "actions/checkout@v4.1.7"
+
+            -   name: "Set up PHP"
+                uses: "shivammathur/setup-php@2.31.1"
+                with:
+                    coverage: "xdebug"
+                    php-version: "${{ matrix.php-version }}"
+                    tools: "phive"
+
+            -   name: "Install Composer dependencies"
+                uses: "ramsey/composer-install@v3"
+
+            -   name: "Setup the expected output"
+                run: "mv e2e/expected-output-ubuntu-restricted e2e/expected-output"
+
+            -   name: "Run E2E tests"
+                run: "./e2e/test-restricted-finders.sh"
+
+    # This is a "trick", a meta task which does not change, and we can use in
+    # the protected branch rules as opposed to the tests one above which
+    # may change regularly.
+    validate-tests:
+        name: "Tests status"
+        runs-on: "ubuntu-latest"
+        needs:
+            - "coding-standards"
+            - "auto-review"
+            - "tests"
+            - "legacy-tests"
+            - "infection"
+            - "e2e-ubuntu"
+            - "e2e-osx"
+            - "e2e-windows"
+            - "e2e-ubuntu-restricted"
+        if: "always()"
+        steps:
+            - name: "Successful run"
+              if: "${{ !(contains(needs.*.result, 'failure')) }}"
+              run: "exit 0"
+
+            - name: "Failing run"
+              if: "${{ contains(needs.*.result, 'failure') }}"
+              run: "exit 1"

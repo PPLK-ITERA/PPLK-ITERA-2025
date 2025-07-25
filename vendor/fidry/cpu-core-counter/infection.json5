@@ -1,0 +1,84 @@
+{
+    "$schema": "https://raw.githubusercontent.com/infection/infection/0.26.16/resources/schema.json",
+    "ignoreMsiWithNoMutations": true,
+    "logs": {
+        "text": ".build/infection/infection-log.txt"
+    },
+    "minCoveredMsi": 100,
+    "minMsi": 100,
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "timeout": 10,
+
+    "mutators": {
+        "global-ignore": [
+            "Fidry\\CpuCoreCounter\\Finder\\NProcFinder::getCommand"
+        ],
+        "@default": true,
+        "ArrayItemRemoval": {
+            "ignore": [
+                "Fidry\\CpuCoreCounter\\CpuCoreCounter::getDefaultFinders"
+            ]
+        },
+        "CastInt": {
+            "ignore": [
+                // This is a bug or case handled by strict types. Not sure why
+                // infection can't detect it.
+                "Fidry\\CpuCoreCounter\\Finder\\EnvVariableFinder::isPositiveInteger"
+            ]
+        },
+        "CastString": {
+            "ignore": [
+                // I can't find a case in practice where this would happen.
+                "Fidry\\CpuCoreCounter\\Executor\\ProcOpenExecutor::execute"
+            ]
+        },
+        "Coalesce": {
+            "ignore": [
+                // Cannot test this case.
+                "Fidry\\CpuCoreCounter\\CpuCoreCounter::getAvailableForParallelisation",
+                // Not interested in testing this case.
+                "Fidry\\CpuCoreCounter\\Finder\\ProcOpenBasedFinder::diagnose"
+            ]
+        },
+        "Continue_": false,
+        "DecrementInteger": {
+            "ignore": [
+                "Fidry\\CpuCoreCounter\\CpuCoreCounter::getAvailableForParallelisation"
+            ]
+        },
+        "FunctionCallRemoval": {
+            "ignore": [
+                // I can't find a case in practice where this would happen.
+                "Fidry\\CpuCoreCounter\\Executor\\ProcOpenExecutor::execute"
+            ]
+        },
+        "GreaterThan": {
+            "ignore": [
+                // This is an actual false positive.
+                "Fidry\\CpuCoreCounter\\CpuCoreCounter::getAvailableForParallelisation"
+            ]
+        },
+        "IncrementInteger": {
+            "ignore": [
+                "Fidry\\CpuCoreCounter\\CpuCoreCounter::getAvailableForParallelisation"
+            ]
+        },
+        "OneZeroFloat": {
+            "ignore": [
+                // Cannot test this case.
+                "Fidry\\CpuCoreCounter\\CpuCoreCounter::getAvailableForParallelisation"
+            ]
+        },
+        "PublicVisibility": false,
+        "TrueValue": {
+            "ignore": [
+                // This is a case where the value does not matter.
+                "Fidry\\CpuCoreCounter\\Finder\\LscpuPhysicalFinder::countCpuCores"
+            ]
+        }
+    }
+}

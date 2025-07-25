@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<psalm
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config file:///composer/vendor/vimeo/psalm/config.xsd"
+    errorLevel="1"
+>
+    <projectFiles>
+        <directory name="src" />
+        <ignoreFiles>
+            <directory name="vendor" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <UnnecessaryVarAnnotation>
+            <errorLevel type="info">
+                <file name="src/Types/ContextFactory.php"/>
+            </errorLevel>
+        </UnnecessaryVarAnnotation>
+        <UnusedMethodCall>
+            <errorLevel type="suppress">
+                <referencedMethod name="phpDocumentor\Reflection\Types\AggregatedType::add"/>
+            </errorLevel>
+        </UnusedMethodCall>
+        <DocblockTypeContradiction>
+            <errorLevel type="info">
+                <!-- ArrayIterator::current can return null if iterated even if ArrayIterator::valid isn't checked before -->
+                <file name="src/TypeResolver.php"/>
+                <!-- Not sure what's going on. I don't think it's possible to have false here -->
+                <file name="src/Types/ContextFactory.php"/>
+            </errorLevel>
+        </DocblockTypeContradiction>
+        
+        <RedundantConditionGivenDocblockType>
+            <errorLevel type="info">
+                <!-- ArrayIterator::current can return null if iterated even if ArrayIterator::valid isn't checked before -->
+                <file name="src/TypeResolver.php"/>
+            </errorLevel>
+        </RedundantConditionGivenDocblockType>
+
+        <InvalidArgument>
+            <errorLevel type="suppress">
+                <referencedFunction name="PHPStan\PhpDocParser\Lexer\Lexer::__construct"/>
+                <referencedFunction name="PHPStan\PhpDocParser\Parser\ConstExprParser::__construct"/>
+                <referencedFunction name="PHPStan\PhpDocParser\Parser\TypeParser::__construct"/>
+            </errorLevel>
+        </InvalidArgument>
+
+        <UndefinedDocblockClass>
+            <errorLevel type="suppress">
+                <referencedClass name="PHPStan\PhpDocParser\ParserConfig"/>
+            </errorLevel>
+        </UndefinedDocblockClass>
+
+        <MixedArgument>
+            <errorLevel type="suppress">
+                <referencedFunction name="PHPStan\PhpDocParser\Lexer\Lexer::__construct"/>
+                <referencedFunction name="PHPStan\PhpDocParser\Parser\ConstExprParser::__construct"/>
+                <referencedFunction name="PHPStan\PhpDocParser\Parser\TypeParser::__construct"/>
+            </errorLevel>
+        </MixedArgument>
+    </issueHandlers>
+</psalm>

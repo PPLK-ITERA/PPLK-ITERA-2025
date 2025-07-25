@@ -14,6 +14,7 @@ use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\InteractsWithTime;
 use Symfony\Component\HttpFoundation\Cookie;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 
 class VerifyCsrfToken
 {
@@ -39,7 +40,12 @@ class VerifyCsrfToken
      *
      * @var array<int, string>
      */
-    protected $except = [];
+    protected $except = [
+         // Tambahkan route registrasi API Anda di sini
+        'register', // Jika route Anda '/register'
+        // 'login', // Jika Anda juga ingin login tanpa CSRF (tidak disarankan untuk sesi)
+        // 'api/*', // Jika Anda memutuskan untuk menggunakan prefiks API nanti
+    ];
 
     /**
      * The globally ignored URIs that should be excluded from CSRF verification.

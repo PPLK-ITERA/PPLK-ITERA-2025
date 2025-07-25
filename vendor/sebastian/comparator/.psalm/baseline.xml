@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.25.0@01a8eb06b9e9cc6cfb6a320bf9fb14331919d505">
+  <file src="src/ArrayComparator.php">
+    <TooManyArguments>
+      <code><![CDATA[assertEquals]]></code>
+    </TooManyArguments>
+  </file>
+  <file src="src/DOMNodeComparator.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($c14n)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/DateTimeComparator.php">
+    <InaccessibleProperty>
+      <code><![CDATA[$delta->f]]></code>
+    </InaccessibleProperty>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[setTimezone]]></code>
+      <code><![CDATA[setTimezone]]></code>
+      <code><![CDATA[setTimezone]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+</files>
