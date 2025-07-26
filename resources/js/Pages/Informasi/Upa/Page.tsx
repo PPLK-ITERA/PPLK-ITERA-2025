@@ -8,6 +8,7 @@ import Header from "@/Components/informasi/Upa/Header";
 
 import { DetailUPTData } from "@/lib/data/upa";
 
+
 function Page() {
   const [visibleItems, setVisibleItems] = useState(4); // Jumlah item awal yang ditampilkan
   const itemsPerPage = 4; // Jumlah item yang ditambahkan setiap kali "Load More" diklik

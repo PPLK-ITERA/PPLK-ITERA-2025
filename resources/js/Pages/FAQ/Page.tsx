@@ -7,9 +7,9 @@ import { Head } from "@inertiajs/react";
 import { AccordionFAQ, type FAQ } from "@/Components/AccordionFAQ";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
+import PaginationFAQ from "@/Components/PaginationFAQ";
 import ProgramStudi from "@/Components/informasi/Fakultas/ProgramStudi";
 
-import PaginationFAQ from "@/Components/PaginationFAQ";
 import { useAos } from "@/lib/hooks/useAos";
 
 import man from "!assets/FAQ/man.png";
@@ -119,7 +119,7 @@ export default function Page({ response }) {
               {/* Card 1 */}
               <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer  shadow-md hover:shadow-lg flex flex-col items-center object-fit: cover ">
                 <div className="text-center relative justify-center items-center w-[100%] mx-auto -top-3 mb-1">
-                  <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center overflow-visible">
+                  <div className="rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center overflow-visible">
                     <div className="absolute -top-9 z-10">
                       <img src={zeus} alt=" " />
                     </div>
@@ -134,14 +134,14 @@ export default function Page({ response }) {
               {/* Card 2 */}
               <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center">
                 <div className="text-center relative justify-center items-center w-[100%] mx-auto -top-3 mb-1">
-                  <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <div className="rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <div className="absolute -top-9 z-10">
                       <img src={shield} alt="" />
                     </div>
                   </div>
                   <h3 className="font-Greek text-2xl mb-2">PROFIL MABA </h3>
-                  <p className=" font-Romanica ntext-sm opacity-90">
-                    Tata cara pengisian profil,berteman,dll.
+                  <p className="font-Romanica text-sm opacity-90 text-center w-full break-words leading-snug">
+                    Tata cara pengisian  <br /> profil, berteman, dll.
                   </p>
                 </div>
               </div>
@@ -149,14 +149,14 @@ export default function Page({ response }) {
               {/* Card 3 */}
               <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer  shadow-md hover:shadow-lg flex flex-col items-center">
                 <div className="text-center  relative justify-center -top-3 mb-1 items-center w-[100%] mx-auto">
-                  <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <div className=" rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <div className="absolute -top-9 z-10">
                       <img src={man} alt="" />
                     </div>
                   </div>
                   <h3 className="font-Greek  text-2xl mb-2">DRESSCODE</h3>
                   <p className=" font-Romanica text-sm opacity-90">
-                    Drescode Pra-PPLK PPLK Day 0-5
+                    Drescode Pra-PPLK PPLK  <br/> Day 0-5
                   </p>
                 </div>
               </div>
@@ -228,7 +228,7 @@ export default function Page({ response }) {
                 </div>
 
                 {/* Promotional Card */}
-                <div className="hidden md:block bg-gradient-to-br from-[#FF6A00] to-[#752700] rounded-2xl text-black py-3">
+                <div className="hidden md:block bg-gradient-to-br from-[#FF6A00] to-[#752700] rounded-2xl text-black py-3 ">
                   <div className="text-center justify-center items-center w-[90%] mx-auto">
                     <div>
                       <h4 className=" font-Greek font-bold text-[#FFFFFF]">
