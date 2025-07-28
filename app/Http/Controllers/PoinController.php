@@ -148,7 +148,7 @@ class PoinController extends Controller
          ]);
       }
 
-      $qrcodetext = $code->code;
+      $qrcodetext = $codeqr->code;
 
       return $this->helper->qrSuccess($qrcodetext);
    }
