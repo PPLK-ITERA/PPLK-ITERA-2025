@@ -20,7 +20,7 @@ export default function VideoSection() {
       data-aos-duration={2000}
       className="absolute z-20 px-2 -mt-[450px] flex min-h-screen w-full flex-col items-center justify-center bg-transparent xl:-mt-[500px]"
     >
-      <h2 className="text-jaffa-950 font-avigea md:text-4xl text-3xl">
+      <h2 className="text-jaffa-950 font-greek md:text-4xl text-3xl">
         Video PPLK
       </h2>
 

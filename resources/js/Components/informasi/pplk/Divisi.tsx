@@ -141,7 +141,7 @@ const Divisi = () => {
       className="flex flex-col items-center justify-center pb-20 mt-10"
       id="divisi-pplk"
     >
-      <h2 className="font-avigea sm:text-3xl text-candlelight-600 text-2xl text-center">
+      <h2 className="font-greek sm:text-3xl text-candlelight-600 text-2xl text-center">
         SEMUA DIVISI PPLK
       </h2>
 

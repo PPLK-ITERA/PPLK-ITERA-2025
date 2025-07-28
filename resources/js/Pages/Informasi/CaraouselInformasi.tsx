@@ -23,7 +23,7 @@ const CarouselMisi = () => {
   return (
     <div className="sm:hidden px-6">
       <div className="text-center">
-        <p className="text-jaffa-600 font-avigea text-xl font-bold tracking-widest">
+        <p className="text-jaffa-600 font-greek text-xl font-bold tracking-widest">
           MISI
         </p>
       </div>

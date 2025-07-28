@@ -16,13 +16,13 @@ import kartateraLogo from "!assets/svg/kartatera-logo.svg";
 
 type Props = {};
 
-function KadivSection({}: Props) {
+function KadivSection({ }: Props) {
   return (
     <section className="flex items-center justify-center h-screen">
       <div className="lg:grid lg:grid-cols-4 flex flex-col h-full gap-4 p-8 rounded-lg shadow-lg">
         <div className="max-lg:hidden place-content-center flex flex-col col-span-1 p-4">
           <RunningText
-            className="lg:text-2xl xl:text-3xl 2xl:text-5xl font-avigea tracking-wider"
+            className="lg:text-2xl xl:text-3xl 2xl:text-5xl font-greek tracking-wider"
             title={"KARTATERA"}
             delay={150}
           />
@@ -160,7 +160,7 @@ function KadivSection({}: Props) {
         {/* mobile title */}
         <div className="lg:hidden flex flex-col items-center justify-center col-span-1 p-4 mb-8">
           <RunningText
-            className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-5xl font-avigea text-xl tracking-wider"
+            className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-5xl font-greek text-xl tracking-wider"
             title={"KARTATERA"}
             delay={150}
           />

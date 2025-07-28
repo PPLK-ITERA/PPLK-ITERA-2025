@@ -14,8 +14,10 @@ export default function What() {
       className="flex relative min-h-[70vh] items-center justify-center pt-20 md:pt-32"
     >
       <div className="flex flex-col items-center justify-center text-center">
-        <h2 className="z-40 bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-3xl text-transparent md:text-5xl">
-          Apa Itu PPLK ITERA?
+        <h2 className="z-40 bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-greek text-3xl text-transparent md:text-5xl">
+          Apa Itu <span className="font-greek font-bold">
+            PPLK ITERA?
+          </span>
         </h2>
 
         <p className="mt-10 max-w-[826px] font-montserrat text-[16px] font-normal md:text-xl lg:text-2xl">

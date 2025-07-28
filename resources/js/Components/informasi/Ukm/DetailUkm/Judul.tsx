@@ -13,7 +13,7 @@ export default function Judul({ title, sejarah, logo }) {
           <h1
             data-aos="fade-right"
             data-aos-duration="1000"
-            className="font-avigea text-xl sm:text-3xl md:text-[49px] text-center"
+            className="font-greek text-xl sm:text-3xl md:text-[49px] text-center"
           >
             UKM {title}
           </h1>

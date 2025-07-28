@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => 'a423a938e4c7d0d95c31981ab7cd63860eadfe6b',
+        'pretty_version' => 'dev-Edu/Progres2-PPLK',
+        'version' => 'dev-Edu/Progres2-PPLK',
+        'reference' => 'fef1f22a4bcf7db94714a6e5a27de08f657d04d7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -452,9 +452,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'a423a938e4c7d0d95c31981ab7cd63860eadfe6b',
+            'pretty_version' => 'dev-Edu/Progres2-PPLK',
+            'version' => 'dev-Edu/Progres2-PPLK',
+            'reference' => 'fef1f22a4bcf7db94714a6e5a27de08f657d04d7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
