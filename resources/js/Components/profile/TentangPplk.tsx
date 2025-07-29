@@ -37,9 +37,9 @@ const TentangPplk = ({ props }: { props: TentangPplkProps }) => {
     }
   };
 
-  const fakultas = getFakultasInfo(props.fakultas_id ?? -1);
+  const fakultas = getFakultasInfo(props.fakultas_id ?? 3);
   return (
-              <div className="w-full max-w-3xl mx-auto flex flex-col gap-2">
+              <div className="xl:max-w-xs lg:max-w-xs md:max-w-xs sm:max-w-lg mx-auto flex flex-col gap-2">
                 <div className="bg-white rounded-xl shadow-md border px-6 py-4 text-center space-y-2">
                   <p className="text-xs font-bold text-black">Asal Fakultas Mahasiswa</p>
                   <img
