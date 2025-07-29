@@ -137,6 +137,8 @@ export default {
                 spacegrotesk: ['"Space Grotesk"'],
                 anothertag: ["AnotherTag"],
                 lostar: ["Lostar"],
+                greek: ["GreekFreak"],
+                poppins: ["Poppins"],
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",
@@ -154,6 +156,7 @@ export default {
                 "history-completed":
                     "url('!assets/mading/history-completed.png')",
                 scoreboard: "url('!assets/background-scoreboard.png')",
+                "dashboard": "url('!assets/bg-dashboard.png')",
             },
         },
     },

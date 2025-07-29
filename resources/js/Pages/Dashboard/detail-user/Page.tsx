@@ -98,7 +98,7 @@ export default function Page({ response }) {
   useFlashToast();
 
   const breadcrumbItems = [
-    { title: "Dashboard", link: "/dashboard" },
+    { title: "Ellysion Panel", link: "/dashboard" },
     {
       title: "Edit Data User",
       link: route("dashboard.user.edit", response.data.id),

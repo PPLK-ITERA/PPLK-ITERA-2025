@@ -31,7 +31,7 @@ import { Kelompok } from "@/lib/types/InformasiKelompok";
 import logopplk from "!assets/logo-pplk-2024.png";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Informasi Kelompok", link: "/dashboard/informasi-kelompok" },
 ];
 

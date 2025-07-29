@@ -89,13 +89,6 @@ export const navItems: NavItem[] = [
     role_id: [3, 8],
   },
   {
-    title: "Mading",
-    href: "/dashboard/mading",
-    icon: "map",
-    label: "atur-mading",
-    role_id: [2, 3, 4, 8],
-  },
-  {
     title: "Informasi Kelompok",
     href: "/dashboard/informasi-kelompok",
     icon: "map",

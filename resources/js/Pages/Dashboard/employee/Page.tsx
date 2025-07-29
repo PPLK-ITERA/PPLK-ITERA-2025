@@ -16,7 +16,7 @@ import { Employee } from "@/lib/data/data";
 import { cn } from "@/lib/utils";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Employee", link: "/dashboard/employee" },
 ];
 

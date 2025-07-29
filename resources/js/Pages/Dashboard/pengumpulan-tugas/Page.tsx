@@ -53,7 +53,7 @@ import { Materi } from "@/lib/types/Materi";
 import { cn } from "@/lib/utils";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Pengumpulan Tugas", link: "/dashboard/pengumpulan-tugas" },
 ];
 

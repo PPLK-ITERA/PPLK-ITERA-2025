@@ -30,7 +30,7 @@ import { toast, useToast } from "@/Components/ui/use-toast";
 import { Booklet } from "@/lib/types/Booklet";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Booklet", link: "/dashboard/booklet" },
 ];
 

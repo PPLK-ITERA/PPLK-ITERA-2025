@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Heading } from "@/Components/ui/heading";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Kanban", link: "/dashboard/kanban" },
 ];
 

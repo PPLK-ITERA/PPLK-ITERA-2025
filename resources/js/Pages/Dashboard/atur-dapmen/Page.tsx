@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Atur Dapmen", link: "/dashboard/atur-dapmen" },
 ];
 

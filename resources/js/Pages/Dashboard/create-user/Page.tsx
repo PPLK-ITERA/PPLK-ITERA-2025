@@ -14,7 +14,7 @@ import { useToast } from "@/Components/ui/use-toast";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Create User", link: "/dashboard/create-user" },
 ];
 
