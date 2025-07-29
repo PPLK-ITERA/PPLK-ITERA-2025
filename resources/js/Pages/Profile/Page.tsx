@@ -319,6 +319,7 @@ const Page = ({ response }) => {
                     nama_mentor: UserData.kelompok.mentor,
                     nama_kelompok: UserData.kelompok.nama_kelompok,
                     no_kelompok: UserData.kelompok.no_kelompok,
+                    fakultas_id: UserData.prodi.fakultas_id,
                   }}
                 />
               </div>

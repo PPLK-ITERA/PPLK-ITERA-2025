@@ -33,11 +33,19 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                   </div>
                   <div>
                     <label className="block text-sm mb-1">NIM</label>
-                    <input type="text" value={props.nim} readOnly className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
-                  </div>
+                    <input
+                      type="text"
+                      value={props.nim ?? ""}
+                      placeholder={props.nim ? "" : "Silahkan menghubungi Dapmen"}
+                      readOnly
+                      className={`w-full bg-[#98989840] text-[#3F150B] border rounded-md px-3 py-2 ${
+                        !props.nim ? "border-[#C2C2C2]" : "border-[#C2C2C2]"
+                      }`}
+                    />
+                    </div>
                   <div>
                     <label className="block text-sm mb-1">Prodi</label>
-                    <input type="text" value={props.prodi} readOnly className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
+                    <input type="text" value={props.prodi.nama_prodi} readOnly className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
                   </div>
                 </div>
 
@@ -49,7 +57,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                       <span className="mr-2 p-1 rounded-sm">
                         <img src="/image/profile/lock.png" className="w-[25px]" />
                       </span>
-                      <input type="text" value={data.linkedinURL} onChange={(e) => setData("linkedinURL", e.target.value)} className="w-full outline-none text-sm border-none bg-transparent" />
+                      <input type="text" placeholder="https://linkedin.com/..." value={data.linkedinURL} onChange={(e) => setData("linkedinURL", e.target.value)} className="w-full outline-none text-sm border-none bg-transparent" />
                     </div>
                   </div>
                   <div>
@@ -58,7 +66,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                       <span className="mr-2 p-1 rounded-sm">
                         <img src="/image/profile/lock.png" className="w-[25px]" />
                       </span>
-                      <input type="text" value={data.instagramURL} onChange={(e) => setData("instagramURL", e.target.value)} className="w-full outline-none text-sm border-none bg-transparent" />
+                      <input type="text" placeholder="https://instagram.com/..." value={data.instagramURL} onChange={(e) => setData("instagramURL", e.target.value)} className="w-full outline-none text-sm border-none bg-transparent" />
                     </div>
                   </div>
                   <div>
