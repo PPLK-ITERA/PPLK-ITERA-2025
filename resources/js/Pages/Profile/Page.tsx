@@ -136,8 +136,13 @@ const Page = ({ response }) => {
   return (
     <>
       <Head title={`myprofile`} />
-
-      <div className="bg-pattern-white">
+    {/* PATERN BARU */}
+      <div className=""
+      style={{
+        backgroundImage: 'url(/image/profile/patern3.png)',
+        backgroundRepeat: 'repeat',
+        backgroundSize: '1400px',
+      }}>
         <Navbar isSolid={true} isFixed={true} />
         <Toaster />
         <div className="sm:flex-row mb-28 flex flex-col justify-center gap-3 pt-32 mx-auto">
@@ -176,11 +181,11 @@ const Page = ({ response }) => {
               {UserData.name}
             </h2>
 
-            <div className="flex justify-center items-center w-[98px] h-[40px] rounded-[10px] border border-[#B9622F]">
+            <div className="">
               <Dialog>
                 <DialogTrigger asChild>
                   <Button className="bg-white text-[#CF7A1F] border border-[#CF7A1F] hover:bg-white hover:border-[#cf7a1f] hover:shadow-md transition-colors duration-200">
-                    Edit Foto Profil
+                    Edit Foto
                   </Button>
                 </DialogTrigger>
 
@@ -248,11 +253,11 @@ const Page = ({ response }) => {
             </div>
 
             <div>
-              <h2 className="text-black font-montserrat font-bold text-[16px] text-center mt-9 md:mt-5 sm:mt-1 ">
+              <h2 className="text-[#B54419] font-montserrat font-bold text-[16px] text-center mt-9 md:mt-5 sm:mt-1 ">
                 QR Presensi
               </h2>
               {/* BG ERROR */}
-              <div className="aspect-square bg-[#DA5B1C] border flex justify-center items-center mt-1 w-[200px] h-[200px] rounded-md">
+              <div className="mt-4">
                 {qrData === "" ? (
                   <p>Loading...</p>
                 ) : (
@@ -265,6 +270,7 @@ const Page = ({ response }) => {
                     height={500}
                     bgColor="#DA5B1C"
                     fgColor="#ffffff"
+                    style={{ borderRadius: '15px' }}
                   />
                 )}
               </div>

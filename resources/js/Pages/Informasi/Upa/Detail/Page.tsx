@@ -63,20 +63,24 @@ function Page({ nama_upa }) {
           />
         </div>
 
-        <div className="bg-pattern-white relative z-20 py-20">
+        <div className="bg-pattern-white relative z-20 py-20" >
           <KepalaUPT
             nama_upt={upa?.title}
             nama_kepala_upt={upa?.kepalaUpt.nama}
             jabatan={upa?.kepalaUpt.jabatan}
             nip={upa?.kepalaUpt.nip}
             foto_kepala_upt={upa?.kepalaUpt.foto}
+          />
+          {/* <div style={{
+          backgroundImage: "url('/image/detailUPA/KepalaUPT/Selendang.png')",
+        }}/> */}
+        </div>
+
+        <KegiatanUnggulan kegiatanUnggulan={upa!.kegiatanUnggulan} 
             link_instagram={upa?.sosmedUPT.instagram}
             link_youtube={upa?.sosmedUPT.youtube}
             link_website={upa?.sosmedUPT.website}
-          />
-        </div>
-
-        <KegiatanUnggulan kegiatanUnggulan={upa!.kegiatanUnggulan} />
+            link_tiktok={upa?.sosmedUPT.tiktok}/>
       </DefaultLayout>
     </>
   );

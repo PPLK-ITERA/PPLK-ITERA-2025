@@ -1,26 +1,47 @@
 import Autoplay from "embla-carousel-autoplay";
-
-import * as React from "react";
-
+import React from "react";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/Components/ui/carousel";
-
-import { DetailUPTData } from "@/lib/data/upa";
-
+import {
+  IconBrandInstagram,
+  IconBrandTiktok,
+  IconWorldWww,
+  IconBrandYoutube,
+} from "@tabler/icons-react";
 import sponsor_overlay from "!assets/sponsor-overlay.png";
 
-export default function KegiatanUnggulan({ kegiatanUnggulan }) {
+interface KegiatanUnggulanProps {
+  kegiatanUnggulan: {
+    title: string;
+    description: string;
+    tanggal: string;
+    img: string;
+  }[];
+  link_instagram?: string;
+  link_tiktok?: string;
+  link_website?: string;
+  link_youtube?: string;
+}
+
+export default function KegiatanUnggulan({
+  kegiatanUnggulan,
+  link_instagram,
+  link_tiktok,
+  link_website,
+  link_youtube,
+}: KegiatanUnggulanProps) {
+
   return (
-    <div className="relative bg-pattern-white bg-[#170C0A] z-10">
-      <div className="max-w-72 mx-auto text-center -translate-y-5">
-        <div className="rounded-full bg-gradient-to-r from-[#864D0D] to-[#432005] border border-white py-2">
-          <p className="font-montserrat text-lg text-white">
-            KEGIATAN UNGGULAN
-          </p>
+    <div className="relative bg-pattern-white z-10">
+      <div className="mx-auto text-center -translate-y-5">
+        <div className="">
+          <h2 className="font-greek text-black self-stretch p-5 text-5xl not-italic font-normal text-center">
+            KEGIATAN UNGGULAN UPA
+          </h2>
         </div>
       </div>
 
@@ -75,6 +96,120 @@ export default function KegiatanUnggulan({ kegiatanUnggulan }) {
         alt="sponsor_overlay"
         className="w-full mt-10"
       />
+
+      {/* Komponen Sosial Media dipindahkan dari KepalaUPT.tsx*/}
+    
+      <div className="flex items-center justify-center gap-5 mt-12 mb-12">
+          {link_instagram ? (
+            <a
+              href={link_instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="relative w-16 h-16 flex items-center justify-center"
+            >
+              {/* Frame putih */}
+              <div className="absolute w-[70px] h-[70px] bg-white rounded-xl z-[-1]" />
+
+              {/* Persegi */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#3C1D03] to-[#933100] z-0 rounded-xl" />
+
+              {/* Lingkaran besar*/}
+              <div className="absolute w-14 h-14 rounded-full bg-gradient-to-b from-[#633005] to-[#682300] z-1" />
+
+              {/* Lingkaran kecil*/}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 p-[1px] rounded-full bg-gradient-to-b from-[#682300] to-[#FFF1EB] z-2">
+                {/* isi lingkaran kecil */}
+                <div className="w-full h-full rounded-full bg-gradient-to-b from-[#3C1D03] to-[#933100]" />
+              </div>
+
+
+              {/* Logo */}
+              <IconBrandInstagram size={40} color="white" className="z-10 w-8 h-8" />
+            </a>
+          ) : null}
+
+          {link_tiktok ? (
+            <a
+              href={link_tiktok}
+              target="_blank"
+              rel="noreferrer"
+              className="relative w-16 h-16 flex items-center justify-center"
+            >
+              {/* Frame putih */}
+              <div className="absolute w-[70px] h-[70px] bg-white rounded-xl z-[-1]" />
+
+              {/* Persegi */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#3C1D03] to-[#933100] z-0 rounded-xl" />
+
+              {/* Lingkaran besar*/}
+              <div className="absolute w-14 h-14 rounded-full bg-gradient-to-b from-[#633005] to-[#682300] z-1" />
+
+              {/* Lingkaran kecil*/}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 p-[1px] rounded-full bg-gradient-to-b from-[#682300] to-[#FFF1EB] z-2">
+                {/* isi lingkaran kecil */}
+                <div className="w-full h-full rounded-full bg-gradient-to-b from-[#3C1D03] to-[#933100]" />
+              </div>
+
+              {/* Logo */}
+              <IconBrandTiktok size={40} color="white" className="z-10 w-8 h-8" />
+            </a>
+          ) : null}
+
+            {link_website ? (
+            <a
+              href={link_website}
+              target="_blank"
+              rel="noreferrer"
+              className="relative w-16 h-16 flex items-center justify-center"
+            >
+              {/* Frame putih */}
+              <div className="absolute w-[70px] h-[70px] bg-white rounded-xl z-[-1]" />
+
+              {/* Persegi */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#3C1D03] to-[#933100] z-0 rounded-xl" />
+
+              {/* Lingkaran besar*/}
+              <div className="absolute w-14 h-14 rounded-full bg-gradient-to-b from-[#633005] to-[#682300] z-1" />
+
+              {/* Lingkaran kecil*/}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 p-[1px] rounded-full bg-gradient-to-b from-[#682300] to-[#FFF1EB] z-2">
+                {/* isi lingkaran kecil */}
+                <div className="w-full h-full rounded-full bg-gradient-to-b from-[#3C1D03] to-[#933100]" />
+              </div>
+
+              {/* Logo */}
+              <IconWorldWww size={40} color="white" className="z-10 w-8 h-8" />
+            </a>
+            ) : null}
+            
+          {link_youtube ? (
+            <a
+              href={link_youtube}
+              target="_blank"
+              rel="noreferrer"
+              className="relative w-16 h-16 flex items-center justify-center"
+            >
+
+              {/* Frame putih */}
+              <div className="absolute w-[70px] h-[70px] bg-white rounded-xl z-[-1]" />
+
+              {/* Persegi */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#3C1D03] to-[#933100] z-0 rounded-xl" />
+
+              {/* Lingkaran besar*/}
+              <div className="absolute w-14 h-14 rounded-full bg-gradient-to-b from-[#633005] to-[#682300] z-1" />
+
+              {/* Lingkaran kecil*/}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 p-[1px] rounded-full bg-gradient-to-b from-[#682300] to-[#FFF1EB] z-2">
+                {/* isi lingkaran kecil */}
+                <div className="w-full h-full rounded-full bg-gradient-to-b from-[#3C1D03] to-[#933100]" />
+              </div>
+
+              {/* Logo */}
+              <IconBrandYoutube size={40} color="white" className="z-10 w-8 h-8" />
+            </a>
+          ) : null}
+      </div>
     </div>
   );
 }

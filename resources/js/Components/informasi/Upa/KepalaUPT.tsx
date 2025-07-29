@@ -31,83 +31,67 @@ export default function KepalaUPT({
   link_website,
 }: KepalaUPTProps) {
   return (
-    <div className="mt-40">
+<div className="mt-4">
+  <div
+    className="w-[80%] max-w-5xl mx-auto mt-10 flex flex-col md:flex-row items-center justify-center px-8 py-8 rounded-2xl relative z-10"
+    style={{
+      backgroundImage: "url('/image/detailUPA/KepalaUPT/Selendang.png')",
+      backgroundSize: "100% 100%", // Gambar mengikuti lebar dan tinggi card
+      backgroundPosition: "center", // Gambar terpusat
+      backgroundRepeat: "no-repeat",
+      height: "500px", // Sesuaikan tinggi card
+      width: "100%", // Lebar 100% dari parent-nya
+      paddingTop: "60px", // Menambahkan ruang di atas untuk gambar profil
+      paddingBottom: "60px", // Menambahkan ruang di bawah untuk memberikan jarak lebih
+    }}
+  >
+    {/* Informasi untuk responsive HP */}
+    <div className="block md:hidden text-center mb-2">
+      <h2 className="text-black text-xl font-bold font-montserrat">
+        Kepala {nama_upt}
+      </h2>
+    </div>
 
-<div className="w-[80%] max-w-5xl mx-auto mt-10 flex flex-col md:flex-row items-center justify-center px-4 py-8 rounded-2xl bg-[url('/image/detailUPA/KepalaUPT/Selendang.png')] bg-red-500">
-  {/* Informasi untuk responsive HP */}
-  <div className="block md:hidden text-center mb-4">
-    <h2 className="text-black text-xl font-bold font-montserrat">
-      Kepala {nama_upt}
-    </h2>
-  </div>
+    {/* Gambar Profil untuk HP */}
+    <div className="w-28 h-28 flex justify-center mb-4 md:mb-0">
+      <img
+        src={foto_kepala_upt}
+        alt="Foto Kepala UPT"
+        className="w-full h-full rounded-full object-cover object-top shadow-lg"
+      />
+    </div>
 
-  <div className="md:w-[35%] w-full flex justify-center mb-4 md:mb-0">
-    <img
-      src={foto_kepala_upt}
-      alt="Foto Kepala UPT"
-      className="w-48 h-48 rounded-full object-cover object-top shadow-lg"
-    />
-  </div>
+    {/* Informasi untuk responsive HP */}
+    <div className="md:hidden w-full text-left px-8">
+      <p className="text-black text-sm">
+        Nama Lengkap: {nama_kepala_upt}
+      </p>
+      {nip && (
+        <p className="text-black text-sm mb-5">
+          NIP : {nip}
+        </p>
+      )}
+    </div>
 
-  {/* Informasi untuk responsive Desktop & Tablet */}
-  <div className="md:w-[65%] w-full md:pl-8 text-center md:text-left">
-    <h2 className="hidden md:block text-black text-2xl font-bold font-montserrat">
-      Kepala {nama_upt}
-    </h2>
+    {/* Informasi untuk responsive Desktop & Tablet */}
+    <div className="hidden md:block md:w-[65%] w-full md:pl-8 text-center md:text-left">
+      <h2 className="text-black text-2xl font-bold font-montserrat">
+        Kepala {nama_upt}
+      </h2>
 
-    <p className="text-black mt-3 font-medium text-base md:text-lg">
-      Nama Lengkap: {nama_kepala_upt}
-    </p>
+      <p className="text-black mt-3 text-base md:text-lg">
+        Nama Lengkap: {nama_kepala_upt}
+      </p>
 
-    {nip && (
-      <p className="text-black mt-1 text-base md:text-lg">NIP : {nip}</p>
-    )}
+      {nip && (
+        <p className="text-black mt-1 text-base md:text-lg">NIP : {nip}</p>
+      )}
+    </div>
   </div>
 </div>
 
-          <div className="flex items-center justify-center gap-5 mt-8">
-            {link_instagram ? (
-              <a
-                href={link_instagram}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-jaffa-600 z-10 p-2 rounded-full cursor-pointer"
-              >
-                <IconBrandInstagram size={40} color="white" />
-              </a>
-            ) : null}
-            {link_youtube ? (
-              <a
-                href={link_youtube}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-jaffa-600 z-10 p-2 rounded-full cursor-pointer"
-              >
-                <IconBrandYoutube size={40} color="white" />
-              </a>
-            ) : null}
-            {link_website ? (
-              <a
-                href={link_website}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-jaffa-600 z-10 p-2 rounded-full cursor-pointer"
-              >
-                <IconWorldWww size={40} color="white" />
-              </a>
-            ) : null}
-             {link_website ? (
-              <a
-                href={link_website}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-jaffa-600 z-10 p-2 rounded-full cursor-pointer"
-              >
-                <IconWorldWww size={40} color="white" />
-              </a>
-            ) : null}
-          </div>
-        </div>
+
+
 
   );
 }
