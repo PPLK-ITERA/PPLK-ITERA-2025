@@ -10,6 +10,8 @@ import {
 
 import { VideoPPLK } from "@/lib/data/landing-page";
 import { useAos } from "@/lib/hooks/useAos";
+import pilarVideo1 from "!assets/pilarVideo1.png";
+import pilarVideo2 from "!assets/pilarVideo2.png";
 
 export default function VideoSection() {
   useAos();
@@ -23,6 +25,18 @@ export default function VideoSection() {
       <h2 className="text-jaffa-950 font-greek md:text-4xl text-3xl">
         Video PPLK
       </h2>
+
+      <img
+        src={pilarVideo1}
+        alt="pilar_video"
+        className="absolute left-0 w-[30%] hidden md:block "
+      />
+
+      <img
+        src={pilarVideo2}
+        alt="pilar_video"
+        className="absolute right-0 w-[30%] hidden md:block "
+      />
 
       <Carousel className="xl:max-w-4xl md:max-w-xl lg:max-w-2xl relative max-w-xl">
         <CarouselContent>

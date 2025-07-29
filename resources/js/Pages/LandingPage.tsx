@@ -121,27 +121,14 @@ export default function LandingPage() {
           <img
             src={pillar_brown2}
             alt="pillar_brown2"
-            className="scale-x-[-1] xl:-mt-24 absolute right-0 w-[9%] hidden md:block"
+            className="absolute left-0 w-[30%] hidden md:block "
           />
-
-          <img
-            src={pillar_brown2}
-            alt="pillar_brown2"
-            className="absolute left-0 xl:-mt-24 w-[9%] hidden md:block"
-          />
+          
 
           <MaxWidthWrapper className="z-30">
             <Maskot />
           </MaxWidthWrapper>
         </div>
-
-        <img
-          data-aos="slide-up"
-          data-aos-duration={1000}
-          src={overlay_box}
-          alt="pillar_brown"
-          className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
-        />
 
         <div className="bg-pattern-white pt-40 pb-20">
           <InfoSection />
@@ -160,6 +147,7 @@ export default function LandingPage() {
           alt="sponsor_overlay"
           className="object-cover w-full"
         />
+        
 
         <Footer />
       </div>

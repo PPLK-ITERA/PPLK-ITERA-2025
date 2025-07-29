@@ -1,15 +1,11 @@
 import React from "react";
 
 import { Head } from "@inertiajs/react";
-
 import DefaultLayout from "@/Layouts/DefaultLayout";
-
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent, CardTitle } from "@/Components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/Components/ui/dialog";
-
 import { useAos } from "@/lib/hooks/useAos";
-
 import maskot_pplk_man from "!assets/maskot/maskot-pplk-man.png";
 import maskot_pplk_woman from "!assets/maskot/maskot-pplk-woman.png";
 import overlay_earth from "!assets/overlay-earth.png";
@@ -18,7 +14,7 @@ const MASKOTS = [
   {
     index: 0,
     key: "maskot-man",
-    name: "KANAKA",
+    name: "Hercules",
     description:
       "Halo, namaku Kanaka. Perwujudanku merupakan elang jawa yang menggambarkan mahasiswa baru ITERA yang mampu mengambil keputusan dengan tepat dan cermat. Kanaka mempunyai arti emas, melambangkan karakter mahasiswa baru yang berharga dan elegan. Dengan penglihatanku yang tajam nan jauh ke depan, aku melambangkan mahasiswa baru ITERA yang dapat merencanakan masa depan dengan matang, menuju Indonesia emas 2045. Namaku ini menjadi titik balik bagi mahasiswa baru untuk mampu bertanggung jawab dengan jiwa kepemimpinannya serta kekuatan untuk melindungi dirinya dan lingkungannya.",
     image: maskot_pplk_man,
@@ -26,7 +22,7 @@ const MASKOTS = [
   {
     index: 1,
     key: "maskot-woman",
-    name: "CALANDRA",
+    name: "Hera",
     description:
       "Hai, namaku Calandra, namaku berasal dari gabungan kata “cala” dan “cendra”. Perwujudanku merupakan burung cendrawasih yang diambil dari kata cendra yang berarti utusan dewa-dewi. Aku merupakan perwujudan mahasiswa baru yang baik dalam bertutur kata dan berani untuk selalu menyampaikan pendapat dengan lugas dan elegan. Makna dari setiap kepakan sayapku dimaknai dengan kemewahan, serta keberhasilan dalam pencapaian. Karakterku yang kuat menjadi penggambaran serta perwujudan mahasiswa baru dengan karakter yang berharga, kuat, elegan, dan inspiratif, dengan hati yang hangat dan sifat yang tulus. Paduan ini menjadi doa serta harapan dalam setiap langkah mahasiswa baru dengan karakter yang dibentuk dalam perjalanan mahasiswa baru.",
     image: maskot_pplk_woman,

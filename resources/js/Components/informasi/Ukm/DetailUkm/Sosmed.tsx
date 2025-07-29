@@ -11,22 +11,22 @@ import { useAos } from "@/lib/hooks/useAos";
 
 const icons = {
   instagram: (
-    <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
+    <div className="bg-[#682300] flex items-center justify-center p-2 rounded-full">
       <IconBrandInstagram size={40} color="black" />
     </div>
   ),
   youtube: (
-    <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
+    <div className="bg-[#682300] flex items-center justify-center p-2 rounded-full">
       <IconBrandYoutube size={40} color="black" />
     </div>
   ),
   website: (
-    <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
+    <div className="bg-[#682300] flex items-center justify-center p-2 rounded-full">
       <IconWorldWww size={40} color="black" />
     </div>
   ),
   tiktok: (
-    <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
+    <div className="bg-[#682300] flex items-center justify-center p-2 rounded-full">
       <IconBrandTiktok size={40} color="black" />
     </div>
   ),

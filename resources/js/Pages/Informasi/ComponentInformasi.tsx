@@ -72,9 +72,7 @@ const ComponentInformasiHero = () => {
             VISI
           </p>
           <p>
-            PPLK 2025 sebagai gerbang pertama dalam terwujudnya mahasiswa yang
-            kompetitif, berintelektual, serta siap menghadapi gempuran
-            globalisasi.
+          PPLK ITERA 2025 sebagai wadah pengembangan karakter mahasiswa baru yang berintegrasi dan berdaya saing, menumbuhkan rasa bangga sebagai bagian dari civitas akademika ITERA, serta membentuk mahasiswa yang “AKTIF” (Aktif, Kritis, Solutif dan Inovatif) dalam menghadapi tantangan di era Revolusi Industri 4.0.
           </p>
         </div>
       </div>
@@ -102,25 +100,13 @@ const ComponentInformasiFilosofi = () => {
               <div className="flex gap-6">
                 <div className="bg-[#ECB406] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
                 <div className="font-semibold">
-                  Warna emas melambangkan Keberuntungan & Kesuksesan
+                  Warna emas menjadi simbol semangat mencapai tujuan luhur bagi mahasiswa baru sebagai generasi terpilih.
                 </div>
               </div>
               <div className=" flex gap-6">
-                <div className="bg-[#B6ADA4] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
+                <div className="bg-[#682300] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
                 <div className="font-semibold">
-                  Warna silver melambangkan Modernitas & Teknologi
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="bg-[#DA5B1C] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
-                <div className="font-semibold">
-                  Warna orange melambangkan Semangat & Kreatifitas
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="bg-[#00A3FF] sm:w-[45px] w-12 h-[30px] rotate-[45deg] mt-2 "></div>
-                <div className="font-semibold">
-                  Warna biru melambangkan Kepercayaan & Inspirasi yang Luas
+                  Warna coklat menjadi simbol suasana hangat dan membumi sebagai landasan awal mahasiswa baru dalam tumbuh dan berkembang.
                 </div>
               </div>
             </div>

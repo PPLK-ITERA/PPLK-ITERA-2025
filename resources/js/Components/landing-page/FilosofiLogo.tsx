@@ -47,7 +47,7 @@ export default function FilosofiLogo() {
           }),
         ]}
         setApi={setApi}
-        className="z-20 w-full max-w-[1440px]"
+        className="z-20 w-full max-w-[200px] md:max-w-[1240px]"
       >
         <CarouselContent>
           {DataFilosofiLogo.map((data, index) => (
@@ -69,28 +69,28 @@ export default function FilosofiLogo() {
       </Carousel>
 
       {DataFilosofiLogo.map((data, index) => (
-        <div key={index}>
+        <div key={index} className="">
           {current === index + 1 ? (
-            <>
+            <div className="flex md:min-h-[500px] max-w-[800px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[300px]">
               <img
                 src={alas_filosofi}
                 alt="alas_filosofi"
                 className="-mt-28 md:-mt-40 bg-cover"
               />
 
-              <div className="flex min-h-[300px] max-w-[600px] flex-col items-center p-6 text-center text-white md:h-[250px] lg:h-[300px]">
-                <h2 className="font-greek md:text-4xl text-2xl text-white">
-                  {data.title}
-                </h2>
+              <h2 className="font-greek md:text-4xl text-2xl text-white mt-4">
+                {data.title}
+              </h2>
 
-                <p className="mt-10 font-montserrat text-[16px] font-normal text-white/80 md:text-2xl">
-                  {data.description}
-                </p>
-              </div>
-            </>
+              <p className="mt-6 font-montserrat text-[16px] font-normal text-white/80 md:text-2xl">
+                {data.description}
+              </p>
+            </div>
           ) : null}
         </div>
       ))}
+
+
     </div>
   );
 }
