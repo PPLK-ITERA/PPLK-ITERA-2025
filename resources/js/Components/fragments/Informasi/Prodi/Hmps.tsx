@@ -81,32 +81,32 @@ const Hmps = ({ prodi, className }: Props) => {
           <div className="place-content-center text-jaffa-200 flex gap-8 mt-4">
             {prodi.hmpsInstagramUrl && (
               <a href={prodi.hmpsInstagramUrl} target="_blank">
-                <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
-                  <IconBrandInstagram size={40} color="black" />
+                <div className="bg-moccaccino-800 flex items-center justify-center p-2 rounded-full">
+                  <IconBrandInstagram size={40} color="white" />
                 </div>
               </a>
             )}
 
             {prodi.hmpsYoutubeUrl && (
               <a href={prodi.hmpsYoutubeUrl} target="_blank">
-                <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
-                  <IconBrandYoutube size={40} color="black" />
+                <div className="bg-moccaccino-800 flex items-center justify-center p-2 rounded-full">
+                  <IconBrandYoutube size={40} color="white" />
                 </div>
               </a>
             )}
 
             {prodi.hmpsWebsiteUrl && (
               <a href={prodi.hmpsWebsiteUrl} target="_blank">
-                <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
-                  <IconWorldWww size={40} color="black" />
+                <div className="bg-moccaccino-800 flex items-center justify-center p-2 rounded-full">
+                  <IconWorldWww size={40} color="white" />
                 </div>
               </a>
             )}
 
             {prodi.hmpsTiktokUrl && (
               <a href={prodi.hmpsTiktokUrl} target="_blank">
-                <div className="bg-jaffa-100 flex items-center justify-center p-2 rounded-full">
-                  <IconBrandTiktok size={40} color="black" />
+                <div className="bg-moccaccino-800 flex items-center justify-center p-2 rounded-full">
+                  <IconBrandTiktok size={40} color="white" />
                 </div>
               </a>
             )}
