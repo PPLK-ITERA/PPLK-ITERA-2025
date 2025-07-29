@@ -94,7 +94,7 @@ function Page() {
           className="flex flex-col w-full h-full text-center"
         >
           <div className="z-10 py-5">
-            <h1 className="font-avigea text-[20px] z-10">
+            <h1 className="font-greek text-[20px] z-10">
               Top 10 Kelompok PPLK
             </h1>
 

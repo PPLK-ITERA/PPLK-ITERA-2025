@@ -24,7 +24,7 @@ function Page({ response }: { response: any }) {
             <h1
               data-aos="fade-down"
               data-aos-duration="1500"
-              className="text-[30px] sm:text-[39px] md:text-[49px] font-avigea bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mb-2"
+              className="text-[30px] sm:text-[39px] md:text-[49px] font-greek bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mb-2"
             >
               Booklet
             </h1>

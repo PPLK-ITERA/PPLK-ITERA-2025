@@ -41,7 +41,7 @@ function Page() {
 
   return (
     <>
-      <Head title="Maskot PPLK ITERA 2024" />
+      <Head title="Maskot PPLK ITERA 2025" />
 
       <div className="overflow-hidden">
         <DefaultLayout isSolid={true}>
@@ -50,11 +50,11 @@ function Page() {
               <h2
                 data-aos="fade-down"
                 data-aos-duration="1000"
-                className="font-avigea text-jaffa-900 font-bold w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
+                className="font-greek text-jaffa-900 font-bold w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
               >
                 Maskot PPLK
                 <br />
-                ITERA 2024
+                ITERA 2025
               </h2>
 
               <div
@@ -64,11 +64,10 @@ function Page() {
               >
                 {MASKOTS.map((maskot, index) => (
                   <Card
-                    className={`${
-                      viewMaskot === maskot.key
-                        ? "grayscale-0 scale-90"
-                        : "grayscale scale-75"
-                    } cursor-pointer transition relative bg-transparent shadow-none overflow-hidden h-full w-full duration-300 ease-in-out z-20 border-none`}
+                    className={`${viewMaskot === maskot.key
+                      ? "grayscale-0 scale-90"
+                      : "grayscale scale-75"
+                      } cursor-pointer transition relative bg-transparent shadow-none overflow-hidden h-full w-full duration-300 ease-in-out z-20 border-none`}
                     key={index}
                     onClick={() => setViewMaskot(`${maskot.key}`)}
                   >

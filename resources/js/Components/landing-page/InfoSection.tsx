@@ -32,7 +32,7 @@ export default function InfoSection() {
         <div className="flex flex-col rounded-md bg-flower-pattern h-[400px] md:h-[350px] md:rounded-[24px] lg:h-[475px]">
           <div className="flex h-full w-full flex-col items-center justify-center rounded-md bg-gradient-to-r from-jaffa-700/90 to-jaffa-800/90 px-4 md:rounded-[24px] py-10 md:px-[10%]">
             <div className="flex flex-col items-start w-full">
-              <h2 className="text-start font-avigea md:text-5xl lg:text-6xl w-full text-2xl text-white">
+              <h2 className="text-start font-greek md:text-5xl lg:text-6xl w-full text-2xl text-white">
                 {currentData.title}
               </h2>
 

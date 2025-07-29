@@ -25,11 +25,6 @@ export default function Footer() {
                 className="md:-ml-5 xl:h-14 xl:w-20 h-14 object-contain w-12"
               />
               <img
-                src={dieswarna}
-                alt="logopplk_white"
-                className="lg:h-16 lg:w-[125px] xl:-mt-0 object-contain w-[90px] h-16"
-              />
-              <img
                 src={kmwarna}
                 alt="logopplk_white"
                 className="xl:h-14 xl:w-20 object-contain w-12 h-10"
@@ -43,7 +38,7 @@ export default function Footer() {
             </div>
 
             <h3 className="font-fesbud md:text-[20px] mt-5 lg:text-[28px]">
-              PPLK ITERA 2024
+              PPLK ITERA 2025
             </h3>
 
             <p className="text-jaffa-100 mt-5 leading-5 tracking-wide">
@@ -100,7 +95,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 font-montserrat flex justify-end text-[12px] font-light text-white md:text-sm lg:text-lg flex-col">
-          <p className="text-end z-20">&copy; Copyright IMTEK PPLK 2024</p>
+          <p className="text-end z-20">&copy; Copyright IMTEK PPLK 2025</p>
           <p className="text-end z-20">
             Kontak Kami Melalui{" "}
             <span>

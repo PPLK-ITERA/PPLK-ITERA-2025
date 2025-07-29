@@ -97,7 +97,7 @@ export function AreaGraph() {
               Trending up by 5.2% this month <TrendingUp className="w-4 h-4" />
             </div>
             <div className="text-muted-foreground flex items-center gap-2 leading-none">
-              January - June 2024
+              January - June 2025
             </div>
           </div>
         </div>
