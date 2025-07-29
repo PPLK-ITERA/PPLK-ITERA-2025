@@ -55,7 +55,7 @@ const Prodi = ({ prodi, className }: Props) => {
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <h1 className="font-greek lg:text-3xl text-moccaccino-600 text-6xl">
+          <h1 className="font-greek lg:text-6xl text-moccaccino-600 mb-2 text-center text-2xl">
             Sejarah
           </h1>
 
@@ -100,7 +100,7 @@ const Prodi = ({ prodi, className }: Props) => {
           data-aos-duration="800"
         >
           <div className="basis-1/2 relative">
-            <h1 className="border-jaffa-600 text-jaffa-600 absolute top-0 p-2 px-8 font-bold -translate-x-4 -translate-y-1/2 bg-white border-2 rounded-full">
+            <h1 className="border-jaffa-600 text-jaffa-600 font-greek absolute top-0 p-2 px-8 font-bold -translate-x-4 -translate-y-1/2 bg-white border-2 rounded-full">
               Visi
             </h1>
             <p className="rounded-xl bg-gradient-to-br from-jaffa-600 to-jaffa-700 h-full p-8 text-left text-white ">
@@ -108,7 +108,7 @@ const Prodi = ({ prodi, className }: Props) => {
             </p>
           </div>
           <div className=" basis-1/2 relative">
-            <h1 className="border-jaffa-600 text-jaffa-600 absolute top-0 p-2 px-8 font-bold -translate-x-4 -translate-y-1/2 bg-white border-2 rounded-full">
+            <h1 className="border-jaffa-600 text-jaffa-600 font-greek absolute top-0 p-2 px-8 font-bold -translate-x-4 -translate-y-1/2 bg-white border-2 rounded-full">
               Misi
             </h1>
 
@@ -129,15 +129,15 @@ const Prodi = ({ prodi, className }: Props) => {
           </div>
         </div>
 
+        <h1 className="font-greek lg:text-6xl text-moccaccino-600  text-center text-2xl">
+          Koordinator Program Studi
+        </h1>
+
         <Card
           className="bg-moccaccino-50 lg:p-8 lg:px-32 flex flex-col gap-6 p-4 text-left rounded-lg shadow-xl"
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <h1 className="font-greek lg:text-3xl text-moccaccino-600 text-lg text-center">
-            Koordinator Program Studi
-          </h1>
-
           <div className="max-lg:flex-col place-items-center font-montserrat flex justify-center gap-6 mt-4">
             {prodi.coordinatorPhoto ? (
               <img
@@ -158,16 +158,20 @@ const Prodi = ({ prodi, className }: Props) => {
           </div>
         </Card>
 
-        <div data-aos="fade-up" data-aos-duration="800">
-          <h1 className="font-greek lg:text-3xl text-moccaccino-600 mb-2 text-2xl">
+        <div data-aos="fade-up" data-aos-duration="800" className="mb-14">
+          <h1 className="font-greek lg:text-6xl text-moccaccino-600  text-center text-2xl ">
             Kelompok Keahlian
           </h1>
 
           <AccordionKk kk={prodi.kk} />
         </div>
 
-        <div className="text-center" data-aos="fade-up" data-aos-duration="800">
-          <h1 className="font-greek lg:text-3xl text-moccaccino-600 text-2xl">
+        <div
+          className="text-center mb-36"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <h1 className="font-jakarta text-bold lg:text-6xl text-moccaccino-600 text-2xl">
             Sosial Media {prodi.name}
           </h1>
 

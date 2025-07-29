@@ -139,6 +139,7 @@ export default {
                 anothertag: ["AnotherTag"],
                 lostar: ["Lostar"],
                 greek: ["Greek", "sans-serif"],
+                jakarta: ["Jakarta", "Greek"],
 
             },
             backgroundImage: {
