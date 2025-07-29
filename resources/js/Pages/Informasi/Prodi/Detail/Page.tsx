@@ -24,11 +24,11 @@ function Page({ prodi }) {
 
       <DefaultLayout isSolid={true}>
         <div className="font-montserrat min-h-screen overflow-x-hidden">
-          <div className="bg-pattern-white relative px-8">
-            <Prodi prodi={ProgramStudiData} className="max-w-6xl mx-auto" />
+          <div className="bg-pattern-white relative">
+            <Prodi prodi={ProgramStudiData} className="" />
           </div>
 
-          <div className="bg-pattern-black text-gray-200">
+          <div className="bg-pattern-white text-gray-200">
             {ProgramStudiData.hmpsImageUrl === "" ||
             ProgramStudiData.kahim === "" ||
             (ProgramStudiData.hmpsInstagramUrl === "" &&
