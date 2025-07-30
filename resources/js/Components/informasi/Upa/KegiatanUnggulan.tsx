@@ -36,7 +36,7 @@ export default function KegiatanUnggulan({
 }: KegiatanUnggulanProps) {
 
   return (
-    <div className="relative bg-pattern-white z-10">
+<div>
       <div className="mx-auto text-center -translate-y-5">
         <div className="">
           <h2 className="font-greek text-black self-stretch p-5 text-5xl not-italic font-normal text-center">

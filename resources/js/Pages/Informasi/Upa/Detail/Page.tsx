@@ -25,13 +25,16 @@ function Page({ nama_upa }) {
   }
 
   return (
-    <>
+    <div   style={{
+    backgroundImage: 'url(/image/DetailUPA/patern3.png)',
+    backgroundRepeat: 'repeat',
+  }}>
       <Head title={`Informasi ${upa.title}`} />
 
       <DefaultLayout>
         {/* menambahkan background baru */}
-      <>
-        {/* Mobile only */}
+      <div>
+        {/* Responsive Mobile */}
         <div
           className="relative bg-cover bg-bottom md:hidden"
           style={{ backgroundImage: "url('/image/detailUPA/Header/desktop-hero-background.jpg')" }}
@@ -43,7 +46,7 @@ function Page({ nama_upa }) {
           />
         </div>
 
-        {/* Medium only */}
+        {/* Responsive Tablet */}
         <div
           className="hidden md:block lg:hidden relative max-h-[90vh] bg-cover bg-bottom"
           style={{ backgroundImage: "url('/image/detailUPA/Header/desktop-hero-background.jpg')" }}
@@ -55,7 +58,7 @@ function Page({ nama_upa }) {
           />
         </div>
 
-        {/* Large only */}
+        {/* Responsive Desktop */}
         <div
           className="hidden lg:block relative max-h-[90vh] bg-cover bg-bottom"
           style={{ backgroundImage: "url('/image/detailUPA/Header/desktop-hero-background.jpg')" }}
@@ -66,10 +69,10 @@ function Page({ nama_upa }) {
             headerDescription={upa?.headerDescription}
           />
         </div>
-      </>
+      </div>
 
 
-        <div className="bg-pattern-white relative z-20 py-20">
+        <div>
           <div className="bg-gradient-to-b hidden md:block from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
           <div className="max-w-5xl mx-auto">
             <div className="md:flex w-full">
@@ -95,7 +98,7 @@ function Page({ nama_upa }) {
           />
         </div>
 
-        <div className="bg-pattern-white relative z-20 py-20" >
+        <div className="relative z-20 py-20" >
           <KepalaUPT
             nama_upt={upa?.title}
             nama_kepala_upt={upa?.kepalaUpt.nama}
@@ -114,7 +117,7 @@ function Page({ nama_upa }) {
             link_website={upa?.sosmedUPT.website}
             link_tiktok={upa?.sosmedUPT.tiktok}/>
       </DefaultLayout>
-    </>
+    </div>
   );
 }
 
