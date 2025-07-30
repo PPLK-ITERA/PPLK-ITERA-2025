@@ -47,8 +47,6 @@ export default function Page({ response }) {
     currentPage * itemsPerPage,
   );
 
-  useAos();
-
   const [selectedFakultas, setSelectedFakultas] = useState(
     localStorage.getItem("selectedFakultas") || "fakultas-sains",
   );
@@ -60,17 +58,6 @@ export default function Page({ response }) {
   return (
     <>
       <Head title="FAQ" />
-      <div className="min-h-screen bg-gradient-to-br  bg-white ">
-        <Navbar isSolid={true} isFixed={true} />
-
-
-        {/* Hero Section */}
-        <div className="pt-24 pb-8">
-          <div className="container mx-auto px-4 max-w-6xl">
-            {/* Title */}
-            <div className="text-center mb-12">
-              <h1
-
       <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
         <div>
           <Navbar isSolid={true} isFixed={true} />
@@ -84,8 +71,7 @@ export default function Page({ response }) {
             </h2>
 
             <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 md:mt-[40px] md:px-0">
-              <div
-
+              <h1
                 data-aos="fade-down"
                 data-aos-duration="1000"
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
@@ -154,52 +140,51 @@ export default function Page({ response }) {
               </div>
 
               {/* Card 2 */}
-                {/* Ikon Shield di atas card */}
-                <div className=" pt-16 md:pt-12">
-                    <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">=
-                <div className="absolute -top-10 p-1">
-                  <img
-                    src={shield}
-                    alt="Shield Icon"
-                    className="w-[100px] h-[90px] object-contain"
-                  />
-                </div>
+              <div className=" pt-16 md:pt-12">
+                <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">
+                  {/* Ikon Shield di atas card */}
+                  <div className="absolute -top-10 p-1">
+                    <img
+                      src={shield}
+                      alt="Shield Icon"
+                      className="w-[100px] h-[90px] object-contain"
+                    />
+                  </div>
 
-                {/* Konten Card */}
-                <div className="mt-10 text-center">
-                  <h3 className="font-Greek text-2xl mb-2">PROFIL MABA</h3>
-                  <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
-                    Tata cara pengisian <br /> profil, berteman, dll.
-                  </p>
+                  {/* Konten Card */}
+                  <div className="mt-10 text-center">
+                    <h3 className="font-Greek text-2xl mb-2">PROFIL MABA</h3>
+                    <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
+                      Tata cara pengisian <br /> profil, berteman, dll.
+                    </p>
+                  </div>
                 </div>
-              </div>
               </div>
 
               {/* Card 3 */}
               <div className="pt-16 md:pt-12">
+                <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative">
+                  {/* Gambar Man di atas card */}
+                  <div className="absolute -top-10">
+                    <img
+                      src={man}
+                      alt="Man Icon"
+                      className="w-[100px] h-[90px] object-contain"
+                      />
+                  </div>
 
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative">
-                {/* Gambar Man di atas card */}
-                <div className="absolute -top-10">
-                  <img
-                    src={man}
-                    alt="Man Icon"
-                    className="w-[100px] h-[90px] object-contain"
-                    />
-                </div>
-
-                {/* Konten Card */}
-                <div className="mt-10 text-center">
-                  <h3 className="font-Greek text-2xl mb-2">DRESSCODE</h3>
-                  <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
-                    Dresscode Pra-PPLK PPLK <br /> Day 0–5
-                  </p>
-                    </div>
+                  {/* Konten Card */}
+                  <div className="mt-10 text-center">
+                    <h3 className="font-Greek text-2xl mb-2">DRESSCODE</h3>
+                    <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
+                      Dresscode Pra-PPLK PPLK <br /> Day 0–5
+                    </p>
+                      </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
         {/* Main Content */}
         <div className="container mx-auto px-4 max-w-6xl pb-16">
