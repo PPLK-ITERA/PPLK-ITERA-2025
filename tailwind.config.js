@@ -26,6 +26,7 @@ export default {
                 "4/3": "4 / 3",
                 "3/4": "3 / 4",
             },
+            
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -139,6 +140,9 @@ export default {
                 lostar: ["Lostar"],
                 Greek: ["Greek"],
                 Romanica: ["Romanica"],
+                greek: ["Greek", "sans-serif"],
+
+
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",

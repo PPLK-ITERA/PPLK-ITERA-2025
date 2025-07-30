@@ -20,13 +20,13 @@ export default function Panduan() {
       className="lg:flex-row flex flex-col items-center justify-center w-full min-h-screen py-20"
     >
       <div className="lg:w-1/3 lg:items-start xl:w-1/2 flex flex-col items-center justify-center w-full text-left">
-        <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-avigea text-3xl text-transparent md:text-4xl">
+        <h2 className="bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text font-greek text-3xl text-transparent md:text-4xl">
           Panduan
         </h2>
 
         <p className="mt-5 text-center font-montserrat text-[16px] font-normal md:text-xl lg:text-2xl lg:max-w-[90%] lg:text-start xl:max-w-[70%] xl:text-2xl">
           Hai Naramuda! Panduan PPLK ini memberikan informasi terkini mengenai
-          PPLK ITERA 2024, khusus bagi teman-teman Mahasiswa Baru. Pastikan kamu
+          PPLK ITERA 2025, khusus bagi teman-teman Mahasiswa Baru. Pastikan kamu
           selalu mengikuti update terbaru agar tidak ketinggalan informasi
           penting!
         </p>
@@ -56,7 +56,7 @@ export default function Panduan() {
                 </svg>
               </div>
 
-              <p className="font-avigea mt-2 text-4xl">Atribut</p>
+              <p className="font-greek mt-2 text-4xl">Atribut</p>
             </Link>
           </CarouselItem>
 
@@ -82,7 +82,7 @@ export default function Panduan() {
                 </svg>
               </div>
 
-              <p className="font-avigea mt-2 text-4xl text-white">Booklet</p>
+              <p className="font-greek mt-2 text-4xl text-white">Booklet</p>
             </Link>
           </CarouselItem>
 
@@ -108,7 +108,7 @@ export default function Panduan() {
                 </svg>
               </div>
 
-              <p className="font-avigea mt-2 text-4xl text-center text-white">
+              <p className="font-greek mt-2 text-4xl text-center text-white">
                 Relasi & Jaringan
               </p>
             </Link>
@@ -135,7 +135,7 @@ export default function Panduan() {
                 </svg>
               </div>
 
-              <p className="font-avigea mt-2 text-4xl">FAQ</p>
+              <p className="font-greek mt-2 text-4xl">FAQ</p>
             </Link>
           </CarouselItem>
         </CarouselContent>
@@ -159,7 +159,7 @@ export default function Panduan() {
               <path d="M14.883 3.007l.095 -.007l.112 .004l.113 .017l.113 .03l6 2a1 1 0 0 1 .677 .833l.007 .116v5a1 1 0 0 1 -.883 .993l-.117 .007h-2v7a2 2 0 0 1 -1.85 1.995l-.15 .005h-10a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-7h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-5a1 1 0 0 1 .576 -.906l.108 -.043l6 -2a1 1 0 0 1 1.316 .949a2 2 0 0 0 3.995 .15l.009 -.24l.017 -.113l.037 -.134l.044 -.103l.05 -.092l.068 -.093l.069 -.08c.056 -.054 .113 -.1 .175 -.14l.096 -.053l.103 -.044l.108 -.032l.112 -.02z" />
             </svg>
           </div>
-          <p className="font-avigea mt-2 text-4xl">Atribut</p>
+          <p className="font-greek mt-2 text-4xl">Atribut</p>
         </Link>
 
         <Link
@@ -185,7 +185,7 @@ export default function Panduan() {
               <path d="M9 8h6" />
             </svg>
           </div>
-          <p className="font-avigea mt-2 text-4xl text-white">Booklet</p>
+          <p className="font-greek mt-2 text-4xl text-white">Booklet</p>
         </Link>
 
         <Link
@@ -211,7 +211,7 @@ export default function Panduan() {
               <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
             </svg>
           </div>
-          <p className="font-avigea mt-2 text-4xl text-center text-white">
+          <p className="font-greek mt-2 text-4xl text-center text-white">
             Relasi & Jaringan
           </p>
         </Link>
@@ -238,7 +238,7 @@ export default function Panduan() {
               <path d="M12 19l0 .01" />
             </svg>
           </div>
-          <p className="font-avigea mt-10 text-4xl">FAQ</p>
+          <p className="font-greek mt-10 text-4xl">FAQ</p>
         </Link>
       </div>
     </div>

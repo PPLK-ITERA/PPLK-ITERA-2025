@@ -19,7 +19,7 @@ export default function ProgramStudi({ fakultas }) {
   return (
     <div className="md:px-4 px-4 pb-10 mt-16 flex flex-col gap-16">
       <div className="text-start md:text-center">
-        <p className="font-avigea text-moccaccino-500 md:text-5xl text-2xl font-semibold tracking-wide">
+        <p className="font-greek text-moccaccino-500 md:text-5xl text-2xl font-semibold tracking-wide">
           Program Studi
         </p>
       </div>

@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -74,6 +76,12 @@
         font-family: "Avigea";
         src: local("Avigea-Regular"), url("!assets/fonts/Avigea/Avigea.otf");
     }
+
+    @font-face {
+        font-family: 'Greek';
+        src: local('GreekFreak'),  url('!assets/fonts/GreekFreak/GreekFreak.ttf') format('truetype');
+      }
+
     @font-face {
         font-family: "Avigea-Italic";
         src: local("Avigea-Italic"),

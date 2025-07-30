@@ -188,7 +188,7 @@ export default function Page({ response }) {
               <DialogTrigger asChild>
                 <Button
                   variant={"outline"}
-                  className="w-[200px] py-2 border mt-3"
+                  className="w-[200px] py-2 border mt-3 bg-white"
                 >
                   Edit Foto Profile
                 </Button>
@@ -274,7 +274,7 @@ export default function Page({ response }) {
               <ResetPasswordForm currentUser={currentUser} />
             </div>
 
-            <div className="md:w-1/2 flex flex-col w-full gap-2">
+            <div className="md:w-1/2 flex flex-col gap-2">
               {currentUser.role_id === 1 ||
               currentUser.role_id === 2 ||
               currentUser.role_id === 3 ||

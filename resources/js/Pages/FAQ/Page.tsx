@@ -63,12 +63,29 @@ export default function Page({ response }) {
       <div className="min-h-screen bg-gradient-to-br  bg-white ">
         <Navbar isSolid={true} isFixed={true} />
 
+
         {/* Hero Section */}
         <div className="pt-24 pb-8">
           <div className="container mx-auto px-4 max-w-6xl">
             {/* Title */}
             <div className="text-center mb-12">
               <h1
+
+      <div className="bg-pattern-white relative flex flex-col w-full min-h-screen text-center">
+        <div>
+          <Navbar isSolid={true} isFixed={true} />
+          <div className="md:pt-20 lg:pt-24 pt-20">
+            <h2
+              data-aos="fade-down"
+              data-aos-duration="1000"
+              className="font-greek bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
+            >
+              Frequently Asked Question
+            </h2>
+
+            <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6 md:mt-[40px] md:px-0">
+              <div
+
                 data-aos="fade-down"
                 data-aos-duration="1000"
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"

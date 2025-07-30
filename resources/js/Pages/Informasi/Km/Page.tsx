@@ -33,16 +33,16 @@ export default function Page() {
                 Informasi
               </p>
 
-              <h1 className="text-jaffa-100 md:leading-[5rem] md:items-start flex flex-col items-center justify-center mt-8 leading-[4rem]">
-                <span className="font-avigea text-[40px] md:text-[72px]">
+              <h1 className="text-jaffa-100 md:leading-[5rem] md:items-start flex flex-col items-center  justify-center mt-8 leading-[4rem]">
+                <span className="font-greek text-[40px] md:text-[72px]">
                   Keluarga Mahasiswa
                 </span>
-                <span className="font-avigea text-[64px] md:text-[72px]">
+                <span className="font-greek text-[64px] md:text-[72px]">
                   (KM ITERA)
                 </span>
               </h1>
 
-              <p className="mt-10 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em]">
+              <p className="mt-10 font-montserrat leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em]">
                 <span className="text-[18px] md:text-[25px]">
                   Wadah Tertinggi
                   <br />
@@ -67,7 +67,7 @@ export default function Page() {
         </div>
 
         <div className="bg-pattern-white md:pt-32 relative flex flex-col pt-20">
-          <h2 className="font-avigea text-candlelight-950 md:text-5xl z-40 text-3xl text-center">
+          <h2 className="font-greek text-candlelight-950 md:text-5xl z-40 text-3xl text-center">
             KELUARGA MAHASISWA <br />
             INSTITUT TEKNOLOGI SUMATERA <br />
             (KM ITERA)
@@ -82,14 +82,13 @@ export default function Page() {
           <div className="flex h-[240px] md:w-[441px] w-[300px] flex-col rounded-lg bg-white bg-opacity-0"></div>
         </div>
 
-        <div className="flex items-center justify-center -mt-20">
-          <img src={gedung} alt="gedung" className="w-full" />
-          <img src={awan} alt="awan" className="absolute w-full" />
+        <div className="flex items-center justify-center mb-8 md:mb-16 z-10 lg:my-28 relative " >
+          <img src={gedung} alt="gedung" className="w-full absolute " />
         </div>
 
         <div className="relative bg-pattern-white bg-[#170C0A] px-5">
           <div className="md:pt-20 pt-10 text-center">
-            <h2 className="font-avigea md:text-5xl z-40 text-3xl text-center text-white">
+            <h2 className="font-greek md:text-5xl z-40 text-3xl text-center text-white">
               KABINET BESERTA PRESIDEN <br />
               MAHASISWA
             </h2>
@@ -99,7 +98,7 @@ export default function Page() {
           <FilosofiLogoKm />
           <PecahanLogo />
 
-          <h2 className="text-white font-montserrat text-center text-[25px] mt-10">
+          <h2 className="text-white text-center font-greek text-[25px] mt-10">
             Pecahan Logo <br />
             KM ITERA
           </h2>
@@ -111,7 +110,7 @@ export default function Page() {
           <div
             data-aos="slide-up"
             data-aos-duration={1000}
-            className="absolute left-0 overflow-hidden -bottom-5 xl:h-[70vh] lg:h-[40vh] md:h-[30vh] w-full"
+            className="absolute left-0 overflow-hidden -bottom-5 xl:h-[115vh] lg:h-[40vh] md:h-[45vh] w-full"
           >
             <img src={tiang} alt="tiang" className="w-full" />
           </div>

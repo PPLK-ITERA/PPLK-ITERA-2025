@@ -48,7 +48,7 @@ export default function Page({ auth, status }) {
         <div
           className={`flex h-screen w-full flex-col justify-center overflow-hidden font-montserrat font-medium md:flex-row`}
         >
-          <div className="flex min-h-[70px] w-full justify-center bg-[url('!assets/background-login.png')] bg-cover object-cover p-5 md:min-h-[100vh] md:w-[50%] xl:w-[60%] md:items-center md:p-0">
+          <div className="flex min-h-[70px] w-full justify-center bg-[url('!assets/background-login.png')] bg-cover object-cover object-center p-5 md:min-h-[100vh] md:w-[50%] xl:w-[60%] md:items-center md:p-0">
             <CarouselForm />
           </div>
 
@@ -65,16 +65,16 @@ export default function Page({ auth, status }) {
               onSubmit={submit}
               className="md:items-start flex flex-col items-center justify-start p-2"
             >
-              <h1 className="w-[300px] text-xl md:text-2xl font-bold text-jaffa-600 sm:w-[300px] sm:text-3xl md:mb-8 font-montserrat tracking-tight lg:mt-10 lg:w-96 lg:text-4xl text-center md:text-start">
-                Masuk ke Website <br /> PPLK ITERA 2024
+              <h1 className="w-[300px] font-greek text-xl md:text-2xl font-bold text-[#FF4A00] sm:w-[300px] sm:text-3xl md:mb-8 tracking-tight lg:mt-10 lg:w-96 lg:text-4xl text-center md:text-start">
+                Masuk ke Website <br /> PPLK ITERA 2025
               </h1>
 
               <div>
                 <label htmlFor="email">Email</label>
                 <div className="relative w-[300px] sm:w-[300px] lg:w-96">
-                  <Mail className="left-2 top-3 text-jaffa-600 absolute" />
+                  <Mail className="left-2 top-3 text-[#FF4A00] absolute" />
                   <Input
-                    className="border-jaffa-600 ring-jaffa-600 focus:ring-2 h-12 pl-10 mb-4 border rounded-md"
+                    className="border-[#FF4A00] ring-[#FF4A00] focus:ring-2 h-12 pl-10 mb-4 border rounded-md"
                     name="email"
                     type="email"
                     autoComplete="email"
@@ -132,7 +132,7 @@ export default function Page({ auth, status }) {
               <Button
                 type="submit"
                 disabled={processing}
-                className="mb-4 h-12 w-[300px] rounded-md border bg-jaffa-600 px-4 font-bold text-white transition duration-300 ease-out hover:bg-white hover:text-jaffa-600 hover:shadow-md focus:ring-2 focus:ring-jaffa-600 sm:w-[300px] lg:w-96"
+                className="mb-4 h-12 w-[300px] rounded-md border bg-[#FF4A00] px-4 font-bold text-white transition duration-300 ease-out hover:bg-white hover:text-jaffa-600 hover:shadow-md focus:ring-2 focus:ring-jaffa-600 sm:w-[300px] lg:w-96"
               >
                 Masuk
               </Button>

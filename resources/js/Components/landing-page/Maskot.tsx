@@ -25,14 +25,14 @@ export default function Maskot() {
       className="flex min-h-[100vh] flex-col-reverse items-center justify-center gap-10 pb-20 md:flex-row md:gap-0 md:pb-10 lg:pb-0 z-30"
     >
       <div className="md:w-[50%] md:items-start md:text-left lg:w-3/5 z-30 flex flex-col items-center justify-center w-full px-10 text-center">
-        <h2 className="font-avigea md:text-2xl lg:text-4xl z-30 w-full text-xl text-white">
+        <h2 className="font-greek md:text-2xl lg:text-4xl z-30 w-full text-xl text-white">
           Kenalan Sama
           <br />
-          Maskot PPLK 2024!
+          Maskot PPLK 2025!
         </h2>
 
         <p className="mt-5 font-montserrat text-[16px] font-normal text-white/80 md:text-lg lg:max-w-[80%] lg:text-2xl z-30">
-          Temui Calandra dan Kanaka, maskot PPLK ITERA 2024 yang elegan dan
+          Temui Calandra dan Kanaka, maskot PPLK ITERA 2025 yang elegan dan
           penuh semangat. Bersama, mereka mewakili karakter kuat dan visi ke
           depan, membawa harapan bagi Indonesia Emas 2045.
         </p>
