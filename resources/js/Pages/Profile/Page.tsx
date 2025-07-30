@@ -136,7 +136,13 @@ const Page = ({ response }) => {
   return (
     <>
       <Head title={`myprofile`} />
-
+    {/* PATERN BARU */}
+      <div className=""
+      style={{
+        backgroundImage: 'url(/image/profile/patern3.png)',
+        backgroundRepeat: 'repeat',
+        backgroundSize: '1400px',
+      }}>
       <div className="bg-pattern-white">
         <Navbar isSolid={true} isFixed={true} />
         <Toaster />
@@ -319,6 +325,7 @@ const Page = ({ response }) => {
                     nama_mentor: UserData.kelompok.mentor,
                     nama_kelompok: UserData.kelompok.nama_kelompok,
                     no_kelompok: UserData.kelompok.no_kelompok,
+                    fakultas_id: UserData.prodi.fakultas_id,
                   }}
                 />
               </div>
@@ -326,6 +333,7 @@ const Page = ({ response }) => {
           </div>
         </div>
         <Footer />
+      </div>
       </div>
 
       <Toaster />

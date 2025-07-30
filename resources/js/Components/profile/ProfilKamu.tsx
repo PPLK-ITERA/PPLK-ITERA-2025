@@ -18,7 +18,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
   return (
     <div className="bg-[url('/image/profile/background1.png')] bg-repeat bg-[length:450px_450px] bg-origin-border w-full bg-transparent">
       <div className="flex justify-center">
-        <div className="w-full max-w-7xl flex flex-col lg:flex-row gap-4">
+        <div className="w-full max-w-7-xl xl:max-w-7xl lg:max-w-7xl md:max-w-7xl sm:max-w-7xl flex flex-col lg:flex-row gap-4">
 
           {/* INFORMASI + FORM */}
           <div className="flex flex-col w-full items-center lg:items-start">
@@ -33,40 +33,104 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                   </div>
                   <div>
                     <label className="block text-sm mb-1">NIM</label>
-                    <input type="text" value={props.nim} readOnly className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
-                  </div>
+                    <input
+                      type="text"
+                      value={props.nim ?? ""}
+                      placeholder={props.nim ? "" : "Silahkan menghubungi Dapmen"}
+                      readOnly
+                      className={`w-full bg-[#98989840] text-[#3F150B] border rounded-md px-3 py-2 ${
+                        !props.nim ? "border-[#C2C2C2]" : "border-[#C2C2C2]"
+                      }`}
+                    />
+                    </div>
                   <div>
                     <label className="block text-sm mb-1">Prodi</label>
-                    <input type="text" value={props.prodi} readOnly className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
+                    <input type="text" value={props.prodi.nama_prodi} readOnly className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
                   </div>
                 </div>
 
-                <h2 className="font-bold text-lg mt-6 mb-3">Sosial Media</h2>
+           <h2 className="font-bold text-lg mt-6 mb-3">Sosial Media</h2>
                 <div className="space-y-3">
-                  <div>
-                    <label className="block text-sm mb-1">LinkedIn</label>
-                    <div className="flex items-center border border-[#DA5B1C] rounded-md px-3 py-2">
-                      <span className="mr-2 p-1 rounded-sm">
-                        <img src="/image/profile/lock.png" className="w-[25px]" />
-                      </span>
-                      <input type="text" value={data.linkedinURL} onChange={(e) => setData("linkedinURL", e.target.value)} className="w-full outline-none text-sm border-none bg-transparent" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm mb-1">Instagram</label>
-                    <div className="flex items-center border border-[#DA5B1C] rounded-md px-3 py-2">
-                      <span className="mr-2 p-1 rounded-sm">
-                        <img src="/image/profile/lock.png" className="w-[25px]" />
-                      </span>
-                      <input type="text" value={data.instagramURL} onChange={(e) => setData("instagramURL", e.target.value)} className="w-full outline-none text-sm border-none bg-transparent" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm mb-1">Bio Relasi Jaringan</label>
-                    <Textarea value={data.bio} onChange={(e) => setData("bio", e.target.value)} className="w-full border border-[#DA5B1C] rounded-md px-3 py-2 text-sm h-24 resize-none" />
-                  </div>
 
-                  <Button onClick={handleSubmit} className="text-sm w-full bg-gradient-to-r from-[#B9822F] to-[#A6680C] text-white font-medium py-2 rounded-sm mt-2">Simpan</Button>
+          <div className="relative">
+                <label
+                  htmlFor="linkedin"
+                  className="block text-sm mb-1"
+                >
+                LinkedIn
+                </label>
+
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="linkedin"
+                    value={data.linkedinURL}
+                    onChange={(e) => {
+                      setData("linkedinURL", e.target.value);
+                    }}
+                    placeholder="ex. https://www.linkedin.com/in/username/"
+                    className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
+                  />
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none ">
+                    <img src="/image/profile/lock.png" className="w-[20px] ml-1" />
+                  </div>
+                </div>
+
+              </div>
+        
+            <div className="relative">
+                <label
+                  htmlFor="instagram"
+                  className="block text-sm mb-1"
+                >
+                  Link Instagram
+                </label>
+
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="instagram"
+                    value={data.instagramURL}
+                    onChange={(e) => {
+                      setData("instagramURL", e.target.value);
+                    }}
+                    placeholder="ex. https://www.instagram.com/pplkitera/"
+                    className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
+                  />
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                                <img src="/image/profile/lock.png" className="w-[20px] ml-1" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="bio"
+                  className="block text-sm mb-1"
+                >
+                  Bio Relasi Jaringan
+                </label>
+                <Textarea
+                  id="bio"
+                  value={data.bio}
+                  onChange={(e) => {
+                    setData("bio", e.target.value);
+                  }}
+                  placeholder="Tulis bio kamu disini..."
+                  className="xl:max-w-[396px] xl:h-[88px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] max-h-[150px] resize-none"
+                />
+              </div>
+              <Button
+                className="flex justify-center items-center xl:w-[396px] xl:h-[40px] w-full h-full p-2 bg-gradient-to-b from-[#B9822F] to-[#A6680C] rounded-sm md:mt-4"
+                onClick={() => {
+                  handleSubmit();
+                }}
+              >
+                <h2 className="text-[14px] font-montserrat font-medium text-center text-white">
+                  Simpan
+                </h2>
+              </Button>
+      
                 </div>
               </div>
             </div>
