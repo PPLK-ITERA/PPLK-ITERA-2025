@@ -92,16 +92,23 @@ Route::middleware('auth')->group(function () {
          });
       });
 
-
+      // ========================================
       
       // ========================================
-      // TAMBAHAN BARU: DOKUMENTASI KEGIATAN 5 HARI
+      // TAMBAHAN BARU: DOKUMENTASI KEGIATAN 5 HARI   
       // ========================================
    Route::prefix('dokumentasi')->name('dokumentasi.')->group(function () {
+   // =====================================
+   // User all role - Read-Only
+   // =====================================
+      // Hanya bisa melihat daftar dan detail dokumentasi (read-only)
+      Route::get('/view', [DokumentasiController::class, 'index'])->name('view.index');
+      Route::get('/view/{dokumentasi}', [DokumentasiController::class, 'show'])->name('view.show');
+
       // =====================================
-      // Mamet dan Admin Role - Akses Penuh
+      //  Admin Role - Akses Penuh
       // =====================================
-      Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
+      Route::middleware(['checkRole:Admin'])->group(function () {
          // Route untuk menampilkan daftar dokumentasi
          Route::get('/', [DokumentasiController::class, 'index'])->name('index');
          // Route untuk menampilkan form tambah dokumentasi baru
@@ -119,16 +126,8 @@ Route::middleware('auth')->group(function () {
          // Route untuk menghapus dokumentasi (beserta foto-fotonya)
          Route::delete('/{dokumentasi}', [DokumentasiController::class, 'destroy'])->name('destroy');
    });
-
-   // =====================================
-   // Daplok, Mentor, Pjprodi - Akses Read Only
-   // =====================================
-   Route::middleware(['checkRole:Daplok,Mentor,Pjprodi'])->group(function () {
-      // Hanya bisa melihat daftar dan detail dokumentasi (read-only)
-      Route::get('/view', [DokumentasiController::class, 'index'])->name('view.index');
-      Route::get('/view/{dokumentasi}', [DokumentasiController::class, 'show'])->name('view.show');
    });
-});
+
       
       // =====================================
       // Materi
