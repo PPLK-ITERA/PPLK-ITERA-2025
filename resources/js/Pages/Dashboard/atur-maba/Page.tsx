@@ -22,7 +22,7 @@ export default function Page({ auth }) {
     <>
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
-        <h2 className="text-3xl font-bold tracking-tight">Atur Maba</h2>
+        <h2 className="text-3xl font-semibold font-inter tracking-tight">Atur Maba</h2>
 
         <AturMabaClient />
       </DashboardLayout>

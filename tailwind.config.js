@@ -139,6 +139,7 @@ export default {
                 lostar: ["Lostar"],
                 greek: ["GreekFreak"],
                 poppins: ["Poppins"],
+                inter: ["Inter"],
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",

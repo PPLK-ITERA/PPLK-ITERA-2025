@@ -26,7 +26,7 @@ export default function Page({ auth }) {
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
 
-        <h2 className="text-3xl font-bold tracking-tight">Create User</h2>
+        <h2 className="text-3xl font-semibold font-inter tracking-tight">Create User</h2>
 
         <div className="md:pb-20 max-w-sm pb-64">
           <CreateUser />

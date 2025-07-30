@@ -18,7 +18,7 @@ export default function Page({ auth }) {
   return (
     <DashboardLayout user={auth.user}>
       <Breadcrumbs items={breadcrumbItems} />
-      <h2 className="text-3xl font-bold tracking-tight">Atur Dapmen</h2>
+      <h2 className="text-3xl font-semibold font-inter tracking-tight">Atur Dapmen</h2>
 
       <AturDapmenClient />
     </DashboardLayout>
