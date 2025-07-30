@@ -91,11 +91,11 @@ export default function KegiatanUnggulan({
         </CarouselContent>
       </Carousel>
 
-      <img
+      {/* <img
         src={sponsor_overlay}
         alt="sponsor_overlay"
         className="w-full mt-10"
-      />
+      /> */}
 
       {/* Komponen Sosial Media dipindahkan dari KepalaUPT.tsx*/}
     

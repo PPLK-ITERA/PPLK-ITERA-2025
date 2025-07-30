@@ -153,14 +153,6 @@ export default function LandingPage() {
           <Sponsorship />
         </div>
 
-        <img
-          data-aos="fade-up"
-          data-aos-duration={1000}
-          src={sponsor_overlay}
-          alt="sponsor_overlay"
-          className="object-cover w-full"
-        />
-
         <Footer />
       </div>
 

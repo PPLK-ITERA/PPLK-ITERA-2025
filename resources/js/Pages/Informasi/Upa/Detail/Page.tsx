@@ -29,13 +29,45 @@ function Page({ nama_upa }) {
       <Head title={`Informasi ${upa.title}`} />
 
       <DefaultLayout>
-        <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:min-h-screen md:bg-desktop-hero-background lg:bg-desktop-hero-background">
+        {/* menambahkan background baru */}
+      <>
+        {/* Mobile only */}
+        <div
+          className="relative bg-cover bg-bottom md:hidden"
+          style={{ backgroundImage: "url('/image/detailUPA/Header/desktop-hero-background.jpg')" }}
+        >
           <Header
             upt={upa?.title}
             title={upa?.title}
             headerDescription={upa?.headerDescription}
           />
         </div>
+
+        {/* Medium only */}
+        <div
+          className="hidden md:block lg:hidden relative max-h-[90vh] bg-cover bg-bottom"
+          style={{ backgroundImage: "url('/image/detailUPA/Header/desktop-hero-background.jpg')" }}
+        >
+          <Header
+            upt={upa?.title}
+            title={upa?.title}
+            headerDescription={upa?.headerDescription}
+          />
+        </div>
+
+        {/* Large only */}
+        <div
+          className="hidden lg:block relative max-h-[90vh] bg-cover bg-bottom"
+          style={{ backgroundImage: "url('/image/detailUPA/Header/desktop-hero-background.jpg')" }}
+        >
+          <Header
+            upt={upa?.title}
+            title={upa?.title}
+            headerDescription={upa?.headerDescription}
+          />
+        </div>
+      </>
+
 
         <div className="bg-pattern-white relative z-20 py-20">
           <div className="bg-gradient-to-b hidden md:block from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />

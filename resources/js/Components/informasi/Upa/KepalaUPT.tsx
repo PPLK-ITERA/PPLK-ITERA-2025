@@ -36,13 +36,13 @@ export default function KepalaUPT({
     className="w-[80%] max-w-5xl mx-auto mt-10 flex flex-col md:flex-row items-center justify-center px-8 py-8 rounded-2xl relative z-10"
     style={{
       backgroundImage: "url('/image/detailUPA/KepalaUPT/Selendang.png')",
-      backgroundSize: "100% 100%", // Gambar mengikuti lebar dan tinggi card
-      backgroundPosition: "center", // Gambar terpusat
+      backgroundSize: "100% 100%",
+      backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
-      height: "500px", // Sesuaikan tinggi card
-      width: "100%", // Lebar 100% dari parent-nya
-      paddingTop: "60px", // Menambahkan ruang di atas untuk gambar profil
-      paddingBottom: "60px", // Menambahkan ruang di bawah untuk memberikan jarak lebih
+      height: "500px", 
+      width: "100%", 
+      paddingTop: "60px",
+      paddingBottom: "60px",
     }}
   >
     {/* Informasi untuk responsive HP */}
