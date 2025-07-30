@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 import { Head } from "@inertiajs/react";
@@ -117,47 +115,69 @@ export default function Page({ response }) {
               className=" md:grid flex overflow-x-auto whitespace-nowrap scroll-smooth md:whitespace-normal md:overflow-visible md:space-x-0  grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16"
             >
               {/* Card 1 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer  shadow-md hover:shadow-lg flex flex-col items-center object-fit: cover ">
-                <div className="text-center relative justify-center items-center w-[100%] mx-auto -top-3 mb-1">
-                  <div className="rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center overflow-visible">
-                    <div className="absolute -top-9 z-10">
-                      <img src={zeus} alt=" " />
-                    </div>
+              <div className="pt-16 md:pt-12">
+                {/* Card 1 - Fixed Version */}
+                <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">
+                  {/* Gambar Zeus di atas card */}
+                  <div className="absolute -top-12 md:-top-10 left-1/2 transform -translate-x-1/2">
+                    <img
+                      src={zeus}
+                      alt="Zeus"
+                      className="w-[100px] h-[100px] object-contain p-1"
+                    />
                   </div>
-                  <h3 className="font-Greek text-2xl mb-2">TUGAS PPLK </h3>
-                  <p className="font-Romanica text-sm opacity-90">
-                    TESLA,PETAKA
-                  </p>
+                  {/* Konten Card */}
+                  <div className="mt-10 text-center">
+                    <h3 className="font-Greek text-2xl mb-2">TUGAS PPLK</h3>
+                    <p className="font-Romanica text-sm opacity-90">
+                      TESLA, PETAKA
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* Card 2 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center">
-                <div className="text-center relative justify-center items-center w-[100%] mx-auto -top-3 mb-1">
-                  <div className="rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <div className="absolute -top-9 z-10">
-                      <img src={shield} alt="" />
-                    </div>
-                  </div>
-                  <h3 className="font-Greek text-2xl mb-2">PROFIL MABA </h3>
-                  <p className="font-Romanica text-sm opacity-90 text-center w-full break-words leading-snug">
-                    Tata cara pengisian  <br /> profil, berteman, dll.
+                {/* Ikon Shield di atas card */}
+                <div className=" pt-16 md:pt-12">
+                    <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">=
+                <div className="absolute -top-10 p-1">
+                  <img
+                    src={shield}
+                    alt="Shield Icon"
+                    className="w-[100px] h-[90px] object-contain"
+                  />
+                </div>
+
+                {/* Konten Card */}
+                <div className="mt-10 text-center">
+                  <h3 className="font-Greek text-2xl mb-2">PROFIL MABA</h3>
+                  <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
+                    Tata cara pengisian <br /> profil, berteman, dll.
                   </p>
                 </div>
               </div>
+              </div>
 
               {/* Card 3 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer  shadow-md hover:shadow-lg flex flex-col items-center">
-                <div className="text-center  relative justify-center -top-3 mb-1 items-center w-[100%] mx-auto">
-                  <div className=" rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <div className="absolute -top-9 z-10">
-                      <img src={man} alt="" />
-                    </div>
-                  </div>
-                  <h3 className="font-Greek  text-2xl mb-2">DRESSCODE</h3>
-                  <p className=" font-Romanica text-sm opacity-90">
-                    Drescode Pra-PPLK PPLK  <br/> Day 0-5
+              <div className="pt-16 md:pt-12">
+
+              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative">
+                {/* Gambar Man di atas card */}
+                <div className="absolute -top-10">
+                  <img
+                    src={man}
+                    alt="Man Icon"
+                    className="w-[100px] h-[90px] object-contain"
+                    />
+                </div>
+
+                {/* Konten Card */}
+                <div className="mt-10 text-center">
+                  <h3 className="font-Greek text-2xl mb-2">DRESSCODE</h3>
+                  <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
+                    Dresscode Pra-PPLK PPLK <br /> Day 0–5
                   </p>
+                    </div>
                 </div>
               </div>
             </div>
@@ -177,7 +197,7 @@ export default function Page({ response }) {
                   </h3>
                   <div className="space-y-2">
                     <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
-                      PPLK ITERA 20222
+                      PPLK ITERA 2025
                     </button>
                     <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       Fakultas
