@@ -5,7 +5,7 @@ import { usePage } from "@inertiajs/react";
 
 import { ChevronDown } from "lucide-react";
 
-import { IconNotebook } from "@tabler/icons-react";
+import { IconNotebook, IconDeviceGamepad2 } from "@tabler/icons-react";
 
 import {
   DropdownMenu,
@@ -106,6 +106,24 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
               Panduan Penggunaan
             </a>
           </DropdownMenuItem>
+
+          <DropdownMenuItem
+            className={`${isScrolled || isSolid ? `focus:bg-jaffa-600` : `focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
+          >
+            <a
+              href="/dokumentasi"
+              className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+            >
+              <span
+                className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+              >
+                <IconDeviceGamepad2 size={24} color="#fcedd8" />
+              </span>
+              Dokumentasi
+            </a>
+          </DropdownMenuItem>
+
+
         </DropdownMenuContent>
       </DropdownMenu>
 

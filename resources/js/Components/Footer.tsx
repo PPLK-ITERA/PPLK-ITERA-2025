@@ -1,10 +1,18 @@
 import React from "react";
 
+
+
 import { Link } from "@inertiajs/react";
+
+
 
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 
-import { FooterLink, InformasiFooter } from "@/lib/data/data";
+
+
+import { EksplorasiFooter, FooterLink, InformasiFooter } from "@/lib/data/data";
+
+
 
 import logopplkfooter from "!assets/logo-pplk-footer.png";
 import dieswarna from "!assets/logofooter/dieswarna.png";
@@ -12,11 +20,12 @@ import iterawarna from "!assets/logofooter/iterawarna.png";
 import kmwarna from "!assets/logofooter/kmwarna.png";
 import pplkwarna from "!assets/logofooter/pplkwarna.png";
 
+
 export default function Footer() {
   return (
     <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 relative py-10 overflow-hidden">
       <MaxWidthWrapper>
-        <div className="md:flex-row md:items-center z-10 flex flex-col items-start justify-between">
+        <div className="md:flex-row md:items-center z-40 flex flex-col items-start justify-between">
           <div className="text-white">
             <div className="md:pl-6 md:-ml-1 flex items-center justify-center pl-2 pr-1 -ml-2 bg-white rounded-full">
               <img
@@ -37,12 +46,12 @@ export default function Footer() {
               />
             </div>
 
-            <h3 className="font-fesbud md:text-[20px] mt-5 lg:text-[28px]">
+            <h3 className="font-greek md:text-[20px] mt-5 lg:text-[28px]">
               PPLK ITERA 2025
             </h3>
 
-            <p className="text-jaffa-100 mt-5 leading-5 tracking-wide">
-              <span className="text-[16px] lg:text-[20px]">
+            <p className="text-jaffa-100 leading-5 tracking-wide">
+              <span className="text-[16px] lg:text-[20px] font-poppins font-semibold">
                 Program Pengenalan
                 <br />
                 Lingkungan Kampus
@@ -50,9 +59,52 @@ export default function Footer() {
               <br />
               <span className="text-[15px]">Institut Teknologi Sumatera</span>
             </p>
+            {/* Sosial Media */}
+            <div className="flex flex-col mt-4">
+              <h3 className="font-semibold text-white md:text-[16px] lg:text-2xl">
+                Sosial Media
+              </h3>
+
+              <div className="flex flex-row mt-2 gap-4">
+                {FooterLink.map((info, index) => {
+                  const IconComponent = info.icon;
+                  return (
+                  <a
+                    key={index}
+                    href={info.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white transition duration-300 ease-in-out hover:text-white/80 hover:scale-110"
+                    aria-label={info.title}
+                  >
+                    <IconComponent size={20} stroke={1.5} />
+                  </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           <div className="md:mt-0 md:flex-row md:gap-10 z-10 flex flex-col gap-5 mt-10">
+             {/* Eksplorasi */}
+            <div className="flex flex-col">
+              <h3 className="font-semibold text-white md:text-[16px] lg:text-xl">
+                Eksplorasi
+              </h3>
+
+              <div className="flex flex-col mt-2">
+                {EksplorasiFooter.map((info, index) => (
+                  <Link
+                    key={index}
+                    href={info.href}
+                    className="font-montserrat text-[12px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
+                  >
+                    {info.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             {/* Informasi */}
             <div className="flex flex-col">
               <h3 className="font-semibold text-white md:text-[16px] lg:text-xl">
@@ -72,30 +124,12 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Temukan Kami di */}
-            <div className="flex flex-col">
-              <h3 className="font-semibold text-white md:text-[16px] lg:text-xl">
-                Temukan Kami di
-              </h3>
-
-              <div className="flex flex-col mt-2">
-                {FooterLink.map((info, index) => (
-                  <a
-                    key={index}
-                    href={info.href}
-                    target="_blank"
-                    className="font-montserrat text-[12px] font-light uppercase text-white transition duration-300 ease-in-out hover:text-white/80 md:text-[12px] lg:text-[16px]"
-                  >
-                    {info.title}
-                  </a>
-                ))}
-              </div>
-            </div>
+            
           </div>
         </div>
 
         <div className="mt-10 font-montserrat flex justify-end text-[12px] font-light text-white md:text-sm lg:text-lg flex-col">
-          <p className="text-end z-20">&copy; Copyright IMTEK PPLK 2025</p>
+          <p className="text-end z-10">&copy; Copyright IMTEK PPLK 2025</p>
           <p className="text-end z-20">
             Kontak Kami Melalui{" "}
             <span>

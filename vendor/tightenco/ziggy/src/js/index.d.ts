@@ -6,6 +6,11 @@
 export interface RouteList {}
 
 /**
+ * Marker interface to configure Ziggy's type checking behavior.
+ */
+export interface TypeConfig {}
+
+/**
  * A route name registered with Ziggy.
  */
 type KnownRouteName = keyof RouteList;
@@ -17,6 +22,11 @@ type RouteName = KnownRouteName | (string & {});
 // `(string & {})` prevents TypeScript from reducing this type to just `string`,
 // which would prevent intellisense from autocompleting known route names.
 // See https://stackoverflow.com/a/61048124/6484459.
+
+/**
+ * A valid route name to pass to `route()` to generate a URL.
+ */
+type ValidRouteName = TypeConfig extends { strictRouteNames: true } ? KnownRouteName : RouteName;
 
 /**
  * Information about a single route parameter.
@@ -151,16 +161,21 @@ interface Config {
     };
 }
 
+// qs's parsed query params type, so we don't have to have qs as a dependency
+interface ParsedQs {
+    [key: string]: undefined | string | string[] | ParsedQs | ParsedQs[];
+}
+
 /**
  * Ziggy's Router class.
  */
 interface Router {
-    current(): RouteName | undefined;
+    current(): ValidRouteName | undefined;
     current<T extends RouteName>(name: T, params?: ParameterValue | RouteParams<T>): boolean;
     get params(): Record<string, string>;
     get routeParams(): Record<string, string>;
-    get queryParams(): Record<string, string>;
-    has<T extends RouteName>(name: T): boolean;
+    get queryParams(): ParsedQs;
+    has<T extends ValidRouteName>(name: T): boolean;
 }
 
 /**
@@ -168,19 +183,7 @@ interface Router {
  */
 // Called with no arguments - returns a Router instance
 export function route(): Router;
-// Called with a route name and optional additional arguments - returns a URL string
-export function route<T extends RouteName>(
-    name: T,
-    params?: RouteParams<T> | undefined,
-    absolute?: boolean,
-    config?: Config,
-): string;
-export function route<T extends RouteName>(
-    name: T,
-    params?: ParameterValue | undefined,
-    absolute?: boolean,
-    config?: Config,
-): string;
+
 // Called with configuration arguments only - returns a configured Router instance
 export function route(
     name: undefined,
@@ -188,6 +191,21 @@ export function route(
     absolute?: boolean,
     config?: Config,
 ): Router;
+
+// Called with a route name and optional additional arguments - returns a URL string
+export function route<T extends ValidRouteName>(
+    name: T,
+    params?: RouteParams<T> | undefined,
+    absolute?: boolean,
+    config?: Config,
+): string;
+
+export function route<T extends ValidRouteName>(
+    name: T,
+    params?: ParameterValue | undefined,
+    absolute?: boolean,
+    config?: Config,
+): string;
 
 /**
  * Ziggy's Vue plugin.

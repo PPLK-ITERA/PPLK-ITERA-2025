@@ -127,6 +127,12 @@ export default function NavMobile({
                     >
                       Panduan Penggunaan
                     </a>
+                    <a
+                      href="/dokumentasi"
+                      className={`ml-2 text-[18px] font-bold text-white transition duration-200 ease-in`}
+                    >
+                      Dokumentasi
+                    </a>
                   </div>
                 </AccordionContent>
               </AccordionItem>

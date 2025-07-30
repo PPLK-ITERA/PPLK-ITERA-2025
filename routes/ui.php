@@ -80,6 +80,13 @@ Route::get('ketentuan-atribut', function () {
    return Inertia::render('Atribut/Page');
 })->name('ketentuan-atribut');
 
+// =====================================
+// Dokumentasi (Guest)
+// =====================================
+Route::get('dokumentasi', function () {
+   return Inertia::render('Dokumentasi/Page');
+})->name('dokumentasi');
+
 
 // =====================================
 // Dev Team (Guest)

@@ -1,3 +1,7 @@
+import { IconBrandInstagram, IconBrandTiktok, IconBrandYoutube } from "@tabler/icons-react";
+
+
+
 import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
 import angka_10 from "!assets/filosofi-pilar/angka-10.png";
 import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
@@ -5,6 +9,7 @@ import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
 import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
 import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
 import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
+
 
 export interface NavItem {
   title: string;
@@ -289,12 +294,22 @@ export const InformasiFooter = [
   { title: "Tentang PPLK 2025", href: "/informasi/pplk" },
   { title: "Informasi Fakultas", href: "/informasi/fakultas" },
   { title: "Informasi HMPS & PRODI", href: "/informasi/prodi" },
-  { title: "Informasi UPA", href: "/informasi/upa" },
+  { title: "Informasi UPA ITERA", href: "/informasi/upa" },
   { title: "Informasi KM ITERA", href: "/informasi/km" },
   { title: "Informasi UKM ITERA", href: "/informasi/ukm" },
 ];
 
+export const EksplorasiFooter = [
+  { title: "Beranda", href: "/" },
+  { title: "Informasi", href: "/informasi" },
+  { title: "Ketentuan Atribut", href: "/ketentuan-atribut" },
+  { title: "Maba", href: "/" },
+  { title: "FAQ", href: "/faq" },
+];
+
+
 export const FooterLink = [
-  { title: "Instagram", href: "https://www.instagram.com/pplkitera/" },
-  { title: "Youtube", href: "https://www.youtube.com/@pplkitera413" },
+  { title: "Instagram", href: "https://www.instagram.com/pplkitera/" ,icon: IconBrandInstagram },
+  { title: "Youtube", href: "https://www.youtube.com/@pplkitera413" ,icon: IconBrandYoutube },
+  { title: "Tiktok", href: "https://www.tiktok.com/@pplkitera?lang=id-ID" ,icon: IconBrandTiktok },
 ];
