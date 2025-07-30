@@ -28,7 +28,7 @@ const Prodi = ({ prodi, className }: Props) => {
         <div className="absolute inset-0 bg-black/40 z-0"></div>
 
         <div
-          className="relative z-20 w-full max-w-7xl bg-white/30 backdrop-blur-lg p-12 md:p-56 shadow-lg border border-white/20 rounded-2xl "
+          className="relative z-20 w-full max-w-6xl bg-white/30 backdrop-blur-lg p-10 md:p-40 shadow-lg border border-white/20 rounded-3xl mt-20 "
           data-aos="fade-up"
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
