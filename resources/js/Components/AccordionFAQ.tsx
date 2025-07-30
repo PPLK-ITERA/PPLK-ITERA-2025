@@ -27,7 +27,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
             key={index}
             className={`mb-4 rounded-lg shadow-xl ${
               clickedIndex === index
-                ? "border border-jaffa-600 bg-jaffa-100"
+                ? "border border-jaffa-600 bg-[#FF5500DE] text-white"
                 : "border border-[#DADADA] bg-white"
             }`}
           >
@@ -42,7 +42,7 @@ export function AccordionFAQ({ items }: AccordionFAQProps) {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className={`icon icon-tabler icons-tabler-filled icon-tabler-info-square-rounded mr-2 text-jaffa-600`}
+                  className={`icon icon-tabler icons-tabler-filled icon-tabler-info-square-rounded mr-2 `}
                   style={{
                     transform: clickedIndex === index ? "none" : "rotate(0deg)",
                   }}

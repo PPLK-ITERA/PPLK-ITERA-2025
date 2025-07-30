@@ -43,7 +43,7 @@ const Header = ({ upt, title, headerDescription }: HeaderProps) => {
           <span className="text-[18px] md:text-[25px] flex">
             {upt
               ? headerDescription
-              : `Unit Penunjang Akademik menyediakan layanan dan dukungan akademis.`}
+              : `Unit Penunjang Akademik menyediakan layanan dan dukungan akademisf.`}
           </span>
         </p>
       </div>
