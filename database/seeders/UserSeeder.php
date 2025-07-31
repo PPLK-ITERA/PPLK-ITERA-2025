@@ -27,8 +27,13 @@ class UserSeeder extends Seeder
       $totalProcessed = 0;  // Count total lines processed for progress calculation
 
       while (($data = fgetcsv($csvMaba, 2000, ";")) !== FALSE) {
-         $currentPos = ftell($csvMaba);  // Current position in the file after reading a line
+         $currentPos = ftell($csvMaba); 
+          // Current position in the file after reading a line
          if (!$firstline) {
+            if (count($data) < 15) {
+            echo "Skipping invalid row with only " . count($data) . " columns\n";
+            continue;
+         }
             $users[] = [
                "name" => $data[1],
                "email" => $data[3],

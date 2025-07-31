@@ -26,15 +26,52 @@ const breadcrumbItems = [
   { title: "Absensi Maba", link: "/dashboard/absensi-maba" },
 ];
 
-export default function Page({ auth, response }) {
+export default function Page({ auth, response, eventList }) {
   const [hadir, setHadir] = useState(0);
   const [tidakHadir, setTidakHadir] = useState(0);
   const [izin, setIzin] = useState(0);
-  // const [selectedDay, setSelectedDay] = useState(
-  //   auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10",
-  // ); // State untuk menyimpan hari yang dipilih
+  const [currentEventInfo, setCurrentEventInfo] = useState(null);
 
-  const defaultDay = auth.user.role_id == 5 ? "2024-08-12" : "2024-08-10";
+  // Filter events based on user role
+  const getAvailableEvents = () => {
+    if (!eventList) return [];
+    
+    // Convert eventList object to array
+    const eventsArray = Object.entries(eventList).map(([key, value]) => ({
+      key,
+      ...value
+    }));
+
+    // Role 5 (PJ Prodi) only gets specific days
+    if (auth.user.role_id === 5) {
+      return eventsArray.filter(event => 
+        event.tanggal === '2025-08-12' || event.tanggal === '2025-08-15'
+      );
+    }
+    
+    // Other roles get all events
+    return eventsArray;
+  };
+
+  const availableEvents = getAvailableEvents();
+  
+  // Set default day based on available events
+  const getDefaultDay = () => {
+    if (availableEvents.length > 0) {
+      if (auth.user.role_id === 5) {
+        // For role 5, default to the first available event
+        return availableEvents[0].tanggal;
+      } else {
+        // For other roles, default to pra_pplk_day_0 if available
+        const praPplk = availableEvents.find(e => e.key === 'pra_pplk_day_0');
+        return praPplk ? praPplk.tanggal : availableEvents[0].tanggal;
+      }
+    }
+    // Fallback to today's date if no events
+    return new Date().toISOString().split('T')[0];
+  };
+
+  const defaultDay = getDefaultDay();
   const [selectedDay, setSelectedDay] = useState(() => {
     // Retrieve from local storage or use the default
     return localStorage.getItem("selectedDay") || defaultDay;
@@ -49,22 +86,35 @@ export default function Page({ auth, response }) {
 
   const handleDate = (value) => {
     setSelectedDay(value); // Update state ketika pengguna memilih hari
+    
+    // Find and set current event info
+    const event = availableEvents.find(e => e.tanggal === value);
+    setCurrentEventInfo(event || null);
   };
 
   const getCountPresensi = async () => {
-    const response = await fetch(
-      route("dashboard.presensi.count", { date: selectedDay }),
-    );
+    try {
+      const response = await fetch(
+        route("dashboard.presensi.count", { date: selectedDay }),
+      );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const data = await response.json();
+
+      setHadir(data.response.data.hadir || 0);
+      setTidakHadir(data.response.data.tidakHadir || 0);
+      setIzin(data.response.data.izin || 0);
+      
+      // Set event info from response if available
+      if (data.response.data.eventInfo) {
+        setCurrentEventInfo(data.response.data.eventInfo);
+      }
+    } catch (error) {
+      console.error("Error fetching attendance data:", error);
     }
-
-    const data = await response.json();
-
-    setHadir(data.response.data.hadir);
-    setTidakHadir(data.response.data.tidakHadir);
-    setIzin(data.response.data.izin);
   };
 
   useEffect(() => {
@@ -73,37 +123,38 @@ export default function Page({ auth, response }) {
 
   useEffect(() => {
     getCountPresensi();
-  }, [handleDate]);
+  }, [selectedDay]);
 
   return (
     <>
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
-        <h2 className="text-3xl font-bold tracking-tight">Absensi Maba</h2>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+          <h2 className="text-3xl font-bold tracking-tight">Absensi Maba</h2>
+          {currentEventInfo && (
+            <div className="text-sm text-muted-foreground mt-2 md:mt-0">
+              {/* {currentEventInfo.deskripsi} */}
+            </div>
+          )}
+        </div>
 
-        <Select onValueChange={handleDate} defaultValue={selectedDay}>
-          <SelectTrigger className="w-full md:w-[180px] font-bold">
+        <Select onValueChange={handleDate} value={selectedDay}>
+          <SelectTrigger className="w-full md:w-[250px] font-bold">
             <SelectValue placeholder="Pilih Hari/Tanggal" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Day PPLK</SelectLabel>
-              {auth.user.role_id == 5 ? (
-                <>
-                  <SelectItem value="2024-08-12">Day 0 PPLK</SelectItem>
-                  <SelectItem value="2024-08-15">Day 3 PPLK</SelectItem>
-                </>
-              ) : (
-                <>
-                  <SelectItem value="2024-08-10">Pra-PPLK</SelectItem>
-                  <SelectItem value="2024-08-12">Day 0 PPLK</SelectItem>
-                  <SelectItem value="2024-08-13">Day 1 PPLK</SelectItem>
-                  <SelectItem value="2024-08-14">Day 2 PPLK</SelectItem>
-                  <SelectItem value="2024-08-15">Day 3 PPLK</SelectItem>
-                  <SelectItem value="2024-08-16">Day 4 PPLK</SelectItem>
-                  <SelectItem value="2024-08-17">CUI</SelectItem>
-                </>
-              )}
+              <SelectLabel>Event PPLK</SelectLabel>
+              {availableEvents.map((event) => (
+                <SelectItem key={event.key} value={event.tanggal}>
+                  {event.nama} - {new Date(event.tanggal).toLocaleDateString('id-ID', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </SelectItem>
+              ))}
             </SelectGroup>
           </SelectContent>
         </Select>
