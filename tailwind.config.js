@@ -138,7 +138,11 @@ export default {
                 spacegrotesk: ['"Space Grotesk"'],
                 anothertag: ["AnotherTag"],
                 lostar: ["Lostar"],
+                Greek: ["Greek"],
+                Romanica: ["Romanica"],
                 greek: ["Greek", "sans-serif"],
+                jakarta: ["Jakarta", "Greek"],
+
 
             },
             backgroundImage: {
