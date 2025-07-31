@@ -21,7 +21,7 @@ export function DialogMateri() {
       <DialogContent className="flex h-[360px] w-[330px] md:h-[360px] md:w-[640px] lg:w-full  lg:h-[500px] max-w-[900px] px-8 flex-col justify-between bg-flower-pattern bg-cover bg-center ">
         <div className="absolute inset-0 h-full w-full border rounded-md bg-gradient-to-b from-[#B9822F] to-[#A6680C] opacity-85"></div>
         <div className="relative z-10 flex flex-col justify-center w-full h-full">
-          <DialogTitle className="mb-4 text-left sm:text-center md:text-center font-avigea font-normal text-[25px] sm:text-[36px] md:text-[39px] text-candlelight-50">
+          <DialogTitle className="mb-4 text-left sm:text-center md:text-center font-greek font-normal text-[25px] sm:text-[36px] md:text-[39px] text-candlelight-50">
             Booklet Motmazio
           </DialogTitle>
           <p className="mb-5 font-montserrat text-[16px] md:text-[20px] lg:text-[25px] sm:text-center md:text-center text-candlelight-50">

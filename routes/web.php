@@ -82,4 +82,3 @@ require __DIR__ . '/dashboard.php';
 require __DIR__ . '/cui.php';
 require __DIR__ . '/csrf.php';
 require __DIR__ . '/asesmen.php';
-require __DIR__ . '/tesla.php';
