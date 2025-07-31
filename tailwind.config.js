@@ -141,6 +141,7 @@ export default {
                 Greek: ["Greek"],
                 Romanica: ["Romanica"],
                 greek: ["Greek", "sans-serif"],
+                jakarta: ["Jakarta", "Greek"],
 
 
             },
