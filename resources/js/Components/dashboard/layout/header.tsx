@@ -16,10 +16,10 @@ export default function Header({ user }) {
           <MobileSidebar />
         </div>
 
-        {/*<div className="flex items-center gap-2">*/}
+        <div className="flex items-center gap-2">
           {/*<UserNav name={user.name} />*/}
-          {/* <ThemeToggle /> */}
-        {/*</div>*/}
+           {/*<ThemeToggle /> */}
+        </div>
       </nav>
     </div>
   );

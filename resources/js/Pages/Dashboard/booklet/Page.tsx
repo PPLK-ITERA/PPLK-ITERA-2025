@@ -77,9 +77,9 @@ export default function Page({ auth, response }) {
               <span>Tambah Booklet</span>
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="border-none bg-[linear-gradient(137.47deg,_#E06C32_11.08%,_#FD8E57_42.04%,_#BE3F00_95.9%)]">
             <DialogHeader>
-              <DialogTitle>Tambah Booklet</DialogTitle>
+              <DialogTitle className="text-white">Tambah Booklet</DialogTitle>
             </DialogHeader>
             <BookletForm />
           </DialogContent>
@@ -91,7 +91,6 @@ export default function Page({ auth, response }) {
         columns={columns}
         apiEndpoint={route("dashboard.booklet.data")}
         title={"Data Booklet"}
-        description={"Data Booklet yang telah diupload."}
       />
       <Toaster />
     </DashboardLayout>

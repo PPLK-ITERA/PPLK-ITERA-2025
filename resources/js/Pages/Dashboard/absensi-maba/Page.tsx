@@ -139,7 +139,7 @@ export default function Page({ auth, response, eventList }) {
         </div>
 
         <Select onValueChange={handleDate} value={selectedDay}>
-          <SelectTrigger className="w-full md:w-[250px] font-bold">
+          <SelectTrigger className="w-full md:w-[300px] font-bold">
             <SelectValue placeholder="Pilih Hari/Tanggal" />
           </SelectTrigger>
           <SelectContent>

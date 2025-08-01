@@ -11,6 +11,7 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\PresensiPplkController;
+use App\Http\Controllers\DokumentasiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -90,6 +91,43 @@ Route::middleware('auth')->group(function () {
             Route::delete('/delete', [BookletController::class, 'destroy'])->name('destroy');
          });
       });
+      
+      // ========================================
+      
+      // ========================================
+      // TAMBAHAN BARU: DOKUMENTASI KEGIATAN 5 HARI   
+      // ========================================
+   Route::prefix('dokumentasi')->name('dokumentasi.')->group(function () {
+   // =====================================
+   // User all role - Read-Only
+   // =====================================
+      // Hanya bisa melihat daftar dan detail dokumentasi (read-only)
+      Route::get('/view', [DokumentasiController::class, 'index'])->name('view.index');
+      Route::get('/view/{dokumentasi}', [DokumentasiController::class, 'show'])->name('view.show');
+
+      // =====================================
+      //  Admin Role - Akses Penuh
+      // =====================================
+      Route::middleware(['checkRole:Admin'])->group(function () {
+         // Route untuk menampilkan daftar dokumentasi
+         Route::get('/', [DokumentasiController::class, 'index'])->name('index');
+         // Route untuk menampilkan form tambah dokumentasi baru
+         Route::get('/create', [DokumentasiController::class, 'create'])->name('create');
+         // Route untuk menyimpan dokumentasi baru ke database
+         Route::post('/store', [DokumentasiController::class, 'store'])->name('store');
+         // Route khusus untuk menghapus foto individual (AJAX support)
+         Route::delete('/foto/{fotoDokumentasi}', [DokumentasiController::class, 'deleteFoto'])->name('foto.destroy');
+         // Route untuk menampilkan detail dokumentasi spesifik
+         Route::get('/{dokumentasi}', [DokumentasiController::class, 'show'])->name('show');
+         // Route untuk menampilkan form edit dokumentasi
+         Route::get('/{dokumentasi}/edit', [DokumentasiController::class, 'edit'])->name('edit');
+         // Route untuk mengupdate dokumentasi yang sudah ada
+         Route::put('/{dokumentasi}', [DokumentasiController::class, 'update'])->name('update');
+         // Route untuk menghapus dokumentasi (beserta foto-fotonya)
+         Route::delete('/{dokumentasi}', [DokumentasiController::class, 'destroy'])->name('destroy');
+   });
+   });
+
 
       // =====================================
       // Materi

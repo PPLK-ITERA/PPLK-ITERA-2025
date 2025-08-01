@@ -167,12 +167,12 @@ export default function Page({ response }) {
     <>
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
-        <h2 className="text-3xl font-bold tracking-tight">Edit Data User</h2>
+        <h2 className="text-3xl font-semibold font-inter tracking-tight">Edit Data User</h2>
 
-        <div className="md:flex-row flex flex-col gap-2">
+        <div className="md:flex-row font-inter flex flex-col gap-2">
           {/* Foto & qr */}
           <div className="md:mx-0 mx-auto">
-            <div className="w-[200px] h-[220px] border rounded-sm overflow-hidden">
+            <div className="w-[200px] h-[220px] border border-[#C2C2C2] rounded-lg overflow-hidden">
               <img
                 src={
                   currentUser.photo_profile_url
@@ -190,7 +190,7 @@ export default function Page({ response }) {
                   variant={"outline"}
                   className="w-[200px] py-2 border mt-3"
                 >
-                  Edit Foto Profile
+                  Edit Foto
                 </Button>
               </DialogTrigger>
 

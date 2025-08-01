@@ -96,7 +96,7 @@ function BookletForm({ booklet }: Props) {
         }}
       >
         <div className="grid items-center grid-cols-4 gap-4">
-          <Label htmlFor="nama_booklet" className="text-right">
+          <Label htmlFor="nama_booklet" className="text-right text-white">
             Nama Booklet
           </Label>
           <Input
@@ -111,7 +111,7 @@ function BookletForm({ booklet }: Props) {
           />
         </div>
         <div className="grid items-center grid-cols-4 gap-4">
-          <Label htmlFor="url_booklet" className="text-right">
+          <Label htmlFor="url_booklet" className="text-right text-white">
             Link Google Drive Booklet
           </Label>
           <Input
@@ -147,7 +147,7 @@ function BookletForm({ booklet }: Props) {
           <Button
             size="sm"
             type="submit"
-            className={`w-full`}
+            className={`w-full bg-[#BE3F00]`}
             disabled={!!urlError || !!error}
           >
             {booklet ? "Perbarui" : "Tambahkan"} Booklet
