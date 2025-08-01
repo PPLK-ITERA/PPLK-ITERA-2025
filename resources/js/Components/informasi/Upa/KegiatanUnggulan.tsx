@@ -91,12 +91,6 @@ export default function KegiatanUnggulan({
         </CarouselContent>
       </Carousel>
 
-      {/* <img
-        src={sponsor_overlay}
-        alt="sponsor_overlay"
-        className="w-full mt-10"
-      /> */}
-
       {/* Komponen Sosial Media dipindahkan dari KepalaUPT.tsx*/}
     
       <div className="flex items-center justify-center gap-5 mt-12 mb-12">

@@ -85,17 +85,6 @@ function Page({ nama_upa }) {
             <VisiMisi visi={upa?.visi} misi={upa!.misi} />
           </div>
 
-          <img
-            src={pillar_brown}
-            alt="pillar_brown"
-            className="lg:visible absolute bottom-0 z-20 invisible w-full"
-          />
-
-          <img
-            src={overlay_box}
-            alt="pillar_brown"
-            className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px] z-20 invisible lg:visible"
-          />
         </div>
 
         <div className="relative z-20 py-20" >
@@ -106,9 +95,6 @@ function Page({ nama_upa }) {
             nip={upa?.kepalaUpt.nip}
             foto_kepala_upt={upa?.kepalaUpt.foto}
           />
-          {/* <div style={{
-          backgroundImage: "url('/image/detailUPA/KepalaUPT/Selendang.png')",
-        }}/> */}
         </div>
 
         <KegiatanUnggulan kegiatanUnggulan={upa!.kegiatanUnggulan} 
