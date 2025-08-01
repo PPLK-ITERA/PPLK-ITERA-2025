@@ -13,6 +13,9 @@ return new class extends Migration {
             $table->integer('nomor')->unique();        // nomor soal
             $table->text('pertanyaan');    // isi soal (clue)
             $table->text('jawaban');
+            // Tambahkan kolom start_row dan start_col agar sesuai kebutuhan frontend
+            $table->integer('start_row')->nullable();
+            $table->integer('start_col')->nullable();
             $table->timestamps();
         });
     }

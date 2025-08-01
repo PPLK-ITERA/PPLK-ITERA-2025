@@ -18,15 +18,17 @@ Route::prefix('api/tesla')->group(function () {
 });
 
 // FRONTEND ROUTES (UI)
-Route::get('api/get-tesla', [TeslaController::class, 'showTTS']);
-Route::post('api/tesla/jawab/{nomor}', [TeslaController::class, 'cekJawaban']);
+Route::prefix('api/admin/tesla')->group(function () {
+    Route::get('', [TeslaController::class, 'showTTS']);
+    Route::post('/{nomor}', [TeslaController::class, 'cekJawaban']);
+});
 
 Route::middleware('auth')->get('/tesla', function () {
     return Inertia\Inertia::render('Tesla/Page');
 })->name('admin.tesla');
 
 // (Opsional) Route inertia admin UI
-Route::middleware(['auth', 'checkRole:Admin'])->get('/admin/tesla-ui', function () {
+Route::middleware(['auth', 'checkRole:Admin'])->get('/edit-tesla', function () {
     return Inertia\Inertia::render('Tesla/AdminPage');
 })->name('admin.tesla.ui');
 

@@ -14,5 +14,7 @@ class Tesla extends Model
         'tipe',
         'pertanyaan',
         'jawaban',
+        'start_row',
+        'start_col',
     ];
 }

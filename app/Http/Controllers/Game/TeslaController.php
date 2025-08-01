@@ -16,30 +16,32 @@ class TeslaController extends Controller
     /**
      * Soal TTS.
      *
-     *  Tampilkan semua soal (mendatar dan menurun)
+     *  Tampilkan semua soal (mendatar dan menurun) beserta key-value yang dibutuhkan React TTS grid.
      *
      * @group Soal
      *
      * @bodyParam jawaban string required Jawaban yang diberikan oleh user.
      *
      */
-    public function index()
-    {
-        // Untuk API user: hanya select kolom yang diperlukan
-        $teslas = Tesla::select('nomor', 'tipe', 'pertanyaan')->get();
-        return response()->json([
-            'status' => 'success',
-            'data' => $teslas
-        ]);
-    }
-
-    // Tampilkan UI TTS dengan Inertia
     public function showTTS()
     {
-        $teslas = Tesla::select('nomor', 'tipe', 'pertanyaan')->get();
+        $teslas = Tesla::select('nomor', 'tipe', 'pertanyaan', 'jawaban', 'start_row', 'start_col')->get();
+
+        $result = [];
+        foreach ($teslas as $t) {
+            $result[] = [
+                'nomor' => $t->nomor,
+                'tipe' => $t->tipe,
+                'pertanyaan' => $t->pertanyaan,
+                'jawaban' => strtoupper($t->jawaban),
+                'start_row' => $t->start_row ?? 0,
+                'start_col' => $t->start_col ?? 0,
+            ];
+        }
+
         return response()->json([
             'status' => 'success',
-            'data' => $teslas
+            'data' => $result
         ]);
     }
 
@@ -135,16 +137,69 @@ class TeslaController extends Controller
     {
         $request->validate([
             'tipe' => 'required|in:mendatar,menurun',
-            'nomor' => 'required|integer|unique:teslas,nomor',
             'pertanyaan' => 'required|string',
             'jawaban' => 'required|string',
+            'start_row' => 'nullable|integer',
+            'start_col' => 'nullable|integer',
         ]);
 
-        $tesla = Tesla::create($request->only(['tipe', 'nomor', 'pertanyaan', 'jawaban']));
+        $lastNomor = Tesla::max('nomor');
+        $nomor = $request->input('nomor');
+        if (!$nomor || $nomor <= 0) {
+            $nomor = $lastNomor ? $lastNomor + 1 : 1;
+        } else {
+            if (Tesla::where('nomor', $nomor)->exists()) {
+                return response()->json(['status' => 'error', 'message' => 'Nomor soal sudah dipakai.'], 422);
+            }
+        }
+
+        $start_row = $request->input('start_row');
+        $start_col = $request->input('start_col');
+
+        // Jika start_row dan start_col tidak dikirim atau dua-duanya 0, jalankan algoritma khusus
+        if (
+            (is_null($start_row) && is_null($start_col)) ||
+            ($start_row == 0 && $start_col == 0)
+        ) {
+            $prevNomor = $nomor - 1;
+            $prev = Tesla::where('nomor', $prevNomor)->first();
+            if ($prev) {
+                if ($prevNomor % 2 == 0) { // genap
+                    $start_row = $prev->start_row + 1;
+                    $start_col = $prev->start_col + 5;
+                } else { // ganjil
+                    $start_row = $prev->start_row + 1;
+                    $start_col = $prev->start_col - 3;
+                }
+            } else {
+                $start_row = 1;
+                $start_col = 1;
+            }
+        }
+
+        $tesla = Tesla::create([
+            'tipe' => $request->input('tipe'),
+            'nomor' => $nomor,
+            'pertanyaan' => $request->input('pertanyaan'),
+            'jawaban' => $request->input('jawaban'),
+            'start_row' => $start_row,
+            'start_col' => $start_col,
+        ]);
+        $tesla = Tesla::find($tesla->id);
         return response()->json([
             'status' => 'success',
             'message' => 'Soal ditambahkan',
-            'data' => $tesla
+            'data' => [
+                'id' => $tesla->id,
+                'tipe' => $tesla->tipe,
+                'nomor' => $tesla->nomor,
+                'pertanyaan' => $tesla->pertanyaan,
+                'jawaban' => $tesla->jawaban,
+                'start_row' => $tesla->start_row,
+                'start_col' => $tesla->start_col,
+                'created_at' => $tesla->created_at,
+                'updated_at' => $tesla->updated_at,
+            ]
         ]);
     }
 
@@ -163,6 +218,8 @@ class TeslaController extends Controller
             'nomor' => 'integer',
             'pertanyaan' => 'string',
             'jawaban' => 'string',
+            'start_row' => 'nullable|integer|min:0',
+            'start_col' => 'nullable|integer|min:0',
         ]);
 
         // Cek jika nomor diubah ke nomor yang sudah ada di soal lain
@@ -173,7 +230,45 @@ class TeslaController extends Controller
             }
         }
 
-        $tesla->update($request->only(['tipe', 'nomor', 'pertanyaan', 'jawaban']));
+        $start_row = $request->input('start_row');
+        $start_col = $request->input('start_col');
+        $jawaban = $request->input('jawaban', $tesla->jawaban);
+
+        // --- Improved auto-placement on update if start_row/start_col kosong ---
+        if ($start_row === null || $start_col === null) {
+            $size = 15;
+            $jawabanU = strtoupper(trim($jawaban));
+            $panjang = mb_strlen($jawabanU);
+
+            $existing = Tesla::where('id', '!=', $id)->get(['tipe', 'start_row', 'start_col', 'jawaban']);
+            $tipe = $request->input('tipe', $tesla->tipe);
+            if ($tipe === 'mendatar') {
+                $maxRow = $existing->where('tipe', 'mendatar')->max('start_row');
+                $start_row = is_null($maxRow) ? 1 : $maxRow + 1;
+                $start_col = 1;
+                if ($start_row + 1 > $size) {
+                    $start_row = 0;
+                    $start_col = 0;
+                }
+            } else {
+                $maxCol = $existing->where('tipe', 'menurun')->max('start_col');
+                $start_col = is_null($maxCol) ? 3 : $maxCol + 1;
+                $start_row = 3;
+                if ($start_col + 1 > $size) {
+                    $start_row = 0;
+                    $start_col = 0;
+                }
+            }
+        }
+
+        $tesla->update([
+            'tipe' => $request->input('tipe', $tesla->tipe),
+            'nomor' => $request->input('nomor', $tesla->nomor),
+            'pertanyaan' => $request->input('pertanyaan', $tesla->pertanyaan),
+            'jawaban' => $jawaban,
+            'start_row' => $start_row ?? $tesla->start_row,
+            'start_col' => $start_col ?? $tesla->start_col,
+        ]);
         return response()->json([
             'status' => 'success',
             'message' => 'Soal diperbarui',
