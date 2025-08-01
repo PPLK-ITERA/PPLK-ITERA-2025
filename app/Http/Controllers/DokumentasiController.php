@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Http\Requests\StoreDokumentasiRequest;
 use App\Http\Requests\UpdateDokumentasiRequest;
 use App\Models\Dokumentasi;
@@ -24,7 +25,7 @@ class DokumentasiController extends Controller
             ->orderByHari()
             ->get();
 
-        return view('dokumentasi.index', compact('dokumentasi'));
+        return Inertia::render('dokumentasi.page', compact('dokumentasi'));
     }
 
     /**
@@ -37,7 +38,9 @@ class DokumentasiController extends Controller
         // Ambil hari yang sudah ada untuk disable di form
         $hariTerpakai = Dokumentasi::pluck('hari_ke')->toArray();
         
-        return view('dokumentasi.create', compact('hariTerpakai'));
+        return view('dokumentasi.create', [
+            'dokumentasi' => $dokumentasi
+        ]);
     }
 
     /**

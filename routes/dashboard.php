@@ -91,7 +91,7 @@ Route::middleware('auth')->group(function () {
             Route::delete('/delete', [BookletController::class, 'destroy'])->name('destroy');
          });
       });
-      
+
       // ========================================
       
       // ========================================
@@ -192,6 +192,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
             Route::get('data/all/{tugas_id}/{no_kelompok}/{status}', [TugasController::class, 'getAllTugas'])->name('data');
+            Route::post('/addTugas', [TugasController::class, 'addTugas'])->name('addTugas');
          });
          Route::middleware(['checkRole:Daplok,Mentor,Admin,Mamet'])->group(function () {
             Route::put('/return', [TugasController::class, 'returnTugas'])->name('return');
@@ -201,6 +202,7 @@ Route::middleware('auth')->group(function () {
             // Data
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
+               Route::get('/judulTugas', [TugasController::class, 'getJudulTugas'])->name('judulTugas');
                Route::get('/user/{id}', [TugasController::class, 'getTugasUser'])->name('user');
                Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
                Route::get('/poster', [TugasController::class, 'getPoster'])->name('poster');

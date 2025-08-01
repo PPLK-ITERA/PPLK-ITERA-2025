@@ -116,6 +116,13 @@ export const navItems: NavItem[] = [
     label: "atur-pengumpulan-tugas",
     role_id: [7, 3, 8],
   },
+  {
+    title: "Dokumentasi",
+    href: "/dashboard/dokumentasi",
+    icon: "image",
+    label: "Dokumentasi",
+    role_id: [3],
+  },
 ];
 
 export type Employee = {
