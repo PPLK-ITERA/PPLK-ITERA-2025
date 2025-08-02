@@ -75,7 +75,7 @@ export const DetailUPTData: UptData[] = [
   // data UPA tik
   {
     key: "upa-tik",
-    title: "UPA TIK ",
+    title: "UPA TIK",
     logo: logo_upa_tik,
     description:
       "Unit Penunjang Akademik Teknologi Informasi dan Komunikasi (UPA TIK) ITERA adalah unit yang memiliki tugas tugas melaksanakan pengembangan sistem dan pengelolaan teknologi informasi dan komunikasi serta pelayanan teknologi informasi dan komunikasi.",

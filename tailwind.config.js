@@ -156,6 +156,7 @@ export default {
                 "history-completed":
                     "url('!assets/mading/history-completed.png')",
                 scoreboard: "url('!assets/background-scoreboard.png')",
+                
             },
         },
     },
