@@ -1,11 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
-
+import React, { useState } from "react";
 import { Head } from "@inertiajs/react";
-
 import Footer from "@/Components/Footer";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import NavHero from "@/Components/NavHero";
+import OpeningPage from "@/Components/opening/Openingpage";
 import FilosofiLogo from "@/Components/landing-page/FilosofiLogo";
 import InfoSection from "@/Components/landing-page/InfoSection";
 import Maskot from "@/Components/landing-page/Maskot";
@@ -13,67 +11,24 @@ import Panduan from "@/Components/landing-page/Panduan";
 import Sponsorship from "@/Components/landing-page/Sponsorship";
 import VideoSection from "@/Components/landing-page/VideoSection";
 import What from "@/Components/landing-page/What";
-import { Button } from "@/Components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/Components/ui/carousel";
-import { Dialog, DialogContent } from "@/Components/ui/dialog";
-
 import { useAos } from "@/lib/hooks/useAos";
-
-import bronzemedal from "!assets/bronzemedal.png";
 import elang from "!assets/elang-hero.png";
-import goldmedal from "!assets/goldmedal.png";
-import overlay_box from "!assets/overlay-box.png";
 import overlay_earth from "!assets/overlay-earth.png";
 import pillar_brown2 from "!assets/pillar-brown2.png";
-import silvermedal from "!assets/silvermedal.png";
 import sponsor_overlay from "!assets/sponsor-overlay.png";
 
 export default function LandingPage() {
-  const dataJuara = [
-    {
-      title: "kelompok 30",
-      link: "//www.tiktok.com/@gandhetrida_130/video/7401871592940162310?_r=1&_t=8omkbw2PuvA",
-      description: "juara 1",
-      img: goldmedal,
-    },
-    {
-      title: "kelompok 36",
-      link: "//www.tiktok.com/@arculus.36/video/7401153500958313734?_t=8okJeIvoqCG&_r=1",
-      description: "juara 2",
-      img: silvermedal,
-    },
-    {
-      title: "kelompok 58",
-      link: "https://www.tiktok.com/@_ceppppppp/video/7401828392716356869?_r=1&_t=8omY3kS0aFW",
-      description: "juara 3",
-      img: bronzemedal,
-    },
-  ];
+  const [showOpening, setShowOpening] = useState(true);
+  useAos();
 
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const storedVisibility = localStorage.getItem("is-visible");
-
-    if (storedVisibility === "false") {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-  }, []);
-
-  const handleCloseShow = () => {
-    localStorage.setItem("is-visible", "false");
-    setIsVisible(false);
+  const handleOpeningComplete = () => {
+    setShowOpening(false);
   };
 
-  useAos();
+  if (showOpening) {
+    return <OpeningPage onComplete={handleOpeningComplete} />;
+  }
+
 
   return (
     <>
@@ -85,7 +40,6 @@ export default function LandingPage() {
         <meta property="og:title" content="Beranda - PPLK 2025" />
         <meta property="og:url" content="https://pplkitera.com/" />
         <meta property="og:type" content="website" />
-
         <link rel="canonical" href="https://pplkitera.com/" />
       </Head>
 
@@ -121,9 +75,8 @@ export default function LandingPage() {
           <img
             src={pillar_brown2}
             alt="pillar_brown2"
-            className="absolute left-0 w-[30%] hidden md:block "
+            className="absolute left-0 w-[30%] hidden md:block"
           />
-          
 
           <MaxWidthWrapper className="z-30">
             <Maskot />
@@ -147,62 +100,9 @@ export default function LandingPage() {
           alt="sponsor_overlay"
           className="object-cover w-full"
         />
-        
 
         <Footer />
       </div>
-
-      {isVisible ? (
-        <Dialog defaultOpen={isVisible}>
-          <DialogContent className="w-[90%] mx-auto bg-[url(!assets/alert.png)] bg-center bg-cover aspect-square md:h-4/5 flex justify-center items-center flex-col">
-            <div className="overflow-hidden min-h-[200px] md:min-h-none">
-              <Carousel className="w-[60%] mx-auto flex justify-center backdrop-blur-lg mt-20">
-                <CarouselContent>
-                  {dataJuara.map((item, index) => (
-                    <CarouselItem key={index}>
-                      <div className="p-1">
-                        <div className="aspect-square flex items-center justify-center p-6">
-                          <div className="text-center">
-                            <div className="w-[50%] h-[50%] mx-auto">
-                              <img src={item.img} alt={item.title} />
-                            </div>
-
-                            <div className="font-greek md:text-3xl text-xl font-bold text-white">
-                              {item.description} Diretra
-                            </div>
-
-                            <div className="font-greek text-black-600 md:text-xl mt-2 text-lg font-semibold underline">
-                              <a
-                                href={item.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                Lihat Video
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselNext />
-                <CarouselPrevious />
-              </Carousel>
-            </div>
-
-            <div className="bottom-2 left-2 absolute">
-              <Button
-                className="flex px-2 py-3 text-sm text-white border rounded-lg"
-                onClick={() => handleCloseShow()}
-                size={"sm"}
-              >
-                Jangan Tampilkan Lagi
-              </Button>
-            </div>
-          </DialogContent>
-        </Dialog>
-      ) : null}
     </>
   );
 }

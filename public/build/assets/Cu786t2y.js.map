@@ -1,1 +1,0 @@
-{"version":3,"file":"Cu786t2y.js","sources":["../../../resources/js/Pages/Auth/Absensi/Page.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Page() {\n  return <div>Absensi Page</div>;\n}\n\nexport default Page;\n"],"names":["Page","jsx","children"],"mappings":"kCAEA,SAASA,IACA,SAAAC,IAAC,OAAIC,SAAY,gBAC1B"}
