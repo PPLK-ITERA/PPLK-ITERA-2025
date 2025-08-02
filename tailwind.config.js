@@ -137,6 +137,10 @@ export default {
                 spacegrotesk: ['"Space Grotesk"'],
                 anothertag: ["AnotherTag"],
                 lostar: ["Lostar"],
+                greek: ["Greek"],
+                romanica: ["Romanica"],
+                jakartasans: ["JakartaSans"],
+                
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",
