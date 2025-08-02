@@ -194,12 +194,13 @@ function Page() {
                             {/* Description - appears on hover */}
                             <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0">
                               <div className="border-t border-white/20 pt-4 mt-2">
-                                <p className="font-Romanica text-white/90 text-sm leading-relaxed line-clamp-4">
+                                <p className="font-Romanica text-white/50 text-sm leading-relaxed line-clamp-4">
                                   {upt.description.substring(0, 120)}...
                                 </p>
                               </div>
                             </div>
                           </div>
+                          
 
                           {/* Bottom Section */}
                           <div className="flex-shrink-0">
