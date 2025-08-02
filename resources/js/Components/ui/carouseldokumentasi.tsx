@@ -1,9 +1,6 @@
 import dokumentasishape from "/resources/assets/dokumentasishape.png";
 
-
-
 import React from "react";
-
 
 interface Logo {
   src: string;
@@ -17,32 +14,20 @@ interface LogoRowProps {
 const CarouselDokumentasi: React.FC = () => {
   const logos: Logo[] = [
     {
-      src: "https://pikaso.cdnpk.net/private/production/2065441748/R4ve4XYmuJZ5zHxgGHb8ZvshbgXqqSqKIiF4FyVu.jpg?token=exp=1769212800~hmac=f19889a503e5399ff7d982b988593d493d610b739137c4bc1a5f5c5c3da83c4b",
-      alt: "Transistor",
+      src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      alt: "Gallery image 1",
     },
     {
-      src: "https://pikaso.cdnpk.net/private/production/2065441748/R4ve4XYmuJZ5zHxgGHb8ZvshbgXqqSqKIiF4FyVu.jpg?token=exp=1769212800~hmac=f19889a503e5399ff7d982b988593d493d610b739137c4bc1a5f5c5c3da83c4b",
-      alt: "Reform",
+      src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      alt: "Gallery image 2",
     },
     {
-      src: "https://pikaso.cdnpk.net/private/production/2065441748/R4ve4XYmuJZ5zHxgGHb8ZvshbgXqqSqKIiF4FyVu.jpg?token=exp=1769212800~hmac=f19889a503e5399ff7d982b988593d493d610b739137c4bc1a5f5c5c3da83c4b",
-      alt: "Tuple",
+      src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      alt: "Gallery image 2",
     },
     {
-      src: "https://pikaso.cdnpk.net/private/production/2065441748/R4ve4XYmuJZ5zHxgGHb8ZvshbgXqqSqKIiF4FyVu.jpg?token=exp=1769212800~hmac=f19889a503e5399ff7d982b988593d493d610b739137c4bc1a5f5c5c3da83c4b",
-      alt: "SavvyCal",
-    },
-    {
-      src: "https://pikaso.cdnpk.net/private/production/2018251776/fUhBirmuzAQ5fno9M7PrFhEGFC3cJoq4Vy1BFLKO.jpg?token=exp=1769212800~hmac=ec3ebc002ae28979a3c9f94bb0482c2c673ee16000ca4c87722f03c56e75d34b",
-      alt: "Statamic",
-    },
-    {
-      src: "https://pikaso.cdnpk.net/private/production/2065441748/R4ve4XYmuJZ5zHxgGHb8ZvshbgXqqSqKIiF4FyVu.jpg?token=exp=1769212800~hmac=f19889a503e5399ff7d982b988593d493d610b739137c4bc1a5f5c5c3da83c4b",
-      alt: "SavvyCal",
-    },
-    {
-      src: "https://pikaso.cdnpk.net/private/production/2065441748/R4ve4XYmuJZ5zHxgGHb8ZvshbgXqqSqKIiF4FyVu.jpg?token=exp=1769212800~hmac=f19889a503e5399ff7d982b988593d493d610b739137c4bc1a5f5c5c3da83c4b",
-      alt: "SavvyCal",
+      src: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&h=300&fit=crop",
+      alt: "Gallery image 5",
     },
   ];
 
@@ -51,7 +36,7 @@ const CarouselDokumentasi: React.FC = () => {
       {logos.map((logo, index) => (
         <img
           key={index}
-          className="mx-4 inline h-48 transition-all duration-300 hover:scale-110"
+          className=" mx-2 md:mx-4 inline w-32 h-28 md:w-80 md:h-52 transition-all duration-300 hover:scale-110"
           src={logo.src}
           alt={logo.alt}
         />
@@ -61,28 +46,27 @@ const CarouselDokumentasi: React.FC = () => {
 
   return (
     <div>
-      <div className="logos group relative overflow-hidden whitespace-nowrap py-10 space-y-8">
-
-          {/* Custom Shape Divider */}
-        <div className="absolute -translate-y-0 top-0 left-0 w-full brightness-200 mix-blend-screen overflow-hidden leading-[0] z-10">
-          <img src={dokumentasishape} alt="" className="object-cover bg-center z-40" />
+      <div className="logos group relative overflow-hidden whitespace-nowrap md:mt-8 space-y-8 mix">
+        {/* Custom Shape Divider */}
+        <div className="absolute w-full -translate-y-0 top-2 md:-translate-y-0 md:-top-10 left-0 md:w-full overflow-hidden leading-[0] z-10 brightness-200 mix-blend-screen">
+          <img src={dokumentasishape} alt="" className="h-full object-cover" />
         </div>
 
-        <div className=" ">
+        <div className="">
+          <LogoRow logos={logos} />
           <LogoRow logos={logos} />
         </div>
 
-
         {/* Second Custom Shape Divider Rotated */}
-        <div className=" -translate-y-10 flex justify-center brightness-200 mix-blend-screen item-center w-full z-20">
-          <img src={dokumentasishape} alt="" className="object-cover bg-center" />
-
+        <div className="w-full md:w-[1800px] md:h-36 flex justify-center items-center -translate-y-12 md:-translate-y-16 z-20 mx-auto brightness-200 mix-blend-screen ">
+          <img
+            src={dokumentasishape}
+            alt=""
+            className="h-full object-cover md:-translate-x-64"
+          />
         </div>
       </div>
-
-
-
-      <style jsx>{`
+      <style>{`
         @keyframes slide-left {
           from {
             transform: translateX(0);

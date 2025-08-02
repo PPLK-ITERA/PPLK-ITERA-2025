@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 import { Head } from "@inertiajs/react";
 
@@ -7,14 +8,21 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import { Button } from "@/Components/ui/button";
 import CarouselDokumentasi from "@/Components/ui/carouseldokumentasi";
+import PopupGaleri from "@/Components/ui/populargaleri";
 
 import { useAos } from "@/lib/hooks/useAos";
 
+import rulerIcon from "!assets/assets41.png";
+import awanIcon from "!assets/awan.png";
 import bgselengkapnya from "!assets/bgselengkapnya.png";
 import cloudsIcon from "!assets/cloud.png";
+import gunungIcon from "!assets/gunung-2.png";
+import horseIcon1 from "!assets/kuda-1.png";
+import horseIcon2 from "!assets/kuda-2.png";
 import sunIcon from "!assets/sun.png";
 
 function Page() {
+  const [open, setOpen] = useState(false);
   useAos();
   const galleryImages = [
     {
@@ -92,7 +100,7 @@ function Page() {
               <img
                 src={cloudsIcon}
                 alt="Decorative clouds"
-                className="absolute top-12 left-6 w-30 h-19 opacity-100 animate-pulse"
+                className="absolute w-44 h-24 top-36 rotate-180  sm:w-80 sm:h-36 sm:top-24 sm:left-3 sm:rotate-0       md:top-36 md:left-6 md:w-96 md:h-48   md:rotate-0"
               />
             </div>
 
@@ -101,32 +109,32 @@ function Page() {
               <img
                 src={cloudsIcon}
                 alt="Decorative clouds"
-                className="absolute top-12 right-6 w-30 h-19 opacity-100 animate-pulse"
+                className="absolute w-44 h-24 right-6 top-24   sm:w-80 sm:h-36  sm:top-24 sm:right-30  md:w-96 md:h-48  md:top-24 md:right-20"
               />
             </div>
 
             <div className="mb-6">
+              {/* Sun */}
               <img
                 src={sunIcon}
                 alt="PPLK ITERA Sun Logo"
-                className="absolute top-8 left-24 md:w-30 opacity-100 animate-pulse"
+                className="absolute top-16 w-40 h-40 sm::w-48 sm:h-40 md:w-64 md:h-64 md:top-14 md:left-24"
               />
             </div>
 
-            {/* Main sun and title */}
+            {/* title */}
             <div className="mt-32 relative z-10 flex flex-col items-center justify-start flex-grow h-full p-2 text-center">
               <h1
                 data-aos="fade-down"
                 data-aos-duration="1500"
-                className="text-[30px] sm:text-[39px] md:text-[49px] font-greek bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mb-2"
+                className="text-3xl sm:text-4xl md:text-6xl font-greek bg-gradient-to-t text-orange-800 leading-7"
               >
                 Dokumentasi PPLK-ITERA
               </h1>
-
               <p
                 data-aos="fade-down"
                 data-aos-duration="1500"
-                className="text-[16px] sm:text-[20px] font-montserrat font-[400] text-[#BE3F00] mb-8 max-w-4xl"
+                className="text-base sm:text-xl md:text-2xl font-montserrat font-medium text-orange-800 mb-8 max-w-4xl leading-normal"
               >
                 Pengabadian momen acara PPLK-ITERA <br />
                 selama berlangsung
@@ -137,32 +145,68 @@ function Page() {
             </MaxWidthWrapper>
           </section>
 
-          <section
-            className="py-20 bg-gradient-to-b from-ornate-orange to-traditional-gold relative min-h-[1000px] flex items-center justify-center"
-            style={{
-              backgroundImage: `url(${bgselengkapnya})`,
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="text-center">
-                <h2 className="text-[20px] sm:text-[39px] md:text-[49px] font-greek text-[#933100] mb-8 tracking-wider">
+          <section className="bg-[#EA7032] bg-pattern-white  ">
+            <div
+              className="relative  w-full h-[500px]  sm:h-[540px] md:h-[1000px] flex items-center justify-center"
+              style={{
+                backgroundImage: `url(${bgselengkapnya})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="text-center z-20">
+                <h2 className="text-2xl font-normal sm:text-5xl md:text-6xl font-greek text-orange-800 mb-8 leading-[54.90px] tracking-wider">
                   MAU LIAT SELENGKAPNYA ?
                 </h2>
                 <Button
-                  size="lg"
-                  className="bg-[#BE3F00]  hover:bg-traditional-brown/90 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-ornate transition-all duration-300 hover:scale-105"
-                  onClick={() =>
-                    window.open("https://drive.google.com", "_blank")
-                  }
+                  size="sm"
+                  className="px-8 py-4 bg-gradient-to-br from-orange-700 to-amber-950 rounded-[10px] shadow-[2px_2px_4px_2px_rgba(0,0,0,0.25)] inline-flex justify-center items-center"
+                  onClick={() => setOpen(true)}
                 >
                   Load More
                 </Button>
               </div>
             </div>
+
+            <div className="relative w-full h-[72px] md:h-[300px]">
+              {/* Gunung */}
+              <img
+                src={gunungIcon}
+                alt="PPLK ITERA Mountain"
+                className="absolute -top-10 left-0  md:left-0 w-[384px] md:top-0  md:w-[600px] h-auto"
+              />
+
+              {/* Kuda-1 */}
+              <img
+                src={horseIcon1}
+                alt="horse icon 1"
+                className="absolute bottom-[80px] right-[100px] md:w-36 w-[80px] h-auto"
+              />
+
+              {/* Kuda-2 */}
+              <img
+                src={horseIcon2}
+                alt="horse icon 2"
+                className="absolute bottom-[80px] right-[300px] md:w-44 w-[80px] h-auto"
+              />
+
+              {/* Ruler */}
+              <img
+                src={rulerIcon}
+                alt="ruler"
+                className="absolute  bottom-[2px]  left-0 w-full h-auto md:bottom-[0px] md:h-16 z-10"
+              />
+
+              {/* Awan */}
+              <img
+                src={awanIcon}
+                alt="awan"
+                className="absolute left-0 w-full h-auto md-bottom-[100px] md:h-96 z-20"
+              />
+            </div>
           </section>
+          {open && <PopupGaleri onClose={() => setOpen(false)} />}
 
           {/* Gallery Section */}
           <section className="py-16 relative bg-[#170C0A] -mt-1 bg-pattern-white">
