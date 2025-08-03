@@ -23,37 +23,50 @@ const Hmps = ({ prodi, className }: Props) => {
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <div className="flex flex-col lg:flex-row bg-[#432005] text-white rounded-xl p-6 lg:p-8 gap-6 lg:gap-12 items-center justify-between max-w-6xl mx-auto w-full">
-            {/* Bagian Kiri: Teks */}
-            <div className="text-left max-w-xl">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-                {prodi.hmpsAcronym}
-              </h2>
-              <p className="text-sm lg:text-base leading-relaxed text-white">
-                {prodi.hmpsDescrption}
-              </p>
+          {/* Ganti seluruh isi div utama Anda dengan ini */}
+          <div className="flex flex-col lg:flex-row bg-[#432005] text-white rounded-xl p-8 gap-8 items-stretch max-w-6xl mx-auto w-full">
+            {/* KOTAK PUTIH (SEKARANG BERISI LOGO DAN TEKS) */}
+            <div className="relative bg-[#F5E8D5] text-black rounded-lg p-6 w-full lg:w-2/3">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                {/* Kolom Teks (menjadi urutan terakhir di mobile) */}
+                <div className="md:col-span-2 text-justify order-last md:order-none">
+                  <h2 className="text-2xl lg:text-3xl font-bold mb-4">
+                    {prodi.hmpsAcronym}
+                  </h2>
+                  <p className="text-sm lg:text-base leading-relaxed text-black">
+                    {prodi.hmpsDescrption}
+                  </p>
+                </div>
+
+                {/* Kolom Logo (menjadi urutan pertama di mobile) */}
+                <div className="flex items-center justify-center order-first md:order-none">
+                  <img
+                    src={prodi.hmpsImageUrl}
+                    alt="Logo Himpunan"
+                    className="w-40 h-auto object-contain"
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Bagian Kanan: Logo, Foto, dan Info Ketua */}
-            <div className="flex flex-col items-center justify-center gap-8">
+            {/* BAGIAN KANAN (HANYA INFO KETUA) */}
+            <div className="flex-shrink-0 bg-[#F5E8D5] text-black rounded-lg p-2 md:p-4 text-center">
               <img
-                src={prodi.hmpsImageUrl}
-                alt="Logo Himpunan"
-                className="w-72 h-auto object-contain"
+                src={prodi.kahimPhoto}
+                alt="Foto Kahim"
+                className="w-20 md:w-24 lg:w-32 h-auto object-center mx-auto mb-2 md:mb-4 rounded-xl"
               />
-              <p className="bg-[#F5E8D5] text-black rounded-lg px-4 py-6 text-center text-sm">
-                <p className="max-lg:text-xs mb-4">
-                  Ketua {prodi.hmpsName}
-                  <br />
-                  2025-2026
-                </p>
-                <span className="font-semibold text-x">{prodi.kahim}</span>
+              <p className="text-[10px] md:text-xs mb-1 md:mb-2">
+                Ketua {prodi.hmpsName}
+                <br />
+                2025-2026
               </p>
+              <span className="font-semibold text-lg md:text-xl">
+                {prodi.kahim}
+              </span>
             </div>
           </div>
         </div>
-
-
 
         <div className="relative">
           <div className="place-content-center place-items-center flex">

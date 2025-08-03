@@ -8,11 +8,12 @@ import {
 } from "@tabler/icons-react";
 
 import { AccordionKk } from "@/Components/informasi/prodi/AccordionKk";
+import AchievementList from "@/Components/informasi/prodi/AchievementList";
 import { Card, CardContent } from "@/Components/ui/card";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { ProgramStudi } from "@/lib/types/ProgramStudi";
-
+import ProdiActivity from "@/Components/informasi/prodi/prodiActivity";
 import accreditation_a from "!assets/accreditation-a.png";
 import banpt from "!assets/banpt.png";
 import batu from "!assets/batu.png";
@@ -167,6 +168,20 @@ const Prodi = ({ prodi, className }: Props) => {
             Kelompok Keahlian
           </h1>
           <AccordionKk kk={prodi.kk} />
+        </div>
+
+        <div className="relative">
+          <div className="place-content-center place-items-center flex">
+            <div className="h-[1px] bg-white grow"></div>
+            <h4 className="font-greek lg:text-6xl text-moccaccino-800 mb-2 text-center text-2xl ">
+              PRESTASI
+            </h4>
+            <div className="h-[1px] bg-white grow"></div>
+          </div>
+        </div>
+
+        <div className="w-full max-w-6xl px-4 mx-auto">
+          <ProdiActivity prodiActivities={prodi.prodiActivities ?? []} />
         </div>
 
         <div
