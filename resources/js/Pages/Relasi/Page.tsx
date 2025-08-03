@@ -95,7 +95,7 @@ function Page() {
             </div>
 
             <div className="text-center">
-              <h1 className="font-avigea text-jaffa-800 text-2xl font-bold">
+              <h1 className="font-greek text-jaffa-800 text-2xl font-bold">
                 TOP 3 FOLLOWERS
               </h1>
             </div>

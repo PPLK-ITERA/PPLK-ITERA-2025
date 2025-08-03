@@ -37,7 +37,7 @@ const Prodi = ({ prodi, className }: Props) => {
             </div>
           ) : null}
 
-          <h1 className="font-avigea lg:text-4xl text-moccaccino-600 text-2xl">
+          <h1 className="font-greek lg:text-4xl text-moccaccino-600 text-2xl">
             {prodi.name}
           </h1>
           <p className="max-lg:text-justify lg:text-lg lg:leading-7 text-sm font-medium">
@@ -50,7 +50,7 @@ const Prodi = ({ prodi, className }: Props) => {
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <h1 className="font-avigea lg:text-3xl text-moccaccino-600 text-2xl">
+          <h1 className="font-greek lg:text-3xl text-moccaccino-600 text-2xl">
             Sejarah
           </h1>
 
@@ -65,7 +65,7 @@ const Prodi = ({ prodi, className }: Props) => {
           data-aos-duration="800"
         >
           <CardContent className="lg:px-12 p-4">
-            <div className="font-avigea place-content-center flex w-full h-full">
+            <div className="font-greek place-content-center flex w-full h-full">
               <div className="grow place-content-center flex flex-col text-left">
                 <p className="lg:text-2xl mb-4 text-lg font-bold">
                   Akreditasi {prodi.accreditation}
@@ -129,7 +129,7 @@ const Prodi = ({ prodi, className }: Props) => {
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <h1 className="font-avigea lg:text-3xl text-moccaccino-600 text-lg text-center">
+          <h1 className="font-greek lg:text-3xl text-moccaccino-600 text-lg text-center">
             Koordinator Program Studi
           </h1>
 
@@ -154,7 +154,7 @@ const Prodi = ({ prodi, className }: Props) => {
         </Card>
 
         <div data-aos="fade-up" data-aos-duration="800">
-          <h1 className="font-avigea lg:text-3xl text-moccaccino-600 mb-2 text-2xl">
+          <h1 className="font-greek lg:text-3xl text-moccaccino-600 mb-2 text-2xl">
             Kelompok Keahlian
           </h1>
 
@@ -162,7 +162,7 @@ const Prodi = ({ prodi, className }: Props) => {
         </div>
 
         <div className="text-center" data-aos="fade-up" data-aos-duration="800">
-          <h1 className="font-avigea lg:text-3xl text-moccaccino-600 text-2xl">
+          <h1 className="font-greek lg:text-3xl text-moccaccino-600 text-2xl">
             Sosial Media {prodi.name}
           </h1>
 

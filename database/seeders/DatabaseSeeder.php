@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
          QrcodeSeeder::class,
          ProdiSeeder::class,
          PenyakitSeeder::class,
-         PilarSeeder::class,
+         // PilarSeeder::class,
          FAQSeeder::class,
          ScoreboardSeeder::class,
          // PresensiPplkSeeder::class,
@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
          TugasSeeder::class,
          AssesmenQuestionSeeder::class,
          AssesmenAnswerSeeder::class,
+         TeslaSeeder::class,
+
          // PengumpulanTugasSeeder::class,
          // Add more seeders if needed
       ]);

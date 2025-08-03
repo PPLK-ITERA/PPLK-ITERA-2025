@@ -10,7 +10,6 @@ import Autoplay from "embla-carousel-autoplay";
 
 import React from "react";
 
-import alas_filosofi from "!assets/alas-filosofi.png";
 import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
 import angka_10 from "!assets/filosofi-pilar/angka-10.png";
 import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
@@ -35,7 +34,7 @@ const DataFilosofiLogo = [
     image: pilar_sdgs,
     title: "4 Pilar SDG's",
     description:
-      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2024",
+      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2025",
   },
   {
     image: pulau_sumatera,
@@ -82,7 +81,7 @@ export default function FilosofiLogo() {
 
   return (
     <div className="relative -mt-96 flex h-full flex-col items-center pt-[500px]">
-      <h2 className="font-avigea sm:text-3xl text-candlelight-600 text-2xl">
+      <h2 className="font-greek sm:text-3xl text-candlelight-600 text-2xl">
         FILOSOFI LOGO
       </h2>
       <div className="flex"></div>
@@ -96,29 +95,17 @@ export default function FilosofiLogo() {
             className="flex items-center"
           />
           <div>
-            <div className="sm:gap-9 flex flex-col gap-5">
+            <div className="sm:gap-9 flex flex-col text-justify gap-5">
               <div className="flex gap-8">
                 <div className="wajik w-8 h-8 bg-gradient-to-l from-[#ECB406] to-[#FDCE12]"></div>
-                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">
-                  Warna emas melambangkan Keberuntungan & Kesuksesan
+                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70">
+                Warna emas menjadi simbol semangat mencapai tujuan luhur bagi mahasiswa baru sebagai generasi terpilih.
                 </p>
               </div>
               <div className="flex gap-8">
-                <div className="wajik w-8 h-8 bg-[#B6ADA4]"></div>
-                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">
-                  Warna silver melambangkan Modernitas & Teknologi
-                </p>
-              </div>
-              <div className="flex gap-8">
-                <div className="wajik w-8 h-8 bg-[#DA5B1C]"></div>
-                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">
-                  Warna orange melambangkan Semangat & Kreatifitas
-                </p>
-              </div>
-              <div className="flex gap-8">
-                <div className="wajik w-8 h-8 bg-[#00A3FF]"></div>
-                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">
-                  Warna biru melambangkan Kepercayaan & Inspirasi yang Luas
+                <div className="wajik w-8 h-8 bg-[#682300]"></div>
+                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70">
+                Warna coklat menjadi simbol suasana hangat dan membumi sebagai landasan awal mahasiswa baru dalam tumbuh dan berkembang.
                 </p>
               </div>
             </div>
@@ -162,14 +149,9 @@ export default function FilosofiLogo() {
         <>
           {current === index + 1 ? (
             <>
-              <img
-                src={alas_filosofi}
-                alt="alas_filosofi"
-                className="md:-mt-40 -mt-20 bg-cover"
-              />
 
               <div className="flex max-w-[600px] flex-col items-center p-6 text-center text-black h-[300px]">
-                <h2 className="font-avigea sm:text-[39px] text-2xl text-black">
+                <h2 className="font-greek sm:text-[39px] text-2xl text-black">
                   {data.title}
                 </h2>
 

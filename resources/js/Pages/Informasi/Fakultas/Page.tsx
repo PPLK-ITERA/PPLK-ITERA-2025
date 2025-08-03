@@ -90,20 +90,10 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="top-1/4 xl:visible absolute flex flex-col invisible w-full">
-            <img src={pillar_brown} alt="pillar_brown" className="w-full" />
-
-            <img
-              src={overlay_box}
-              alt="pillar_brown"
-              className="z-20 w-full -mt-[200px]"
-            />
-          </div>
-
           <div
             data-aos="fade-up"
             data-aos-duration="600"
-            className="max-w-5xl mx-auto"
+            className="w-full mx-auto"
           >
             <ProgramStudi fakultas={selectedFakultas} />
           </div>

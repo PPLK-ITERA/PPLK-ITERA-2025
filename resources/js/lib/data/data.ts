@@ -251,7 +251,7 @@ export const DataFilosofiLogo = [
     image: pilar_sdgs,
     title: "4 Pilar SDG's",
     description:
-      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2024",
+      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2025",
   },
   {
     image: pulau_sumatera,
@@ -287,7 +287,7 @@ export const InformasiInfoSection = [
 ];
 
 export const InformasiFooter = [
-  { title: "Tentang PPLK 2024", href: "/informasi/pplk" },
+  { title: "Tentang PPLK 2025", href: "/informasi/pplk" },
   { title: "Informasi Fakultas", href: "/informasi/fakultas" },
   { title: "Informasi HMPS & PRODI", href: "/informasi/prodi" },
   { title: "Informasi UPA", href: "/informasi/upa" },

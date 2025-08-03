@@ -22,7 +22,7 @@ function VisiMisi({ ketum, prodi, visi, misi }) {
         className="max-md:flex-col place-content-center flex"
       >
         <div className="md:px-36 flex flex-col items-center px-4 py-6 text-center bg-white rounded-lg shadow-2xl">
-          <p className="font-avigea text-candlelight-600 text-lg sm:text-2xl md:text-[25px]">
+          <p className="font-greek text-candlelight-600 text-lg sm:text-2xl md:text-[25px]">
             KETUA UMUM
           </p>
           <p className="font-montserrat text-base md:text-[20px] font-bold mt-2 text-center">
@@ -38,7 +38,7 @@ function VisiMisi({ ketum, prodi, visi, misi }) {
         className="max-md:flex-col place-content-center flex gap-10"
       >
         <div className="py-4 sm:py-8 px-2 md:p-8 flex flex-col gap-4 items-center text-center rounded-[3px] bg-white shadow-2xl">
-          <p className="font-avigea text-candlelight-600 text-lg sm:text-2xl md:text-[25px]">
+          <p className="font-greek text-candlelight-600 text-lg sm:text-2xl md:text-[25px]">
             VISI
           </p>
           <p className="p-2 font-montserrat text-sm sm:text-[16px]">
@@ -47,7 +47,7 @@ function VisiMisi({ ketum, prodi, visi, misi }) {
         </div>
 
         <div className="sm:py-8 md:p-8 flex flex-col items-center gap-4 px-2 py-4 text-center bg-white rounded-lg shadow-2xl">
-          <p className="font-avigea text-candlelight-600 text-lg sm:text-2xl md:text-[25px]">
+          <p className="font-greek text-candlelight-600 text-lg sm:text-2xl md:text-[25px]">
             MISI
           </p>
 
