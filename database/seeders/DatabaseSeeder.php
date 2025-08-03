@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
          AssesmenQuestionSeeder::class,
          AssesmenAnswerSeeder::class,
          TeslaSeeder::class,
+
          // PengumpulanTugasSeeder::class,
          // Add more seeders if needed
       ]);

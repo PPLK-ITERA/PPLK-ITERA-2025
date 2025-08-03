@@ -13,10 +13,10 @@ class CreateUsersTable extends Migration
    {
       Schema::create('users', function (Blueprint $table) {
          $table->id();
-         $table->string('name');
+         $table->string('name')->default('Guest');
          $table->string('nim')->nullable();
-         $table->string('email')->unique();
-         $table->string('password');
+         $table->string('email')->default('guest@pplk.com');
+         $table->string('password')->default(bcrypt('guest123'));
          $table->boolean('isFirstTime')->default(true);
          $table->string('photo_profile_url')->nullable();
          $table->string('linkedin_url')->nullable();
@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
          $table->foreignId('pilar')->nullable();
          $table->string('bio')->nullable();
          $table->string('link_sertif')->nullable();
-         $table->foreignId('kelompok_id')->nullable();
+         $table->foreignId('kelompok_id')->default(1);
          $table->integer('score')->default(0);
 
          $table->foreignId('prodi_id')->nullable();
