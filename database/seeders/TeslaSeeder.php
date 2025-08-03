@@ -10,6 +10,8 @@ class TeslaSeeder extends Seeder
     public function run(): void
     {
         DB::table('teslas')->truncate();
+        // Tambahkan seeder untuk tabel day
+        DB::table('day')->truncate();
 
         $data = [
             [
@@ -106,5 +108,12 @@ class TeslaSeeder extends Seeder
                 'updated_at' => now(),
             ]);
         }
+
+        // Seeder untuk tabel day (DAY 1)
+        DB::table('day')->insert([
+            'change_day' => 'DAY 1',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }

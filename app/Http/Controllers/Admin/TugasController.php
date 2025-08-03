@@ -18,7 +18,8 @@ class TugasController extends Controller
 {
    public function getTugasUser($id)
    {
-      try {
+      try
+       {
          $tugas = PengumpulanTugas::with([
             'tugas' => function ($query) {
                $query->select('id', 'judul');

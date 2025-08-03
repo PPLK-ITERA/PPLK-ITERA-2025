@@ -28,6 +28,8 @@ export default function Page() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProgressModalOpen, setIsProgressModalOpen] = useState(false);
     const [isResultModalOpen, setIsResultModalOpen] = useState(false);
+    const [isPetunjukModalOpen, setIsPetunjukModalOpen] = useState(false);
+    const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
     const [selectedCell, setSelectedCell] = useState<{ row: number, col: number } | null>(null);
     const [selectedClue, setSelectedClue] = useState<Clue | null>(null);
     const [inputDirection, setInputDirection] = useState<'across' | 'down'>('across');
@@ -44,9 +46,88 @@ export default function Page() {
     const [loading, setLoading] = useState(true);
     const [started, setStarted] = useState(false);
     const [tempWrongAnswers, setTempWrongAnswers] = useState<{ [key: string]: string }>({});
+    const [history, setHistory] = useState<{
+        time: number;
+        percentage: number;
+        answered: number;
+        total: number;
+        date: string;
+        score?: number; // Tambah score di tipe history
+    }[]>([]);
+
     const answerInputRef = useRef<HTMLInputElement>(null);
 
     const bg = bg_1;
+
+    // Tambah state untuk menyimpan initial clues/grid
+    const [initialClues, setInitialClues] = useState<{ across: Clue[]; down: Clue[] }>({ across: [], down: [] });
+    const [initialGrid, setInitialGrid] = useState<Cell[][]>([]);
+
+    // Fetch clues/grid sekali saat mount, simpan ke initialClues/initialGrid
+    useEffect(() => {
+        const fetchInitial = async () => {
+            setLoading(true);
+            try {
+                const res = await axios.get('/api/admin/tesla/');
+                const arr = res.data.data;
+                let maxRow = 0;
+                let maxCol = 0;
+                arr.forEach((c: any) => {
+                    if (c.tipe === 'mendatar') {
+                        maxRow = Math.max(maxRow, c.start_row);
+                        maxCol = Math.max(maxCol, c.start_col + (c.jawaban?.length || 0) - 1);
+                    } else if (c.tipe === 'menurun') {
+                        maxRow = Math.max(maxRow, c.start_row + (c.jawaban?.length || 0) - 1);
+                        maxCol = Math.max(maxCol, c.start_col);
+                    }
+                });
+                const size = Math.max(maxRow + 1, maxCol + 1, 10);
+                const across = arr.filter((c: any) => c.tipe === 'mendatar').map((c: any) => ({
+                    number: c.nomor,
+                    clue: c.pertanyaan,
+                    answer: c.jawaban,
+                    direction: 'across',
+                    startRow: c.start_row,
+                    startCol: c.start_col,
+                    isAnswered: false,
+                }));
+                const down = arr.filter((c: any) => c.tipe === 'menurun').map((c: any) => ({
+                    number: c.nomor,
+                    clue: c.pertanyaan,
+                    answer: c.jawaban,
+                    direction: 'down',
+                    startRow: c.start_row,
+                    startCol: c.start_col,
+                    isAnswered: false,
+                }));
+                const newGrid: Cell[][] = Array(size).fill(null).map(() =>
+                    Array(size).fill(null).map(() => ({
+                        letter: '',
+                        isBlack: false,
+                        isSelected: false,
+                        isHighlighted: false,
+                        isCorrect: false,
+                        isWrong: false,
+                    }))
+                );
+                arr.forEach((c: any) => {
+                    if (
+                        c.start_row >= 0 && c.start_row < size &&
+                        c.start_col >= 0 && c.start_col < size
+                    ) {
+                        newGrid[c.start_row][c.start_col].number = c.nomor;
+                    }
+                });
+                setInitialClues({ across, down });
+                setInitialGrid(newGrid);
+            } catch {
+                setInitialClues({ across: [], down: [] });
+                setInitialGrid([]);
+            }
+            setLoading(false);
+        };
+        fetchInitial();
+    }, []);
 
     // Fetch clues from API and initialize grid
     useEffect(() => {
@@ -66,183 +147,37 @@ export default function Page() {
         return () => clearInterval(timer);
     }, [isPlaying, started]);
 
-    // Hapus initializeCrossword, gunakan hanya fetchClues
-    const fetchClues = async () => {
+    // Ubah fetchClues agar menerima data dari initialClues/initialGrid
+    const fetchClues = () => {
         setLoading(true);
-        try {
-            const res = await axios.get('/api/admin/tesla/');
-            const arr = res.data.data;
-            setClues({
-                across: arr.filter((c: any) => c.tipe === 'mendatar').map((c: any) => ({
-                    number: c.nomor,
-                    clue: c.pertanyaan,
-                    answer: c.jawaban,
-                    direction: 'across',
-                    startRow: c.start_row,
-                    startCol: c.start_col,
-                    isAnswered: false,
-                })),
-                down: arr.filter((c: any) => c.tipe === 'menurun').map((c: any) => ({
-                    number: c.nomor,
-                    clue: c.pertanyaan,
-                    answer: c.jawaban,
-                    direction: 'down',
-                    startRow: c.start_row,
-                    startCol: c.start_col,
-                    isAnswered: false,
-                })),
-            });
-            // Build grid
-            const size = 15;
-            const newGrid: Cell[][] = Array(size).fill(null).map(() =>
-                Array(size).fill(null).map(() => ({
-                    letter: '',
-                    isBlack: false,
-                    isSelected: false,
-                    isHighlighted: false,
-                    isCorrect: false,
-                    isWrong: false,
-                }))
-            );
-            arr.forEach((c: any) => {
-                if (
-                    c.start_row >= 0 && c.start_row < size &&
-                    c.start_col >= 0 && c.start_col < size
-                ) {
-                    newGrid[c.start_row][c.start_col].number = c.nomor;
-                }
-            });
-            setGrid(newGrid);
-        } catch (e) {
-            setClues({ across: [], down: [] });
-            setGrid([]);
-        }
+        setClues({
+            across: initialClues.across.map(c => ({ ...c, isAnswered: false })),
+            down: initialClues.down.map(c => ({ ...c, isAnswered: false })),
+        });
+        setGrid(initialGrid.map(row => row.map(cell => ({
+            ...cell,
+            letter: '',
+            isSelected: false,
+            isHighlighted: false,
+            isCorrect: false,
+            isWrong: false,
+        }))));
         setLoading(false);
     };
 
-    const initializeCrossword = () => {
-        const size = 15;
-        const newGrid: Cell[][] = Array(size).fill(null).map(() =>
-            Array(size).fill(null).map(() => ({
-                letter: '',
-                isBlack: false,
-                isSelected: false,
-                isHighlighted: false,
-                isCorrect: false,
-                isWrong: false,
-            }))
-        );
-
-        // Define clues and answers
-        const acrossClues: Clue[] = [
-            {
-                number: 1,
-                clue: "Ibu kota Indonesia",
-                answer: "JAKARTA",
-                direction: 'across',
-                startRow: 1,
-                startCol: 1,
-                isAnswered: false
-            },
-            {
-                number: 4,
-                clue: "Planet terdekat dari matahari",
-                answer: "MERKURIUS",
-                direction: 'across',
-                startRow: 3,
-                startCol: 2,
-                isAnswered: false
-            },
-            {
-                number: 6,
-                clue: "Binatang yang dikenal sebagai raja hutan",
-                answer: "SINGA",
-                direction: 'across',
-                startRow: 5,
-                startCol: 4,
-                isAnswered: false
-            },
-            {
-                number: 7,
-                clue: "Warna daun",
-                answer: "HIJAU",
-                direction: 'across',
-                startRow: 7,
-                startCol: 6,
-                isAnswered: false
-            },
-            {
-                number: 9,
-                clue: "Negara dengan menara Eiffel",
-                answer: "PERANCIS",
-                direction: 'across',
-                startRow: 9,
-                startCol: 8,
-                isAnswered: false
+    // Fungsi untuk menghapus semua jawaban salah dari board (termasuk valuenya)
+    const clearAllWrongAnswers = () => {
+        const newGrid = grid.map(row => row.map(cell => {
+            if (cell.isWrong) {
+                return {
+                    ...cell,
+                    letter: '' // Hapus value huruf yang salah
+                };
             }
-        ];
-
-        const downClues: Clue[] = [
-            {
-                number: 2,
-                clue: "Buah dengan kulit berduri",
-                answer: "DURIAN",
-                direction: 'down',
-                startRow: 1,
-                startCol: 3,
-                isAnswered: false
-            },
-            {
-                number: 3,
-                clue: "Sungai terpanjang di dunia",
-                answer: "NIL",
-                direction: 'down',
-                startRow: 2,
-                startCol: 5,
-                isAnswered: false
-            },
-            {
-                number: 5,
-                clue: "Lambang kimia untuk emas",
-                answer: "AU",
-                direction: 'down',
-                startRow: 4,
-                startCol: 7,
-                isAnswered: false
-            },
-            {
-                number: 8,
-                clue: "Ibu kota Jepang",
-                answer: "TOKYO",
-                direction: 'down',
-                startRow: 6,
-                startCol: 9,
-                isAnswered: false
-            },
-            {
-                number: 10,
-                clue: "Satelit alami bumi",
-                answer: "BULAN",
-                direction: 'down',
-                startRow: 8,
-                startCol: 11,
-                isAnswered: false
-            }
-        ];
-
-        // Assign numbers to cells and update grid
-        const allClues = [...acrossClues, ...downClues];
-        allClues.forEach(clue => {
-            if (!newGrid[clue.startRow][clue.startCol].isBlack) {
-                newGrid[clue.startRow][clue.startCol].number = clue.number;
-            }
-        });
-
+            return cell;
+        }));
         setGrid(newGrid);
-        setClues({
-            across: acrossClues,
-            down: downClues
-        });
+        setTempWrongAnswers({});
     };
 
     const handleQuestionSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -250,10 +185,8 @@ export default function Page() {
         setSelectedQuestion(value);
         setUserAnswer('');
 
-        // Hapus jawaban salah sementara dari grid jika ada
-        if (selectedClue && selectedQuestion) {
-            clearTempWrongAnswer(selectedClue, selectedQuestion);
-        }
+        // Hapus semua jawaban salah dari board saat pindah soal
+        clearAllWrongAnswers();
 
         if (value) {
             const [direction, numberStr] = value.split('-');
@@ -307,14 +240,16 @@ export default function Page() {
         });
     };
 
+    // Highlight clue cells, tapi jangan reset isCorrect (biar hijau tetap muncul jika benar)
     const highlightClueCells = (clue: Clue) => {
+        // Reset semua isHighlighted, isSelected, dan isWrong
         const newGrid = grid.map(rowArr =>
             rowArr.map(cell => ({
                 ...cell,
                 isHighlighted: false,
                 isSelected: false,
-                isCorrect: false,
-                isWrong: false
+                isWrong: false, // <-- reset merah setiap pindah soal
+                // JANGAN reset isCorrect di sini!
             }))
         );
 
@@ -341,7 +276,6 @@ export default function Page() {
     };
 
     // Submit answer to API
-    // Ubah handleAnswerSubmit agar jika jawaban benar dan grid tidak cukup, grid otomatis diperbesar
     const handleAnswerSubmit = async () => {
         if (!selectedQuestion || !userAnswer || !selectedClue) return;
         const answer = userAnswer.toUpperCase();
@@ -376,7 +310,6 @@ export default function Page() {
             }
         }
         if (hasil === 'benar' && needResize) {
-            // Resize grid (tambah baris/kolom agar jawaban muat)
             const newSize = Math.max(
                 selectedClue.direction === 'across'
                     ? selectedClue.startCol + selectedClue.answer.length
@@ -384,7 +317,7 @@ export default function Page() {
                 selectedClue.direction === 'down'
                     ? selectedClue.startRow + selectedClue.answer.length
                     : size,
-                size + 1 // minimal tambah 1
+                size + 1
             );
             const emptyCell = () => ({
                 letter: '',
@@ -394,11 +327,9 @@ export default function Page() {
                 isCorrect: false,
                 isWrong: false,
             });
-            // Tambah baris jika perlu
             while (newGrid.length < newSize) {
                 newGrid.push(Array(newSize).fill(null).map(emptyCell));
             }
-            // Tambah kolom di setiap baris jika perlu
             for (let i = 0; i < newGrid.length; i++) {
                 while (newGrid[i].length < newSize) {
                     newGrid[i].push(emptyCell());
@@ -407,26 +338,27 @@ export default function Page() {
             size = newSize;
         }
 
-        // Reset previous correct/wrong states for this clue
+        // Reset previous isWrong for this clue, but do NOT reset isCorrect or letter if already correct
         if (selectedClue.direction === 'across') {
             for (let i = 0; i < selectedClue.answer.length; i++) {
                 const col = selectedClue.startCol + i;
                 if (col >= newGrid[selectedClue.startRow].length) continue;
-                newGrid[selectedClue.startRow][col].isCorrect = false;
-                newGrid[selectedClue.startRow][col].isWrong = false;
-                // Jika jawaban salah, hapus huruf sebelumnya (agar tidak menumpuk)
-                if (hasil === 'salah') {
-                    newGrid[selectedClue.startRow][col].letter = '';
+                if (!newGrid[selectedClue.startRow][col].isCorrect) {
+                    newGrid[selectedClue.startRow][col].isWrong = false;
+                    if (hasil === 'salah') {
+                        newGrid[selectedClue.startRow][col].letter = '';
+                    }
                 }
             }
         } else {
             for (let i = 0; i < selectedClue.answer.length; i++) {
                 const row = selectedClue.startRow + i;
                 if (row >= newGrid.length) continue;
-                newGrid[row][selectedClue.startCol].isCorrect = false;
-                newGrid[row][selectedClue.startCol].isWrong = false;
-                if (hasil === 'salah') {
-                    newGrid[row][selectedClue.startCol].letter = '';
+                if (!newGrid[row][selectedClue.startCol].isCorrect) {
+                    newGrid[row][selectedClue.startCol].isWrong = false;
+                    if (hasil === 'salah') {
+                        newGrid[row][selectedClue.startCol].letter = '';
+                    }
                 }
             }
         }
@@ -441,9 +373,11 @@ export default function Page() {
                     newGrid[selectedClue.startRow][col].isCorrect = true;
                     newGrid[selectedClue.startRow][col].isWrong = false;
                 } else {
-                    newGrid[selectedClue.startRow][col].letter = answer[i] || '';
-                    newGrid[selectedClue.startRow][col].isCorrect = false;
-                    newGrid[selectedClue.startRow][col].isWrong = true;
+                    // Salah: hanya kasih background merah jika belum hijau, letter tetap kosong
+                    if (!newGrid[selectedClue.startRow][col].isCorrect) {
+                        newGrid[selectedClue.startRow][col].letter = '';
+                        newGrid[selectedClue.startRow][col].isWrong = true;
+                    }
                 }
             }
         } else {
@@ -455,14 +389,14 @@ export default function Page() {
                     newGrid[row][selectedClue.startCol].isCorrect = true;
                     newGrid[row][selectedClue.startCol].isWrong = false;
                 } else {
-                    newGrid[row][selectedClue.startCol].letter = answer[i] || '';
-                    newGrid[row][selectedClue.startCol].isCorrect = false;
-                    newGrid[row][selectedClue.startCol].isWrong = true;
+                    if (!newGrid[row][selectedClue.startCol].isCorrect) {
+                        newGrid[row][selectedClue.startCol].letter = '';
+                        newGrid[row][selectedClue.startCol].isWrong = true;
+                    }
                 }
             }
         }
 
-        // Update clue status
         setClues(prev => {
             if (selectedClue.direction === 'across') {
                 return {
@@ -483,11 +417,10 @@ export default function Page() {
 
         setGrid(newGrid);
 
-        // Jika salah, simpan jawaban sementara, jika benar hapus
         setTempWrongAnswers(prev => {
             const key = selectedQuestion;
             if (hasil === 'salah') {
-                return { ...prev, [key]: answer };
+                return { ...prev, [key]: '' }; // Tidak perlu simpan jawaban salah
             } else {
                 const copy = { ...prev };
                 delete copy[key];
@@ -513,14 +446,15 @@ export default function Page() {
                 let isCorrect = true;
                 const answer = clue.answer;
 
-                // Reset previous states
+                // Reset previous states: hanya reset isWrong, jangan reset isCorrect
                 for (let i = 0; i < answer.length; i++) {
                     const row = clue.direction === 'across' ? clue.startRow : clue.startRow + i;
                     const col = clue.direction === 'across' ? clue.startCol + i : clue.startCol;
 
                     if (row >= newGrid.length || col >= newGrid[0].length) continue;
-                    newGrid[row][col].isCorrect = false;
-                    newGrid[row][col].isWrong = false;
+                    if (!newGrid[row][col].isCorrect) {
+                        newGrid[row][col].isWrong = false;
+                    }
                 }
 
                 // Check new answer
@@ -531,10 +465,13 @@ export default function Page() {
                     if (row >= newGrid.length || col >= newGrid[0].length) continue;
 
                     if (newGrid[row][col].letter !== answer[i]) {
-                        newGrid[row][col].isWrong = true;
+                        if (!newGrid[row][col].isCorrect) {
+                            newGrid[row][col].isWrong = true;
+                        }
                         isCorrect = false;
                     } else {
                         newGrid[row][col].isCorrect = true;
+                        newGrid[row][col].isWrong = false;
                     }
                 }
 
@@ -554,8 +491,20 @@ export default function Page() {
         setIsResultModalOpen(true);
     };
 
+    // Reset puzzle dan hapus semua progress (jawaban, benar/salah, dsb)
     const resetPuzzle = () => {
-        fetchClues();
+        setClues({
+            across: initialClues.across.map(c => ({ ...c, isAnswered: false })),
+            down: initialClues.down.map(c => ({ ...c, isAnswered: false })),
+        });
+        setGrid(initialGrid.map(row => row.map(cell => ({
+            ...cell,
+            letter: '',
+            isSelected: false,
+            isHighlighted: false,
+            isCorrect: false,
+            isWrong: false,
+        }))));
         setSelectedCell(null);
         setSelectedClue(null);
         setSelectedQuestion('');
@@ -563,6 +512,8 @@ export default function Page() {
         setTime(0);
         setIsPlaying(true);
         setStarted(true);
+        setTempWrongAnswers({});
+        setResult({ correct: 0, wrong: 0 });
     };
 
     const togglePause = () => {
@@ -692,8 +643,8 @@ export default function Page() {
         if (!isOpen) return null;
 
         return (
-            <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-                <div className="bg-white w-full max-w-sm rounded-lg overflow-hidden">
+            <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center p-4 pt-[15vh]">
+                <div className="bg-white w-full max-w-md mx-auto rounded-lg overflow-hidden">
                     <div className="flex items-center justify-between p-4 bg-gradient-to-b from-[#BF4000] to-[#591E00] text-white">
                         <h3 className="font-medium">Hasil Pemeriksaan</h3>
                         <button
@@ -744,111 +695,420 @@ export default function Page() {
         return clue || null;
     };
 
+    // Helper: get first clue (across > down)
+    const getFirstClue = () => {
+        if (initialClues.across.length > 0) return { clue: initialClues.across[0], key: `across-${initialClues.across[0].number}` };
+        if (initialClues.down.length > 0) return { clue: initialClues.down[0], key: `down-${initialClues.down[0].number}` };
+        return null;
+    };
+
+    // Ambil history dari localStorage saat mount
+    useEffect(() => {
+        const saved = localStorage.getItem('tesla_history');
+        if (saved) {
+            try {
+                setHistory(JSON.parse(saved));
+            } catch {}
+        }
+    }, []);
+
+    // Simpan history ke localStorage setiap kali berubah
+    useEffect(() => {
+        localStorage.setItem('tesla_history', JSON.stringify(history));
+    }, [history]);
+
+    // Fungsi untuk simpan progres ke backend (pakai POST /api/progres)
+    const handleSaveProgress = async () => {
+        try {
+            await axios.post('/api/progres/', {
+                tanggal: new Date().toISOString(),
+                waktu: time,
+                selesai: progress.percentage,
+                jawaban: `${progress.answered}/${progress.total}`,
+                skor: progress.answered * 10,
+            });
+        } catch (e: any) {
+            if (e?.response?.status === 401) {
+                alert('Anda belum login. Silakan login untuk menyimpan progres.');
+            }
+            // Optional: tampilkan error toast/modal
+        }
+        setHistory(prev => {
+            const newHistory = [
+                {
+                    time,
+                    percentage: progress.percentage,
+                    answered: progress.answered,
+                    total: progress.total,
+                    date: new Date().toLocaleString(),
+                    score: progress.answered * 10,
+                },
+                ...prev,
+            ].slice(0, 6);
+            return newHistory;
+        });
+        setStarted(false);
+        setTime(0);
+        setIsPlaying(true);
+        setSelectedCell(null);
+        setSelectedClue(null);
+        setSelectedQuestion('');
+        setUserAnswer('');
+        setGrid([]);
+        setClues({ across: [], down: [] });
+        setTempWrongAnswers({});
+    };
+
+    // Fungsi untuk ambil riwayat progres dari backend (pakai GET /api/progres)
+    const fetchProgresHistory = async () => {
+        try {
+            const res = await axios.get('/api/progres/');
+            if (Array.isArray(res.data.data)) {
+                setHistory(
+                    res.data.data.map(item => ({
+                        time: item.waktu,
+                        percentage: item.selesai,
+                        answered: parseInt(item.jawaban.split('/')[0]),
+                        total: parseInt(item.jawaban.split('/')[1]),
+                        date: new Date(item.tanggal).toLocaleString(),
+                        score: item.skor,
+                    }))
+                );
+            }
+        } catch (e: any) {
+            if (e?.response?.status === 401) {
+                alert('Anda belum login. Silakan login untuk melihat progres Anda.');
+            }
+            // Optional: tampilkan error toast/modal
+        }
+    };
+
+    // Fungsi untuk ambil riwayat progres dari backend berdasarkan user id tertentu
+    const fetchProgresHistoryByUserId = async (userId: number | string) => {
+        try {
+            const res = await axios.get(`/api/progres/user/${userId}`);
+            if (Array.isArray(res.data.data)) {
+                setHistory(
+                    res.data.data.map(item => ({
+                        time: item.waktu,
+                        percentage: item.selesai,
+                        answered: parseInt(item.jawaban.split('/')[0]),
+                        total: parseInt(item.jawaban.split('/')[1]),
+                        date: new Date(item.tanggal).toLocaleString(),
+                        score: item.skor,
+                    }))
+                );
+            }
+        } catch (e) {
+            // Optional: tampilkan error toast/modal
+        }
+    };
+
+    const boardMaxWidth = 640 + 420 + 32; // 640px (dropdown max) + 420px (progress max) + gap
+
+    // Hapus state dan ref terkait popup custom soal
+    // const [isQuestionPopupOpen, setIsQuestionPopup] = useState(false);
+    // const questionButtonRef = useRef<HTMLButtonElement>(null);
+
+
+    const handleQuestionSelectPopup = (clue: Clue) => {
+        setSelectedQuestion(`${clue.direction}-${clue.number}`);
+        setSelectedClue(clue);
+        setUserAnswer('');
+        highlightClueCells(clue);
+        setTimeout(() => {
+            if (answerInputRef.current) answerInputRef.current.focus();
+        }, 0);
+    };
+
+    // Helper: get next clue (urut, skip yang sudah dijawab)
+    const getNextClue = (currentClue: Clue | null): Clue | null => {
+        if (!currentClue) return null;
+        const allClues = [...clues.across, ...clues.down];
+        const sorted = allClues.sort((a, b) => a.number - b.number);
+        const idx = sorted.findIndex(c => c.direction === currentClue.direction && c.number === currentClue.number);
+        // Cari berikutnya yang belum dijawab
+        for (let i = idx + 1; i < sorted.length; i++) {
+            if (!sorted[i].isAnswered) return sorted[i];
+        }
+        // Kalau sudah di akhir, cari clue pertama yang belum dijawab
+        for (let i = 0; i < sorted.length; i++) {
+            if (!sorted[i].isAnswered) return sorted[i];
+        }
+        // Kalau semua sudah dijawab, balik ke pertama
+        return sorted[0] || null;
+    };
+
+    const [dayLabel, setDayLabel] = useState<string>('DAY 1');
+
+    // Fetch day label from API
+    useEffect(() => {
+        axios.get('/api/day/')
+            .then(res => {
+                // Cek berbagai kemungkinan struktur respons
+                if (typeof res.data === 'string') {
+                    setDayLabel(res.data);
+                } else if (res.data?.day) {
+                    setDayLabel(res.data.day);
+                } else if (res.data?.data?.change_day) {
+                    setDayLabel(res.data.data.change_day);
+                }
+            })
+            .catch(() => setDayLabel('DAY 1'));
+    }, []);
+
+    // Tambahkan deklarasi berikut sebelum return
+    const [isQuestionDropdownOpen, setIsQuestionDropdownOpen] = useState(false);
+    const questionDropdownRef = useRef<HTMLDivElement>(null);
+
+    // Tutup dropdown jika klik di luar
+    useEffect(() => {
+        if (!isQuestionDropdownOpen) return;
+        const handler = (e: MouseEvent) => {
+            if (
+                questionDropdownRef.current &&
+                !questionDropdownRef.current.contains(e.target as Node)
+            ) {
+                setIsQuestionDropdownOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handler);
+        return () => document.removeEventListener('mousedown', handler);
+    }, [isQuestionDropdownOpen]);
+
     return (
         <DefaultLayout>
+            {/* Tambahkan style global untuk mencegah scroll horizontal */}
+            <style>{`
+                html, body {
+                    overflow-x: hidden !important;
+                    width: 100% !important;
+                    max-width: 100vw !important;
+                    position: relative;
+                }
+                #app, #root {
+                    width: 100% !important;
+                    max-width: 100vw !important;
+                    overflow-x: hidden !important;
+                }
+            `}</style>
             {/* Fixed background image and overlay */}
             <div
-                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat overflow-x-hidden"
                 style={{
                     backgroundImage: `url(${bg})`,
+                    width: "100vw",
+                    maxWidth: "100vw",
+                    left: 0,
+                    right: 0,
                 }}
             >
                 <div className="absolute inset-0 bg-[#BF4000] mix-blend-multiply pointer-events-none"></div>
             </div>
             {/* Content */}
-            <div className="relative z-10 my-4 md:my-40 md:max-w-5xl md:mx-auto">
-                {/* Header */}
-                <div className="bg-[#b84c19] w-full md:max-w-lg text-white p-3 md:p-4 md:mt-0 mt-32 rounded-lg mb-4">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4 md:space-x-8">
-                            <div className="text-center">
-                                <div className="text-xl md:text-3xl font-bold">{progress.answered * 10}</div>
-                                <div className="text-xs md:text-sm">Skor</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-xl md:text-3xl font-bold">{formatTime(time)}</div>
-                                <div className="text-xs md:text-sm">Waktu</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-xl md:text-3xl font-bold">DAY</div>
-                                <div className="text-xs md:text-sm">1</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col space-y-1 md:space-y-2">
-                            <button
-                                onClick={started ? checkAllAnswers : undefined}
-                                className={`bg-white shadow-lg text-orange-600 px-2 md:px-4 py-1 rounded text-xs md:text-sm font-medium ${!started ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                disabled={!started}
+            <div
+                className="relative z-10 my-4 md:my-40 md:mx-auto w-full overflow-x-hidden"
+                style={{ maxWidth: 1092, marginLeft: "auto", marginRight: "auto" }}
+            >
+                {/* Header & Progress Row */}
+                <div
+                    className="bg-[#b84c19] w-full text-white p-3 md:p-4 md:mt-0 mt-32 rounded-lg mb-4 relative"
+                    style={{
+                        maxWidth: 1092,
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                    }}
+                >
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full">
+                        {/* Stats cards - Fixed position on mobile */}
+                        <div className="flex flex-col md:flex-row md:items-center md:space-x-8 w-full">
+                            {/* Stats Row */}
+                            <div
+                                className="flex flex-row flex-wrap items-center justify-between w-full md:w-auto md:justify-start md:space-x-8 gap-y-2"
+                                style={{
+                                    position: 'relative',
+                                    top: 0,
+                                    left: 0
+                                }}
                             >
-                                Cek Jawaban
-                            </button>
-                            <button
-                                onClick={started ? () => setIsMobileMenuOpen(true) : undefined}
-                                className={`bg-white shadow-lg text-orange-600 px-2 md:px-4 py-1 rounded text-xs md:text-sm font-medium md:hidden ${!started ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                disabled={!started}
-                            >
-                                Petunjuk
-                            </button>
-                            <button
-                                onClick={started ? () => setCurrentTab('Petunjuk Soal') : undefined}
-                                className={`bg-white shadow-lg text-orange-600 px-2 md:px-4 py-1 rounded text-xs md:text-sm font-medium hidden md:block ${!started ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                disabled={!started}
-                            >
-                                Petunjuk
-                            </button>
+                                <div className="flex flex-col items-center justify-center w-24">
+                                    <div className="text-2xl md:text-3xl font-bold leading-tight">{dayLabel}</div>
+                                </div>
+                                <div className="flex flex-col items-center justify-center w-24">
+                                    <div className="text-2xl md:text-3xl font-bold leading-tight">{progress.answered * 10}</div>
+                                    <div className="text-xs md:text-sm">Skor</div>
+                                </div>
+                                <div className="flex flex-col items-center justify-center w-24">
+                                    <div className="text-2xl md:text-3xl font-bold leading-tight">{formatTime(time)}</div>
+                                    <div className="text-xs md:text-sm">Waktu</div>
+                                </div>
+                                <div className="flex flex-col items-center justify-center w-24">
+                                    <div className="text-2xl md:text-3xl font-bold leading-tight">{progress.answered}/{progress.total}</div>
+                                    <div className="text-xs md:text-sm">Pertanyaan</div>
+                                </div>
+                                <div className="flex flex-col items-center justify-center w-24">
+                                    <div className="text-2xl md:text-3xl font-bold leading-tight">{progress.percentage}%</div>
+                                    <div className="text-xs md:text-sm">Selesai</div>
+                                </div>
+                            </div>
+                            {/* Button Row */}
+                            <div className="flex flex-row flex-wrap items-center justify-center md:justify-end gap-2 md:space-x-5 mt-4 md:mt-0 w-full md:w-auto">
+                                <button
+                                    onClick={started ? checkAllAnswers : undefined}
+                                    className={`bg-white shadow-lg text-orange-600 px-4 py-2 rounded text-xs md:text-sm font-medium transition-all duration-150
+                                        ${started ? 'hover:scale-105 hover:bg-orange-100' : 'opacity-50 cursor-not-allowed'}
+                                    `}
+                                    style={{ minWidth: 110, minHeight: 40 }}
+                                    disabled={!started}
+                                >
+                                    Cek Jawaban
+                                </button>
+                                <button
+                                    onClick={() => setIsPetunjukModalOpen(true)}
+                                    className="bg-white shadow-lg text-orange-600 px-4 py-2 rounded text-xs md:text-sm font-medium transition-all duration-150 hover:scale-105 hover:bg-orange-100"
+                                    style={{ minWidth: 110, minHeight: 40 }}
+                                >
+                                    Petunjuk
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        fetchProgresHistory();
+                                        setIsHistoryModalOpen(true);
+                                    }}
+                                    className="bg-white shadow-lg text-orange-600 px-4 py-2 rounded text-xs md:text-sm font-medium transition-all duration-150 hover:scale-105 hover:bg-orange-100"
+                                    style={{ minWidth: 110, minHeight: 40 }}
+                                >
+                                    Riwayat
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div className="flex flex-col md:flex-row gap-4">
+                {/* Game Area */}
+                <div className="flex flex-col md:flex-row gap-4 w-full max-w-full overflow-x-hidden">
                     {/* Game Area */}
-                    <div className="flex-1 order-2 md:order-1 mx-auto max-w-5xl md:w-full">
-                        <div className="p-2 md:p-4 rounded-lg mb-4">
+                    <div className="flex-1 order-2 md:order-1 mx-auto max-w-5xl md:w-full w-full overflow-x-hidden">
+                        <div className="p-2 md:p-4 rounded-lg mb-4 w-full max-w-full overflow-x-hidden">
                             {/* Show both Question Selection and Board together when started */}
                             {started && (
-                                <div>
-                                    {/* Soal Dropdown */}
+                                <div
+                                    className="w-full max-w-full overflow-x-hidden"
+                                    style={{
+                                        maxWidth: 1092,
+                                        marginLeft: "auto",
+                                        marginRight: "auto"
+                                    }}
+                                >
+                                    {/* Soal Dropdown - Responsive */}
                                     <div
-                                        className="hidden md:block mb-4 bg-white p-4 rounded-lg shadow"
-                                        style={{ maxWidth: '100%', width: '100%' }}
+                                        className="mb-4 bg-white p-4 rounded-lg shadow w-full"
+                                        style={{ maxWidth: '100%' }}
                                     >
                                         <div className="flex flex-col md:flex-row gap-4">
-                                            <div
-                                                className="flex-1 min-w-[320px] w-full"
-                                                style={{ maxWidth: '640px' }}
-                                            >
+                                            <div className="flex-1 min-w-[220px] w-full" style={{ maxWidth: '100%', position: 'relative' }}>
                                                 <label className="block text-sm font-medium text-gray-700 mb-1">Pilih Soal</label>
-                                                <select
-                                                    value={selectedQuestion}
-                                                    onChange={handleQuestionSelect}
-                                                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 appearance-none bg-white"
-                                                    style={{
-                                                        paddingRight: '2.5rem',
-                                                        backgroundPosition: 'right 0.75rem center',
-                                                        backgroundRepeat: 'no-repeat',
-                                                        backgroundSize: '1.25em 1.25em',
-                                                        zIndex: 10,
-                                                    }}
-                                                >
-                                                    <option value="">-- Pilih Soal --</option>
-                                                    <optgroup label="Mendatar">
-                                                        {clues.across.map(clue => (
-                                                            <option key={`across-${clue.number}`} value={`across-${clue.number}`}>
-                                                                {clue.number}. {clue.clue} ({clue.answer.length} huruf)
-                                                            </option>
-                                                        ))}
-                                                    </optgroup>
-                                                    <optgroup label="Menurun">
-                                                        {clues.down.map(clue => (
-                                                            <option key={`down-${clue.number}`} value={`down-${clue.number}`}>
-                                                                {clue.number}. {clue.clue} ({clue.answer.length} huruf)
-                                                            </option>
-                                                        ))}
-                                                    </optgroup>
-                                                </select>
+                                                {/* Custom Dropdown */}
+                                                <div className="relative" ref={questionDropdownRef}>
+                                                    <button
+                                                        type="button"
+                                                        className="w-full border border-gray-300 rounded-md px-3 py-2 bg-white text-left focus:outline-none focus:ring-2 focus:ring-orange-500 flex justify-between items-center"
+                                                        onClick={() => setIsQuestionDropdownOpen(v => !v)}
+                                                    >
+                                                        <span>
+                                                            {selectedQuestion
+                                                                ? (() => {
+                                                                    const [direction, numberStr] = selectedQuestion.split('-');
+                                                                    const number = parseInt(numberStr);
+                                                                    const clueList = direction === 'across' ? clues.across : clues.down;
+                                                                    const clue = clueList.find(c => c.number === number);
+                                                                    return clue
+                                                                        ? `${clue.number}. ${clue.clue} (${clue.answer.length} huruf)`
+                                                                        : '-- Pilih Soal --';
+                                                                })()
+                                                                : '-- Pilih Soal --'}
+                                                        </span>
+                                                        <svg className={`w-4 h-4 ml-2 transition-transform ${isQuestionDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                                        </svg>
+                                                    </button>
+                                                    {isQuestionDropdownOpen && (
+                                                        <div
+                                                            className="absolute left-0 mt-2 w-full bg-white border border-gray-200 rounded-md shadow-lg z-30 max-h-72 overflow-y-auto animate-dropdown"
+                                                            style={{
+                                                                minWidth: 220,
+                                                                boxShadow: '0 8px 24px 0 rgba(191,64,0,0.10)'
+                                                            }}
+                                                        >
+                                                            <div className="py-1">
+                                                                <div className="px-3 py-1 text-xs font-semibold text-orange-700 bg-orange-50 rounded-t">Mendatar</div>
+                                                                {clues.across.length === 0 && (
+                                                                    <div className="px-4 py-2 text-gray-400 text-sm">Tidak ada soal mendatar</div>
+                                                                )}
+                                                                {clues.across.map(clue => (
+                                                                    <button
+                                                                        key={`across-${clue.number}`}
+                                                                        className={`w-full text-left px-4 py-2 text-sm hover:bg-orange-100 transition rounded ${
+                                                                            selectedQuestion === `across-${clue.number}` ? 'bg-orange-50 font-semibold text-orange-700' : ''
+                                                                        }`}
+                                                                        onClick={() => {
+                                                                            setSelectedQuestion(`across-${clue.number}`);
+                                                                            setSelectedClue(clue);
+                                                                            setInputDirection('across');
+                                                                            setUserAnswer('');
+                                                                            clearAllWrongAnswers();
+                                                                            highlightClueCells(clue);
+                                                                            setIsQuestionDropdownOpen(false);
+                                                                            setTimeout(() => {
+                                                                                if (answerInputRef.current) answerInputRef.current.focus();
+                                                                            }, 0);
+                                                                        }}
+                                                                    >
+                                                                        {clue.number}. {clue.clue} <span className="text-gray-400">({clue.answer.length} huruf)</span>
+                                                                    </button>
+                                                                ))}
+                                                                <div className="px-3 py-1 text-xs font-semibold text-orange-700 bg-orange-50 mt-2 rounded-t">Menurun</div>
+                                                                {clues.down.length === 0 && (
+                                                                    <div className="px-4 py-2 text-gray-400 text-sm">Tidak ada soal menurun</div>
+                                                                )}
+                                                                {clues.down.map(clue => (
+                                                                    <button
+                                                                        key={`down-${clue.number}`}
+                                                                        className={`w-full text-left px-4 py-2 text-sm hover:bg-orange-100 transition rounded ${
+                                                                            selectedQuestion === `down-${clue.number}` ? 'bg-orange-50 font-semibold text-orange-700' : ''
+                                                                        }`}
+                                                                        onClick={() => {
+                                                                            setSelectedQuestion(`down-${clue.number}`);
+                                                                            setSelectedClue(clue);
+                                                                            setInputDirection('down');
+                                                                            setUserAnswer('');
+                                                                            clearAllWrongAnswers();
+                                                                            highlightClueCells(clue);
+                                                                            setIsQuestionDropdownOpen(false);
+                                                                            setTimeout(() => {
+                                                                                if (answerInputRef.current) answerInputRef.current.focus();
+                                                                            }, 0);
+                                                                        }}
+                                                                    >
+                                                                        {clue.number}. {clue.clue} <span className="text-gray-400">({clue.answer.length} huruf)</span>
+                                                                    </button>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    {/* Animasi dropdown */}
+                                                    <style>{`
+                                                        @keyframes dropdown {
+                                                            0% { opacity: 0; transform: translateY(-10px);}
+                                                            100% { opacity: 1; transform: translateY(0);}
+                                                        }
+                                                        .animate-dropdown {
+                                                            animation: dropdown 0.18s cubic-bezier(.4,0,.2,1);
+                                                        }
+                                                    `}</style>
+                                                </div>
                                             </div>
                                             {selectedQuestion && selectedClue && (
-                                                <div className="flex-1 min-w-[220px] w-full">
+                                                <div className="flex-1 min-w-[180px] w-full">
                                                     <label className="block text-sm font-medium text-gray-700 mb-1">
                                                         Jawaban ({selectedClue.answer.length} huruf)
                                                     </label>
@@ -861,10 +1121,74 @@ export default function Page() {
                                                             maxLength={selectedClue.answer.length}
                                                             className="flex-1 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 uppercase bg-white"
                                                             placeholder={`Masukkan ${selectedClue.answer.length} huruf`}
+                                                            onKeyDown={async e => {
+                                                                if (
+                                                                    e.key === 'Enter' &&
+                                                                    userAnswer.length === selectedClue.answer.length
+                                                                ) {
+                                                                    // Submit dan cek hasil
+                                                                    let hasil = 'salah';
+                                                                    try {
+                                                                        const res = await axios.post(`/api/admin/tesla/${selectedClue.number}`, { jawaban: userAnswer });
+                                                                        hasil = res.data.hasil;
+                                                                    } catch {
+                                                                        hasil = 'salah';
+                                                                    }
+                                                                    await handleAnswerSubmit();
+                                                                    if (hasil === 'benar') {
+                                                                        const nextClue = getNextClue(selectedClue);
+                                                                        if (nextClue) {
+                                                                            setSelectedQuestion(`${nextClue.direction}-${nextClue.number}`);
+                                                                            setSelectedClue(nextClue);
+                                                                            setUserAnswer('');
+                                                                            highlightClueCells(nextClue);
+                                                                            setTimeout(() => {
+                                                                                if (answerInputRef.current) answerInputRef.current.focus();
+                                                                            }, 0);
+                                                                        }
+                                                                    } else {
+                                                                        // Pastikan tetap di nomor currentnya
+                                                                        setSelectedQuestion(`${selectedClue.direction}-${selectedClue.number}`);
+                                                                        setSelectedClue(selectedClue);
+                                                                        setTimeout(() => {
+                                                                            if (answerInputRef.current) answerInputRef.current.focus();
+                                                                        }, 0);
+                                                                    }
+                                                                }
+                                                            }}
                                                         />
                                                         <button
-                                                            onClick={handleAnswerSubmit}
-                                                            className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600"
+                                                            onClick={async () => {
+                                                                // Submit dan cek hasil
+                                                                let hasil = 'salah';
+                                                                try {
+                                                                    const res = await axios.post(`/api/admin/tesla/${selectedClue.number}`, { jawaban: userAnswer });
+                                                                    hasil = res.data.hasil;
+                                                                } catch {
+                                                                    hasil = 'salah';
+                                                                }
+                                                                await handleAnswerSubmit();
+                                                                if (hasil === 'benar') {
+                                                                    const nextClue = getNextClue(selectedClue);
+                                                                    if (nextClue) {
+                                                                        setSelectedQuestion(`${nextClue.direction}-${nextClue.number}`);
+                                                                        setSelectedClue(nextClue);
+                                                                        setUserAnswer('');
+                                                                        highlightClueCells(nextClue);
+                                                                        setTimeout(() => {
+                                                                            if (answerInputRef.current) answerInputRef.current.focus();
+                                                                        }, 0);
+                                                                    }
+                                                                } else {
+                                                                    // Pastikan tetap di nomor currentnya
+                                                                    setSelectedQuestion(`${selectedClue.direction}-${selectedClue.number}`);
+                                                                    setSelectedClue(selectedClue);
+                                                                    setTimeout(() => {
+                                                                        if (answerInputRef.current) answerInputRef.current.focus();
+                                                                    }, 0);
+                                                                }
+                                                            }}
+                                                            className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-all duration-150"
                                                         >
                                                             Submit
                                                         </button>
@@ -874,112 +1198,255 @@ export default function Page() {
                                         </div>
                                     </div>
                                     {/* Board */}
-                                    <div
-                                        className="inline-block overflow-x-auto bg-white p-4 rounded-lg shadow"
-                                        style={{
-                                            maxWidth: '100%',
-                                            minWidth: 320,
-                                            border: '1px solid #e5e7eb',
-                                        }}
-                                    >
+                                    {!loading && (
                                         <div
-                                            className="grid gap-0"
+                                            className="bg-white rounded-lg shadow w-full max-w-full overflow-x-auto"
                                             style={{
-                                                gridTemplateColumns: `repeat(${grid.length}, minmax(1.5rem, 2rem))`,
+                                                border: '1px solid #e5e7eb',
+                                                display: 'block',
+                                                minWidth: 0,
+                                                width: '100%',
+                                                padding: 0,
+                                                maxWidth: '100%',
+                                                WebkitOverflowScrolling: 'touch',
+                                                overflowX: 'auto',
+                                            }}
+                                            // HAPUS kode auto-scroll ke tengah:
+                                            // ref={el => {
+                                            //     if (el && grid.length > 0) {
+                                            //         el.scrollLeft = (el.scrollWidth - el.clientWidth) / 2;
+                                            //     }
+                                            // }}
+                                            // Drag-to-scroll handlers
+                                            onMouseDown={e => {
+                                                const el = e.currentTarget;
+                                                let startX = e.pageX - el.offsetLeft;
+                                                let scrollLeft = el.scrollLeft;
+                                                const onMouseMove = (ev: MouseEvent) => {
+                                                    const x = ev.pageX - el.offsetLeft;
+                                                    el.scrollLeft = scrollLeft - (x - startX);
+                                                };
+                                                const onMouseUp = () => {
+                                                    window.removeEventListener('mousemove', onMouseMove);
+                                                    window.removeEventListener('mouseup', onMouseUp);
+                                                };
+                                                window.addEventListener('mousemove', onMouseMove);
+                                                window.addEventListener('mouseup', onMouseUp);
+                                            }}
+                                            onTouchStart={e => {
+                                                const el = e.currentTarget;
+                                                const touch = e.touches[0];
+                                                let startX = touch.pageX - el.offsetLeft;
+                                                let scrollLeft = el.scrollLeft;
+                                                const onTouchMove = (ev: TouchEvent) => {
+                                                    const t = ev.touches[0];
+                                                    const x = t.pageX - el.offsetLeft;
+                                                    el.scrollLeft = scrollLeft - (x - startX);
+                                                };
+                                                const onTouchEnd = () => {
+                                                    window.removeEventListener('touchmove', onTouchMove);
+                                                    window.removeEventListener('touchend', onTouchEnd);
+                                                };
+                                                window.addEventListener('touchmove', onTouchMove);
+                                                window.addEventListener('touchend', onTouchEnd);
                                             }}
                                         >
-                                            {grid.map((row, rowIndex) => (
-                                                <React.Fragment key={rowIndex}>
-                                                    {row.map((cell, colIndex) => (
-                                                        <div
-                                                            key={`${rowIndex}-${colIndex}`}
-                                                            className={`
-                                                                border border-gray-400
-                                                                w-6 h-6 md:w-8 md:h-8
-                                                                flex items-center justify-center relative
-                                                                text-xs md:text-base
-                                                                transition-all
-                                                                ${cell.isBlack ? 'bg-black' : ''}
-                                                                ${cell.isCorrect ? 'bg-green-200' : cell.isWrong ? 'bg-red-200' : cell.isSelected ? 'bg-yellow-200' : cell.isHighlighted ? 'bg-yellow-100' : 'bg-gray-50'}
-                                                                ${cell.letter ? 'font-bold' : ''}
-                                                                select-none
-                                                            `}
-                                                            style={{
-                                                                minWidth: 24,
-                                                                minHeight: 24,
-                                                                maxWidth: 32,
-                                                                maxHeight: 32,
-                                                                padding: 0,
-                                                                boxSizing: 'border-box',
-                                                                cursor: cell.number ? 'pointer' : 'default',
-                                                                borderRadius: 4,
-                                                                borderWidth: 1,
-                                                                borderColor: cell.isCorrect
-                                                                    ? '#22c55e'
-                                                                    : cell.isWrong
-                                                                        ? '#ef4444'
-                                                                        : '#a3a3a3',
-                                                            }}
-                                                        >
-                                                            {cell.number && (
-                                                                <span
-                                                                    className="absolute top-0 left-0 text-[10px] text-gray-800 pl-0.5 pt-0.5 leading-none cursor-pointer select-none"
-                                                                    style={{
-                                                                        zIndex: 2,
-                                                                        background: 'rgba(255,255,255,0.7)',
-                                                                        borderRadius: 2,
-                                                                        minWidth: 12,
-                                                                        textAlign: 'left',
-                                                                        pointerEvents: 'auto',
-                                                                    }}
-                                                                    onClick={() => {
-                                                                        if (!started) return;
-                                                                        const clue = getClueByPosition(rowIndex, colIndex);
-                                                                        if (clue) {
-                                                                            setSelectedQuestion(`${clue.direction}-${clue.number}`);
-                                                                            highlightClueCells(clue);
-                                                                        }
-                                                                    }}
-                                                                >
-                                                                    {cell.number}
-                                                                </span>
-                                                            )}
-                                                            <span
-                                                                className={`${cell.isSelected ? 'text-black font-bold' : 'text-gray-800'}`}
+                                            <div
+                                                className="grid gap-0"
+                                                style={{
+                                                    gridTemplateColumns:
+                                                        grid[0]?.length
+                                                            ? `repeat(${grid[0].length}, 1fr)`
+                                                            : undefined,
+                                                    width: "100%",
+                                                    maxWidth: "100%",
+                                                }}
+                                            >
+                                                {(grid.length > 0 ? grid : []).map((row, rowIndex) => (
+                                                    <React.Fragment key={rowIndex}>
+                                                        {(row ? row : []).map((cell, colIndex) => (
+                                                            <div
+                                                                key={`${rowIndex}-${colIndex}`}
+                                                                className={`
+                                                                    border border-gray-400
+                                                                    flex items-center justify-center relative
+                                                                    text-xs md:text-base
+                                                                    transition-all
+                                                                    ${cell?.isBlack ? 'bg-black' : ''}
+                                                                    ${cell?.isCorrect ? 'bg-green-200' : cell?.isWrong ? 'bg-red-200' : cell?.isSelected ? 'bg-yellow-200' : cell?.isHighlighted ? 'bg-yellow-100' : 'bg-gray-50'}
+                                                                    ${cell?.letter ? 'font-bold' : ''}
+                                                                    select-none
+                                                                `}
                                                                 style={{
-                                                                    zIndex: 1,
-                                                                    width: '100%',
-                                                                    textAlign: 'center',
-                                                                    fontSize: '1rem',
-                                                                    lineHeight: '1.5rem',
-                                                                    position: 'relative',
+                                                                    width: "100%",
+                                                                    aspectRatio: "1 / 1",
+                                                                    minWidth: 32,
+                                                                    minHeight: 32,
+                                                                    maxWidth: "100%",
+                                                                    maxHeight: "100%",
+                                                                    padding: 0,
+                                                                    boxSizing: 'border-box',
+                                                                    cursor: cell?.number ? 'pointer' : 'default',
+                                                                    borderRadius: 4,
+                                                                    borderWidth: 1,
+                                                                    borderColor: cell?.isCorrect
+                                                                        ? '#22c55e'
+                                                                        : cell?.isWrong
+                                                                            ? '#ef4444'
+                                                                            : '#a3a3a3',
+                                                                    backgroundColor: cell?.isBlack ? '#000' :
+                                                                        cell?.isCorrect ? '#bbf7d0' :
+                                                                        cell?.isWrong ? '#fecaca' :
+                                                                        cell?.isSelected ? '#fef08a' :
+                                                                        cell?.isHighlighted ? '#fef9c3' :
+                                                                        '#f9fafb',
                                                                 }}
                                                             >
-                                                                {cell.letter}
-                                                            </span>
-                                                        </div>
-                                                    ))}
-                                                </React.Fragment>
-                                            ))}
+                                                                {cell?.number && (
+                                                                    <span
+                                                                        className="absolute top-0 left-0 text-[10px] text-gray-800 pl-0.5 pt-0.5 leading-none cursor-pointer select-none"
+                                                                        style={{
+                                                                            zIndex: 2,
+                                                                            background: 'rgba(255,255,255,0.7)',
+                                                                            borderRadius: 2,
+                                                                            minWidth: 12,
+                                                                            textAlign: 'left',
+                                                                            pointerEvents: 'auto',
+                                                                        }}
+                                                                        onClick={() => {
+                                                                            if (!started) return;
+                                                                            const clue = getClueByPosition(rowIndex, colIndex);
+                                                                            if (clue) {
+                                                                                setSelectedQuestion(`${clue.direction}-${clue.number}`);
+                                                                                highlightClueCells(clue);
+                                                                            }
+                                                                        }}
+                                                                    >
+                                                                        {cell.number}
+                                                                    </span>
+                                                                )}
+                                                                <span
+                                                                    className={`${cell?.isSelected ? 'text-black font-bold' : 'text-gray-800'}`}
+                                                                    style={{
+                                                                        zIndex: 1,
+                                                                        width: '100%',
+                                                                        textAlign: 'center',
+                                                                        fontSize: '1rem',
+                                                                        lineHeight: '1.5rem',
+                                                                        position: 'relative',
+                                                                    }}
+                                                                >
+                                                                    {cell?.letter || ''}
+                                                                </span>
+                                                            </div>
+                                                        ))}
+                                                    </React.Fragment>
+                                                ))}
+                                            </div>
+                                            {/* Hide scrollbar for Chrome/Safari/Opera */}
+                                            <style>
+                                                {`
+                                                .grid::-webkit-scrollbar {
+                                                    display: none !important;
+                                                    width: 0 !important;
+                                                    height: 0 !important;
+                                                    background: transparent !important;
+                                                }
+                                                /* Hide scrollbar for the board container */
+                                                .bg-white.rounded-lg.shadow::-webkit-scrollbar {
+                                                    display: none !important;
+                                                    width: 0 !important;
+                                                    height: 0 !important;
+                                                    background: transparent !important;
+                                                }
+                                                .bg-white.rounded-lg.shadow {
+                                                    -ms-overflow-style: none;  /* IE and Edge */
+                                                    scrollbar-width: none;     /* Firefox */
+                                                }
+                                                `}
+                                            </style>
                                         </div>
-                                    </div>
+                                    )}
+                                    {/* Saat loading, board tidak tampil sama sekali (tanpa padding) */}
                                 </div>
                             )}
                         </div>
-
                         {/* Bottom Buttons */}
-                        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        {/* --- Start: Always inline, wrap if needed --- */}
+                        <div className="flex flex-row flex-wrap gap-2 justify-center items-center">
                             {!started ? (
                                 <button
-                                    onClick={() => setStarted(true)}
-                                    className="bg-white border border-gray-300 px-4 md:px-6 py-2 rounded text-[#FF6B20] hover:bg-gray-50 text-sm md:text-base"
+                                    onClick={() => {
+                                        if (loading) return;
+                                        setClues({
+                                            across: initialClues.across.map(c => ({ ...c, isAnswered: false })),
+                                            down: initialClues.down.map(c => ({ ...c, isAnswered: false })),
+                                        });
+                                        setGrid(initialGrid.map(row => row.map(cell => ({
+                                            ...cell,
+                                            letter: '',
+                                            isSelected: false,
+                                            isHighlighted: false,
+                                            isCorrect: false,
+                                            isWrong: false,
+                                        }))));
+                                        setStarted(true);
+                                        setTime(0);
+                                        setIsPlaying(true);
+                                        setSelectedCell(null);
+                                        setSelectedClue(null);
+                                        setUserAnswer('');
+                                        // Pilih soal pertama otomatis
+                                        const first = getFirstClue();
+                                        if (first) {
+                                            setSelectedQuestion(first.key);
+                                            setSelectedClue(first.clue);
+                                            setTimeout(() => {
+                                                highlightClueCells(first.clue);
+                                            }, 0);
+                                        } else {
+                                            setSelectedQuestion('');
+                                            setSelectedClue(null);
+                                        }
+                                    }}
+                                    className={`bg-gradient-to-r from-orange-500 to-[#b84c19] text-white font-bold text-lg rounded-xl shadow-lg px-10 py-3 transition-all duration-200 hover:scale-105 hover:from-orange-600 hover:to-[#a03c15] focus:outline-none${loading ? ' opacity-50 cursor-not-allowed' : ''}`}
+                                    style={{
+                                        minWidth: 180,
+                                        minHeight: 56,
+                                        letterSpacing: 1,
+                                        margin: '0 auto',
+                                        display: 'block'
+                                    }}
+                                    disabled={loading}
                                 >
                                     Mulai
                                 </button>
                             ) : (
                                 <button
-                                    onClick={resetPuzzle}
-                                    className="bg-white border border-gray-300 px-4 md:px-6 py-2 rounded text-[#FF6B20] hover:bg-gray-50 text-sm md:text-base"
+                                    onClick={() => {
+                                        resetPuzzle();
+                                        // Otomatis pindah ke nomor 1 (soal pertama)
+                                        const first = getFirstClue();
+                                        if (first) {
+                                            setSelectedQuestion(first.key);
+                                            setSelectedClue(first.clue);
+                                            setTimeout(() => {
+                                                highlightClueCells(first.clue);
+                                                if (answerInputRef.current) answerInputRef.current.focus();
+                                            }, 0);
+                                        } else {
+                                            setSelectedQuestion('');
+                                            setSelectedClue(null);
+                                        }
+                                    }}
+                                    className="bg-white shadow-lg text-orange-600 px-4 py-2 rounded text-xs md:text-sm font-medium transition-all duration-150 hover:scale-105 hover:bg-orange-100"
+                                    style={{
+                                        minWidth: 110,
+                                        minHeight: 40,
+                                        transition: 'transform 0.15s',
+                                        fontWeight: 500,
+                                        boxShadow: '0 2px 8px 0 rgba(191,64,0,0.08)'
+                                    }}
                                 >
                                     Mulai Dari Awal
                                 </button>
@@ -988,259 +1455,39 @@ export default function Page() {
                                 <>
                                     <button
                                         onClick={togglePause}
-                                        className="bg-white border border-gray-300 px-4 md:px-6 py-2 rounded text-[#FF6B20] hover:bg-gray-50 text-sm md:text-base"
+                                        className="bg-white shadow-lg text-orange-600 px-4 py-2 rounded text-xs md:text-sm font-medium transition-all duration-150 hover:scale-105 hover:bg-orange-100"
+                                        style={{
+                                            minWidth: 110,
+                                            minHeight: 40,
+                                            transition: 'transform 0.15s',
+                                            fontWeight: 500,
+                                            boxShadow: '0 2px 8px 0 rgba(191,64,0,0.08)'
+                                        }}
                                     >
                                         {isPlaying ? 'Pause' : 'Lanjutkan'}
                                     </button>
-                                    <button className="bg-white border border-gray-300 px-4 md:px-6 py-2 rounded text-[#FF6B20] hover:bg-gray-50 text-sm md:text-base">
-                                        Simpan Progress
+                                    <button
+                                        onClick={handleSaveProgress}
+                                        className="bg-white shadow-lg text-orange-600 px-4 py-2 rounded text-xs md:text-sm font-medium transition-all duration-150 hover:scale-105 hover:bg-orange-100"
+                                        style={{
+                                            minWidth: 110,
+                                            minHeight: 40,
+                                            transition: 'transform 0.15s',
+                                            fontWeight: 500,
+                                            boxShadow: '0 2px 8px 0 rgba(191,64,0,0.08)'
+                                        }}
+                                    >
+                                        Simpan Progres
                                     </button>
                                 </>
                             )}
                         </div>
-                    </div>
-
-                    {/* Right Sidebar - Hidden on mobile, shown in modal */}
-                    <div className="hidden md:block w-80 order-1 md:order-2">
-                        <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-                            {/* Tabs */}
-                            <div className="flex">
-                                <button
-                                    onClick={() => setCurrentTab('Petunjuk Soal')}
-                                    className={`flex-1 py-3 px-4 text-sm font-medium ${currentTab === 'Petunjuk Soal'
-                                        ? 'bg-gradient-to-b from-[#BF4000] to-[#591E00] text-white'
-                                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                        }`}
-                                >
-                                    Petunjuk Soal
-                                </button>
-                            </div>
-
-                            {/* Sub tabs */}
-                            <div className="flex border-b">
-                                <button
-                                    onClick={started ? () => setCurrentTab('Mendatar') : undefined}
-                                    className={`flex-1 py-2 px-4 text-sm ${currentTab === 'Mendatar'
-                                        ? 'bg-gradient-to-b from-[#BF4000] to-[#591E00] text-white'
-                                        : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
-                                        } ${!started ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                    disabled={!started}
-                                >
-                                    Mendatar
-                                </button>
-                                <button
-                                    onClick={started ? () => setCurrentTab('Menurun') : undefined}
-                                    className={`flex-1 py-2 px-4 text-sm ${currentTab === 'Menurun'
-                                        ? 'bg-gradient-to-b from-[#BF4000] to-[#591E00] text-white'
-                                        : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
-                                        } ${!started ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                    disabled={!started}
-                                >
-                                    Menurun
-                                </button>
-                            </div>
-
-                            {/* Content */}
-                            <div className="p-4 max-h-80 overflow-y-auto">
-                                {currentTab === 'Mendatar' && (
-                                    <div>
-                                        <h3 className="font-bold mb-2">Mendatar</h3>
-                                        <ul className="space-y-3">
-                                            {clues.across.map((clue) => (
-                                                <li
-                                                    key={clue.number}
-                                                    className={`p-2 rounded cursor-pointer ${selectedClue?.number === clue.number && selectedClue?.direction === 'across' ? 'bg-yellow-100' : ''}`}
-                                                    onClick={() => {
-                                                        setSelectedQuestion(`across-${clue.number}`);
-                                                        highlightClueCells(clue);
-                                                    }}
-                                                >
-                                                    <span className="font-bold">{clue.number}.</span> {clue.clue}
-                                                    {clue.isAnswered && (
-                                                        <span className="ml-2 text-green-600">✓</span>
-                                                    )}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
-                                {currentTab === 'Menurun' && (
-                                    <div>
-                                        <h3 className="font-bold mb-2">Menurun</h3>
-                                        <ul className="space-y-3">
-                                            {clues.down.map((clue) => (
-                                                <li
-                                                    key={clue.number}
-                                                    className={`p-2 rounded cursor-pointer ${selectedClue?.number === clue.number && selectedClue?.direction === 'down' ? 'bg-yellow-100' : ''}`}
-                                                    onClick={() => {
-                                                        setSelectedQuestion(`down-${clue.number}`);
-                                                        highlightClueCells(clue);
-                                                    }}
-                                                >
-                                                    <span className="font-bold">{clue.number}.</span> {clue.clue}
-                                                    {clue.isAnswered && (
-                                                        <span className="ml-2 text-green-600">✓</span>
-                                                    )}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
-                                {currentTab === 'Petunjuk Soal' && (
-                                    <div>
-                                        <h3 className="font-bold mb-2">Petunjuk Bermain</h3>
-                                        <ol className="list-decimal pl-5 space-y-2 text-sm">
-                                            <li>Pilih soal dari dropdown atau daftar soal</li>
-                                            <li>Masukkan jawaban pada kolom input</li>
-                                            <li>Tekan Submit untuk mengisi jawaban</li>
-                                            <li>Jawaban benar akan berwarna hijau</li>
-                                            <li>Jawaban salah akan berwarna merah</li>
-                                            <li>Tekan "Check Jawaban" untuk memeriksa semua jawaban</li>
-                                        </ol>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Mobile Quick Actions */}
-                    <div className="flex md:hidden space-x-2 order-1 md:order-2 mb-4">
-                        <button
-                            onClick={() => setIsMobileMenuOpen(true)}
-                            className="flex-1 bg-white border border-gray-300 px-3 py-2 rounded text-[#FF6B20] hover:bg-gray-50 text-sm"
-                        >
-                            📝 Petunjuk
-                        </button>
-                        <button
-                            onClick={() => setIsProgressModalOpen(true)}
-                            className="flex-1 bg-white border border-gray-300 px-3 py-2 rounded text-[#FF6B20] hover:bg-gray-50 text-sm"
-                        >
-                            📊 Progress
-                        </button>
+                        {/* --- End: Always inline, wrap if needed --- */}
                     </div>
                 </div>
-
                 {/* Progress Bar - Desktop Only */}
-                {started && (
-                    <div className="hidden md:block mt-6 bg-white border border-gray-200 rounded-lg p-4">
-                        <h3 className="text-lg font-medium text-gray-800 mb-4 text-center">Progress</h3>
-                        <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
-                            <div
-                                className="bg-orange-500 h-2 rounded-full"
-                                style={{ width: `${progress.percentage}%` }}
-                            ></div>
-                        </div>
-                        <div className="flex justify-between text-sm text-gray-600">
-                            <div className="text-center">
-                                <div className="font-bold text-gray-800">{formatTime(time)}</div>
-                                <div>Waktu</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="font-bold text-gray-800">{progress.percentage}%</div>
-                                <div>Selesai</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="font-bold text-gray-800">{progress.answered}/{progress.total}</div>
-                                <div>Pertanyaan</div>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
 
-            {/* Mobile Modal for Petunjuk */}
-            <MobileModal
-                isOpen={isMobileMenuOpen}
-                onClose={() => setIsMobileMenuOpen(false)}
-                title="Petunjuk Soal"
-            >
-                {/* Sub tabs */}
-                <div className="flex border-b">
-                    <button
-                        onClick={started ? () => setCurrentTab('Mendatar') : undefined}
-                        className={`flex-1 py-3 px-4 text-sm ${currentTab === 'Mendatar'
-                            ? 'bg-gradient-to-b from-[#BF4000] to-[#591E00] text-white'
-                            : 'bg-gray-50 text-gray-600'
-                            } ${!started ? 'opacity-50 cursor-not-allowed' : ''}`}
-                        disabled={!started}
-                    >
-                        Mendatar
-                    </button>
-                    <button
-                        onClick={started ? () => setCurrentTab('Menurun') : undefined}
-                        className={`flex-1 py-3 px-4 text-sm ${currentTab === 'Menurun'
-                            ? 'bg-gradient-to-b from-[#BF4000] to-[#591E00] text-white'
-                            : 'bg-gray-50 text-gray-600'
-                            } ${!started ? 'opacity-50 cursor-not-allowed' : ''}`}
-                        disabled={!started}
-                    >
-                        Menurun
-                    </button>
-                </div>
-
-                {/* Content */}
-                <div className="p-4 max-h-60 overflow-y-auto">
-                    {currentTab === 'Mendatar' && (
-                        <div>
-                            <h3 className="font-bold mb-2">Mendatar</h3>
-                            <ul className="space-y-3">
-                                {clues.across.map((clue) => (
-                                    <li
-                                        key={clue.number}
-                                        className={`p-2 rounded cursor-pointer ${selectedClue?.number === clue.number && selectedClue?.direction === 'across' ? 'bg-yellow-100' : ''}`}
-                                        onClick={() => {
-                                            setSelectedQuestion(`across-${clue.number}`);
-                                            highlightClueCells(clue);
-                                            setIsMobileMenuOpen(false);
-                                        }}
-                                    >
-                                        <span className="font-bold">{clue.number}.</span> {clue.clue}
-                                        {clue.isAnswered && (
-                                            <span className="ml-2 text-green-600">✓</span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
-                    {currentTab === 'Menurun' && (
-                        <div>
-                            <h3 className="font-bold mb-2">Menurun</h3>
-                            <ul className="space-y-3">
-                                {clues.down.map((clue) => (
-                                    <li
-                                        key={clue.number}
-                                        className={`p-2 rounded cursor-pointer ${selectedClue?.number === clue.number && selectedClue?.direction === 'down' ? 'bg-yellow-100' : ''}`}
-                                        onClick={() => {
-                                            setSelectedQuestion(`down-${clue.number}`);
-                                            highlightClueCells(clue);
-                                            setIsMobileMenuOpen(false);
-                                        }}
-                                    >
-                                        <span className="font-bold">{clue.number}.</span> {clue.clue}
-                                        {clue.isAnswered && (
-                                            <span className="ml-2 text-green-600">✓</span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
-                    {currentTab === 'Petunjuk Soal' && (
-                        <div>
-                            <h3 className="font-bold mb-2">Petunjuk Bermain</h3>
-                            <ol className="list-decimal pl-5 space-y-2 text-sm">
-                                <li>Pilih soal dari dropdown atau daftar soal</li>
-                                <li>Masukkan jawaban pada kolom input</li>
-                                <li>Tekan Submit untuk mengisi jawaban</li>
-                                <li>Jawaban benar akan berwarna hijau</li>
-                                <li>Jawaban salah akan berwarna merah</li>
-                                <li>Tekan "Check Jawaban" untuk memeriksa semua jawaban</li>
-                            </ol>
-                        </div>
-                    )}
-                </div>
-            </MobileModal>
 
             {/* Progress Modal */}
             <ProgressModal
@@ -1255,6 +1502,120 @@ export default function Page() {
                 correct={result.correct}
                 wrong={result.wrong}
             />
+
+            {/* Petunjuk Bermain Modal */}
+            {isPetunjukModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center p-4 pt-[15vh]">
+                    <div className="bg-white w-full max-w-md mx-auto rounded-lg overflow-hidden">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-b from-[#BF4000] to-[#591E00] text-white">
+                            <h3 className="font-medium">Petunjuk Bermain</h3>
+                            <button
+                                onClick={() => setIsPetunjukModalOpen(false)}
+                                className="text-white text-xl font-bold"
+                            >
+                                ×
+                            </button>
+                        </div>
+                        <div className="p-6">
+                            <ol className="list-decimal pl-5 space-y-2 text-sm text-gray-700">
+                                <li>Pilih soal dari dropdown atau daftar soal</li>
+                                <li>Masukkan jawaban pada kolom input</li>
+                                <li>Tekan Submit untuk mengisi jawaban</li>
+                                <li>Jawaban benar akan berwarna hijau</li>
+                                <li>Jawaban salah akan berwarna merah</li>
+                                <li>Tekan "Check Jawaban" untuk memeriksa semua jawaban</li>
+                                <li>Tekan "Simpan Progres" untuk menyimpan progres permainan</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* History Progress Modal */}
+            {isHistoryModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center p-4 pt-[15vh]">
+                    <div className="bg-white w-full max-w-md mx-auto rounded-lg overflow-hidden">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-b from-[#BF4000] to-[#591E00] text-white">
+                            <h3 className="font-medium">Riwayat Progres</h3>
+                            <button
+                                onClick={() => setIsHistoryModalOpen(false)}
+                                className="text-white text-xl font-bold"
+                            >
+                                ×
+                            </button>
+                        </div>
+                        <div className="p-6">
+                            {history.length > 0 ? (
+    <div
+        className="overflow-y-auto"
+        style={{
+            maxHeight: 320,
+            overflowX: 'auto'
+        }}
+    >
+        <table className="min-w-full text-sm text-gray-700 table-auto" style={{ width: '100%' }}>
+            <thead>
+                <tr>
+                    <th className="px-2 py-1 text-left whitespace-nowrap">Tanggal</th>
+                    <th className="px-2 py-1 text-left whitespace-nowrap">Waktu</th>
+                    <th className="px-2 py-1 text-left whitespace-nowrap">Selesai</th>
+                    <th className="px-2 py-1 text-left whitespace-nowrap">Jawaban</th>
+                    <th className="px-2 py-1 text-left whitespace-nowrap">Skor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {history.map((h, idx) => (
+                    <tr key={idx} className="border-t">
+                        <td className="px-2 py-1 break-words" data-label="Tanggal">{h.date}</td>
+                        <td className="px-2 py-1 break-words" data-label="Waktu">{formatTime(h.time)}</td>
+                        <td className="px-2 py-1 break-words" data-label="Selesai">{h.percentage}%</td>
+                        <td className="px-2 py-1 break-words" data-label="Jawaban">{h.answered}/{h.total}</td>
+                        <td className="px-2 py-1 break-words" data-label="Skor">{typeof h.score === 'number' ? h.score : (h.answered * 10)}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+        <style>{`
+            @media (max-width: 640px) {
+                table, thead, tbody, th, td, tr {
+                    display: block;
+                    width: 100%;
+                }
+                thead {
+                    display: none;
+                }
+                tbody tr {
+                    margin-bottom: 12px;
+                    border: none;
+                    background: #fff;
+                    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+                    border-radius: 8px;
+                    padding: 8px 0;
+                }
+                td {
+                    padding: 8px 12px;
+                    border: none;
+                    position: relative;
+                    min-width: 0;
+                    word-break: break-word;
+                }
+                td[data-label]:before {
+                    content: attr(data-label) ": ";
+                    font-weight: 600;
+                    color: #b84c19;
+                    display: inline;
+                    margin-right: 4px;
+                    font-size: 0.95em;
+                }
+            }
+        `}</style>
+    </div>
+) : (
+    <div className="text-center text-gray-500">Belum ada history progress.</div>
+)}
+                        </div>                    </div>
+                </div>
+            )}
         </DefaultLayout>
     );
 }

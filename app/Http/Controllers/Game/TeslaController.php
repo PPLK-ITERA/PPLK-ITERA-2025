@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Game;
 use App\Http\Controllers\Controller; // <-- tambahkan ini
 use Illuminate\Http\Request;
 use App\Models\Tesla;
+use App\Models\User;
+use App\Models\Day;
+use App\Models\Progres;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\DB;
 
 class TeslaController extends Controller
 {
@@ -289,6 +293,153 @@ class TeslaController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'Soal dihapus'
+        ]);
+    }
+
+    // --- DAY ENDPOINTS ---
+
+    /**
+     * Get current day value.
+     */
+    public function getDay()
+    {
+        $day = Day::first();
+        return response()->json([
+            'status' => 'success',
+            'data' => $day
+        ]);
+    }
+
+    /**
+     * Update day value.
+     */
+    public function updateDay(Request $request)
+    {
+        $request->validate([
+            'change_day' => 'required|string'
+        ]);
+        $day = Day::first();
+        if (!$day) {
+            $day = Day::create([
+                'change_day' => $request->input('change_day')
+            ]);
+        } else {
+            $day->change_day = $request->input('change_day');
+            $day->save();
+        }
+        return response()->json([
+            'status' => 'success',
+            'data' => $day
+        ]);
+    }
+
+    // --- PROGRES ENDPOINTS ---
+
+    /**
+     * API: Ambil semua progres milik user yang sedang login (user_id dari request->user()->id)
+     */
+    public function getProgres()
+    {
+        $user = auth()->user(); // Ambil user yang sedang login
+
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthorized'
+            ], 401);
+        }
+
+        $progres = Progres::where('user_id', $user->id)
+            ->orderBy('tanggal', 'desc')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'tanggal' => $item->tanggal,
+                    'waktu' => $item->waktu,
+                    'selesai' => $item->selesai,
+                    'jawaban' => $item->jawaban,
+                    'skor' => $item->skor,
+                ];
+            })
+            ->values();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $progres
+        ]);
+    }
+
+
+    /**
+     * API: Simpan progres baru (user_id dari request->user()->id, fallback ke request->input('user_id'))
+     */
+    public function storeProgres(Request $request)
+    {
+        // Coba ambil user id dari request->user(), jika null ambil dari input user_id
+        $userId = optional($request->user())->id ?? $request->input('user_id');
+        if (!$userId) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User id tidak ditemukan (harus login atau sertakan user_id di body)'
+            ], 400);
+        }
+        $request->validate([
+            'tanggal' => 'required|date',
+            'waktu' => 'required|integer',
+            'selesai' => 'required|integer',
+            'jawaban' => 'required|string',
+            'skor' => 'required|integer',
+        ]);
+        $progres = Progres::create([
+            'user_id' => $userId,
+            'tanggal' => $request->tanggal,
+            'waktu' => $request->waktu,
+            'selesai' => $request->selesai,
+            'jawaban' => $request->jawaban,
+            'skor' => $request->skor,
+        ]);
+        return response()->json([
+            'status' => 'success',
+            'data' => $progres
+        ]);
+    }
+
+    /**
+     * API: Ambil semua progres milik user tertentu (user_id dari parameter $id), response mirip getTugasUser
+     */
+    public function getProgresByUserId($id)
+    {
+        try {
+            $progres = \App\Models\Progres::where('user_id', $id)->get();
+            $nama = \App\Models\User::findOrFail($id)->name;
+        } catch (\Exception $e) {
+            return response()->json([
+                'response' => [
+                    'status' => 500,
+                    'message' => $e->getMessage()
+                ]
+            ]);
+        }
+
+        $response = $progres->transform(function ($item) {
+            return [
+                'id' => $item->id,
+                'tanggal' => $item->tanggal,
+                'waktu' => $item->waktu,
+                'selesai' => $item->selesai,
+                'jawaban' => $item->jawaban,
+                'skor' => $item->skor,
+            ];
+        });
+
+        return response()->json([
+            'response' => [
+                'status' => 200,
+                'message' => 'Berhasil mendapatkan data',
+                'data' => $response
+            ],
+            'nama' => $nama
         ]);
     }
 }

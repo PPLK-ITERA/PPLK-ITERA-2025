@@ -18,10 +18,33 @@ return new class extends Migration {
             $table->integer('start_col')->nullable();
             $table->timestamps();
         });
+
+        // Migration untuk tabel day
+        Schema::create('day', function (Blueprint $table) {
+            $table->id();
+            $table->string('change_day'); // ubah dari integer ke string
+            $table->timestamps();
+        });
+
+        // Migration untuk tabel progres
+        Schema::create('progres', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id'); // User yang menyimpan progres
+            $table->dateTime('tanggal'); // Tanggal
+            $table->integer('waktu');    // Waktu (dalam detik)
+            $table->integer('selesai');  // Selesai (dalam persen)
+            $table->string('jawaban');   // Jawaban (format: 5/10)
+            $table->integer('skor');     // Skor
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     public function down(): void
     {
         Schema::dropIfExists('teslas');
+        Schema::dropIfExists('day');
+        Schema::dropIfExists('progres');
     }
 };
