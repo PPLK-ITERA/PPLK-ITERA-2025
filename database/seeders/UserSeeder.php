@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
 
         while (($data = fgetcsv($csvMaba, 2000, ";")) !== FALSE) {
             $currentPos = ftell($csvMaba);
-            
+
             if (!$firstline) {
                 // Validate row has minimum required columns
                 if (count($data) < 15) {
@@ -116,7 +116,7 @@ class UserSeeder extends Seeder
         // Calculate and display elapsed time
         $endTime = microtime(true);
         $elapsedTime = $endTime - $startTime;
-        
+
         echo "\n=== Import Summary ===\n";
         echo "Total processed: {$totalProcessed} users\n";
         echo "Skipped rows: {$skippedRows}\n";

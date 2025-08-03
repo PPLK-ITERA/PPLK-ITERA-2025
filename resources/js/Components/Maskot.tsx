@@ -16,13 +16,13 @@ const maskots = [
   {
     h2: "Hai! Aku,",
     h1: "Chapabel",
-    description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2024!",
+    description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2025!",
     imageSrc: maskot_pplk_man,
   },
   {
     h2: "Hai! Aku,",
     h1: "Chapabel",
-    description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2024!",
+    description: "Hai, Aku Cephabel, Maskot PPLK ITERA 2025!",
     imageSrc: maskot_pplk_woman,
   },
 ];
@@ -59,9 +59,9 @@ export function CarouselMaskot() {
                     data-aos-duration="1000"
                     className={`flex flex-col p-2 ${index === 0 ? "items-end" : "items-start"}`}
                   >
-                    <h2 className="font-avigea mb-2 text-4xl">{maskot.h2}</h2>
+                    <h2 className="font-greek mb-2 text-4xl">{maskot.h2}</h2>
 
-                    <h1 className="font-avigea mb-6 text-6xl">{maskot.h1}</h1>
+                    <h1 className="font-greek mb-6 text-6xl">{maskot.h1}</h1>
 
                     <p
                       className={`${index === 0 ? "text-right" : "text-left"} font-montserrat text-[16px] lg:text-2xl font-semibold"`}

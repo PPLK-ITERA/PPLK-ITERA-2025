@@ -25,6 +25,12 @@ function Page() {
           <Header />
         </div>
 
+        <div className="max-w-6xl p-3 md:p-0 mx-auto">
+          <p className="text-lg p-4 text-justify rounded-xl backdrop-blur-md bg-white/20 border border-white/30 shadow-lg">
+            UPT ITERA adalah singkatan dari Unit Pelaksana Teknis (UPT) Institut Teknologi Sumatera. Secara umum, UPT merupakan unit di lingkungan perguruan tinggi yang bertugas melaksanakan kegiatan teknis penunjang tugas dan fungsi perguruan tinggi.
+          </p>
+        </div>
+
         <div className="bg-pattern-white py-10">
           <div className="max-w-7xl container flex flex-wrap justify-center">
             {DetailUPTData.slice(0, visibleItems).map((upt, index) => (

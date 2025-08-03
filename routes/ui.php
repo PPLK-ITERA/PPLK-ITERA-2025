@@ -160,9 +160,43 @@ Route::get('informasi/ukm/{nama_ukm}', function (string $nama_ukm) {
       'nama_ukm' => $nama_ukm
    ]);
 })->name('informasi/ukm/{nama_ukm}');
+
 Route::get('informasi/pplk', function () {
    return Inertia::render('Informasi/Pplk/Page');
 })->name('informasi/pplk');
+
+Route::get('informasi/lppm', function () {
+   return Inertia::render('Informasi/Lppm/Page');
+})->name('informasi/lppm');
+
+Route::get('informasi/senat', function () {
+   return Inertia::render('Informasi/Senat/Page');
+})->name('informasi/senat');
+
+Route::get('informasi/divisi', function () {
+   return Inertia::render('Informasi/Divisi/Page');
+})->name('informasi/divisi');
+
+Route::get('dokumentasi', function () {
+   return Inertia::render('Dokumentasi/Page');
+})->name('dokumentasi');
+
+Route::get('tesla', function () {
+   return Inertia::render('Tesla/Page');
+})->name('tesla');
+
+Route::get('petaka', function () {
+   return Inertia::render('Petaka/Page');
+})->name('petaka');
+
+Route::get('map', function () {
+   return Inertia::render('Map/Page');
+})->name('map');
+
+Route::get('chekPoint', function () {
+   return Inertia::render('ChekPoint/Page');
+})->name('chekPoint');
+
 
 
 // =====================================
@@ -445,3 +479,4 @@ Route::middleware('auth')->group(function () {
       return Inertia::render('Dashboard/create-user/Page');
    })->name('dashboard/create-user');
 });
+

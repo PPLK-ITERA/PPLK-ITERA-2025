@@ -33,7 +33,7 @@ function CompletedMessage() {
           className="md:w-32 xl:w-48 xl:h-48 xl:-right-20 md:h-32 -bottom-5 max-[320px]:-right-0 md:-bottom-16 lg:-bottom-16 xl:-bottom-2 md:-right-10 md:rotate-12 rotate-12 absolute z-10 w-16 h-16 min-[375px]:-right-5"
         />
 
-        <div className="font-avigea md:max-w-md lg:max-w-lg xl:max-w-xl z-10 flex lg:mt-5 flex-col items-center justify-start max-w-[300px]">
+        <div className="font-greek md:max-w-md lg:max-w-lg xl:max-w-xl z-10 flex lg:mt-5 flex-col items-center justify-start max-w-[300px]">
           <h2 className="text-jaffa-700 xl:text-6xl z-10 text-2xl font-bold">
             Selesai
           </h2>

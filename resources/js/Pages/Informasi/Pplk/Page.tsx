@@ -49,9 +49,9 @@ function Page() {
           </div>
 
           <div className="md:pt-20 lg:pt-32 relative pt-24">
-            <div className="font-avigea text-jaffa-600 sm:text-4xl sm:px-8 max-w-4xl mx-auto text-2xl text-center">
-              <h2>PROGRAM PENGENALAN LINGKUNGAN KAMPUS ITERA 2024</h2>
-              <h2>-- PPLK ITERA 2024 --</h2>
+            <div className="font-greek text-jaffa-600 sm:text-4xl sm:px-8 max-w-4xl mx-auto text-2xl text-center">
+              <h2>PROGRAM PENGENALAN LINGKUNGAN KAMPUS ITERA 2025</h2>
+              <h2>-- PPLK ITERA 2025 --</h2>
             </div>
           </div>
 

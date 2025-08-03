@@ -302,7 +302,7 @@ export const devTeam = {
       name: "Cici Tri Fadila",
       instagram: "ciciiitr",
       role: "Staff Content Research",
-      quote: 'imtekpplk2024 = "gacor',
+      quote: 'imtekpplk2025 = "gacor',
       photo: cici,
     },
     {

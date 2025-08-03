@@ -25,7 +25,7 @@ export const VideoPPLK = [
     embed: (
       <iframe
         className="w-full h-full min-h-[200px]"
-        src="https://www.youtube.com/embed/1tb-wrU2weI?si=UuwFTb2JIAZs9bMo"
+        src="https://www.youtube.com/embed/8nq8zmAzZs0"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen={true}

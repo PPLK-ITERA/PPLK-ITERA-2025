@@ -31,8 +31,8 @@ export default function KepalaUPT({
 }: KepalaUPTProps) {
   return (
     <div className="mt-40">
-      <div className="font-avigea text-moccaccino-500 text-5xl font-normal text-center">
-        Kepala {nama_upt} 2024
+      <div className="font-greek text-moccaccino-500 text-5xl font-normal text-center">
+        Kepala {nama_upt} 2025
       </div>
 
       <div className="flex py-8 mt-10 px-8 flex-col md:flex-row max-w-[800px] items-center justify-center md:justify-around text-center rounded-[32px] bg-jaffa-300 mx-auto">
@@ -59,7 +59,7 @@ export default function KepalaUPT({
         <div className="md:max-w-md max-w-sm mx-auto">
           <div className="text-center">
             {link_instagram || link_youtube || link_website ? (
-              <p className="text-moccaccino-500 font-avigea md:text-3xl text-xl font-bold tracking-widest">
+              <p className="text-moccaccino-500 font-greek md:text-3xl text-xl font-bold tracking-widest">
                 SOSIAL MEDIA UPT
               </p>
             ) : null}

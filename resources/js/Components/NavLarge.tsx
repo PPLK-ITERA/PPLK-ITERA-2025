@@ -25,10 +25,10 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
   const router = usePage().url;
 
   return (
-    <div className="hidden max-w-[800px] font-tinos md:flex gap-2 xl:-ml-20 -ml-4">
+    <div className="hidden max-w-[800px] md:flex gap-2 xl:-ml-20 -ml-4">
       <Link
         href="/"
-        className={`lg:mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
+        className={`lg:mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold  text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
       >
         Beranda
       </Link>
@@ -69,6 +69,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
         >
           Mahasiswa Baru <ChevronDown className="w-4 h-4" />
         </DropdownMenuTrigger>
+
         <DropdownMenuContent
           className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
         >
@@ -106,6 +107,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
               Panduan Penggunaan
             </a>
           </DropdownMenuItem>
+
         </DropdownMenuContent>
       </DropdownMenu>
 
