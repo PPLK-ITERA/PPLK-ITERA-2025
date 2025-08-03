@@ -103,6 +103,7 @@ function Page({ nama_ukm }: { nama_ukm: string }) {
               />
             </div>
 
+<<<<<<< HEAD
             {/* Prestasi & Kegiatan Section */}
             <div className="mb-20 lg:mb-32">
               <div className="text-center mb-12">
@@ -115,10 +116,21 @@ function Page({ nama_ukm }: { nama_ukm: string }) {
                 </h2>
                 <div className="w-24 h-1 bg-orange-600 mx-auto rounded-full"></div>
               </div>
+=======
+            <div className="place-items-center flex flex-col gap-10 overflow-hidden">
+              <h2
+                data-aos="fade-down"
+                data-aos-duration="1000"
+                className="font-greek md:text-4xl z-20 text-2xl text-center text-black"
+              >
+                Prestasi & Kegiatan
+              </h2>
+>>>>>>> dev
 
               <Prestasi allprestasi={ukm.allprestasi} />
             </div>
 
+<<<<<<< HEAD
             {/* Social Media Section */}
             <div className="mb-20">
               <div className="text-center mb-12">
@@ -131,6 +143,16 @@ function Page({ nama_ukm }: { nama_ukm: string }) {
                 </h2>
                 <div className="w-24 h-1 bg-orange-600 mx-auto rounded-full"></div>
               </div>
+=======
+            <div className="place-content-center place-items-center flex flex-col gap-10">
+              <h2
+                data-aos="fade-down"
+                data-aos-duration="1000"
+                className="font-greek md:text-4xl z-20 text-2xl text-center text-black"
+              >
+                Sosial Media UKM
+              </h2>
+>>>>>>> dev
 
               <Sosmed allsosmed={ukm.allsosmed} />
             </div>
