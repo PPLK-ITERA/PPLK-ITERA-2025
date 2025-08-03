@@ -28,11 +28,11 @@ const ResetPasswordForm: FC<ResetPasswordFormProps> = ({ currentUser }) => {
   };
 
   return (
-    <div className="h-fit w-full p-4 space-y-5 border rounded-md shadow-md">
-      <h2 className="text-xl font-bold tracking-tight">Reset Password</h2>
+    <div className="h-fit w-full p-4 space-y-5 border rounded-xl shadow-md bg-[linear-gradient(137.47deg,_#E06C32_11.08%,_#FD8E57_42.04%,_#BE3F00_95.9%)]">
+      <h2 className="text-xl text-white font-semibold tracking-tight">Reset Password</h2>
 
       <div className="flex flex-col">
-        <Label htmlFor="nama-maba" className="text-left">
+        <Label htmlFor="nama-maba" className="text-left text-white">
           Password Baru
         </Label>
 
@@ -47,7 +47,7 @@ const ResetPasswordForm: FC<ResetPasswordFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="email-maba" className="text-left">
+        <Label htmlFor="email-maba" className="text-left text-white">
           Konfirmasi Password
         </Label>
 
@@ -62,7 +62,7 @@ const ResetPasswordForm: FC<ResetPasswordFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex justify-end">
-        <Button onClick={handleSubmit}>Ubah Password</Button>
+        <Button onClick={handleSubmit} className="bg-[#E58025] hover:bg-[#E58025]">Ubah Password</Button>
       </div>
     </div>
   );

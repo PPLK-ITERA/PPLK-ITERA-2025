@@ -22,7 +22,7 @@ import { Toaster } from "@/Components/ui/toaster";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Absensi Maba", link: "/dashboard/absensi-maba" },
 ];
 
@@ -139,7 +139,7 @@ export default function Page({ auth, response, eventList }) {
         </div>
 
         <Select onValueChange={handleDate} value={selectedDay}>
-          <SelectTrigger className="w-full md:w-[250px] font-bold">
+          <SelectTrigger className="w-full md:w-[300px] font-bold">
             <SelectValue placeholder="Pilih Hari/Tanggal" />
           </SelectTrigger>
           <SelectContent>

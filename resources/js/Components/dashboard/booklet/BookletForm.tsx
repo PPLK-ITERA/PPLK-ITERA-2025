@@ -147,7 +147,7 @@ function BookletForm({ booklet }: Props) {
           <Button
             size="sm"
             type="submit"
-            className={`w-full`}
+            className={`w-full bg-[#BE3F00]`}
             disabled={!!urlError || !!error}
           >
             {booklet ? "Perbarui" : "Tambahkan"} Booklet

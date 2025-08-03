@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { ChevronLeft } from "lucide-react";
 
 import { DashboardNav } from "@/Components/dashboard/dashboard-nav";
+import { HeadSidebar } from "@/Components/dashboard/layout/head-sidebar";
+import { UserSidebar } from "@/Components/dashboard/layout/user-sidebar";
 
 import { navItems } from "@/lib/data/data";
 import { useSidebar } from "@/lib/hooks/useSidebar";
@@ -12,7 +14,7 @@ type SidebarProps = {
   className?: string;
 };
 
-export default function ({ className }: SidebarProps) {
+export default function ({ user, className }: SidebarProps) {
   const { isMinimized, toggle } = useSidebar();
   const [status, setStatus] = useState(false);
 
@@ -25,15 +27,22 @@ export default function ({ className }: SidebarProps) {
   return (
     <nav
       className={cn(
-        `relative hidden h-screen flex-none border-r z-10 pt-20 md:block`,
+        `relative hidden h-screen flex-none border-r z-10 md:block bg-[#F5EFEB]`,
         status && "duration-500",
         !isMinimized ? "w-72" : "w-[72px]",
         className,
       )}
     >
+
+      <div className="px-3 mt-3 space-y-1">
+        <HeadSidebar />
+      </div>
+      <div className="px-3 mt-3 space-y-1">
+        <UserSidebar user={user} />
+      </div>
       <ChevronLeft
         className={cn(
-          "absolute -right-3 top-20 cursor-pointer rounded-full border bg-background text-3xl text-black",
+          "absolute -right-3 top-20 cursor-pointer rounded-full border bg-[#E0822D] text-3xl text-white",
           isMinimized && "rotate-180",
         )}
         onClick={handleToggle}

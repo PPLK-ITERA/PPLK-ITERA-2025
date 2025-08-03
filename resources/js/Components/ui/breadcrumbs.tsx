@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 import { Link } from "@inertiajs/react";
 
-import { Slash } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 import {
   Breadcrumb,
@@ -31,7 +31,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItemProps[] }) {
             )}
             {index < items.length - 1 && (
               <BreadcrumbSeparator>
-                <Slash />
+                <ChevronRight />
               </BreadcrumbSeparator>
             )}
             {index === items.length - 1 && (

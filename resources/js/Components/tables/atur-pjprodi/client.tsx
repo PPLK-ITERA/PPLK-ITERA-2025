@@ -12,10 +12,7 @@ export const AturPJProdiClient = () => {
         searchKey="name"
         columns={columns}
         apiEndpoint={route("dashboard.user.data.pjprodi")}
-        title={"Data PJ Prodi"}
-        description={
-          "Gunakan sistem informasi ini untuk manajemen data PJ Prodi!"
-        }
+        title={"PJ Prodi"}
       />
     </>
   );
