@@ -138,6 +138,9 @@ export default {
                 spacegrotesk: ['"Space Grotesk"'],
                 anothertag: ["AnotherTag"],
                 lostar: ["Lostar"],
+                greek: ["Greek"],
+                romanica: ["Romanica"],
+                jakartasans: ["JakartaSans"]
                 Greek: ["Greek"],
                 Romanica: ["Romanica"],
                 greek: ["Greek", "sans-serif"],
