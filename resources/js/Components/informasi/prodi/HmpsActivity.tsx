@@ -37,7 +37,7 @@ export default function HmpsActivity({ hmpsActivities }: Props) {
                     </h5>
                   </div>
 
-                  <div className="aboslute h-96 top-0 left-0 w-full overflow-hidden">
+                  <div className="absolute h-full object-cover top-0 left-0 overflow-hidden">
                     <img
                       src={a.documentation ? a.documentation : kegiatandefault}
                       alt={a.title}
