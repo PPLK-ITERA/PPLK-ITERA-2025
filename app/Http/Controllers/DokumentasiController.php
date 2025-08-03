@@ -25,13 +25,15 @@ class DokumentasiController extends Controller
             ->orderByHari()
             ->get();
 
-        // return Inertia::render('Dashboard/dokumentasi/page', compact('dokumentasi'));
-        return response()->json([
-            'response' => [
-                'status' => 200,
-                'data' => $dokumentasi
-            ]
-        ]);
+        $foto_dokumentasi = FotoDokumentasi::orderBy('dokumentasi_id');
+
+        return Inertia::render('Dashboard/dokumentasi/page', compact('dokumentasi', 'foto_dokumentasi'));
+        // return response()->json([
+        //     'response' => [
+        //         'status' => 200,
+        //         'data' => $dokumentasi
+        //     ]
+        // ]);
     }
 
     /**
@@ -94,7 +96,8 @@ class DokumentasiController extends Controller
         // Load relasi foto
         $dokumentasi->load('fotos');
 
-        return view('dokumentasi.show', compact('dokumentasi'));
+        // return view('dokumentasi.show', compact('dokumentasi'));
+        return Inertia::render('Dashboard/dokumentasi/detail', compact('dokumentasi'));
     }
 
     /**

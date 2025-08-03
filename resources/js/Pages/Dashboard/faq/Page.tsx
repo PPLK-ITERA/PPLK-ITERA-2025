@@ -40,7 +40,7 @@ export default function Page({ auth }) {
   return (
     <DashboardLayout user={auth.user}>
       <Breadcrumbs items={breadcrumbItems} />
-      <h2 className="text-3xl font-bold tracking-tight">Atur FAQ</h2>
+      <h2 className="text-3xl font-inter font-bold tracking-tight">Atur FAQ</h2>
 
       <Dialog>
         <DialogTrigger asChild>
@@ -49,7 +49,7 @@ export default function Page({ auth }) {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="font-inter sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Tambah FAQ</DialogTitle>
             <DialogDescription>
