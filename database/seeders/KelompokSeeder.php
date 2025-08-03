@@ -15,8 +15,8 @@ class KelompokSeeder extends Seeder
    {
       // Import mentors and daplok users
       $users = $this->importUsers([
-         'mentor' => base_path("database/csv/akunMentor.csv"),
-         'daplok' => base_path("database/csv/akunDaplok.csv"),
+         'mentor' => base_path("database/csv/akun_mentor.csv"),
+         'daplok' => base_path("database/csv/akun_daplok.csv"),
       ]);
 
       // Optionally, you can handle any additional logic with $users here
