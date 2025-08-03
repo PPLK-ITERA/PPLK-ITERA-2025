@@ -4,6 +4,8 @@ import path from "path";
 import { defineConfig } from "vite";
 import compression from "vite-plugin-compression2";
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import svgr from "vite-plugin-svgr";
+
 
 export default defineConfig({
     plugins: [
@@ -13,7 +15,8 @@ export default defineConfig({
         }),
         react(),
         compression(),
-        ViteImageOptimizer()
+        ViteImageOptimizer(),
+        svgr(),
     ],
     resolve: {
         alias: {

@@ -100,7 +100,7 @@ function Page() {
               <img
                 src={cloudsIcon}
                 alt="Decorative clouds"
-                className="absolute w-44 h-24 top-36 rotate-180  sm:w-80 sm:h-36 sm:top-24 sm:left-3 sm:rotate-0       md:top-36 md:left-6 md:w-96 md:h-48   md:rotate-0"
+                className="absolute w-44 h-24 top-36 rotate-180 sm:w-80 sm:h-36 sm:top-24 sm:left-3 sm:rotate-0 md:top-36 md:left-6 md:w-96 md:h-48 md:rotate-0"
               />
             </div>
 
@@ -109,7 +109,7 @@ function Page() {
               <img
                 src={cloudsIcon}
                 alt="Decorative clouds"
-                className="absolute w-44 h-24 right-6 top-24   sm:w-80 sm:h-36  sm:top-24 sm:right-30  md:w-96 md:h-48  md:top-24 md:right-20"
+                className="absolute w-44 h-24 right-6 top-24 sm:w-80 sm:h-36 sm:top-24 sm:right-30 md:w-96 md:h-48 md:top-24 md:right-20"
               />
             </div>
 
@@ -127,7 +127,7 @@ function Page() {
               <h1
                 data-aos="fade-down"
                 data-aos-duration="1500"
-                className="text-3xl sm:text-4xl md:text-6xl font-greek bg-gradient-to-t text-orange-800 leading-7"
+                className="text-3xl sm:text-4xl md:text-6xl font-greek bg-gradient-to-t text-orange-700 leading-7"
               >
                 Dokumentasi PPLK-ITERA
               </h1>
