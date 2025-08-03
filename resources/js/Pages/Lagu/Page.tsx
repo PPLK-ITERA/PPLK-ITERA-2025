@@ -261,7 +261,7 @@ export default function Page() {
                 </div>
 
                 <CardHeader className="mt-10">
-                  <CardTitle className="font-avigea font-bold text-center">
+                  <CardTitle className="font-greek font-bold text-center">
                     {key.replace("-", " ").toUpperCase()}
                   </CardTitle>
                 </CardHeader>

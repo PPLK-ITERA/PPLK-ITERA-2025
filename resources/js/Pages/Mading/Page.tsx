@@ -103,7 +103,7 @@ const Mading = ({ succes }: { succes?: string }) => {
       const data: TaskSystem = await response.json();
       //console.log(data);
       setData(data);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   useEffect(() => {
@@ -122,9 +122,9 @@ const Mading = ({ succes }: { succes?: string }) => {
           <h2
             data-aos="fade-down"
             data-aos-duration="1000"
-            className="font-avigea text-center text-jaffa-800 w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
+            className="font-greek text-center text-jaffa-800 w-fit mx-auto pt-[30px] text-3xl md:text-5xl"
           >
-            Mading Tugas PPLK 2024
+            Mading Tugas PPLK 2025
           </h2>
 
           <div className="relative xl:max-h-[186px] md:max-w-[600px] xl:max-w-[800px] w-full h-full rounded-xl bg-history-completed bg-no-repeat bg-transparent bg-cover mt-14 p-4">
@@ -185,7 +185,7 @@ const Mading = ({ succes }: { succes?: string }) => {
         )}
         <div className="relative z-10 w-full">
           <div className="flex flex-col justify-center mt-24">
-            <h2 className="font-avigea md:text-[25px] mx-auto md:max-w-[600px] xl:max-w-[800px] max-w-[280px] text-[20px] font-bold text-jaffa-800 text-center">
+            <h2 className="font-greek md:text-[25px] mx-auto md:max-w-[600px] xl:max-w-[800px] max-w-[280px] text-[20px] font-bold text-jaffa-800 text-center">
               Kumpulkan bukti pengerjaan tugas dibawah ini
             </h2>
 
@@ -211,7 +211,7 @@ const Mading = ({ succes }: { succes?: string }) => {
 
         {data?.isSelesai ? (
           <>
-            <h2 className="text-jaffa-50 mt-5 xl:mt-20 font-avigea font-bold md:text-[25px] text-[20px] xl:text-[60px] z-20">
+            <h2 className="text-jaffa-50 mt-5 xl:mt-20 font-greek font-bold md:text-[25px] text-[20px] xl:text-[60px] z-20">
               MADING TUGAS SELESAI
             </h2>
 
@@ -241,7 +241,7 @@ const Mading = ({ succes }: { succes?: string }) => {
               </h2>
             </div>
 
-            <h2 className="text-jaffa-50 mt-5 font-avigea font-bold md:text-[25px] text-[20px] xl:text-[60px]">
+            <h2 className="text-jaffa-50 mt-5 font-greek font-bold md:text-[25px] text-[20px] xl:text-[60px]">
               MADING TUGAS
             </h2>
 

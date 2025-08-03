@@ -39,11 +39,7 @@ export default function Judul({ title, sejarah, logo }: JudulProps) {
           <h1
             data-aos="fade-right"
             data-aos-duration="1000"
-<<<<<<< HEAD
             className="font-greek text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-orange-800 leading-tight"
-=======
-            className="font-greek text-xl sm:text-3xl md:text-[49px] text-center"
->>>>>>> dev
           >
             {title} - ITERA
           </h1>

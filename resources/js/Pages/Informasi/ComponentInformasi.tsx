@@ -7,11 +7,11 @@ const ComponentInformasi = ({ children }) => {
 
 const ComponentInformasiHeader = () => {
   return (
-    <div className="text-jaffa-600 sm:text-2xl font-avigea sm:px-0 px-2 text-xl font-bold tracking-widest text-center">
-      <p>PROGRAM PENGENALAN LINGKUNGAN KAMPUS ITERA 2024</p>
+    <div className="text-jaffa-600 sm:text-2xl font-greek sm:px-0 px-2 text-xl font-bold tracking-widest text-center">
+      <p>PROGRAM PENGENALAN LINGKUNGAN KAMPUS ITERA 2025</p>
       <div className=" flex justify-center max-w-xs gap-2 m-auto">
         <div className="bg-jaffa-600 h-[2px] mb-2 w-[8%] self-center"></div>
-        <p>PPLK ITERA 2024</p>
+        <p>PPLK ITERA 2025</p>
         <div className="bg-jaffa-600 h-[2px] mb-2 w-[8%] self-center "></div>
       </div>
     </div>
@@ -26,10 +26,10 @@ const ComponentInformasiHero = () => {
           <img src="/assets/logo-pplk-2024.png" alt="" />
         </div>
         <div className="max-w-52 m-auto text-center">
-          <p className="text-candlelight-600 font-avigea sm:hidden text-sm font-bold tracking-widest">
-            PPLK ITERA 2024
+          <p className="text-candlelight-600 font-greek sm:hidden text-sm font-bold tracking-widest">
+            PPLK ITERA 2025
           </p>
-          <p className="text-candlelight-600 font-avigea sm:hidden mt-3 text-sm font-bold tracking-widest">
+          <p className="text-candlelight-600 font-greek sm:hidden mt-3 text-sm font-bold tracking-widest">
             Nagarika Anvensana : Exploration For The Future
           </p>
         </div>
@@ -37,17 +37,17 @@ const ComponentInformasiHero = () => {
 
       <div className="xm:px-0 flex px-8 mt-10">
         <div className="sm:w-[60%] space-y-3">
-          <p className="text-candlelight-600 font-avigea sm:block hidden text-xl font-bold tracking-widest">
-            PPLK ITERA 2024
+          <p className="text-candlelight-600 font-greek sm:block hidden text-xl font-bold tracking-widest">
+            PPLK ITERA 2025
           </p>
-          <p className="text-candlelight-600 font-avigea sm:block hidden text-xl font-bold tracking-widest">
+          <p className="text-candlelight-600 font-greek sm:block hidden text-xl font-bold tracking-widest">
             Nagarika Anvensana : Exploration For The Future
           </p>
           <p>
             Program Pengenalan Lingkungan Kampus Institut Teknologi Sumatera
-            2024 atau PPLK ITERA 2024 adalah sebuah kegiatan orientasi bagi
+            2025 atau PPLK ITERA 2025 adalah sebuah kegiatan orientasi bagi
             seluruh Mahasiswa Baru Institut Teknologi Sumatera tahun angkatan
-            2024. PPLK ITERA 2024 diusung dengan tajuk Nagarika Anvensana :
+            2025. PPLK ITERA 2025 diusung dengan tajuk Nagarika Anvensana :
             Exploration For The Futre, dan bertema Futuristic Nusantara.
           </p>
           <p>
@@ -68,11 +68,11 @@ const ComponentInformasiHero = () => {
 
       <div className="sm:px-0 flex items-center justify-center px-5 mt-8">
         <div className="max-w-xl my-6 text-center">
-          <p className="text-jaffa-600 font-avigea text-xl font-bold tracking-widest">
+          <p className="text-jaffa-600 font-greek text-xl font-bold tracking-widest">
             VISI
           </p>
           <p>
-            PPLK 2024 sebagai gerbang pertama dalam terwujudnya mahasiswa yang
+            PPLK 2025 sebagai gerbang pertama dalam terwujudnya mahasiswa yang
             kompetitif, berintelektual, serta siap menghadapi gempuran
             globalisasi.
           </p>
@@ -87,7 +87,7 @@ const ComponentInformasiFilosofi = () => {
     <div>
       <div className="mt-14">
         <div className="max-w-2xl mx-auto">
-          <p className="font-avigea text-jaffa-600 text-xl font-bold tracking-widest text-center">
+          <p className="font-greek text-jaffa-600 text-xl font-bold tracking-widest text-center">
             FILOSOFI LOGO
           </p>
           <div className="sm:flex flex-wrap mt-5">
@@ -163,7 +163,7 @@ const ComponentInformasiFilosofi = () => {
         </div>
         <div className="mt-10">
           <div className="max-w-72 mx-auto">
-            <p className="sm:text-2xl font-avigea text-xl font-bold tracking-widest text-center">
+            <p className="sm:text-2xl font-greek text-xl font-bold tracking-widest text-center">
               BIJI EMAS
             </p>
             <p className="text-center">
@@ -188,7 +188,7 @@ const ComponentInformasiDivisi = () => {
   return (
     <div>
       <div className="mt-28">
-        <div className="font-avigea text-jaffa-600 text-xl font-bold tracking-widest text-center">
+        <div className="font-greek text-jaffa-600 text-xl font-bold tracking-widest text-center">
           <p>SEMUA DIVISI PPLK</p>
         </div>
         <div className="sm:mt-16 max-w-6xl mx-auto mt-12">

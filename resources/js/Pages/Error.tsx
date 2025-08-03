@@ -48,10 +48,10 @@ export default function Error({ status }) {
           data-aos="fade-right"
           data-aos-duration="1500"
         >
-          <div className="font-avigea ">
+          <div className="font-greek ">
             <h1 className="md:text-6xl text-3xl">PPLK</h1>
             <h1 className="md:text-8xl text-5xl">ITERA</h1>
-            <h1 className="md:text-6xl text-3xl">2024</h1>
+            <h1 className="md:text-6xl text-3xl">2025</h1>
           </div>
 
           <div className="font-montserrat">
