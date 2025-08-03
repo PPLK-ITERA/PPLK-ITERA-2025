@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
          QrcodeSeeder::class,
          ProdiSeeder::class,
          PenyakitSeeder::class,
-         PilarSeeder::class,
+         // PilarSeeder::class,
          FAQSeeder::class,
          ScoreboardSeeder::class,
          // PresensiPplkSeeder::class,

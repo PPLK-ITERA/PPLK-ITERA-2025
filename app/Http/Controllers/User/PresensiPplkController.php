@@ -33,31 +33,31 @@ class PresensiPplkController extends Controller
    const EVENT_PPLK = [
       'pra_pplk_day_0' => [
          'nama' => 'Pra-PPLK Day 0',
-         'tanggal' => '2025-07-17',
+         'tanggal' => '2025-08-09',
          'deskripsi' => 'Persiapan sebelum PPLK dimulai'
       ],
       'pplk_day_1' => [
-         'nama' => 'PPLK Day 1',
+         'nama' => 'PPLK Day 0',
          'tanggal' => '2025-08-11',
          'deskripsi' => 'Hari pertama PPLK'
       ],
       'pplk_day_2' => [
-         'nama' => 'PPLK Day 2',
+         'nama' => 'PPLK Day 1',
          'tanggal' => '2025-08-12',
          'deskripsi' => 'Hari kedua PPLK'
       ],
       'pplk_day_3' => [
-         'nama' => 'PPLK Day 3',
+         'nama' => 'PPLK Day 2',
          'tanggal' => '2025-08-13',
          'deskripsi' => 'Hari ketiga PPLK'
       ],
       'pplk_day_4' => [
-         'nama' => 'PPLK Day 4',
+         'nama' => 'PPLK Day 3',
          'tanggal' => '2025-08-14',
          'deskripsi' => 'Hari keempat PPLK'
       ],
       'pplk_day_5' => [
-         'nama' => 'PPLK Day 5',
+         'nama' => 'PPLK Day 4',
          'tanggal' => '2025-08-15',
          'deskripsi' => 'Hari kelima PPLK - Penutupan'
       ]
