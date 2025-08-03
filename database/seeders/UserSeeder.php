@@ -15,32 +15,60 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $csvMaba = fopen(base_path("database/csv/AkunMaba.csv"), "r");
+        $csvFile = base_path("database/csv/akun_maba.csv");
+        $csvMaba = fopen($csvFile, "r");
+
+        if (!$csvMaba) {
+            echo "Error: Cannot open CSV file\n";
+            return;
+        }
 
         // Start time for measuring duration
         $startTime = microtime(true);
 
         $firstline = true;
         $users = [];
-        $fileSize = filesize(base_path("database/csv/AkunMentor.csv"));
-        $processedBytes = 0;
-        $totalProcessed = 0;  // Count total lines processed for progress calculation
+        $fileSize = filesize($csvFile); // Fix: Use correct file
+        $totalProcessed = 0;
+        $skippedRows = 0;
+
+        echo "Starting import from akun_maba.csv...\n";
 
         while (($data = fgetcsv($csvMaba, 2000, ";")) !== FALSE) {
-            $currentPos = ftell($csvMaba);  // Current position in the file after reading a line
+            $currentPos = ftell($csvMaba);
+
             if (!$firstline) {
-                $email = trim($data[3]);
-                if ($email === '' || User::where('email', $email)->exists()) {
-                    continue; // skip empty or duplicate email
+                // Validate row has minimum required columns
+                if (count($data) < 15) {
+                    echo "Skipping invalid row " . ($totalProcessed + 1) . " with only " . count($data) . " columns\n";
+                    $skippedRows++;
+                    continue;
                 }
-                $kelompokId = trim($data[11]) === '' ? null : (int) $data[11];
-                $prodiId = trim($data[14]) === '' ? null : (int) $data[14];
+
+                // Validate and clean data
+                $name = trim($data[1] ?? '');
+                $email = trim($data[3] ?? '');
+                $password = trim($data[4] ?? '');
+                $kelompok_id = trim($data[11] ?? '');
+                $prodi_id = trim($data[14] ?? '');
+
+                // Skip if essential fields are empty
+                if (empty($name) || empty($email) || empty($password)) {
+                    echo "Skipping row " . ($totalProcessed + 1) . " - missing essential data\n";
+                    $skippedRows++;
+                    continue;
+                }
+
+                // Convert empty strings to null for integer fields
+                $kelompok_id = empty($kelompok_id) ? null : (int)$kelompok_id;
+                $prodi_id = empty($prodi_id) ? null : (int)$prodi_id;
+
                 $users[] = [
-                    "name" => $data[1],
+                    "name" => $name,
                     "email" => $email,
-                    "password" => bcrypt($data[4]),
-                    "kelompok_id" => $kelompokId,
-                    "prodi_id" => $prodiId,
+                    "password" => bcrypt($password),
+                    "kelompok_id" => $kelompok_id,
+                    "prodi_id" => $prodi_id,
                     "role_id" => 1,
                     "created_at" => now(),
                     "updated_at" => now()
@@ -50,26 +78,37 @@ class UserSeeder extends Seeder
                 $firstline = false;
             }
 
-            // Batch insert and reset the users array every 500 records
+            // Batch insert every 500 records
             if (count($users) >= 500) {
-                DB::transaction(function () use ($users) {
-                    User::insert($users);
-                });
+                try {
+                    DB::transaction(function () use ($users) {
+                        User::insert($users);
+                    });
+                    echo "Inserted batch of " . count($users) . " users\n";
+                } catch (\Exception $e) {
+                    echo "Error inserting batch: " . $e->getMessage() . "\n";
+                    // You might want to handle this differently
+                }
                 $users = [];
             }
 
-            // Progress output every 500 records
-            if ($totalProcessed % 500 == 0) {
+            // Progress output every 100 records
+            if ($totalProcessed % 100 == 0 && $totalProcessed > 0) {
                 $progress = ($currentPos / $fileSize) * 100;
-                echo "Progress: " . number_format($progress, 2) . "%\r";
+                echo "Progress: " . number_format($progress, 2) . "% - Processed: {$totalProcessed} rows\n";
             }
         }
 
         // Insert any remaining users
         if (!empty($users)) {
-            DB::transaction(function () use ($users) {
-                User::insert($users);
-            });
+            try {
+                DB::transaction(function () use ($users) {
+                    User::insert($users);
+                });
+                echo "Inserted final batch of " . count($users) . " users\n";
+            } catch (\Exception $e) {
+                echo "Error inserting final batch: " . $e->getMessage() . "\n";
+            }
         }
 
         fclose($csvMaba);
@@ -77,6 +116,10 @@ class UserSeeder extends Seeder
         // Calculate and display elapsed time
         $endTime = microtime(true);
         $elapsedTime = $endTime - $startTime;
-        echo "\nImport completed in " . number_format($elapsedTime, 2) . " seconds.\n";
+
+        echo "\n=== Import Summary ===\n";
+        echo "Total processed: {$totalProcessed} users\n";
+        echo "Skipped rows: {$skippedRows}\n";
+        echo "Import completed in " . number_format($elapsedTime, 2) . " seconds.\n";
     }
 }
