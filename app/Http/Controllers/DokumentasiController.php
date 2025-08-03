@@ -25,7 +25,13 @@ class DokumentasiController extends Controller
             ->orderByHari()
             ->get();
 
-        return Inertia::render('dokumentasi.page', compact('dokumentasi'));
+        // return Inertia::render('Dashboard/dokumentasi/page', compact('dokumentasi'));
+        return response()->json([
+            'response' => [
+                'status' => 200,
+                'data' => $dokumentasi
+            ]
+        ]);
     }
 
     /**
