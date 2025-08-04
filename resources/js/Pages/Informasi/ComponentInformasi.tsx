@@ -23,7 +23,7 @@ const ComponentInformasiHero = () => {
     <div>
       <div className="sm:hidden mt-6">
         <div className="flex items-center justify-center">
-          <img src="/assets/logo-pplk-2024.png" alt="" />
+          <img src="/assets/logo-pplk-2025.png" alt="" />
         </div>
         <div className="max-w-52 m-auto text-center">
           <p className="text-candlelight-600 font-greek sm:hidden text-sm font-bold tracking-widest">
@@ -59,7 +59,7 @@ const ComponentInformasiHero = () => {
         </div>
         <div className="w-[40%] hidden sm:flex justify-center items-center">
           <img
-            src="/assets/logo-pplk-2024.png"
+            src="/assets/logo-pplk-2025.png"
             alt="logo-pplk"
             className="xl:w-[70%] sm:w-[100%]"
           />
@@ -91,7 +91,7 @@ const ComponentInformasiFilosofi = () => {
           <div className="sm:flex flex-wrap mt-5">
             <div className="sm:w-[50%]">
               <img
-                src="/assets/logo-pplk-2024.png"
+                src="/assets/logo-pplk-2025.png"
                 alt="logo"
                 className="mx-auto w-[60%] sm:w-[90%]"
               />
@@ -118,7 +118,7 @@ const ComponentInformasiFilosofi = () => {
         <div className=" flex">
           <div className="w-[25%] justify-center items-center flex relative ">
             <img
-              src="/assets/logo-pplk-2024.png"
+              src="/assets/logo-pplk-2025.png"
               alt="logo"
               className="grayscale filter w-[100%] sm:w-[85%] sm:translate-x-20"
             />
@@ -126,7 +126,7 @@ const ComponentInformasiFilosofi = () => {
           <div className="w-[50%]">
             <div className="flex items-center justify-center">
               <img
-                src="/assets/logo-pplk-2024.png"
+                src="/assets/logo-pplk-2025.png"
                 alt="logo"
                 className="w-[100%] sm:w-[60%] z-20"
               />
@@ -141,7 +141,7 @@ const ComponentInformasiFilosofi = () => {
           </div>
           <div className="w-[25%] justify-center items-center flex relative ">
             <img
-              src="/assets/logo-pplk-2024.png"
+              src="/assets/logo-pplk-2025.png"
               alt="logo"
               className="grayscale filter w-[100%] sm:w-[85%] sm:-translate-x-14"
             />
