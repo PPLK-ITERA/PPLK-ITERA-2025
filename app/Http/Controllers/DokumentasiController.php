@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateDokumentasiRequest;
 use App\Models\Dokumentasi;
 use App\Models\FotoDokumentasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -25,7 +26,10 @@ class DokumentasiController extends Controller
             ->orderByHari()
             ->get();
 
-        $foto_dokumentasi = FotoDokumentasi::orderBy('dokumentasi_id');
+        $foto_dokumentasi = FotoDokumentasi::select('dokumentasi_id', DB::raw('count(*) as total'))
+            // ->whereIn('dokumentasi_id', [1, 2, 3, 4, 5])
+            ->groupBy('dokumentasi_id')
+            ->pluck('total', 'dokumentasi_id');
 
         return Inertia::render('Dashboard/dokumentasi/page', compact('dokumentasi', 'foto_dokumentasi'));
         // return response()->json([
@@ -98,6 +102,12 @@ class DokumentasiController extends Controller
 
         // return view('dokumentasi.show', compact('dokumentasi'));
         return Inertia::render('Dashboard/dokumentasi/detail', compact('dokumentasi'));
+        // return response()->json([
+            // 'response' => [
+                // 'status' => 200,
+                // 'data' => $dokumentasi
+            // ]
+        // ]);
     }
 
     /**

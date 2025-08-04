@@ -19,18 +19,19 @@ export default function Page({ auth, dokumentasi, foto_dokumentasi }) {
 		      <h2 className="text-3xl font-inter font-bold tracking-tight">Dokumentasi Kegiatan</h2>
 
 		      <div className="lg:grid-cols-3 grid grid-cols-1 gap-4">
-			      {dokumentasi.map((item, index) => {
-			      	return(
-			      		<a 
-			      			href=""
-			      		>
-					      	<DokumentasiDay
-					      		data={item}
-					      		foto={foto_dokumentasi}
-					      	/>
-					      </a>
-				     )
-			      })}
+		      	{dokumentasi.map((item, index) => {
+				      	return(
+				      		// <div>
+					      		// <a href="">
+							      	<DokumentasiDay
+							      		data={item}
+							      		foto={foto_dokumentasi}
+							      		user={auth.user}
+							      	/>
+							      // </a>
+						      // </div>
+					     );
+			 			})}
 			    </div>
 
 		    </DashboardLayout>
