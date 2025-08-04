@@ -32,7 +32,7 @@ function Page() {
         </div>
 
         {/* Kontainer Card dengan design baru */}
-        <div className="max-w-7xl mx-auto py-8 md:py-16 px-4">
+        <div className="max-w-7xl mx-auto py-7 md:py-16 px-4">
           {/* Title Section with Slide Button */}
           <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between mb-8 md:mb-12 gap-4">
             <div className="flex-1 font-greek text-center lg:text-left">
