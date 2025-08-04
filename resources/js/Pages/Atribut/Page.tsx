@@ -23,12 +23,12 @@ function Page() {
             data-aos-duration="1000"
             className="xl:max-w-4xl md:max-w-2xl md:pt-20 lg:pt-24 max-w-xs pt-20 mx-auto"
           >
-            <h2 className="font-avigea text-center bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit pt-[30px] text-3xl md:text-5xl mx-auto">
+            <h2 className="font-greek text-center bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit pt-[30px] text-3xl md:text-5xl mx-auto">
               Ketentuan Atribut
             </h2>
 
             <p className="mt-5 text-center md:text-[16px] text-[12px] font-montserrat lg:text-[20px]">
-              Halaman ini menampilkan atribut untuk kegiatan PPLK ITERA 2024
+              Halaman ini menampilkan atribut untuk kegiatan PPLK ITERA 2025
               untuk setiap harinya. Pastikan kamu menggunakan atribut yang tepat
               sesuai dengan ketentuan yang berlaku ya!
             </p>

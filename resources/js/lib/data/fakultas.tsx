@@ -135,6 +135,7 @@ export const FAKULTAS_DATA = {
         link: "https://fs.itera.ac.id/",
         icon: <IconWorldWww size={40} color="black" />,
       },
+      
     ],
     kegiatanUnggulan: [
       {

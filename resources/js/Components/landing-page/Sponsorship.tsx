@@ -16,7 +16,7 @@ export default function Sponsorship() {
   return (
     <MaxWidthWrapper className="relative flex flex-col items-center w-full bg-white">
       <div className="relative flex flex-col items-center justify-center">
-        <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea md:mt-20 md:text-4xl lg:text-5xl text-wrap text-lg text-center text-transparent">
+        <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-greek md:mt-20 md:text-4xl lg:text-5xl text-wrap text-lg text-center text-transparent">
           Terimakasih Kepada Sponsor
         </h2>
 
@@ -64,7 +64,7 @@ export default function Sponsorship() {
       </div>
 
       <div className="relative flex flex-col items-center justify-center">
-        <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-avigea md:mt-20 md:text-4xl lg:text-5xl text-wrap text-lg text-center text-transparent">
+        <h2 className="mt-14 w-fit bg-gradient-to-r from-jaffa-700 to-jaffa-800 bg-clip-text font-greek md:mt-20 md:text-4xl lg:text-5xl text-wrap text-lg text-center text-transparent">
           Terimakasih Kepada Media Partner
         </h2>
 

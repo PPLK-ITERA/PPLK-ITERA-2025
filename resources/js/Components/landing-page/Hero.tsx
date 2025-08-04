@@ -20,14 +20,14 @@ export default function Hero() {
         data-aos-duration="1500"
         className="text-jaffa-100 md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] leading-[3rem] md:items-start flex flex-col items-center justify-center mt-8"
       >
-        <span className="font-avigea text-[40px] lg:text-[64px] xl:text-[72px]">
+        <span className="font-greek text-[40px] lg:text-[64px] xl:text-[72px]">
           PPLK
         </span>
-        <span className="font-avigea text-[64px] lg:text-[72px] xl:text-[108px]">
+        <span className="font-greek text-[64px] lg:text-[72px] xl:text-[108px]">
           ITERA
         </span>
-        <span className="font-avigea text-[40px] lg:text-[64px] xl:text-[72px]">
-          2024
+        <span className="font-greek text-[40px] lg:text-[64px] xl:text-[72px]">
+          2025
         </span>
       </h1>
 

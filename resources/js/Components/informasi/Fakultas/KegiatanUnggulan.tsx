@@ -20,7 +20,7 @@ export default function KegiatanUnggulan({ fakultas }: { fakultas: string }) {
     <div className="relative bg-pattern-white bg-[#170C0A]">
       <div className="max-w-72 mx-auto text-center -translate-y-5">
         <div className="rounded-full bg-gradient-to-r from-[#864D0D] to-[#432005] border border-white py-2">
-          <p className="font-montserrat text-lg text-white">
+          <p className="font-greek text-lg text-white">
             KEGIATAN UNGGULAN
           </p>
         </div>
@@ -78,12 +78,12 @@ export default function KegiatanUnggulan({ fakultas }: { fakultas: string }) {
       <div className="mt-36">
         <div className="md:max-w-md max-w-sm mx-auto">
           <div className="text-center">
-            <p className="text-jaffa-50 font-avigea md:text-3xl text-xl font-bold tracking-widest">
+            <p className="text-jaffa-50 font-greek md:text-3xl text-xl font-bold tracking-widest">
               SOSIAL MEDIA FAKULTAS
             </p>
           </div>
 
-          <div className="flex items-center justify-center gap-5 mt-8">
+          <div className="flex items-center justify-center gap-5 mt-8 pb-32">
             {selectedFakultas.sosmedFakultas.map((socialMedia, index) => (
               <a
                 key={index}
@@ -97,9 +97,6 @@ export default function KegiatanUnggulan({ fakultas }: { fakultas: string }) {
             ))}
           </div>
         </div>
-      </div>
-      <div className="md:-mt-20 flex items-center justify-center mt-8">
-        <img src={gunung} alt="" className="w-full" />
       </div>
     </div>
   );

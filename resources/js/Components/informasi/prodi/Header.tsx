@@ -29,11 +29,11 @@ const Header = ({ fakultas }: HeaderProps) => {
           data-aos-duration="1500"
           className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-7"
         >
-          <span className="font-avigea text-[40px] md:text-[60px] max-w-xl">
+          <span className="font-greek text-[40px] md:text-[60px] max-w-xl">
             {selectedFakultas.title}
           </span>
           <br />
-          <span className="font-avigea text-[64px] md:text-[60px]">ITERA</span>
+          <span className="font-greek text-[64px] md:text-[60px]">ITERA</span>
         </h1>
 
         <p

@@ -10,7 +10,7 @@ const SosmedKM = () => {
   return (
     <div className="z-20 flex items-center justify-center mt-32">
       <div className="flex sm:h-[315px] sm:w-[600px] h-[170px] w-[300px] flex-col items-center justify-center rounded-xl bg-gradient-to-r from-[#B54419] to-[#90381C] shadow-2xl z-20 pb-7">
-        <h2 className="font-avigea sm:text-[36px] text-[14px] text-white text-center sm:underline sm:underline-offset-[24px] underline-offset-[18px] font-light mt-16">
+        <h2 className="font-greek sm:text-[36px] text-[14px] text-white text-center sm:underline sm:underline-offset-[24px] underline-offset-[18px] font-light mt-16">
           SOSIAL MEDIA KM ITERA
         </h2>
         <div className="sm:gap-6 sm:pt-10 flex flex-row gap-2 pt-2 pb-1">

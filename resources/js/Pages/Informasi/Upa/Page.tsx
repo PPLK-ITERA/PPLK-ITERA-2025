@@ -8,9 +8,10 @@ import Header from "@/Components/informasi/Upa/Header";
 
 import { DetailUPTData } from "@/lib/data/upa";
 
+
 function Page() {
   const [visibleItems, setVisibleItems] = useState(4); // Jumlah item awal yang ditampilkan
-  const itemsPerPage = 4; // Jumlah item yang ditambahkan setiap kali "Load More" diklik
+  const itemsPerPage = 2; // Jumlah item yang ditambahkan setiap kali "Load More" diklik
 
   const loadMore = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + itemsPerPage);
@@ -36,7 +37,7 @@ function Page() {
                 <div className="bg-gradient-to-b from-jaffa-700 to-jaffa-800 overflow-hidden border rounded-md  shadow-md hover:shadow-xl transition duration-300">
                   <img
                     src={upt.logo}
-                    alt="UPT Kebun Raya"
+                    alt="UPT Kebun Raya "
                     className="object-contain object-center w-full h-40 py-5 border"
                   />
 
@@ -56,7 +57,7 @@ function Page() {
                 onClick={loadMore}
                 className="bg-jaffa-600 px-4 py-2 font-bold text-white rounded"
               >
-                Load More
+                Load More Sayang 
               </button>
             </div>
           )}

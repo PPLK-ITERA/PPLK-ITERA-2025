@@ -3,10 +3,11 @@ export interface Kk {
   description: string;
 }
 
-export interface Achievement {
+export interface ProdiActivities {
   title: string;
   description: string;
   imageUrl?: string;
+  documentation?: any;
 }
 
 export interface HmpsActivities {
@@ -29,9 +30,11 @@ export interface ProgramStudi {
   coordinatorName?: string;
   coordinatorPhoto?: any;
   kk?: Kk[];
-  achievements?: Achievement[];
+  prodiActivities?: ProdiActivities[];
+  // achievements?: Achievement[];
   instagramUrl?: string;
   kahim?: string;
+  kahimPhoto?: any;
   youtubeUrl?: string;
   websiteUrl?: string;
   tiktokUrl?: string;

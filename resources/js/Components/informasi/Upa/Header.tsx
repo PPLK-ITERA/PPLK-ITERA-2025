@@ -27,11 +27,12 @@ const Header = ({ upt, title, headerDescription }: HeaderProps) => {
           data-aos-duration="1500"
           className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-[2.5rem]"
         >
-          <span className="font-avigea text-[40px] md:text-[60px] max-w-2xl capitalize">
-            {upt ? title : `Unit Penunjang Akademik (UPA)`}
+          <span className="font-greek text-[40px] md:text-[60px] max-w-2xl capitalize">
+            {upt ? title : `Unit Penunjang Akademik`}
           </span>
           <br />
-          <span className="font-avigea text-[64px] md:text-[60px]">ITERA</span>
+          
+          <span className="font-greek text-[64px] md:text-[60px]">ITERA</span>
         </h1>
 
         <p
@@ -39,10 +40,10 @@ const Header = ({ upt, title, headerDescription }: HeaderProps) => {
           data-aos-duration="2000"
           className="mt-10 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em] max-w-lg"
         >
-          <span className="text-[18px] md:text-[25px]">
+          <span className="text-[18px] md:text-[25px] flex">
             {upt
               ? headerDescription
-              : `Unit Penunjang Akademik menyediakan layanan dan dukungan akademis.`}
+              : `Unit Penunjang Akademik menyediakan layanan dan dukungan akademisf.`}
           </span>
         </p>
       </div>
