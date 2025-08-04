@@ -81,6 +81,7 @@ export const PengumpulanTugasClient = ({
           status: requestParams.status ?? 0,
         })}
         title="Pengumpulan Tugas"
+        description="Daftar pengumpulan tugas oleh kelompok."
         // status={status}
       />
     </>

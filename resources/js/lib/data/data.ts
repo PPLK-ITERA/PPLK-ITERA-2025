@@ -119,18 +119,17 @@ export const navItems: NavItem[] = [
   {
     title: "Dokumentasi",
     // href: {route("dashboard.dokumentasi.index")},
-    href: "/dashboard/dokumentasi",
-    icon: "image",
-    label: "Dokumentasi",
-    role_id: [3],
-  },
-  {
-    title: "Dokumentasi",
-    // href: {route("dashboard.dokumentasi.index")},
     href: "dashboard/dokumentasi/view",
     icon: "image",
     label: "Dokumentasi",
     role_id: [2, 4, 5, 6, 7, 8],
+   },   
+    title: "Tesla",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/tesla",
+    icon: "book",
+    label: "Tesla",
+    role_id: [3],
   },
 ];
 

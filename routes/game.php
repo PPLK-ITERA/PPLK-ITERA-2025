@@ -34,8 +34,8 @@ Route::middleware('auth')->get('/tesla', function () {
 })->name('admin.tesla');
 
 // (Opsional) Route inertia admin UI
-Route::middleware(['auth', 'checkRole:Admin'])->get('/edit-tesla', function () {
-    return Inertia\Inertia::render('Tesla/AdminPage');
+Route::middleware(['auth', 'checkRole:Admin'])->get('/dashboard/tesla', function () {
+    return Inertia\Inertia::render('Dashboard/tesla/Page');
 })->name('admin.tesla.ui');
 
 

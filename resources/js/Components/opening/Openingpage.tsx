@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import pplk2025 from "!assets/pplk/2025.png";
-import pplk2024 from "!assets/pplk/2024.png";
-import pplk2022 from "!assets/pplk/2022.png";
+import pplk2025 from "!assets/pplk/2025.jpg";
+import pplk2024 from "!assets/pplk/2024.jpg";
+import pplk2022 from "!assets/pplk/2022.jpg";
 
 const OpeningPage = ({ onComplete }) => {
     // Ubah tipe transitionDirection agar bisa 'left' | 'right' | null
