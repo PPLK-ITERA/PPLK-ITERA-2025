@@ -15,6 +15,7 @@ const OpeningPage = ({ onComplete }) => {
     const [preloadedIframes, setPreloadedIframes] = useState({});
     const [isIframeLoading, setIsIframeLoading] = useState(true);
     const [loadedIframes, setLoadedIframes] = useState<{ [key: string]: boolean }>({});
+    const [iframeReady, setIframeReady] = useState(false);
 
     const images = [
         { id: 0, src: pplk2025, alt: 'PPLK 2025', title: 'ADVENTURE AWAITS', year: 'PPLK 2025', link: '/' },
@@ -22,7 +23,7 @@ const OpeningPage = ({ onComplete }) => {
         { id: 2, src: pplk2022, alt: 'PPLK 2022', title: 'LEADERSHIP', year: 'PPLK 2022', link: 'https://pplk2022-755271153581.europe-west1.run.app/' },
     ];
 
-    // Modified preload effect with better handling for both sites
+    // Modified preload effect
     useEffect(() => {
         const preloadSites = async () => {
             const externalSites = images.filter(img => img.link !== '/');
@@ -65,6 +66,17 @@ const OpeningPage = ({ onComplete }) => {
             preloadedFrames.forEach(frame => frame.remove());
         };
     }, []);
+
+    // Add new effect to handle iframe ready state
+    useEffect(() => {
+        if (showIframe) {
+            setIframeReady(false);
+            const timer = setTimeout(() => {
+                setIframeReady(true);
+            }, 2000); // Minimum loading time
+            return () => clearTimeout(timer);
+        }
+    }, [showIframe, iframeUrl]);
 
     const handleImageClick = (index) => {
         if (isAnimating) return;
@@ -132,7 +144,7 @@ const OpeningPage = ({ onComplete }) => {
 
     // Modified showIframe render
     if (showIframe) {
-        const isLoaded = loadedIframes[iframeUrl];
+        const isLoaded = loadedIframes[iframeUrl] && iframeReady;
 
         return (
             <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center">
@@ -145,28 +157,34 @@ const OpeningPage = ({ onComplete }) => {
                     </button>
                 </div>
                 <div className="w-full h-full relative">
-                    {!isLoaded && (
-                        <div
-                            className="absolute inset-0 flex flex-col items-center justify-center bg-black"
-                            style={{
-                                backgroundImage: `url(${images[currentIndex].src})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                            }}
-                        >
-                            <div className="absolute inset-0 bg-black bg-opacity-75"></div>
-                            <div className="relative z-10 flex flex-col items-center space-y-4">
-                                <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-                                <p className="text-white text-xl font-greek">Loading {images[currentIndex].year}...</p>
-                            </div>
+                    <div
+                        className={`absolute inset-0 flex flex-col items-center justify-center bg-black transition-opacity duration-500 ${!isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        style={{
+                            backgroundImage: `url(${images[currentIndex].src})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            zIndex: isLoaded ? -1 : 1,
+                        }}
+                    >
+                        <div className="absolute inset-0 bg-black bg-opacity-75"></div>
+                        <div className="relative z-10 flex flex-col items-center space-y-4">
+                            <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                            <p className="text-white text-xl font-greek">Loading {images[currentIndex].year}...</p>
                         </div>
-                    )}
+                    </div>
                     <iframe
                         key={iframeUrl}
                         src={iframeUrl}
                         className={`w-full h-full border-0 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        style={{ zIndex: isLoaded ? 2 : 0 }}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
+                        onLoad={() => {
+                            setLoadedIframes(prev => ({
+                                ...prev,
+                                [iframeUrl]: true
+                            }));
+                        }}
                     />
                 </div>
             </div>
