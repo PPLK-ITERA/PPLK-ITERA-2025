@@ -31,7 +31,7 @@ export const PaginationUKM: React.FC<PaginationUKMProps> = ({
   };
 
   const pageNumbers: (number | string)[] = [];
-  const neighborCount = 1; // Number of pages to show around the current page
+  const neighborCount = 1; 
 
   for (let i = 1; i <= totalPages; i++) {
     if (
@@ -99,7 +99,7 @@ export const PaginationUKM: React.FC<PaginationUKMProps> = ({
             onClick={handleNextClick}
             className={`rounded-[10px] border bg-white px-2 py-2 text-black ${currentPage === totalPages ? "pointer-events-none opacity-50" : ""}`}
           >
-            {/* Next Page Icon */}
+            {/* Next Page Icoonn */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
