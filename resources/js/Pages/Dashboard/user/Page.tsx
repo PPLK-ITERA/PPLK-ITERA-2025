@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { users } from "@/lib/data/data";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "User", link: "/dashboard/user" },
 ];
 export default function Page({ auth, response }) {

@@ -84,11 +84,11 @@ export default function CreateUser() {
   }, []);
 
   return (
-    <div className="h-fit flex-1 w-full p-4 space-y-5 border rounded-md shadow-md">
-      <h2 className="text-xl font-bold tracking-tight">Form Data User</h2>
+    <div className="h-fit font-inter flex-1 w-full p-4 space-y-5 rounded-xl shadow-md bg-[linear-gradient(137.47deg,_#E06C32_11.08%,_#FD8E57_42.04%,_#BE3F00_95.9%)]">
+      <h2 className="text-xl font-semibold text-white tracking-tight">Form Data User</h2>
 
       <div className="flex flex-col">
-        <Label htmlFor="nama-maba" className="text-left">
+        <Label htmlFor="nama-maba" className="text-left text-white">
           Nama
         </Label>
 
@@ -103,7 +103,7 @@ export default function CreateUser() {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="kelompok" className="text-left">
+        <Label htmlFor="kelompok" className="text-left text-white">
           Kelompok
         </Label>
 
@@ -166,7 +166,7 @@ export default function CreateUser() {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="prodi-maba" className="text-left">
+        <Label htmlFor="prodi-maba" className="text-left text-white">
           Prodi
         </Label>
 
@@ -223,12 +223,12 @@ export default function CreateUser() {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="role" className="text-left">
+        <Label htmlFor="role" className="text-left text-white">
           Role
         </Label>
 
         <Select onValueChange={handleChangeRole} defaultValue={selectedRole}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="w-full justify-between w-full mt-1 font-normal bg-white">
             <SelectValue placeholder="Pilih Role" />
           </SelectTrigger>
           <SelectContent>

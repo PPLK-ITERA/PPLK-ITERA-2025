@@ -48,13 +48,13 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
     put(route("dashboard.user.edit-sertif"));
   };
   return (
-    <div className="p-4 space-y-5 border rounded-md shadow-md">
-      <h2 className="text-xl font-bold tracking-tight">Tentang PPLK</h2>
+    <div className="p-4 space-y-5 border rounded-xl shadow-md bg-[linear-gradient(137.47deg,_#E06C32_11.08%,_#FD8E57_42.04%,_#BE3F00_95.9%)]">
+      <h2 className="text-xl text-white font-semibold tracking-tight">Tentang PPLK</h2>
 
       {currentUser.kelompok ? (
         <div className="flex w-full gap-2">
           <div className="flex flex-col w-full">
-            <Label htmlFor="nama-kelompok-maba" className="text-left">
+            <Label htmlFor="nama-kelompok-maba" className="text-left text-white">
               Nama Kelompok
             </Label>
 
@@ -69,7 +69,7 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
           </div>
 
           <div className="flex flex-col w-full">
-            <Label htmlFor="nomor-kelompok-maba" className="text-left">
+            <Label htmlFor="nomor-kelompok-maba" className="text-left text-white">
               Nomor Kelompok
             </Label>
 
@@ -86,7 +86,7 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
       ) : null}
 
       <div className="flex flex-col w-full">
-        <Label htmlFor="score-game-individu-maba" className="text-left">
+        <Label htmlFor="score-game-individu-maba" className="text-left text-white">
           Score Game Individu
         </Label>
 
@@ -101,7 +101,7 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col w-full">
-        <Label htmlFor="pilar-maba" className="text-left">
+        <Label htmlFor="pilar-maba" className="text-left text-white">
           Pilar
         </Label>
 
@@ -118,7 +118,7 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col w-full">
-        <Label htmlFor="serti-kelulusan-pplk-maba" className="text-left">
+        <Label htmlFor="serti-kelulusan-pplk-maba" className="text-left text-white">
           Sertifikat Kelulusan PPLK
         </Label>
 
@@ -144,7 +144,7 @@ const TentangPPLKForm: FC<TentangPPLKFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex justify-end">
-        <Button onClick={handleSubmit} disabled={!!urlError || !data.sertif}>
+        <Button onClick={handleSubmit} disabled={!!urlError || !data.sertif} className="bg-[#E58025] hover:bg-[#E58025]">
           Simpan Sertifikat
         </Button>
       </div>

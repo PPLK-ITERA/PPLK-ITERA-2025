@@ -66,10 +66,10 @@ export function DashboardNav({
                         if (setOpen) setOpen(false);
                       }}
                     >
-                      <Icon className={`ml-3 size-5`} />
+                      <Icon className={`ml-3 size-5 text-[#BE3F00]`} />
 
                       {isMobileNav || (!isMinimized && !isMobileNav) ? (
-                        <span className="mr-2 truncate">{item.title}</span>
+                        <span className="mr-2 truncate text-[#BE3F00]">{item.title}</span>
                       ) : (
                         ""
                       )}

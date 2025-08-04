@@ -16,7 +16,7 @@ import { Toaster } from "@/Components/ui/toaster";
 import { useToast } from "@/Components/ui/use-toast";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Mading", link: "/dashboard/mading" },
   { title: "Detail Tugas", link: "/dashboard/mading/user" },
 ];

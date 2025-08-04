@@ -109,13 +109,15 @@ export function DataTable<TData, TValue>({
 
   return (
     <>
-      <Heading title={`${title} (${totalRows})`} description={description} />
+      <div className="md:flex font-inter justify-between">
+        <Heading title={`${title}`} description={description} />
 
-      <Input
-        placeholder={`Search ${searchKey}...`}
-        onChange={(e) => handleSubmit(e)}
-        className="md:max-w-sm w-full my-2"
-      />
+        <Input
+          placeholder={`Search ${searchKey}...`}
+          onChange={(e) => handleSubmit(e)}
+          className="md:max-w-sm w-full my-2"
+        />
+      </div>
 
       <ScrollArea className="max-w-7xl h-[calc(80vh-220px)] rounded-md border">
         <Table className="md:w-full relative">
