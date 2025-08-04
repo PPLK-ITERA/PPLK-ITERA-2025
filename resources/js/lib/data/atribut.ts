@@ -16,7 +16,7 @@ import defaultwanitahijab3 from "!assets/ketentuan-atribut/default-wanita-hijab/
 import defaultwanita1 from "!assets/ketentuan-atribut/default-wanita/1.png";
 import defaultwanita2 from "!assets/ketentuan-atribut/default-wanita/2.png";
 import defaultwanita3 from "!assets/ketentuan-atribut/default-wanita/3.png";
-import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk from "!assets/logo-pplk-2025.png";
 
 export const DataAtribut = [
   {

@@ -32,7 +32,7 @@ import { useToast } from "@/Components/ui/use-toast";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 import { UserAuthProps } from "@/lib/types/User";
 
-import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk from "!assets/logo-pplk-2025.png";
 
 export interface DetailUser {
   bio: string | number | readonly string[] | undefined;

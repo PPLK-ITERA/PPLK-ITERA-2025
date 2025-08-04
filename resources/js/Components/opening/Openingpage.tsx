@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import pplk2025 from "!assets/pplk/2025.jpg";
 import pplk2024 from "!assets/pplk/2024.jpg";
 import pplk2022 from "!assets/pplk/2022.jpg";
+import bg1 from "!assets/tesla/bg-3.png"; // tambahkan import background
 
 const OpeningPage = ({ onComplete }) => {
     // Ubah tipe transitionDirection agar bisa 'left' | 'right' | null
@@ -18,8 +19,23 @@ const OpeningPage = ({ onComplete }) => {
 
     const handleImageClick = (index) => {
         if (isAnimating) return;
-        setCurrentIndex(index);
-        setFullscreenMode(true);
+        if (index === currentIndex) {
+            setFullscreenMode(true);
+        } else {
+            // Tentukan arah berdasarkan perbedaan index, tapi jika looping, tetap konsisten
+            const total = images.length;
+            if ((index === 0 && currentIndex === total - 1)) {
+                setTransitionDirection('right');
+            } else if ((index === total - 1 && currentIndex === 0)) {
+                setTransitionDirection('left');
+            } else if (index > currentIndex) {
+                setTransitionDirection('right');
+            } else {
+                setTransitionDirection('left');
+            }
+            setCurrentIndex(index);
+            setIsAnimating(true);
+        }
     };
 
     const exitFullscreen = () => setFullscreenMode(false);
@@ -57,7 +73,20 @@ const OpeningPage = ({ onComplete }) => {
         return (
             <div className="fixed inset-0 z-50 bg-black flex items-center justify-center p-4" onClick={exitFullscreen}>
                 <div className="relative w-full h-full max-w-6xl max-h-screen flex items-center justify-center">
-                    <img src={images[currentIndex].src} alt={images[currentIndex].alt} className="w-full h-full object-contain rounded-2xl" />
+                    <img
+                        src={images[currentIndex].src}
+                        alt={images[currentIndex].alt}
+                        className="w-full h-full object-contain rounded-2xl"
+                        style={{ cursor: 'pointer' }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            if (images[currentIndex].link === '/') {
+                                if (typeof onComplete === 'function') onComplete();
+                            } else {
+                                window.open(images[currentIndex].link);
+                            }
+                        }}
+                    />
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-y-4 text-center">
                         <p className='font-greek font-bold text-4xl sm:text-5xl md:text-7xl text-white'>START HERE</p>
                         <button
@@ -84,8 +113,25 @@ const OpeningPage = ({ onComplete }) => {
     }
 
     return (
-        <div className="min-h-screen bg-[#483b28] flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6">
-            <div className="w-full max-w-7xl">
+        <div
+            className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6"
+            style={{
+                backgroundImage: `url(${bg1})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+            }}
+        >
+            {/* Orange overlay for base color, match with #BF4000 and mix-blend-multiply */}
+            <div
+                className="absolute inset-0 z-0 pointer-events-none"
+                style={{
+                    background: '#BF4000',
+                    opacity: 1,
+                    mixBlendMode: 'multiply',
+                }}
+            />
+            <div className="w-full max-w-7xl relative z-10">
                 <div className="text-center mb-12">
                     <h1 className="text-3xl sm:text-4xl md:text-6xl font-greek font-bold text-white">
                         SELAMAT DATANG SATRIYA
@@ -108,11 +154,13 @@ const OpeningPage = ({ onComplete }) => {
                         <div
                             className={`relative w-1/3 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] aspect-[2/3] transform transition-all duration-800 ease-out
                                 ${transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
-                                  transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
-                                  'translate-x-0 opacity-80 scale-95'}
-                                hover:opacity-100 hover:scale-100 cursor-pointer`}
+                                    transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
+                                        'translate-x-0 opacity-80 scale-95'}
+                                ${!isAnimating ? 'hover:opacity-100 hover:scale-100' : ''}
+                                cursor-pointer`}
+                            onClick={() => handleImageClick((currentIndex + images.length - 1) % images.length)}
                         >
-                            <img src={images[(currentIndex + images.length - 1) % images.length].src} alt="Previous" className="w-full h-full object-cover rounded-xl shadow-xl rotate-2" onClick={() => handleImageClick((currentIndex + images.length - 1) % images.length)} />
+                            <img src={images[(currentIndex + images.length - 1) % images.length].src} alt="Previous" className="w-full h-full object-cover rounded-xl shadow-xl rotate-2" />
                             <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl">{images[(currentIndex + images.length - 1) % images.length].year}</h3>
@@ -123,7 +171,8 @@ const OpeningPage = ({ onComplete }) => {
                         <div
                             className={`relative w-1/2 max-w-[200px] sm:max-w-[260px] md:max-w-[300px] aspect-[2/3] transform transition-all duration-800 ease-out z-10
                                 ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-90' : 'translate-x-0 opacity-0 scale-90') : 'translate-x-0 opacity-100 scale-110'}
-                                cursor-pointer`}
+                                ${!isAnimating ? 'cursor-pointer' : ''}
+                                `}
                             onClick={() => handleImageClick(currentIndex)}
                         >
                             <img src={images[currentIndex].src} alt={images[currentIndex].alt} className="w-full h-full object-cover rounded-2xl" />
@@ -138,15 +187,16 @@ const OpeningPage = ({ onComplete }) => {
                         <div
                             className={`relative w-1/3 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] aspect-[2/3] transform transition-all duration-800 ease-out
                                 ${transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
-                                  transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
-                                  'translate-x-0 opacity-80 scale-95'}
-                                hover:opacity-100 hover:scale-100 cursor-pointer`}
+                                    transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
+                                        'translate-x-0 opacity-80 scale-95'}
+                                ${!isAnimating ? 'hover:opacity-100 hover:scale-100' : ''}
+                                cursor-pointer`}
+                            onClick={() => handleImageClick((currentIndex + 1) % images.length)}
                         >
                             <img
                                 src={images[(currentIndex + 1) % images.length].src}
                                 alt="Next"
                                 className="w-full h-full object-cover rounded-xl shadow-xl -rotate-2"
-                                onClick={() => handleImageClick((currentIndex + 1) % images.length)}
                             />
                             <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
@@ -178,7 +228,17 @@ const OpeningPage = ({ onComplete }) => {
                                 key={index}
                                 onClick={() => {
                                     if (!isAnimating && index !== currentIndex) {
-                                        setTransitionDirection(index > currentIndex ? 'right' : 'left');
+                                        // Tentukan arah animasi berdasarkan posisi dot yang diklik
+                                        const total = images.length;
+                                        if ((index === 0 && currentIndex === total - 1)) {
+                                            setTransitionDirection('right');
+                                        } else if ((index === total - 1 && currentIndex === 0)) {
+                                            setTransitionDirection('left');
+                                        } else if (index > currentIndex) {
+                                            setTransitionDirection('right');
+                                        } else {
+                                            setTransitionDirection('left');
+                                        }
                                         setCurrentIndex(index);
                                         setIsAnimating(true);
                                     }
@@ -188,9 +248,23 @@ const OpeningPage = ({ onComplete }) => {
                         ))}
                     </div>
                     <div className="hidden sm:flex items-center space-x-4 text-xs text-gray-200">
-                        <span>PREVIOUS</span>
+                        <button
+                            type="button"
+                            onClick={goToPrevious}
+                            disabled={isAnimating}
+                            className="hover:underline focus:outline-none"
+                        >
+                            PREVIOUS
+                        </button>
                         <span>|</span>
-                        <span>NEXT</span>
+                        <button
+                            type="button"
+                            onClick={goToNext}
+                            disabled={isAnimating}
+                            className="hover:underline focus:outline-none"
+                        >
+                            NEXT
+                        </button>
                     </div>
                 </div>
             </div>
