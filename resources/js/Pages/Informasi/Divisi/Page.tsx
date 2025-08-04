@@ -251,6 +251,8 @@ const Page = () => {
 
     const currentCharacter = characters[currentIndex];
 
+    if (!currentCharacter) return null;
+
     return (
         <DefaultLayout>
             <div
@@ -298,18 +300,20 @@ const Page = () => {
                                 WebkitOverflowScrolling: 'touch',
                             }}
                         >
-                            {characters.map((character, index) => (
-                                <div
-                                    key={character.id}
-                                    className="min-w-[40%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[45%]"
-                                >
-                                    <img
-                                        src={character.icon}
-                                        alt={character.name}
-                                        className="w-full object-contain"
-                                    />
-                                </div>
-                            ))}
+                            {characters.map((character, index) =>
+                                character ? (
+                                    <div
+                                        key={character.id}
+                                        className="min-w-[40%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[45%]"
+                                    >
+                                        <img
+                                            src={character.icon}
+                                            alt={character.name}
+                                            className="w-full object-contain"
+                                        />
+                                    </div>
+                                ) : null
+                            )}
                         </div>
                     </div>
                 </div>
