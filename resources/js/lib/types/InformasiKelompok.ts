@@ -17,6 +17,7 @@ export interface Kelompok {
   logo_kelompok: string;
   daplok_id: number;
   mentor_id: number;
-  mentor: Dapmen;
-  daplok: Dapmen;
+  mentor?: Dapmen | null;
+  daplok?: Dapmen | null;
+
 }

@@ -259,14 +259,14 @@ export default function Page({ auth }: { auth: any }) {
                   </div>
                 </div>
 
-                <div className="max-w-sm gap-2 font-inter">
+               <div className="max-w-sm gap-2 font-inter">
                   <div className="w-full mt-5">
                     <h2 className="font-semibold">Daplok</h2>
 
                     <div className="">
-                      <p className="text-lg font-bold">{dataKelompok?.daplok.name}</p>
+                      <p className="text-lg font-bold">{dataKelompok?.daplok?.name}</p>
                       <p className="font-semibold">
-                        {dataKelompok?.daplok.prodi.nama_prodi}
+                        {dataKelompok?.daplok?.prodi?.nama_prodi}
                       </p>
                     </div>
                   </div>
@@ -275,9 +275,9 @@ export default function Page({ auth }: { auth: any }) {
                     <h2 className="font-semibold">Mentor</h2>
 
                     <div className="">
-                      <p className="text-lg font-bold">{dataKelompok?.mentor.name}</p>
+                      <p className="text-lg font-bold">{dataKelompok?.mentor?.name}</p>
                       <p className="font-semibold">
-                        {dataKelompok?.mentor.prodi.nama_prodi}
+                        {dataKelompok?.mentor?.prodi?.nama_prodi}
                       </p>
                     </div>
                   </div>
