@@ -73,7 +73,20 @@ const OpeningPage = ({ onComplete }) => {
         return (
             <div className="fixed inset-0 z-50 bg-black flex items-center justify-center p-4" onClick={exitFullscreen}>
                 <div className="relative w-full h-full max-w-6xl max-h-screen flex items-center justify-center">
-                    <img src={images[currentIndex].src} alt={images[currentIndex].alt} className="w-full h-full object-contain rounded-2xl" />
+                    <img
+                        src={images[currentIndex].src}
+                        alt={images[currentIndex].alt}
+                        className="w-full h-full object-contain rounded-2xl"
+                        style={{ cursor: 'pointer' }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            if (images[currentIndex].link === '/') {
+                                if (typeof onComplete === 'function') onComplete();
+                            } else {
+                                window.open(images[currentIndex].link);
+                            }
+                        }}
+                    />
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-y-4 text-center">
                         <p className='font-greek font-bold text-4xl sm:text-5xl md:text-7xl text-white'>START HERE</p>
                         <button
