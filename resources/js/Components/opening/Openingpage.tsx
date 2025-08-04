@@ -19,7 +19,7 @@ const OpeningPage = ({ onComplete }) => {
 
     const images = [
         { id: 0, src: pplk2025, alt: 'PPLK 2025', title: 'ADVENTURE AWAITS', year: 'PPLK 2025', link: '/' },
-        { id: 1, src: pplk2024, alt: 'PPLK 2024', title: 'TEAM SPIRIT', year: 'PPLK 2024', link: 'https://mypepeelkah-755271153581.europe-west1.run.app/' },
+        { id: 1, src: pplk2024, alt: 'PPLK 2024', title: 'TEAM SPIRIT', year: 'PPLK 2024', link: 'https://pplk2024-755271153581.europe-west1.run.app/' },
         { id: 2, src: pplk2022, alt: 'PPLK 2022', title: 'LEADERSHIP', year: 'PPLK 2022', link: 'https://pplk2022-755271153581.europe-west1.run.app/' },
     ];
 
@@ -134,13 +134,6 @@ const OpeningPage = ({ onComplete }) => {
         }, 800);
         return () => clearTimeout(timer);
     }, [currentIndex]);
-
-    useEffect(() => {
-        if (!fullscreenMode) {
-            const interval = setInterval(goToNext, 5000);
-            return () => clearInterval(interval);
-        }
-    }, [currentIndex, fullscreenMode]);
 
     // Modified showIframe render
     if (showIframe) {
