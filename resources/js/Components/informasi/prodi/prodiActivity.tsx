@@ -9,17 +9,17 @@ import {
   CarouselPrevious,
 } from "@/Components/ui/carousel";
 
-import { HmpsActivities } from "@/lib/types/ProgramStudi";
+import { ProdiActivities } from "@/lib/types/ProgramStudi";
 
 import kegiatandefault from "!assets/logoprodi/kegiatandefault.jpg";
 
-type Props = { hmpsActivities: HmpsActivities[] };
+type Props = { prodiActivities:ProdiActivities [] };
 
-export default function HmpsActivity({ hmpsActivities }: Props) {
+export default function prodiActivity({ prodiActivities }: Props) {
   return (
     <Carousel>
       <CarouselContent className="p-4 text-sm">
-        {hmpsActivities.map((a, i) => (
+        {prodiActivities.map((a, i) => (
           <CarouselItem
             data-aos="fade-up"
             data-aos-duration={800}
