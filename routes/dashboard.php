@@ -11,6 +11,7 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\PresensiPplkController;
+use App\Http\Controllers\DokumentasiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -91,6 +92,43 @@ Route::middleware('auth')->group(function () {
          });
       });
 
+      // ========================================
+      
+      // ========================================
+      // TAMBAHAN BARU: DOKUMENTASI KEGIATAN 5 HARI   
+      // ========================================
+   Route::prefix('dokumentasi')->name('dokumentasi.')->group(function () {
+   // =====================================
+   // User all role - Read-Only
+   // =====================================
+      // Hanya bisa melihat daftar dan detail dokumentasi (read-only)
+      Route::get('/view', [DokumentasiController::class, 'index'])->name('view.index');
+      Route::get('/view/{dokumentasi}', [DokumentasiController::class, 'show'])->name('view.show');
+
+      // =====================================
+      //  Admin Role - Akses Penuh
+      // =====================================
+      Route::middleware(['checkRole:Admin'])->group(function () {
+         // Route untuk menampilkan daftar dokumentasi
+         Route::get('/', [DokumentasiController::class, 'index'])->name('index');
+         // Route untuk menampilkan form tambah dokumentasi baru
+         Route::get('/create', [DokumentasiController::class, 'create'])->name('create');
+         // Route untuk menyimpan dokumentasi baru ke database
+         Route::post('/store', [DokumentasiController::class, 'store'])->name('store');
+         // Route khusus untuk menghapus foto individual (AJAX support)
+         Route::delete('/foto/{fotoDokumentasi}', [DokumentasiController::class, 'deleteFoto'])->name('foto.destroy');
+         // Route untuk menampilkan detail dokumentasi spesifik
+         Route::get('/{dokumentasi}', [DokumentasiController::class, 'show'])->name('show');
+         // Route untuk menampilkan form edit dokumentasi
+         Route::get('/{dokumentasi}/edit', [DokumentasiController::class, 'edit'])->name('edit');
+         // Route untuk mengupdate dokumentasi yang sudah ada
+         Route::put('/{dokumentasi}', [DokumentasiController::class, 'update'])->name('update');
+         // Route untuk menghapus dokumentasi (beserta foto-fotonya)
+         Route::delete('/{dokumentasi}', [DokumentasiController::class, 'destroy'])->name('destroy');
+   });
+   });
+
+
       // =====================================
       // Materi
       // =====================================
@@ -154,6 +192,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
             Route::get('data/all/{tugas_id}/{no_kelompok}/{status}', [TugasController::class, 'getAllTugas'])->name('data');
+            Route::post('/addTugas', [TugasController::class, 'addTugas'])->name('addTugas');
          });
          Route::middleware(['checkRole:Daplok,Mentor,Admin,Mamet'])->group(function () {
             Route::put('/return', [TugasController::class, 'returnTugas'])->name('return');
@@ -163,6 +202,7 @@ Route::middleware('auth')->group(function () {
             // Data
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
+               Route::get('/judulTugas', [TugasController::class, 'getJudulTugas'])->name('judulTugas');
                Route::get('/user/{id}', [TugasController::class, 'getTugasUser'])->name('user');
                Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
                Route::get('/poster', [TugasController::class, 'getPoster'])->name('poster');

@@ -839,7 +839,7 @@ export default function Page() {
         return sorted[0] || null;
     };
 
-    const [dayLabel, setDayLabel] = useState<string>('DAY 1');
+    const [dayLabel, setDayLabel] = useState<string>('DAY ?');
 
     // Fetch day label from API
     useEffect(() => {

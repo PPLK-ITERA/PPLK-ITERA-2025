@@ -11,7 +11,7 @@ import { IconPlus } from "@tabler/icons-react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { MateriCellActions } from "@/Components/dashboard/materi/MateriCellActions";
-import MateriForm from "@/Components/dashboard/materi/MateriForm";
+import TugasForm from "@/Components/dashboard/tugas/TugasForm";
 import { PengumpulanTugasClient } from "@/Components/tables/pengumpulan-tugas/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
@@ -53,19 +53,19 @@ import { Materi } from "@/lib/types/Materi";
 import { cn } from "@/lib/utils";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Pengumpulan Tugas", link: "/dashboard/pengumpulan-tugas" },
 ];
 
-const ListDataTugas = [
-  { id: 1, label: "DIRETRA", value: "1" },
-  { id: 2, label: "HARTATERA", value: "2" },
-  { id: 3, label: "COOLIN", value: "3" },
-  { id: 4, label: "GARTA MATERA", value: "4" },
-  { id: 5, label: "PORTAL DILOGI", value: "5" },
-  { id: 6, label: "REKASITERA", value: "6" },
-  { id: 7, label: "MOTLET CAKRAWALA", value: "7" },
-];
+// const ListDataTugas = [
+//   { id: 1, label: "DIRETRA", value: "1" },
+//   { id: 2, label: "HARTATERA", value: "2" },
+//   { id: 3, label: "COOLIN", value: "3" },
+//   { id: 4, label: "GARTA MATERA", value: "4" },
+//   { id: 5, label: "PORTAL DILOGI", value: "5" },
+//   { id: 6, label: "REKASITERA", value: "6" },
+//   { id: 7, label: "MOTLET CAKRAWALA", value: "7" },
+// ];
 
 interface kelompokData {
   id: number;
@@ -73,16 +73,42 @@ interface kelompokData {
   no_kelompok: string;
 }
 
-export default function Page({ auth, response }) {
+interface judulData {
+  id: number;
+  judul: string;
+}
+
+export default function Page({ auth, response}) {
+  const user = auth.user;
   useFlashToast();
 
   const [openKelompok, setOpenKelompok] = useState(false);
   const [kelompokValue, setKelompokValue] = useState("");
   const [selectedTask, setSelectedTask] = useState("1"); // State for storing the selected task
-  const [selectedTaskId, setSelectedTaskId] = useState(1); // State for storing the selected task id
+  const [selectedTaskId, setSelectedTaskId] = useState<number | "">(""); // State for storing the selected task id
   const [submissionStatus, setSubmissionStatus] = useState(""); // State for storing the submission status
 
   const [kelompokData, setKelompokData] = useState<kelompokData[]>([]);
+  const [judulData, setJudulData] = useState<judulData[]>([]);
+
+  const getListDataTugas = async () => {
+    const response = await fetch(route("dashboard.tugas.data.judulTugas"), {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    const res = await response.json();
+    const data = res.response.data;
+    setJudulData(data);
+
+    if (data && data.length > 0) {
+      setSelectedTask(data[0].id.toString());
+      setSelectedTaskId(data[0].id);
+    }
+  };
 
   const getKelompokData = async () => {
     const response = await fetch(route("dashboard.user.data.kelompok"), {
@@ -99,6 +125,7 @@ export default function Page({ auth, response }) {
 
   useEffect(() => {
     getKelompokData();
+    getListDataTugas();
   }, []);
 
   // Handlers for selections
@@ -116,6 +143,25 @@ export default function Page({ auth, response }) {
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
         <h2 className="text-3xl font-bold tracking-tight">Pengumpulan Tugas</h2>
+        {(user.role_id == 7 || user.role_id == 3)? (
+            <div className="place-content-start flex w-full">
+              {/* add dialog */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button>
+                    <IconPlus size={18} />
+                    <span>Buat Tugas</span>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Buat Tugas</DialogTitle>
+                  </DialogHeader>
+                  <TugasForm />
+                </DialogContent>
+              </Dialog>
+            </div>
+          ) : null}
 
         <h2>Filter berdasarkan...</h2>
         <div className="md:flex-row md:items-center flex flex-col items-start gap-1">
@@ -132,9 +178,9 @@ export default function Page({ auth, response }) {
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Nama Tugas</SelectLabel>
-                  {ListDataTugas.map((item) => (
-                    <SelectItem key={item.id} value={item.value}>
-                      {item.label}
+                  {judulData.map((item) => (
+                    <SelectItem key={item.id} value={item.id.toString()}>
+                      {item.judul}
                     </SelectItem>
                   ))}
                 </SelectGroup>
@@ -231,7 +277,7 @@ export default function Page({ auth, response }) {
         </div>
 
         <PengumpulanTugasClient
-          tugas_id={selectedTaskId}
+          tugas_id={typeof selectedTaskId === "number" ? selectedTaskId : 0}
           no_kelompok={parseInt(kelompokValue)}
           status={parseInt(submissionStatus)}
         />

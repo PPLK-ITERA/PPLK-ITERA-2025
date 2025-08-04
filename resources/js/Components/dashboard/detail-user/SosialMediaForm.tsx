@@ -25,11 +25,11 @@ const SosialMediaForm: FC<SosialMediaFormProps> = ({ currentUser }) => {
   };
 
   return (
-    <div className="p-4 space-y-5 border rounded-md shadow-md">
-      <h2 className="text-xl font-bold tracking-tight">Sosial Media</h2>
+    <div className="p-4 space-y-5 border rounded-xl shadow-md bg-[linear-gradient(137.47deg,_#E06C32_11.08%,_#FD8E57_42.04%,_#BE3F00_95.9%)]">
+      <h2 className="text-xl text-white font-semibold tracking-tight">Sosial Media</h2>
 
       <div className="flex flex-col">
-        <Label htmlFor="instagram-maba" className="text-left">
+        <Label htmlFor="instagram-maba" className="text-left text-white">
           Instagram
         </Label>
 
@@ -44,7 +44,7 @@ const SosialMediaForm: FC<SosialMediaFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="linkedin-maba" className="text-left">
+        <Label htmlFor="linkedin-maba" className="text-left text-white">
           LinkedIn
         </Label>
 
@@ -59,7 +59,7 @@ const SosialMediaForm: FC<SosialMediaFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex justify-end">
-        <Button onClick={handleSubmit}>Simpan Data</Button>
+        <Button onClick={handleSubmit} className="bg-[#E58025] hover:bg-[#E58025]">Simpan Data</Button>
       </div>
     </div>
   );

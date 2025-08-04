@@ -10,7 +10,13 @@ const Breadcrumb = React.forwardRef<
   React.ComponentPropsWithoutRef<"nav"> & {
     separator?: React.ReactNode;
   }
->(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />);
+>(({ ...props }, ref) => <nav
+                            ref={ref}
+                            className="p-4 font-poppins rounded-xl bg-[linear-gradient(137.47deg,_rgba(255,255,255,0.3)_11.08%,_rgba(248,250,255,0.8)_39.07%,_rgba(245,248,255,0.9)_60.7%,_rgba(255,255,255,0.2)_95.9%)]"
+                            aria-label="breadcrumb"
+                            {...props}
+                          />
+  );
 Breadcrumb.displayName = "Breadcrumb";
 
 const BreadcrumbList = React.forwardRef<
@@ -20,7 +26,7 @@ const BreadcrumbList = React.forwardRef<
   <ol
     ref={ref}
     className={cn(
-      "flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5",
+      "flex flex-wrap items-center gap-1.5 break-words text-2xl sm:gap-2.5",
       className,
     )}
     {...props}
@@ -34,7 +40,7 @@ const BreadcrumbItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <li
     ref={ref}
-    className={cn("inline-flex items-center gap-1.5", className)}
+    className={cn("inline-flex text-[#E0822D] font-bold items-center gap-1.5", className)}
     {...props}
   />
 ));
@@ -67,7 +73,7 @@ const BreadcrumbPage = React.forwardRef<
     role="link"
     aria-disabled="true"
     aria-current="page"
-    className={cn("font-normal text-foreground", className)}
+    className={cn("text-[#BE3F00] font-bold", className)}
     {...props}
   />
 ));

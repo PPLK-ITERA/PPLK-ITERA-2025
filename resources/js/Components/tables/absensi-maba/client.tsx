@@ -16,10 +16,7 @@ export const AbsensiMabaClient = ({ day }: AbsensiMabaClientProps) => {
         searchKey="name"
         columns={columns}
         apiEndpoint={route("dashboard.presensi.data", { date: day })}
-        title={"Data Absensi Maba"}
-        description={
-          "Gunakan sistem informasi ini untuk manajemen kehadiran maba!"
-        }
+        title={"Absensi Maba"}
       />
     </>
   );

@@ -22,7 +22,6 @@ export const UserClient: React.FC<ProductsClientProps> = ({ data }) => {
       <div className="flex items-start justify-between">
         <Heading
           title={`Jumlah Maba (${data.length})`}
-          description="Manajemen absensi maba cui, gunakan tabel berikut jika terdapat kendala pada barcode scanner!"
         />
       </div>
       <Separator />

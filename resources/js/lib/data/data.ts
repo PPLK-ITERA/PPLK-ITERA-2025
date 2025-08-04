@@ -89,13 +89,6 @@ export const navItems: NavItem[] = [
     role_id: [3, 8],
   },
   {
-    title: "Mading",
-    href: "/dashboard/mading",
-    icon: "map",
-    label: "atur-mading",
-    role_id: [2, 3, 4, 8],
-  },
-  {
     title: "Informasi Kelompok",
     href: "/dashboard/informasi-kelompok",
     icon: "map",
@@ -122,6 +115,30 @@ export const navItems: NavItem[] = [
     icon: "bookCheck",
     label: "atur-pengumpulan-tugas",
     role_id: [7, 3, 8],
+  },
+  {
+    title: "Dokumentasi",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/dokumentasi/view",
+    icon: "image",
+    label: "Dokumentasi",
+    role_id: [2, 4, 5, 6, 7, 8],
+  },
+  {
+    title: "Dokumentasi",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/dokumentasi/",
+    icon: "image",
+    label: "Dokumentasi",
+    role_id: [3],
+  },
+  {
+    title: "Tesla",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/tesla",
+    icon: "book",
+    label: "Tesla",
+    role_id: [3],
   },
 ];
 
