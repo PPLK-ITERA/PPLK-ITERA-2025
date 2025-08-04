@@ -161,7 +161,8 @@ const OpeningPage = ({ onComplete }) => {
 
                         {/* Center Image */}
                         <div
-                            className={`relative w-1/2 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] aspect-[2/3] transform transition-all duration-800 ease-out z-10 group hover:scale-105
+                            className={`relative w-1/2 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] aspect-[2/3] transform transition-all duration-800 ease-out z-10 group
+                                hover:scale-105 active:scale-105 touch-pan-y
                                 ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-90' : 'translate-x-0 opacity-0 scale-90') : 'translate-x-0 opacity-100 scale-110'}
                                 ${!isAnimating ? 'cursor-pointer' : ''}`}
                             onClick={() => handleImageClick(currentIndex)}
