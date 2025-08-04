@@ -22,7 +22,7 @@ import { UserDropdown } from "@/lib/data/navlink";
 import { UserAuthProps } from "@/lib/types/User";
 
 import logodiesnat from "!assets/logo-diesnat.png";
-import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk from "!assets/logo-pplk-2025.png";
 import logopplk_white from "!assets/logo-pplk-20204-white.png";
 import logodiesnat_white from "!assets/logo-tendiesnat-white.png";
 
@@ -97,7 +97,7 @@ export default function Navbar({
             className={`flex flex-col font-greek justify-center leading-[14px] ${isScrolled || isSolid ? " text-white" : "text-jaffa-400"} transition duration-300 ease-in-out`}
           >
             <p>PPLK</p>
-            <p>ITERA</p>
+            <p>2025</p>
           </div>
         </Link>
 

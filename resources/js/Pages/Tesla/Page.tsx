@@ -708,7 +708,7 @@ export default function Page() {
         if (saved) {
             try {
                 setHistory(JSON.parse(saved));
-            } catch {}
+            } catch { }
         }
     }, []);
 
@@ -1047,9 +1047,8 @@ export default function Page() {
                                                                 {clues.across.map(clue => (
                                                                     <button
                                                                         key={`across-${clue.number}`}
-                                                                        className={`w-full text-left px-4 py-2 text-sm hover:bg-orange-100 transition rounded ${
-                                                                            selectedQuestion === `across-${clue.number}` ? 'bg-orange-50 font-semibold text-orange-700' : ''
-                                                                        }`}
+                                                                        className={`w-full text-left px-4 py-2 text-sm hover:bg-orange-100 transition rounded ${selectedQuestion === `across-${clue.number}` ? 'bg-orange-50 font-semibold text-orange-700' : ''
+                                                                            }`}
                                                                         onClick={() => {
                                                                             setSelectedQuestion(`across-${clue.number}`);
                                                                             setSelectedClue(clue);
@@ -1073,9 +1072,8 @@ export default function Page() {
                                                                 {clues.down.map(clue => (
                                                                     <button
                                                                         key={`down-${clue.number}`}
-                                                                        className={`w-full text-left px-4 py-2 text-sm hover:bg-orange-100 transition rounded ${
-                                                                            selectedQuestion === `down-${clue.number}` ? 'bg-orange-50 font-semibold text-orange-700' : ''
-                                                                        }`}
+                                                                        className={`w-full text-left px-4 py-2 text-sm hover:bg-orange-100 transition rounded ${selectedQuestion === `down-${clue.number}` ? 'bg-orange-50 font-semibold text-orange-700' : ''
+                                                                            }`}
                                                                         onClick={() => {
                                                                             setSelectedQuestion(`down-${clue.number}`);
                                                                             setSelectedClue(clue);
@@ -1296,10 +1294,10 @@ export default function Page() {
                                                                             : '#a3a3a3',
                                                                     backgroundColor: cell?.isBlack ? '#000' :
                                                                         cell?.isCorrect ? '#bbf7d0' :
-                                                                        cell?.isWrong ? '#fecaca' :
-                                                                        cell?.isSelected ? '#fef08a' :
-                                                                        cell?.isHighlighted ? '#fef9c3' :
-                                                                        '#f9fafb',
+                                                                            cell?.isWrong ? '#fecaca' :
+                                                                                cell?.isSelected ? '#fef08a' :
+                                                                                    cell?.isHighlighted ? '#fef9c3' :
+                                                                                        '#f9fafb',
                                                                 }}
                                                             >
                                                                 {cell?.number && (
@@ -1546,36 +1544,36 @@ export default function Page() {
                         </div>
                         <div className="p-6">
                             {history.length > 0 ? (
-    <div
-        className="overflow-y-auto"
-        style={{
-            maxHeight: 320,
-            overflowX: 'auto'
-        }}
-    >
-        <table className="min-w-full text-sm text-gray-700 table-auto" style={{ width: '100%' }}>
-            <thead>
-                <tr>
-                    <th className="px-2 py-1 text-left whitespace-nowrap">Tanggal</th>
-                    <th className="px-2 py-1 text-left whitespace-nowrap">Waktu</th>
-                    <th className="px-2 py-1 text-left whitespace-nowrap">Selesai</th>
-                    <th className="px-2 py-1 text-left whitespace-nowrap">Jawaban</th>
-                    <th className="px-2 py-1 text-left whitespace-nowrap">Skor</th>
-                </tr>
-            </thead>
-            <tbody>
-                {history.map((h, idx) => (
-                    <tr key={idx} className="border-t">
-                        <td className="px-2 py-1 break-words" data-label="Tanggal">{h.date}</td>
-                        <td className="px-2 py-1 break-words" data-label="Waktu">{formatTime(h.time)}</td>
-                        <td className="px-2 py-1 break-words" data-label="Selesai">{h.percentage}%</td>
-                        <td className="px-2 py-1 break-words" data-label="Jawaban">{h.answered}/{h.total}</td>
-                        <td className="px-2 py-1 break-words" data-label="Skor">{typeof h.score === 'number' ? h.score : (h.answered * 10)}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-        <style>{`
+                                <div
+                                    className="overflow-y-auto"
+                                    style={{
+                                        maxHeight: 320,
+                                        overflowX: 'auto'
+                                    }}
+                                >
+                                    <table className="min-w-full text-sm text-gray-700 table-auto" style={{ width: '100%' }}>
+                                        <thead>
+                                            <tr>
+                                                <th className="px-2 py-1 text-left whitespace-nowrap">Tanggal</th>
+                                                <th className="px-2 py-1 text-left whitespace-nowrap">Waktu</th>
+                                                <th className="px-2 py-1 text-left whitespace-nowrap">Selesai</th>
+                                                <th className="px-2 py-1 text-left whitespace-nowrap">Jawaban</th>
+                                                <th className="px-2 py-1 text-left whitespace-nowrap">Skor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {history.map((h, idx) => (
+                                                <tr key={idx} className="border-t">
+                                                    <td className="px-2 py-1 break-words" data-label="Tanggal">{h.date}</td>
+                                                    <td className="px-2 py-1 break-words" data-label="Waktu">{formatTime(h.time)}</td>
+                                                    <td className="px-2 py-1 break-words" data-label="Selesai">{h.percentage}%</td>
+                                                    <td className="px-2 py-1 break-words" data-label="Jawaban">{h.answered}/{h.total}</td>
+                                                    <td className="px-2 py-1 break-words" data-label="Skor">{typeof h.score === 'number' ? h.score : (h.answered * 10)}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                    <style>{`
             @media (max-width: 640px) {
                 table, thead, tbody, th, td, tr {
                     display: block;
@@ -1609,10 +1607,10 @@ export default function Page() {
                 }
             }
         `}</style>
-    </div>
-) : (
-    <div className="text-center text-gray-500">Belum ada history progress.</div>
-)}
+                                </div>
+                            ) : (
+                                <div className="text-center text-gray-500">Belum ada history progress.</div>
+                            )}
                         </div>                    </div>
                 </div>
             )}

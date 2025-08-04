@@ -29,7 +29,7 @@ import { useToast } from "@/Components/ui/use-toast";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 import { Kelompok } from "@/lib/types/InformasiKelompok";
 
-import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk from "!assets/logo-pplk-2025.png";
 
 const breadcrumbItems = [
   { title: "Ellysion Panel", link: "/dashboard" },
@@ -254,7 +254,7 @@ export default function Page({ auth }: { auth: any }) {
                         {dataKelompok?.nama_kelompok}
                       </p>
 
-                      
+
                     </div>
                   </div>
                 </div>
