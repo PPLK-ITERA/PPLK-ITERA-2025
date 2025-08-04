@@ -1,8 +1,25 @@
 import React from "react";
+import axios from "axios";
 
 import { Label } from "@/Components/ui/label";
 
 export default function DokumentasiDay({ data, foto, user }) {
+	const handleDelete = async () => {
+    const confirmed = confirm("Yakin ingin menghapus data?");
+    if (!confirmed) return;
+
+    try {
+      await axios.delete(`/dashboard/dokumentasi/${data.id}`);
+
+      // if (onDeleted) window.location.reload(); // bisa digunakan untuk reload list
+    } catch (error) {
+      console.error("Gagal menghapus:", error);
+    }
+
+    window.location.reload();
+  };
+
+
 	return (
 			<div className="lg:m-0 m-2 font-inter bg-gray-200 rounded-lg">
 				<div className="bg-white rounded-lg">
@@ -32,10 +49,12 @@ export default function DokumentasiDay({ data, foto, user }) {
 							Detail
 						</a>
 						<a
+							href={`dokumentasi/${data.id}/edit`}
 							className="text-yellow-400 border border-current p-1 flex-1 text-center rounded-sm">
 							Edit
 						</a>
 						<a
+							onClick={handleDelete}
 							className="text-destructive border border-current p-1 flex-1 text-center rounded-sm">
 							hapus
 						</a>

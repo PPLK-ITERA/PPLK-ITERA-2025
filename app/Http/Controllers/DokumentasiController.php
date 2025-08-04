@@ -121,7 +121,8 @@ class DokumentasiController extends Controller
         // Load relasi foto
         $dokumentasi->load('fotos');
 
-        return view('dokumentasi.edit', compact('dokumentasi'));
+        // return view('dokumentasi.edit', compact('dokumentasi'));
+        return Inertia::render('Dashboard/dokumentasi/edit', compact('dokumentasi'));
     }
 
     /**
