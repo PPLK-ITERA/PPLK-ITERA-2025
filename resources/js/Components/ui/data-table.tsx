@@ -52,18 +52,38 @@ export function DataTable<TData, TValue>({
   const [totalRows, setTotalRows] = useState(0);
   const [search, setSearch] = useState("");
 
-  const numberOfPages = Math.ceil(totalRows / perPage);
+  // PERBAIKAN: Pastikan numberOfPages selalu valid
+  const numberOfPages = Math.max(1, Math.ceil(totalRows / perPage)) || 1;
   const visiblePages = 2;
 
   const fetchTableData = async () => {
     setLoading(true);
-    const response = await fetch(
-      `${apiEndpoint}?page=${page}&perPage=${perPage}&search=${search}`,
-    );
-    const json = await response.json();
-    setData(json.data);
-    setTotalRows(json.total);
-    setLoading(false);
+    try {
+      const response = await fetch(
+        `${apiEndpoint}?page=${page}&perPage=${perPage}&search=${search}`,
+      );
+      const json = await response.json();
+
+      // PERBAIKAN: Debug log untuk melihat response
+      console.log('API Response:', json);
+
+      // PERBAIKAN: Pastikan data dan total adalah valid
+      const responseData = Array.isArray(json.data) ? json.data : [];
+      const responseTotal = typeof json.total === 'number' && !isNaN(json.total) ? json.total : responseData.length;
+
+      setData(responseData);
+      setTotalRows(responseTotal);
+
+      console.log('Set data:', responseData, 'Set total:', responseTotal);
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      // PERBAIKAN: Set default values pada error
+      setData([]);
+      setTotalRows(0);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -82,30 +102,58 @@ export function DataTable<TData, TValue>({
     },
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     debounced(e.target.value);
   };
 
   const debounced = useDebouncedCallback(
     // function
-    (value) => {
+    (value: string) => {
       setSearch(value);
       setPage(1);
     },
-    // delay in ms0
+    // delay in ms
     500,
   );
 
   const getPaginationRange = () => {
     const startPage = Math.max(1, page - Math.floor(visiblePages / 2));
     const endPage = Math.min(numberOfPages, startPage + visiblePages - 1);
-    const range: number[] = []; // Explicitly declare the type
+    const range: number[] = [];
 
     for (let i = startPage; i <= endPage; i++) {
-      range.push(i); // i is inferred as a number
+      range.push(i);
     }
     return range;
   };
+
+  // PERBAIKAN: Hitung nilai pagination dengan safe values
+  const safeCalculatePaginationDisplay = () => {
+    const safeTotalRows = typeof totalRows === 'number' && !isNaN(totalRows) ? totalRows : 0;
+    const safePerPage = typeof perPage === 'number' && !isNaN(perPage) && perPage > 0 ? perPage : 10;
+    const safePage = typeof page === 'number' && !isNaN(page) && page > 0 ? page : 1;
+
+    if (safeTotalRows === 0) {
+      return {
+        from: 0,
+        to: 0,
+        total: 0,
+        displayText: "No entries found"
+      };
+    }
+
+    const from = (safePage - 1) * safePerPage + 1;
+    const to = Math.min(safePage * safePerPage, safeTotalRows);
+
+    return {
+      from,
+      to,
+      total: safeTotalRows,
+      displayText: `Showing ${from} to ${to} of ${safeTotalRows} entries`
+    };
+  };
+
+  const paginationDisplay = safeCalculatePaginationDisplay();
 
   return (
     <>
@@ -114,7 +162,7 @@ export function DataTable<TData, TValue>({
 
         <Input
           placeholder={`Search ${searchKey}...`}
-          onChange={(e) => handleSubmit(e)}
+          onChange={handleSubmit}
           className="md:max-w-sm w-full my-2"
         />
       </div>
@@ -175,72 +223,75 @@ export function DataTable<TData, TValue>({
 
       <div className="flex items-center justify-between">
         <div className="text-sm text-gray-700">
-          Showing {(page - 1) * perPage + 1} to{" "}
-          {Math.min(page * perPage, totalRows)} of {totalRows} entries
+          {/* PERBAIKAN: Gunakan safe calculation untuk display text */}
+          {paginationDisplay.displayText}
         </div>
       </div>
 
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <Button
-              disabled={page === 1}
-              onClick={() => setPage(Math.max(page - 1, 1))}
-            >
-              <ChevronLeft />
-            </Button>
-          </PaginationItem>
-
-          {page > 1 + visiblePages / 2 && (
-            <>
-              <PaginationItem className="cursor-pointer">
-                <PaginationLink onClick={() => setPage(1)}>1</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationEllipsis />
-              </PaginationItem>
-            </>
-          )}
-
-          {getPaginationRange().map((pageNum) => (
-            <PaginationItem key={pageNum}>
-              <PaginationLink
-                isActive={page === pageNum}
-                onClick={() => setPage(pageNum)}
-                className={
-                  page === pageNum
-                    ? `${buttonVariants()} cursor-default hover:text-white`
-                    : "cursor-pointer"
-                }
+      {/* PERBAIKAN: Hanya tampilkan pagination jika ada data */}
+      {totalRows > 0 && (
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem>
+              <Button
+                disabled={page === 1}
+                onClick={() => setPage(Math.max(page - 1, 1))}
               >
-                {pageNum}
-              </PaginationLink>
+                <ChevronLeft />
+              </Button>
             </PaginationItem>
-          ))}
 
-          {page < numberOfPages - visiblePages / 2 && (
-            <>
-              <PaginationItem>
-                <PaginationEllipsis />
-              </PaginationItem>
+            {page > 1 + visiblePages / 2 && (
+              <>
+                <PaginationItem className="cursor-pointer">
+                  <PaginationLink onClick={() => setPage(1)}>1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+              </>
+            )}
 
-              <PaginationItem className="cursor-pointer">
-                <PaginationLink onClick={() => setPage(numberOfPages)}>
-                  {numberOfPages}
+            {getPaginationRange().map((pageNum) => (
+              <PaginationItem key={pageNum}>
+                <PaginationLink
+                  isActive={page === pageNum}
+                  onClick={() => setPage(pageNum)}
+                  className={
+                    page === pageNum
+                      ? `${buttonVariants()} cursor-default hover:text-white`
+                      : "cursor-pointer"
+                  }
+                >
+                  {pageNum}
                 </PaginationLink>
               </PaginationItem>
-            </>
-          )}
-          <PaginationItem>
-            <Button
-              disabled={page === numberOfPages}
-              onClick={() => setPage(Math.min(page + 1, numberOfPages))}
-            >
-              <ChevronRight />
-            </Button>
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+            ))}
+
+            {page < numberOfPages - visiblePages / 2 && numberOfPages > 1 && (
+              <>
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+
+                <PaginationItem className="cursor-pointer">
+                  <PaginationLink onClick={() => setPage(numberOfPages)}>
+                    {numberOfPages}
+                  </PaginationLink>
+                </PaginationItem>
+              </>
+            )}
+            <PaginationItem>
+              <Button
+                disabled={page === numberOfPages || numberOfPages <= 1}
+                onClick={() => setPage(Math.min(page + 1, numberOfPages))}
+              >
+                <ChevronRight />
+              </Button>
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      )}
     </>
   );
 }
