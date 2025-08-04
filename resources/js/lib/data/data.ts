@@ -124,6 +124,14 @@ export const navItems: NavItem[] = [
     label: "Dokumentasi",
     role_id: [3],
   },
+  {
+    title: "Tesla",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/tesla",
+    icon: "book",
+    label: "Tesla",
+    role_id: [3],
+  },
 ];
 
 export type Employee = {

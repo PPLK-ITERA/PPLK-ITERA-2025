@@ -45,7 +45,7 @@ class DokumentasiController extends Controller
     {
         // Ambil hari yang sudah ada untuk disable di form
         $hariTerpakai = Dokumentasi::pluck('hari_ke')->toArray();
-        
+
         return view('dokumentasi.create', [
             'dokumentasi' => $dokumentasi
         ]);

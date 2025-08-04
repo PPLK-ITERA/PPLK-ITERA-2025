@@ -277,7 +277,7 @@ export default function Page({ auth, response}) {
         </div>
 
         <PengumpulanTugasClient
-          tugas_id={selectedTaskId}
+          tugas_id={typeof selectedTaskId === "number" ? selectedTaskId : 0}
           no_kelompok={parseInt(kelompokValue)}
           status={parseInt(submissionStatus)}
         />
