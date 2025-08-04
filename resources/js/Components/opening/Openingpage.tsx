@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-<<<<<<< HEAD
 import pplk2025 from "!assets/pplk/2025.png";
 import pplk2024 from "!assets/pplk/2024.png";
 import pplk2022 from "!assets/pplk/2022.png";
@@ -7,16 +6,6 @@ import pplk2022 from "!assets/pplk/2022.png";
 const OpeningPage = ({ onComplete }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [transitionDirection, setTransitionDirection] = useState(null);
-=======
-import pplk2025 from "!assets/pplk/2025.jpg";
-import pplk2024 from "!assets/pplk/2024.jpg";
-import pplk2022 from "!assets/pplk/2022.jpg";
-
-const OpeningPage = ({ onComplete }) => {
-    // Ubah tipe transitionDirection agar bisa 'left' | 'right' | null
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [transitionDirection, setTransitionDirection] = useState<'left' | 'right' | null>(null);
->>>>>>> c9de3e887f30a8c6584d56bbbfb4fa0ed194e0b3
     const [isAnimating, setIsAnimating] = useState(false);
     const [fullscreenMode, setFullscreenMode] = useState(false);
 
@@ -65,13 +54,13 @@ const OpeningPage = ({ onComplete }) => {
 
     if (fullscreenMode) {
         return (
-            <div className="fixed inset-0 z-50 bg-black flex items-center justify-center p-4" onClick={exitFullscreen}>
-                <div className="relative w-full h-full max-w-6xl max-h-screen flex items-center justify-center">
-                    <img src={images[currentIndex].src} alt={images[currentIndex].alt} className="w-full h-full object-contain rounded-2xl" />
+            <div className="fixed inset-0 z-50 bg-black flex items-center justify-center" onClick={exitFullscreen}>
+                <div className="relative w-full h-full max-h-screen flex items-center justify-center">
+                    <img src={images[currentIndex].src} alt={images[currentIndex].alt} className="w-full h-full object-cover md:object-none  " />
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-y-4 text-center">
                         <p className='font-greek font-bold text-4xl sm:text-5xl md:text-7xl text-white'>START HERE</p>
                         <button
-                            className='inline-block bg-white text-black text-lg font-greek md:text-3xl rounded-full px-4 py-2 sm:px-6 sm:py-3'
+                            className='inline-block bg-white text-black text-lg md:text-3xl rounded-full px-4 py-2 sm:px-6 sm:py-3'
                             onClick={(e) => {
                                 e.stopPropagation();
                                 if (typeof onComplete === 'function') {
@@ -115,37 +104,18 @@ const OpeningPage = ({ onComplete }) => {
 
                     <div className="relative w-full max-w-6xl mx-2 sm:mx-6 flex items-center justify-center space-x-2 sm:space-x-6">
                         {/* Left Image */}
-<<<<<<< HEAD
                         <div className={`relative w-1/3 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] aspect-[2/3] transform transition-all duration-800 ease-out ${transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' : transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' : 'translate-x-0 opacity-80 scale-95'} hover:opacity-100 hover:scale-100 cursor-pointer`}>
-=======
-                        <div
-                            className={`relative w-1/3 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] aspect-[2/3] transform transition-all duration-800 ease-out
-                                ${transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
-                                  transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
-                                  'translate-x-0 opacity-80 scale-95'}
-                                hover:opacity-100 hover:scale-100 cursor-pointer`}
-                        >
->>>>>>> c9de3e887f30a8c6584d56bbbfb4fa0ed194e0b3
                             <img src={images[(currentIndex + images.length - 1) % images.length].src} alt="Previous" className="w-full h-full object-cover rounded-xl shadow-xl rotate-2" onClick={() => handleImageClick((currentIndex + images.length - 1) % images.length)} />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
+                           
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl">{images[(currentIndex + images.length - 1) % images.length].year}</h3>
                             </div>
                         </div>
 
                         {/* Center Image */}
-<<<<<<< HEAD
                         <div className={`relative w-1/2 max-w-[200px] sm:max-w-[260px] md:max-w-[300px] aspect-[2/3] transform transition-all duration-800 ease-out z-10 ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-90' : 'translate-x-0 opacity-0 scale-90') : 'translate-x-0 opacity-100 scale-110'} cursor-pointer`} onClick={() => handleImageClick(currentIndex)}>
-=======
-                        <div
-                            className={`relative w-1/2 max-w-[200px] sm:max-w-[260px] md:max-w-[300px] aspect-[2/3] transform transition-all duration-800 ease-out z-10
-                                ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-90' : 'translate-x-0 opacity-0 scale-90') : 'translate-x-0 opacity-100 scale-110'}
-                                cursor-pointer`}
-                            onClick={() => handleImageClick(currentIndex)}
-                        >
->>>>>>> c9de3e887f30a8c6584d56bbbfb4fa0ed194e0b3
                             <img src={images[currentIndex].src} alt={images[currentIndex].alt} className="w-full h-full object-cover rounded-2xl" />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 rounded-2xl"></div>
+                            
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl">{images[currentIndex].year}</h3>
                             </div>
@@ -153,24 +123,13 @@ const OpeningPage = ({ onComplete }) => {
                         </div>
 
                         {/* Right Image */}
-<<<<<<< HEAD
                         <div className={`relative w-1/3 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] aspect-[2/3] transform transition-all duration-800 ease-out ${transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' : transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' : 'translate-x-0 opacity-80 scale-95'} hover:opacity-100 hover:scale-100 cursor-pointer`}>
-=======
-                        <div
-                            className={`relative w-1/3 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] aspect-[2/3] transform transition-all duration-800 ease-out
-                                ${transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
-                                  transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
-                                  'translate-x-0 opacity-80 scale-95'}
-                                hover:opacity-100 hover:scale-100 cursor-pointer`}
-                        >
->>>>>>> c9de3e887f30a8c6584d56bbbfb4fa0ed194e0b3
                             <img
                                 src={images[(currentIndex + 1) % images.length].src}
                                 alt="Next"
                                 className="w-full h-full object-cover rounded-xl shadow-xl -rotate-2"
                                 onClick={() => handleImageClick((currentIndex + 1) % images.length)}
                             />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl">{images[(currentIndex + 1) % images.length].year}</h3>
                             </div>
@@ -220,8 +179,4 @@ const OpeningPage = ({ onComplete }) => {
     );
 };
 
-<<<<<<< HEAD
 export default OpeningPage;
-=======
-export default OpeningPage;
->>>>>>> c9de3e887f30a8c6584d56bbbfb4fa0ed194e0b3

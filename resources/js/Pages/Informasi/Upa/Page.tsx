@@ -1,209 +1,315 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
 import { Head, Link } from "@inertiajs/react";
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 import DefaultLayout from "@/Layouts/DefaultLayout";
+
 import Header from "@/Components/informasi/Upa/Header";
+
 import { DetailUPTData } from "@/lib/data/upa";
 
-// Carousel Component
-const UPTCarousel = ({ data }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(4);
-  const [isClient, setIsClient] = useState(false);
+function Page() {
+  const [visibleItems, setVisibleItems] = useState(7); // Jumlah item awal yang ditampilkan
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Check if we're on client side
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Responsive items per view
-  useEffect(() => {
-    if (!isClient) return;
-
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerView(1);
-      } else if (window.innerWidth < 768) {
-        setItemsPerView(2);
-      } else if (window.innerWidth < 1024) {
-        setItemsPerView(3);
-      } else {
-        setItemsPerView(4);
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isClient]);
-
-  // Reset currentIndex when itemsPerView changes
-  useEffect(() => {
-    const maxIndex = Math.max(0, data.length - itemsPerView);
-    if (currentIndex > maxIndex) {
-      setCurrentIndex(maxIndex);
-    }
-  }, [itemsPerView, data.length, currentIndex]);
-
-  const maxIndex = Math.max(0, data.length - itemsPerView);
+  const loadMore = () => {
+    setVisibleItems((prevVisibleItems) => prevVisibleItems);
+  };
 
   const nextSlide = () => {
-    setCurrentIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
+    // Logic untuk slide ke kanan bisa ditambahkan di sini
+    console.log("Next slide clicked");
   };
 
-  const prevSlide = () => {
-    setCurrentIndex(prev => (prev <= 0 ? maxIndex : prev - 1));
-  };
-
-  const goToSlide = (index) => {
-    setCurrentIndex(Math.min(Math.max(0, index), maxIndex));
-  };
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isClient || data.length <= itemsPerView) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex(prev => {
-        const newMaxIndex = Math.max(0, data.length - itemsPerView);
-        return prev >= newMaxIndex ? 0 : prev + 1;
-      });
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [itemsPerView, data.length, isClient]);
-
-  // If there are fewer items than itemsPerView, show all items without carousel
-  if (!isClient || data.length <= itemsPerView) {
-    return (
-      <div className="max-w-7xl container flex flex-wrap justify-center">
-        {data.map((upt, index) => (
-          <Link
-            href={`/informasi/upa/${upt.key}`}
-            key={index}
-            className="md:w-1/3 lg:w-1/4 w-full p-2"
-          >
-            <div className="bg-gradient-to-b from-jaffa-700 to-jaffa-800 overflow-hidden border rounded-md shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-              <img
-                src={upt.logo}
-                alt="UPT Kebun Raya"
-                className="object-contain object-center w-full h-40 py-5 border"
-              />
-              <div className="py-5 bg-white">
-                <h3 className="font-montserrat text-jaffa-900 text-lg font-semibold text-center">
-                  {upt.title}
-                </h3>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    );
-  }
-
-  return (
-    <div className="max-w-7xl container relative">
-      {/* Navigation Buttons */}
-      {maxIndex > 0 && (
-        <>
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110"
-          >
-            <ChevronLeft className="w-6 h-6 text-jaffa-700" />
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110"
-          >
-            <ChevronRight className="w-6 h-6 text-jaffa-700" />
-          </button>
-        </>
-      )}
-
-      {/* Carousel Items */}
-      <div className="overflow-hidden px-12">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
-          }}
-        >
-          {data.map((upt, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 p-2"
-              style={{ width: `${100 / itemsPerView}%` }}
-            >
-              <Link href={`/informasi/upa/${upt.key}`}>
-                <div className="bg-gradient-to-b from-jaffa-700 to-jaffa-800 overflow-hidden border rounded-md shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={upt.logo}
-                      alt="UPT Kebun Raya"
-                      className="object-contain object-center w-full h-40 py-5 border transition-transform duration-300 hover:scale-105"
-                    />
-                  </div>
-                  <div className="py-5 bg-white">
-                    <h3 className="font-montserrat text-jaffa-900 text-lg font-semibold text-center">
-                      {upt.title}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Dots Indicator */}
-      {maxIndex > 0 && (
-        <div className="flex justify-center mt-6 space-x-2">
-          {Array.from({ length: maxIndex + 1 }, (_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${currentIndex === index
-                  ? 'bg-jaffa-700 scale-125'
-                  : 'bg-jaffa-300 hover:bg-jaffa-400'
-                }`}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Progress Bar */}
-      {maxIndex > 0 && (
-        <div className="mt-4 bg-jaffa-200 rounded-full h-1 overflow-hidden mx-12">
-          <div
-            className="bg-jaffa-700 h-full rounded-full transition-all duration-500"
-            style={{ width: `${((currentIndex + 1) / (maxIndex + 1)) * 100}%` }}
-          />
-        </div>
-      )}
-    </div>
-  );
-};
-
-function Page() {
   return (
     <>
       <Head title="Informasi UPA" />
 
       <DefaultLayout>
+        {/* Background atas */}
         <div className="h-screen relative min-h-[40vh] bg-mobile-hero-background bg-cover bg-bottom md:h-full md:bg-desktop-hero-background lg:bg-desktop-hero-background">
           <Header />
         </div>
 
-        <div className="max-w-6xl p-3 md:p-0 mx-auto">
-          <p className="text-lg p-4 text-justify rounded-xl backdrop-blur-md bg-white/20 border border-white/30 shadow-lg">
-            UPT ITERA adalah singkatan dari Unit Pelaksana Teknis (UPT) Institut Teknologi Sumatera. Secara umum, UPT merupakan unit di lingkungan perguruan tinggi yang bertugas melaksanakan kegiatan teknis penunjang tugas dan fungsi perguruan tinggi.
-          </p>
-        </div>
+        {/* Kontainer Card dengan design baru */}
+        <div className="max-w-7xl mx-auto py-8 md:py-16 px-4">
+          {/* Title Section with Slide Button */}
+          <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between mb-8 md:mb-12 gap-4">
+            <div className="flex-1 font-greek text-center lg:text-left">
+              <h2
+                className=" text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-800 "
+              >
+                UNIT-UNIT PENUNJANG AKADEMIK
+                <br />
+                INSTITUT TEKNOLOGI SUMATERA
+              </h2>
+            </div>
 
-        <div className="bg-pattern-white py-10">
-          <UPTCarousel data={DetailUPTData} />
+            {/* Slide Button - Hidden on mobile, visible on desktop */}
+            <div className="flex-shrink-0 hidden lg:block">
+              <button
+                onClick={nextSlide}
+                className="group flex items-center space-x-2 bg-transparent  font-bold font-Greek  md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-md text-lg"
+              >
+                <span>SLIDE</span>
+                <div className="flex space-x-1">
+                  <div className="w-1 h-1 bg-current rounded-full group-hover:animate-pulse"></div>
+                  <div className="w-1 h-1 bg-current rounded-full group-hover:animate-pulse delay-100"></div>
+                  <div className="w-1 h-1 bg-current rounded-full group-hover:animate-pulse delay-200"></div>
+                </div>
+                <span className="transform group-hover:translate-x-1 transition-transform duration-300">
+                  ›››
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Cards Container - Mobile Carousel Layout */}
+          <div className="block md:hidden">
+            {/* Mobile Layout - Horizontal Scrollable Carousel */}
+            <div className="relative">
+              {/* Scrollable Container */}
+              <div className="overflow-x-auto scrollbar-hide">
+                <div
+                  className="flex gap-4 px-4 pb-4"
+                  style={{
+                    width: "max-content",
+                    scrollSnapType: "x mandatory"
+                  }}
+                >
+                  {DetailUPTData.slice(0, visibleItems).map((upt, index) => (
+                    <div
+                      key={index}
+                      data-aos="fade-up"
+                      data-aos-duration={1000 + index * 200}
+                      className="group relative cursor-pointer flex-shrink-0"
+                      style={{
+                        scrollSnapAlign: "start",
+                        width: "280px" // Fixed width untuk consistency
+                      }}
+                    >
+                      <Link href={`/informasi/upa/${upt.key}`}>
+                        {/* Mobile Card Container */}
+                        <div className="relative h-48 sm:h-56 w-full transition-all duration-500 ease-out overflow-hidden rounded-xl shadow-lg hover:shadow-2xl group-hover:scale-105 group-hover:-translate-y-2">
+                          {/* Background Gradient */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-jaffa-600 via-jaffa-700 to-jaffa-800"></div>
+
+                          {/* Hover Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-jaffa-400/30 to-jaffa-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                          {/* Content Container */}
+                          <div className="relative z-10 h-full p-4 flex flex-col">
+                            {/* Main Content - Logo and Title (always visible) */}
+                            <div className="flex-1 flex flex-col items-center justify-center text-center">
+                              <div className="w-16 h-16 bg-white/95 rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-500 mb-3">
+                                <img
+                                  src={upt.logo}
+                                  alt={`${upt.title} Logo`}
+                                  className="w-full h-full object-contain"
+                                />
+                              </div>
+                              <h3 className="font-Greek text-white text-sm font-bold leading-tight px-2">
+                                {upt.title}
+                              </h3>
+                            </div>
+                          </div>
+
+
+                          {/* Enhanced Glow Effect */}
+                          <div className="absolute -inset-2 bg-gradient-to-r from-jaffa-300 via-jaffa-400 to-jaffa-500 rounded-xl opacity-0 group-hover:opacity-25 transition-opacity duration-700 blur-lg -z-10"></div>
+
+                          {/* Border Highlight */}
+                          <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 rounded-xl transition-colors duration-500"></div>
+
+                          {/* Corner Accent */}
+                          <div className="absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-white/10 group-hover:border-t-white/20 transition-colors duration-500"></div>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
+
+                  {/* Spacer for better scrolling experience */}
+                  <div className="w-4 flex-shrink-0"></div>
+                </div>
+              </div>
+              {/* Mobile-specific spacing */}
+              <div className="h-6"></div>
+            </div>
+
+
+
+            {/* Desktop Layout - Horizontal Scroll */}
+            <div className="hidden md:block">
+              <div className="overflow-x-auto pb-4">
+                <div
+                  className="flex flex-nowrap justify-start gap-4 md:gap-6 px-4"
+                  style={{ width: "max-content" }}
+                >
+                  {DetailUPTData.slice(0, visibleItems).map((upt, index) => (
+                    <div
+                      key={index}
+                      data-aos="fade-up"
+                      data-aos-duration={1000 + index * 200}
+                      className="group relative overflow-visible cursor-pointer hover:z-50 flex-shrink-0"
+                      style={{ minHeight: "320px" }}
+                    >
+                      <Link href={`/informasi/upa/${upt.key}`}>
+                        {/* Desktop Card Container with Horizontal Expansion */}
+                        <div className="relative w-52 h-80 group-hover:w-80 transition-all duration-500 ease-in-out overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl">
+                          {/* Background Gradient */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-jaffa-600 via-jaffa-700 to-jaffa-800"></div>
+
+                          {/* Hover Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-jaffa-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                          {/* Content Container */}
+                          <div className="relative z-10 h-full p-6 flex flex-col">
+                            {/* Logo Section */}
+                            <div className="flex-shrink-0 mb-6">
+                              <div className="w-20 h-20 mx-auto mb-4 bg-white/90 rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <img
+                                  src={upt.logo}
+                                  alt={`${upt.title} Logo`}
+                                  className="w-full h-full object-contain"
+                                />
+                              </div>
+                            </div>
+
+                            {/* Title Section */}
+                            <div className="flex-grow flex flex-col justify-center text-center">
+                              <h3 className="font-Greek text-white text-xl font-bold mb-3 leading-tight">
+                                {upt.title}
+                              </h3>
+
+                              {/* Description - appears on hover */}
+                              <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0">
+                                <div className="border-t border-white/20 pt-4 mt-2">
+                                  <p className="font-Romanica text-white/50 text-sm leading-relaxed line-clamp-4">
+                                    {upt.description.substring(0, 120)}...
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            {/* Bottom Section */}
+                            <div className="flex-shrink-0">
+                              {/* Hover indicator dots */}
+                              <div className="flex justify-center space-x-2 opacity-60 group-hover:opacity-0 transition-opacity duration-300">
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                                <div className="w-2 h-2 bg-white/70 rounded-full"></div>
+                                <div className="w-2 h-2 bg-white/40 rounded-full"></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Decorative Elements */}
+                          <div className="absolute top-4 right-4 w-8 h-8 border border-white/20 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                          <div className="absolute bottom-4 left-4 w-6 h-6 border border-white/20 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300 delay-100"></div>
+
+                          {/* Glow effect */}
+                          <div className="absolute -inset-1 bg-gradient-to-r from-jaffa-400 via-jaffa-500 to-jaffa-600 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm -z-10"></div>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Pagination Dots - Responsive */}
+            <div className="hidden md:block justify-center items-center space-x-2 mt-6 md:mt-8">
+              {Array.from({ length: Math.ceil(DetailUPTData.length / 4) }).map(
+                (_, index) => (
+                  <button
+                    key={index}
+                    className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                      ? "bg-jaffa-600 w-6 md:w-8"
+                      : "bg-gray-300 hover:bg-gray-400"
+                      }`}
+                    onClick={() => setCurrentSlide(index)}
+                  />
+                ),
+              )}
+            </div>
+          </div>
+          <div className="hidden md:block">
+            <div className="overflow-x-auto pb-4">
+              <div
+                className="flex flex-nowrap justify-start gap-4 md:gap-6 px-4"
+                style={{ width: "max-content" }}
+              >
+                {DetailUPTData.slice(0, visibleItems).map((upt, index) => (
+                  <div
+                    key={index}
+                    data-aos="fade-up"
+                    data-aos-duration={1000 + index * 200}
+                    className="group relative overflow-visible cursor-pointer hover:z-50 flex-shrink-0"
+                    style={{ minHeight: "320px" }}
+                  >
+                    <Link href={`/informasi/upa/${upt.key}`}>
+                      {/* Desktop Card Container with Horizontal Expansion */}
+                      <div className="relative w-52 h-80 group-hover:w-80 transition-all duration-500 ease-in-out overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl">
+                        {/* Background Gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-jaffa-600 via-jaffa-700 to-jaffa-800"></div>
+
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-jaffa-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                        {/* Content Container */}
+                        <div className="relative z-10 h-full p-6 flex flex-col">
+                          {/* Logo Section */}
+                          <div className="flex-shrink-0 mb-6">
+                            <div className="w-20 h-20 mx-auto mb-4 bg-white/90 rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <img
+                                src={upt.logo}
+                                alt={`${upt.title} Logo`}
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Title Section */}
+                          <div className="flex-grow flex flex-col justify-center text-center">
+                            <h3 className="font-Greek text-white text-xl font-bold mb-3 leading-tight">
+                              {upt.title}
+                            </h3>
+
+                            {/* Description - appears on hover */}
+                            <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0">
+                              <div className="border-t border-white/20 pt-4 mt-2">
+                                <p className="font-Romanica text-white/50 text-sm leading-relaxed line-clamp-4">
+                                  {upt.description.substring(0, 120)}...
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          {/* Bottom Section */}
+                          <div className="flex-shrink-0">
+                            {/* Hover indicator dots */}
+                            <div className="flex justify-center space-x-2 opacity-60 group-hover:opacity-0 transition-opacity duration-300">
+                              <div className="w-2 h-2 bg-white rounded-full"></div>
+                              <div className="w-2 h-2 bg-white/70 rounded-full"></div>
+                              <div className="w-2 h-2 bg-white/40 rounded-full"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Decorative Elements */}
+                        <div className="absolute top-4 right-4 w-8 h-8 border border-white/20 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                        <div className="absolute bottom-4 left-4 w-6 h-6 border border-white/20 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300 delay-100"></div>
+
+                        {/* Glow effect */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-jaffa-400 via-jaffa-500 to-jaffa-600 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm -z-10"></div>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </DefaultLayout>
     </>

@@ -244,7 +244,7 @@ const Page = () => {
                 scrollToCard(nextIndex);
                 setCurrentIndex(nextIndex);
             }
-        }, 1000); // 3 seconds per card
+        }, 2000); // 3 seconds per card
 
         return () => clearInterval(interval);
     }, [currentIndex, characters.length]);

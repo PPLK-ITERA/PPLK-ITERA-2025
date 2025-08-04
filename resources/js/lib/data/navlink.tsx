@@ -19,6 +19,11 @@ import {
   IconUserCircle,
   IconUsers,
   IconUsersGroup,
+  IconHomeCheck,
+  IconHomeEco,
+  IconMapPin,
+  IconGoGame,
+  IconCamera,
 } from "@tabler/icons-react";
 
 export const NavLinks = [
@@ -93,13 +98,13 @@ export const InformasiDropDown = [
   {
     title: "Lppm",
     href: "/informasi/lppm",
-    icon: <IconTie size={24} color="#fcedd8" />,
+    icon: <IconHomeCheck size={24} color="#fcedd8" />,
   },
   ,
   {
     title: "Senat-KM",
     href: "/informasi/senat",
-    icon: <IconTie size={24} color="#fcedd8" />,
+    icon: <IconHomeEco size={24} color="#fcedd8" />,
   },
 
 ];
@@ -128,17 +133,17 @@ export const MabaDropDown = [
   {
     title: "Dokumentasi",
     href: "/dokumentasi",
-    icon: <IconBook size={24} color="#fcedd8" />,
+    icon: <IconCamera size={24} color="#fcedd8" />,
   },
   {
     title: "Tesla",
     href: "/tesla",
-    icon: <IconBook size={24} color="#fcedd8" />,
+    icon: <IconGoGame size={24} color="#fcedd8" />,
   },
   {
     title: "Petaka",
     href: "/petaka",
-    icon: <IconBook size={24} color="#fcedd8" />,
+    icon: <IconMapPin size={24} color="#fcedd8" />,
   },
 ];
 

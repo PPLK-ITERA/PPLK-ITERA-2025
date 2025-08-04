@@ -1,17 +1,13 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 import { Head } from "@inertiajs/react";
 
-import { Shield } from "lucide-react";
-
 import { AccordionFAQ, type FAQ } from "@/Components/AccordionFAQ";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
+import PaginationFAQ from "@/Components/PaginationFAQ";
 import ProgramStudi from "@/Components/informasi/Fakultas/ProgramStudi";
 
-// import PaginationFAQ from "@/Components/PaginationFAQ";
 import { useAos } from "@/lib/hooks/useAos";
 
 import man from "!assets/FAQ/man.png";
@@ -77,7 +73,7 @@ export default function Page({ response }) {
                 data-aos-duration="1000"
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
               >
-                <span className="text-[#BE3F00] font-greek">
+                <span className="text-[#BE3F00] font-Greek ">
                   How Can We Help?
                 </span>
               </h1>
@@ -119,47 +115,69 @@ export default function Page({ response }) {
               className=" md:grid flex overflow-x-auto whitespace-nowrap scroll-smooth md:whitespace-normal md:overflow-visible md:space-x-0  grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16"
             >
               {/* Card 1 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col items-center object-fit: cover ">
-                <div className="text-center relative justify-center items-center w-[100%] mx-auto -top-3 mb-1">
-                  <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center overflow-visible">
-                    <div className="absolute -top-9 z-10">
-                      <img src={zeus} alt=" " />
-                    </div>
+              <div className="pt-16 md:pt-12">
+                {/* Card 1 - Fixed Version */}
+                <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">
+                  {/* Gambar Zeus di atas card */}
+                  <div className="absolute -top-12 md:-top-10 left-1/2 transform -translate-x-1/2">
+                    <img
+                      src={zeus}
+                      alt="Zeus"
+                      className="w-[100px] h-[100px] object-contain p-1"
+                    />
                   </div>
-                  <h3 className="font-Greek text-2xl mb-2">TUGAS PPLK </h3>
-                  <p className="font-Romanica text-sm opacity-90">
-                    TESLA,PETAKA
-                  </p>
+                  {/* Konten Card */}
+                  <div className="mt-10 text-center">
+                    <h3 className="font-Greek text-2xl mb-2">TUGAS PPLK</h3>
+                    <p className="font-Romanica text-sm opacity-90">
+                      TESLA, PETAKA
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* Card 2 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col items-center">
-                <div className="text-center relative justify-center items-center w-[100%] mx-auto -top-3 mb-1">
-                  <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <div className="absolute -top-9 z-10">
-                      <img src={shield} alt=""  />
-                    </div>
+              {/* Ikon Shield di atas card */}
+              <div className=" pt-16 md:pt-12">
+                <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">=
+                  <div className="absolute -top-10 p-1">
+                    <img
+                      src={shield}
+                      alt="Shield Icon"
+                      className="w-[100px] h-[90px] object-contain"
+                    />
                   </div>
-                  <h3 className="font-Greek text-2xl mb-2">PROFIL MABA </h3>
-                  <p className=" font-Romanica ntext-sm opacity-90">
-                    Tata cara pengisian profil,berteman,dll.
-                  </p>
+
+                  {/* Konten Card */}
+                  <div className="mt-10 text-center">
+                    <h3 className="font-Greek text-2xl mb-2">PROFIL MABA</h3>
+                    <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
+                      Tata cara pengisian <br /> profil, berteman, dll.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* Card 3 */}
-              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col items-center">
-                <div className="text-center  relative justify-center -top-3 mb-1 items-center w-[100%] mx-auto">
-                  <div className="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <div className="absolute -top-9 z-10">
-                      <img src={man} alt="" />
-                    </div>
+              <div className="pt-16 md:pt-12">
+
+                <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative">
+                  {/* Gambar Man di atas card */}
+                  <div className="absolute -top-10">
+                    <img
+                      src={man}
+                      alt="Man Icon"
+                      className="w-[100px] h-[90px] object-contain"
+                    />
                   </div>
-                  <h3 className="font-Greek  text-2xl mb-2">DRESSCODE</h3>
-                  <p className=" font-Romanica text-sm opacity-90">
-                    Drescode Pra-PPLK PPLK Day 0-5
-                  </p>
+
+                  {/* Konten Card */}
+                  <div className="mt-10 text-center">
+                    <h3 className="font-Greek text-2xl mb-2">DRESSCODE</h3>
+                    <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
+                      Dresscode Pra-PPLK PPLK <br /> Day 0–5
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -171,29 +189,29 @@ export default function Page({ response }) {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
+              <div className="bg-white rounded-2xl  p-6 sticky top-24">
                 {/* Topik Umum */}
                 <div className="mb-8 hidden md:block">
                   <h3 className="font-bold font-montserrat text-[#000000] mb-4 text-lg">
                     Topik Umum
                   </h3>
                   <div className="space-y-2">
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
-                      PPLK ITERA 20222
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
+                      PPLK ITERA 2025
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       Fakultas
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       Prodi & HMPS
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       KM ITERA
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       UKM ITERA
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg  text-[#000000]">
                       Divisi PPLK
                     </button>
                   </div>
@@ -205,32 +223,32 @@ export default function Page({ response }) {
                     Topik Terkait
                   </h3>
                   <div className="space-y-2">
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Profil Maba
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Tesla
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       PETAKA
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Dokumentasi
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Relasi dan Jaringan
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Booklet
                     </button>
-                    <button className="w-full text-left p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 text-[#000000] hover:text-orange-600 text-sm">
+                    <button className="w-full text-left p-3 rounded-lg text-[#000000]">
                       Attribut
                     </button>
                   </div>
                 </div>
 
                 {/* Promotional Card */}
-                <div className="hidden md:block bg-gradient-to-br from-[#FF6A00] to-[#752700] rounded-2xl text-black py-3">
+                <div className="hidden md:block bg-gradient-to-br from-[#FF6A00] to-[#752700] rounded-2xl text-black py-3 ">
                   <div className="text-center justify-center items-center w-[90%] mx-auto">
                     <div>
                       <h4 className=" font-Greek font-bold text-[#FFFFFF]">
@@ -247,7 +265,7 @@ export default function Page({ response }) {
                         Ajukan pertanyaanmu dengan cara menekan tombol dibawah
                         dan akan kita bantu secepatnya
                       </p>
-                      <button className="bg-white mt-4  px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors duration-200">
+                      <button className="bg-white mt-4  px-4 py-2 rounded-lg font-semibold text-sm hover:bg-[#FF6A00] transition-colors duration-200 ">
                         AJUKAN PERTANYAAN!
                       </button>
                     </div>
@@ -263,67 +281,28 @@ export default function Page({ response }) {
                 <h2 className="text-2xl font-bold font-montserrat  text-center mb-2">
                   Pertanyaan Umum
                 </h2>
-                <div className="p-6 space-y-4">
-                {[1, 2, 3, 4].map((item) => (
-                  <div
-                    key={item}
-                    className="border border-gray-200 rounded-lg hover:border-gray-300 transition-colors duration-200"
-                  >
-                    <button className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors duration-200">
-                      <span className="font-medium text-gray-800">
-                        Judul Pertanyaan {item}
-                      </span>
-                      <svg
-                        className="w-5 h-5 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
+                <div className="p-6">
+                  <div data-aos="fade-up" data-aos-duration="10">
+                    <AccordionFAQ items={currentItems} />
                   </div>
-                ))}
-              </div>
+                </div>
               </div>
 
               {/* Pertanyaan Teknis */}
-              <div className="text-center">
-                <h2 className="text-2xl font-montserrat font-bold mb-1 text-center">
+              <div className="bg-white rounded-2xl shadow-lg mb-8">
+                <h2 className="text-2xl font-bold font-montserrat text-center mb-2">
                   Pertanyaan Teknis
                 </h2>
-              </div>
-              <div className="p-6 space-y-4">
-                {[1, 2, 3, 4].map((item) => (
-                  <div
-                    key={item}
-                    className="border border-gray-200 rounded-lg hover:border-gray-300 transition-colors duration-200"
-                  >
-                    <button className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors duration-200">
-                      <span className="font-medium text-gray-800">
-                        Judul Pertanyaan {item}
-                      </span>
-                      <svg
-                        className="w-5 h-5 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
+                <div className="p-6">
+                  <div data-aos="fade-up" data-aos-duration="10">
+                    <AccordionFAQ items={currentItems} />
+                    <PaginationFAQ
+                      currentPage={currentPage}
+                      totalPages={totalPages}
+                      onPageChange={setCurrentPage}
+                    />
                   </div>
-                ))}
+                </div>
               </div>
 
               <div>
@@ -356,7 +335,7 @@ export default function Page({ response }) {
                       Ajukan pertanyaanmu dengan cara menekan tombol dibawah dan
                       akan kita bantu secepatnya
                     </p>
-                    <button className="bg-white mt-4  px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors duration-200">
+                    <button className="bg-white mt-4  px-4 py-2 rounded-lg font-semibold text-sm hover:bg-[#FF6A00]  transition-colors duration-200">
                       AJUKAN PERTANYAAN!
                     </button>
                   </div>
