@@ -114,7 +114,7 @@ const OpeningPage = ({ onComplete }) => {
 
     return (
         <div
-            className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6"
+            className="h-screen flex flex-col items-center justify-between relative overflow-hidden px-4 sm:px-6 py-8"
             style={{
                 backgroundImage: `url(${bg1})`,
                 backgroundSize: 'cover',
@@ -126,33 +126,23 @@ const OpeningPage = ({ onComplete }) => {
             <div
                 className="absolute inset-0 z-0 pointer-events-none"
                 style={{
-                    background: '#BF4000',
+                    background: '#BF400099',
                     opacity: 1,
                     mixBlendMode: 'multiply',
                 }}
             />
-            <div className="w-full max-w-7xl relative z-10">
-                <div className="text-center mb-12">
+            <div className="w-full max-w-7xl relative z-10 flex flex-col min-h-full py-4">
+                <div className="text-center mt-12 mb-4 md:mt-0 md:mb-12">
                     <h1 className="text-3xl sm:text-4xl md:text-6xl font-greek font-bold text-white">
                         SELAMAT DATANG SATRIYA
                     </h1>
                 </div>
 
-                <div className="relative flex items-center justify-center">
-                    <button
-                        onClick={goToPrevious}
-                        className="absolute left-2 sm:left-4 z-20 w-10 h-10 sm:w-14 sm:h-14 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm border border-white border-opacity-30 group"
-                        disabled={isAnimating}
-                    >
-                        <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-
-                    <div className="relative w-full max-w-6xl mx-2 sm:mx-6 flex items-center justify-center space-x-2 sm:space-x-6">
+                <div className="relative flex items-center justify-center flex-1">
+                    <div className="relative w-full max-w-5xl mx-2 sm:mx-6 flex items-center justify-center space-x-2 sm:space-x-6">
                         {/* Left Image */}
                         <div
-                            className={`relative w-1/3 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] aspect-[2/3] transform transition-all duration-800 ease-out
+                            className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-800 ease-out
                                 ${transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
                                     transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
                                         'translate-x-0 opacity-80 scale-95'}
@@ -163,29 +153,37 @@ const OpeningPage = ({ onComplete }) => {
                             <img src={images[(currentIndex + images.length - 1) % images.length].src} alt="Previous" className="w-full h-full object-cover rounded-xl shadow-xl rotate-2" />
                             <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl">{images[(currentIndex + images.length - 1) % images.length].year}</h3>
+                                <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                                    {images[(currentIndex + images.length - 1) % images.length].year}
+                                </h3>
                             </div>
                         </div>
 
                         {/* Center Image */}
                         <div
-                            className={`relative w-1/2 max-w-[200px] sm:max-w-[260px] md:max-w-[300px] aspect-[2/3] transform transition-all duration-800 ease-out z-10
+                            className={`relative w-1/2 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] aspect-[2/3] transform transition-all duration-800 ease-out z-10 group hover:scale-105
                                 ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-90' : 'translate-x-0 opacity-0 scale-90') : 'translate-x-0 opacity-100 scale-110'}
-                                ${!isAnimating ? 'cursor-pointer' : ''}
-                                `}
+                                ${!isAnimating ? 'cursor-pointer' : ''}`}
                             onClick={() => handleImageClick(currentIndex)}
                         >
-                            <img src={images[currentIndex].src} alt={images[currentIndex].alt} className="w-full h-full object-cover rounded-2xl" />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 rounded-2xl"></div>
+                            <img
+                                src={images[currentIndex].src}
+                                alt={images[currentIndex].alt}
+                                className="w-full h-full object-cover rounded-2xl brightness-150 transition-all duration-300 group-hover:brightness-125"
+                            />
+                            {/* Removed bg-black bg-opacity-40 from this div */}
+                            <div className="absolute inset-0 rounded-2xl"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl">{images[currentIndex].year}</h3>
+                                <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                                    {images[currentIndex].year}
+                                </h3>
                             </div>
                             <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-50 rounded-2xl"></div>
                         </div>
 
                         {/* Right Image */}
                         <div
-                            className={`relative w-1/3 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] aspect-[2/3] transform transition-all duration-800 ease-out
+                            className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-800 ease-out
                                 ${transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
                                     transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
                                         'translate-x-0 opacity-80 scale-95'}
@@ -200,35 +198,26 @@ const OpeningPage = ({ onComplete }) => {
                             />
                             <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl">{images[(currentIndex + 1) % images.length].year}</h3>
+                                <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                                    {images[(currentIndex + 1) % images.length].year}
+                                </h3>
                             </div>
                         </div>
                     </div>
-
-                    <button
-                        onClick={goToNext}
-                        className="absolute right-2 sm:right-4 z-20 w-10 h-10 sm:w-14 sm:h-14 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm border border-white border-opacity-30 group"
-                        disabled={isAnimating}
-                    >
-                        <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center justify-between mt-6 sm:mt-10 gap-4 text-white text-lg font-greek md:text-3xl px-2">
-                    <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-8 sm:gap-4 text-white px-2 mt-auto pt-4 pb-2 sm:pb-8">
+                    <div className="flex items-center gap-2 text-lg font-greek md:text-3xl order-1 sm:order-1">
                         <span className="text-2xl font-bold">0{currentIndex + 1}</span>
                         <span className="text-gray-400">/</span>
                         <span className="text-gray-300">0{images.length}</span>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex justify-center w-full sm:w-auto sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 space-x-2 order-3 sm:order-2">
                         {images.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => {
                                     if (!isAnimating && index !== currentIndex) {
-                                        // Tentukan arah animasi berdasarkan posisi dot yang diklik
                                         const total = images.length;
                                         if ((index === 0 && currentIndex === total - 1)) {
                                             setTransitionDirection('right');
@@ -247,7 +236,7 @@ const OpeningPage = ({ onComplete }) => {
                             />
                         ))}
                     </div>
-                    <div className="hidden sm:flex items-center space-x-4 text-xs text-gray-200">
+                    <div className="flex items-center space-x-4 text-base sm:text-lg text-gray-200 font-greek md:text-3xl order-2 sm:order-3">
                         <button
                             type="button"
                             onClick={goToPrevious}
@@ -256,7 +245,7 @@ const OpeningPage = ({ onComplete }) => {
                         >
                             PREVIOUS
                         </button>
-                        <span>|</span>
+                        <span className="mt-2">|</span>
                         <button
                             type="button"
                             onClick={goToNext}
