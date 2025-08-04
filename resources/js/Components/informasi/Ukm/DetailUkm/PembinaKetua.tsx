@@ -44,7 +44,6 @@ export default function PembinaKetua({
           </div>
         </div>
         
-        {/* Name section - flex-grow to fill remaining space */}
         <div className="space-y-2 flex-grow flex flex-col justify-center">
           <h4 className="font-jakartasans font-bold text-lg md:text-xl text-gray-800 leading-tight px-2">
             {namapembina}

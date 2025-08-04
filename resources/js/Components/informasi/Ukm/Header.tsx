@@ -4,6 +4,7 @@ interface HeaderProps {
   upt?: string;
 }
 
+// 
 export const InfoHeaderUPT = {
   "upa-perpustakaan": {
     title: "UPA Perpustakaan",
@@ -20,13 +21,13 @@ const Header = ({ upt }: HeaderProps) => {
         </p>
 
         <h1 className="text-jaffa-100 md:leading-none md:items-start flex flex-col items-center justify-center mt-8 leading-[2rem]">
-          <span className="font-avigea text-[40px] md:text-[60px] max-w-2xl capitalize">
+          <span className="font-greek text-[40px] md:text-[60px] max-w-2xl capitalize">
             {upt
               ? InfoHeaderUPT["upa-perpustakaan"].title
               : `Unit Kegiatan Mahasiswa (UKM)`}
           </span>
           <br />
-          <span className="font-avigea text-[64px] md:text-[60px]">ITERA</span>
+          <span className="font-greek text-[64px] md:text-[60px]">ITERA</span>
         </h1>
 
         <p className="mt-10 leading-5 tracking-widest text-jaffa-100 md:tracking-[0.1em] max-w-lg">

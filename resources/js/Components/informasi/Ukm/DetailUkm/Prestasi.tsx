@@ -42,7 +42,6 @@ export function Prestasi({ allprestasi }: PrestasiProps) {
             className="group relative overflow-visible cursor-pointer hover:z-50 flex-shrink-0"
             style={{ minHeight: '320px' }} // Fixed height to prevent layout shift
           >
-            {/* Card Container with Horizontal Expansion */}
             <div className="relative w-52 h-80 group-hover:w-80 transition-all duration-500 ease-in-out overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl">
               {/* Background Image */}
               <div 
