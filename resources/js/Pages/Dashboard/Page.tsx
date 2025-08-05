@@ -170,47 +170,42 @@ export default function Page({ auth, response }) {
               <BarGraph
                 chartData={[
                   {
-                    date: "2024-08-10",
+                    date: "2025-08-09",
                     hadir: response.data.presensi.all[0] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[0] || 0,
                   },
                   {
-                    date: "2024-08-12",
+                    date: "2025-08-11",
                     hadir: response.data.presensi.all[1] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[1] || 0,
                   },
                   {
-                    date: "2024-08-13",
+                    date: "2025-08-12",
                     hadir: response.data.presensi.all[2] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[2] || 0,
                   },
                   {
-                    date: "2024-08-14",
+                    date: "2025-08-13",
                     hadir: response.data.presensi.all[3] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[3] || 0,
                   },
                   {
-                    date: "2024-08-15",
+                    date: "2025-08-14",
                     hadir: response.data.presensi.all[4] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[4] || 0,
                   },
                   {
-                    date: "2024-08-16",
+                    date: "2025-08-15",
                     hadir: response.data.presensi.all[5] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[5] || 0,
                   },
-                  {
-                    date: "2024-08-17",
-                    hadir: response.data.presensi.all[6] || 0,
-                    tidakHadir:
-                      response.data.maba - response.data.presensi.all[6] || 0,
-                  },
+                  
                 ]}
               />
             </div>

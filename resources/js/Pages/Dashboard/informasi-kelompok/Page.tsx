@@ -29,7 +29,7 @@ import { useToast } from "@/Components/ui/use-toast";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 import { Kelompok } from "@/lib/types/InformasiKelompok";
 
-import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk from "!assets/logo-pplk-2025.png";
 
 const breadcrumbItems = [
   { title: "Ellysion Panel", link: "/dashboard" },
@@ -254,19 +254,19 @@ export default function Page({ auth }: { auth: any }) {
                         {dataKelompok?.nama_kelompok}
                       </p>
 
-                      
+
                     </div>
                   </div>
                 </div>
 
-                <div className="max-w-sm gap-2 font-inter">
+               <div className="max-w-sm gap-2 font-inter">
                   <div className="w-full mt-5">
                     <h2 className="font-semibold">Daplok</h2>
 
                     <div className="">
-                      <p className="text-lg font-bold">{dataKelompok?.daplok.name}</p>
+                      <p className="text-lg font-bold">{dataKelompok?.daplok?.name}</p>
                       <p className="font-semibold">
-                        {dataKelompok?.daplok.prodi.nama_prodi}
+                        {dataKelompok?.daplok?.prodi?.nama_prodi}
                       </p>
                     </div>
                   </div>
@@ -275,9 +275,9 @@ export default function Page({ auth }: { auth: any }) {
                     <h2 className="font-semibold">Mentor</h2>
 
                     <div className="">
-                      <p className="text-lg font-bold">{dataKelompok?.mentor.name}</p>
+                      <p className="text-lg font-bold">{dataKelompok?.mentor?.name}</p>
                       <p className="font-semibold">
-                        {dataKelompok?.mentor.prodi.nama_prodi}
+                        {dataKelompok?.mentor?.prodi?.nama_prodi}
                       </p>
                     </div>
                   </div>

@@ -136,43 +136,60 @@ const Page = ({ response }) => {
   return (
     <>
       <Head title={`myprofile`} />
+    {/* PATERN BARU */}
+      <div className=""
+      style={{
+        backgroundImage: 'url(/image/profile/patern3.png)',
+        backgroundRepeat: 'repeat',
+        backgroundSize: '1400px',
+      }}>
 
       <div className="bg-pattern-white">
+
         <Navbar isSolid={true} isFixed={true} />
         <Toaster />
         <div className="sm:flex-row mb-28 flex flex-col justify-center gap-3 pt-32 mx-auto">
           <div className="flex flex-col items-center gap-4 mx-2">
-            <div className="w-[212px] h-[212px] overflow-hidden flex justify-center items-center rounded-full border">
-              {previewUrl ? (
-                <img
-                  src={
-                    previewUrl ??
-                    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-                  }
-                  alt="preview-image-kelompok"
-                  className="object-cover object-center w-full h-full"
-                />
-              ) : (
-                <img
-                  src={
-                    UserData.photo_profile_url ??
-                    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-                  }
-                  alt="logopplk"
-                  className="object-cover object-center w-full h-full"
-                />
-              )}
-            </div>
+            <div className="relative w-[212px] h-[212px] overflow-hidden flex justify-center items-center rounded-full border">
+  {previewUrl ? (
+    <img
+      src={
+        previewUrl ??
+        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+      }
+      alt="preview-image-kelompok"
+      className="object-cover object-center w-full h-full"
+    />
+  ) : (
+    <img
+      src={
+        UserData.photo_profile_url ??
+        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+      }
+      alt="logopplk"
+      className="object-cover object-center w-full h-full"
+    />
+  )}
+
+  {/* menambahkan logo bendera */}
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+    alt="bendera"
+    className="absolute bottom-1 right-1 w-8 h-8 rounded-full border border-white shadow-md"
+  />
+</div>
+
 
             <h2 className="text-center text-[16px] font-montserrat font-bold">
               {UserData.name}
             </h2>
 
-            <div className="flex justify-center items-center w-[98px] h-[40px] rounded-[10px] border border-[#B9622F]">
+            <div className="">
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button className="bg-gradient-to-b from-[#B9822F] to-[#A6680C]">
+                  <Button className="bg-white text-[#CF7A1F] border border-[#CF7A1F] hover:bg-white hover:border-[#cf7a1f] hover:shadow-md transition-colors duration-200">
                     Edit Foto Profil
+
                   </Button>
                 </DialogTrigger>
 
@@ -240,10 +257,13 @@ const Page = ({ response }) => {
             </div>
 
             <div>
-              <h2 className="text-black font-montserrat font-bold text-[16px] text-center">
+
+              <h2 className="text-black font-montserrat font-bold text-[16px] text-center mt-9 md:mt-5 sm:mt-1 ">
                 QR Presensi
               </h2>
-              <div className="aspect-square bg-white border flex justify-center items-center mt-1 w-[200px] h-[200px] rounded-md">
+              {/* BG ERROR */}
+              <div className="aspect-square bg-[#DA5B1C] border flex justify-center items-center mt-1 w-[200px] h-[200px] rounded-md">
+
                 {qrData === "" ? (
                   <p>Loading...</p>
                 ) : (
@@ -254,6 +274,9 @@ const Page = ({ response }) => {
                     level="H"
                     width={500}
                     height={500}
+                    bgColor="#DA5B1C"
+                    fgColor="#ffffff"
+
                   />
                 )}
               </div>
@@ -268,20 +291,20 @@ const Page = ({ response }) => {
           </div>
 
           <div className="flex flex-col gap-6 mx-2">
-            <div className="mx-auto flex justify-center items-center xl:items-start xl:justify-start xl:max-w-[945px] md:max-w-[920px] lg:max-w-[800px] md:max-h-[108px] w-full h-full bg-jaffa-600 rounded-md">
-              <div className="xl:p-3 flex flex-col gap-2 p-5">
-                <h2 className="flex md:text-[23px] lg:text-[25px] text-[20px] font-montserrat font-semibold text-white items-center">
+            <div className="mx-auto flex  xl:items-start xl:justify-start xl:max-w-[945px] md:max-w-[920px] lg:max-w-[800px] md:max-h-[108px] w-full h-full bg-jaffa-600 rounded-xl">
+              <div className="xl:p-3 flex flex-col gap-2 p-5 ml-1">
+                <h2 className="flex md:text-[19px] lg:text-[19px] text-[19px] font-montserrat font-semibold text-white items-center">
                   <img src={info} alt="info" className="mr-2" />
                   Informasi
                 </h2>
-                <p className="md:text-[16px] lg:text-[16px] text-[12px] font-montserrat font-normal text-white">
+                <p className="md:text-[15px] lg:text-[15px] text-[15px] font-montserrat font-normal text-white">
                   Hubungi Daplok atau Mentor jika terdapat kesalahan data
                 </p>
               </div>
             </div>
 
             <div className="md:flex-row flex flex-col gap-8">
-              <div className="xl:max-h-[826px] xl:max-w-[444px] lg:max-w-[350px] mx-auto w-full h-full rounded-md bg-white shadow-2xl border border-gray-400">
+              <div className="xl:max-h-auto xl:max-w-[444px] lg:max-w-[350px] mx-auto w-full rounded-md bg-transparent">
                 <Profil
                   props={{
                     name: UserData.name,
@@ -301,13 +324,14 @@ const Page = ({ response }) => {
                   }}
                 />
               </div>
-              <div className="md:max-h-[605px] lg:max-h-[590px] xl:max-w-[444px] lg:max-w-[350px] mx-auto w-full h-full rounded-md bg-white shadow-2xl border border-gray-400">
+              <div className="md:max-h-[605px] lg:max-h-[590px] xl:max-w-[444px] lg:max-w-[350px] mx-auto w-full h-full rounded-md">
                 <TentangPplk
                   props={{
                     nama_daplok: UserData.kelompok.daplok,
                     nama_mentor: UserData.kelompok.mentor,
                     nama_kelompok: UserData.kelompok.nama_kelompok,
                     no_kelompok: UserData.kelompok.no_kelompok,
+                    fakultas_id: UserData.prodi.fakultas_id,
                   }}
                 />
               </div>
@@ -315,6 +339,7 @@ const Page = ({ response }) => {
           </div>
         </div>
         <Footer />
+      </div>
       </div>
 
       <Toaster />

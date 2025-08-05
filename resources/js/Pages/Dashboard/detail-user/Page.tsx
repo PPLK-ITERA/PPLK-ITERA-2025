@@ -32,7 +32,7 @@ import { useToast } from "@/Components/ui/use-toast";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 import { UserAuthProps } from "@/lib/types/User";
 
-import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk from "!assets/logo-pplk-2025.png";
 
 export interface DetailUser {
   bio: string | number | readonly string[] | undefined;
@@ -188,7 +188,7 @@ export default function Page({ response }) {
               <DialogTrigger asChild>
                 <Button
                   variant={"outline"}
-                  className="w-[200px] py-2 border mt-3"
+                  className="w-[200px] py-2 border mt-3 bg-white"
                 >
                   Edit Foto
                 </Button>
@@ -274,7 +274,7 @@ export default function Page({ response }) {
               <ResetPasswordForm currentUser={currentUser} />
             </div>
 
-            <div className="md:w-1/2 flex flex-col w-full gap-2">
+            <div className="md:w-1/2 flex flex-col gap-2">
               {currentUser.role_id === 1 ||
               currentUser.role_id === 2 ||
               currentUser.role_id === 3 ||

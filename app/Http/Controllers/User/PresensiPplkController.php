@@ -32,7 +32,7 @@ class PresensiPplkController extends Controller
    // Konfigurasi Event/Periode PPLK
    const EVENT_PPLK = [
       'pra_pplk_day_0' => [
-         'nama' => 'Pra-PPLK Day 0',
+         'nama' => 'Pra-PPLK',
          'tanggal' => '2025-08-09',
          'deskripsi' => 'Persiapan sebelum PPLK dimulai'
       ],
