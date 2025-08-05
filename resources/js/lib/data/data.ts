@@ -140,6 +140,14 @@ export const navItems: NavItem[] = [
     label: "Tesla",
     role_id: [3],
   },
+  {
+    title: "Komdis",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/komdis",
+    icon: "ticket",
+    label: "Komdis",
+    role_id: [3,6],
+  },
 ];
 
 export type Employee = {

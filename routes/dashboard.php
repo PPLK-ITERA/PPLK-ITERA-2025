@@ -12,6 +12,7 @@ use App\Http\Controllers\PoinController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\PresensiPplkController;
 use App\Http\Controllers\DokumentasiController;
+use App\Http\Controllers\LogKomdisController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,6 +23,7 @@ Route::middleware('auth')->group(function () {
       // =====================================
       // USER
       // =====================================
+
       Route::prefix('user')->name('user.')->group(function () {
          // =====================================
          // All Role
@@ -78,7 +80,18 @@ Route::middleware('auth')->group(function () {
             Route::put('edit-sertif', [UserController::class, 'editSertif'])->name('edit-sertif');
          });
       });
-
+      // ========================================
+      // KOMDIS
+      // ========================================
+      Route::prefix('komdis')->name('komdis.')->middleware('checkRole:Korlap,Admin')->group(function () {
+         Route::get('/', [LogKomdisController::class, 'index'])->name('index');
+         Route::get('/scanner', [LogKomdisController::class, 'scanner'])->name('scanner'); // TAMBAH INI
+         Route::get('/create', [LogKomdisController::class, 'create'])->name('create');
+         Route::post('/store', [LogKomdisController::class, 'store'])->name('store');
+         Route::get('/edit/{logKomdis}', [LogKomdisController::class, 'edit'])->name('edit');
+         Route::put('/update/{logKomdis}', [LogKomdisController::class, 'update'])->name('update');
+         Route::delete('/destroy/{logKomdis}', [LogKomdisController::class, 'destroy'])->name('destroy');
+      });
       // =====================================
       // Booklet
       // =====================================
@@ -180,6 +193,7 @@ Route::middleware('auth')->group(function () {
          Route::middleware(['checkRole:Korlap,Admin'])->group(function () {
             Route::get('index', [PoinController::class, 'index'])->name('index');
             Route::post('store', [PoinController::class, 'store'])->name('store');
+            
          });
       });
 
