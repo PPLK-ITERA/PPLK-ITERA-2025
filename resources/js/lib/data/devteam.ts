@@ -60,16 +60,6 @@ export const devTeam = {
       photo: dimas_sekertaris,
     },
   ],
-  bendiv: [
-    {
-      name: "Ayu Jannati Ali Putri",
-      instagram: "ayujnnti",
-      role: "Bendahara Divisi Implementasi Teknologi",
-      quote:
-        "Yang boleh istirahat setelah kerja itu hanya orang tua, anak muda jangan kebanyakan leha-leha",
-      photo: ayu_bendahara,
-    },
-  ],
   vvd: [
     {
       name: "Garis Rayya Rabbani",
