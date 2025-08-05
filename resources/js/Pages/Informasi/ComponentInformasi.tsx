@@ -30,7 +30,7 @@ const ComponentInformasiHero = () => {
             PPLK ITERA 2025
           </p>
           <p className="text-candlelight-600 font-greek sm:hidden mt-3 text-sm font-bold tracking-widest">
-            Nagarika Anvensana : Exploration For The Future
+            Elysion Legacy	 :  Crafting Satriya Itera for Global Future
           </p>
         </div>
       </div>
@@ -41,20 +41,15 @@ const ComponentInformasiHero = () => {
             PPLK ITERA 2025
           </p>
           <p className="text-candlelight-600 font-greek sm:block hidden text-xl font-bold tracking-widest">
-            Nagarika Anvensana : Exploration For The Future
+            Elysion Legacy	 :  Crafting Satriya Itera for Global Future
           </p>
           <p>
-            Program Pengenalan Lingkungan Kampus Institut Teknologi Sumatera
-            2025 atau PPLK ITERA 2025 adalah sebuah kegiatan orientasi bagi
-            seluruh Mahasiswa Baru Institut Teknologi Sumatera tahun angkatan
-            2025. PPLK ITERA 2025 diusung dengan tajuk Nagarika Anvensana :
-            Exploration For The Futre, dan bertema Futuristic Nusantara.
+
+            Program Pengenalan Lingkungan Kampus (PPLK) ITERA 2025 adalah sebuhan kegiatan yang rutin diadakan setiap tahun yang menjadi bentuk penyambutan mahasiswa baru ITERA 2025. PPLK ITERA 2025 kali ini mengusung tema Elysion Legacy	 : Crafting Satriya Itera for	 Global Future.
+
           </p>
           <p>
-            Kegiatan PPLK ITERA diusung dengan harapan bisa memberikan pemahaman
-            dan memperkenalkan dunia kampus kepada seluruh Mahasiswa baru di
-            Institut Teknologi Sumatera, sehingga para mahasiswa baru bisa
-            menghadapi perkuliahan dengan lebih baik.
+            Selain sebagai bentuk penyambutan Mahasiswa Baru ITERA, kegiatan PPLK ITERA 2025 sekaligus menjadi ajang pengenalan lingkungan kampus, mulai dari kegiatan akademik, fasilitas dan lingkungan kampus, hingga kegiatan kemahasiswaan
           </p>
         </div>
         <div className="w-[40%] hidden sm:flex justify-center items-center">
@@ -72,7 +67,7 @@ const ComponentInformasiHero = () => {
             VISI
           </p>
           <p>
-          PPLK ITERA 2025 sebagai wadah pengembangan karakter mahasiswa baru yang berintegrasi dan berdaya saing, menumbuhkan rasa bangga sebagai bagian dari civitas akademika ITERA, serta membentuk mahasiswa yang “AKTIF” (Aktif, Kritis, Solutif dan Inovatif) dalam menghadapi tantangan di era Revolusi Industri 4.0.
+            PPLK ITERA 2025 sebagai wadah pengembangan karakter mahasiswa baru yang berintegrasi dan berdaya saing, menumbuhkan rasa bangga sebagai bagian dari civitas akademika ITERA, serta membentuk mahasiswa yang “AKTIF” (Aktif, Kritis, Solutif dan Inovatif) dalam menghadapi tantangan di era Revolusi Industri 4.0.
           </p>
         </div>
       </div>

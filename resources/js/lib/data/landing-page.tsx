@@ -37,7 +37,7 @@ export const VideoPPLK = [
     embed: (
       <iframe
         className="w-full h-full"
-        src="https://www.youtube.com/embed/76cm2rLMwvs?si=e_kqQPL-r_5tWYt9"
+        src="https://www.youtube.com/embed/SZZn5dZxhcc?si=6hCqYao4ilaLU3ha"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen={true}
@@ -49,7 +49,7 @@ export const VideoPPLK = [
     embed: (
       <iframe
         className="w-full h-full"
-        src="https://www.youtube.com/embed/yRLTcU96_hc?si=OlCUnRmDpDA3EejM"
+        src="https://www.youtube.com/embed/jWk9R4TVHQU?si=Y8O-rApf6_Uu30Bc"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen={true}
@@ -61,7 +61,7 @@ export const VideoPPLK = [
     embed: (
       <iframe
         className="w-full h-full"
-        src="https://www.youtube.com/embed/zfTsuNsCQ9o?si=Tq724lpvyTVf6ET3"
+        src="https://www.youtube.com/embed/UzBdg7CncZE?si=ndU-gItilr2Z_hkc"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen={true}
@@ -73,19 +73,7 @@ export const VideoPPLK = [
     embed: (
       <iframe
         className="w-full h-full"
-        src="https://www.youtube.com/embed/2e_Ivq_fAdM?si=3jbpMQxp8Y2S6SQj"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen={true}
-      />
-    ),
-  },
-  {
-    id: 6,
-    embed: (
-      <iframe
-        className="w-full h-full"
-        src="https://www.youtube.com/embed/G6U5Ub6v4SU?si=YFGiH8Ed4SImjL_C"
+        src="https://www.youtube.com/embed/bN4kJ4tPQE4?si=mLiGVZ_e0g9eLQgf"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen={true}

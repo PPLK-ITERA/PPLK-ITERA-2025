@@ -55,7 +55,7 @@ function Page() {
             />
 
             <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-              Ryansyah Izhar, S.T., M.P.W.K
+              Elisa Nurma Riana, S.Si.,M.Si.
             </p>
             <p className="font-montserrat text-[16px]">Pembina PPLK 2025</p>
           </div>
@@ -72,7 +72,7 @@ function Page() {
               />
             </div>
             <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-              Ikbar Raihansyah
+              M.Daffa Satria Perdana
             </p>
             <p className="font-montserrat text-[16px]">
               Ketua Pelaksana PPLK 2025

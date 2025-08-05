@@ -9,7 +9,7 @@ export default function Page() {
     const handleDayClick = (e, day) => {
         if (day !== "Day-1") {
             e.preventDefault();
-            setPopupMessage(`Belum sampai PPLK2025 ${day}`);
+            setPopupMessage(`Belum sampai PPLK 2025 ${day}`);
             setShowPopup(true);
         }
     };
@@ -22,15 +22,22 @@ export default function Page() {
         <DefaultLayout>
             <div className="relative w-full min-h-screen overflow-auto">
                 {showPopup && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm">
-                            <h3 className="text-lg font-bold mb-4">{popupMessage}</h3>
-                            <button
-                                onClick={closePopup}
-                                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
-                            >
-                                Tutup
-                            </button>
+                    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                        <div className="bg-white p-6 rounded-xl shadow-2xl max-w-md w-full border border-gray-100 animate-fade-in">
+                            <div className="flex flex-col space-y-4">
+                                <h3 className="text-xl font-semibold text-gray-800">
+                                    {popupMessage}
+                                </h3>
+                                <div className="flex justify-end space-x-3 pt-2">
+                                    <button
+                                        onClick={closePopup}
+                                        className="px-5 py-2.5 rounded-lg font-medium text-white bg-red-500 hover:bg-red-600 transition-all 
+                                   active:scale-95 transform focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                                    >
+                                        Tutup
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 )}
@@ -141,13 +148,6 @@ export default function Page() {
                         </a>
                     </div>
                 </div>
-
-                <a
-                    href="/"
-                    className="fixed z-30 top-4 left-4 w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:bg-red-600 transition-colors duration-200"
-                >
-                    ←
-                </a>
             </div>
         </DefaultLayout>
     );

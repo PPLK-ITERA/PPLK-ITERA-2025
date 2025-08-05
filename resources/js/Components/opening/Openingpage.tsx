@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
+
 import pplk2025 from "!assets/pplk/2025.jpg";
 import pplk2024 from "!assets/pplk/2024.jpg";
 import pplk2022 from "!assets/pplk/2022.jpg";
 import bg1 from "!assets/tesla/bg-3.png"; // tambahkan import background
 
+
 const OpeningPage = ({ onComplete }) => {
-    // Ubah tipe transitionDirection agar bisa 'left' | 'right' | null
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [transitionDirection, setTransitionDirection] = useState<'left' | 'right' | null>(null);
+    const [transitionDirection, setTransitionDirection] = useState(null);
     const [isAnimating, setIsAnimating] = useState(false);
     const [fullscreenMode, setFullscreenMode] = useState(false);
     const [showIframe, setShowIframe] = useState(false);
@@ -164,6 +165,7 @@ const OpeningPage = ({ onComplete }) => {
                             <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
                             <p className="text-white text-xl font-greek">Loading {images[currentIndex].year}...</p>
                         </div>
+
                     </div>
                     <iframe
                         key={iframeUrl}
@@ -223,6 +225,7 @@ const OpeningPage = ({ onComplete }) => {
                         </h1>
                     </div>
 
+
                     <div className="relative flex items-center justify-center flex-1">
                         <div className="relative w-full max-w-5xl mx-2 sm:mx-6 flex items-center justify-center space-x-2 sm:space-x-6">
                             {/* Left Image */}
@@ -242,7 +245,9 @@ const OpeningPage = ({ onComplete }) => {
                                         {images[(currentIndex + images.length - 1) % images.length].year}
                                     </h3>
                                 </div>
+
                             </div>
+
 
                             {/* Center Image */}
                             <div
@@ -264,7 +269,9 @@ const OpeningPage = ({ onComplete }) => {
                                     </h3>
                                 </div>
                                 <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-50 rounded-2xl"></div>
+
                             </div>
+
 
                             {/* Right Image */}
                             <div
@@ -287,6 +294,7 @@ const OpeningPage = ({ onComplete }) => {
                                         {images[(currentIndex + 1) % images.length].year}
                                     </h3>
                                 </div>
+
                             </div>
                         </div>
                     </div>

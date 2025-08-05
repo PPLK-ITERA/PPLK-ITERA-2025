@@ -137,6 +137,7 @@ export default function Page({ response }) {
               </div>
 
               {/* Card 2 */}
+
                 {/* Ikon Shield di atas card */}
                 <div className=" pt-16 md:pt-12">
                     <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">=
@@ -154,12 +155,14 @@ export default function Page({ response }) {
                   <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
                     Tata cara pengisian <br /> profil, berteman, dll.
                   </p>
+
                 </div>
               </div>
               </div>
 
               {/* Card 3 */}
               <div className="pt-16 md:pt-12">
+
 
               <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative">
                 {/* Gambar Man di atas card */}
@@ -178,6 +181,7 @@ export default function Page({ response }) {
                     Dresscode Pra-PPLK PPLK <br /> Day 0–5
                   </p>
                     </div>
+
                 </div>
               </div>
             </div>

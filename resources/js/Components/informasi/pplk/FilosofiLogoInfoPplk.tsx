@@ -11,7 +11,6 @@ import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
 import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
-import angka_10 from "!assets/filosofi-pilar/angka-10.png";
 import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
 import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
 import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
@@ -22,42 +21,25 @@ import logoPplk from "!assets/logo-pplk-hd.png";
 const DataFilosofiLogo = [
   {
     image: helai_daun,
-    title: "Helai Daun",
-    description: "Helai Daun memiliki arti Keteduhan dan Kesejukan",
-  },
-  {
-    image: angka_10,
-    title: "Angka 10",
-    description: "Angka 10 mengartikan 1 dekade PPLK ITERA",
-  },
-  {
-    image: pilar_sdgs,
-    title: "4 Pilar SDG's",
-    description:
-      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2025",
+    title: "PERISAI YUNANI",
+    description: "Merupakan ciri khas dari perisai Yunani Kuno yang menjadi tema utama PPLK tahun ini. Bentuk V juga melambangkan victory (kemenangan), sejalan dengan semangat juang dan keberhasilan yang diharapkan dari para peserta.",
   },
   {
     image: pulau_sumatera,
-    title: "Pulau Sumatera",
+    title: "ANGKA 11",
     description:
-      "Pulau Sumatera merepresentasikan tempat dimana Kampus ITERA berdiri dan akan menciptakan manusia terbaik di Indonesia",
+      "Menandakan bahwa tahun ini merupakan Tahun ke-11 ITERA sudah berdiri. Sebuah penanda perjalanan panjang dalam membentuk karakter awal para mahasiswa baru.",
   },
   {
     image: tetes_air,
-    title: "Tetes Air",
+    title: "HELM SPARTA",
     description:
-      "Tetes Air merepresentasikan bukti dari proses dalam mencapai Indonesia Emas 2045",
+      "Melambangkan keberanian, disiplin, dan semangat juang para Satriya ITERA. Helm ini menjadi simbol kesiapan menghadapi tantangan serta keteguhan hati dalam menjunjung nilai-nilai integritas.",
   },
   {
     image: naungan_tangan,
-    title: "Naungan Tangan",
-    description:
-      "Naungan Tangan memiliki arti PPLK ITERA menjadi naungan untuk mahasiswa baru mengenal lingkungan Kampusnya",
-  },
-  {
-    image: biji_emas,
-    title: "Biji Emas",
-    description: "Biji Emas merepresentasikan keberhasilan Indonesi Emas 2045",
+    title: "PEDANG KEBAWAH",
+    description: "Menandakan kesiapan para peserta PPLK dalam menerima, menjalani, dan menghadapi seluruh proses kegiatan yang akan berlangsung. Pedang yang tertancap ke bawah juga merepresentasikan kedamaian dan tekad yang telah disiapkan.",
   },
 ];
 

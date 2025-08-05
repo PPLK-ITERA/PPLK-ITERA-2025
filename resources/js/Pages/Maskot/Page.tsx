@@ -14,17 +14,15 @@ const MASKOTS = [
   {
     index: 0,
     key: "maskot-man",
-    name: "Hercules",
-    description:
-      "Halo, namaku Kanaka. Perwujudanku merupakan elang jawa yang menggambarkan mahasiswa baru ITERA yang mampu mengambil keputusan dengan tepat dan cermat. Kanaka mempunyai arti emas, melambangkan karakter mahasiswa baru yang berharga dan elegan. Dengan penglihatanku yang tajam nan jauh ke depan, aku melambangkan mahasiswa baru ITERA yang dapat merencanakan masa depan dengan matang, menuju Indonesia emas 2045. Namaku ini menjadi titik balik bagi mahasiswa baru untuk mampu bertanggung jawab dengan jiwa kepemimpinannya serta kekuatan untuk melindungi dirinya dan lingkungannya.",
+    name: "Kato",
+    description:"Halo, namaku Rhinoceto. Aku biasa dipanggil “Seto”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak jantan dan “Cato” yang berarti bijaksana. Aku merupakan perwujudan mahasiswa baru yang senantiasa bijaksana dan berani dalam mengambil keputusan. Namaku menjadi titik balik bagi mahasiswa baru untuk memiliki jiwa kepemimpinan dan mampu bertanggung jawab atas dirinya dan lingkungan sekitar",
     image: maskot_pplk_man,
   },
   {
     index: 1,
     key: "maskot-woman",
-    name: "Hera",
-    description:
-      "Hai, namaku Calandra, namaku berasal dari gabungan kata “cala” dan “cendra”. Perwujudanku merupakan burung cendrawasih yang diambil dari kata cendra yang berarti utusan dewa-dewi. Aku merupakan perwujudan mahasiswa baru yang baik dalam bertutur kata dan berani untuk selalu menyampaikan pendapat dengan lugas dan elegan. Makna dari setiap kepakan sayapku dimaknai dengan kemewahan, serta keberhasilan dalam pencapaian. Karakterku yang kuat menjadi penggambaran serta perwujudan mahasiswa baru dengan karakter yang berharga, kuat, elegan, dan inspiratif, dengan hati yang hangat dan sifat yang tulus. Paduan ini menjadi doa serta harapan dalam setiap langkah mahasiswa baru dengan karakter yang dibentuk dalam perjalanan mahasiswa baru.",
+    name: "Sera",
+    description:"Hai, namaku Rhinocera. Aku biasa di panggil “Sera”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak betina dan “Vara” yang berarti terpilih. Aku menggambarkan mahasiswa-mahasiswa terpilih yang berkesempatan untuk menjajakan  perjalanan akademiknya di pulau Sumatera dan mewujudkan Indonesia emas 2045.",
     image: maskot_pplk_woman,
   },
 ];

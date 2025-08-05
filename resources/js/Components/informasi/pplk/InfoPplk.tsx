@@ -17,7 +17,7 @@ export default function Hero() {
               PPLK ITERA 2025{" "}
             </span>
             <span className="font-greek text-candlelight-600 sm:text-3xl text-balance text-xl">
-              Nagarika Anvensana : Exploration For The Future
+            Elysion Legacy	 :  Crafting Satriya Itera for Global Future
             </span>
           </h2>
 

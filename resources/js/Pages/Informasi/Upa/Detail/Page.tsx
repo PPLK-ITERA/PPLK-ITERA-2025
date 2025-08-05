@@ -1,11 +1,7 @@
 import Error from "@/Pages/Error";
-
 import React from "react";
-
 import { Head } from "@inertiajs/react";
-
 import DefaultLayout from "@/Layouts/DefaultLayout";
-
 import DescriptionHistory from "@/Components/informasi/Upa/DescriptionHistory";
 import Header from "@/Components/informasi/Upa/Header";
 import KegiatanUnggulan from "@/Components/informasi/Upa/KegiatanUnggulan";

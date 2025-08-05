@@ -62,6 +62,12 @@ const kabinetData: Kabinet[] = [
     department: "Teknik Industri 2021",
     kabinet: "Kabinet Gasendra",
   },
+  {
+    year: "2025/2026",
+    name: "Ahmad Khadi Abdillah",
+    department: "Teknik Pertambangan 2022",
+    kabinet: "Kabinet Resonara",
+  },
 ];
 
 const KabinetPresma: React.FC = () => {
