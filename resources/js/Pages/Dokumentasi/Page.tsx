@@ -23,7 +23,7 @@ function Page() {
             <div className="bg-pattern-white min-h-screen overflow-hidden">
                 <DefaultLayout>
 
-                    <div className="relative w-full min-h-[13rem] md:min-h-[30rem]">
+                    <div className="relative w-full min-h-[13rem] text-center md:min-h-[30rem]">
                         {/* Background Image */}
                         <img
                             src={bg_1}
