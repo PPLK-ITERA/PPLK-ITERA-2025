@@ -36,6 +36,10 @@ import {
   User2Icon,
   UserX2Icon,
   X,
+  Crown,
+  Users,
+  UserCog,
+  UserCheck,
 } from "lucide-react";
 
 import { IconBooks, IconDeviceGamepad2 } from "@tabler/icons-react";
@@ -69,6 +73,10 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
+  mahkota: Crown,
+  users: Users,
+  userCog: UserCog,
+  userCheck: UserCheck,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
@@ -96,4 +104,5 @@ export const Icons = {
   books: IconBooks,
   game: IconDeviceGamepad2,
   bookCheck: BookCheck,
+  image: Image,
 };

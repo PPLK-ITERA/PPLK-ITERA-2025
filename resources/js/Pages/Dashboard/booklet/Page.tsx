@@ -30,7 +30,7 @@ import { toast, useToast } from "@/Components/ui/use-toast";
 import { Booklet } from "@/lib/types/Booklet";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Booklet", link: "/dashboard/booklet" },
 ];
 
@@ -77,7 +77,7 @@ export default function Page({ auth, response }) {
               <span>Tambah Booklet</span>
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="border-none">
             <DialogHeader>
               <DialogTitle>Tambah Booklet</DialogTitle>
             </DialogHeader>
@@ -91,7 +91,6 @@ export default function Page({ auth, response }) {
         columns={columns}
         apiEndpoint={route("dashboard.booklet.data")}
         title={"Data Booklet"}
-        description={"Data Booklet yang telah diupload."}
       />
       <Toaster />
     </DashboardLayout>

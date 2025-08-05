@@ -32,7 +32,7 @@ import { useToast } from "@/Components/ui/use-toast";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 import { UserAuthProps } from "@/lib/types/User";
 
-import logopplk from "!assets/logo-pplk-2024.png";
+import logopplk from "!assets/logo-pplk-2025.png";
 
 export interface DetailUser {
   bio: string | number | readonly string[] | undefined;
@@ -98,7 +98,7 @@ export default function Page({ response }) {
   useFlashToast();
 
   const breadcrumbItems = [
-    { title: "Dashboard", link: "/dashboard" },
+    { title: "Ellysion Panel", link: "/dashboard" },
     {
       title: "Edit Data User",
       link: route("dashboard.user.edit", response.data.id),
@@ -167,12 +167,12 @@ export default function Page({ response }) {
     <>
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
-        <h2 className="text-3xl font-bold tracking-tight">Edit Data User</h2>
+        <h2 className="text-3xl font-semibold font-inter tracking-tight">Edit Data User</h2>
 
-        <div className="md:flex-row flex flex-col gap-2">
+        <div className="md:flex-row font-inter flex flex-col gap-2">
           {/* Foto & qr */}
           <div className="md:mx-0 mx-auto">
-            <div className="w-[200px] h-[220px] border rounded-sm overflow-hidden">
+            <div className="w-[200px] h-[220px] border border-[#C2C2C2] rounded-lg overflow-hidden">
               <img
                 src={
                   currentUser.photo_profile_url
@@ -188,9 +188,9 @@ export default function Page({ response }) {
               <DialogTrigger asChild>
                 <Button
                   variant={"outline"}
-                  className="w-[200px] py-2 border mt-3"
+                  className="w-[200px] py-2 border mt-3 bg-white"
                 >
-                  Edit Foto Profile
+                  Edit Foto
                 </Button>
               </DialogTrigger>
 
@@ -274,7 +274,7 @@ export default function Page({ response }) {
               <ResetPasswordForm currentUser={currentUser} />
             </div>
 
-            <div className="md:w-1/2 flex flex-col w-full gap-2">
+            <div className="md:w-1/2 flex flex-col gap-2">
               {currentUser.role_id === 1 ||
               currentUser.role_id === 2 ||
               currentUser.role_id === 3 ||

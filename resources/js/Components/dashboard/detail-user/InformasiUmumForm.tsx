@@ -66,11 +66,11 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
   };
 
   return (
-    <div className="h-fit flex-1 w-full p-4 space-y-5 border rounded-md shadow-md">
-      <h2 className="text-xl font-bold tracking-tight">Informasi Umum</h2>
+    <div className="h-fit flex-1 w-full p-4 space-y-5 rounded-xl shadow-md bg-[linear-gradient(137.47deg,_#E06C32_11.08%,_#FD8E57_42.04%,_#BE3F00_95.9%)]">
+      <h2 className="text-xl font-semibold text-white tracking-tight">Informasi Umum</h2>
 
       <div className="flex flex-col">
-        <Label htmlFor="nama-maba" className="text-left">
+        <Label htmlFor="nama-maba" className="text-left text-white">
           Nama
         </Label>
 
@@ -85,7 +85,7 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="email-maba" className="text-left">
+        <Label htmlFor="email-maba" className="text-left text-white">
           Email
         </Label>
 
@@ -100,7 +100,7 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="nim-maba" className="text-left">
+        <Label htmlFor="nim-maba" className="text-left text-white">
           NIM
         </Label>
 
@@ -115,7 +115,7 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="prodi-maba" className="text-left">
+        <Label htmlFor="prodi-maba" className="text-left text-white">
           Prodi
         </Label>
 
@@ -168,7 +168,7 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="bio-maba" className="text-left">
+        <Label htmlFor="bio-maba" className="text-left text-white">
           Bio
         </Label>
 
@@ -176,13 +176,13 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
           id="bio-maba"
           value={data.bio}
           onChange={(e) => setData("bio", e.target.value)}
-          placeholder="Pucuk ubi pucuk kangkung"
-          className="mt-1 max-h-[150px]"
+          placeholder="Dingin tetapi tidak kejam"
+          className="mt-1 max-h-[150px] bg-white"
         />
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="pita-maba" className="text-left">
+        <Label htmlFor="pita-maba" className="text-left text-white">
           Pita
         </Label>
 
@@ -232,7 +232,7 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex flex-col">
-        <Label htmlFor="riwayat-penyakit-maba" className="text-left">
+        <Label htmlFor="riwayat-penyakit-maba" className="text-left text-white">
           Riwayat Penyakit
         </Label>
 
@@ -247,7 +247,7 @@ const InformasiUmumForm: FC<InformasiUmumFormProps> = ({ currentUser }) => {
       </div>
 
       <div className="flex justify-end">
-        <Button onClick={handleSubmit}>Simpan Data</Button>
+        <Button onClick={handleSubmit} className="bg-[#E58025] hover:bg-[#E58025]">Simpan Data</Button>
       </div>
     </div>
   );

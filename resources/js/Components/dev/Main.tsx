@@ -12,30 +12,53 @@ import VvdSection from "@/Components/dev/VvdSection";
 
 type Props = {};
 
+// SOLUSI 1: Definisikan tipe component yang lebih spesifik
+type ComponentConfig = {
+  component: React.ReactElement;
+  key: string;
+};
+
 function Main({}: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const [activeComponent, setActiveComponent] = useState<React.ReactNode>(
-    <KadivSection />,
-  );
+  // SOLUSI 1: Gunakan ComponentConfig sebagai tipe
+  const [activeComponentConfig, setActiveComponentConfig] = useState<ComponentConfig>({
+    component: <KadivSection />,
+    key: 'kadiv'
+  });
 
   function handleSwitch(i: number) {
     setActiveIndex(i);
     switch (i) {
       case 0:
-        setActiveComponent(<KadivSection />);
+        setActiveComponentConfig({
+          component: <KadivSection />,
+          key: 'kadiv'
+        });
         break;
       case 1:
-        setActiveComponent(<VvdSection />);
+        setActiveComponentConfig({
+          component: <VvdSection />,
+          key: 'vvd'
+        });
         break;
       case 2:
-        setActiveComponent(<FrontendDivision />);
+        setActiveComponentConfig({
+          component: <FrontendDivision />,
+          key: 'frontend'
+        });
         break;
       case 3:
-        setActiveComponent(<BackendDivision />);
+        setActiveComponentConfig({
+          component: <BackendDivision />,
+          key: 'backend'
+        });
         break;
       case 4:
-        setActiveComponent(<CrSection />);
+        setActiveComponentConfig({
+          component: <CrSection />,
+          key: 'cr'
+        });
         break;
       default:
         break;
@@ -47,11 +70,11 @@ function Main({}: Props) {
       <main>
         <TransitionGroup>
           <CSSTransition
-            key={activeComponent!.type.name}
+            key={activeComponentConfig.key} // Gunakan string key yang kita definisikan
             timeout={500}
             classNames="fade"
           >
-            {activeComponent}
+            {activeComponentConfig.component}
           </CSSTransition>
         </TransitionGroup>
       </main>
@@ -60,7 +83,7 @@ function Main({}: Props) {
         <nav className="w-fit place-content-center lg:gap-8 backdrop-blur-md bg-white/5 lg:text-sm 2xl:text-base flex flex-wrap gap-2 px-4 mx-auto text-xs">
           <NavButton
             active={activeIndex == 0}
-            label="KARTATERA"
+            label="ATHENARUPA"
             onClick={() => {
               handleSwitch(0);
             }}

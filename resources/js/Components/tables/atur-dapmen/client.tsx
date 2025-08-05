@@ -12,10 +12,7 @@ export const AturDapmenClient = () => {
         searchKey="name"
         columns={columns}
         apiEndpoint={route("dashboard.user.data.dapmen")}
-        title={"Data Daplok dan Mentor"}
-        description={
-          "Gunakan sistem informasi ini untuk manajemen data Daplok dan Mentor!"
-        }
+        title={"Daplok dan Mentor"}
       />
     </>
   );

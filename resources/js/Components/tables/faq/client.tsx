@@ -11,8 +11,7 @@ export const FAQClient = () => {
         searchKey="Pertanyaan dan Jawaban"
         columns={columns}
         apiEndpoint={route("dashboard.faq.data")}
-        title={"Total FAQ"}
-        description={"Gunakan fitur ini untuk manajemen data FAQ!"}
+        title={"FAQ"}
       />
     </>
   );

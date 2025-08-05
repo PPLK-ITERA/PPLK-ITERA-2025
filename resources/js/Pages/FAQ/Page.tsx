@@ -137,47 +137,51 @@ export default function Page({ response }) {
               </div>
 
               {/* Card 2 */}
-              {/* Ikon Shield di atas card */}
-              <div className=" pt-16 md:pt-12">
-                <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">=
-                  <div className="absolute -top-10 p-1">
-                    <img
-                      src={shield}
-                      alt="Shield Icon"
-                      className="w-[100px] h-[90px] object-contain"
-                    />
-                  </div>
 
-                  {/* Konten Card */}
-                  <div className="mt-10 text-center">
-                    <h3 className="font-Greek text-2xl mb-2">PROFIL MABA</h3>
-                    <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
-                      Tata cara pengisian <br /> profil, berteman, dll.
-                    </p>
-                  </div>
+                {/* Ikon Shield di atas card */}
+                <div className=" pt-16 md:pt-12">
+                    <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative flex-shrink-0">=
+                <div className="absolute -top-10 p-1">
+                  <img
+                    src={shield}
+                    alt="Shield Icon"
+                    className="w-[100px] h-[90px] object-contain"
+                  />
                 </div>
+
+                {/* Konten Card */}
+                <div className="mt-10 text-center">
+                  <h3 className="font-Greek text-2xl mb-2">PROFIL MABA</h3>
+                  <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
+                    Tata cara pengisian <br /> profil, berteman, dll.
+                  </p>
+
+                </div>
+              </div>
               </div>
 
               {/* Card 3 */}
               <div className="pt-16 md:pt-12">
 
-                <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative">
-                  {/* Gambar Man di atas card */}
-                  <div className="absolute -top-10">
-                    <img
-                      src={man}
-                      alt="Man Icon"
-                      className="w-[100px] h-[90px] object-contain"
-                    />
-                  </div>
 
-                  {/* Konten Card */}
-                  <div className="mt-10 text-center">
-                    <h3 className="font-Greek text-2xl mb-2">DRESSCODE</h3>
-                    <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
-                      Dresscode Pra-PPLK PPLK <br /> Day 0–5
-                    </p>
-                  </div>
+              <div className="bg-gradient-to-br from-[#E6814F] to-[#973403] rounded-xl p-3 w-[200px] h-[170px] text-white cursor-pointer shadow-md hover:shadow-lg flex flex-col items-center relative">
+                {/* Gambar Man di atas card */}
+                <div className="absolute -top-10">
+                  <img
+                    src={man}
+                    alt="Man Icon"
+                    className="w-[100px] h-[90px] object-contain"
+                    />
+                </div>
+
+                {/* Konten Card */}
+                <div className="mt-10 text-center">
+                  <h3 className="font-Greek text-2xl mb-2">DRESSCODE</h3>
+                  <p className="font-Romanica text-sm opacity-90 leading-snug break-words">
+                    Dresscode Pra-PPLK PPLK <br /> Day 0–5
+                  </p>
+                    </div>
+
                 </div>
               </div>
             </div>

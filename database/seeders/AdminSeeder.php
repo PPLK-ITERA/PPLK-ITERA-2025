@@ -30,7 +30,7 @@ class AdminSeeder extends Seeder
 
         $userKelompok131 = User::where('kelompok_id', 131)->exists();
         if (!$userKelompok131) {
-            $csvMaba = fopen(base_path("database/csv/AkunKartatera.csv"), "r");
+            $csvMaba = fopen(base_path("database/csv/AkunAthenarupa.csv"), "r");
 
             // Start time for measuring duration
             $startTime = microtime(true);

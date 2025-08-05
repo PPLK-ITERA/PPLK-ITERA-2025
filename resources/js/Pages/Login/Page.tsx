@@ -12,7 +12,7 @@ import CarouselForm from "@/Components/fragments/CarouselForm";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 
-import logoPplk from "!assets/logo-pplk-2024.png";
+import logoPplk from "!assets/logo-pplk-2025.png";
 
 export default function Page({ auth, status }) {
   const { data, setData, post, processing, errors, reset } = useForm({
@@ -56,7 +56,7 @@ export default function Page({ auth, status }) {
             <img
               src={logoPplk}
               className="md:-ml-48 h-36 w-36 lg:-ml-72 lg:-mt-[70px]"
-              alt="logo-pplk-2024"
+              alt="logo-pplk-2025"
               width={202}
               height={202}
             />
