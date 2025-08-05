@@ -32,37 +32,54 @@ const roles = [
 
 export function UserSidebar({ user }) {
     const { isMinimized } = useSidebar();
-    const CACHE_KEY = "photo_profile_url_cache";
-    const [photoUrl, setPhotoUrl] = useState(() => {
-        // Ambil dari cache jika ada, jika tidak pakai dari props
-        return localStorage.getItem(CACHE_KEY) || user.photo_profile_url || "";
-    });
+    const [photoUrl, setPhotoUrl] = useState<string>(() => user.photo_profile_url || "");
+    const [objectUrl, setObjectUrl] = useState<string | null>(null);
 
     useEffect(() => {
+        let didCancel = false;
+        // Selalu fetch gambar, bukan json
         fetch("http://localhost:8000/api/photo-profile", {
             credentials: "include",
+            headers: {
+                Accept: "image/*",
+            },
         })
-            .then((res) => res.json())
-            .then((data) => {
-                const apiPhoto = data && data.photo_profile_url ? data.photo_profile_url : "";
-                const cachedPhoto = localStorage.getItem(CACHE_KEY) || "";
-                if (apiPhoto && apiPhoto !== cachedPhoto) {
-                    localStorage.setItem(CACHE_KEY, apiPhoto);
-                    setPhotoUrl(apiPhoto);
-                } else if (!apiPhoto && cachedPhoto) {
-                    localStorage.removeItem(CACHE_KEY);
-                    setPhotoUrl(user.photo_profile_url || "");
-                } else if (!cachedPhoto && apiPhoto) {
-                    localStorage.setItem(CACHE_KEY, apiPhoto);
-                    setPhotoUrl(apiPhoto);
+            .then(async (res) => {
+                const contentType = res.headers.get("content-type") || "";
+                if (contentType.startsWith("image/")) {
+                    const blob = await res.blob();
+                    const url = URL.createObjectURL(blob);
+                    if (!didCancel) {
+                        if (objectUrl) URL.revokeObjectURL(objectUrl);
+                        setPhotoUrl(url);
+                        setObjectUrl(url);
+                    }
+                } else {
+                    // fallback ke url dari user jika bukan image
+                    if (!didCancel) {
+                        setPhotoUrl(user.photo_profile_url || "");
+                        if (objectUrl) {
+                            URL.revokeObjectURL(objectUrl);
+                            setObjectUrl(null);
+                        }
+                    }
                 }
-                // else: tidak berubah, biarkan pakai cache
             })
             .catch(() => {
-                // Jika gagal fetch, tetap pakai cache atau fallback
-                setPhotoUrl(localStorage.getItem(CACHE_KEY) || user.photo_profile_url || "");
+                // fallback ke url dari user jika error
+                if (!didCancel) {
+                    setPhotoUrl(user.photo_profile_url || "");
+                    if (objectUrl) {
+                        URL.revokeObjectURL(objectUrl);
+                        setObjectUrl(null);
+                    }
+                }
             });
-        // Tambahkan user.photo_profile_url agar update jika user berubah
+        return () => {
+            didCancel = true;
+            if (objectUrl) URL.revokeObjectURL(objectUrl);
+        };
+        // eslint-disable-next-line
     }, [user.photo_profile_url]);
 
     return (

@@ -164,8 +164,33 @@ class ProfileController extends Controller
     public function getPhotoProfileUrl(Request $request)
     {
         $user = auth()->user();
+        $photoUrl = $user ? $user->photo_profile_url : null;
+
+        // Jika tidak ada foto, return 404 atau gambar default
+        if (!$photoUrl) {
+            // Ganti path default sesuai kebutuhan
+            $defaultPath = public_path('assets/blank-profile.png');
+            if ($request->expectsJson()) {
+                return response()->json(['photo_profile_url' => asset('assets/blank-profile.png')]);
+            }
+            return response()->file($defaultPath);
+        }
+
+        // Jika request dari browser (Accept: image/*), return file gambar
+        if (str_contains($request->header('accept'), 'image')) {
+            // Hapus prefix "/storage/" jika ada
+            $storagePath = ltrim(str_replace('/storage/', '', $photoUrl), '/');
+            $fullPath = storage_path('app/public/' . $storagePath);
+            if (!file_exists($fullPath)) {
+                // fallback ke default jika file tidak ada
+                $fullPath = public_path('assets/blank-profile.png');
+            }
+            return response()->file($fullPath);
+        }
+
+        // Jika request dari fetch/ajax, return JSON
         return response()->json([
-            'photo_profile_url' => $user ? $user->photo_profile_url : null,
+            'photo_profile_url' => $photoUrl,
         ]);
     }
 }
