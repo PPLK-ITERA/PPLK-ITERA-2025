@@ -1,4 +1,61 @@
 import React, { useState } from 'react';
+import dokum_21 from "!assets/dokumentasi/dokum-21.jpg";
+import dokum_22 from "!assets/dokumentasi/dokum-22.jpg";
+import dokum_23 from "!assets/dokumentasi/dokum-23.jpg";
+import dokum_24 from "!assets/dokumentasi/dokum-24.jpg";
+import dokum_25 from "!assets/dokumentasi/dokum-25.jpg";
+import dokum_26 from "!assets/dokumentasi/dokum-26.jpg";
+import dokum_27 from "!assets/dokumentasi/dokum-27.jpg";
+import dokum_28 from "!assets/dokumentasi/dokum-28.jpg";
+import dokum_29 from "!assets/dokumentasi/dokum-29.jpg";
+import dokum_30 from "!assets/dokumentasi/dokum-30.jpg";
+import dokum_31 from "!assets/dokumentasi/dokum-31.jpg";
+import dokum_32 from "!assets/dokumentasi/dokum-32.jpg";
+import dokum_33 from "!assets/dokumentasi/dokum-33.jpg";
+import dokum_34 from "!assets/dokumentasi/dokum-34.jpg";
+import dokum_35 from "!assets/dokumentasi/dokum-35.jpg";
+import dokum_36 from "!assets/dokumentasi/dokum-36.jpg";
+import dokum_37 from "!assets/dokumentasi/dokum-37.jpg";
+import dokum_38 from "!assets/dokumentasi/dokum-38.jpg";
+import dokum_39 from "!assets/dokumentasi/dokum-39.jpg";
+import dokum_40 from "!assets/dokumentasi/dokum-40.jpg";
+import dokum_41 from "!assets/dokumentasi/dokum-41.jpg";
+import dokum_42 from "!assets/dokumentasi/dokum-42.jpg";
+import dokum_43 from "!assets/dokumentasi/dokum-43.jpg";
+import dokum_44 from "!assets/dokumentasi/dokum-44.jpg";
+import dokum_45 from "!assets/dokumentasi/dokum-45.jpg";
+import dokum_46 from "!assets/dokumentasi/dokum-46.jpg";
+import dokum_47 from "!assets/dokumentasi/dokum-47.jpg";
+import dokum_48 from "!assets/dokumentasi/dokum-48.jpg";
+import dokum_49 from "!assets/dokumentasi/dokum-49.jpg";
+import dokum_50 from "!assets/dokumentasi/dokum-50.jpg";
+import dokum_51 from "!assets/dokumentasi/dokum-51.jpg";
+import dokum_52 from "!assets/dokumentasi/dokum-52.jpg";
+import dokum_53 from "!assets/dokumentasi/dokum-53.jpg";
+import dokum_54 from "!assets/dokumentasi/dokum-54.jpg";
+import dokum_55 from "!assets/dokumentasi/dokum-55.jpg";
+import dokum_56 from "!assets/dokumentasi/dokum-56.jpg";
+import dokum_57 from "!assets/dokumentasi/dokum-57.jpg";
+import dokum_58 from "!assets/dokumentasi/dokum-58.jpg";
+import dokum_59 from "!assets/dokumentasi/dokum-59.jpg";
+import dokum_60 from "!assets/dokumentasi/dokum-60.jpg";
+import dokum_61 from "!assets/dokumentasi/dokum-61.jpg";
+import dokum_62 from "!assets/dokumentasi/dokum-62.jpg";
+import dokum_63 from "!assets/dokumentasi/dokum-63.jpg";
+import dokum_64 from "!assets/dokumentasi/dokum-64.jpg";
+import dokum_65 from "!assets/dokumentasi/dokum-65.jpg";
+import dokum_66 from "!assets/dokumentasi/dokum-66.jpg";
+import dokum_67 from "!assets/dokumentasi/dokum-67.jpg";
+import dokum_68 from "!assets/dokumentasi/dokum-68.jpg";
+import dokum_69 from "!assets/dokumentasi/dokum-69.jpg";
+import dokum_70 from "!assets/dokumentasi/dokum-70.jpg";
+import dokum_71 from "!assets/dokumentasi/dokum-71.jpg";
+import dokum_72 from "!assets/dokumentasi/dokum-72.jpg";
+import dokum_73 from "!assets/dokumentasi/dokum-73.jpg";
+import dokum_74 from "!assets/dokumentasi/dokum-74.jpg";
+import dokum_75 from "!assets/dokumentasi/dokum-75.jpg";
+import dokum_76 from "!assets/dokumentasi/dokum-76.jpg";
+
 
 const PplkDokumtasi = () => {
     const [selectedMenu, setSelectedMenu] = useState('The Calling of Olympus');
@@ -16,54 +73,25 @@ const PplkDokumtasi = () => {
 
     const imageData = {
         'The Calling of Olympus': [
-            'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop'
+            dokum_21, dokum_22, dokum_23, dokum_24, dokum_25, dokum_26, dokum_27, dokum_28, dokum_29
         ],
         'Part of Chaos': [
-            'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop'
+            dokum_30, dokum_31, dokum_32, dokum_33, dokum_34, dokum_35, dokum_36, dokum_37, dokum_38
         ],
         'Flame of Hephaestus': [
-            'https://images.unsplash.com/photo-1509248961158-d3f2619ad5a1?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1509248961158-d3f2619ad5a1?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1509248961158-d3f2619ad5a1?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop'
+            dokum_39, dokum_40, dokum_41, dokum_42, dokum_43, dokum_44, dokum_45, dokum_46, dokum_47
         ],
         'Wisdom of Athena': [
-            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop'
+            dokum_48, dokum_49, dokum_50, dokum_51, dokum_52, dokum_53, dokum_54, dokum_55, dokum_56
         ],
         'Wrath of Ares': [
-            'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop'
+            dokum_57, dokum_58, dokum_59, dokum_60, dokum_61, dokum_62, dokum_63, dokum_64, dokum_65
         ],
         'Ascension to Elysion': [
-            'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=300&fit=crop',
-            'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop'
+            dokum_66, dokum_67, dokum_68, dokum_69, dokum_70, dokum_71, dokum_72, dokum_73, dokum_74, dokum_75, dokum_76
         ]
     };
+
 
     const itemsPerPage = 6;
     const totalPages = 3;
@@ -173,7 +201,7 @@ const PplkDokumtasi = () => {
                     </div>
 
                     <div className="flex justify-center space-x-2">
-                        {[1, 2, 3].map((page) => (
+                        {[1, 2].map((page) => (
                             <button
                                 key={page}
                                 onClick={() => handlePageChange(page)}
