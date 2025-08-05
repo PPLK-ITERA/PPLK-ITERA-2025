@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
 import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
+import { IconEdit, IconTrash } from "@tabler/icons-react";
 
 const breadcrumbItems = [
   { title: "Ellysion Panel", link: "/dashboard" },
@@ -38,38 +39,6 @@ export default function Page({ auth, logs, userData: initialUserData, redirectTo
       });
     }
   };
-
-  // Focus otomatis tidak diperlukan lagi karena tidak ada input manual
-  // useEffect(() => {
-  //   if (tab === "scan" && inputRef.current) {
-  //     inputRef.current.focus();
-  //   }
-  // }, [tab]);
-
-  // Tidak perlu lagi karena hanya ada QR scanner
-  // const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-  //   if (e.key === "Enter") {
-  //     e.preventDefault();
-  //     handleScan();
-  //   }
-  // };
-
-  // const handleScan = async () => {
-  //   if (!scanNim) return;
-  //   try {
-  //     const res = await fetch(`/dashboard/komdis/create?nim=${scanNim}`);
-  //     const json = await res.json();
-  //     if (json.success) {
-  //       setUserData(json.data);
-  //       setScanNim("");
-  //       setTab("input");
-  //     } else {
-  //       alert(json.message || "Maba tidak ditemukan.");
-  //     }
-  //   } catch (err) {
-  //     alert("Gagal scan QR");
-  //   }
-  // };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -146,20 +115,20 @@ export default function Page({ auth, logs, userData: initialUserData, redirectTo
                         <td className="p-2">
                           <div className="flex gap-2">
                             <Button
-                              variant="outline"
                               size="sm"
                               onClick={() => handleEdit(log.id)}
-                              className="text-blue-600 hover:text-blue-700"
+                              className="bg-gray-900 hover:bg-gray-800 text-white border-0 px-3 py-1.5 rounded-md"
                             >
-                              ✏️ Edit
+                              {/* <IconEdit size={16} className="mr-1" /> */}
+                              Edit
                             </Button>
                             <Button
-                              variant="outline"
                               size="sm"
                               onClick={() => handleDelete(log.id)}
-                              className="text-red-600 hover:text-red-700"
+                              className="bg-red-500 hover:bg-red-600 text-white border-0 px-3 py-1.5 rounded-md"
                             >
-                              🗑️ Hapus
+                              {/* <IconTrash size={16} className="mr-1" /> */}
+                              Delete
                             </Button>
                           </div>
                         </td>

@@ -4,7 +4,7 @@ import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Separator } from "@/Components/ui/separator";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
-import { IconPlus } from "@tabler/icons-react";
+import { IconPlus, IconEdit, IconTrash } from "@tabler/icons-react";
 import { Label } from "@/Components/ui/label";
 import { Heading } from "@/Components/ui/heading";
 import {
@@ -111,10 +111,84 @@ export const TeslaClient = ({ apiEndpoint, refresh }: { apiEndpoint: string; ref
     });
   }, [soals, searchTerm]);
 
+  // Handler untuk edit
+  const handleEdit = (soal: Soal) => {
+    setForm(soal);
+    setEditing(true);
+    setOpen(true);
+    setMessage("");
+  };
+
+  // Handler untuk delete
+  const handleDelete = async (soal: Soal) => {
+    try {
+      const res = await fetch(`${apiEndpoint.replace(/\/$/, '')}/${soal.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": (document.querySelector('meta[name="csrf-token"]') as HTMLMetaElement)?.content || "",
+        },
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.message || "Gagal menghapus data");
+      }
+
+      // Refresh data setelah delete
+      await fetchSoals();
+
+    } catch (error) {
+      console.error('Error deleting soal:', error);
+      alert(`Gagal menghapus data: ${error}`);
+      throw error; // Re-throw untuk handling di CellAction
+    }
+  };
+
+  // Update columns dengan handler
+  const columnsWithActions = useMemo(() => {
+    return columns.map(column => {
+      if (column.id === 'actions') {
+        return {
+          ...column,
+          cell: ({ row }: any) => {
+            const soal = row.original;
+            return (
+              <div className="flex gap-2">
+                <Button 
+                  size="sm"
+                  onClick={() => handleEdit(soal)}
+                  className="bg-gray-900 hover:bg-gray-800 text-white border-0 px-3 py-1.5 rounded-md"
+                >
+                  
+                  Edit
+                </Button>
+                <Button 
+                  size="sm"
+                  onClick={() => {
+                    if (window.confirm(`Apakah Anda yakin ingin menghapus soal nomor ${soal.nomor}?`)) {
+                      handleDelete(soal);
+                    }
+                  }}
+                  className="bg-red-500 hover:bg-red-600 text-white border-0 px-3 py-1.5 rounded-md"
+                >
+                  
+                  Delete
+                </Button>
+              </div>
+            );
+          }
+        };
+      }
+      return column;
+    });
+  }, []);
+
   // React Table setup
   const table = useReactTable({
     data: filteredData,
-    columns,
+    columns: columnsWithActions,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -150,7 +224,7 @@ export const TeslaClient = ({ apiEndpoint, refresh }: { apiEndpoint: string; ref
 
     try {
       const method = editing ? "PUT" : "POST";
-      const url = editing ? `/api/tesla/${form.id}` : "/api/tesla/";
+      const url = editing ? `${apiEndpoint.replace(/\/$/, '')}/${form.id}` : apiEndpoint;
       const payload = {
         ...form,
         nomor: Number(form.nomor),
@@ -175,7 +249,7 @@ export const TeslaClient = ({ apiEndpoint, refresh }: { apiEndpoint: string; ref
         return;
       }
 
-      setMessage(data.message || "Berhasil menyimpan data");
+      setMessage(data.message || `Berhasil ${editing ? 'mengupdate' : 'menambah'} soal`);
       setForm(emptySoal);
       setEditing(false);
       setOpen(false);
@@ -189,10 +263,11 @@ export const TeslaClient = ({ apiEndpoint, refresh }: { apiEndpoint: string; ref
     }
   };
 
-  const handleEdit = (soal: Soal) => {
-    setForm(soal);
-    setEditing(true);
-    setOpen(true);
+  const handleCancel = () => {
+    setForm(emptySoal);
+    setEditing(false);
+    setMessage("");
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -315,19 +390,13 @@ export const TeslaClient = ({ apiEndpoint, refresh }: { apiEndpoint: string; ref
             </div>
             <span className="text-xs text-gray-500 mt-2">(Boleh dikosongkan untuk auto)</span>
             <div className="flex flex-row items-center justify-end gap-2 mt-6 w-full">
-              {editing && (
-                <button
-                  type="button"
-                  className="px-6 py-2 rounded-lg border border-gray-300 h-10 bg-gray-100 hover:bg-gray-200 transition"
-                  onClick={() => {
-                    setForm(emptySoal);
-                    setEditing(false);
-                    setMessage("");
-                  }}
-                >
-                  Batal
-                </button>
-              )}
+              <button
+                type="button"
+                className="px-6 py-2 rounded-lg border border-gray-300 h-10 bg-gray-100 hover:bg-gray-200 transition"
+                onClick={handleCancel}
+              >
+                Batal
+              </button>
               <button
                 type="submit"
                 className="bg-gradient-to-r from-orange-500 to-[#BF4000] hover:from-orange-600 hover:to-[#a03c15] text-white px-6 py-2 rounded-lg font-semibold shadow transition-all h-10 min-w-[120px]"
@@ -335,7 +404,11 @@ export const TeslaClient = ({ apiEndpoint, refresh }: { apiEndpoint: string; ref
                 {editing ? "Update" : "Tambah"}
               </button>
             </div>
-            {message && <div className="text-green-600 font-medium mt-2">{message}</div>}
+            {message && (
+              <div className={`font-medium mt-2 ${message.includes('Berhasil') ? 'text-green-600' : 'text-red-600'}`}>
+                {message}
+              </div>
+            )}
           </form>
         </DialogContent>
       </Dialog>
@@ -376,7 +449,7 @@ export const TeslaClient = ({ apiEndpoint, refresh }: { apiEndpoint: string; ref
           <TableBody>
             {loading ? (
               <TableRow>
-                <TableCell colSpan={columns.length} className="text-center">
+                <TableCell colSpan={columnsWithActions.length} className="text-center">
                   Loading...
                 </TableCell>
               </TableRow>
@@ -397,7 +470,7 @@ export const TeslaClient = ({ apiEndpoint, refresh }: { apiEndpoint: string; ref
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="text-center">
+                <TableCell colSpan={columnsWithActions.length} className="text-center">
                   {searchTerm ? "Tidak ada hasil pencarian." : "Tidak ada data."}
                 </TableCell>
               </TableRow>
