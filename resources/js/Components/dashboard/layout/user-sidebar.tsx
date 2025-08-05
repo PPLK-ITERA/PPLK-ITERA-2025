@@ -37,8 +37,9 @@ export function UserSidebar({ user }) {
 
     useEffect(() => {
         let didCancel = false;
-        // Selalu fetch gambar, bukan json
-        fetch("http://localhost:8000/api/photo-profile", {
+        // Tambahkan timestamp agar selalu fetch terbaru
+        const apiUrl = `http://localhost:8000/api/photo-profile?ts=${Date.now()}`;
+        fetch(apiUrl, {
             credentials: "include",
             headers: {
                 Accept: "image/*",
@@ -53,9 +54,10 @@ export function UserSidebar({ user }) {
                         if (objectUrl) URL.revokeObjectURL(objectUrl);
                         setPhotoUrl(url);
                         setObjectUrl(url);
+                    } else {
+                        URL.revokeObjectURL(url);
                     }
                 } else {
-                    // fallback ke url dari user jika bukan image
                     if (!didCancel) {
                         setPhotoUrl(user.photo_profile_url || "");
                         if (objectUrl) {
@@ -66,7 +68,6 @@ export function UserSidebar({ user }) {
                 }
             })
             .catch(() => {
-                // fallback ke url dari user jika error
                 if (!didCancel) {
                     setPhotoUrl(user.photo_profile_url || "");
                     if (objectUrl) {
