@@ -35,9 +35,9 @@ export default function InfoSection() {
   ];
 
   const navigationItems = [
-    { label: "Visit FAQ center", icon: ArrowRight },
-    { label: "Visit our blog", icon: ArrowRight },
-    { label: "Ask for more", icon: ArrowRight }
+    { label: "Visit FAQ", icon: ArrowRight, href: "/faq" },
+    { label: "Visit Dokumentasi", icon: ArrowRight, href: "/dokumentasi" },
+    { label: "Visit Ketentuan Atribut", icon: ArrowRight, href: "/ketentuan-atribut" }
   ];
 
   return (
@@ -60,13 +60,14 @@ export default function InfoSection() {
             {/* Navigation Buttons */}
             <div className="space-y-4">
               {navigationItems.map((item, index) => (
-                <button
+                <a
                   key={index}
+                  href={item.href}
                   className="w-full bg-[#FFDAD6] hover:bg-orange-300 transition-colors duration-200 p-4 rounded-lg flex items-center justify-between group"
                 >
                   <span className="text-gray-800 font-medium">{item.label}</span>
                   <item.icon className="w-5 h-5 text-gray-600 group-hover:translate-x-1 transition-transform duration-200" />
-                </button>
+                </a>
               ))}
             </div>
           </div>
