@@ -16,6 +16,7 @@ interface KepalaUPTProps {
   nip?: string;
   foto_kepala_upt?: string;
   link_instagram?: string;
+  link_tiktok?: string;
   link_youtube?: string;
   link_website?: string;
 }

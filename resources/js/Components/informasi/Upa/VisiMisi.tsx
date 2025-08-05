@@ -79,7 +79,7 @@ export default function VisiMisi({ visi, misi }: VisiMisiProps) {
 
 
 {/* MISI */}
-<div className="relative flex flex-col items-center text-center gap-6 mt-44">
+<div className="relative flex flex-col items-center text-center gap-6 mt-40">
   {/* Lingkaran */}
   <div className="absolute inset-0 flex justify-center items-start -z-10">
     <div className="w-[550px] h-[550px] sm:w-[450px] sm:h-[450px] bg-gradient-to-r from-[#8F1A00] to-[#FF5500] opacity-100 blur-[25px] rounded-full mt-[-40px] md:w-[450px] md:h-[450px] lg:w-[450px] lg:h-[450px]" />
