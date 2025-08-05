@@ -12,7 +12,7 @@ import {
 
 import { devTeam } from "@/lib/data/devteam";
 
-import kartateraLogo from "!assets/svg/kartatera-logo.svg";
+import kartateraLogo from "!assets/svg/athenarupa-logo.svg";
 
 type Props = {};
 
@@ -36,10 +36,8 @@ function KadivSection({ }: Props) {
                             Implementasi Teknologi
                         </h3>
                         <p className="xl:text-base text-start mt-6 text-sm">
-                            Kartatera berasal dari "Utskarta" (canggih) dan "Lanterna"
-                            (lentera). Divisi IT ini melambangkan cahaya perubahan dari zaman
-                            kuno ke modern, membantu perkembangan teknologi, dan memudahkan
-                            mahasiswa baru mengakses informasi kegiatan.
+                            Athenarupa berasal dari Athena (Kebijaksanaan) dan Rupa (Bentuk, Visual).
+                            Divisi IT ini melambangkan sosok sunyi yang menggerakkan kegiatan dengan ketelitian dan kepastian. Ia menjaga ritme dan stabilitas dari balik layar, memastikan setiap langkah berjalan lancar agar tiap divisi dapat bersinar tanpa hambatan.
                         </p>
                     </div>
                 </div>

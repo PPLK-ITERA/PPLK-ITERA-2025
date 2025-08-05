@@ -12,7 +12,7 @@ import { Button } from "@/Components/ui/button";
 
 import { useAos } from "@/lib/hooks/useAos";
 
-import kartateraLogo from "!assets/svg/kartatera-logo.svg";
+import kartateraLogo from "!assets/svg/athenarupa-logo.svg";
 
 function Page() {
   useAos();

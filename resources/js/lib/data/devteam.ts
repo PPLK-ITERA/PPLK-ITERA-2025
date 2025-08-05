@@ -1,29 +1,17 @@
-import akhdan from "!assets/dev-team/akhdan.png";import apri from "!assets/dev-team/apri.png";
-import arip from "!assets/dev-team/arip.png";
-import aulia_nur from "!assets/dev-team/aulia-nur.png";
-import ayu from "!assets/dev-team/ayu.png";
-import bangkiki from "!assets/dev-team/bangkiki.png";
-import cici from "!assets/dev-team/cici.png";
-import cindy from "!assets/dev-team/cindy.png";
-import daffa from "!assets/dev-team/daffa.png";
-import dimas_sekertaris from "!assets/dev-team/dimas-sekertaris.png";
-import dimas from "!assets/dev-team/dimas.png";
-import dito from "!assets/dev-team/dito.png";
-import doni from "!assets/dev-team/doni.png";
-import gilang from "!assets/dev-team/gilang.png";
-import helen from "!assets/dev-team/helen.png";
-import irma from "!assets/dev-team/irma.png";
-import joshua from "!assets/dev-team/joshua.png";
-import linux from "!assets/dev-team/linux.png";
-import nate from "!assets/dev-team/nate.png";
-import rachel from "!assets/dev-team/rachel.png";
-import sidiq from "!assets/dev-team/sidiq.png";
-import sigit from "!assets/dev-team/sigit.png";
+// Import hanya foto yang pasti ada
 import stevanus from "!assets/dev-team/stevanus.png";
-import virdio from "!assets/dev-team/virdio.png";
-import yusuf from "!assets/dev-team/yusuf.png";
-import zefanya from "!assets/dev-team/zefanya.png";
-import zidan from "!assets/dev-team/zidan.png";
+
+// Untuk foto lain, kita buat object map dengan fallback
+const photos: Record<string, string> = {
+  stevanus,
+  // Fallback default untuk semua foto yang tidak tersedia
+  default: stevanus
+};
+
+// Fungsi helper untuk mendapatkan foto dengan fallback
+const getPhoto = (photoName: string): string => {
+  return photos[photoName] || photos.default;
+};
 
 export const devTeam = {
   kadiv: [
@@ -31,62 +19,61 @@ export const devTeam = {
       name: "Stevanus Cahya Anggara",
       instagram: "scxzxz",
       role: "Kepala Divisi Implementasi Teknologi",
-      quote: "Tidak perlu quotes, perlunya tidur.",
-      photo: linux,
+      quote: "Diantara Ngoding dan debugging aku lebih memilih scroll fesnuk",
+      photo: getPhoto('stevanus'),
     },
   ],
   sekdiv: [
     {
       name: "Anisah Octa Rohila",
-      instagram: "dms_dharma",
+      instagram: "anisahoctar",
       role: "Sekretaris Bendahara Divisi Implementasi Teknologi",
-      quote: "nothing is true, everything is permitted",
-      photo: dimas_sekertaris,
+      quote: "Gatau",
+      photo: getPhoto('anisah'),
     },
   ],
   vvd: [
     {
       name: "Garis Rayya Rabbani",
-      instagram: "virdiosam",
+      instagram: "gars_rayya",
       role: "Kepala Sub-Divisi VVD",
-      quote:
-        "Barangsiapa yang gk pake design system, niscaya hidupnya penuh revisi. Big shout out to Hanea Arrouza & divisi Amphorta, desainnya keren 🙌🏻",
-      photo: virdio,
+      quote: "Hidup kalo ga PDD, PMPD ya VVD",
+      photo: getPhoto('garis'),
     },
     {
       name: "Muhammad Royhan Alfitra",
-      instagram: "dms_dharma",
+      instagram: "mroyhaf",
       role: "Staff VVD",
-      quote: "nothing is true, everything is permitted",
-      photo: dimas,
+      quote: "Lebih baik menjadi Cupu daripada menjadi Cepu",
+      photo: getPhoto('royhan'),
     },
     {
       name: "Al Bariq Auliya Priyadi",
-      instagram: "irma.aamelia_",
+      instagram: "bariq.priy",
       role: "Staff VVD",
-      quote: "Good things will come, so keep thinking positive.",
-      photo: irma,
+      quote: "وَالشَمْسُ لَوْ وَقَفَتْ فِي الفُلْكِ دَايِمَةً,  لَمَلَّهَا النَاسُ مِنْ عُجْمٍ وَمِنْ عَرَبِ",
+      photo: getPhoto('bariq'),
     },
     {
       name: "Gian Ivander",
-      instagram: "achmad_rufi",
+      instagram: "gian.ivdr",
       role: "Staff VVD",
-      quote: "Start with bismillah and end with Alhamdulillah",
-      photo: sidiq,
+      quote: "Not as simple as you see",
+      photo: getPhoto('gian'),
     },
     {
       name: "Choirunnisa Syawaldina",
-      instagram: "aullfz",
+      instagram: "choirunnisasyawaldina",
       role: "Staff VVD",
-      quote: "Demi apa? Demikian",
-      photo: aulia_nur,
+      quote: "every bug is a lesson, every solution a triumph",
+      photo: getPhoto('choirunnisa'),
     },
     {
       name: "Refi Ikhsanti",
-      instagram: "alfaritzi_daf",
+      instagram: "7refisa",
       role: "Staff VVD",
-      quote: "cout << \"I'm with you 'til the end of the line\" << ;",
-      photo: daffa,
+      quote: "The most important thing is to enjoy your life. To be happy. It's all that matters. -Audrey Hepburn",
+      photo: getPhoto('refi'),
     },
   ],
   frontend: [
@@ -95,138 +82,137 @@ export const devTeam = {
       instagram: "muhamyusuf_",
       role: "Kepala Sub-Divisi Front-End",
       quote: "Pucuk Ubi Pucuk Kangkung, Front-End Divisi Tulang Punggung🥵",
-      photo: yusuf,
+      photo: getPhoto('edu'),
     },
     {
       name: "Syahid Amanullah",
-      instagram: "jo907__",
+      instagram: "syhd_amnlh",
       role: "Staff Front-End",
-      quote: "samain kaya kadiv aja",
-      photo: joshua,
+      quote: "Pastikan saat orang lain masih sibuk bermimpi, kamu sudah mulai mengejar mimpi",
+      photo: getPhoto('syahid'),
     },
     {
       name: "Ginda Fajar Riadi Marpaung",
       instagram: "arriefrahman_",
       role: "Staff Front-End",
       quote: "Pucuk Ubi Pucuk Kangkung, .. itu aja",
-      photo: arip,
+      photo: getPhoto('ginda'),
     },
     {
       name: "Christoper Leon Saputra",
-      instagram: "machzaulsyah",
+      instagram: "c.leonsra",
       role: "Staff Front-End",
-      quote: "Takuruong ndak di luar tahimpik ndak di ateh",
-      photo: "https://picsum.photos/514",
+      quote: "aku nak tidur😴",
+      photo: getPhoto('leon'),
     },
     {
       name: "Ebentua Philipus Limbong",
       instagram: "thebugitself",
       role: "Staff Front-End",
       quote: "if buying isn't owning, piracy isn't stealing",
-      photo: akhdan,
+      photo: getPhoto('ebentua'),
     },
     {
       name: "Ahmat Prayoga Sembiring",
       instagram: "zefanyaadt",
       role: "Staff Front-End",
       quote: "Mau Sprei Geratis",
-      photo: zefanya,
+      photo: getPhoto('ahmat'),
     },
   ],
   backend: [
     {
       name: "Reyhan Capri Moraga",
-      instagram: "gilrs.ptra",
+      instagram: "reannn22",
       role: "Kepala Sub-Divisi Back-End",
-      quote: "It's okay to be scared, we just have to do it anyway.",
-      photo: gilang,
+      quote: "don't chase star, chase people",
+      photo: getPhoto('reyhan'),
     },
     {
       name: "Ahmad Ali Mukti",
-      instagram: "rizkialfariz_11",
+      instagram: "ahmadali.m1",
       role: "Staff Back-End",
-      quote: "Gas",
-      photo: bangkiki,
+      quote: "Pengen tidur",
+      photo: getPhoto('ahmad'),
     },
     {
       name: "M. Rif'at Syauki",
       instagram: "ditorifkii",
       role: "Staff Back-End",
       quote: "idola frontend aku bang",
-      photo: dito,
+      photo: getPhoto('rifat'),
     },
     {
       name: "Daniel Calvin Simanjuntak",
       instagram: "dniel.clv",
       role: "Staff Back-End",
-      quote: "Aku mau lulus :3 !.",
-      photo: zidan,
+      quote: "Hanya cinta dan malam",
+      photo: getPhoto('daniel'),
     },
     {
       name: "Aditya Kristian Novalino",
-      instagram: "scxzxz",
+      instagram: "aditkristiann",
       role: "Staff Back-End",
-      quote: "Dimana ada kelebihan , disitu ada kembalian",
-      photo: stevanus,
+      quote: "Serve to be better.",
+      photo: getPhoto('aditya'),
     },
   ],
   cr: [
     {
       name: "Feby Angelina",
-      instagram: "nateee__15",
+      instagram: "wriitenbyangel",
       role: "Kepala Sub-Divisi CR",
-      quote: 'print("iso ra iso halsu isseo")',
-      photo: nate,
+      quote: "thanks chatgpt and friends",
+      photo: getPhoto('feby'),
     },
     {
       name: "Anisah Saidah",
-      instagram: "ayujnnti",
+      instagram: "anshsdh_",
       role: "Staff Content Research",
-      quote:
-        "Yang boleh istirahat setelah kerja itu hanya orang tua, anak muda jangan kebanyakan leha-leha",
-      photo: ayu,
+      quote: "Gak ada hal yang gak mungkin di dunia ini Asikk",
+      photo: getPhoto('anisah_saidah'),
     },
     {
       name: "Yollanda Agustina",
-      instagram: "sgiit___",
+      instagram: "yollanda_agustina16",
       role: "Staff Content Research",
-      quote: "Content Research mendadak dan meresearch",
-      photo: sigit,
+      quote: "Pengalaman ada karena dibuat",
+      photo: getPhoto('yollanda'),
     },
     {
       name: "Sekar Dini Widya Putri",
-      instagram: "cnadila07",
+      instagram: "sekardnwp",
       role: "Staff Content Research",
-      quote: "Cobaan pasti banyak, kalo dikit namanya cobain",
-      photo: cindy,
+      quote: "to live for the hope of it all",
+      photo: getPhoto('sekar'),
     },
     {
       name: "Jeremi Pison Efrat Sianturi",
-      instagram: "donifazarella_",
+      instagram: "jeremipisonefrat",
       role: "Staff Content Research",
-      quote: "Namanya juga hidup",
-      photo: doni,
+      quote: "lorem ipsum dolor sit amet",
+      photo: getPhoto('jeremi'),
     },
     {
       name: "Al Fharidz Fajar Ramadhansyah",
-      instagram: "ciciiitr",
+      instagram: "fharidzsyah",
       role: "Staff Content Research",
-      quote: 'imtekpplk2025 = "gacor',
-      photo: cici,
+      quote: "hai aku gue 👋",
+      photo: getPhoto('alfharidz'),
     },
     {
       name: "Abel Fortino",
-      instagram: "helen_twomay",
+      instagram: "abelfortino",
       role: "Staff Content Research",
-      quote: "So whatever you do don’t let go~Coldplay",
-      photo: helen,
+      quote: "Aku cinta IMTEK",
+      photo: getPhoto('abel'),
     },
     {
       name: "Nesya Salsabila",
-      instagram: "rachelnaulitaa",
+      instagram: "nesyyasalsa",
       role: "Staff Content Research",
-      quote: "mejikuhibineed you",
-      photo: rachel,
+      quote: "tetap cengar cengir walaupun tugas terus mengalir",
+      photo: getPhoto('nesya'),
     },
   ],
 };
