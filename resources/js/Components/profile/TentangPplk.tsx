@@ -48,6 +48,7 @@ const TentangPplk = ({ props }: { props: TentangPplkProps }) => {
                     className="w-36 mx-auto"
                   />
                   <p className="text-md text-[#B18E63] font-semibold">{fakultas.nama}</p>
+
                 </div>
                 <div className="bg-white rounded-xl shadow-md border p-4 flex-1">
                   <h3 className="font-medium text-md mb-3">Tentang PPLK</h3>

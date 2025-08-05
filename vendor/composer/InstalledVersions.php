@@ -27,6 +27,12 @@ use Composer\Semver\VersionParser;
 class InstalledVersions
 {
     /**
+     * @var string|null if set (by reflection by Composer), this should be set to the path where this class is being copied to
+     * @internal
+     */
+    private static $selfDir = null;
+
+    /**
      * @var mixed[]|null
      * @psalm-var array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>}|array{}|null
      */
@@ -320,6 +326,8 @@ class InstalledVersions
         // so we have to assume it does not, and that may result in duplicate data being returned when listing
         // all installed packages for example
         self::$installedIsLocalDir = false;
+
+
     }
 
     /**
@@ -336,7 +344,9 @@ class InstalledVersions
         $copiedLocalDir = false;
 
         if (self::$canGetVendors) {
+
             $selfDir = strtr(__DIR__, '\\', '/');
+
             foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
                 $vendorDir = strtr($vendorDir, '\\', '/');
                 if (isset(self::$installedByVendor[$vendorDir])) {

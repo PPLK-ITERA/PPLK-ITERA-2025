@@ -41,6 +41,7 @@ import logo_upa_perpustakaan from "!assets/logoupt/upa-perpustakaan.png";
 import logo_upa_tik from "!assets/logoupt/upa-tik.png";
 import logo_upt_k3l from "!assets/logoupt/upt-k3l.png";
 
+
 // Acuan saja tidak wajib digunakan
 export interface UptData {
   key: string;
@@ -91,13 +92,14 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Andre Febrianto, S.Kom., M.Eng",
       foto: kepala_upa_tik,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "198602142019031008",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/upatikitera/",
-      youtube: "https://www.youtube.com/@upttikiteraoffical",
+      tiktok: "",
       website: "https://tik.itera.ac.id/",
+      youtube: "https://www.youtube.com/@upttikiteraoffical",
     },
     kegiatanUnggulan: [
       {
@@ -148,13 +150,14 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "M. ALVIEN GHIFARI, S.SI., M.SC.",
       foto: kepala_upa_perpustakaan,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "199511082022031010",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/library.itera/",
-      youtube: "https://www.youtube.com/@uptperpustakaanitera6160",
+      tiktok: "",
       website: "https://perpustakaan.itera.ac.id",
+      youtube: "https://www.youtube.com/@uptperpustakaanitera6160",
     },
     kegiatanUnggulan: [
       {
@@ -201,11 +204,12 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Dr. Tarmizi Taher, S.Si.",
       foto: kepala_upa_lab,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "1993032920211345",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/upalabitera",
+      tiktok: "",
       youtube: "",
       website: "https://ilab.itera.ac.id/faq",
     },
@@ -259,11 +263,12 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Alawiyah, S.P., M.Hut.",
       foto: kepala_upa_kebun_raya,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/kebunrayaitera/",
+      tiktok: "",
       youtube: "https://www.youtube.com/channel/UCVaKg6QVo-mRZkV0Wec9d-g",
       website: "https://kebunraya.itera.ac.id/",
     },
@@ -311,11 +316,12 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Dr. Moedji Raharto",
       foto: kepala_upa_oail,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "195411081981031002",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/oail.itera/",
+      tiktok: "",
       youtube: "https://youtube.com/@oailitera9398",
       website: "https://oail.itera.ac.id",
     },
@@ -362,11 +368,12 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Drs. Zadrach Ledoufij Dupe, M.Si",
       foto: kepala_upa_mkg,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "195703221983031003",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/mkg_itera/",
+      tiktok: "",
       youtube: "https://youtube.com/@uptmkgitera3276?si=YYAoSYxCUXY7RKJI",
       website: "https://sites.google.com/itera.ac.id/mkgitera/home",
     },
@@ -422,6 +429,7 @@ export const DetailUPTData: UptData[] = [
     },
     sosmedUPT: {
       instagram: "",
+      tiktok: "",
       youtube: "",
       website: "",
     },

@@ -4,6 +4,7 @@ import { useForm } from "@inertiajs/react";
 import { Textarea } from "@/Components/ui/textarea";
 import { Button } from "@/Components/ui/button";
 
+
 const ProfilKamu = ({ props }: { props: UserResponse }) => {
   const { data, setData, put } = useForm({
     linkedinURL: props.linkedin_url || "",
@@ -59,6 +60,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                 >
                 LinkedIn
                 </label>
+
 
                 <div className="relative">
                   <input
@@ -138,7 +140,9 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
           </div>
         </div>
       </div>
+
     </div>
+
   );
 };
 
