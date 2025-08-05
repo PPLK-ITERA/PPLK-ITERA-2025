@@ -1,4 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import dokum_11 from "!assets/dokumentasi/dokum-11.jpg";
+import dokum_12 from "!assets/dokumentasi/dokum-12.jpg";
+import dokum_13 from "!assets/dokumentasi/dokum-13.jpg";
+import dokum_14 from "!assets/dokumentasi/dokum-14.jpg";
+import dokum_15 from "!assets/dokumentasi/dokum-15.jpg";
+import dokum_16 from "!assets/dokumentasi/dokum-16.jpg";
+import dokum_17 from "!assets/dokumentasi/dokum-17.jpg";
+import dokum_18 from "!assets/dokumentasi/dokum-18.jpg";
+import dokum_19 from "!assets/dokumentasi/dokum-19.jpg";
+import dokum_20 from "!assets/dokumentasi/dokum-20.jpg";
+
 
 export default function CarauselDokumentasi({ images = [], speed = 0.5 }) {
     const containerRef = useRef(null);
@@ -7,12 +18,18 @@ export default function CarauselDokumentasi({ images = [], speed = 0.5 }) {
 
     // Default image jika tidak ada gambar diberikan
     const defaultImages = [
-        "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80",
+        dokum_11,
+        dokum_12,
+        dokum_13,
+        dokum_14,
+        dokum_15,
+        dokum_16,
+        dokum_17,
+        dokum_18,
+        dokum_19,
+        dokum_20,
     ];
+    
 
     const finalImages = images.length > 0 ? images : defaultImages;
 
