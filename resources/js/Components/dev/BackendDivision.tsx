@@ -9,7 +9,7 @@ import { devTeam } from "@/lib/data/devteam";
 import { Developer } from "@/lib/types/Developer";
 
 import linuk from "!assets/linuk.png";
-import kartateraLogo from "!assets/svg/kartatera-logo.svg";
+import kartateraLogo from "!assets/svg/athenarupa-logo.svg";
 
 type Props = {};
 

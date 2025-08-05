@@ -903,7 +903,7 @@ export default function Page() {
                     right: 0,
                 }}
             >
-                <div className="absolute inset-0 bg-[#BF4000] mix-blend-multiply pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[#BF400099] mix-blend-multiply pointer-events-none"></div>
             </div>
             {/* Content */}
             <div
