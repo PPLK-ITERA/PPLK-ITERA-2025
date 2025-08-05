@@ -82,7 +82,7 @@ export const InformasiDropDown = [
   },
   {
     title: "Divisi PPLK",
-    href: "/informasi/pplk#divisi-pplk",
+    href: "/informasi/divisi",
     icon: <IconUsersGroup size={24} color="#fcedd8" />,
   },
   {
@@ -90,6 +90,18 @@ export const InformasiDropDown = [
     href: "/dev-team",
     icon: <IconCode size={24} color="#fcedd8" />,
   },
+  {
+    title: "Lppm",
+    href: "/informasi/lppm",
+    icon: <IconTie size={24} color="#fcedd8" />,
+  },
+  ,
+  {
+    title: "Senat-KM",
+    href: "/informasi/senat",
+    icon: <IconTie size={24} color="#fcedd8" />,
+  },
+
 ];
 
 export const MabaDropDown = [
@@ -112,6 +124,21 @@ export const MabaDropDown = [
     title: "Lagu",
     href: "/lagu",
     icon: <IconMusic size={24} color="#fcedd8" />,
+  },
+  {
+    title: "Dokumentasi",
+    href: "/dokumentasi",
+    icon: <IconBook size={24} color="#fcedd8" />,
+  },
+  {
+    title: "Tesla",
+    href: "/tesla",
+    icon: <IconBook size={24} color="#fcedd8" />,
+  },
+  {
+    title: "Petaka",
+    href: "/petaka",
+    icon: <IconBook size={24} color="#fcedd8" />,
   },
 ];
 

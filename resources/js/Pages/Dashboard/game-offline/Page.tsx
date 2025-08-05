@@ -14,7 +14,7 @@ import { Toaster } from "@/Components/ui/toaster";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Game Offline", link: "/dashboard/game-offline" },
 ];
 

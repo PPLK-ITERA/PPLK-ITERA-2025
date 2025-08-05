@@ -143,6 +143,9 @@ const Page = ({ response }) => {
         backgroundRepeat: 'repeat',
         backgroundSize: '1400px',
       }}>
+
+      <div className="bg-pattern-white">
+
         <Navbar isSolid={true} isFixed={true} />
         <Toaster />
         <div className="sm:flex-row mb-28 flex flex-col justify-center gap-3 pt-32 mx-auto">
@@ -185,7 +188,8 @@ const Page = ({ response }) => {
               <Dialog>
                 <DialogTrigger asChild>
                   <Button className="bg-white text-[#CF7A1F] border border-[#CF7A1F] hover:bg-white hover:border-[#cf7a1f] hover:shadow-md transition-colors duration-200">
-                    Edit Foto
+                    Edit Foto Profil
+
                   </Button>
                 </DialogTrigger>
 
@@ -253,11 +257,13 @@ const Page = ({ response }) => {
             </div>
 
             <div>
-              <h2 className="text-[#B54419] font-montserrat font-bold text-[16px] text-center mt-9 md:mt-5 sm:mt-1 ">
+
+              <h2 className="text-black font-montserrat font-bold text-[16px] text-center mt-9 md:mt-5 sm:mt-1 ">
                 QR Presensi
               </h2>
               {/* BG ERROR */}
-              <div className="mt-4">
+              <div className="aspect-square bg-[#DA5B1C] border flex justify-center items-center mt-1 w-[200px] h-[200px] rounded-md">
+
                 {qrData === "" ? (
                   <p>Loading...</p>
                 ) : (
@@ -270,7 +276,7 @@ const Page = ({ response }) => {
                     height={500}
                     bgColor="#DA5B1C"
                     fgColor="#ffffff"
-                    style={{ borderRadius: '15px' }}
+
                   />
                 )}
               </div>
@@ -325,6 +331,7 @@ const Page = ({ response }) => {
                     nama_mentor: UserData.kelompok.mentor,
                     nama_kelompok: UserData.kelompok.nama_kelompok,
                     no_kelompok: UserData.kelompok.no_kelompok,
+                    fakultas_id: UserData.prodi.fakultas_id,
                   }}
                 />
               </div>
@@ -332,6 +339,7 @@ const Page = ({ response }) => {
           </div>
         </div>
         <Footer />
+      </div>
       </div>
 
       <Toaster />

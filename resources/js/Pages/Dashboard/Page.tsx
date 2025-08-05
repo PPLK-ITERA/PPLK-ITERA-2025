@@ -42,10 +42,10 @@ export default function Page({ auth, response }) {
     <DashboardLayout user={auth.user}>
       <div className="flex items-center justify-between space-y-2">
         <div className="flex flex-col">
-          <h2 className="text-3xl font-bold tracking-tight">
+          <h2 className="text-3xl font-bold font-inter tracking-tight">
             Hai {user.name}, Selamat datang!
           </h2>
-          <p>Kamu login sebagai {roles[parseInt(user.role_id)]}</p>
+          <p className="font-inter">Kamu login sebagai {roles[parseInt(user.role_id)]}</p>
         </div>
         {/* <div className="md:flex items-center hidden space-x-2">
                     <CalendarDateRangePicker />
@@ -57,7 +57,7 @@ export default function Page({ auth, response }) {
                     <TabsTrigger value="overview">Overview</TabsTrigger>
                     <TabsTrigger value="analytics">Analytics</TabsTrigger>
                 </TabsList> */}
-        <TabsContent value="overview" className="space-y-4">
+        <TabsContent value="overview" className="space-y-4 font-inter">
           <div className="md:grid-cols-2 lg:grid-cols-4 grid gap-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
@@ -163,54 +163,49 @@ export default function Page({ auth, response }) {
             </Card>
           </div>
 
-          <div className="bg-gray-400/50 w-full h-1" />
+          <div className="bg-orange-300 w-full h-1" />
 
           <div className="md:grid-cols-2 lg:grid-cols-7 grid grid-cols-1 gap-4">
             <div className="col-span-4">
               <BarGraph
                 chartData={[
                   {
-                    date: "2024-08-10",
+                    date: "2025-08-09",
                     hadir: response.data.presensi.all[0] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[0] || 0,
                   },
                   {
-                    date: "2024-08-12",
+                    date: "2025-08-11",
                     hadir: response.data.presensi.all[1] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[1] || 0,
                   },
                   {
-                    date: "2024-08-13",
+                    date: "2025-08-12",
                     hadir: response.data.presensi.all[2] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[2] || 0,
                   },
                   {
-                    date: "2024-08-14",
+                    date: "2025-08-13",
                     hadir: response.data.presensi.all[3] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[3] || 0,
                   },
                   {
-                    date: "2024-08-15",
+                    date: "2025-08-14",
                     hadir: response.data.presensi.all[4] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[4] || 0,
                   },
                   {
-                    date: "2024-08-16",
+                    date: "2025-08-15",
                     hadir: response.data.presensi.all[5] || 0,
                     tidakHadir:
                       response.data.maba - response.data.presensi.all[5] || 0,
                   },
-                  {
-                    date: "2024-08-17",
-                    hadir: response.data.presensi.all[6] || 0,
-                    tidakHadir:
-                      response.data.maba - response.data.presensi.all[6] || 0,
-                  },
+                  
                 ]}
               />
             </div>

@@ -1,14 +1,8 @@
 import { UserResponse } from "@/Pages/Profile/Page";
-
 import React from "react";
-
 import { useForm } from "@inertiajs/react";
-
-import { IconBrandInstagram, IconBrandLinkedin } from "@tabler/icons-react";
-
-import { Button } from "@/Components/ui/button";
-import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
+import { Button } from "@/Components/ui/button";
 
 
 const ProfilKamu = ({ props }: { props: UserResponse }) => {
@@ -23,8 +17,9 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
   };
 
   return (
+    <div className="bg-[url('/image/profile/background1.png')] bg-repeat bg-[length:450px_450px] bg-origin-border w-full bg-transparent">
       <div className="flex justify-center">
-        <div className="w-full max-w-7xl flex flex-col lg:flex-row gap-4">
+        <div className="w-full max-w-7-xl xl:max-w-7xl lg:max-w-7xl md:max-w-7xl sm:max-w-7xl flex flex-col lg:flex-row gap-4">
 
           {/* INFORMASI + FORM */}
           <div className="flex flex-col w-full items-center lg:items-start">
@@ -35,35 +30,27 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                 <div className="space-y-3">
                   <div>
                     <label className="block text-sm mb-1">Nama Lengkap</label>
-                    <input 
-                    type="text" 
-                    value={props.name} 
-                    readOnly
-                    disabled
-                    className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
+                    <input type="text" value={props.name} readOnly className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
                   </div>
                   <div>
                     <label className="block text-sm mb-1">NIM</label>
-                    <input 
-                    type="text" 
-                    placeholder="Hubungi dapmen utk mengisi NIM"
-                    value={props.nim} 
-                    readOnly 
-                    disabled
-                    className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
-                  </div>
+                    <input
+                      type="text"
+                      value={props.nim ?? ""}
+                      placeholder={props.nim ? "" : "Silahkan menghubungi Dapmen"}
+                      readOnly
+                      className={`w-full bg-[#98989840] text-[#3F150B] border rounded-md px-3 py-2 ${
+                        !props.nim ? "border-[#C2C2C2]" : "border-[#C2C2C2]"
+                      }`}
+                    />
+                    </div>
                   <div>
                     <label className="block text-sm mb-1">Prodi</label>
-                    <input 
-                    type="text" 
-                    value={props.prodi} 
-                    readOnly 
-                    disabled
-                    className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
+                    <input type="text" value={props.prodi.nama_prodi} readOnly className="w-full bg-[#98989840] text-[#3F150B] border border-[#C2C2C2] rounded-md px-3 py-2" />
                   </div>
                 </div>
 
-            <h2 className="font-bold text-lg mt-6 mb-3">Sosial Media</h2>
+           <h2 className="font-bold text-lg mt-6 mb-3">Sosial Media</h2>
                 <div className="space-y-3">
 
           <div className="relative">
@@ -73,6 +60,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                 >
                 LinkedIn
                 </label>
+
 
                 <div className="relative">
                   <input
@@ -131,7 +119,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                     setData("bio", e.target.value);
                   }}
                   placeholder="Tulis bio kamu disini..."
-                  className="xl:max-w-[396px] xl:h-[88px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] max-h-[150px]"
+                  className="xl:max-w-[396px] xl:h-[88px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] max-h-[150px] resize-none"
                 />
               </div>
               <Button
@@ -152,6 +140,9 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
           </div>
         </div>
       </div>
+
+    </div>
+
   );
 };
 

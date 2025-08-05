@@ -21,7 +21,7 @@ import { Toaster } from "@/Components/ui/toaster";
 import { Materi } from "@/lib/types/Materi";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Materi", link: "/dashboard/materi" },
 ];
 

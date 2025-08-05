@@ -376,10 +376,13 @@ class UserController extends Controller
       return response()->json($prodi);
    }
    public function getKelompok()
-   {
-      $kelompok = Kelompok::select('nama_kelompok', 'id', 'no_kelompok')->get();
+   { 
+    $id = Auth::user()->kelompok_id;
+    $kelompok = Kelompok::with('mentor.prodi', 'daplok.prodi')->find($id);
 
-      return response()->json($kelompok);
+    logger($kelompok); // Tambah ini di Laravel log
+
+    return response()->json($kelompok);
    }
 
    /**

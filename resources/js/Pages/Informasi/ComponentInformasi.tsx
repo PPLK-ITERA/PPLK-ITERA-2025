@@ -23,7 +23,7 @@ const ComponentInformasiHero = () => {
     <div>
       <div className="sm:hidden mt-6">
         <div className="flex items-center justify-center">
-          <img src="/assets/logo-pplk-2024.png" alt="" />
+          <img src="/assets/logo-pplk-2025.png" alt="" />
         </div>
         <div className="max-w-52 m-auto text-center">
           <p className="text-candlelight-600 font-greek sm:hidden text-sm font-bold tracking-widest">
@@ -59,7 +59,7 @@ const ComponentInformasiHero = () => {
         </div>
         <div className="w-[40%] hidden sm:flex justify-center items-center">
           <img
-            src="/assets/logo-pplk-2024.png"
+            src="/assets/logo-pplk-2025.png"
             alt="logo-pplk"
             className="xl:w-[70%] sm:w-[100%]"
           />
@@ -72,9 +72,7 @@ const ComponentInformasiHero = () => {
             VISI
           </p>
           <p>
-            PPLK 2025 sebagai gerbang pertama dalam terwujudnya mahasiswa yang
-            kompetitif, berintelektual, serta siap menghadapi gempuran
-            globalisasi.
+          PPLK ITERA 2025 sebagai wadah pengembangan karakter mahasiswa baru yang berintegrasi dan berdaya saing, menumbuhkan rasa bangga sebagai bagian dari civitas akademika ITERA, serta membentuk mahasiswa yang “AKTIF” (Aktif, Kritis, Solutif dan Inovatif) dalam menghadapi tantangan di era Revolusi Industri 4.0.
           </p>
         </div>
       </div>
@@ -93,7 +91,7 @@ const ComponentInformasiFilosofi = () => {
           <div className="sm:flex flex-wrap mt-5">
             <div className="sm:w-[50%]">
               <img
-                src="/assets/logo-pplk-2024.png"
+                src="/assets/logo-pplk-2025.png"
                 alt="logo"
                 className="mx-auto w-[60%] sm:w-[90%]"
               />
@@ -102,25 +100,13 @@ const ComponentInformasiFilosofi = () => {
               <div className="flex gap-6">
                 <div className="bg-[#ECB406] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
                 <div className="font-semibold">
-                  Warna emas melambangkan Keberuntungan & Kesuksesan
+                  Warna emas menjadi simbol semangat mencapai tujuan luhur bagi mahasiswa baru sebagai generasi terpilih.
                 </div>
               </div>
               <div className=" flex gap-6">
-                <div className="bg-[#B6ADA4] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
+                <div className="bg-[#682300] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
                 <div className="font-semibold">
-                  Warna silver melambangkan Modernitas & Teknologi
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="bg-[#DA5B1C] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
-                <div className="font-semibold">
-                  Warna orange melambangkan Semangat & Kreatifitas
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="bg-[#00A3FF] sm:w-[45px] w-12 h-[30px] rotate-[45deg] mt-2 "></div>
-                <div className="font-semibold">
-                  Warna biru melambangkan Kepercayaan & Inspirasi yang Luas
+                  Warna coklat menjadi simbol suasana hangat dan membumi sebagai landasan awal mahasiswa baru dalam tumbuh dan berkembang.
                 </div>
               </div>
             </div>
@@ -132,7 +118,7 @@ const ComponentInformasiFilosofi = () => {
         <div className=" flex">
           <div className="w-[25%] justify-center items-center flex relative ">
             <img
-              src="/assets/logo-pplk-2024.png"
+              src="/assets/logo-pplk-2025.png"
               alt="logo"
               className="grayscale filter w-[100%] sm:w-[85%] sm:translate-x-20"
             />
@@ -140,7 +126,7 @@ const ComponentInformasiFilosofi = () => {
           <div className="w-[50%]">
             <div className="flex items-center justify-center">
               <img
-                src="/assets/logo-pplk-2024.png"
+                src="/assets/logo-pplk-2025.png"
                 alt="logo"
                 className="w-[100%] sm:w-[60%] z-20"
               />
@@ -155,7 +141,7 @@ const ComponentInformasiFilosofi = () => {
           </div>
           <div className="w-[25%] justify-center items-center flex relative ">
             <img
-              src="/assets/logo-pplk-2024.png"
+              src="/assets/logo-pplk-2025.png"
               alt="logo"
               className="grayscale filter w-[100%] sm:w-[85%] sm:-translate-x-14"
             />

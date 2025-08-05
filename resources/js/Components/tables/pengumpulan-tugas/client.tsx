@@ -80,8 +80,8 @@ export const PengumpulanTugasClient = ({
           no_kelompok: requestParams.no_kelompok ?? 0,
           status: requestParams.status ?? 0,
         })}
-        title="Data Pengumpulan Tugas"
-        description="Gunakan sistem informasi ini untuk melihat data pengumpulan tugas mahasiswa baru!"
+        title="Pengumpulan Tugas"
+        description="Daftar pengumpulan tugas oleh kelompok."
         // status={status}
       />
     </>

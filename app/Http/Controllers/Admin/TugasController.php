@@ -16,9 +16,86 @@ use Illuminate\Support\Facades\Storage;
 
 class TugasController extends Controller
 {
-   public function getTugasUser($id)
+   public function addTugas(Request $request)
+   {
+      $validated = $request->validate([
+         'judul' => 'required|string|max:255|regex:/^[\pL\s\-]+$/u|alpha:ascii',
+         'deskripsi' => 'required|string|max:255',
+         'hari' => 'required|in:0,1,2,3,4,5',
+         'tipe_link' => 'required|in:instagram,tiktok,drive,linkedin',
+         'kategori' => 'required|in:individu,kelompok',
+         'deadline' => 'required|date|after_or_equal:today',
+      ]);
+
+      DB::beginTransaction();
+      try {
+         Tugas::create($validated);
+         DB::commit();
+         return redirect()->route('dashboard.pengumpulan-tugas.index')->with('success', 'Tugas berhasil ditambahkan');
+      } catch (\Exception $e) {
+         DB::rollBack();
+         return redirect()->route('dashboard.pengumpulan-tugas.index')->with('error', 'Tugas gagal ditambahkan');
+      }
+      // try {
+      //    Tugas::create([
+      //       'judul' => $request->judul,
+      //       'deskripsi' => $request->deskripsi,
+      //       'hari' => $request->hari,
+      //       'tipe_link' => $request->tipe_link,
+      //       'kategori' => $request->kategori,
+      //       'deadline' => $request->deadline
+      //    ])
+      //    DB::commit();
+
+      //    return response()->json([
+      //       'response' => [
+      //          'status' => 200,
+      //          'message' => 'Berhasil menambahkan tugas',
+      //          'data' => $response
+      //       ]
+      //    ]);
+
+      //    // return Inertia::view(
+      //    //    'Dashboard/pengumpulan-tugas'
+      //    // )
+      // } catch (\Throwable $th) {
+      //    DB::rollBack()
+
+      //    return response()->json([
+      //       'response' => [
+      //          'status' => 500,
+      //          'message' => 'Gagal menambahkan tugas',
+      //          'data' => $response
+      //       ]
+      //    ]);
+      // }
+   }
+
+   public function getJudulTugas()
    {
       try {
+         $tugas = Tugas::select('id', 'judul')->orderBy('id')->get();
+      } catch (\Exception $e) {
+         return response()->json([
+            'response' => [
+               'status' => 500,
+               'message' => $e->getMessage()
+            ]
+         ]);
+      }
+      return response()->json([
+         'response' => [
+            'status' => 200,
+            'message' => 'Berhasil mendapatkan data',
+            'data' => $tugas
+         ]
+      ]);
+   }
+
+   public function getTugasUser($id)
+   {
+      try
+       {
          $tugas = PengumpulanTugas::with([
             'tugas' => function ($query) {
                $query->select('id', 'judul');

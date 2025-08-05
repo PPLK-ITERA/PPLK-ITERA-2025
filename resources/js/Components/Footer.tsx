@@ -17,7 +17,7 @@ export default function Footer() {
     <div className="bg-gradient-to-r from-jaffa-700 to-jaffa-800 relative py-10 overflow-hidden">
       <MaxWidthWrapper>
         <div className="md:flex-row md:items-center z-10 flex flex-col items-start justify-between">
-          <div className="text-white">
+          <div className="text-white ">
             <div className="md:pl-6 md:-ml-1 flex items-center justify-center pl-2 pr-1 -ml-2 bg-white rounded-full">
               <img
                 src={iterawarna}
@@ -37,7 +37,7 @@ export default function Footer() {
               />
             </div>
 
-            <h3 className="font-fesbud md:text-[20px] mt-5 lg:text-[28px]">
+            <h3 className="font-greek md:text-[20px] mt-5 lg:text-[28px]">
               PPLK ITERA 2025
             </h3>
 
@@ -51,6 +51,7 @@ export default function Footer() {
               <span className="text-[15px]">Institut Teknologi Sumatera</span>
             </p>
           </div>
+
 
           <div className="md:mt-0 md:flex-row md:gap-10 z-10 flex flex-col gap-5 mt-10">
             {/* Informasi */}

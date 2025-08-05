@@ -69,6 +69,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
         >
           Mahasiswa Baru <ChevronDown className="w-4 h-4" />
         </DropdownMenuTrigger>
+
         <DropdownMenuContent
           className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
         >
@@ -106,6 +107,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
               Panduan Penggunaan
             </a>
           </DropdownMenuItem>
+
         </DropdownMenuContent>
       </DropdownMenu>
 

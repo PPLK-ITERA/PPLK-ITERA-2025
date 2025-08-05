@@ -96,4 +96,5 @@ export const Icons = {
   books: IconBooks,
   game: IconDeviceGamepad2,
   bookCheck: BookCheck,
+  image: Image,
 };

@@ -11,9 +11,7 @@ function Page() {
           <span className="text-[50px] font-bold font-montserrat">“</span>
 
           <p className="max-w-[826px] font-montserrat sm:text-[20px] text-[16px] font-normal mt-3">
-            PPLK 2025 sebagai gerbang pertama dalam terwujudnya mahasiswa yang
-            kompetitif, berintelektual, serta siap menghadapi gempuran
-            globalisasi.{" "}
+            PPLK ITERA 2025 sebagai wadah pengembangan karakter mahasiswa baru yang berintegrasi dan berdaya saing, menumbuhkan rasa bangga sebagai bagian dari civitas akademika ITERA, serta membentuk mahasiswa yang “AKTIF” (Aktif, Kritis, Solutif dan Inovatif) dalam menghadapi tantangan di era Revolusi Industri 4.0.
           </p>
 
           <span className="text-[50px] font-bold font-montserrat">”</span>

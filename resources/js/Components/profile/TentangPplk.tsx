@@ -7,15 +7,48 @@ export interface TentangPplkProps {
   no_kelompok: number;
   nama_daplok: string;
   nama_mentor: string;
+  fakultas_id: number;
+
 }
 
 const TentangPplk = ({ props }: { props: TentangPplkProps }) => {
+    const getFakultasInfo = (id: number) => {
+    switch (id) {
+      case 1:
+        return {
+          nama: "Fakultas Sains",
+          image: "/image/profile/fs.png",
+        };
+      case 2:
+        return {
+          nama: "Fakultas Teknologi Infrastruktur dan Kewilayahan",
+          image: "/image/profile/ftik.png",
+        };
+      case 3:
+        return {
+          nama: "Fakultas Teknologi Industri",
+          image: "/image/profile/fti.png",
+        };
+      default:
+        return {
+          nama: "Fakultas Tidak Diketahui",
+          image: "/image/profile/default.png",
+        };
+    }
+  };
+
+  const fakultas = getFakultasInfo(props.fakultas_id ?? 3);
   return (
-              <div className="w-full max-w-3xl mx-auto flex flex-col gap-2">
+              <div className="xl:max-w-xs lg:max-w-xs md:max-w-xs sm:max-w-lg mx-auto flex flex-col gap-2">
                 <div className="bg-white rounded-xl shadow-md border px-6 py-4 text-center space-y-2">
                   <p className="text-xs font-bold text-black">Asal Fakultas Mahasiswa</p>
-                  <img src="/image/profile/fti.png" alt="Fakultas Teknologi Industri" className="w-36 mx-auto" />
-                  <p className="text-md text-[#B18E63] font-semibold">Fakultas Teknologi Industri</p>
+                  <img
+                    src={fakultas.image}
+                    alt={fakultas.nama}
+                    className="w-36 mx-auto"
+                  />
+                  <p className="text-md text-[#B18E63] font-semibold">{fakultas.nama}</p>
+
                 </div>
                 <div className="bg-white rounded-xl shadow-md border p-4 flex-1">
                   <h3 className="font-medium text-md mb-3">Tentang PPLK</h3>
