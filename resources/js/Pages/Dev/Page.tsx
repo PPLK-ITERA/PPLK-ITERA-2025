@@ -19,7 +19,7 @@ function Page() {
 
   return (
     <>
-      <Head title="Dev Team" />
+      <Head title="Developer Team" />
 
       <div className="font-montserrat relative w-screen min-h-screen overflow-hidden text-white">
         <div className="max-lg:hidden top-1/2 opacity-20 h-3/4 fixed left-0 -translate-x-1/2 -translate-y-1/2">
