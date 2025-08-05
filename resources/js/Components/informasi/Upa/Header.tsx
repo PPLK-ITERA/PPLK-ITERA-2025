@@ -22,7 +22,7 @@ const Header = () => {
         {current && (
           <Link
             href={`/informasi/upa/${current.key}`}
-            className={isMobile ? 'mb-4 w-44' : 'absolute top-4 right-4 w-44 h-44'}
+            className={isMobile ? 'mb-4 w-32' : 'absolute top-4 right-4 w-44 h-44'}
           >
             <img
               src={current.logo}
