@@ -35,7 +35,7 @@ export const devTeam = {
   kadiv: [
     {
       name: "Stevanus Cahya Anggara",
-      instagram: "aditkristiann",
+      instagram: "scxzxz",
       role: "Kepala Divisi Implementasi Teknologi",
       quote: "Diantara Ngoding dan debugging aku lebih memilih scroll fesnuk",
       photo: getPhoto(stevanus),
