@@ -23,7 +23,7 @@ function KadivSection({ }: Props) {
                 <div className="max-lg:hidden place-content-center flex flex-col col-span-1 p-4">
                     <RunningText
                         className="lg:text-2xl xl:text-3xl 2xl:text-5xl font-greek tracking-wider"
-                        title={"KARTATERA"}
+                        title={"ATHENARUPA"}
                         delay={150}
                     />
                     <div
@@ -132,7 +132,7 @@ function KadivSection({ }: Props) {
                 <div className="lg:hidden flex flex-col items-center justify-center col-span-1 p-4 mb-8">
                     <RunningText
                         className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-5xl font-greek text-xl tracking-wider"
-                        title={"KARTATERA"}
+                        title={"ATHENARUPA"}
                         delay={150}
                     />
                     <div

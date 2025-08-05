@@ -81,7 +81,7 @@ function DevList({
 
             <div className="left-1/2 top-1/3 absolute inset-0 -translate-x-1/2 -translate-y-1/2">
               <p className="font-anothertag text-cyan-primary/60 text-center fade-in text-[200px] flex justify-center items-center blur-sm select-none">
-                <span>KARTATERA</span>
+                <span>ATHENARUPA</span>
               </p>
             </div>
           </div>
