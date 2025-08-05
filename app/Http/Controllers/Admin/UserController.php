@@ -376,13 +376,20 @@ class UserController extends Controller
       return response()->json($prodi);
    }
    public function getKelompok()
-   { 
-    $id = Auth::user()->kelompok_id;
-    $kelompok = Kelompok::with('mentor.prodi', 'daplok.prodi')->find($id);
+   {
+      try {
+         // Ambil SEMUA kelompok, pilih kolom yang dibutuhkan, dan urutkan.
+         $semuaKelompok = Kelompok::select('id', 'nama_kelompok', 'no_kelompok')
+                                    ->orderBy('id', 'asc')
+                                    ->get(); // Gunakan get() untuk mendapatkan semua data
 
-    logger($kelompok); // Tambah ini di Laravel log
+         // Kembalikan sebagai array of objects
+         return response()->json($semuaKelompok);
 
-    return response()->json($kelompok);
+      } catch (\Exception $e) {
+         // Jika terjadi error, kembalikan array kosong
+         return response()->json([], 500);
+      }
    }
 
    /**

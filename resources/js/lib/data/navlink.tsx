@@ -163,11 +163,11 @@ export const UserDropdown = [
     href: "/relasi",
     icon: <IconUsers size={24} color="#fcedd8" />,
   },
-  {
-    title: "Mading",
-    href: "/mading",
-    icon: <IconMap size={24} color="#fcedd8" />,
-  },
+  // {
+  //   title: "Mading",
+  //   href: "/mading",
+  //   icon: <IconMap size={24} color="#fcedd8" />,
+  // },
   {
     title: "Kuis Asesmen",
     href: "/asesmen",

@@ -228,7 +228,7 @@ Route::middleware('auth')->group(function () {
       // Kelompok
       // =====================================
       Route::prefix('kelompok')->name('kelompok.')->middleware('checkRole:Daplok,Mentor,Admin')->group(function () {
-         // Route::get('data', [KelompokController::class, 'index'])->name('data');
+         Route::get('data', [KelompokController::class, 'index'])->name('data');
          Route::put('update', [KelompokController::class, 'update'])->name('update');
          Route::get('data', [KelompokController::class, 'getKelompok'])->name('data');
          Route::put('set-ketua', [UserController::class, 'setKetua'])->name('set-ketua');

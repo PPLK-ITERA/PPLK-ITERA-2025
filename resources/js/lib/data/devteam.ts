@@ -97,7 +97,7 @@ export const devTeam = {
   frontend: [
     {
       name: "Edu Juanda Pratama",
-      instagram: "muhamyusuf_",
+      instagram: "eduj2164",
       role: "Kepala Sub-Divisi Front-End",
       quote: "Pucuk Ubi Pucuk Kangkung, Front-End Divisi Tulang Punggung🥵",
       photo: getPhoto(edu),
@@ -111,9 +111,9 @@ export const devTeam = {
     },
     {
       name: "Ginda Fajar Riadi Marpaung",
-      instagram: "arriefrahman_",
+      instagram: "ginda_mrp",
       role: "Staff Front-End",
-      quote: "Pucuk Ubi Pucuk Kangkung, .. itu aja",
+      quote: "Just Do It",
       photo: getPhoto(ginda),
     },
     {
@@ -132,9 +132,9 @@ export const devTeam = {
     },
     {
       name: "Ahmat Prayoga Sembiring",
-      instagram: "zefanyaadt",
+      instagram: "ahmat_sembiring11",
       role: "Staff Front-End",
-      quote: "Mau Sprei Geratis",
+      quote: "Make it happen",
       photo: getPhoto(ahmat),
     },
   ],
@@ -155,9 +155,9 @@ export const devTeam = {
     },
     {
       name: "M. Rif'at Syauki",
-      instagram: "ditorifkii",
+      instagram: "rifat_syauki05",
       role: "Staff Back-End",
-      quote: "idola frontend aku bang",
+      quote: "ModuleNotFoundError: No module named 'love' in 'his' Reason: love() is undefined when it's one-sided.",
       photo: getPhoto(rifat),
     },
     {

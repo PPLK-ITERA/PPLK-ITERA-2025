@@ -42,7 +42,7 @@ class FAQController extends Controller
    {
       $validated = $request->validate([
          'pertanyaan' => 'required|string|max:120',
-         'jawaban' => 'required|string|max:120',
+         'jawaban' => 'required|string|max:9000',
       ]);
 
       DB::beginTransaction();
@@ -93,8 +93,8 @@ class FAQController extends Controller
    {
       $validated = $request->validate([
          'id' => 'required|integer',
-         'teks_pertanyaan' => 'required|string|max:120',
-         'teks_jawaban' => 'required|string|max:120',
+         'teks_pertanyaan' => 'required|string|max:900',
+         'teks_jawaban' => 'required|string|max:900',
       ]);
 
       DB::beginTransaction();

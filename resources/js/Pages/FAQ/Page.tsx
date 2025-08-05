@@ -23,7 +23,7 @@ export default function Page({ response }) {
   const [debouncedSearchTerm, setDebouncedSearchTerm] =
     useState<string>(searchTerm);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -281,7 +281,7 @@ export default function Page({ response }) {
             {/* FAQ Content */}
             <div className="lg:col-span-3">
               {/* Pertanyaan Umum */}
-              <div className="bg-white rounded-2xl shadow-lg  mb-8">
+              {/* <div className="bg-white rounded-2xl shadow-lg  mb-8">
                 <h2 className="text-2xl font-bold font-montserrat  text-center mb-2">
                   Pertanyaan Umum
                 </h2>
@@ -290,7 +290,7 @@ export default function Page({ response }) {
                     <AccordionFAQ items={currentItems} />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Pertanyaan Teknis */}
               <div className="bg-white rounded-2xl shadow-lg mb-8">

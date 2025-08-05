@@ -2,6 +2,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 import React from "react";
 
+import goodday from "!assets/logo-sponsor/goodday.png";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
@@ -46,8 +47,9 @@ export default function Sponsorship() {
                       <img
                         src={_.src}
                         alt={_.name}
-                        className="object-contain w-full h-full"
+                        className={"object-cover w-1/2" + (_.src === goodday ? " w-[4000px]" : "")}
                       />
+                    
                     </CardContent>
                   </Card>
                 </div>
@@ -82,7 +84,7 @@ export default function Sponsorship() {
             {data_media_partner.map((_, index) => (
               <CarouselItem
                 key={index}
-                className="md:min-h-[200px] min-w-[100px] min-h-[100px] md:min-w-[200px] basis-1/5"
+                className="md:min-h-[150px] min-w-[100px] min-h-[100px] md:min-w-[150px] basis-1/5 my-20"
               >
                 <div className="p-1">
                   <Card className="overflow-hidden border rounded-full shadow-none">
@@ -90,7 +92,7 @@ export default function Sponsorship() {
                       <img
                         src={_.src}
                         alt={_.name}
-                        className="object-contain w-full h-full"
+                        className="object-contain w-[100px]"
                       />
                     </CardContent>
                   </Card>
