@@ -25,7 +25,7 @@ export default function Panduan() {
         </h2>
 
         <p className="mt-5 text-center font-montserrat text-[16px] font-normal md:text-xl lg:text-2xl lg:max-w-[90%] lg:text-start xl:max-w-[70%] xl:text-2xl">
-          Hai Naramuda! Panduan PPLK ini memberikan informasi terkini mengenai
+          Hai Satriya ITERA Panduan PPLK ini memberikan informasi terkini mengenai
           PPLK ITERA 2025, khusus bagi teman-teman Mahasiswa Baru. Pastikan kamu
           selalu mengikuti update terbaru agar tidak ketinggalan informasi
           penting!

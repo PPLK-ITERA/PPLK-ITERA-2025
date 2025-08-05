@@ -45,9 +45,7 @@ export default function Maskot() {
                 </h2>
 
                 <p className="mt-5 font-montserrat text-[16px] font-normal text-white/80 md:text-lg lg:max-w-[80%] lg:text-2xl z-30">
-                    Temui Calandra dan Kanaka, maskot PPLK ITERA 2025 yang elegan dan
-                    penuh semangat. Bersama, mereka mewakili karakter kuat dan visi ke
-                    depan, membawa harapan bagi Indonesia Emas 2045.
+                    Halo, namaku Rhinoceto. Aku biasa dipanggil “Seto”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak jantan dan “Cato” yang berarti bijaksana. Aku merupakan perwujudan mahasiswa baru yang senantiasa bijaksana dan berani dalam mengambil keputusan. Namaku menjadi titik balik bagi mahasiswa baru untuk memiliki jiwa kepemimpinan dan mampu bertanggung jawab atas dirinya dan lingkungan sekitar
                 </p>
 
                 <Link

@@ -125,9 +125,9 @@ export const devTeam = {
     },
     {
       name: "Ebentua Philipus Limbong",
-      instagram: "thebugitself",
+      instagram: "ebenlimbong__",
       role: "Staff Front-End",
-      quote: "if buying isn't owning, piracy isn't stealing",
+      quote: "everything is nothing",
       photo: getPhoto(ebentua),
     },
     {

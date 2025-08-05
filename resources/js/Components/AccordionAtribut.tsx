@@ -89,6 +89,64 @@ export function AccordionAtribut() {
                   </div>
                 ))}
               </AccordionContent>
+
+              <AccordionContent className="flex flex-col md:flex-row gap-6 p-4">
+                {/* Speak Mahasiswa Baru */}
+                <div className="flex-1 border border-jaffa-600 bg-jaffa-100 rounded-lg p-4 shadow-sm">
+                  <div className="text-center font-semibold text-lg mb-3">
+                    Speak Mahasiswa Baru
+                  </div>
+                  {item.speakMaba?.length > 0 && (
+                    <div className="flex flex-col gap-3">
+                      {item.speakMaba.map((speakItem, index) => (
+                        <label
+                          key={index}
+                          className="flex items-start gap-3 cursor-pointer"
+                          htmlFor={`checkbox-maba-${item.id}-${index}`}
+                        >
+                          <input
+                            type="checkbox"
+                            className="mt-1 w-5 h-5 accent-blue-600"
+                            id={`checkbox-maba-${item.id}-${index}`}
+                            aria-label={`Checkbox speak mahasiswa baru ${index + 1}`}
+                          />
+                          <p className="text-sm font-montserrat break-words overflow-wrap">
+                            {speakItem.text}
+                          </p>
+                        </label>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Speak Kelompok */}
+                <div className="flex-1 border border-jaffa-600 bg-jaffa-100 rounded-lg p-4 shadow-sm">
+                  <div className="text-center font-semibold text-lg mb-3">
+                    Speak Kelompok
+                  </div>
+                  {item.speakKelompok?.length > 0 && (
+                    <div className="flex flex-col gap-3">
+                      {item.speakKelompok.map((speakItem, index) => (
+                        <label
+                          key={index}
+                          className="flex items-start gap-3 cursor-pointer"
+                          htmlFor={`checkbox-kelompok-${item.id}-${index}`}
+                        >
+                          <input
+                            type="checkbox"
+                            className="mt-1 w-5 h-5 accent-blue-600"
+                            id={`checkbox-kelompok-${item.id}-${index}`}
+                            aria-label={`Checkbox speak kelompok ${index + 1}`}
+                          />
+                          <p className="text-sm font-montserrat break-words overflow-wrap">
+                            {speakItem.text}
+                          </p>
+                        </label>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </AccordionContent>
             </AccordionItem>
           </div>
         ))}

@@ -6,11 +6,11 @@ import DefaultLayout from "@/Layouts/DefaultLayout";
 
 function App() {
   const [show, setShow] = useState(false);
-  const [activeMaskot, setActiveMaskot] = useState("hercules"); // 'hercules' or 'hera'
+  const [activeMaskot, setActiveMaskot] = useState("rhinoceto"); // 'rhinoceto' or 'rhinocera'
 
   // Theme configuration untuk setiap maskot
   const themes = {
-    hercules: {
+    rhinoceto: {
       primary: "orange",
       secondary: "yellow",
       buttonColor: "text-orange-500",
@@ -19,7 +19,7 @@ function App() {
       titleColor: "text-orange-600",
       overlayColor: "bg-white bg-opacity-80"
     },
-    hera: {
+    rhinocera: {
       primary: "#982519",
       secondary: "pink",
       buttonColor: "text-[#982519]",
@@ -62,24 +62,24 @@ function App() {
           {/* Tulisan kiri atas dengan warna dinamis - Responsive positioning */}
           <div className="absolute z-50 top-4 left-4 sm:top-6 sm:left-6 text-xs sm:text-sm font-semibold cursor-pointer select-none z-30">
             <button
-              onClick={() => setActiveMaskot("hercules")}
+              onClick={() => setActiveMaskot("rhinoceto")}
               className={`block transition-all duration-300 mb-1 sm:mb-2 ${
-                activeMaskot === "hercules" 
+                activeMaskot === "rhinoceto" 
                   ? "text-orange-600 font-bold scale-110" 
                   : "text-gray-500 hover:text-orange-500"
               }`}
             >
-              HERCULES
+              RHINOCETO
             </button>
             <button
-              onClick={() => setActiveMaskot("hera")}
+              onClick={() => setActiveMaskot("rhinocera")}
               className={`block transition-all duration-300 ${
-                activeMaskot === "hera" 
+                activeMaskot === "rhinocera" 
                   ? "text-[#982519] font-bold scale-110" 
                   : "text-gray-500 hover:text-[#982519]"
               }`}
             >
-              HERA
+              Rhinocera
             </button>
           </div>
 
@@ -104,7 +104,7 @@ function App() {
                 HALO SATRIYA!<br />
                 KENALIN, AKU<br />
                 <span className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[44px]">
-                  {activeMaskot === "hercules" ? "HERCULES" : "HERA"}
+                  {activeMaskot === "rhinoceto" ? "rhinoceto" : "rhinocera"}
                 </span>
               </h1>
             </div>
@@ -118,7 +118,7 @@ function App() {
               <div className={`bg-gradient-to-b ${currentTheme.boxGradient} p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl shadow-lg w-full text-center relative transition-all duration-500 transform hover:scale-105`}>
                 <div className="mb-3 sm:mb-4">
                   <img
-                    src={activeMaskot === "hercules" ? maskot_1 : maskot_2}
+                    src={activeMaskot === "rhinoceto" ? maskot_1 : maskot_2}
                     alt={activeMaskot.toUpperCase()}
                     className="mx-auto w-32 sm:w-40 md:w-52 lg:w-64 z-50 transition-all duration-500"
                   />
@@ -129,17 +129,13 @@ function App() {
                 </h2>
                 
                 <p className="text-xs sm:text-sm md:text-base text-gray-800 px-2 sm:px-4 md:px-6 leading-relaxed">
-                  {activeMaskot === "hercules" ? (
+                  {activeMaskot === "rhinoceto" ? (
                     <>
-                      Hercules adalah sosok yang kuat dan berani dengan semangat pantang menyerah. 
-                      Dikenal karena kekuatan fisik dan mentalnya yang luar biasa, dia selalu siap 
-                      membantu teman-temannya menghadapi tantangan di dunia PPLK dengan penuh semangat.
+                      Halo, namaku Rhinoceto. Aku biasa dipanggil “Seto”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak jantan dan “Cato” yang berarti bijaksana. Aku merupakan perwujudan mahasiswa baru yang senantiasa bijaksana dan berani dalam mengambil keputusan. Namaku menjadi titik balik bagi mahasiswa baru untuk memiliki jiwa kepemimpinan dan mampu bertanggung jawab atas dirinya dan lingkungan sekitar
                     </>
                   ) : (
                     <>
-                      Hera adalah sosok yang tenang dan bijaksana dengan jiwa yang tak terkalahkan.
-                      Dikenal karena kebaikan hati dan kemauan yang kuat, dia selalu mendukung 
-                      teman-temannya dan membawa cahaya untuk setiap tantangan di dunia PPLK.
+                      Hai, namaku Rhinocera. Aku biasa di panggil “Sera”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak betina dan “Vara” yang berarti terpilih. Aku menggambarkan mahasiswa-mahasiswa terpilih yang berkesempatan untuk menjajakan  perjalanan akademiknya di pulau Sumatera dan mewujudkan Indonesia emas 2045.
                     </>
                   )}
                 </p>

@@ -13,24 +13,24 @@ export default function InfoSection() {
 
   const faqItems = [
     {
-      question: "Pellentesque ac bibendum tortor?",
-      answer: "Vivamus sit amet interdum elit. Proin lacinia erat ac velit tempus auctor."
+      question: "Apa itu PPLK?",
+      answer: "Program Pengenalan Lingkungan Kampus atau biasa disebut dengan singkatan PPLK, adalah kegiatan yang rutin diadakan setiap tahun oleh perguruan tinggi untuk membantu mahasiswa baru beradaptasi dengan lingkungan kampus, mengenal fasilitas-fasilitas yang ada, serta memahami aturan dan budaya kampus untuk dapat membantu Mahasiswa Baru beradaptasi dengan lingkungan kampus ITERA.  PPLK juga merupakan sebuah Program Pengenalan Lingkungan Kampus (PPLK) bagi mahasiswa baru, yang diselenggarakan melalui Keluarga Mahasiswa ITERA (KM-ITERA)"
     },
     {
-      question: "In mi nulla, fringilla vestibulum?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      question: "Apa tujuan dari diadakannya PPLK?",
+      answer: "Program Pengenalan Lingkungan Kampus (PPLK) ini bertujuan untuk memperkenalkan mahasiswa baru terhadap lingkungan kampus, mulai dari kegiatan akademik, fasilitas dan lingkungan kampus, hingga kegiatan kemahasiswaan."
     },
     {
-      question: "In mi nulla, fringilla vestibulum?",
-      answer: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      question: "Bagaimana cara mengedit informasi media sosial di profil saya?",
+      answer: "Kamu cukup mengisi kolom LinkedIn dan Instagram pada bagian “Edit Sosial Media”, lalu tekan tombol 'Simpan' di bawahnya agar perubahan tersimpan."
     },
     {
-      question: "In mi nulla, fringilla vestibulum?",
-      answer: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      question: "Apa fungsi dari QR Code di halaman profil?",
+      answer: "QR Code digunakan untuk presensi kegiatan PPLK. Kamu bisa menunjukkannya saat diminta panitia atau mengunduhnya dengan menekan tombol 'Download QR Code'."
     },
     {
-      question: "In mi nulla, fringilla vestibulum?",
-      answer: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      question: "Apa bentuk dukungan fakultas terhadap mahasiswa yang ingin meneliti dan membuat inovasi baru?",
+      answer: "Fakultas menyediakan berbagai dukungan seperti akses ke laboratorium, pendampingan dari dosen pembimbing, serta pendanaan atau fasilitasi program untuk mahasiswa yang ingin mengembangkan riset atau menciptakan inovasi di bidangnya."
     }
   ];
 
