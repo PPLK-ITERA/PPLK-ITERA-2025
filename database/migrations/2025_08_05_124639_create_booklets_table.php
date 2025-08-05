@@ -15,6 +15,7 @@ return new class extends Migration
          $table->id();
          $table->string('nama_booklet');
          $table->string('url_booklet');
+         $table->enum('day', ['1', '2', '3', '4', '5', '6']);
          $table->timestamps();
       });
    }

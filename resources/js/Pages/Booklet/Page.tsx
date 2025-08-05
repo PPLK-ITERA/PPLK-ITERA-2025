@@ -1,13 +1,10 @@
 import React from "react";
-
 import { Head } from "@inertiajs/react";
-
 import DefaultLayout from "@/Layouts/DefaultLayout";
-
 import { CarouselBooklet } from "@/Components/booklet/ScrollBooklet";
-
 import { useAos } from "@/lib/hooks/useAos";
 import { Booklet } from "@/lib/types/Booklet";
+
 
 function Page({ response }: { response: any }) {
   const booklets: Booklet[] = response.data;
@@ -24,7 +21,7 @@ function Page({ response }: { response: any }) {
             <h1
               data-aos="fade-down"
               data-aos-duration="1500"
-              className="text-[30px] sm:text-[39px] md:text-[49px] font-greek bg-gradient-to-t from-[#A6680C] to-[#B9822F] bg-clip-text text-transparent w-fit mb-2"
+              className="text-3xl sm:text-4xl md:text-6xl font-greek bg-gradient-to-t text-orange-700 leading-7 bg-clip-text  w-fit mb-2"
             >
               Booklet
             </h1>
@@ -32,7 +29,7 @@ function Page({ response }: { response: any }) {
             <p
               data-aos="fade-down"
               data-aos-duration="1500"
-              className="text-[16px] sm:text-[20px] font-montserrat font-[400] text-moccaccino-950 mb-8 max-w-4xl"
+              className="text-[16px] sm:text-[20px] font-montserrat font-[400] text-[#543122] mb-8 max-w-4xl"
             >
               Halaman ini menyediakan daftar booklet untuk membantu mahasiswa
               memahami konteks tugas yang diberikan. Periksa secara berkala
@@ -40,7 +37,7 @@ function Page({ response }: { response: any }) {
               Anda melalui panduan terperinci yang tersedia di sini.
             </p>
 
-            <div className="w-full mt-[40px] sm:mt-[60px] flex justify-center pb-20">
+            <div className="w-full mt-[40px] sm:mt-[60px] flex justify-center pb-32">
               <CarouselBooklet booklets={booklets} />
             </div>
           </div>
