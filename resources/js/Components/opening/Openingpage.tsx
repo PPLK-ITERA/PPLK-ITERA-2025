@@ -140,8 +140,8 @@ const OpeningPage = ({ onComplete }) => {
         const isLoaded = loadedIframes[iframeUrl] && iframeReady;
 
         return (
-            <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center">
-                <div className="absolute top-4 left-4 sm:right-4 sm:left-auto z-50">
+            <div className="fixed inset-0 z-50 bg-black flex flex-col justify-center">
+                <div className="absolute top-0 right-4 z-50">
                     <button
                         onClick={exitIframe}
                         className="text-white hover:text-gray-300 font-bold text-xl"
