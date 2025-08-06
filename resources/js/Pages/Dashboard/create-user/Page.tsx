@@ -2,7 +2,7 @@ import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resource
 
 import { useEffect } from "react";
 
-import { usePage } from "@inertiajs/react";
+import { usePage, Head } from "@inertiajs/react";
 
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
@@ -23,6 +23,7 @@ export default function Page({ auth }) {
 
   return (
     <>
+      <Head title="Tambah User"/>
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
 

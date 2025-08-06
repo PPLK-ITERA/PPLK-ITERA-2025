@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Head } from "@inertiajs/react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { AturKorlapClient } from "@/Components/tables/atur-korlap/client";
@@ -16,11 +17,14 @@ export default function Page({ auth }) {
   useFlashToast();
 
   return (
-    <DashboardLayout user={auth.user}>
-      <Breadcrumbs items={breadcrumbItems} />
-      <h2 className="text-3xl font-bold tracking-tight">Atur Korlap</h2>
+    <>
+      <Head title="Atur Korlap" />
+      <DashboardLayout user={auth.user}>
+        <Breadcrumbs items={breadcrumbItems} />
+        <h2 className="text-3xl font-bold tracking-tight">Atur Korlap</h2>
 
-      <AturKorlapClient />
-    </DashboardLayout>
+        <AturKorlapClient />
+      </DashboardLayout>
+    </>
   );
 }

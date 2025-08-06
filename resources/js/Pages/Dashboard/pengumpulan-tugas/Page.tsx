@@ -8,6 +8,7 @@ import { CheckIcon } from "lucide-react";
 
 import { IconPlus } from "@tabler/icons-react";
 
+import { Head } from "@inertiajs/react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { MateriCellActions } from "@/Components/dashboard/materi/MateriCellActions";
@@ -78,7 +79,7 @@ export default function Page({ auth, response }) {
   // State management
   const [openKelompok, setOpenKelompok] = useState(false);
   const [kelompokValue, setKelompokValue] = useState("");
-  const [selectedTask, setSelectedTask] = useState(""); 
+  const [selectedTask, setSelectedTask] = useState("");
   const [selectedTaskId, setSelectedTaskId] = useState<number | "">("");
   const [submissionStatus, setSubmissionStatus] = useState("");
 
@@ -106,7 +107,7 @@ export default function Page({ auth, response }) {
       }
 
       const result = await response.json();
-      
+
       // Sesuaikan dengan struktur response dari backend yang sudah ada
       const data = result.response?.data || result.data || result;
       setTugasData(data);
@@ -186,10 +187,11 @@ export default function Page({ auth, response }) {
 
   return (
     <>
+      <Head title="Pengumpulan Tugas" />
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
         <h2 className="text-3xl font-bold tracking-tight">Pengumpulan Tugas</h2>
-        
+
         {/* Button untuk membuat tugas baru - hanya untuk role tertentu */}
         {(user.role_id == 7 || user.role_id == 3) ? (
           <div className="place-content-start flex w-full">
@@ -204,14 +206,14 @@ export default function Page({ auth, response }) {
                 <DialogHeader>
                   <DialogTitle>Buat Tugas</DialogTitle>
                 </DialogHeader>
-                <TugasForm onSuccess={handleTugasAdded} />
+                <TugasForm />
               </DialogContent>
             </Dialog>
           </div>
         ) : null}
 
         <h2>Filter berdasarkan...</h2>
-        
+
         {/* Error message */}
         {error && (
           <div className="p-4 mb-4 text-red-700 bg-red-100 border border-red-300 rounded">
@@ -229,8 +231,8 @@ export default function Page({ auth, response }) {
               disabled={loading}
             >
               <SelectTrigger className="w-full font-bold">
-                <SelectValue 
-                  placeholder={loading ? "Memuat..." : "Pilih nama tugas"} 
+                <SelectValue
+                  placeholder={loading ? "Memuat..." : "Pilih nama tugas"}
                 />
               </SelectTrigger>
               <SelectContent>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Head } from "@inertiajs/react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
@@ -269,6 +270,7 @@ const TeslaAdminPage: React.FC<{ auth: any }> = ({ auth }) => {
 
   return (
     <>
+      <Head title="Tesla" />
       <DashboardLayout user={auth?.user}>
           <Breadcrumbs items={breadcrumbItems} />
           <h2 className="text-3xl font-bold tracking-tight">Tesla</h2>

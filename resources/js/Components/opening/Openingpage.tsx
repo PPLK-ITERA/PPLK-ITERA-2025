@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Head } from "@inertiajs/react"; // Tambahkan import ini
 
 import pplk2025 from "!assets/pplk/2025.jpg";
 import pplk2024 from "!assets/pplk/2024.jpg";
@@ -24,6 +25,29 @@ const OpeningPage = ({ onComplete }) => {
         { id: 1, src: pplk2024, alt: 'PPLK 2024', title: 'TEAM SPIRIT', year: 'PPLK 2024', link: 'https://pplk2024-755271153581.asia-southeast2.run.app/informasi/pplk' },
         { id: 2, src: pplk2022, alt: 'PPLK 2022', title: 'LEADERSHIP', year: 'PPLK 2022', link: 'https://pplk2022-755271153581.europe-west1.run.app/' },
     ];
+
+    // Function to get dynamic title based on current image
+    const getDynamicTitle = () => {
+        const currentYear = images[currentIndex].year;
+        if (currentYear === 'PPLK 2024') {
+            return 'Website PPLK 2024';
+        } else if (currentYear === 'PPLK 2022') {
+            return 'Website PPLK 2022';
+        } else if (currentYear === 'PPLK 2025') {
+            return 'Website PPLK 2025';
+        }
+    };
+
+    // Function to get iframe title
+    const getIframeTitle = () => {
+        const currentYear = images[currentIndex].year;
+        if (currentYear === 'PPLK 2024') {
+            return 'PPLK 2024';
+        } else if (currentYear === 'PPLK 2022') {
+            return 'PPLK 2022';
+        }
+        return 'PPLK';
+    };
 
     // Optimized preload effect
     useEffect(() => {
@@ -156,52 +180,56 @@ const OpeningPage = ({ onComplete }) => {
         const isLoaded = loadedIframes[iframeUrl] && iframeReady;
 
         return (
-            <div className="fixed inset-0 z-50 bg-black flex flex-col justify-center">
-                <div className="absolute top-0 right-4 z-50">
-                    <button
-                        onClick={exitIframe}
-                        className="text-white hover:text-gray-300 font-bold text-xl transition-colors duration-200"
-                    >
-                        ✕
-                    </button>
-                </div>
-                <div className="w-full h-full relative">
-                    <div
-                        className={`absolute inset-0 flex flex-col items-center justify-center bg-black transition-opacity duration-300 ${!isLoaded ? 'opacity-100' : 'opacity-0'}`}
-                        style={{
-                            backgroundImage: `url(${images[currentIndex].src})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            zIndex: isLoaded ? -1 : 1,
-                        }}
-                    >
-                        <div className="absolute inset-0 bg-black bg-opacity-75"></div>
-                        <div className="relative z-10 flex flex-col items-center space-y-4">
-                            <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-                            <p className="text-white text-lg font-greek">Loading {images[currentIndex].year}...</p>
-                        </div>
+            <>
+                <Head title={getIframeTitle()} />
+                <div className="fixed inset-0 z-50 bg-black flex flex-col justify-center">
+                    <div className="absolute top-0 right-4 z-50">
+                        <button
+                            onClick={exitIframe}
+                            className="text-white hover:text-gray-300 font-bold text-xl transition-colors duration-200"
+                        >
+                            ✕
+                        </button>
                     </div>
-                    <iframe
-                        key={iframeUrl}
-                        src={iframeUrl}
-                        className={`w-full h-full border-0 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-                        style={{ zIndex: isLoaded ? 2 : 0 }}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        onLoad={() => {
-                            setLoadedIframes(prev => ({
-                                ...prev,
-                                [iframeUrl]: true
-                            }));
-                        }}
-                    />
+                    <div className="w-full h-full relative">
+                        <div
+                            className={`absolute inset-0 flex flex-col items-center justify-center bg-black transition-opacity duration-300 ${!isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                            style={{
+                                backgroundImage: `url(${images[currentIndex].src})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                zIndex: isLoaded ? -1 : 1,
+                            }}
+                        >
+                            <div className="absolute inset-0 bg-black bg-opacity-75"></div>
+                            <div className="relative z-10 flex flex-col items-center space-y-4">
+                                <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                                <p className="text-white text-lg font-greek">Loading {images[currentIndex].year}...</p>
+                            </div>
+                        </div>
+                        <iframe
+                            key={iframeUrl}
+                            src={iframeUrl}
+                            className={`w-full h-full border-0 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                            style={{ zIndex: isLoaded ? 2 : 0 }}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            onLoad={() => {
+                                setLoadedIframes(prev => ({
+                                    ...prev,
+                                    [iframeUrl]: true
+                                }));
+                            }}
+                        />
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 
     return (
         <>
+            <Head title={getDynamicTitle()} />
             {/* Preload iframes */}
             <div className="hidden">
                 {Object.keys(preloadedIframes).map(url => (
