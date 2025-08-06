@@ -204,15 +204,26 @@ const OpeningPage = ({ onComplete }) => {
             <div
                 className="h-screen flex flex-col items-center justify-between relative overflow-hidden px-4 sm:px-6 py-8"
                 style={{
-                    backgroundImage: `url(${bg1}), url(${nagaBg})`,
-                    backgroundSize: 'cover, cover',
-                    backgroundPosition: 'center, center',
-                    backgroundRepeat: 'no-repeat, no-repeat',
+                    backgroundImage: `url(${bg1})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
                 }}
             >
-                {/* Orange overlay for base color, match with #BF4000 and mix-blend-multiply */}
+                {/* Overlay naga di belakang dengan opacity 0.25 */}
                 <div
                     className="absolute inset-0 z-0 pointer-events-none"
+                    style={{
+                        backgroundImage: `url(${nagaBg})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        opacity: 0.01,
+                    }}
+                />
+                {/* Orange overlay for base color, match with #BF4000 and mix-blend-multiply */}
+                <div
+                    className="absolute inset-0 z-10 pointer-events-none"
                     style={{
                         background: '#BF400099',
                         opacity: 1,
