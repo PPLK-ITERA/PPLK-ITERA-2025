@@ -143,7 +143,7 @@ export const devTeam = {
       name: "Reyhan Capri Moraga",
       instagram: "reannn22",
       role: "Kepala Sub-Divisi Back-End",
-      quote: "don't chase star, chase people",
+      quote: "don't chase stars, chase people",
       photo: getPhoto(reyhan),
     },
     {
