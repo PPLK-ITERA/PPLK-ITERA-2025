@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 import { IconLayoutNavbarFilled, IconLogout } from "@tabler/icons-react";
 
@@ -32,34 +32,32 @@ const roles = [
 
 export function UserSidebar({ user }) {
     const { isMinimized } = useSidebar();
-    const PHOTO_KEY = "photo_profile_base64";
-    const [photoUrl, setPhotoUrl] = useState<string>(() => {
-        return localStorage.getItem(PHOTO_KEY) || user.photo_profile_url || "";
-    });
+    const [photoUrl, setPhotoUrl] = useState<string>(() => user.photo_profile_url || "");
+    const [objectUrl, setObjectUrl] = useState<string | null>(null);
+    const page = usePage();
+    const pathname = page?.url || window.location.pathname;
 
     useEffect(() => {
         let didCancel = false;
+        const cacheKey = "profile_photo_cache";
+        const cacheTimeKey = "profile_photo_cache_time";
+        const cacheExpiry = 1000 * 60 * 10; // 10 minutes
 
-        // Jika user.photo_profile_url berubah, hapus cache
-        if (localStorage.getItem(PHOTO_KEY) && user.photo_profile_url && user.photo_profile_url !== "") {
-            // Cek apakah url user berubah dari sebelumnya
-            const prevUrl = localStorage.getItem("photo_profile_url");
-            if (prevUrl !== user.photo_profile_url) {
-                localStorage.removeItem(PHOTO_KEY);
-                localStorage.setItem("photo_profile_url", user.photo_profile_url);
+        // If on /dashboard, clear cache and fetch fresh
+        if (pathname === "/dashboard") {
+            localStorage.removeItem(cacheKey);
+            localStorage.removeItem(cacheTimeKey);
+        } else {
+            // Try to load from cache
+            const cached = localStorage.getItem(cacheKey);
+            const cachedTime = localStorage.getItem(cacheTimeKey);
+            if (cached && cachedTime && Date.now() - parseInt(cachedTime) < cacheExpiry) {
+                setPhotoUrl(cached);
+                return;
             }
-        } else if (user.photo_profile_url) {
-            localStorage.setItem("photo_profile_url", user.photo_profile_url);
         }
 
-        // Jika sudah ada di localStorage, pakai itu
-        const cached = localStorage.getItem(PHOTO_KEY);
-        if (cached) {
-            setPhotoUrl(cached);
-            return;
-        }
-
-        // Fetch dari API jika belum ada di localStorage
+        // Fetch fresh photo
         const apiUrl = `http://localhost:8000/api/photo-profile?ts=${Date.now()}`;
         fetch(apiUrl, {
             credentials: "include",
@@ -71,33 +69,49 @@ export function UserSidebar({ user }) {
                 const contentType = res.headers.get("content-type") || "";
                 if (contentType.startsWith("image/")) {
                     const blob = await res.blob();
-                    const reader = new FileReader();
-                    reader.onloadend = () => {
-                        if (!didCancel) {
-                            const base64data = reader.result as string;
-                            setPhotoUrl(base64data);
-                            localStorage.setItem(PHOTO_KEY, base64data);
-                        }
-                    };
-                    reader.readAsDataURL(blob);
+                    const url = URL.createObjectURL(blob);
+                    if (!didCancel) {
+                        if (objectUrl) URL.revokeObjectURL(objectUrl);
+                        setPhotoUrl(url);
+                        setObjectUrl(url);
+
+                        // Cache as base64
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                            try {
+                                localStorage.setItem(cacheKey, reader.result as string);
+                                localStorage.setItem(cacheTimeKey, Date.now().toString());
+                            } catch { }
+                        };
+                        reader.readAsDataURL(blob);
+                    } else {
+                        URL.revokeObjectURL(url);
+                    }
                 } else {
                     if (!didCancel) {
                         setPhotoUrl(user.photo_profile_url || "");
-                        localStorage.removeItem(PHOTO_KEY);
+                        if (objectUrl) {
+                            URL.revokeObjectURL(objectUrl);
+                            setObjectUrl(null);
+                        }
                     }
                 }
             })
             .catch(() => {
                 if (!didCancel) {
                     setPhotoUrl(user.photo_profile_url || "");
-                    localStorage.removeItem(PHOTO_KEY);
+                    if (objectUrl) {
+                        URL.revokeObjectURL(objectUrl);
+                        setObjectUrl(null);
+                    }
                 }
             });
         return () => {
             didCancel = true;
+            if (objectUrl) URL.revokeObjectURL(objectUrl);
         };
         // eslint-disable-next-line
-    }, [user.photo_profile_url]);
+    }, [user.photo_profile_url, pathname]);
 
     return (
         <DropdownMenu>
