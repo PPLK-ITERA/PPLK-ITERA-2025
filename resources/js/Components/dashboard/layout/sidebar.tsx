@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 
 type SidebarProps = {
   className?: string;
+  user: any; // Replace 'any' with the actual user type if available
 };
 
 export default function ({ user, className }: SidebarProps) {
@@ -35,7 +36,7 @@ export default function ({ user, className }: SidebarProps) {
     >
 
       <div className="px-3 mt-3 space-y-1">
-        <HeadSidebar />
+        <HeadSidebar user={user} />
       </div>
       <div className="px-3 mt-3 space-y-1">
         <UserSidebar user={user} />
