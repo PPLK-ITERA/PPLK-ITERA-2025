@@ -342,7 +342,7 @@ const OpeningPage = ({ onComplete }) => {
                                                     ? 'translate-x-full opacity-0 scale-75'
                                                     : '-translate-x-full opacity-0 scale-75')
                                         )
-                                        : 'translate-x-0 opacity-100 scale-95'
+                                        : 'translate-x-0 opacity-95 scale-95'
                                     }
                                     ${!isAnimating ? 'cursor-pointer' : ''}`}
                                 onClick={() => handleImageClick(currentIndex)}
