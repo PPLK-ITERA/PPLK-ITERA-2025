@@ -36,6 +36,7 @@ const OpeningPage = ({ onComplete }) => {
         } else if (currentYear === 'PPLK 2025') {
             return 'Website PPLK 2025';
         }
+
     };
 
     // Function to get iframe title
@@ -303,11 +304,11 @@ const OpeningPage = ({ onComplete }) => {
                                 </div>
                             </div>
 
-                            {/* Center Image - Faster and more responsive */}
+                            {/* Center Image - Overlay timing and style matched to side cards */}
                             <div
                                 className={`relative w-1/2 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] aspect-[2/3] transform transition-all duration-400 ease-in-out z-10 group
-                                    hover:scale-110 active:scale-105 touch-pan-y
-                                    ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-75' : '-translate-x-full opacity-0 scale-75') : 'translate-x-0 opacity-100 scale-110'}
+                                    hover:scale-100 active:scale-95 touch-pan-y
+                                    ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-75' : '-translate-x-full opacity-0 scale-75') : 'translate-x-0 opacity-100 scale-95'}
                                     ${!isAnimating ? 'cursor-pointer' : ''}`}
                                 onClick={() => handleImageClick(currentIndex)}
                             >
@@ -316,13 +317,14 @@ const OpeningPage = ({ onComplete }) => {
                                     alt={images[currentIndex].alt}
                                     className="w-full h-full object-cover rounded-2xl brightness-150 transition-all duration-300 group-hover:brightness-125"
                                 />
-                                <div className="absolute inset-0 rounded-2xl"></div>
+                                {/* Overlay for opacity on hover - timing and style matched */}
+                                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-2xl transition-opacity duration-300 group-hover:opacity-40 opacity-0 pointer-events-none"></div>
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-2xl font-greek md:text-4xl lg:text-5xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
                                         {images[currentIndex].year}
                                     </h3>
                                 </div>
-                                <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-50 rounded-2xl transition-opacity duration-300 group-hover:border-opacity-75"></div>
+                                <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-50 rounded-2xl transition-opacity duration-300"></div>
                             </div>
 
                             {/* Right Image - Faster and smoother transitions */}
