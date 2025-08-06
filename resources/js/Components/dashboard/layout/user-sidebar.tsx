@@ -32,12 +32,34 @@ const roles = [
 
 export function UserSidebar({ user }) {
     const { isMinimized } = useSidebar();
-    const [photoUrl, setPhotoUrl] = useState<string>(() => user.photo_profile_url || "");
-    const [objectUrl, setObjectUrl] = useState<string | null>(null);
+    const PHOTO_KEY = "photo_profile_base64";
+    const [photoUrl, setPhotoUrl] = useState<string>(() => {
+        return localStorage.getItem(PHOTO_KEY) || user.photo_profile_url || "";
+    });
 
     useEffect(() => {
         let didCancel = false;
-        // Tambahkan timestamp agar selalu fetch terbaru
+
+        // Jika user.photo_profile_url berubah, hapus cache
+        if (localStorage.getItem(PHOTO_KEY) && user.photo_profile_url && user.photo_profile_url !== "") {
+            // Cek apakah url user berubah dari sebelumnya
+            const prevUrl = localStorage.getItem("photo_profile_url");
+            if (prevUrl !== user.photo_profile_url) {
+                localStorage.removeItem(PHOTO_KEY);
+                localStorage.setItem("photo_profile_url", user.photo_profile_url);
+            }
+        } else if (user.photo_profile_url) {
+            localStorage.setItem("photo_profile_url", user.photo_profile_url);
+        }
+
+        // Jika sudah ada di localStorage, pakai itu
+        const cached = localStorage.getItem(PHOTO_KEY);
+        if (cached) {
+            setPhotoUrl(cached);
+            return;
+        }
+
+        // Fetch dari API jika belum ada di localStorage
         const apiUrl = `http://localhost:8000/api/photo-profile?ts=${Date.now()}`;
         fetch(apiUrl, {
             credentials: "include",
@@ -49,36 +71,30 @@ export function UserSidebar({ user }) {
                 const contentType = res.headers.get("content-type") || "";
                 if (contentType.startsWith("image/")) {
                     const blob = await res.blob();
-                    const url = URL.createObjectURL(blob);
-                    if (!didCancel) {
-                        if (objectUrl) URL.revokeObjectURL(objectUrl);
-                        setPhotoUrl(url);
-                        setObjectUrl(url);
-                    } else {
-                        URL.revokeObjectURL(url);
-                    }
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        if (!didCancel) {
+                            const base64data = reader.result as string;
+                            setPhotoUrl(base64data);
+                            localStorage.setItem(PHOTO_KEY, base64data);
+                        }
+                    };
+                    reader.readAsDataURL(blob);
                 } else {
                     if (!didCancel) {
                         setPhotoUrl(user.photo_profile_url || "");
-                        if (objectUrl) {
-                            URL.revokeObjectURL(objectUrl);
-                            setObjectUrl(null);
-                        }
+                        localStorage.removeItem(PHOTO_KEY);
                     }
                 }
             })
             .catch(() => {
                 if (!didCancel) {
                     setPhotoUrl(user.photo_profile_url || "");
-                    if (objectUrl) {
-                        URL.revokeObjectURL(objectUrl);
-                        setObjectUrl(null);
-                    }
+                    localStorage.removeItem(PHOTO_KEY);
                 }
             });
         return () => {
             didCancel = true;
-            if (objectUrl) URL.revokeObjectURL(objectUrl);
         };
         // eslint-disable-next-line
     }, [user.photo_profile_url]);
