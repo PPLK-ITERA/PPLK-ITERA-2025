@@ -99,7 +99,7 @@ export const navItems: NavItem[] = [
     title: "Game Offline",
     href: "/dashboard/game-offline",
     icon: "game",
-    label: "atur-informasi-kelompok",
+    label: "game-offline",
     role_id: [2, 3, 4, 6, 8],
   },
   {
