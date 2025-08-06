@@ -409,29 +409,32 @@ const OpeningPage = ({ onComplete }) => {
                                         }}
                                     ></div>
                                 </div>
-                                {/* Main center card */}
+                                {/* Main center card image */}
                                 <img
                                     src={images[currentIndex].src}
                                     alt={images[currentIndex].alt}
                                     className="w-full h-full object-cover brightness-150 rounded-3xl transition-all duration-300 group-hover:brightness-125 relative z-10"
                                 />
-                                {/* Overlay for opacity on hover - timing and style matched */}
-                                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-3xl transition-opacity duration-300 group-hover:opacity-40 opacity-0 pointer-events-none"></div>
-                                <div className="absolute inset-0 flex items-center justify-center">
+
+                                {/* Text overlay - z-index tertinggi */}
+                                <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                                     <h3
-                                        className="font-bold text-white tracking-wide drop-shadow text-2xl font-greek md:text-4xl lg:text-5xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
-                                        style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                                        className="font-bold text-white tracking-wide text-2xl font-greek md:text-4xl lg:text-5xl text-center px-2"
+                                        style={{
+                                            textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.7), 0 0 2px rgba(0,0,0,1)',
+                                            zIndex: 40,
+                                            position: 'relative'
+                                        }}
                                     >
                                         {images[currentIndex].year}
                                     </h3>
                                 </div>
                                 {/* Custom border for center card */}
                                 <div
-                                    className="absolute inset-0 pointer-events-none"
+                                    className="absolute inset-0 pointer-events-none z-25"
                                     style={{
                                         border: '3px solid #FFF',
                                         borderRadius: '1.5rem',
-                                        zIndex: 20,
                                         opacity: 0.10,
                                         boxShadow: `
                                             0px -8px 16px -8px rgba(255,255,255,0.15),
