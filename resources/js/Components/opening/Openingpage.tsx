@@ -274,14 +274,17 @@ const OpeningPage = ({ onComplete }) => {
 
                 <div className="w-full max-w-7xl relative z-10 flex flex-col min-h-full py-4">
                     <div className="text-center mt-12 mb-4 md:mt-0 md:mb-12">
-                        <h1 className="text-3xl sm:text-4xl md:text-6xl font-greek font-bold text-white">
+                        <h1
+                            className="text-3xl sm:text-4xl md:text-6xl font-greek font-bold text-white"
+                            style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                        >
                             SELAMAT DATANG SATRIYA
                         </h1>
                     </div>
 
                     <div className="relative flex items-center justify-center flex-1">
                         <div className="relative w-full max-w-5xl mx-2 sm:mx-6 flex items-center justify-center space-x-2 sm:space-x-6">
-                            {/* Left Image - Faster and smoother transitions */}
+                            {/* Left Image */}
                             <div
                                 className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-400 ease-in-out
                                         ${transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-75' :
@@ -298,7 +301,10 @@ const OpeningPage = ({ onComplete }) => {
                                 />
                                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl transition-opacity duration-300"></div>
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full rotate-2 transition-transform duration-300">
+                                    <h3
+                                        className="font-bold text-white tracking-wide drop-shadow text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full rotate-2 transition-transform duration-300"
+                                        style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                                    >
                                         {images[(currentIndex + images.length - 1) % images.length].year}
                                     </h3>
                                 </div>
@@ -315,16 +321,19 @@ const OpeningPage = ({ onComplete }) => {
                                 <img
                                     src={images[currentIndex].src}
                                     alt={images[currentIndex].alt}
-                                    className="w-full h-full object-cover rounded-2xl brightness-150 transition-all duration-300 group-hover:brightness-125"
+                                    className="w-full h-full object-cover rounded-2xl brightness-150 rounded-3xl transition-all duration-300 group-hover:brightness-125"
                                 />
                                 {/* Overlay for opacity on hover - timing and style matched */}
-                                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-2xl transition-opacity duration-300 group-hover:opacity-40 opacity-0 pointer-events-none"></div>
+                                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-3xl transition-opacity duration-300 group-hover:opacity-40 opacity-0 pointer-events-none"></div>
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-2xl font-greek md:text-4xl lg:text-5xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                                    <h3
+                                        className="font-bold text-white tracking-wide drop-shadow text-2xl font-greek md:text-4xl lg:text-5xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
+                                        style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                                    >
                                         {images[currentIndex].year}
                                     </h3>
                                 </div>
-                                <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-50 rounded-2xl transition-opacity duration-300"></div>
+                                <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-25 rounded-3xl transition-opacity duration-300"></div>
                             </div>
 
                             {/* Right Image - Faster and smoother transitions */}
@@ -340,11 +349,14 @@ const OpeningPage = ({ onComplete }) => {
                                 <img
                                     src={images[(currentIndex + 1) % images.length].src}
                                     alt="Next"
-                                    className="w-full h-full object-cover rounded-xl shadow-xl -rotate-2 transition-transform duration-300"
+                                    className="w-full h-full object-cover rounded-xl shadow-xl -rotate-2  transition-transform duration-300"
                                 />
                                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl transition-opacity duration-300"></div>
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full -rotate-2 transition-transform duration-300">
+                                    <h3
+                                        className="font-bold text-white tracking-wide drop-shadow text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full -rotate-2 transition-transform duration-300"
+                                        style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                                    >
                                         {images[(currentIndex + 1) % images.length].year}
                                     </h3>
                                 </div>
@@ -354,9 +366,20 @@ const OpeningPage = ({ onComplete }) => {
 
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-8 sm:gap-4 text-white px-2 mt-auto pt-4 pb-2 sm:pb-8">
                         <div className="flex items-center gap-2 text-lg font-greek md:text-3xl order-1 sm:order-1">
-                            <span className="text-2xl font-bold transition-all duration-300">0{currentIndex + 1}</span>
-                            <span className="text-gray-400">/</span>
-                            <span className="text-gray-300">0{images.length}</span>
+                            <span
+                                className="text-2xl font-bold transition-all duration-300"
+                                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                            >
+                                0{currentIndex + 1}
+                            </span>
+                            <span
+                                className="text-gray-400"
+                                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                            >/</span>
+                            <span
+                                className="text-gray-300"
+                                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                            >0{images.length}</span>
                         </div>
 
                         <div className="flex justify-center w-full sm:w-auto sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 space-x-2 order-3 sm:order-2">
@@ -381,6 +404,7 @@ const OpeningPage = ({ onComplete }) => {
                                         }
                                     }}
                                     className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentIndex ? 'bg-white scale-125' : 'bg-white bg-opacity-50 hover:bg-opacity-75'}`}
+                                    style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
                                 />
                             ))}
                         </div>
@@ -391,15 +415,17 @@ const OpeningPage = ({ onComplete }) => {
                                 onClick={goToPrevious}
                                 disabled={isAnimating}
                                 className="hover:underline focus:outline-none transition-colors duration-200 hover:text-white disabled:opacity-50"
+                                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
                             >
                                 PREVIOUS
                             </button>
-                            <span className="mt-2">|</span>
+                            <span className="mt-2" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}>|</span>
                             <button
                                 type="button"
                                 onClick={goToNext}
                                 disabled={isAnimating}
                                 className="hover:underline focus:outline-none transition-colors duration-200 hover:text-white disabled:opacity-50"
+                                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
                             >
                                 NEXT
                             </button>
