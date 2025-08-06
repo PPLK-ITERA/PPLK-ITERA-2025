@@ -37,7 +37,7 @@ export const navItems: NavItem[] = [
     href: "/dashboard/atur-maba",
     icon: "users",
     label: "atur-maba",
-    role_id: [3],
+    role_id: [2, 3, 4],
   },
   {
     title: "Atur Dapmen",
