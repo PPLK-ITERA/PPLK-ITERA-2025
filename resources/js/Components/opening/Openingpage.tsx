@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import pplk2025 from "!assets/pplk/2025.jpg";
 import pplk2024 from "!assets/pplk/2024.jpg";
 import pplk2022 from "!assets/pplk/2022.jpg";
-import bg1 from "!assets/tesla/bg-3.png"; // tambahkan import background
-import nagaBg from "!assets/pplk/asset_naga.png"; // tambahkan import background naga
-
+import bg1 from "!assets/tesla/bg-3.png";
+import nagaBg from "!assets/pplk/asset_naga.png";
 
 const OpeningPage = ({ onComplete }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [nextIndex, setNextIndex] = useState(0);
     const [transitionDirection, setTransitionDirection] = useState<"left" | "right" | null>(null);
     const [isAnimating, setIsAnimating] = useState(false);
     const [fullscreenMode, setFullscreenMode] = useState(false);
@@ -25,7 +25,7 @@ const OpeningPage = ({ onComplete }) => {
         { id: 2, src: pplk2022, alt: 'PPLK 2022', title: 'LEADERSHIP', year: 'PPLK 2022', link: 'https://pplk2022-755271153581.europe-west1.run.app/' },
     ];
 
-    // Modified preload effect
+    // Optimized preload effect
     useEffect(() => {
         const preloadSites = async () => {
             const externalSites = images.filter(img => img.link !== '/');
@@ -69,13 +69,13 @@ const OpeningPage = ({ onComplete }) => {
         };
     }, []);
 
-    // Add new effect to handle iframe ready state
+    // Faster iframe ready state
     useEffect(() => {
         if (showIframe) {
             setIframeReady(false);
             const timer = setTimeout(() => {
                 setIframeReady(true);
-            }, 2000); // Minimum loading time
+            }, 1000); // Reduced from 2000ms to 1000ms
             return () => clearTimeout(timer);
         }
     }, [showIframe, iframeUrl]);
@@ -86,13 +86,14 @@ const OpeningPage = ({ onComplete }) => {
             if (images[currentIndex].year === 'PPLK 2025') {
                 if (typeof onComplete === 'function') onComplete();
             } else {
-                setIsIframeLoading(true); // Reset loading state
+                setIsIframeLoading(true);
                 setIframeUrl(images[currentIndex].link);
                 setShowIframe(true);
             }
         } else {
-            // Tentukan arah berdasarkan perbedaan index, tapi jika looping, tetap konsisten
             const total = images.length;
+            setNextIndex(index); // Set target index
+
             if ((index === 0 && currentIndex === total - 1)) {
                 setTransitionDirection('right');
             } else if ((index === total - 1 && currentIndex === 0)) {
@@ -102,12 +103,10 @@ const OpeningPage = ({ onComplete }) => {
             } else {
                 setTransitionDirection('left');
             }
-            setCurrentIndex(index);
             setIsAnimating(true);
         }
     };
 
-    // Add new function to exit iframe view
     const exitIframe = () => {
         setShowIframe(false);
         setIframeUrl('');
@@ -117,27 +116,42 @@ const OpeningPage = ({ onComplete }) => {
 
     const goToPrevious = () => {
         if (isAnimating) return;
+        const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+        setNextIndex(newIndex);
         setTransitionDirection('left');
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
         setIsAnimating(true);
     };
 
     const goToNext = () => {
         if (isAnimating) return;
+        const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+        setNextIndex(newIndex);
         setTransitionDirection('right');
-        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
         setIsAnimating(true);
     };
 
+    // Animation timing with delayed index change
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsAnimating(false);
-            setTransitionDirection(null);
-        }, 800);
-        return () => clearTimeout(timer);
-    }, [currentIndex]);
+        if (isAnimating) {
+            // Change index at the middle of animation (200ms out of 400ms)
+            const changeTimer = setTimeout(() => {
+                setCurrentIndex(nextIndex);
+            }, 200);
 
-    // Modified showIframe render
+            // Complete animation
+            const completeTimer = setTimeout(() => {
+                setIsAnimating(false);
+                setTransitionDirection(null);
+            }, 400);
+
+            return () => {
+                clearTimeout(changeTimer);
+                clearTimeout(completeTimer);
+            };
+        }
+    }, [isAnimating, nextIndex]);
+
+    // Optimized iframe render with faster transitions
     if (showIframe) {
         const isLoaded = loadedIframes[iframeUrl] && iframeReady;
 
@@ -146,14 +160,14 @@ const OpeningPage = ({ onComplete }) => {
                 <div className="absolute top-0 right-4 z-50">
                     <button
                         onClick={exitIframe}
-                        className="text-white hover:text-gray-300 font-bold text-xl"
+                        className="text-white hover:text-gray-300 font-bold text-xl transition-colors duration-200"
                     >
                         ✕
                     </button>
                 </div>
                 <div className="w-full h-full relative">
                     <div
-                        className={`absolute inset-0 flex flex-col items-center justify-center bg-black transition-opacity duration-500 ${!isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        className={`absolute inset-0 flex flex-col items-center justify-center bg-black transition-opacity duration-300 ${!isLoaded ? 'opacity-100' : 'opacity-0'}`}
                         style={{
                             backgroundImage: `url(${images[currentIndex].src})`,
                             backgroundSize: 'cover',
@@ -163,15 +177,14 @@ const OpeningPage = ({ onComplete }) => {
                     >
                         <div className="absolute inset-0 bg-black bg-opacity-75"></div>
                         <div className="relative z-10 flex flex-col items-center space-y-4">
-                            <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-                            <p className="text-white text-xl font-greek">Loading {images[currentIndex].year}...</p>
+                            <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                            <p className="text-white text-lg font-greek">Loading {images[currentIndex].year}...</p>
                         </div>
-
                     </div>
                     <iframe
                         key={iframeUrl}
                         src={iframeUrl}
-                        className={`w-full h-full border-0 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        className={`w-full h-full border-0 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
                         style={{ zIndex: isLoaded ? 2 : 0 }}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
@@ -210,7 +223,7 @@ const OpeningPage = ({ onComplete }) => {
                     backgroundRepeat: 'no-repeat',
                 }}
             >
-                {/* Overlay naga di belakang dengan opacity 0.25 */}
+                {/* Background overlays */}
                 <div
                     className="absolute inset-0 z-0 pointer-events-none"
                     style={{
@@ -221,7 +234,6 @@ const OpeningPage = ({ onComplete }) => {
                         opacity: 0.01,
                     }}
                 />
-                {/* Orange overlay for base color, match with #BF4000 and mix-blend-multiply */}
                 <div
                     className="absolute inset-0 z-10 pointer-events-none"
                     style={{
@@ -230,6 +242,7 @@ const OpeningPage = ({ onComplete }) => {
                         mixBlendMode: 'multiply',
                     }}
                 />
+
                 <div className="w-full max-w-7xl relative z-10 flex flex-col min-h-full py-4">
                     <div className="text-center mt-12 mb-4 md:mt-0 md:mb-12">
                         <h1 className="text-3xl sm:text-4xl md:text-6xl font-greek font-bold text-white">
@@ -237,35 +250,36 @@ const OpeningPage = ({ onComplete }) => {
                         </h1>
                     </div>
 
-
                     <div className="relative flex items-center justify-center flex-1">
                         <div className="relative w-full max-w-5xl mx-2 sm:mx-6 flex items-center justify-center space-x-2 sm:space-x-6">
-                            {/* Left Image */}
+                            {/* Left Image - Faster and smoother transitions */}
                             <div
-                                className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-800 ease-out
-                                        ${transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
-                                        transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
+                                className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-400 ease-in-out
+                                        ${transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-75' :
+                                        transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-75' :
                                             'translate-x-0 opacity-80 scale-95'}
                                         ${!isAnimating ? 'hover:opacity-100 hover:scale-100' : ''}
                                         cursor-pointer`}
                                 onClick={() => handleImageClick((currentIndex + images.length - 1) % images.length)}
                             >
-                                <img src={images[(currentIndex + images.length - 1) % images.length].src} alt="Previous" className="w-full h-full object-cover rounded-xl shadow-xl rotate-2" />
-                                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
+                                <img
+                                    src={images[(currentIndex + images.length - 1) % images.length].src}
+                                    alt="Previous"
+                                    className="w-full h-full object-cover rounded-xl shadow-xl rotate-2 transition-transform duration-300"
+                                />
+                                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl transition-opacity duration-300"></div>
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                                    <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full rotate-2 transition-transform duration-300">
                                         {images[(currentIndex + images.length - 1) % images.length].year}
                                     </h3>
                                 </div>
-
                             </div>
 
-
-                            {/* Center Image */}
+                            {/* Center Image - Faster and more responsive */}
                             <div
-                                className={`relative w-1/2 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] aspect-[2/3] transform transition-all duration-800 ease-out z-10 group
-                                    hover:scale-105 active:scale-105 touch-pan-y
-                                    ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-90' : 'translate-x-0 opacity-0 scale-90') : 'translate-x-0 opacity-100 scale-110'}
+                                className={`relative w-1/2 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] aspect-[2/3] transform transition-all duration-400 ease-in-out z-10 group
+                                    hover:scale-110 active:scale-105 touch-pan-y
+                                    ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-75' : '-translate-x-full opacity-0 scale-75') : 'translate-x-0 opacity-100 scale-110'}
                                     ${!isAnimating ? 'cursor-pointer' : ''}`}
                                 onClick={() => handleImageClick(currentIndex)}
                             >
@@ -280,16 +294,14 @@ const OpeningPage = ({ onComplete }) => {
                                         {images[currentIndex].year}
                                     </h3>
                                 </div>
-                                <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-50 rounded-2xl"></div>
-
+                                <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-50 rounded-2xl transition-opacity duration-300 group-hover:border-opacity-75"></div>
                             </div>
 
-
-                            {/* Right Image */}
+                            {/* Right Image - Faster and smoother transitions */}
                             <div
-                                className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-800 ease-out
-                                ${transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-90' :
-                                        transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-90' :
+                                className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-400 ease-in-out
+                                ${transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-75' :
+                                        transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-75' :
                                             'translate-x-0 opacity-80 scale-95'}
                                 ${!isAnimating ? 'hover:opacity-100 hover:scale-100' : ''}
                                 cursor-pointer`}
@@ -298,25 +310,25 @@ const OpeningPage = ({ onComplete }) => {
                                 <img
                                     src={images[(currentIndex + 1) % images.length].src}
                                     alt="Next"
-                                    className="w-full h-full object-cover rounded-xl shadow-xl -rotate-2"
+                                    className="w-full h-full object-cover rounded-xl shadow-xl -rotate-2 transition-transform duration-300"
                                 />
-                                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
+                                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-xl transition-opacity duration-300"></div>
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                                    <h3 className="font-bold text-white tracking-wide drop-shadow-xl text-lg font-greek md:text-3xl text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full -rotate-2 transition-transform duration-300">
                                         {images[(currentIndex + 1) % images.length].year}
                                     </h3>
                                 </div>
-
                             </div>
                         </div>
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-8 sm:gap-4 text-white px-2 mt-auto pt-4 pb-2 sm:pb-8">
                         <div className="flex items-center gap-2 text-lg font-greek md:text-3xl order-1 sm:order-1">
-                            <span className="text-2xl font-bold">0{currentIndex + 1}</span>
+                            <span className="text-2xl font-bold transition-all duration-300">0{currentIndex + 1}</span>
                             <span className="text-gray-400">/</span>
                             <span className="text-gray-300">0{images.length}</span>
                         </div>
+
                         <div className="flex justify-center w-full sm:w-auto sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 space-x-2 order-3 sm:order-2">
                             {images.map((_, index) => (
                                 <button
@@ -324,6 +336,8 @@ const OpeningPage = ({ onComplete }) => {
                                     onClick={() => {
                                         if (!isAnimating && index !== currentIndex) {
                                             const total = images.length;
+                                            setNextIndex(index);
+
                                             if ((index === 0 && currentIndex === total - 1)) {
                                                 setTransitionDirection('right');
                                             } else if ((index === total - 1 && currentIndex === 0)) {
@@ -333,20 +347,20 @@ const OpeningPage = ({ onComplete }) => {
                                             } else {
                                                 setTransitionDirection('left');
                                             }
-                                            setCurrentIndex(index);
                                             setIsAnimating(true);
                                         }
                                     }}
-                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-white scale-125' : 'bg-white bg-opacity-50 hover:bg-opacity-75'}`}
+                                    className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentIndex ? 'bg-white scale-125' : 'bg-white bg-opacity-50 hover:bg-opacity-75'}`}
                                 />
                             ))}
                         </div>
+
                         <div className="flex items-center space-x-4 text-base sm:text-lg text-gray-200 font-greek md:text-3xl order-2 sm:order-3">
                             <button
                                 type="button"
                                 onClick={goToPrevious}
                                 disabled={isAnimating}
-                                className="hover:underline focus:outline-none"
+                                className="hover:underline focus:outline-none transition-colors duration-200 hover:text-white disabled:opacity-50"
                             >
                                 PREVIOUS
                             </button>
@@ -355,7 +369,7 @@ const OpeningPage = ({ onComplete }) => {
                                 type="button"
                                 onClick={goToNext}
                                 disabled={isAnimating}
-                                className="hover:underline focus:outline-none"
+                                className="hover:underline focus:outline-none transition-colors duration-200 hover:text-white disabled:opacity-50"
                             >
                                 NEXT
                             </button>

@@ -46,14 +46,13 @@ export default function Page({ auth, response }) {
                     </h2>
                     <p className="font-inter">Kamu login sebagai {roles[parseInt(user.role_id)]}</p>
                 </div>
-                <div className="md:flex items-center hidden space-x-2">
+                <div className="flex items-center space-x-2">
                     <Link
                         href={route("logout")}
                         method="post"
-                        className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
+                        className="flex items-center gap-2 md:px-2 md:py-2 p-2rounded-md transition-colors"
                     >
-                        <IconLogout size={20} />
-                        <span>Logout</span>
+                        <IconLogout size={20} className="text-red-500" />
                     </Link>
                 </div>
             </div>

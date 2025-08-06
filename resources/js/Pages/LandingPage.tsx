@@ -29,7 +29,6 @@ export default function LandingPage() {
     return <OpeningPage onComplete={handleOpeningComplete} />;
   }
 
-
   return (
     <>
       <Head title="Beranda">
@@ -49,51 +48,85 @@ export default function LandingPage() {
             src={elang}
             alt="elang"
             data-aos="fade-left"
-            data-aos-duration="1000"
+            data-aos-duration="600"
+            data-aos-delay="100"
+            data-aos-easing="ease-out-cubic"
             className="absolute right-1 hidden top-[25rem] z-30 md:right-10 md:top-28 lg:top-20 md:block md:w-1/3 md:scale-100 lg:w-1/3"
           />
         </MaxWidthWrapper>
 
-        <NavHero />
+        <div data-aos="fade-down" data-aos-duration="500" data-aos-easing="ease-out-quart">
+          <NavHero />
+        </div>
 
         <div className="bg-pattern-white relative">
           <div className="bg-gradient-to-b from-white/80 to-transparent absolute top-0 left-0 right-0 h-[500px]" />
 
           <MaxWidthWrapper>
-            <What />
-            <Panduan />
+            <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-easing="ease-out-cubic">
+              <What />
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-easing="ease-out-cubic">
+              <Panduan />
+            </div>
           </MaxWidthWrapper>
 
-          <img src={overlay_earth} alt="overlay_earth" className="w-full" />
+          <img
+            src={overlay_earth}
+            alt="overlay_earth"
+            className="w-full"
+            data-aos="fade-in"
+            data-aos-duration="800"
+            data-aos-easing="ease-out-quart"
+          />
         </div>
 
-        <VideoSection />
+        <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" data-aos-easing="ease-out-cubic">
+          <VideoSection />
+        </div>
 
-        <FilosofiLogo />
+        <div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200" data-aos-easing="ease-out-back">
+          <FilosofiLogo />
+        </div>
 
         <div className="relative bg-[#170C0A] -mt-1 bg-pattern-white">
           <img
             src={pillar_brown2}
             alt="pillar_brown2"
             className="absolute left-0 w-[30%] hidden md:block"
+            data-aos="fade-right"
+            data-aos-duration="700"
+            data-aos-delay="150"
+            data-aos-easing="ease-out-cubic"
           />
 
           <MaxWidthWrapper className="z-30">
-            <Maskot />
+            <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-easing="ease-out-cubic">
+              <Maskot />
+            </div>
           </MaxWidthWrapper>
         </div>
 
         <div className="bg-pattern-white pt-40 pb-20">
-          <InfoSection />
+          <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-easing="ease-out-cubic">
+            <InfoSection />
+          </div>
         </div>
 
-        <div className="h-[10px] w-full bg-candlelight-600" />
+        <div
+          className="h-[10px] w-full bg-candlelight-600"
+          data-aos="fade-in"
+          data-aos-duration="400"
+        />
 
-        <div data-aos="fade-up" data-aos-duration={1000}>
+        <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-out-cubic">
           <Sponsorship />
         </div>
 
-        <Footer />
+        <div data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-out-quart">
+          <Footer />
+        </div>
       </div>
     </>
   );
