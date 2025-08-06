@@ -189,7 +189,6 @@ const Page = ({ response }) => {
                                     <DialogTrigger asChild>
                                         <Button className="bg-white text-[#CF7A1F] border border-[#CF7A1F] hover:bg-white hover:border-[#cf7a1f] hover:shadow-md transition-colors duration-200">
                                             Edit Foto Profil
-
                                         </Button>
                                     </DialogTrigger>
                                     <DialogContent className="sm:max-w-[425px]">
