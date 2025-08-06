@@ -136,7 +136,7 @@ export const navItems: NavItem[] = [
     title: "Tesla",
     // href: {route("dashboard.dokumentasi.index")},
     href: "/dashboard/tesla",
-    icon: "game",
+    icon: "tesla",
     label: "Tesla",
     role_id: [3],
   },

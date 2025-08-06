@@ -42,7 +42,7 @@ import {
   UserCheck,
 } from "lucide-react";
 
-import { IconBooks, IconDeviceGamepad2 } from "@tabler/icons-react";
+import { IconBooks, IconDeviceGamepad2, IconGoGame, } from "@tabler/icons-react";
 
 export type Icon = LucideIcon;
 
@@ -105,4 +105,5 @@ export const Icons = {
   game: IconDeviceGamepad2,
   bookCheck: BookCheck,
   image: Image,
+  tesla: IconGoGame,
 };
