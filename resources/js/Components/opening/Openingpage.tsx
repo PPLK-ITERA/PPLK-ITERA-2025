@@ -22,8 +22,8 @@ const OpeningPage = ({ onComplete }) => {
 
     const images = [
         { id: 0, src: pplk2025, alt: 'PPLK 2025', title: 'ADVENTURE AWAITS', year: 'PPLK 2025', link: '/' },
-        { id: 1, src: pplk2024, alt: 'PPLK 2024', title: 'TEAM SPIRIT', year: 'PPLK 2024', link: 'https://pplk2024-755271153581.asia-southeast2.run.app/informasi/pplk' },
-        { id: 2, src: pplk2022, alt: 'PPLK 2022', title: 'LEADERSHIP', year: 'PPLK 2022', link: 'https://pplk2022-755271153581.europe-west1.run.app/' },
+        { id: 1, src: pplk2024, alt: 'PPLK 2024', title: 'TEAM SPIRIT', year: 'PPLK 2024', link: 'https://pplk-itera-2024-production.up.railway.app/informasi/pplk' },
+        { id: 2, src: pplk2022, alt: 'PPLK 2022', title: 'LEADERSHIP', year: 'PPLK 2022', link: 'https://pplk2022-production.up.railway.app/' },
     ];
 
     // Function to get dynamic title based on current image
