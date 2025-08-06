@@ -9,6 +9,7 @@ class DatabaseSeeder extends Seeder
    public function run()
    {
       $this->call([
+         AdminSeeder::class,
          RoleSeeder::class,
          BookletSeeder::class,
          KelompokSeeder::class,
@@ -16,10 +17,8 @@ class DatabaseSeeder extends Seeder
          QrcodeSeeder::class,
          ProdiSeeder::class,
          PenyakitSeeder::class,
-         // PilarSeeder::class,
          FAQSeeder::class,
          ScoreboardSeeder::class,
-         // PresensiPplkSeeder::class,
          QuizSeeder::class,
          QuizAnswerSeeder::class,
          GedungSeeder::class,
@@ -28,7 +27,6 @@ class DatabaseSeeder extends Seeder
          AssesmenQuestionSeeder::class,
          AssesmenAnswerSeeder::class,
          TeslaSeeder::class,
-         AdminSeeder::class,
 
          // PengumpulanTugasSeeder::class,
          // Add more seeders if needed

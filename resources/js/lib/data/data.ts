@@ -37,7 +37,7 @@ export const navItems: NavItem[] = [
     href: "/dashboard/atur-maba",
     icon: "users",
     label: "atur-maba",
-    role_id: [3],
+    role_id: [2, 3, 4],
   },
   {
     title: "Atur Dapmen",
@@ -99,7 +99,7 @@ export const navItems: NavItem[] = [
     title: "Game Offline",
     href: "/dashboard/game-offline",
     icon: "game",
-    label: "atur-informasi-kelompok",
+    label: "game-offline",
     role_id: [2, 3, 4, 6, 8],
   },
   {
@@ -136,7 +136,7 @@ export const navItems: NavItem[] = [
     title: "Tesla",
     // href: {route("dashboard.dokumentasi.index")},
     href: "/dashboard/tesla",
-    icon: "game",
+    icon: "tesla",
     label: "Tesla",
     role_id: [3],
   },

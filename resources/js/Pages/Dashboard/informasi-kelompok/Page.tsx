@@ -2,7 +2,7 @@ import { PageProps } from "vendor/laravel/breeze/stubs/inertia-react-ts/resource
 
 import React, { useEffect, useState } from "react";
 
-import { Link, useForm, usePage } from "@inertiajs/react";
+import { Link, useForm, usePage, Head } from "@inertiajs/react";
 
 import { IconPencil } from "@tabler/icons-react";
 
@@ -126,6 +126,7 @@ export default function Page({ auth }: { auth: any }) {
 
   return (
     <>
+      <Head title="Informasi Kelompok" />
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
         <h2 className="text-3xl font-semibold font-inter tracking-tight">

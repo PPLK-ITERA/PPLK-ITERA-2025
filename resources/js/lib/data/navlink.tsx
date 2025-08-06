@@ -183,4 +183,9 @@ export const UserDropdown = [
     href: "/scoreboard",
     icon: <IconCrown size={24} color="#fcedd8" />,
   },
+  {
+    title: "Tesla",
+    href: "/tesla",
+    icon: <IconGoGame size={24} color="#fcedd8" />,
+  },
 ];

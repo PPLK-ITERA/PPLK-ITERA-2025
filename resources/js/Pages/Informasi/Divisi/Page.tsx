@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import DefaultLayout from "@/Layouts/DefaultLayout";
+import { Head } from "@inertiajs/react";
 // Background images
 import bg_1 from "!assets/divisi/bg-1.png";
 import bg_2 from "!assets/divisi/bg-2.png";
@@ -42,11 +43,10 @@ import logo_18 from "!assets/divisi/logo-18.png";
 
 const Page = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isDragging, setIsDragging] = useState(false);
-    const scrollRef = useRef<HTMLDivElement | null>(null);
+    const [visibleCount, setVisibleCount] = useState(7);
+    // Responsive dot count
+    const [responsiveDotCount, setResponsiveDotCount] = useState(15);
     const intervalRef = useRef<number | null>(null);
-    const dragStartRef = useRef<number>(0);
-    const dragEndRef = useRef<number>(0);
 
     const characters = [
         {
@@ -228,6 +228,30 @@ const Page = () => {
         originalIndex: number;
     };
 
+    // Pisahkan logika dot: dotCount selalu fixed (misal: 10), tidak terikat jumlah gambar
+    const FIXED_DOT_COUNT = 10;
+
+    const updateResponsiveCount = useCallback(() => {
+        if (typeof window !== "undefined") {
+            if (window.innerWidth >= 1024) {
+                setVisibleCount(7);
+                setResponsiveDotCount(15);
+            } else if (window.innerWidth >= 640) {
+                setVisibleCount(5);
+                setResponsiveDotCount(5);
+            } else {
+                setVisibleCount(3);
+                setResponsiveDotCount(3);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        updateResponsiveCount();
+        window.addEventListener('resize', updateResponsiveCount);
+        return () => window.removeEventListener('resize', updateResponsiveCount);
+    }, [updateResponsiveCount]);
+
     // Clear interval when component unmounts or when dragging
     const clearAutoPlay = useCallback(() => {
         if (intervalRef.current) {
@@ -244,222 +268,208 @@ const Page = () => {
         }, 3000);
     }, [characters.length, clearAutoPlay]);
 
-    // Scroll to specific card - fixed positioning
-    const scrollToCard = useCallback((index: number) => {
-        const container = scrollRef.current;
-        if (!container) return;
-
-        const cards = container.children;
-        if (index >= cards.length) return;
-
-        const card = cards[index] as HTMLElement;
-        const containerWidth = container.offsetWidth;
-        const cardWidth = card.offsetWidth;
-        const cardLeft = card.offsetLeft;
-
-        // Center the selected card
-        const scrollPosition = cardLeft - (containerWidth / 2) + (cardWidth / 2);
-
-        container.scrollTo({
-            left: Math.max(0, scrollPosition),
-            behavior: 'smooth',
-        });
-    }, []);
-
-    // Handle logo click
-    const handleLogoClick = useCallback((index: number) => {
-        setCurrentIndex(index);
-        clearAutoPlay();
-        // Restart autoplay after 5 seconds
-        setTimeout(() => {
-            startAutoPlay();
-        }, 5000);
-    }, [clearAutoPlay, startAutoPlay]);
-
-    // Handle drag start
-    const handleDragStart = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-        setIsDragging(true);
-        clearAutoPlay();
-
-        const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-        dragStartRef.current = clientX;
-        e.preventDefault();
-    }, [clearAutoPlay]);
-
-    // Handle drag end
-    const handleDragEnd = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-        if (!isDragging) return;
-
-        setIsDragging(false);
-        const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
-        dragEndRef.current = clientX;
-
-        const dragDistance = dragStartRef.current - dragEndRef.current;
-        const threshold = 50; // minimum distance to trigger slide
-
-        if (Math.abs(dragDistance) > threshold) {
-            if (dragDistance > 0) {
-                // Dragged left, go to next
-                setCurrentIndex(prev => (prev + 1) % characters.length);
-            } else {
-                // Dragged right, go to previous
-                setCurrentIndex(prev => prev === 0 ? characters.length - 1 : prev - 1);
-            }
-        }
-
-        // Restart autoplay after 5 seconds
-        setTimeout(() => {
-            startAutoPlay();
-        }, 5000);
-    }, [isDragging, characters.length, startAutoPlay]);
-
-    // Initialize with proper positioning
-    useEffect(() => {
-        scrollToCard(currentIndex);
-    }, [currentIndex, scrollToCard]);
-
-    // Start autoplay on mount
     useEffect(() => {
         startAutoPlay();
         return clearAutoPlay;
     }, [startAutoPlay, clearAutoPlay]);
 
+    const handleLogoClick = useCallback((index: number) => {
+        setCurrentIndex(index);
+        clearAutoPlay();
+        setTimeout(() => {
+            startAutoPlay();
+        }, 5000);
+    }, [clearAutoPlay, startAutoPlay]);
+
     const currentCharacter = characters[currentIndex];
-
-    // Tambahkan debug log untuk memastikan jumlah karakter
-    console.log('Jumlah karakter:', characters.length);
-
     if (!currentCharacter) return null;
 
-    // Generate visible logos (show 3 at a time with proper looping)
-    const getVisibleLogos = (): VisibleLogo[] => {
-        const visible: VisibleLogo[] = [];
-        const totalLogos = characters.length;
+    // Preload all backgrounds on mount (agar transisi antar gambar tidak delay)
+    useEffect(() => {
+        characters.forEach(char => {
+            const img = new window.Image();
+            img.src = char.background;
+        });
+    }, [characters]);
 
-        // Always show 3 logos: previous, current, next
-        for (let i = -1; i <= 1; i++) {
-            let index = currentIndex + i;
-            if (index < 0) index = totalLogos - 1;
-            if (index >= totalLogos) index = 0;
-            visible.push({ ...characters[index], originalIndex: index });
+    // --- DOT LOGIC: FIXED WINDOW, DOT SELALU MAJU SAAT INDEX BERTAMBAH ---
+    // Dots window always moves right as currentIndex increases, but only after currentIndex >= Math.floor(dotCount/2)
+    // For the first few indexes, the window stays at 0, then slides right as currentIndex increases.
+    // Dot active position is always Math.min(currentIndex, Math.floor(dotCount/2)) for the first window, then always in the center.
+    function getDotIndexes(current: number, total: number, dotCount: number): number[] {
+        if (total <= dotCount) {
+            return Array.from({ length: total }, (_, i) => i);
         }
+        const half = Math.floor(dotCount / 2);
+        let start = current - half;
+        if (start < 0) start = 0;
+        if (start > total - dotCount) start = total - dotCount;
+        return Array.from({ length: dotCount }, (_, i) => start + i);
+    }
 
-        return visible;
+    // Drag state for logo carousel
+    const [dragging, setDragging] = useState(false);
+    const [dragStartX, setDragStartX] = useState<number | null>(null);
+    const [dragDelta, setDragDelta] = useState(0);
+    const carouselRef = useRef<HTMLDivElement>(null);
+
+    // Calculate visible indexes for carousel
+    const getVisibleIdxs = () => {
+        const total = characters.length;
+        const half = Math.floor(visibleCount / 2);
+        let visibleIdxs: number[] = [];
+        for (let i = -half; i <= half; i++) {
+            let idx = (currentIndex + i + total) % total;
+            visibleIdxs.push(idx);
+        }
+        return visibleIdxs;
     };
 
-    const visibleLogos = getVisibleLogos();
-
-    // Helper to get responsive value
-    const getResponsiveValue = (desktop: number, tablet: number, mobile: number) => {
-        if (typeof window !== "undefined") {
-            if (window.innerWidth >= 1024) return desktop; // lg+
-            if (window.innerWidth >= 640) return tablet;   // sm/md
-            return mobile;
-        }
-        return desktop;
+    // Drag handlers
+    const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+        setDragging(true);
+        setDragStartX('touches' in e ? e.touches[0].clientX : e.clientX);
+        setDragDelta(0);
+        clearAutoPlay();
     };
+
+    const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
+        if (!dragging || dragStartX === null) return;
+        const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+        setDragDelta(clientX - dragStartX);
+    };
+
+    const handleDragEnd = () => {
+        if (!dragging) return;
+        setDragging(false);
+        if (Math.abs(dragDelta) > 40) {
+            if (dragDelta < 0) {
+                // drag left
+                setCurrentIndex((prev) => (prev + 1) % characters.length);
+            } else {
+                // drag right
+                setCurrentIndex((prev) => (prev - 1 + characters.length) % characters.length);
+            }
+        }
+        setDragStartX(null);
+        setDragDelta(0);
+        setTimeout(() => {
+            startAutoPlay();
+        }, 2000);
+    };
+
+    // Prevent image drag ghost
+    useEffect(() => {
+        const ref = carouselRef.current;
+        if (!ref) return;
+        const prevent = (e: Event) => e.preventDefault();
+        ref.addEventListener('dragstart', prevent);
+        return () => ref.removeEventListener('dragstart', prevent);
+    }, []);
 
     return (
-        <DefaultLayout>
-            <div className="min-h-screen transition-all duration-1000 ease-in-out relative overflow-hidden">
-                {/* Layer background semua divisi, opacity 50% */}
-                <div className="absolute inset-0 z-0 pointer-events-none">
-                    {characters.map((char, idx) => (
-                        <img
-                            key={char.id}
-                            src={char.background}
-                            alt=""
-                            className="absolute inset-0 w-full h-full object-cover"
-                            style={{
-                                zIndex: 1,
-                                opacity: 0.5, // Selalu 50% meskipun sedang aktif
-                                pointerEvents: 'none',
-                            }}
-                        />
-                    ))}
-                </div>
-                {/* Layer background utama */}
-                <div
-                    className="absolute inset-0 z-10"
-                    style={{
-                        backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${currentCharacter.background})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundAttachment: 'fixed',
-                        opacity: 1,
-                        pointerEvents: 'none',
-                    }}
-                />
-                {/* Overlay untuk efek tambahan */}
-                <div className="absolute inset-0 bg-black/20 z-20"></div>
-
-                {/* Decorative elements */}
-                <div className="absolute inset-0 opacity-10 z-30">
-                    <div className="absolute top-20 left-20 w-32 h-32 border border-white/20 rounded-full"></div>
-                    <div className="absolute bottom-20 right-20 w-48 h-48 border border-white/20 rounded-full"></div>
-                    <div className="absolute top-1/2 left-1/4 w-24 h-24 border border-white/20 rounded-full"></div>
-                </div>
-
-                <div className="relative z-40 flex flex-col min-h-screen">
-                    {/* Left Info */}
-                    <div className="flex-1 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-10 text-white">
-                        {/* Tambahkan margin top lebih besar agar konten lebih ke bawah */}
-                        <div className="mt-32">
-                            <h1 className={`text-3xl font-greek sm:text-4xl lg:text-6xl font-bold transition-colors duration-500 mb-4 text-center drop-shadow-lg`}>
-                                {currentCharacter.name}
-                            </h1>
-                            {/* Hanya tampilkan title/makna jika ada */}
-                            {currentCharacter.title && (
-                                <p className="text-white/90 text-md sm:text-lg mb-1 text-center transition-all duration-500 drop-shadow-md">
-                                    {currentCharacter.title}
-                                </p>
-                            )}
-                            {currentCharacter.makna && (
-                                <p className="text-white/90 text-md sm:text-lg mt-4 mb-2 text-center transition-all duration-500 drop-shadow-md">
-                                    {currentCharacter.makna}
-                                </p>
-                            )}
-                        </div>
+        <>
+            <Head title="Divisi PPLK" />
+            <DefaultLayout>
+                <div className="min-h-screen transition-all duration-1000 ease-in-out relative overflow-hidden">
+                    {/* Preload all backgrounds (hidden, for browser cache) */}
+                    <div style={{ display: 'none' }}>
+                        {characters.map(char => (
+                            <img key={char.id} src={char.background} alt="" />
+                        ))}
                     </div>
-                    {/* Logo carousel at the bottom, responsive max */}
-                    <div className="w-full flex justify-center items-end pb-8">
-                        <div
-                            className="flex items-center justify-center space-x-4 sm:space-x-6 md:space-x-8 overflow-x-auto scrollbar-hide"
-                            style={{
-                                maxWidth: '100vw',
-                                paddingLeft: '1rem',
-                                paddingRight: '1rem',
-                            }}
-                        >
-                            {/* Responsive logo display: desktop 7, tab 5, mobile 3 */}
-                            {(() => {
-                                let visibleCount = 7;
-                                if (typeof window !== "undefined") {
-                                    if (window.innerWidth >= 1024) visibleCount = 7;
-                                    else if (window.innerWidth >= 640) visibleCount = 5;
-                                    else visibleCount = 3;
-                                }
-                                const total = characters.length;
-                                let visibleIdxs: number[] = [];
-                                const half = Math.floor(visibleCount / 2);
-                                for (let i = -half; i <= half; i++) {
-                                    let idx = (currentIndex + i + total) % total;
-                                    visibleIdxs.push(idx);
-                                }
-                                return visibleIdxs.map(idx => {
+                    {/* Layer background utama */}
+                    <div
+                        className="absolute inset-0 z-10"
+                        style={{
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${currentCharacter.background})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundAttachment: 'fixed',
+                            opacity: 1,
+                            pointerEvents: 'none',
+                        }}
+                    />
+                    {/* Overlay untuk efek tambahan */}
+                    <div className="absolute inset-0 bg-black/20 z-20"></div>
+
+                    {/* Decorative elements */}
+                    <div className="absolute inset-0 opacity-10 z-30">
+                        <div className="absolute top-20 left-20 w-32 h-32 border border-white/20 rounded-full"></div>
+                        <div className="absolute bottom-20 right-20 w-48 h-48 border border-white/20 rounded-full"></div>
+                        <div className="absolute top-1/2 left-1/4 w-24 h-24 border border-white/20 rounded-full"></div>
+                    </div>
+
+                    <div className="relative z-40 flex flex-col min-h-screen">
+                        {/* Left Info */}
+                        <div className="flex-1 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-10 text-white">
+                            {/* Tambahkan margin top lebih besar agar konten lebih ke bawah */}
+                            <div className="mt-32">
+                                <h1 className={`text-3xl font-greek sm:text-4xl lg:text-6xl font-bold transition-colors duration-500 mb-4 text-center drop-shadow-lg`}>
+                                    {currentCharacter.name}
+                                </h1>
+                                {/* Hanya tampilkan title/makna jika ada */}
+                                {currentCharacter.title && (
+                                    <p className="text-white/90 text-md sm:text-lg mb-1 text-center transition-all duration-500 drop-shadow-md">
+                                        {currentCharacter.title}
+                                    </p>
+                                )}
+                                {currentCharacter.makna && (
+                                    <p className="text-white/90 text-md sm:text-lg mt-4 mb-2 text-center transition-all duration-500 drop-shadow-md">
+                                        {currentCharacter.makna}
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+                        {/* Logo carousel at the bottom, responsive max */}
+                        <div className="w-full flex justify-center items-end pb-8">
+                            <div
+                                ref={carouselRef}
+                                className="flex items-center justify-center space-x-4 sm:space-x-6 md:space-x-8 select-none cursor-grab active:cursor-grabbing"
+                                style={{
+                                    maxWidth: '100vw',
+                                    paddingLeft: '1rem',
+                                    paddingRight: '1rem',
+                                    // Drag effect: translateX proportional to dragDelta
+                                    transform: dragging ? `translateX(${dragDelta}px)` : undefined,
+                                    transition: dragging ? 'none' : 'transform 0.3s cubic-bezier(.4,1,.4,1)',
+                                    userSelect: 'none',
+                                }}
+                                onMouseDown={handleDragStart}
+                                onMouseMove={handleDragMove}
+                                onMouseUp={handleDragEnd}
+                                onMouseLeave={handleDragEnd}
+                                onTouchStart={handleDragStart}
+                                onTouchMove={handleDragMove}
+                                onTouchEnd={handleDragEnd}
+                            >
+                                {getVisibleIdxs().map(idx => {
                                     const logo = characters[idx];
+                                    let scale = 0.9, opacity = 0.5, z = 0, translateY = 0;
+                                    if (idx === currentIndex) {
+                                        scale = 1.15;
+                                        opacity = 1;
+                                        z = 10;
+                                        translateY = -10;
+                                    } else if (
+                                        idx === (currentIndex + 1) % characters.length ||
+                                        idx === (currentIndex - 1 + characters.length) % characters.length
+                                    ) {
+                                        scale = 1.0;
+                                        opacity = 0.8;
+                                        z = 5;
+                                    }
                                     return (
                                         <div
                                             key={logo.id}
-                                            className={`transition-all duration-500 ease-in-out ${
-                                                idx === currentIndex
-                                                    ? 'scale-110 opacity-100 z-10'
-                                                    : 'scale-90 opacity-50 z-0'
-                                            }`}
+                                            className="transition-all duration-500 ease-in-out flex flex-col items-center"
                                             style={{
                                                 minWidth: 64,
                                                 maxWidth: 120,
+                                                transform: `scale(${scale}) translateY(${translateY}px)`,
+                                                opacity,
+                                                zIndex: z,
                                             }}
                                         >
                                             <img
@@ -471,48 +481,15 @@ const Page = () => {
                                             />
                                         </div>
                                     );
-                                });
-                            })()}
+                                })}
+                            </div>
                         </div>
-                    </div>
-                    {/* Navigation dots */}
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-                        {(() => {
-                            // Responsive dot count: desktop 15, tab 10, mobile 5
-                            let dotCount = 15;
-                            if (typeof window !== "undefined") {
-                                if (window.innerWidth >= 1024) dotCount = 15;
-                                else if (window.innerWidth >= 640) dotCount = 10;
-                                else dotCount = 5;
-                            }
-                            // Spread dots evenly across characters
-                            const total = characters.length;
-                            let dotIndexes: number[] = [];
-                            if (dotCount >= total) {
-                                dotIndexes = Array.from({ length: total }, (_, i) => i);
-                            } else {
-                                for (let i = 0; i < dotCount; i++) {
-                                    dotIndexes.push(Math.round(i * (total - 1) / (dotCount - 1)));
-                                }
-                            }
-                            // Remove duplicates if any (can happen due to rounding)
-                            dotIndexes = Array.from(new Set(dotIndexes));
-                            return dotIndexes.map(index => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleLogoClick(index)}
-                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                        index === currentIndex
-                                            ? 'bg-white scale-125'
-                                            : 'bg-white/40 hover:bg-white/60'
-                                    }`}
-                                />
-                            ));
-                        })()}
+                        {/* Navigation dots */}
+                        {/* Dots removed as requested */}
                     </div>
                 </div>
-            </div>
-        </DefaultLayout>
+            </DefaultLayout>
+        </>
     );
 };
 

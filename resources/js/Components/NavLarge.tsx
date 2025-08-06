@@ -42,24 +42,26 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
         <DropdownMenuContent
           className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
         >
-          {InformasiDropDown.map((item, index) => (
-            <DropdownMenuItem
-              key={index}
-              className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
-            >
-              <Link
-                href={item.href}
-                className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+          {InformasiDropDown.map((item, index) =>
+            item ? (
+              <DropdownMenuItem
+                key={index}
+                className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
               >
-                <span
-                  className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                <Link
+                  href={item.href}
+                  className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                 >
-                  {item.icon}
-                </span>
-                {item.title}
-              </Link>
-            </DropdownMenuItem>
-          ))}
+                  <span
+                    className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                  >
+                    {item.icon}
+                  </span>
+                  {item.title}
+                </Link>
+              </DropdownMenuItem>
+            ) : null
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
 

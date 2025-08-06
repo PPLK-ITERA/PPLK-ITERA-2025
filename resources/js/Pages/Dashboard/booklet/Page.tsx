@@ -4,7 +4,7 @@ import { useDebouncedCallback } from "use-debounce";
 
 import React, { FormEvent, useEffect, useState } from "react";
 
-import { useForm } from "@inertiajs/react";
+import { useForm, Head } from "@inertiajs/react";
 
 import { CalendarIcon } from "lucide-react";
 
@@ -64,35 +64,39 @@ export default function Page({ auth, response }) {
   ];
 
   return (
-    <DashboardLayout user={auth.user}>
-      <Breadcrumbs items={breadcrumbItems} />
-      <h2 className="text-3xl font-bold tracking-tight">Atur Booklet</h2>
+    <>
+      <Head title="Atur Booklet" />
+      <DashboardLayout user={auth.user}>
+        <Breadcrumbs items={breadcrumbItems} />
+        <h2 className="text-3xl font-bold tracking-tight">Atur Booklet</h2>
 
-      <div className="place-content-start flex w-full">
-        {/* add dialog */}
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button>
-              <IconPlus size={18} />
-              <span>Tambah Booklet</span>
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="border-none">
-            <DialogHeader>
-              <DialogTitle>Tambah Booklet</DialogTitle>
-            </DialogHeader>
-            <BookletForm />
-          </DialogContent>
-        </Dialog>
-      </div>
+        <div className="place-content-start flex w-full">
+          {/* add dialog */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button>
+                <IconPlus size={18} />
+                <span>Tambah Booklet</span>
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="border-none">
+              <DialogHeader>
+                <DialogTitle>Tambah Booklet</DialogTitle>
+              </DialogHeader>
+              <BookletForm />
+            </DialogContent>
+          </Dialog>
+        </div>
 
-      <DataTable
-        searchKey="name"
-        columns={columns}
-        apiEndpoint={route("dashboard.booklet.data")}
-        title={"Data Booklet"}
-      />
-      <Toaster />
-    </DashboardLayout>
+        <DataTable
+          searchKey="name"
+          columns={columns}
+          apiEndpoint={route("dashboard.booklet.data")}
+          title={"Data Booklet"}
+          description="Kelola data booklet untuk mahasiswa baru"
+        />
+        <Toaster />
+      </DashboardLayout>
+    </>
   );
 }

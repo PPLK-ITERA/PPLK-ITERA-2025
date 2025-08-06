@@ -2,6 +2,7 @@
 import React from "react";
 
 // import { usePage } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { AturMabaClient } from "@/Components/tables/atur-maba/client";
@@ -20,6 +21,7 @@ export default function Page({ auth }) {
 
   return (
     <>
+      <Head title="Atur Maba" />
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
         <h2 className="text-3xl font-semibold font-inter tracking-tight">Atur Maba</h2>

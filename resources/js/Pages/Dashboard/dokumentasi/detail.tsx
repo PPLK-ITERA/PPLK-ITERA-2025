@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Head } from "@inertiajs/react";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 
 import DashboardLayout from "@/Layouts/DashboardLayout";
@@ -13,6 +14,7 @@ const breadcrumbItems = [
 export default function Page({ auth, dokumentasi }) {
 	return (
 		<>
+			<Head title={`Dokumentasi Hari ke-${dokumentasi.hari_ke}`} />
 	    <DashboardLayout user={auth.user}>
 	      <Breadcrumbs items={breadcrumbItems} />
 	      <h2 className="text-3xl font-inter font-semibold tracking-tight">Dokumentasi Kegiatan Hari ke-{dokumentasi.hari_ke}</h2>
@@ -32,10 +34,12 @@ export default function Page({ auth, dokumentasi }) {
 	      		</a>
 	      	</div>
 	      	<div className="my-3 p-3 bg-white rounded-xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-	      		{dokumentasi.fotos.map((item) => {
+	      		{dokumentasi.fotos.map((item, index) => {
 	      			return (
 		      			<img
+		      				key={index}
 		      				src={item.path_file + item.nama_file}
+		      				alt={`Dokumentasi ${dokumentasi.judul} ${index + 1}`}
 		      				className="relative h-32 md:h-48 m-3 shadow-lg"
 		      			/>
 		      		);

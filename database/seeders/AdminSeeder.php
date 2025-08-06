@@ -37,7 +37,7 @@ class AdminSeeder extends Seeder
 
             $firstline = true;
             $users = [];
-            $fileSize = filesize(base_path("database/csv/AkunKartatera.csv"));
+            $fileSize = filesize(base_path("database/csv/AkunAthenarupa.csv")); // perbaiki path file
             $processedBytes = 0;
             $totalProcessed = 0;  // Count total lines processed for progress calculation
 

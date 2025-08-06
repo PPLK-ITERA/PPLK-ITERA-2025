@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 import { IconLayoutNavbarFilled, IconLogout } from "@tabler/icons-react";
 
@@ -34,10 +34,30 @@ export function UserSidebar({ user }) {
     const { isMinimized } = useSidebar();
     const [photoUrl, setPhotoUrl] = useState<string>(() => user.photo_profile_url || "");
     const [objectUrl, setObjectUrl] = useState<string | null>(null);
+    const page = usePage();
+    const pathname = page?.url || window.location.pathname;
 
     useEffect(() => {
         let didCancel = false;
-        // Tambahkan timestamp agar selalu fetch terbaru
+        const cacheKey = "profile_photo_cache";
+        const cacheTimeKey = "profile_photo_cache_time";
+        const cacheExpiry = 1000 * 60 * 10; // 10 minutes
+
+        // If on /dashboard, clear cache and fetch fresh
+        if (pathname === "/dashboard") {
+            localStorage.removeItem(cacheKey);
+            localStorage.removeItem(cacheTimeKey);
+        } else {
+            // Try to load from cache
+            const cached = localStorage.getItem(cacheKey);
+            const cachedTime = localStorage.getItem(cacheTimeKey);
+            if (cached && cachedTime && Date.now() - parseInt(cachedTime) < cacheExpiry) {
+                setPhotoUrl(cached);
+                return;
+            }
+        }
+
+        // Fetch fresh photo
         const apiUrl = `http://localhost:8000/api/photo-profile?ts=${Date.now()}`;
         fetch(apiUrl, {
             credentials: "include",
@@ -54,6 +74,16 @@ export function UserSidebar({ user }) {
                         if (objectUrl) URL.revokeObjectURL(objectUrl);
                         setPhotoUrl(url);
                         setObjectUrl(url);
+
+                        // Cache as base64
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                            try {
+                                localStorage.setItem(cacheKey, reader.result as string);
+                                localStorage.setItem(cacheTimeKey, Date.now().toString());
+                            } catch { }
+                        };
+                        reader.readAsDataURL(blob);
                     } else {
                         URL.revokeObjectURL(url);
                     }
@@ -81,7 +111,7 @@ export function UserSidebar({ user }) {
             if (objectUrl) URL.revokeObjectURL(objectUrl);
         };
         // eslint-disable-next-line
-    }, [user.photo_profile_url]);
+    }, [user.photo_profile_url, pathname]);
 
     return (
         <DropdownMenu>
