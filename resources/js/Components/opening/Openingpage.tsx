@@ -265,7 +265,7 @@ const OpeningPage = ({ onComplete }) => {
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
-                        opacity: 0.02,
+                        opacity: 0.05,
                     }}
                 />
                 <div
