@@ -194,7 +194,7 @@ const OpeningPage = ({ onComplete }) => {
                     </div>
                     <div className="w-full h-full relative">
                         <div
-                            className={`absolute inset-0 flex flex-col items-center justify-center bg-black transition-opacity duration-300 ${!isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                            className={`absolute inset-0 flex flex-col items-center justify-center bg-black ${!isLoaded ? '' : 'hidden'}`}
                             style={{
                                 backgroundImage: `url(${images[currentIndex].src})`,
                                 backgroundSize: 'cover',
@@ -204,15 +204,20 @@ const OpeningPage = ({ onComplete }) => {
                         >
                             <div className="absolute inset-0 bg-black bg-opacity-75"></div>
                             <div className="relative z-10 flex flex-col items-center space-y-4">
-                                <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-                                <p className="text-white text-lg font-greek">Loading {images[currentIndex].year}...</p>
+                                <div className="w-20 h-20 border-8 border-white border-t-transparent rounded-full animate-spin"></div>
+                                <p
+                                    className="text-white text-2xl font-greek font-bold"
+                                    style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                                >
+                                    Loading {images[currentIndex].year}...
+                                </p>
                             </div>
                         </div>
                         <iframe
                             key={iframeUrl}
                             src={iframeUrl}
-                            className={`w-full h-full border-0 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-                            style={{ zIndex: isLoaded ? 2 : 0 }}
+                            className="w-full h-full border-0" // Hapus transition-opacity duration-300
+                            style={{ zIndex: isLoaded ? 2 : 0, opacity: isLoaded ? 1 : 0 }}
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             onLoad={() => {
@@ -321,7 +326,7 @@ const OpeningPage = ({ onComplete }) => {
                                 <img
                                     src={images[currentIndex].src}
                                     alt={images[currentIndex].alt}
-                                    className="w-full h-full object-cover rounded-2xl brightness-150 rounded-3xl transition-all duration-300 group-hover:brightness-125"
+                                    className="w-full h-full object-cover brightness-150 rounded-3xl transition-all duration-300 group-hover:brightness-125"
                                 />
                                 {/* Overlay for opacity on hover - timing and style matched */}
                                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-3xl transition-opacity duration-300 group-hover:opacity-40 opacity-0 pointer-events-none"></div>
