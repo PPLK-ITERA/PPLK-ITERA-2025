@@ -4,11 +4,12 @@ import pplk2025 from "!assets/pplk/2025.jpg";
 import pplk2024 from "!assets/pplk/2024.jpg";
 import pplk2022 from "!assets/pplk/2022.jpg";
 import bg1 from "!assets/tesla/bg-3.png"; // tambahkan import background
+import nagaBg from "!assets/pplk/asset_naga.png"; // tambahkan import background naga
 
 
 const OpeningPage = ({ onComplete }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [transitionDirection, setTransitionDirection] = useState(null);
+    const [transitionDirection, setTransitionDirection] = useState<"left" | "right" | null>(null);
     const [isAnimating, setIsAnimating] = useState(false);
     const [fullscreenMode, setFullscreenMode] = useState(false);
     const [showIframe, setShowIframe] = useState(false);
@@ -203,10 +204,10 @@ const OpeningPage = ({ onComplete }) => {
             <div
                 className="h-screen flex flex-col items-center justify-between relative overflow-hidden px-4 sm:px-6 py-8"
                 style={{
-                    backgroundImage: `url(${bg1})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
+                    backgroundImage: `url(${bg1}), url(${nagaBg})`,
+                    backgroundSize: 'cover, cover',
+                    backgroundPosition: 'center, center',
+                    backgroundRepeat: 'no-repeat, no-repeat',
                 }}
             >
                 {/* Orange overlay for base color, match with #BF4000 and mix-blend-multiply */}
