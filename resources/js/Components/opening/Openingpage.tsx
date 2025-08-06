@@ -19,6 +19,7 @@ const OpeningPage = ({ onComplete }) => {
     const [isIframeLoading, setIsIframeLoading] = useState(true);
     const [loadedIframes, setLoadedIframes] = useState<{ [key: string]: boolean }>({});
     const [iframeReady, setIframeReady] = useState(false);
+    const [activeCard, setActiveCard] = useState<'left' | 'center' | 'right' | null>(null);
 
     const images = [
         { id: 0, src: pplk2025, alt: 'PPLK 2025', title: 'ADVENTURE AWAITS', year: 'PPLK 2025', link: '/' },
@@ -107,6 +108,12 @@ const OpeningPage = ({ onComplete }) => {
 
     const handleImageClick = (index) => {
         if (isAnimating) return;
+        let cardType: 'left' | 'center' | 'right' = 'center';
+        if (index === (currentIndex + images.length - 1) % images.length) cardType = 'left';
+        else if (index === (currentIndex + 1) % images.length) cardType = 'right';
+
+        setActiveCard(cardType);
+
         if (index === currentIndex) {
             if (images[currentIndex].year === 'PPLK 2025') {
                 if (typeof onComplete === 'function') onComplete();
@@ -141,6 +148,7 @@ const OpeningPage = ({ onComplete }) => {
 
     const goToPrevious = () => {
         if (isAnimating) return;
+        setActiveCard('left');
         const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
         setNextIndex(newIndex);
         setTransitionDirection('left');
@@ -149,6 +157,7 @@ const OpeningPage = ({ onComplete }) => {
 
     const goToNext = () => {
         if (isAnimating) return;
+        setActiveCard('right');
         const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
         setNextIndex(newIndex);
         setTransitionDirection('right');
@@ -158,16 +167,17 @@ const OpeningPage = ({ onComplete }) => {
     // Animation timing with delayed index change
     useEffect(() => {
         if (isAnimating) {
-            // Change index at the middle of animation (200ms out of 400ms)
+            // Change index at the middle of animation (100ms out of 250ms)
             const changeTimer = setTimeout(() => {
                 setCurrentIndex(nextIndex);
-            }, 200);
+            }, 100);
 
             // Complete animation
             const completeTimer = setTimeout(() => {
                 setIsAnimating(false);
                 setTransitionDirection(null);
-            }, 400);
+                setActiveCard(null);
+            }, 250);
 
             return () => {
                 clearTimeout(changeTimer);
@@ -291,12 +301,17 @@ const OpeningPage = ({ onComplete }) => {
                         <div className="relative w-full max-w-5xl mx-2 sm:mx-6 flex items-center justify-center space-x-2 sm:space-x-6">
                             {/* Left Image */}
                             <div
-                                className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-400 ease-in-out
-                                        ${transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-75' :
-                                        transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-75' :
-                                            'translate-x-0 opacity-80 scale-95'}
-                                        ${!isAnimating ? 'hover:opacity-100 hover:scale-100' : ''}
-                                        cursor-pointer`}
+                                className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-250 ease-in-out
+                                    ${isAnimating && activeCard === 'right'
+                                        ? 'translate-x-full opacity-0 scale-75'
+                                        : isAnimating && transitionDirection === 'left'
+                                            ? 'translate-x-full opacity-0 scale-75'
+                                            : isAnimating && transitionDirection === 'right'
+                                                ? '-translate-x-full opacity-0 scale-75'
+                                                : 'translate-x-0 opacity-80 scale-95'
+                                    }
+                                    ${!isAnimating ? 'hover:opacity-100 hover:scale-100' : ''}
+                                    cursor-pointer`}
                                 onClick={() => handleImageClick((currentIndex + images.length - 1) % images.length)}
                             >
                                 <img
@@ -317,16 +332,88 @@ const OpeningPage = ({ onComplete }) => {
 
                             {/* Center Image - Overlay timing and style matched to side cards */}
                             <div
-                                className={`relative w-1/2 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] aspect-[2/3] transform transition-all duration-400 ease-in-out z-10 group
+                                className={`relative w-1/2 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] aspect-[2/3] transform transition-all duration-250 ease-in-out z-10 group
                                     hover:scale-100 active:scale-95 touch-pan-y
-                                    ${isAnimating ? (transitionDirection === 'right' ? 'translate-x-full opacity-0 scale-75' : '-translate-x-full opacity-0 scale-75') : 'translate-x-0 opacity-100 scale-95'}
+                                    ${isAnimating
+                                        ? (
+                                            activeCard === 'right' || activeCard === 'left'
+                                                ? 'scale-75 opacity-0'
+                                                : (transitionDirection === 'right'
+                                                    ? 'translate-x-full opacity-0 scale-75'
+                                                    : '-translate-x-full opacity-0 scale-75')
+                                        )
+                                        : 'translate-x-0 opacity-100 scale-95'
+                                    }
                                     ${!isAnimating ? 'cursor-pointer' : ''}`}
                                 onClick={() => handleImageClick(currentIndex)}
                             >
+                                {/* Card double - left shadow */}
+                                <div
+                                    className="absolute left-0 top-0 w-full h-full z-0 pointer-events-none"
+                                    style={{
+                                        transform: 'rotate(-1.5deg) scale(0.96) translateX(-8px)',
+                                        filter: 'brightness(0.90) blur(0.5px)',
+                                        opacity: 0.6,
+                                    }}
+                                >
+                                    <img
+                                        src={images[currentIndex].src}
+                                        alt={images[currentIndex].alt}
+                                        className="w-full h-full object-cover rounded-2xl"
+                                    />
+                                    {/* Border for left shadow card */}
+                                    <div
+                                        className="absolute inset-0 pointer-events-none"
+                                        style={{
+                                            border: '3px solid #FFF',
+                                            borderRadius: '0.5rem',
+                                            zIndex: 20,
+                                            opacity: 0.10,
+                                            boxShadow: `
+                                                0px -8px 16px -8px rgba(255,255,255,0.15), /* top left */
+                                                8px 8px 16px -8px rgba(255,255,255,0.35),  /* bottom right */
+                                                -8px 8px 16px -8px rgba(255,255,255,0.15), /* bottom left */
+                                                8px -8px 16px -8px rgba(255,255,255,0.15)  /* top right */
+                                            `,
+                                        }}
+                                    ></div>
+                                </div>
+                                {/* Card double - right shadow */}
+                                <div
+                                    className="absolute left-0 top-0 w-full h-full z-0 pointer-events-none"
+                                    style={{
+                                        transform: 'rotate(1.5deg) scale(0.96) translateX(8px)',
+                                        filter: 'brightness(0.90) blur(0.5px)',
+                                        opacity: 0.6,
+                                    }}
+                                >
+                                    <img
+                                        src={images[currentIndex].src}
+                                        alt={images[currentIndex].alt}
+                                        className="w-full h-full object-cover rounded-2xl"
+                                    />
+                                    {/* Border for right shadow card */}
+                                    <div
+                                        className="absolute inset-0 pointer-events-none"
+                                        style={{
+                                            borderRadius: '0.5rem',
+                                            border: '3px solid #FFF',
+                                            zIndex: 20,
+                                            opacity: 0.10,
+                                            boxShadow: `
+                                                0px -8px 16px -8px rgba(255,255,255,0.15), /* top left */
+                                                8px 8px 16px -8px rgba(255,255,255,0.35),  /* bottom right */
+                                                -8px 8px 16px -8px rgba(255,255,255,0.15), /* bottom left */
+                                                8px -8px 16px -8px rgba(255,255,255,0.15)  /* top right */
+                                            `,
+                                        }}
+                                    ></div>
+                                </div>
+                                {/* Main center card */}
                                 <img
                                     src={images[currentIndex].src}
                                     alt={images[currentIndex].alt}
-                                    className="w-full h-full object-cover brightness-150 rounded-3xl transition-all duration-300 group-hover:brightness-125"
+                                    className="w-full h-full object-cover brightness-150 rounded-3xl transition-all duration-300 group-hover:brightness-125 relative z-10"
                                 />
                                 {/* Overlay for opacity on hover - timing and style matched */}
                                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-3xl transition-opacity duration-300 group-hover:opacity-40 opacity-0 pointer-events-none"></div>
@@ -338,17 +425,37 @@ const OpeningPage = ({ onComplete }) => {
                                         {images[currentIndex].year}
                                     </h3>
                                 </div>
-                                <div className="absolute inset-0 border-2 sm:border-4 border-white border-opacity-25 rounded-3xl transition-opacity duration-300"></div>
+                                {/* Custom border for center card */}
+                                <div
+                                    className="absolute inset-0 pointer-events-none"
+                                    style={{
+                                        border: '3px solid #FFF',
+                                        borderRadius: '1.5rem',
+                                        zIndex: 20,
+                                        opacity: 0.10,
+                                        boxShadow: `
+                                            0px -8px 16px -8px rgba(255,255,255,0.15),
+                                            8px 8px 16px -8px rgba(255,255,255,0.35),
+                                            -8px 8px 16px -8px rgba(255,255,255,0.15),
+                                            8px -8px 16px -8px rgba(255,255,255,0.15)
+                                        `,
+                                    }}
+                                ></div>
                             </div>
 
                             {/* Right Image - Faster and smoother transitions */}
                             <div
-                                className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-400 ease-in-out
-                                ${transitionDirection === 'right' && isAnimating ? '-translate-x-full opacity-0 scale-75' :
-                                        transitionDirection === 'left' && isAnimating ? 'translate-x-full opacity-0 scale-75' :
-                                            'translate-x-0 opacity-80 scale-95'}
-                                ${!isAnimating ? 'hover:opacity-100 hover:scale-100' : ''}
-                                cursor-pointer`}
+                                className={`relative w-1/3 max-w-[100px] sm:max-w-[140px] md:max-w-[180px] aspect-[2/3] transform transition-all duration-250 ease-in-out
+                                    ${isAnimating && activeCard === 'left'
+                                        ? '-translate-x-full opacity-0 scale-75'
+                                        : isAnimating && transitionDirection === 'right'
+                                            ? '-translate-x-full opacity-0 scale-75'
+                                            : isAnimating && transitionDirection === 'left'
+                                                ? 'translate-x-full opacity-0 scale-75'
+                                                : 'translate-x-0 opacity-80 scale-95'
+                                    }
+                                    ${!isAnimating ? 'hover:opacity-100 hover:scale-100' : ''}
+                                    cursor-pointer`}
                                 onClick={() => handleImageClick((currentIndex + 1) % images.length)}
                             >
                                 <img
@@ -396,14 +503,19 @@ const OpeningPage = ({ onComplete }) => {
                                             const total = images.length;
                                             setNextIndex(index);
 
+                                            // Tentukan arah dan set activeCard agar animasi konsisten
                                             if ((index === 0 && currentIndex === total - 1)) {
                                                 setTransitionDirection('right');
+                                                setActiveCard('right');
                                             } else if ((index === total - 1 && currentIndex === 0)) {
                                                 setTransitionDirection('left');
+                                                setActiveCard('left');
                                             } else if (index > currentIndex) {
                                                 setTransitionDirection('right');
+                                                setActiveCard('right');
                                             } else {
                                                 setTransitionDirection('left');
+                                                setActiveCard('left');
                                             }
                                             setIsAnimating(true);
                                         }
