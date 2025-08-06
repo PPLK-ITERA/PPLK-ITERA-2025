@@ -169,7 +169,7 @@ export const devTeam = {
     },
     {
       name: "Aditya Kristian Novalino",
-      instagram: "scxzxz",
+      instagram: "aditkristiann",
       role: "Staff Back-End",
       quote: "Serve to be better.",
       photo: getPhoto(aditya),
