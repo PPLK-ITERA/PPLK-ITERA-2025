@@ -13,7 +13,7 @@ export const KelompokClient = () => {
                 columns={columns}
                 apiEndpoint={route("dashboard.user.data.maba")}
                 title={"Data Kelompok"}
-                description=""
+                description="Silahkan edit status akun maba di bawah ini."
             />
         </>
     );
