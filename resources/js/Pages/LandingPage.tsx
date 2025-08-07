@@ -15,7 +15,6 @@ import { useAos } from "@/lib/hooks/useAos";
 import elang from "!assets/elang-hero.png";
 import overlay_earth from "!assets/overlay-earth.png";
 import pillar_brown2 from "!assets/pillar-brown2.png";
-import sponsor_overlay from "!assets/sponsor-overlay.png";
 
 export default function LandingPage() {
   const [showOpening, setShowOpening] = useState(true);
