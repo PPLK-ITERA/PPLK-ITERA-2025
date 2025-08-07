@@ -1,13 +1,11 @@
-import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
-import angka_10 from "!assets/filosofi-pilar/angka-10.png";
+import angka_11 from "!assets/filosofi-pilar/angka 11 abu2.png";
+import helm_sparta from "!assets/filosofi-pilar/helm sparta.png";
+import ornamen_lampung from "!assets/filosofi-pilar/ornamen lampung.png";
+import pedang_kebawah from "!assets/filosofi-pilar/pedang kebawah.png";
+import perisai_yunani from "!assets/filosofi-pilar/perisai hitam.png";
 import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
-import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
-import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
-import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
-import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
-
 export interface NavItem {
-  title: string;
+    title: string;
   href?: string;
   disabled?: boolean;
   external?: boolean;
@@ -262,24 +260,28 @@ export const users: User[] = [
 
 export const DataFilosofiLogo = [
   {
-    image: helai_daun,
+    image: angka_11,
+    title: "ANGKA 11",
+    description:
+    "Menandakan bahwa tahun ini merupakan Tahun ke-11 ITERA sudah berdiri. Sebuah penanda perjalanan panjang dalam membentuk karakter awal para mahasiswa baru.",
+  },
+  {
+    image: perisai_yunani,
     title: "PERISAI YUNANI",
     description: "Merupakan ciri khas dari perisai Yunani Kuno yang menjadi tema utama PPLK tahun ini. Bentuk V juga melambangkan victory (kemenangan), sejalan dengan semangat juang dan keberhasilan yang diharapkan dari para peserta.",
   },
   {
-    image: pulau_sumatera,
-    title: "ANGKA 11",
-    description:
-      "Menandakan bahwa tahun ini merupakan Tahun ke-11 ITERA sudah berdiri. Sebuah penanda perjalanan panjang dalam membentuk karakter awal para mahasiswa baru.",
-  },
-  {
-    image: tetes_air,
+    image: helm_sparta,
     title: "HELM SPARTA",
-    description:
-      "Melambangkan keberanian, disiplin, dan semangat juang para Satriya ITERA. Helm ini menjadi simbol kesiapan menghadapi tantangan serta keteguhan hati dalam menjunjung nilai-nilai integritas.",
+    description: "Melambangkan keberanian, disiplin, dan semangat juang para Satriya ITERA. Helm ini menjadi simbol kesiapan menghadapi tantangan serta keteguhan hati dalam menjunjung nilai-nilai integritas.",
   },
   {
-    image: naungan_tangan,
+    image: ornamen_lampung,
+    title: "ORNAMEN LAMPUNG",
+    description: "Menggambarkan akar budaya lokal yang kuat, ukiran ini melambangkan ketegasan dan keseimbangan. Sebuah refleksi bahwa dalam keberagaman, mahasiswa ITERA tetap menjunjung nilai harmoni dan karakter yang kokoh.",
+  },
+  {
+    image: pedang_kebawah,
     title: "PEDANG KEBAWAH",
     description: "Menandakan kesiapan para peserta PPLK dalam menerima, menjalani, dan menghadapi seluruh proses kegiatan yang akan berlangsung. Pedang yang tertancap ke bawah juga merepresentasikan kedamaian dan tekad yang telah disiapkan.",
   },
