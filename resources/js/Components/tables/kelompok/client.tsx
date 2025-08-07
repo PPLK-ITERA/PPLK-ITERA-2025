@@ -12,7 +12,7 @@ export const KelompokClient = () => {
                 searchKey="Nama, Nim, Email"
                 columns={columns}
                 apiEndpoint={route("dashboard.user.data.maba")}
-                title={"Kelompok"}
+                title={"Data Kelompok"}
                 description=""
             />
         </>
