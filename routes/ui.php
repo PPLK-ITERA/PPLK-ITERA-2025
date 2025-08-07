@@ -185,9 +185,11 @@ Route::get('tesla', function () {
    return Inertia::render('Tesla/Page');
 })->name('tesla');
 
-Route::get('petaka', function () {
-   return Inertia::render('Petaka/Page');
-})->name('petaka');
+Route::middleware('auth')->group(function () {
+    Route::get('petaka', function () {
+       return Inertia::render('Petaka/Page');
+    })->name('petaka');
+});
 
 Route::get('map', function () {
    return Inertia::render('Map/Page');
