@@ -39,34 +39,34 @@ Route::middleware(['auth', 'checkRole:Admin'])->get('/dashboard/tesla', function
 })->name('admin.tesla.ui');
 
 
-Route::middleware('auth')->group(function () {
-});
-//SEMENTARA DIKELUARIN DARI AUTH
-Route::prefix('api')->group(function () {
-    Route::get('kelompok/score/{id}', [GameController::class, 'getScoreKelompok']);//ini done
-    Route::get('user/score/{id}', [GameController::class, 'getUserScore']);//ini done
-    //admin membuka gedung
-    Route::post('unlockgedungadmin/{id}', [UnlockStatusController::class, 'unlockGedungForMaba']);
-    //Route game
-    //mengambil pertanyaan berdasarkan geddung yang terbuka
-    // Route::get('/gedung/{gedungId}/question', [QuizController::class, 'getAll']);
-    //jawab kuis
-    Route::post('/quiz/{question_id}/answer/{id}', [QuizAnswerController::class, 'storeAnswer']);
-    Route::get('/test', [QuizAnswerController::class, 'test']);
-    //mengambil pertanyaan berdasarkan geddung yang terbuka sebanyak 5 dari 10 soal
-    Route::get('/pertanyaan/{gedung_id}/{id}', [QuizController::class, 'getQuestionsByGedung']);//ini done
-    //check kuis
-    Route::post('check-answers/{id}', [QuizAnswerController::class, 'checkAnswers']);
-    Route::get('/test', [QuizAnswerController::class, 'test']);
-    //membuka status gedung
-    Route::get('/unlock-gedung/{id}', [UnlockStatusController::class, 'unlockGedung']);//ini done
-    //melihat gedung yang terbuka dan tertutup
-    Route::get('/gedung/{id}', [UnlockStatusController::class, 'getGedungAvailable']);//ini done
-    // //score user
-    // Route::get('/user/score', [UserController::class, 'viewScore'])->middleware('auth');
-    // //Melihat score kelompok user
-    // Route::get('/kelompok-score', [UserController::class, 'getKelompokScore']);
-});
+// Route::middleware('auth')->group(function () {
+// });
+// //SEMENTARA DIKELUARIN DARI AUTH
+// Route::prefix('api')->group(function () {
+//     Route::get('kelompok/score/{id}', [GameController::class, 'getScoreKelompok']);//ini done
+//     Route::get('user/score/{id}', [GameController::class, 'getUserScore']);//ini done
+//     //admin membuka gedung
+//     Route::post('unlockgedungadmin/{id}', [UnlockStatusController::class, 'unlockGedungForMaba']);
+//     //Route game
+//     //mengambil pertanyaan berdasarkan geddung yang terbuka
+//     // Route::get('/gedung/{gedungId}/question', [QuizController::class, 'getAll']);
+//     //jawab kuis
+//     Route::post('/quiz/{question_id}/answer/{id}', [QuizAnswerController::class, 'storeAnswer']);
+//     Route::get('/test', [QuizAnswerController::class, 'test']);
+//     //mengambil pertanyaan berdasarkan geddung yang terbuka sebanyak 5 dari 10 soal
+//     Route::get('/pertanyaan/{gedung_id}/{id}', [QuizController::class, 'getQuestionsByGedung']);//ini done
+//     //check kuis
+//     Route::post('check-answers/{id}', [QuizAnswerController::class, 'checkAnswers']);
+//     Route::get('/test', [QuizAnswerController::class, 'test']);
+//     //membuka status gedung
+//     Route::get('/unlock-gedung/{id}', [UnlockStatusController::class, 'unlockGedung']);//ini done
+//     //melihat gedung yang terbuka dan tertutup
+//     Route::get('/gedung/{id}', [UnlockStatusController::class, 'getGedungAvailable']);//ini done
+//     // //score user
+//     // Route::get('/user/score', [UserController::class, 'viewScore'])->middleware('auth');
+//     // //Melihat score kelompok user
+//     // Route::get('/kelompok-score', [UserController::class, 'getKelompokScore']);
+// });
 
 // API progres (tanpa middleware auth untuk get progres by user id)
 Route::middleware('auth')->prefix('api/progres')->group(function () {
