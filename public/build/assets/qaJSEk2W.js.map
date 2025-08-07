@@ -1,0 +1,1 @@
+{"version":3,"file":"qaJSEk2W.js","sources":["../../../resources/js/Pages/Auth/FeedBack/Page.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Page() {\n  return <div>FeedBack Page</div>;\n}\n\nexport default Page;\n"],"names":["Page","jsx","children"],"mappings":"kCAEA,SAASA,IACP,SAAOC,IAAC,OAAIC,SAAA,iBACd"}
