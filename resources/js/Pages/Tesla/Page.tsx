@@ -702,21 +702,6 @@ export default function Page() {
         return null;
     };
 
-    // Ambil history dari localStorage saat mount
-    useEffect(() => {
-        const saved = localStorage.getItem('tesla_history');
-        if (saved) {
-            try {
-                setHistory(JSON.parse(saved));
-            } catch { }
-        }
-    }, []);
-
-    // Simpan history ke localStorage setiap kali berubah
-    useEffect(() => {
-        localStorage.setItem('tesla_history', JSON.stringify(history));
-    }, [history]);
-
     // Fungsi untuk simpan progres ke backend (pakai POST /api/progres)
     const handleSaveProgress = async () => {
         try {
