@@ -88,6 +88,9 @@ export function UserSidebar({ user }) {
                         URL.revokeObjectURL(url);
                     }
                 } else {
+                    // Jika gambar tidak ada di API, hapus cache
+                    localStorage.removeItem(cacheKey);
+                    localStorage.removeItem(cacheTimeKey);
                     if (!didCancel) {
                         setPhotoUrl(user.photo_profile_url || "");
                         if (objectUrl) {
