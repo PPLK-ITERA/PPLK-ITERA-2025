@@ -64,7 +64,7 @@ const kabinetData: Kabinet[] = [
   },
   {
     year: "2025/2026",
-    name: "M. Rizky Saputra",
+    name: "Muhammad Rizky Saputra",
     department: "Teknik Pertambangan 2022",
     kabinet: "Kabinet Resonara",
   },

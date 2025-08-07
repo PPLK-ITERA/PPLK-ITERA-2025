@@ -131,11 +131,11 @@ function App() {
                 <p className="text-xs sm:text-sm md:text-base text-gray-800 px-2 sm:px-4 md:px-6 leading-relaxed">
                   {activeMaskot === "rhinoceto" ? (
                     <>
-                      Halo, namaku Rhinoceto. Aku biasa dipanggil “Cato”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak jantan dan “Cato” yang berarti bijaksana. Aku merupakan perwujudan mahasiswa baru yang senantiasa bijaksana dan berani dalam mengambil keputusan. Namaku menjadi titik balik bagi mahasiswa baru untuk memiliki jiwa kepemimpinan dan mampu bertanggung jawab atas dirinya dan lingkungan sekitar
+                      Halo, namaku Rhinoceto. Aku biasa dipanggil 'Cato'. Namaku berasal dari gabungan kata 'Rhinoceros', yang berarti badak jantan dan 'Cato' yang berarti bijaksana. Aku merupakan perwujudan mahasiswa baru yang senantiasa bijaksana dan berani dalam mengambil keputusan. Namaku menjadi titik balik bagi mahasiswa baru untuk memiliki jiwa kepemimpinan dan mampu bertanggung jawab atas dirinya dan lingkungan sekitar
                     </>
                   ) : (
                     <>
-                      Hai, namaku Rhinocera. Aku biasa di panggil “Sera”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak betina dan “Vara” yang berarti terpilih. Aku menggambarkan mahasiswa-mahasiswa terpilih yang berkesempatan untuk menjajakan  perjalanan akademiknya di pulau Sumatera dan mewujudkan Indonesia emas 2045.
+                      Hai, namaku Rhinocera. Aku biasa di panggil 'Sera'. Namaku berasal dari gabungan kata 'Rhinoceros', yang berarti badak betina dan 'Vara' yang berarti terpilih. Aku menggambarkan mahasiswa-mahasiswa terpilih yang berkesempatan untuk menjajakan  perjalanan akademiknya di pulau Sumatera dan mewujudkan Indonesia emas 2045.
                     </>
                   )}
                 </p>
