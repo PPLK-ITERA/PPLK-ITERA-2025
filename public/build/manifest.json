@@ -1786,11 +1786,11 @@
   },
   "resources/assets/dokumentasi/dokum-45.jpg": {
     "file": "assets/DKkFWke-.jpg",
-    "src": "resources/assets/dokumentasi/dokum-46.jpg"
+    "src": "resources/assets/dokumentasi/dokum-45.jpg"
   },
   "resources/assets/dokumentasi/dokum-46.jpg": {
     "file": "assets/DKkFWke-.jpg",
-    "src": "resources/assets/dokumentasi/dokum-46.jpg"
+    "src": "resources/assets/dokumentasi/dokum-45.jpg"
   },
   "resources/assets/dokumentasi/dokum-47.jpg": {
     "file": "assets/Dp1pF-Wm.jpg",
@@ -2426,15 +2426,15 @@
   },
   "resources/assets/logo-pplk-2025.png": {
     "file": "assets/BaRPi_L0.png",
-    "src": "resources/assets/logo-pplk-2025.png"
+    "src": "resources/assets/logo-pplk-hd.png"
   },
   "resources/assets/logo-pplk-footer.png": {
     "file": "assets/BaRPi_L0.png",
-    "src": "resources/assets/logo-pplk-2025.png"
+    "src": "resources/assets/logo-pplk-hd.png"
   },
   "resources/assets/logo-pplk-hd.png": {
     "file": "assets/BaRPi_L0.png",
-    "src": "resources/assets/logo-pplk-2025.png"
+    "src": "resources/assets/logo-pplk-hd.png"
   },
   "resources/assets/logo-sponsor/arutara.jpg": {
     "file": "assets/BDuQs-bE.jpg",
@@ -2578,7 +2578,7 @@
   },
   "resources/assets/logofooter/pplkwarna.png": {
     "file": "assets/BaRPi_L0.png",
-    "src": "resources/assets/logo-pplk-2025.png"
+    "src": "resources/assets/logo-pplk-hd.png"
   },
   "resources/assets/logokm/KMITERA.png": {
     "file": "assets/_KZkog-U.png",
@@ -4058,7 +4058,7 @@
   },
   "resources/assets/maskot/bg.png": {
     "file": "assets/At390qqd.png",
-    "src": "resources/assets/pattern_lampung.png"
+    "src": "resources/assets/maskot/bg.png"
   },
   "resources/assets/maskot/maskot-pplk-man.png": {
     "file": "assets/BrsZkG18.png",
@@ -4126,7 +4126,7 @@
   },
   "resources/assets/pattern_lampung.png": {
     "file": "assets/At390qqd.png",
-    "src": "resources/assets/pattern_lampung.png"
+    "src": "resources/assets/maskot/bg.png"
   },
   "resources/assets/patternbunga.png": {
     "file": "assets/BizEuhh5.png",

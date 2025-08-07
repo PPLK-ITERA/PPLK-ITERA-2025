@@ -57,7 +57,7 @@ export function UserSidebar({ user }) {
             }
         }
 
-        // Fetch fresh photo
+        // Fetch fresh photos
         const apiUrl = `api/photo-profile?ts=${Date.now()}`;
         fetch(apiUrl, {
             credentials: "include",
