@@ -1,9 +1,8 @@
 import angka_11 from "!assets/filosofi-pilar/angka 11 abu2.png";
+import perisai_yunani from "!assets/filosofi-pilar/perisai hitam.png";
 import helm_sparta from "!assets/filosofi-pilar/helm sparta.png";
 import ornamen_lampung from "!assets/filosofi-pilar/ornamen lampung.png";
 import pedang_kebawah from "!assets/filosofi-pilar/pedang kebawah.png";
-import perisai_yunani from "!assets/filosofi-pilar/perisai hitam.png";
-import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
 export interface NavItem {
     title: string;
   href?: string;
