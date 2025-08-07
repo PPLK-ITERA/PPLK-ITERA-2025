@@ -178,7 +178,7 @@ class MadingController extends Controller
       $isPengumpulanTugasExist = PengumpulanTugas::whereIn('tugas_id', $validated['tugas_id'])->where('user_id', Auth::id())->where('isReturn', false)->exists();
 
       if ($isPengumpulanTugasExist) {
-         return redirect()->route('mading')->with([
+         return redirect()->route('petaka')->with([
             'response' =>
                ['message' => 'Task already submitted']
          ]);

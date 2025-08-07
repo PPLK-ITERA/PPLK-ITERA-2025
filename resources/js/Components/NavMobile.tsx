@@ -90,15 +90,17 @@ export default function NavMobile({
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="flex flex-col gap-2">
-                    {InformasiDropDown.map((item, index) => (
-                      <Link
-                        key={index}
-                        href={item.href}
-                        className={`ml-2 text-[18px] font-bold text-white transition duration-200 ease-in`}
-                      >
-                        {item.title}
-                      </Link>
-                    ))}
+                    {InformasiDropDown.map((item, index) =>
+                      item ? (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          className={`ml-2 text-[18px] font-bold text-white transition duration-200 ease-in`}
+                        >
+                          {item.title}
+                        </Link>
+                      ) : null
+                    )}
                   </div>
                 </AccordionContent>
               </AccordionItem>

@@ -7,11 +7,11 @@ const ComponentInformasi = ({ children }) => {
 
 const ComponentInformasiHeader = () => {
   return (
-    <div className="text-jaffa-600 sm:text-2xl font-avigea sm:px-0 px-2 text-xl font-bold tracking-widest text-center">
-      <p>PROGRAM PENGENALAN LINGKUNGAN KAMPUS ITERA 2024</p>
+    <div className="text-jaffa-600 sm:text-2xl font-greek sm:px-0 px-2 text-xl font-bold tracking-widest text-center">
+      <p>PROGRAM PENGENALAN LINGKUNGAN KAMPUS ITERA 2025</p>
       <div className=" flex justify-center max-w-xs gap-2 m-auto">
         <div className="bg-jaffa-600 h-[2px] mb-2 w-[8%] self-center"></div>
-        <p>PPLK ITERA 2024</p>
+        <p>PPLK ITERA 2025</p>
         <div className="bg-jaffa-600 h-[2px] mb-2 w-[8%] self-center "></div>
       </div>
     </div>
@@ -23,43 +23,38 @@ const ComponentInformasiHero = () => {
     <div>
       <div className="sm:hidden mt-6">
         <div className="flex items-center justify-center">
-          <img src="/assets/logo-pplk-2024.png" alt="" />
+          <img src="/assets/logo-pplk-2025.png" alt="" />
         </div>
         <div className="max-w-52 m-auto text-center">
-          <p className="text-candlelight-600 font-avigea sm:hidden text-sm font-bold tracking-widest">
-            PPLK ITERA 2024
+          <p className="text-candlelight-600 font-greek sm:hidden text-sm font-bold tracking-widest">
+            PPLK ITERA 2025
           </p>
-          <p className="text-candlelight-600 font-avigea sm:hidden mt-3 text-sm font-bold tracking-widest">
-            Nagarika Anvensana : Exploration For The Future
+          <p className="text-candlelight-600 font-greek sm:hidden mt-3 text-sm font-bold tracking-widest">
+            Elysion Legacy	 :  Crafting Satriya Itera for Global Future
           </p>
         </div>
       </div>
 
       <div className="xm:px-0 flex px-8 mt-10">
         <div className="sm:w-[60%] space-y-3">
-          <p className="text-candlelight-600 font-avigea sm:block hidden text-xl font-bold tracking-widest">
-            PPLK ITERA 2024
+          <p className="text-candlelight-600 font-greek sm:block hidden text-xl font-bold tracking-widest">
+            PPLK ITERA 2025
           </p>
-          <p className="text-candlelight-600 font-avigea sm:block hidden text-xl font-bold tracking-widest">
-            Nagarika Anvensana : Exploration For The Future
-          </p>
-          <p>
-            Program Pengenalan Lingkungan Kampus Institut Teknologi Sumatera
-            2024 atau PPLK ITERA 2024 adalah sebuah kegiatan orientasi bagi
-            seluruh Mahasiswa Baru Institut Teknologi Sumatera tahun angkatan
-            2024. PPLK ITERA 2024 diusung dengan tajuk Nagarika Anvensana :
-            Exploration For The Futre, dan bertema Futuristic Nusantara.
+          <p className="text-candlelight-600 font-greek sm:block hidden text-xl font-bold tracking-widest">
+            Elysion Legacy	 :  Crafting Satriya Itera for Global Future
           </p>
           <p>
-            Kegiatan PPLK ITERA diusung dengan harapan bisa memberikan pemahaman
-            dan memperkenalkan dunia kampus kepada seluruh Mahasiswa baru di
-            Institut Teknologi Sumatera, sehingga para mahasiswa baru bisa
-            menghadapi perkuliahan dengan lebih baik.
+
+            Program Pengenalan Lingkungan Kampus (PPLK) ITERA 2025 adalah sebuhan kegiatan yang rutin diadakan setiap tahun yang menjadi bentuk penyambutan mahasiswa baru ITERA 2025. PPLK ITERA 2025 kali ini mengusung tema Elysion Legacy	 : Crafting Satriya Itera for	 Global Future.
+
+          </p>
+          <p>
+            Selain sebagai bentuk penyambutan Mahasiswa Baru ITERA, kegiatan PPLK ITERA 2025 sekaligus menjadi ajang pengenalan lingkungan kampus, mulai dari kegiatan akademik, fasilitas dan lingkungan kampus, hingga kegiatan kemahasiswaan
           </p>
         </div>
         <div className="w-[40%] hidden sm:flex justify-center items-center">
           <img
-            src="/assets/logo-pplk-2024.png"
+            src="/assets/logo-pplk-2025.png"
             alt="logo-pplk"
             className="xl:w-[70%] sm:w-[100%]"
           />
@@ -68,13 +63,11 @@ const ComponentInformasiHero = () => {
 
       <div className="sm:px-0 flex items-center justify-center px-5 mt-8">
         <div className="max-w-xl my-6 text-center">
-          <p className="text-jaffa-600 font-avigea text-xl font-bold tracking-widest">
+          <p className="text-jaffa-600 font-greek text-xl font-bold tracking-widest">
             VISI
           </p>
           <p>
-            PPLK 2024 sebagai gerbang pertama dalam terwujudnya mahasiswa yang
-            kompetitif, berintelektual, serta siap menghadapi gempuran
-            globalisasi.
+            PPLK ITERA 2025 sebagai wadah pengembangan karakter mahasiswa baru yang berintegrasi dan berdaya saing, menumbuhkan rasa bangga sebagai bagian dari civitas akademika ITERA, serta membentuk mahasiswa yang “AKTIF” (Aktif, Kritis, Solutif dan Inovatif) dalam menghadapi tantangan di era Revolusi Industri 4.0.
           </p>
         </div>
       </div>
@@ -87,13 +80,13 @@ const ComponentInformasiFilosofi = () => {
     <div>
       <div className="mt-14">
         <div className="max-w-2xl mx-auto">
-          <p className="font-avigea text-jaffa-600 text-xl font-bold tracking-widest text-center">
+          <p className="font-greek text-jaffa-600 text-xl font-bold tracking-widest text-center">
             FILOSOFI LOGO
           </p>
           <div className="sm:flex flex-wrap mt-5">
             <div className="sm:w-[50%]">
               <img
-                src="/assets/logo-pplk-2024.png"
+                src="/assets/logo-pplk-2025.png"
                 alt="logo"
                 className="mx-auto w-[60%] sm:w-[90%]"
               />
@@ -102,25 +95,13 @@ const ComponentInformasiFilosofi = () => {
               <div className="flex gap-6">
                 <div className="bg-[#ECB406] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
                 <div className="font-semibold">
-                  Warna emas melambangkan Keberuntungan & Kesuksesan
+                  Warna emas menjadi simbol semangat mencapai tujuan luhur bagi mahasiswa baru sebagai generasi terpilih.
                 </div>
               </div>
               <div className=" flex gap-6">
-                <div className="bg-[#B6ADA4] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
+                <div className="bg-[#682300] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
                 <div className="font-semibold">
-                  Warna silver melambangkan Modernitas & Teknologi
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="bg-[#DA5B1C] sm:w-[45px] w-12 h-[30px]  rotate-[45deg] mt-2 "></div>
-                <div className="font-semibold">
-                  Warna orange melambangkan Semangat & Kreatifitas
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="bg-[#00A3FF] sm:w-[45px] w-12 h-[30px] rotate-[45deg] mt-2 "></div>
-                <div className="font-semibold">
-                  Warna biru melambangkan Kepercayaan & Inspirasi yang Luas
+                  Warna coklat menjadi simbol suasana hangat dan membumi sebagai landasan awal mahasiswa baru dalam tumbuh dan berkembang.
                 </div>
               </div>
             </div>
@@ -132,7 +113,7 @@ const ComponentInformasiFilosofi = () => {
         <div className=" flex">
           <div className="w-[25%] justify-center items-center flex relative ">
             <img
-              src="/assets/logo-pplk-2024.png"
+              src="/assets/logo-pplk-2025.png"
               alt="logo"
               className="grayscale filter w-[100%] sm:w-[85%] sm:translate-x-20"
             />
@@ -140,7 +121,7 @@ const ComponentInformasiFilosofi = () => {
           <div className="w-[50%]">
             <div className="flex items-center justify-center">
               <img
-                src="/assets/logo-pplk-2024.png"
+                src="/assets/logo-pplk-2025.png"
                 alt="logo"
                 className="w-[100%] sm:w-[60%] z-20"
               />
@@ -155,7 +136,7 @@ const ComponentInformasiFilosofi = () => {
           </div>
           <div className="w-[25%] justify-center items-center flex relative ">
             <img
-              src="/assets/logo-pplk-2024.png"
+              src="/assets/logo-pplk-2025.png"
               alt="logo"
               className="grayscale filter w-[100%] sm:w-[85%] sm:-translate-x-14"
             />
@@ -163,7 +144,7 @@ const ComponentInformasiFilosofi = () => {
         </div>
         <div className="mt-10">
           <div className="max-w-72 mx-auto">
-            <p className="sm:text-2xl font-avigea text-xl font-bold tracking-widest text-center">
+            <p className="sm:text-2xl font-greek text-xl font-bold tracking-widest text-center">
               BIJI EMAS
             </p>
             <p className="text-center">
@@ -188,7 +169,7 @@ const ComponentInformasiDivisi = () => {
   return (
     <div>
       <div className="mt-28">
-        <div className="font-avigea text-jaffa-600 text-xl font-bold tracking-widest text-center">
+        <div className="font-greek text-jaffa-600 text-xl font-bold tracking-widest text-center">
           <p>SEMUA DIVISI PPLK</p>
         </div>
         <div className="sm:mt-16 max-w-6xl mx-auto mt-12">

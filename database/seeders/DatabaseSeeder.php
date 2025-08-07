@@ -9,24 +9,25 @@ class DatabaseSeeder extends Seeder
    public function run()
    {
       $this->call([
+         AdminSeeder::class,
          RoleSeeder::class,
+         BookletSeeder::class,
          KelompokSeeder::class,
-         ScoreboardSeeder::class,
          UserSeeder::class,
-         PresensiPplkSeeder::class,
+         QrcodeSeeder::class,
+         ProdiSeeder::class,
+         PenyakitSeeder::class,
+         FAQSeeder::class,
+         ScoreboardSeeder::class,
          QuizSeeder::class,
          QuizAnswerSeeder::class,
          GedungSeeder::class,
          UnlockStatusSeeder::class,
-         QrcodeSeeder::class,
-         ProdiSeeder::class,
-         FAQSeeder::class,
-         BookletSeeder::class,
-         PenyakitSeeder::class,
          TugasSeeder::class,
          AssesmenQuestionSeeder::class,
          AssesmenAnswerSeeder::class,
-         PilarSeeder::class,
+         TeslaSeeder::class,
+
          // PengumpulanTugasSeeder::class,
          // Add more seeders if needed
       ]);

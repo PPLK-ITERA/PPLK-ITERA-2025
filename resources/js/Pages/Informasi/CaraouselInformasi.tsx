@@ -23,7 +23,7 @@ const CarouselMisi = () => {
   return (
     <div className="sm:hidden px-6">
       <div className="text-center">
-        <p className="text-jaffa-600 font-avigea text-xl font-bold tracking-widest">
+        <p className="text-jaffa-600 font-greek text-xl font-bold tracking-widest">
           MISI
         </p>
       </div>
@@ -68,7 +68,7 @@ const CarouselPembina = () => {
                         </p>
                       </div>
                       <div className="bg-slate-400 sm:my-10 flex items-center justify-center my-4 rounded-full">
-                        <img src="/assets/logo-pplk-2024.png" alt="logo" />
+                        <img src="/assets/logo-pplk-2025.png" alt="logo" />
                       </div>
                       <div>
                         <p>Nama</p>

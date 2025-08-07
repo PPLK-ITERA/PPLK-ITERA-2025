@@ -13,19 +13,19 @@ export default function Hero() {
       <div className="max-lg:flex-col-reverse flex items-center justify-center gap-8">
         <div className="flex flex-col">
           <h2 className="max-lg:text-center flex flex-col gap-4">
-            <span className="font-avigea text-candlelight-600 sm:text-3xl lg:mt-10 text-xl">
-              PPLK ITERA 2024{" "}
+            <span className="font-greek text-candlelight-600 sm:text-3xl lg:mt-10 text-xl">
+              PPLK ITERA 2025{" "}
             </span>
-            <span className="font-avigea text-candlelight-600 sm:text-3xl text-balance text-xl">
-              Nagarika Anvensana : Exploration For The Future
+            <span className="font-greek text-candlelight-600 sm:text-3xl text-balance text-xl">
+            Elysion Legacy	 :  Crafting Satriya Itera for Global Future
             </span>
           </h2>
 
           <p className="font-montserrat text-justify sm:text-[20px] text-[16px] mt-4">
             Program Pengenalan Lingkungan Kampus Institut Teknologi Sumatera
-            2024 atau PPLK ITERA 2024 adalah sebuah kegiatan orientasi bagi
+            2025 atau PPLK ITERA 2025 adalah sebuah kegiatan orientasi bagi
             seluruh Mahasiswa Baru Institut Teknologi Sumatera tahun angkatan
-            2024. PPLK ITERA 2024 diusung dengan tajuk Nagarika Anvensana :
+            2025. PPLK ITERA 2025 diusung dengan tajuk Nagarika Anvensana :
             Exploration For The Future, dan bertema Futuristic Nusantara
           </p>
           <br />

@@ -13,9 +13,6 @@ export const LogBookClient = () => {
         columns={columns}
         apiEndpoint={route("dashboard.cui.data")}
         title={"Log Book Kehadiran CUI"}
-        description={
-          "Gunakan sistem informasi ini untuk manajemen kehadiran maba!"
-        }
       />
     </>
   );

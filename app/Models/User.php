@@ -130,4 +130,8 @@ class User extends Authenticatable
    {
       return $this->hasMany(AnswerActivity::class, 'user_id', 'id');
    }
+   public function logKomdis()
+   {
+      return $this->hasMany(LogKomdis::class, 'user_id', 'id');
+   }
 }

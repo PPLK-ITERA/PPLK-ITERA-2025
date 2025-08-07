@@ -2,6 +2,7 @@ import { ColumnDef } from "@tanstack/react-table";
 
 import { IconPlus } from "@tabler/icons-react";
 
+import { Head } from "@inertiajs/react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { MateriCellActions } from "@/Components/dashboard/materi/MateriCellActions";
@@ -21,7 +22,7 @@ import { Toaster } from "@/Components/ui/toaster";
 import { Materi } from "@/lib/types/Materi";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Materi", link: "/dashboard/materi" },
 ];
 
@@ -62,36 +63,39 @@ export default function Page({ auth, response }) {
   ];
 
   return (
-    <DashboardLayout user={auth.user}>
-      <Breadcrumbs items={breadcrumbItems} />
-      <h2 className="text-3xl font-bold tracking-tight">Atur Materi</h2>
+    <>
+      <Head title="Atur Materi" />
+      <DashboardLayout user={auth.user}>
+        <Breadcrumbs items={breadcrumbItems} />
+        <h2 className="text-3xl font-bold tracking-tight">Atur Materi</h2>
 
-      <div className="place-content-start flex w-full">
-        {/* add dialog */}
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button>
-              <IconPlus size={18} />
-              <span>Tambah Materi</span>
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Tambah Materi</DialogTitle>
-            </DialogHeader>
-            <MateriForm />
-          </DialogContent>
-        </Dialog>
-      </div>
+        <div className="place-content-start flex w-full">
+          {/* add dialog */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button>
+                <IconPlus size={18} />
+                <span>Tambah Materi</span>
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Tambah Materi</DialogTitle>
+              </DialogHeader>
+              <MateriForm />
+            </DialogContent>
+          </Dialog>
+        </div>
 
-      <DataTable
-        searchKey="name"
-        columns={columns}
-        apiEndpoint={route("dashboard.materi.data")}
-        title={"Data Materi"}
-        description={"Data Materi yang telah diupload."}
-      />
-      <Toaster />
-    </DashboardLayout>
+        <DataTable
+          searchKey="name"
+          columns={columns}
+          apiEndpoint={route("dashboard.materi.data")}
+          title={"Data Materi"}
+          description={"Data Materi yang telah diupload."}
+        />
+        <Toaster />
+      </DashboardLayout>
+    </>
   );
 }

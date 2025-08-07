@@ -216,7 +216,7 @@ export default function Page({ id }) {
         });
       }
 
-      router.replace(route("mading"));
+      router.replace(route("petaka"));
     } catch (error) {
       toast({
         title: "Error",

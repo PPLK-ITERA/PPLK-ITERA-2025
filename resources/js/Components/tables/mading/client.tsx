@@ -13,9 +13,6 @@ export const MadingClient = () => {
         columns={columns}
         apiEndpoint={route("dashboard.user.data.maba")}
         title={"Data Kelompok"}
-        description={
-          "Gunakan sistem informasi ini untuk melihat data kelompok!"
-        }
       />
     </>
   );

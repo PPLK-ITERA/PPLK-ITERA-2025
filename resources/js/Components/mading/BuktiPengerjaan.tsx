@@ -56,7 +56,7 @@ export default function BuktiPengerjaan({
               <CardContent className="relative flex flex-col items-center justify-center h-full p-0 text-white">
                 {index !== 0 && data.card.cardOpen[index] ? (
                   <h2
-                    className={`font-avigea text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
+                    className={`font-greek text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
                   >
                     Day {index}
                   </h2>
@@ -67,7 +67,7 @@ export default function BuktiPengerjaan({
                     {isKetua && index === 0 ? (
                       <>
                         <h2
-                          className={`font-avigea text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
+                          className={`font-greek text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
                         >
                           Tugas Kelompok
                         </h2>
@@ -81,7 +81,7 @@ export default function BuktiPengerjaan({
                     ) : !isKetua && index === 0 ? (
                       <>
                         <h2
-                          className={`font-avigea text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
+                          className={`font-greek text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
                         >
                           Tugas Kelompok
                         </h2>
@@ -103,7 +103,7 @@ export default function BuktiPengerjaan({
                 ) : (
                   <>
                     {data.card.posters[index] &&
-                    !data.card.posters[index].isReturn ? (
+                      !data.card.posters[index].isReturn ? (
                       <img
                         src={data.card.posters[index].url_poster}
                         alt="Poster"
@@ -127,16 +127,16 @@ export default function BuktiPengerjaan({
                                         ? setCountPercent2(Number(currentValue))
                                         : index === 3
                                           ? setCountPercent3(
-                                              Number(currentValue),
-                                            )
+                                            Number(currentValue),
+                                          )
                                           : index === 4
                                             ? setCountPercent4(
-                                                Number(currentValue),
-                                              )
+                                              Number(currentValue),
+                                            )
                                             : index === 5
                                               ? setCountPercent5(
-                                                  Number(currentValue),
-                                                )
+                                                Number(currentValue),
+                                              )
                                               : 0;
                                   }}
                                 />
@@ -197,8 +197,8 @@ export default function BuktiPengerjaan({
                         )}
 
                         {isKetua &&
-                        index !== 0 &&
-                        data.card.completionPercentage[index] === 100 ? (
+                          index !== 0 &&
+                          data.card.completionPercentage[index] === 100 ? (
                           <Link
                             href={`/mading/pengumpulan-cover/${index}`}
                             className={`${buttonVariants()} hover:bg-white/90 flex items-center justify-center gap-2 mx-auto bg-white shadow-sm mt-10`}

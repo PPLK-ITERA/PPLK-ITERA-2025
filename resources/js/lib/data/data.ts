@@ -1,13 +1,10 @@
-import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
-import angka_10 from "!assets/filosofi-pilar/angka-10.png";
-import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
-import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
-import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
-import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
-import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
-
+import angka_11 from "!assets/filosofi-pilar/angka 11 abu2.png";
+import perisai_yunani from "!assets/filosofi-pilar/perisai hitam.png";
+import helm_sparta from "!assets/filosofi-pilar/helm sparta.png";
+import ornamen_lampung from "!assets/filosofi-pilar/ornamen lampung.png";
+import pedang_kebawah from "!assets/filosofi-pilar/pedang kebawah.png";
 export interface NavItem {
-  title: string;
+    title: string;
   href?: string;
   disabled?: boolean;
   external?: boolean;
@@ -28,28 +25,28 @@ export const navItems: NavItem[] = [
   {
     title: "Tambah User",
     href: "/dashboard/create-user",
-    icon: "user",
+    icon: "mahkota",
     label: "tambah-user",
     role_id: [3, 8],
   },
   {
     title: "Atur Maba",
     href: "/dashboard/atur-maba",
-    icon: "user",
+    icon: "users",
     label: "atur-maba",
-    role_id: [3],
+    role_id: [2, 3, 4],
   },
   {
     title: "Atur Dapmen",
     href: "/dashboard/atur-dapmen",
-    icon: "user",
+    icon: "userCog",
     label: "atur-dapmen",
     role_id: [3, 8],
   },
   {
     title: "Atur PJ Prodi",
     href: "/dashboard/atur-pjprodi",
-    icon: "user",
+    icon: "userCheck",
     label: "atur-pjprodi",
     role_id: [3, 8],
   },
@@ -89,13 +86,6 @@ export const navItems: NavItem[] = [
     role_id: [3, 8],
   },
   {
-    title: "Mading",
-    href: "/dashboard/mading",
-    icon: "map",
-    label: "atur-mading",
-    role_id: [2, 3, 4, 8],
-  },
-  {
     title: "Informasi Kelompok",
     href: "/dashboard/informasi-kelompok",
     icon: "map",
@@ -106,7 +96,7 @@ export const navItems: NavItem[] = [
     title: "Game Offline",
     href: "/dashboard/game-offline",
     icon: "game",
-    label: "atur-informasi-kelompok",
+    label: "game-offline",
     role_id: [2, 3, 4, 6, 8],
   },
   {
@@ -122,6 +112,38 @@ export const navItems: NavItem[] = [
     icon: "bookCheck",
     label: "atur-pengumpulan-tugas",
     role_id: [7, 3, 8],
+  },
+  {
+    title: "Dokumentasi",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/dokumentasi/view",
+    icon: "image",
+    label: "Dokumentasi",
+    role_id: [2, 4, 5, 6, 7, 8],
+  },
+  {
+    title: "Dokumentasi",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/dokumentasi/",
+    icon: "image",
+    label: "Dokumentasi",
+    role_id: [3],
+  },
+  {
+    title: "Tesla",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/tesla",
+    icon: "tesla",
+    label: "Tesla",
+    role_id: [3],
+  },
+  {
+    title: "Komdis",
+    // href: {route("dashboard.dokumentasi.index")},
+    href: "/dashboard/komdis",
+    icon: "ticket",
+    label: "Komdis",
+    role_id: [3,6],
   },
 ];
 
@@ -237,43 +259,30 @@ export const users: User[] = [
 
 export const DataFilosofiLogo = [
   {
-    image: helai_daun,
-    title: "Helai Daun",
-    description: "Helai Daun memiliki arti Keteduhan dan Kesejukan",
-  },
-  {
-    image: angka_10,
-    title: "Angka 10",
-    description: "Angka 10 mengartikan 1 dekade PPLK ITERA",
-  },
-  {
-    image: pilar_sdgs,
-    title: "4 Pilar SDG's",
+    image: angka_11,
+    title: "ANGKA 11",
     description:
-      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2024",
+    "Menandakan bahwa tahun ini merupakan Tahun ke-11 ITERA sudah berdiri. Sebuah penanda perjalanan panjang dalam membentuk karakter awal para mahasiswa baru.",
   },
   {
-    image: pulau_sumatera,
-    title: "Pulau Sumatera",
-    description:
-      "Pulau Sumatera merepresentasikan tempat dimana Kampus ITERA berdiri dan akan menciptakan manusia terbaik di Indonesia",
+    image: perisai_yunani,
+    title: "PERISAI YUNANI",
+    description: "Merupakan ciri khas dari perisai Yunani Kuno yang menjadi tema utama PPLK tahun ini. Bentuk V juga melambangkan victory (kemenangan), sejalan dengan semangat juang dan keberhasilan yang diharapkan dari para peserta.",
   },
   {
-    image: tetes_air,
-    title: "Tetes Air",
-    description:
-      "Tetes Air merepresentasikan bukti dari proses dalam mencapai Indonesia Emas 2045",
+    image: helm_sparta,
+    title: "HELM SPARTA",
+    description: "Melambangkan keberanian, disiplin, dan semangat juang para Satriya ITERA. Helm ini menjadi simbol kesiapan menghadapi tantangan serta keteguhan hati dalam menjunjung nilai-nilai integritas.",
   },
   {
-    image: naungan_tangan,
-    title: "Naungan Tangan",
-    description:
-      "Naungan Tangan memiliki arti PPLK ITERA menjadi naungan untuk mahasiswa baru mengenal lingkungan Kampusnya",
+    image: ornamen_lampung,
+    title: "ORNAMEN LAMPUNG",
+    description: "Menggambarkan akar budaya lokal yang kuat, ukiran ini melambangkan ketegasan dan keseimbangan. Sebuah refleksi bahwa dalam keberagaman, mahasiswa ITERA tetap menjunjung nilai harmoni dan karakter yang kokoh.",
   },
   {
-    image: biji_emas,
-    title: "Biji Emas",
-    description: "Biji Emas merepresentasikan keberhasilan Indonesi Emas 2045",
+    image: pedang_kebawah,
+    title: "PEDANG KEBAWAH",
+    description: "Menandakan kesiapan para peserta PPLK dalam menerima, menjalani, dan menghadapi seluruh proses kegiatan yang akan berlangsung. Pedang yang tertancap ke bawah juga merepresentasikan kedamaian dan tekad yang disiapkan.",
   },
 ];
 
@@ -286,7 +295,7 @@ export const InformasiInfoSection = [
 ];
 
 export const InformasiFooter = [
-  { title: "Tentang PPLK 2024", href: "/informasi/pplk" },
+  { title: "Tentang PPLK 2025", href: "/informasi/pplk" },
   { title: "Informasi Fakultas", href: "/informasi/fakultas" },
   { title: "Informasi HMPS & PRODI", href: "/informasi/prodi" },
   { title: "Informasi UPA", href: "/informasi/upa" },

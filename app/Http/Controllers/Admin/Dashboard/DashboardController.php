@@ -53,7 +53,7 @@ class DashboardController extends Controller
 
 
 
-      $days = ['2024-08-10', '2024-08-12', '2024-08-13', '2024-08-14', '2024-08-15', '2024-08-16', '2024-08-17'];
+      $days = ['2025-08-09', '2025-08-11', '2025-08-12', '2025-08-13', '2025-08-14', '2025-08-15'];
       $presensiCounts = [];
       foreach ($days as $index => $day) {
          $presensi = PresensiPplk::where('tanggal_presensi', $day);

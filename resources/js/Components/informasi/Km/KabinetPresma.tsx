@@ -62,6 +62,12 @@ const kabinetData: Kabinet[] = [
     department: "Teknik Industri 2021",
     kabinet: "Kabinet Gasendra",
   },
+  {
+    year: "2025/2026",
+    name: "Ahmad Khadi Abdillah",
+    department: "Teknik Pertambangan 2022",
+    kabinet: "Kabinet Resonara",
+  },
 ];
 
 const KabinetPresma: React.FC = () => {
@@ -83,8 +89,8 @@ const KabinetPresma: React.FC = () => {
               key={index}
               className="flex h-[240px] md:w-[441px] md:h-[260px] w-[300px] flex-col rounded-2xl bg-white overflow-hidden"
             >
-              <h2 className="bg-gradient-to-r from-[#B54419] to-[#90381C] py-4 font-avigea md:text-[28px] text-[20px] text-center text-white">
-                {kabinet.kabinet} <br />
+              <h2 className="bg-gradient-to-r from-[#B54419] to-[#90381C] py-4 font-greek md:text-[28px] text-[20px] text-center text-white">
+                <p className="font-greek">{kabinet.kabinet}</p>
                 {kabinet.year}
               </h2>
 

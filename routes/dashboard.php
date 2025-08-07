@@ -11,6 +11,8 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PoinController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\User\PresensiPplkController;
+use App\Http\Controllers\DokumentasiController;
+use App\Http\Controllers\LogKomdisController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,6 +23,7 @@ Route::middleware('auth')->group(function () {
       // =====================================
       // USER
       // =====================================
+
       Route::prefix('user')->name('user.')->group(function () {
          // =====================================
          // All Role
@@ -77,7 +80,18 @@ Route::middleware('auth')->group(function () {
             Route::put('edit-sertif', [UserController::class, 'editSertif'])->name('edit-sertif');
          });
       });
-
+      // ========================================
+      // KOMDIS
+      // ========================================
+      Route::prefix('komdis')->name('komdis.')->middleware('checkRole:Korlap,Admin')->group(function () {
+         Route::get('/', [LogKomdisController::class, 'index'])->name('index');
+         Route::get('/scanner', [LogKomdisController::class, 'scanner'])->name('scanner'); // TAMBAH INI
+         Route::get('/create', [LogKomdisController::class, 'create'])->name('create');
+         Route::post('/store', [LogKomdisController::class, 'store'])->name('store');
+         Route::get('/edit/{logKomdis}', [LogKomdisController::class, 'edit'])->name('edit');
+         Route::put('/update/{logKomdis}', [LogKomdisController::class, 'update'])->name('update');
+         Route::delete('/destroy/{logKomdis}', [LogKomdisController::class, 'destroy'])->name('destroy');
+      });
       // =====================================
       // Booklet
       // =====================================
@@ -90,6 +104,43 @@ Route::middleware('auth')->group(function () {
             Route::delete('/delete', [BookletController::class, 'destroy'])->name('destroy');
          });
       });
+
+      // ========================================
+      
+      // ========================================
+      // TAMBAHAN BARU: DOKUMENTASI KEGIATAN 5 HARI   
+      // ========================================
+   Route::prefix('dokumentasi')->name('dokumentasi.')->group(function () {
+   // =====================================
+   // User all role - Read-Only
+   // =====================================
+      // Hanya bisa melihat daftar dan detail dokumentasi (read-only)
+      Route::get('/view', [DokumentasiController::class, 'index'])->name('view.index');
+      Route::get('/view/{dokumentasi}', [DokumentasiController::class, 'show'])->name('view.show');
+
+      // =====================================
+      //  Admin Role - Akses Penuh
+      // =====================================
+      Route::middleware(['checkRole:Admin'])->group(function () {
+         // Route untuk menampilkan daftar dokumentasi
+         Route::get('/', [DokumentasiController::class, 'index'])->name('index');
+         // Route untuk menampilkan form tambah dokumentasi baru
+         Route::get('/create', [DokumentasiController::class, 'create'])->name('create');
+         // Route untuk menyimpan dokumentasi baru ke database
+         Route::post('/store', [DokumentasiController::class, 'store'])->name('store');
+         // Route khusus untuk menghapus foto individual (AJAX support)
+         Route::delete('/foto/{fotoDokumentasi}', [DokumentasiController::class, 'deleteFoto'])->name('foto.destroy');
+         // Route untuk menampilkan detail dokumentasi spesifik
+         Route::get('/{dokumentasi}', [DokumentasiController::class, 'show'])->name('show');
+         // Route untuk menampilkan form edit dokumentasi
+         Route::get('/{dokumentasi}/edit', [DokumentasiController::class, 'edit'])->name('edit');
+         // Route untuk mengupdate dokumentasi yang sudah ada
+         Route::put('/{dokumentasi}', [DokumentasiController::class, 'update'])->name('update');
+         // Route untuk menghapus dokumentasi (beserta foto-fotonya)
+         Route::delete('/{dokumentasi}', [DokumentasiController::class, 'destroy'])->name('destroy');
+   });
+   });
+
 
       // =====================================
       // Materi
@@ -142,6 +193,7 @@ Route::middleware('auth')->group(function () {
          Route::middleware(['checkRole:Korlap,Admin'])->group(function () {
             Route::get('index', [PoinController::class, 'index'])->name('index');
             Route::post('store', [PoinController::class, 'store'])->name('store');
+            
          });
       });
 
@@ -154,6 +206,7 @@ Route::middleware('auth')->group(function () {
          // =====================================
          Route::middleware(['checkRole:Mamet,Admin'])->group(function () {
             Route::get('data/all/{tugas_id}/{no_kelompok}/{status}', [TugasController::class, 'getAllTugas'])->name('data');
+            Route::post('/addTugas', [TugasController::class, 'addTugas'])->name('addTugas');
          });
          Route::middleware(['checkRole:Daplok,Mentor,Admin,Mamet'])->group(function () {
             Route::put('/return', [TugasController::class, 'returnTugas'])->name('return');
@@ -163,6 +216,7 @@ Route::middleware('auth')->group(function () {
             // Data
             // =====================================
             Route::prefix('data')->name('data.')->group(function () {
+               Route::get('/judulTugas', [TugasController::class, 'getJudulTugas'])->name('judulTugas');
                Route::get('/user/{id}', [TugasController::class, 'getTugasUser'])->name('user');
                Route::get('/kelompok', [TugasController::class, 'getTugasKelompok'])->name('kelompok');
                Route::get('/poster', [TugasController::class, 'getPoster'])->name('poster');
@@ -174,7 +228,7 @@ Route::middleware('auth')->group(function () {
       // Kelompok
       // =====================================
       Route::prefix('kelompok')->name('kelompok.')->middleware('checkRole:Daplok,Mentor,Admin')->group(function () {
-         // Route::get('data', [KelompokController::class, 'index'])->name('data');
+         Route::get('data', [KelompokController::class, 'index'])->name('data');
          Route::put('update', [KelompokController::class, 'update'])->name('update');
          Route::get('data', [KelompokController::class, 'getKelompok'])->name('data');
          Route::put('set-ketua', [UserController::class, 'setKetua'])->name('set-ketua');

@@ -10,55 +10,39 @@ import Autoplay from "embla-carousel-autoplay";
 
 import React from "react";
 
-import alas_filosofi from "!assets/alas-filosofi.png";
-import pilar_sdgs from "!assets/filosofi-pilar/4-pilar-sgds.png";
-import angka_10 from "!assets/filosofi-pilar/angka-10.png";
-import biji_emas from "!assets/filosofi-pilar/biji-emas.png";
-import helai_daun from "!assets/filosofi-pilar/helai-daun.png";
-import naungan_tangan from "!assets/filosofi-pilar/naungan-tangan.png";
-import pulau_sumatera from "!assets/filosofi-pilar/pulau-sumatera.png";
-import tetes_air from "!assets/filosofi-pilar/tetes-air.png";
+import angka_11 from "!assets/filosofi-pilar/angka 11 abu2.png";
+import perisai_yunani from "!assets/filosofi-pilar/perisai hitam.png";
+import helm_sparta from "!assets/filosofi-pilar/helm sparta.png";
+import ornamen_lampung from "!assets/filosofi-pilar/ornamen lampung.png";
+import pedang_kebawah from "!assets/filosofi-pilar/pedang kebawah.png";
 import logoPplk from "!assets/logo-pplk-hd.png";
 
 const DataFilosofiLogo = [
   {
-    image: helai_daun,
-    title: "Helai Daun",
-    description: "Helai Daun memiliki arti Keteduhan dan Kesejukan",
-  },
-  {
-    image: angka_10,
-    title: "Angka 10",
-    description: "Angka 10 mengartikan 1 dekade PPLK ITERA",
-  },
-  {
-    image: pilar_sdgs,
-    title: "4 Pilar SDG's",
+    image: angka_11,
+    title: "ANGKA 11",
     description:
-      "4 Pilar SDGs sebagai pondasi dasar dari tujuan keseluruhan acara PPLK ITERA 2024",
+    "Menandakan bahwa tahun ini merupakan Tahun ke-11 ITERA sudah berdiri. Sebuah penanda perjalanan panjang dalam membentuk karakter awal para mahasiswa baru.",
   },
   {
-    image: pulau_sumatera,
-    title: "Pulau Sumatera",
-    description:
-      "Pulau Sumatera merepresentasikan tempat dimana Kampus ITERA berdiri dan akan menciptakan manusia terbaik di Indonesia",
+    image: perisai_yunani,
+    title: "PERISAI YUNANI",
+    description: "Merupakan ciri khas dari perisai Yunani Kuno yang menjadi tema utama PPLK tahun ini. Bentuk V juga melambangkan victory (kemenangan), sejalan dengan semangat juang dan keberhasilan yang diharapkan dari para peserta.",
   },
   {
-    image: tetes_air,
-    title: "Tetes Air",
-    description:
-      "Tetes Air merepresentasikan bukti dari proses dalam mencapai Indonesia Emas 2045",
+    image: helm_sparta,
+    title: "HELM SPARTA",
+    description: "Melambangkan keberanian, disiplin, dan semangat juang para Satriya ITERA. Helm ini menjadi simbol kesiapan menghadapi tantangan serta keteguhan hati dalam menjunjung nilai-nilai integritas.",
   },
   {
-    image: naungan_tangan,
-    title: "Naungan Tangan",
-    description:
-      "Naungan Tangan memiliki arti PPLK ITERA menjadi naungan untuk mahasiswa baru mengenal lingkungan Kampusnya",
+    image: ornamen_lampung,
+    title: "ORNAMEN LAMPUNG",
+    description: "Menggambarkan akar budaya lokal yang kuat, ukiran ini melambangkan ketegasan dan keseimbangan. Sebuah refleksi bahwa dalam keberagaman, mahasiswa ITERA tetap menjunjung nilai harmoni dan karakter yang kokoh.",
   },
   {
-    image: biji_emas,
-    title: "Biji Emas",
-    description: "Biji Emas merepresentasikan keberhasilan Indonesi Emas 2045",
+    image: pedang_kebawah,
+    title: "PEDANG KEBAWAH",
+    description: "Menandakan kesiapan para peserta PPLK dalam menerima, menjalani, dan menghadapi seluruh proses kegiatan yang akan berlangsung. Pedang yang tertancap ke bawah juga merepresentasikan kedamaian dan tekad yang telah disiapkan.",
   },
 ];
 
@@ -82,7 +66,7 @@ export default function FilosofiLogo() {
 
   return (
     <div className="relative -mt-96 flex h-full flex-col items-center pt-[500px]">
-      <h2 className="font-avigea sm:text-3xl text-candlelight-600 text-2xl">
+      <h2 className="font-greek sm:text-3xl text-candlelight-600 text-2xl">
         FILOSOFI LOGO
       </h2>
       <div className="flex"></div>
@@ -96,29 +80,17 @@ export default function FilosofiLogo() {
             className="flex items-center"
           />
           <div>
-            <div className="sm:gap-9 flex flex-col gap-5">
+            <div className="sm:gap-9 flex flex-col text-justify gap-5">
               <div className="flex gap-8">
                 <div className="wajik w-8 h-8 bg-gradient-to-l from-[#ECB406] to-[#FDCE12]"></div>
-                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">
-                  Warna emas melambangkan Keberuntungan & Kesuksesan
+                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70">
+                Warna emas menjadi simbol semangat mencapai tujuan luhur bagi mahasiswa baru sebagai generasi terpilih.
                 </p>
               </div>
               <div className="flex gap-8">
-                <div className="wajik w-8 h-8 bg-[#B6ADA4]"></div>
-                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">
-                  Warna silver melambangkan Modernitas & Teknologi
-                </p>
-              </div>
-              <div className="flex gap-8">
-                <div className="wajik w-8 h-8 bg-[#DA5B1C]"></div>
-                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">
-                  Warna orange melambangkan Semangat & Kreatifitas
-                </p>
-              </div>
-              <div className="flex gap-8">
-                <div className="wajik w-8 h-8 bg-[#00A3FF]"></div>
-                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70 text-center">
-                  Warna biru melambangkan Kepercayaan & Inspirasi yang Luas
+                <div className="wajik w-8 h-8 bg-[#682300]"></div>
+                <p className="font-montserrat font-bold sm:text-[16px] text-[14px] sm:w-80 w-70">
+                Warna coklat menjadi simbol suasana hangat dan membumi sebagai landasan awal mahasiswa baru dalam tumbuh dan berkembang.
                 </p>
               </div>
             </div>
@@ -162,14 +134,9 @@ export default function FilosofiLogo() {
         <>
           {current === index + 1 ? (
             <>
-              <img
-                src={alas_filosofi}
-                alt="alas_filosofi"
-                className="md:-mt-40 -mt-20 bg-cover"
-              />
 
               <div className="flex max-w-[600px] flex-col items-center p-6 text-center text-black h-[300px]">
-                <h2 className="font-avigea sm:text-[39px] text-2xl text-black">
+                <h2 className="font-greek sm:text-[39px] text-2xl text-black">
                   {data.title}
                 </h2>
 
