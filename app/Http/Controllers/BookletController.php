@@ -60,6 +60,7 @@ class BookletController extends Controller
       $validated = $request->validate([
          'nama_booklet' => 'required|string|max:120',
          'url_booklet' => 'required|string|max:120',
+         'day' => 'required|in:1,2,3,4,5,6', // Validasi untuk day
       ]);
 
       DB::beginTransaction();
@@ -85,6 +86,7 @@ class BookletController extends Controller
          'id' => 'required|integer|exists:booklets',
          'nama_booklet' => 'required|string|max:120',
          'url_booklet' => 'required|string|max:120',
+         'day' => 'required|in:1,2,3,4,5,6', // Validasi untuk day
       ]);
 
       $booklet = Booklet::find($validated['id']);

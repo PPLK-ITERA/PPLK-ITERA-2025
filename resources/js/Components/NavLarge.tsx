@@ -25,10 +25,10 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
   const router = usePage().url;
 
   return (
-    <div className="hidden max-w-[800px] font-tinos md:flex gap-2 xl:-ml-20 -ml-4">
+    <div className="hidden max-w-[800px] md:flex gap-2 xl:-ml-20 -ml-4">
       <Link
         href="/"
-        className={`lg:mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
+        className={`lg:mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold  text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
       >
         Beranda
       </Link>
@@ -42,24 +42,26 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
         <DropdownMenuContent
           className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
         >
-          {InformasiDropDown.map((item, index) => (
-            <DropdownMenuItem
-              key={index}
-              className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
-            >
-              <Link
-                href={item.href}
-                className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+          {InformasiDropDown.map((item, index) =>
+            item ? (
+              <DropdownMenuItem
+                key={index}
+                className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
               >
-                <span
-                  className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                <Link
+                  href={item.href}
+                  className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                 >
-                  {item.icon}
-                </span>
-                {item.title}
-              </Link>
-            </DropdownMenuItem>
-          ))}
+                  <span
+                    className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                  >
+                    {item.icon}
+                  </span>
+                  {item.title}
+                </Link>
+              </DropdownMenuItem>
+            ) : null
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
 
@@ -69,6 +71,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
         >
           Mahasiswa Baru <ChevronDown className="w-4 h-4" />
         </DropdownMenuTrigger>
+
         <DropdownMenuContent
           className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
         >
@@ -106,6 +109,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
               Panduan Penggunaan
             </a>
           </DropdownMenuItem>
+
         </DropdownMenuContent>
       </DropdownMenu>
 

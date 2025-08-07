@@ -17,7 +17,7 @@ class Booklet extends Model
    protected $fillable = [
       'nama_booklet',
       'url_booklet',
-      'deadline',
+      'day',
    ];
 
    /**

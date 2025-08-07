@@ -19,6 +19,11 @@ import {
   IconUserCircle,
   IconUsers,
   IconUsersGroup,
+  IconHomeCheck,
+  IconHomeEco,
+  IconMapPin,
+  IconGoGame,
+  IconCamera,
 } from "@tabler/icons-react";
 
 export const NavLinks = [
@@ -82,7 +87,7 @@ export const InformasiDropDown = [
   },
   {
     title: "Divisi PPLK",
-    href: "/informasi/pplk#divisi-pplk",
+    href: "/informasi/divisi",
     icon: <IconUsersGroup size={24} color="#fcedd8" />,
   },
   {
@@ -90,6 +95,18 @@ export const InformasiDropDown = [
     href: "/dev-team",
     icon: <IconCode size={24} color="#fcedd8" />,
   },
+  {
+    title: "LPPM",
+    href: "/informasi/lppm",
+    icon: <IconHomeCheck size={24} color="#fcedd8" />,
+  },
+  ,
+  {
+    title: "Senat-KM",
+    href: "/informasi/senat",
+    icon: <IconHomeEco size={24} color="#fcedd8" />,
+  },
+
 ];
 
 export const MabaDropDown = [
@@ -113,6 +130,21 @@ export const MabaDropDown = [
     href: "/lagu",
     icon: <IconMusic size={24} color="#fcedd8" />,
   },
+  {
+    title: "Dokumentasi",
+    href: "/dokumentasi",
+    icon: <IconCamera size={24} color="#fcedd8" />,
+  },
+  {
+    title: "Tesla",
+    href: "/tesla",
+    icon: <IconGoGame size={24} color="#fcedd8" />,
+  },
+  {
+    title: "Petaka",
+    href: "/petaka",
+    icon: <IconMapPin size={24} color="#fcedd8" />,
+  },
 ];
 
 export const UserDropdown = [
@@ -131,24 +163,29 @@ export const UserDropdown = [
     href: "/relasi",
     icon: <IconUsers size={24} color="#fcedd8" />,
   },
-  {
-    title: "Mading",
-    href: "/mading",
-    icon: <IconMap size={24} color="#fcedd8" />,
-  },
-  {
-    title: "Kuis Asesmen",
-    href: "/asesmen",
-    icon: <IconBallpen size={24} color="#fcedd8" />,
-  },
-  {
-    title: "Game",
-    href: "/game",
-    icon: <IconDeviceGamepad2 size={24} color="#fcedd8" />,
-  },
+  // {
+  //   title: "Mading",
+  //   href: "/mading",
+  //   icon: <IconMap size={24} color="#fcedd8" />,
+  // },
+//   {
+//     title: "Kuis Asesmen",
+//     href: "/asesmen",
+//     icon: <IconBallpen size={24} color="#fcedd8" />,
+//   },
+//   {
+//     title: "Game",
+//     href: "/game",
+//     icon: <IconDeviceGamepad2 size={24} color="#fcedd8" />,
+//   },
   {
     title: "Scoreboard",
     href: "/scoreboard",
     icon: <IconCrown size={24} color="#fcedd8" />,
+  },
+  {
+    title: "Tesla",
+    href: "/tesla",
+    icon: <IconGoGame size={24} color="#fcedd8" />,
   },
 ];

@@ -1,103 +1,207 @@
+// Import foto ketua UKM
+import ketumadinata from "!assets/ketuaUkm/ketuaadinata.jpg";
+import ketumangsoduo from "!assets/ketuaUkm/ketuaangsoduo.jpg";
+import ketumarchery from "!assets/ketuaUkm/ketuaarchery.jpg";
+import ketumakai from "!assets/ketuaUkm/ketuaatarashii.jpg";
+import ketumibt from "!assets/ketuaUkm/ketuabasket.jpg";
+import ketumbatavia from "!assets/ketuaUkm/ketuabatavia.jpg";
+import ketumchess from "!assets/ketuaUkm/ketuachessclub.jpg";
+import ketumidensity from "!assets/ketuaUkm/ketuadance.jpg";
+import ketumdancecover from "!assets/ketuaUkm/ketuadancecover.jpg";
+import ketumdebatera from "!assets/ketuaUkm/ketuadebatera.jpg";
+import ketumeuforia from "!assets/ketuaUkm/ketuaenglish.jpeg";
+import ketumgamahira from "!assets/ketuaUkm/ketuagamahira.jpg";
+import ketumhimalaya from "!assets/ketuaUkm/ketuahimalaya.jpeg";
+import ketumhorseriding from "!assets/ketuaUkm/ketuahorseridiing.jpg";
+import ketumibc from "!assets/ketuaUkm/ketuaibc.jpeg";
+import ketumihara from "!assets/ketuaUkm/ketuaikatanhapkido.png";
+import ketumikm from "!assets/ketuaUkm/ketuaikm.jpg";
+import ketumkarate from "!assets/ketuaUkm/ketuakarate.jpg";
+import ketumkmb from "!assets/ketuaUkm/ketuakmb.jpg";
+import ketumkmk from "!assets/ketuaUkm/ketuakmk.jpeg";
+import ketumkmpa from "!assets/ketuaUkm/ketuakmpa.jpg";
+import ketumkraken from "!assets/ketuaUkm/ketuakraken.jpg";
+import ketumksr from "!assets/ketuaUkm/ketuaksrpmi.jpg";
+import ketumkukang from "!assets/ketuaUkm/ketuakukang.jpg";
+import ketumlancangkuning from "!assets/ketuaUkm/ketualancangkuning.jpg";
+import ketumlempers from "!assets/ketuaUkm/ketualembagapers.jpg";
+import ketummadani from "!assets/ketuaUkm/ketuaperadabanislam.jpg";
+import ketumpers from "!assets/ketuaUkm/ketuapersitera.jpg";
+import ketumpetanque from "!assets/ketuaUkm/ketuapetanque.jpg";
+import ketumpikr from "!assets/ketuaUkm/ketuapikr.jpg";
+import ketumpmk from "!assets/ketuaUkm/ketuapmk.jpg";
+import ketumpramuka from "!assets/ketuaUkm/ketuapramuka.png";
+import ketumpsm from "!assets/ketuaUkm/ketuapsm.jpg";
+import ketumplbc from "!assets/ketuaUkm/ketuapunchlineboxing.jpg";
+import ketummenwa from "!assets/ketuaUkm/ketuaresimen.jpg";
+import ketumsaibatin from "!assets/ketuaUkm/ketuasaibatin.jpg";
+import ketumsenireligi from "!assets/ketuaUkm/ketuasenireligi.jpg";
+import ketummsriwijaya from "!assets/ketuaUkm/ketuasriwijaya.jpeg";
+import ketumswarnakasa from "!assets/ketuaUkm/ketuaswarnakasa.png";
+import ketumitmi from "!assets/ketuaUkm/ketuataekwondo.jpg";
+import ketumteraesports from "!assets/ketuaUkm/ketuateraesport.jpg";
+import ketumthesus from "!assets/ketuaUkm/ketuathesus.jpeg";
+import ketumumpasa from "!assets/ketuaUkm/ketuaumpasa.jpg";
+import ketumusi from "!assets/ketuaUkm/ketuaunitselam.jpg";
+import ketumurotera from "!assets/ketuaUkm/ketuaurotera.jpg";
+import ketumvolltera from "!assets/ketuaUkm/ketuavolley.jpg";
+
+// Import foto pembina UKM
+import pembinaadinata from "!assets/pembinaUkm/pembinaadinata.jpg";
+import pembinaangsoduo from "!assets/pembinaUkm/pembinaangsoduo.jpg";
+import pembinaakai from "!assets/pembinaUkm/pembinaatarashii.jpg";
+import pembinaibt from "!assets/pembinaUkm/pembinabasket.jpg";
+import pembinabatavia from "!assets/pembinaUkm/pembinabatavia.jpg";
+import pembinachess from "!assets/pembinaUkm/pembinachess.jpg";
+import pembinadebatera from "!assets/pembinaUkm/pembinadebatera.jpg";
+import pembinaeuforia from "!assets/pembinaUkm/pembinaenglish.jpg";
+import pembinaihara from "!assets/pembinaUkm/pembinahapkido.jpg";
+import pembinahimalaya from "!assets/pembinaUkm/pembinahimalaya.jpeg";
+import pembinahorseriding from "!assets/pembinaUkm/pembinahorseriding.jpg";
+import pembinaibc from "!assets/pembinaUkm/pembinaibc.jpeg";
+import pembinaikm from "!assets/pembinaUkm/pembinaikm.jpg";
+import pembinakarate from "!assets/pembinaUkm/pembinakarate.jpg";
+import pembinakmb from "!assets/pembinaUkm/pembinakmb.jpg";
+import pembinakmk from "!assets/pembinaUkm/pembinakmk.jpeg";
+import pembinakmpa from "!assets/pembinaUkm/pembinakmpa.jpg";
+import pembinakraken from "!assets/pembinaUkm/pembinakraken.jpg";
+import pembinaksr from "!assets/pembinaUkm/pembinaksrpmi.jpg";
+import pembinakukang from "!assets/pembinaUkm/pembinakukang.jpg";
+import pembinalancangkuning from "!assets/pembinaUkm/pembinalancangkuning.jpg";
+import pembinalempers from "!assets/pembinaUkm/pembinalembagapers.jpg";
+import pembinamadani from "!assets/pembinaUkm/pembinaperadabanislam.jpg";
+import pembinapers from "!assets/pembinaUkm/pembinapersitera.jpg";
+import pembinapetanque from "!assets/pembinaUkm/pembinapetanque.jpg";
+import pembinapikr from "!assets/pembinaUkm/pembinapikr.jpg";
+import pembinapmk from "!assets/pembinaUkm/pembinapmk.jpg";
+import pembinapramuka from "!assets/pembinaUkm/pembinapramuka.jpg";
+import pembinapsm from "!assets/pembinaUkm/pembinapsm.jpg";
+import pembinaplbc from "!assets/pembinaUkm/pembinapunchlineboxing.jpg";
+import pembinamenwa from "!assets/pembinaUkm/pembinaresimen.png";
+import pembinasaibatin from "!assets/pembinaUkm/pembinasaibatin.jpg";
+import pembinasenireligi from "!assets/pembinaUkm/pembinasenireligi.jpg";
+import pembinasriwijaya from "!assets/pembinaUkm/pembinasriwijaya.jpeg";
+import pembinaitmi from "!assets/pembinaUkm/pembinataekwondo.jpg";
+import pembinateraesports from "!assets/pembinaUkm/pembinaterasport.png";
+import pembinathesus from "!assets/pembinaUkm/pembinathesus.jpeg";
+import pembinaumpasa from "!assets/pembinaUkm/pembinaumpasa.jpg";
+import pembinausi from "!assets/pembinaUkm/pembinaunitselam.jpg";
+import pembinaurotera from "!assets/pembinaUkm/pembinaurotera.jpg";
+
+// Default Image for pembina UKM
+import fotopembinaarchery from "!assets/pembinaUkm/default.jpg";
+import pembinavolltera from "!assets/pembinaUkm/default.jpg";
+import pembinagamahira from "!assets/pembinaUkm/default.jpg";
+import pembinaidensity from "!assets/pembinaUkm/default.jpg";
+
+
+// Import prestasi UKM 
+import gamahira1 from "!assets/prestasiUkm/prestasigamahira1.jpg";
+import gamahira2 from "!assets/prestasiUkm/prestasigamahira2.jpg";
+import gamahira3 from "!assets/prestasiUkm/prestasigamahira3.jpg";
+import kmk1 from "!assets/prestasiUkm/prestasikmk1.jpeg";
+import kmk2 from "!assets/prestasiUkm/prestasikmk2.jpeg"; 
+import kmk3 from "!assets/prestasiUkm/prestasikmk3.jpeg";
+import pramuka1 from "!assets/prestasiUkm/prestasipramuka1.jpg";
+import pramuka2 from "!assets/prestasiUkm/prestasipramuka2.jpg";
+import batavia1 from "!assets/prestasiUkm/prestasibatavia.jpg";
+import petanque1 from "!assets/prestasiUkm/prestasipetanque1.jpg";
+import petanque2 from "!assets/prestasiUkm/prestasipetanque2.png";
+import kmpa3 from "!assets/prestasiUkm/prestasikmpa3.jpg";
+import volley1 from "!assets/prestasiUkm/prestasivolley1.jpg";
+import kukang1 from "!assets/prestasiUkm/prestasikukang1.jpg";
+import kukang2 from "!assets/prestasiUkm/prestasikukang2.jpg";
+import english1 from "!assets/prestasiUkm/prestasienglish1.jpg";
+import english2 from "!assets/prestasiUkm/prestasienglish2.png";
+import idencity1 from "!assets/prestasiUkm/prestasiidensity1.jpg";
+import idencity2 from "!assets/prestasiUkm/prestasiidensity2.webp";
+import basket1 from "!assets/prestasiUkm/prestasibasket1.jpeg";
+import basket2 from "!assets/prestasiUkm/prestasibasket2.jpeg";
+import basket3 from "!assets/prestasiUkm/prestasibasket3.jpeg";
+import basket4 from "!assets/prestasiUkm/prestasibasket4.jpeg";
+import lempers1 from "!assets/prestasiUkm/prestasilempers1.png";
+import lempers2 from "!assets/prestasiUkm/prestasilempers2.jpeg";
+import lempers3 from "!assets/prestasiUkm/prestasilempers3.png";
+import lempers4 from "!assets/prestasiUkm/prestasilempers4.jpg";
+import hapkido1 from "!assets/prestasiUkm/prestasihapkido1.jpg";  
+import hapkido2 from "!assets/prestasiUkm/prestasihapkido2.jpg";  
+import hapkido3 from "!assets/prestasiUkm/prestasihapkido3.jpg";  
+import resimen1 from "!assets/prestasiUkm/prestasiresimen1.png";
+import resimen3 from "!assets/prestasiUkm/prestasiresimen3.png";
+import pikr1 from "!assets/prestasiUkm/prestasipikr1.jpg";
+import pikr2 from "!assets/prestasiUkm/prestasipikr2.jpg";
+import pikr3 from "!assets/prestasiUkm/prestasipikr3.jpg";
+import pikr4 from "!assets/prestasiUkm/prestasipikr4.png";
+import sriwijaya1 from "!assets/prestasiUkm/prestasisriwijaya1.jpeg";
+import sriwijaya2 from "!assets/prestasiUkm/prestasisriwijaya2.jpeg";
+import sriwijaya3 from "!assets/prestasiUkm/prestasisriwijaya3.jpeg";
+import sriwijaya4 from "!assets/prestasiUkm/prestasisriwijaya4.jpeg";
+import debatera1 from "!assets/prestasiUkm/prestasidebatera1.jpg";
+import debatara2 from "!assets/prestasiUkm/prestasidebatera2.jpg";
+import debatera3 from "!assets/prestasiUkm/prestasidebatera3.jpg";
+import debatera4 from "!assets/prestasiUkm/prestasidebatera4.jpg";
+import karate1 from "!assets/prestasiUkm/prestasikarate1.png";
+import karate2 from "!assets/prestasiUkm/prestasikarate2.png";
+import karate3 from "!assets/prestasiUkm/prestasikarate3.png";
+import karate4 from "!assets/prestasiUkm/prestasikarate4.png";
+import saibatin1 from "!assets/prestasiUkm/prestasisaibatin1.png";
+import saibatin2 from "!assets/prestasiUkm/prestasisaibatin2.jpg";
+import saibatin3 from "!assets/prestasiUkm/prestasisaibatin3.png";
+import saibatin4 from "!assets/prestasiUkm/prestasisaibatin4.jpg";
+import dancecover1 from "!assets/prestasiUkm/prestasidancecover.jpg";
+import kmb1 from "!assets/prestasiUkm/prestasikmb1.jpg";
+import atarashi1 from "!assets/prestasiUkm/prestasiatarashi1.jpg";
+import atarashi2 from "!assets/prestasiUkm/prestasiatarashi2.jpg";
+import atarashi3 from "!assets/prestasiUkm/prestasiatarashi3.jpg";
+import atarashi4 from "!assets/prestasiUkm/prestasiatarashi4.jpg";
+import religi1 from "!assets/prestasiUkm/prestasireligi1.jpg";
+import religi2 from "!assets/prestasiUkm/prestasireligi2.jpg";
+import religi3 from "!assets/prestasiUkm/prestasireligi3.jpg";
+import unitselam1 from "!assets/prestasiUkm/prestasiusi1.jpg";
+import unitselam2 from "!assets/prestasiUkm/prestasiusi2.jpg";
+import unitselam3 from "!assets/prestasiUkm/prestasiusi3.jpg";
+import unitselam4 from "!assets/prestasiUkm/prestasiusi4.jpg";
+import archery1 from "!assets/prestasiUkm/prestasiarchery1.jpg";
+import archery2 from "!assets/prestasiUkm/prestasiarchery2.jpg";
+import archery3 from "!assets/prestasiUkm/prestasiarchery3.jpg";
+import archery4 from "!assets/prestasiUkm/prestasiarchery4.jpg";
+import taekwondo1 from "!assets/prestasiUkm/prestasitaekwondo1.jpg";
+import taekwondo2 from "!assets/prestasiUkm/prestasitaekwondo2.jpg";
+import taekwondo3 from "!assets/prestasiUkm/prestasitaekwondo3.png";
+import angsoduo1 from "!assets/prestasiUkm/prestasiangsoduo1.jpg";
+import angsoduo2 from "!assets/prestasiUkm/prestasiangsoduo2.jpg";
+import angsoduo3 from "!assets/prestasiUkm/prestasiangsoduo3.jpg";
+import angsoduo4 from "!assets/prestasiUkm/prestasiangsoduo4.jpg";
+import horse1 from "!assets/prestasiUkm/prestasihorse1.jpg";
+import horse2 from "!assets/prestasiUkm/prestasihorse2.jpg";
+import plbc1 from "!assets/prestasiUkm/prestasiplbc1.jpg";
+import plbc2 from "!assets/prestasiUkm/prestasiplbc3.jpg";
+import plbc3 from "!assets/prestasiUkm/prestasiplbc4.jpg";
+import ibc1 from "!assets/prestasiUkm/prestasiibc1.jpeg";
+import ibc2 from "!assets/prestasiUkm/prestasiibc2.jpeg";
+import ibc3 from "!assets/prestasiUkm/prestasiibc3.jpeg";
+import ibc4 from "!assets/prestasiUkm/prestasiibc4.jpeg";
+import terasport1 from "!assets/prestasiUkm/prestasitera1.jpg";
+import umpasa1 from "!assets/prestasiUkm/prestasiumpasa1.jpg";
+import umpasa2 from "!assets/prestasiUkm/prestasiumpasa2.jpeg";
+import umpasa3 from "!assets/prestasiUkm/prestasiumpasa3.jpg";
+import umpasa4 from "!assets/prestasiUkm/prestasiumpasa4.jpg";
+import lancangkuning1 from "!assets/prestasiUkm/prestasilk1.jpg";
+import lancangkuning2 from "!assets/prestasiUkm/prestasilk2.jpg";
+import lancangkuning3 from "!assets/prestasiUkm/prestasilk3.jpg";
+import lancangkuning4 from "!assets/prestasiUkm/prestasilk4.jpg";
+import ksr1 from "!assets/prestasiUkm/prestasiksr1.jpg";
+import ksr2 from "!assets/prestasiUkm/prestasiksr2.jpg";
+import ksr3 from "!assets/prestasiUkm/prestasiksr3.jpg";
+import ksr4 from "!assets/prestasiUkm/prestasiksr4.jpg";
+import kraken1 from "!assets/prestasiUkm/prestasikraken1.jpg";
+
+// Default image for prestasi UKM 
+import defaultimageprestasi from "!assets/prestasiUkm/defaultimage.jpg";
+
 import defaultimage from "!assets/logoukm/defaultimage.jpg";
-import kegiatanakai1 from "!assets/logoukm/kegiatanakai1.jpg";
-import kegiatanakai2 from "!assets/logoukm/kegiatanakai2.jpg";
-import kegiatanakai3 from "!assets/logoukm/kegiatanakai3.jpg";
-import kegiatanakai4 from "!assets/logoukm/kegiatanakai4.jpg";
-import kegiatanaksara1 from "!assets/logoukm/kegiatanaksara1.jpg";
-import kegiatanarchery1 from "!assets/logoukm/kegiatanarchery1.jpg";
-import kegiatanarchery2 from "!assets/logoukm/kegiatanarchery2.jpg";
-import kegiatanarchery3 from "!assets/logoukm/kegiatanarchery3.jpg";
-import kegiatanarchery4 from "!assets/logoukm/kegiatanarchery4.jpeg";
-import kegiatanbatavia1 from "!assets/logoukm/kegiatanbatavia1.jpg";
-import kegiatanbatavia2 from "!assets/logoukm/kegiatanbatavia2.jpg";
-import kegiatanbatavia3 from "!assets/logoukm/kegiatanbatavia3.jpg";
-import kegiatandancecover1 from "!assets/logoukm/kegiatandancecover1.jpg";
-import kegiatangamahira1 from "!assets/logoukm/kegiatangamahira1.jpg";
-import kegiatangamahira2 from "!assets/logoukm/kegiatangamahira2.jpg";
-import kegiatanhimalaya1 from "!assets/logoukm/kegiatanhimalaya1.jpg";
-import kegiatanhimalaya2 from "!assets/logoukm/kegiatanhimalaya2.jpg";
-import kegiatanhimalaya3 from "!assets/logoukm/kegiatanhimalaya3.jpg";
-import kegiatanhimalaya4 from "!assets/logoukm/kegiatanhimalaya4.jpg";
-import kegiatanibc1 from "!assets/logoukm/kegiatanibc1.jpg";
-import kegiatanibc2 from "!assets/logoukm/kegiatanibc2.jpg";
-import kegiatanibc3 from "!assets/logoukm/kegiatanibc3.jpg";
-import kegiatanibt1 from "!assets/logoukm/kegiatanibt1.jpg";
-import kegiatanicc1 from "!assets/logoukm/kegiatanicc1.png";
-import kegiatanicc2 from "!assets/logoukm/kegiatanicc2.png";
-import kegiatanicc3 from "!assets/logoukm/kegiatanicc3.png";
-import kegiatanicc4 from "!assets/logoukm/kegiatanicc4.jpg";
-import kegiatanidensity1 from "!assets/logoukm/kegiatanidensity1.jpg";
-import kegiatanidensity2 from "!assets/logoukm/kegiatanidensity2.jpg";
-import kegiatanidensity3 from "!assets/logoukm/kegiatanidensity3.jpg";
-import kegiatanidensity4 from "!assets/logoukm/kegiatanidensity4.jpg";
-import kegiatanikm1 from "!assets/logoukm/kegiatanikm1.jpg";
-import kegiatanikm2 from "!assets/logoukm/kegiatanikm2.jpg";
-import kegiatanikm3 from "!assets/logoukm/kegiatanikm3.jpg";
-import kegiatanikm4 from "!assets/logoukm/kegiatanikm4.jpg";
-import kegiatanipsitera1 from "!assets/logoukm/kegiatanipsitera1.jpg";
-import kegiatanipsitera2 from "!assets/logoukm/kegiatanipsitera2.jpg";
-import kegiatanipsitera3 from "!assets/logoukm/kegiatanipsitera3.jpg";
-import kegiatanipsitera4 from "!assets/logoukm/kegiatanipsitera4.png";
-import kegiatankarate1 from "!assets/logoukm/kegiatankarate1.png";
-import kegiatankarate2 from "!assets/logoukm/kegiatankarate2.png";
-import kegiatankarate3 from "!assets/logoukm/kegiatankarate3.png";
-import kegiatankarate4 from "!assets/logoukm/kegiatankarate4.png";
-import kegiatankmk1 from "!assets/logoukm/kegiatankmk1.png";
-import kegiatankmk2 from "!assets/logoukm/kegiatankmk2.jpeg";
-import kegiatankraken1 from "!assets/logoukm/kegiatankraken1.png";
-import kegiatanlancangkuning1 from "!assets/logoukm/kegiatanlancangkuning1.png";
-import kegiatanlembagapers1 from "!assets/logoukm/kegiatanlembagapers1.jpg";
-import kegiatanlembagapers2 from "!assets/logoukm/kegiatanlembagapers2.jpg";
-import kegiatanlembagapers3 from "!assets/logoukm/kegiatanlembagapers3.jpg";
-import kegiatanmadani1 from "!assets/logoukm/kegiatanmadani1.jpg";
-import kegiatanmadani2 from "!assets/logoukm/kegiatanmadani2.jpg";
-import kegiatanmadani3 from "!assets/logoukm/kegiatanmadani3.jpg";
-import kegiatanmadani4 from "!assets/logoukm/kegiatanmadani4.jpg";
-import kegiatanmenwa1 from "!assets/logoukm/kegiatanmenwa1.jpg";
-import kegiatanmenwa2 from "!assets/logoukm/kegiatanmenwa2.jpg";
-import kegiatanmenwa3 from "!assets/logoukm/kegiatanmenwa3.jpg";
-import kegiatanmenwa4 from "!assets/logoukm/kegiatanmenwa4.jpg";
-import kegiatanpetanque1 from "!assets/logoukm/kegiatanpetanque1.png";
-import kegiatanpetanque2 from "!assets/logoukm/kegiatanpetanque2.png";
-import kegiatanpmi1 from "!assets/logoukm/kegiatanpmi1.png";
-import kegiatanpmi2 from "!assets/logoukm/kegiatanpmi2.jpg";
-import kegiatanpmi3 from "!assets/logoukm/kegiatanpmi3.jpg";
-import kegiatanpmi4 from "!assets/logoukm/kegiatanpmi4.jpg";
-import kegiatanpmk1 from "!assets/logoukm/kegiatanpmk1.jpg";
-import kegiatanpmk2 from "!assets/logoukm/kegiatanpmk2.jpg";
-import kegiatanpmk3 from "!assets/logoukm/kegiatanpmk3.jpg";
-import kegiatanpramuka1 from "!assets/logoukm/kegiatanpramuka1.jpg";
-import kegiatanpramuka2 from "!assets/logoukm/kegiatanpramuka2.jpg";
-import kegiatanpramuka3 from "!assets/logoukm/kegiatanpramuka3.jpg";
-import kegiatanpramuka4 from "!assets/logoukm/kegiatanpramuka4.jpg";
-import kegiatanpsm1 from "!assets/logoukm/kegiatanpsm1.jpg";
-import kegiatansaibatin1 from "!assets/logoukm/kegiatansaibatin1.jpg";
-import kegiatansaibatin2 from "!assets/logoukm/kegiatansaibatin2.jpg";
-import kegiatansaibatin3 from "!assets/logoukm/kegiatansaibatin3.jpg";
-import kegiatansaibatin4 from "!assets/logoukm/kegiatansaibatin4.jpg";
-import kegiatansenireligi1 from "!assets/logoukm/kegiatansenireligi1.jpg";
-import kegiatansenireligi2 from "!assets/logoukm/kegiatansenireligi2.jpg";
-import kegiatansenireligi3 from "!assets/logoukm/kegiatansenireligi3.jpg";
-import kegiatansenireligi4 from "!assets/logoukm/kegiatansenireligi4.jpg";
-import kegiatansriwijaya1 from "!assets/logoukm/kegiatansriwijaya1.jpeg";
-import kegiatansriwijaya2 from "!assets/logoukm/kegiatansriwijaya2.jpeg";
-import kegiatansriwijaya3 from "!assets/logoukm/kegiatansriwijaya3.jpeg";
-import kegiatansriwijaya4 from "!assets/logoukm/kegiatansriwijaya4.jpeg";
-import kegiatanteraesport1 from "!assets/logoukm/kegiatanteraesport1.jpg";
-import kegiatanteraesport2 from "!assets/logoukm/kegiatanteraesport2.jpg";
-import kegiatanteraesport3 from "!assets/logoukm/kegiatanteraesport3.jpg";
-import kegiatanteraesport4 from "!assets/logoukm/kegiatanteraesport4.jpg";
-import kegiatanukmbsm1 from "!assets/logoukm/kegiatanukmbsm1.jpg";
-import kegiatanukmbsm2 from "!assets/logoukm/kegiatanukmbsm2.jpg";
-import kegiatanukmbsm3 from "!assets/logoukm/kegiatanukmbsm3.jpg";
-import kegiatanukmbsm4 from "!assets/logoukm/kegiatanukmbsm4.jpg";
-import kegiatanumpasa1 from "!assets/logoukm/kegiatanumpasa1.jpg";
-import kegiatanumpasa2 from "!assets/logoukm/kegiatanumpasa2.jpg";
-import kegiatanumpasa3 from "!assets/logoukm/kegiatanumpasa3.jpg";
-import kegiatanumpasa4 from "!assets/logoukm/kegiatanumpasa4.jpg";
-import kegiatanunitselam1 from "!assets/logoukm/kegiatanunitselam1.jpg";
+import volltera from "!assets/logoukm/logovolltera.jpg";
 import akai from "!assets/logoukm/logoakai.png";
-import aksara from "!assets/logoukm/logoaksara.png";
 import archery from "!assets/logoukm/logoarchery.png";
 import batavia from "!assets/logoukm/logobatavia.png";
 import dancecover from "!assets/logoukm/logodancecover.jpg";
@@ -109,7 +213,6 @@ import ibt from "!assets/logoukm/logoibt.png";
 import icc from "!assets/logoukm/logoicc.png";
 import idensity from "!assets/logoukm/logoidensity.jpg";
 import ikm from "!assets/logoukm/logoikm.png";
-import ipsitera from "!assets/logoukm/logoipsitera.jpg";
 import karate from "!assets/logoukm/logokarate.png";
 import kmb from "!assets/logoukm/logokmb.png";
 import kmk from "!assets/logoukm/logokmk.png";
@@ -121,18 +224,29 @@ import lembagapers from "!assets/logoukm/logolembagapers.jpg";
 import madani from "!assets/logoukm/logomadani.png";
 import menwa from "!assets/logoukm/logomenwa.png";
 import petanque from "!assets/logoukm/logopetanque.png";
-import pmi from "!assets/logoukm/logopmi.png";
+import ksr from "!assets/logoukm/logopmi.png";
 import pmk from "!assets/logoukm/logopmk.png";
 import pramuka from "!assets/logoukm/logopramuka.jpg";
 import psm from "!assets/logoukm/logopsm.png";
 import saibatin from "!assets/logoukm/logosaibatin.jpg";
 import senireligi from "!assets/logoukm/logosenireligi.png";
 import sriwijaya from "!assets/logoukm/logosriwijaya.png";
-import teraesport from "!assets/logoukm/logoteraesport.png";
-import ukmbsm from "!assets/logoukm/logoukmbsm.png";
+import teraesports from "!assets/logoukm/logoteraesport.png";
 import umpasa from "!assets/logoukm/logoumpasa.png";
 import unitselam from "!assets/logoukm/logounitselam.jpg";
 import urotera from "!assets/logoukm/urotera.png";
+import pers from "!assets/logoukm/logopersitera.png";
+import adinata from "!assets/logoukm/logoadinata.jpg";
+import euforia from "!assets/logoukm/logoeuforia.png";
+import ihara from "!assets/logoukm/logohapkido.png";
+import pikr from "!assets/logoukm/logopikr.jpeg";
+import debatera from "!assets/logoukm/logodebatera.png";
+import itmi from "!assets/logoukm/logotaekwondo.jpg";
+import angsoduo from "!assets/logoukm/logoangsoduo.jpg";
+import horseriding from "!assets/logoukm/logohorseriding.jpeg";
+import plbc from "!assets/logoukm/logoplbc.png";
+import swarnakasa from "!assets/logoukm/logoswarnakasa.jpg";
+import thesus from "!assets/logoukm/logothesus.jpeg";
 
 export const ukmData = [
   {
@@ -140,30 +254,13 @@ export const ukmData = [
     link: "/informasi/ukm/madani",
     logo: madani,
     title: "MADANI",
-    ketum: "M. Abdul Jabbar As Salam",
-    prodi: "Perencanaan Wilayah dan Kota '21",
-    sejarah:
-      "MADANI ITERA adalah unit kegiatan mahasiswa yang berbasis Agama Islam di Institut Teknologi Sumatera. Peran dan fungsi MADANI atau Mahasiswa Peradaban Islam adalah merangkul Mahasiswa Muslim ITERA dari berbagai ras, suku, dan budaya, membina serta menyebarkan nilai-nilai Islam di lingkungan kampus. MADANI didirikan untuk mencetak mahasiswa yang berilmu, beriman, dan sebagai Lembaga Dakwah Kampus (LDK) yang ada di Institut Teknologi Sumatera. MADANI ITERA dirintis sejak 2012 di kampus ITB Jatinangor dan didirikan di Bandung pada Hari Kamis tanggal 04 Juni 2015 bertepatan dengan 17 Sya’ban 1436 Hijriah. Kemudian ditetapkan sebagai Unit Kegiatan Mahasiswa (UKM) resmi di kampus Institut Teknologi Sumatera pada 06 Oktober 2015 / 22 Dzulhijjah 1436 H. ",
-    visi: "Mewujudkan UKM MADANI ITERA sebagai lembaga dakwah yang inklusif, kolaboratif, partisipatif, terbuka, dan dapat bermanfaat bagi semua.",
-    misi: "1.  Menjadikan Al-Qur’an, Sunnah, dan Peraturan ITERA sebagai landasan dalam bersikap dan berkegiatan. \n2. Menguatkan pembinaan, solidaritas, dan rasa kekeluargaan antar anggota MADANI. \n3. Memperkuat jejaring MADANI melalui kolaborasi dan kerja sama internal dan eksternal kampus. \n4. Membangun kondisi yang kondusif untuk perkembangan nilai-nilai Islam dengan melaksanakan syiar-syiar Islam secara konsisten. \n5. Membangun kesadaran masa kampus untuk pemberdayaan pada masyarakat sekitar kampus, sehingga dapat memberikan kontribusi nyata",
-
+    namaketum: "Syuhada Rantisi",
+    fotoketum: ketummadani,
+    namapembina : "M. Abdul Jabbar As Salam",
+    fotopembina : pembinamadani,
+    prodi: "Teknik Informatika '22",
+    sejarah:"MADANI ITERA adalah unit kegiatan mahasiswa yang berbasis Agama Islam di Institut Teknologi Sumatera. Peran dan fungsi MADANI atau Mahasiswa Peradaban Islam adalah merangkul Mahasiswa Muslim ITERA dari berbagai ras, suku, dan budaya, membina serta menyebarkan nilai-nilai Islam di lingkungan kampus. MADANI didirikan untuk mencetak mahasiswa yang berilmu, beriman, dan sebagai Lembaga Dakwah Kampus (LDK) yang ada di Institut Teknologi Sumatera. MADANI ITERA dirintis sejak 2012 di kampus ITB Jatinangor dan didirikan di Bandung pada Hari Kamis tanggal 04 Juni 2015 bertepatan dengan 17 Sya'ban 1436 Hijriah. Kemudian ditetapkan sebagai Unit Kegiatan Mahasiswa (UKM) resmi di kampus Institut Teknologi Sumatera pada 06 Oktober 2015 / 22 Dzulhijjah 1436 H. ",
     allprestasi: [
-      {
-        prestasi: kegiatanmadani1,
-        deskripsi: "ABATA (Aksi Bina TPA)",
-      },
-      {
-        prestasi: kegiatanmadani2,
-        deskripsi: "Mentoring Anggota",
-      },
-      {
-        prestasi: kegiatanmadani3,
-        deskripsi: "SAKURA (Seminar Kemuslimahan Azzahra ITERA) ",
-      },
-      {
-        prestasi: kegiatanmadani4,
-        deskripsi: "SALAM (Sapa Langsung Mahasiswa Baru)",
-      },
     ],
 
     allsosmed: [
@@ -176,150 +273,233 @@ export const ukmData = [
     ],
   },
   {
-    key: "himalaya",
-    link: "/informasi/ukm/himalaya",
-    logo: himalaya,
-    title: "HIMALAYA",
-    ketum: "Muhammad Iqbal",
-    prodi: "Teknik Geomatika'21",
+    key: "lempers",
+    link: "/informasi/ukm/lembagapers",
+    logo: lembagapers,
+    title: "Lembaga Pers",
+    namaketum: "Asavira Azzahra",
+    fotoketum: ketumlempers,
+    namapembina : "Dr. Eng. Ir. IB Ilham Malik, IPM., ATU.",
+    fotopembina : pembinalempers,
+    prodi: "",
     sejarah:
-      "UKM HIMALAYA atau Perhimpunan Mahasiswa Lampung Raya adalah organisasi mahasiswa yang bergerak dibidang kebudayaan yang menghimpun mahasiswa lampung dan mahasiswa dari daerah lainnya untuk belajar dan mengembangkan budaya Lampung. HIMALAYA ITERA diresmikan pada tanggal 25 September 2013 di Bandung, sehingga tanggal tersebut dijadikan sebagai Dies Natalis HIMALAYA. ",
-    visi: "Mengembangkan dan meningkatkan HIMALAYA ITERA yang berlandaskan kekeluargaan Sang Bumi Ruwai Jurai",
-    misi: "1. Menjadi wadah mahasiswa/i ITERA yang ingin mengembangkan dan meningkatkan Kebudayaan Lampung. \n2. Meningkatkan kualitas wawasan sumber daya anggota dengan pengenalan dan pelatihan kesenian budaya lampung. \n3. Menjalin silaturahmi dan kerja sama antar anggota guna meningkatkan rasa kekeluargaan.",
+      "Lembaga Pers ITERA adalah unit kegiatan mahasiswa yang bergerak di bidang pers dan media di lingkungan Kampus Institut Teknologi Sumatera. UKM ini menjadi wadah pengembangan minat dan bakat mahasiswa dalam jurnalistik, fotografi, videografi, dan desain grafis. Kegiatan Lembaga Pers bertujuan untuk mengabarkan informasi kampus serta menyalurkan ekspresi kreatif mahasiswa. Lembaga Pers ITERA didirikan pada tanggal 4 November 2013 di Jatinangor, Sumedang dengan nama awal Dimensi ITERA. Seiring berjalannya waktu, UKM ini bertransformasi menjadi Lembaga Pers ITERA. Organisasi ini bersifat independen dan menjunjung tinggi profesionalitas dalam aktivitasnya. Hingga kini, Lembaga Pers ITERA menjadi media kampus aktif yang memproduksi konten kreatif dan jurnalistik.",
+
     allprestasi: [
       {
-        prestasi: kegiatanhimalaya1,
-        deskripsi: "Nayuh Fest (Dies Natalis Himalaya)",
+        prestasi: lempers1,
+        deskripsi: "Juara 1 Lomba Opini Mahasiswa Tingkat Nasional – Semistik 2024 Delfi Imelia Pitri, anggota UKM Lembaga Pers ITERA, berhasil meraih Juara 1 dalam Lomba Opini Nasional yang diselenggarakan oleh UKPKM Tegalboto Universitas Jember. Dengan tulisan bertema “Strategi Reparasi Politik di Indonesia”, Delfi menunjukkan kemampuan berpikir kritis dan menulis opini yang kuat serta berdampak. Prestasi ini turut dibimbing oleh Pembina UKM, Rudiyansyah.",
       },
       {
-        prestasi: kegiatanhimalaya2,
-        deskripsi: "Festival Pemuda",
+        prestasi: lempers2,
+        deskripsi: "Asavira Azzahra, anggota UKM Lembaga Pers ITERA dan mahasiswa Teknik Informatika, meraih Juara 1 di Journalist Competition 2.0 UIN Raden Intan dan Juara 3 di Lomba Nasional News Anchor LPM Republica Unila tahun 2024. Prestasi ini diraih berkat dedikasi dan latihan konsisten dalam bidang jurnalistik dan penyiaran. ",
       },
       {
-        prestasi: kegiatanhimalaya3,
-        deskripsi: "Yudisium Wisuda",
+        prestasi: lempers3,
+        deskripsi: "Delfi Imelia Pitri, mahasiswa Rekayasa Minyak dan Gas sekaligus anggota UKM Lembaga Pers ITERA, berhasil meraih Gold Winner Anugerah Humas kategori PTN Satker subkategori Pers Mahasiswa. Penghargaan ini menjadi bukti kontribusinya dalam dunia kehumasan dan jurnalistik kampus. Prestasi tersebut turut mengangkat nama Lembaga Pers ITERA di tingkat nasional.",
       },
       {
-        prestasi: kegiatanhimalaya4,
-        deskripsi: "Wisuda Mei 2023",
+        prestasi: lempers4,
+        deskripsi: "UKM Lembaga Pers ITERA menyelenggarakan Workshop Jurnalistik sebagai wadah pengembangan kemampuan menulis dan peliputan bagi mahasiswa. Kegiatan ini bertujuan untuk memperkenalkan dasar-dasar jurnalistik sekaligus melatih keterampilan praktis di bidang media kampus. Peserta dibekali materi dari pemateri berpengalaman serta praktik langsung penulisan berita.",
       },
     ],
 
     allsosmed: [
       {
-        instagram: "https://www.instagram.com/himalayaitera/",
+        instagram: "https://www.instagram.com/lembagapers_itera/",
+        youtube: "",
+        website: "https://lembagapersitera.medium.com/",
+        tiktok: " https://www.tiktok.com/@lembagapers_itera",
+      },
+    ],
+  },
+  {
+    key: "archery",
+    link: "/informasi/ukm/archery",
+    logo: archery,
+    title: "ITERA Archery",
+    namaketum: "Esta Widarma Susila",
+    fotoketum: ketumarchery,
+    namapembina : "Dedi Triyadi, S.T.",
+    fotopembina : fotopembinaarchery,
+    prodi: "",
+    sejarah:
+      "ITERA Archery merupakan unit kegiatan mahasiswa di Institut Teknologi Sumatera yang fokus mengembangkan minat dan bakat dalam olahraga panahan. UKM ini menjadi tempat bagi mahasiswa dan tenaga pendidik untuk berlatih, berkompetisi, dan menyalurkan minat dalam panahan. Selain meningkatkan kemampuan teknis, ITERA Archery juga mendorong semangat sportivitas dan kebersamaan di kalangan anggotanya. ITERA Archery didirikan sebagai komunitas pada 10 September 2017  untuk memperkenalkan olahraga panahan. Setelah berproses dan menghadapi beberapa kendala administrasi, ITERA Archery resmi menjadi unit kegiatan mahasiswa pada 30 November 2019. UKM ini aktif mengembangkan panahan di lingkungan Institut Teknologi Sumatera dengan membuka latihan untuk civitas akademika dan ikut serta dalam event ITERA Olympic sejak 2018. Pengesahan terakhir sebagai UKM ditetapkan dalam Surat Keputusan Rektor ITERA pada 2 Januari 2023.",
+
+    allprestasi: [
+      {
+        prestasi: archery1,
+        deskripsi: "Sirkuit 1 Panahan Lampung (Juara 1, 2, dan 3 Babak Kualifikasi Barebow 20M Putra; Juara 1 dan 3 Babak Eliminasi Barebow 20M Putra; Juara 2 Akumulasi Skor Babak Kualifikasi Barebow 20M Putra)",
+      },
+      {
+        prestasi: archery2,
+        deskripsi: "PAC 1st HALF YOUTH LEAGUE 2024 (Juara 1 Babak Kualifikasi Standarbow 40M Putri)",
+      },
+      {
+        prestasi: archery3,
+        deskripsi: "WALIKOTA BANDAR LAMPUNG ARCHERY COMPETITION 2024 (Juara 3 Babak Eliminiasi Standarbow 40M Putri)",
+      },
+      {
+        prestasi: archery4,
+        deskripsi: "Danrem Cup 1 043/GATAM (Juara 3 Babak Kualifikasi Standarbow 30M Putri; Juara 3 Babak Eliminasi Standarbow 30M Putra)",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/iteraarchery/",
         youtube: "",
         website: "",
         tiktok: "",
       },
     ],
   },
+
   {
-    key: "ikm",
-    link: "/informasi/ukm/ikm",
-    logo: ikm,
-    title: "IKM",
-    ketum: "Rollan chandra",
-    prodi: "Teknik Material'22",
+    key: "vollytera",
+    link: "/informasi/ukm/volltera",
+    logo: volltera,
+    title: "VOLLTERA",
+    namaketum: "Ananda Pratama DS",
+    fotoketum: ketumvolltera,
+    namapembina : "",
+    fotopembina : pembinavolltera,
+    prodi: "",
     sejarah:
-      "UKM IKM ITERA adalah sebuah organisasi mahasiswa berbasis kebudayaan. IKM-ITERA ini berasaskan musyawarah dan kekeluargaan, yang sesuai dengan asas Institut Teknologi Sumatera dan tidak bertentangan dengan Adat Basandi Syarak, Syarak basandi kitabullah. Tujuannya untuk merangkul dan menghimpun mahasiswa minang yang ada di itera. Unit Kegiatan Mahasiswa yang bernama ‘Ikatan Keluarga Minangkabau - Institut Teknologi Sumatera’ disingkat IKM-ITERA didirikan pada tanggal 20 Oktober 2015 di Lampung Selatan Provinsi Lampung.",
-    visi: "Menjadikan UKM Ikatan Keluarga Minangkabau sebagai tempat paguyuban, pengembangan budaya, dan sebagai sarana penampung kreativitas, inspirasi, dan aspirasi mahasiswa minangkabau",
-    misi: "1. Mengaktifkan dan memajukan kebudayaan yang ada di dalam UKM Ikatan Keluarga Minangkabau. \n2. Menjalin hubungan yang harmonis dengan semua anggota atau keluarga yang ada di dalam UKM Ikatan Keluarga Minangkabau. \n3. Melaksanakan program-program yang telah ada dan meningkatkan program yang telah tersusun sesuai rencana. \n4. Meningkatkan kemajuan UKM Ikatan Keluarga Minangkabau menjadi yang lebih baik. \n5. Mengadakan kegiatan-kegiatan di bidang kebudayaan, pendidikan, dan keagamaan",
+      "UKM VOLLTERA adalah suatu UKM yang menghimpun seluruh mahasiswa Institut Teknologi Sumatera yang tertarik dan bersemangat untuk menyalurkan bakatnya di bidang bola voli. Mempromosikan bola voli khususnya di Institut Teknologi Sumatera, menjalin komunikasi yang baik dengan UKM bola voli di kampus lain, dan melaksanakan kegiatan sparring dan latihan bersama. UKM VOLLTERA terbentuk pada 17 Oktober 2016 dan merupakan wadah pelatihan dan pengembangan bakat di bidang olahraga khususnya bidang bola voli, sekaligus sebagai wadah organisasi.",
 
     allprestasi: [
       {
-        prestasi: kegiatanikm1,
-        deskripsi: "Juara 1 ITGT 2022",
-      },
-      {
-        prestasi: kegiatanikm2,
-        deskripsi: "IKM BALIAK KA NAGARI",
-      },
-      {
-        prestasi: kegiatanikm3,
-        deskripsi: "Audiensi bersama gubernur Sumatera Barat ",
-      },
-      {
-        prestasi: kegiatanikm4,
-        deskripsi: "Dies Natalis IKM ITERA ",
+        prestasi: volley1,
+        deskripsi: "Juara 2 POMPROV wanita volly pasir 4×4 2025",
       },
     ],
 
     allsosmed: [
       {
-        instagram: "https://www.instagram.com/ikm_itera/",
-        youtube: "https://www.youtube.com/watch?v=i34FwiSQO4w",
-        website: "https://ikm.ukm.itera.ac.id/",
-        tiktok: "https://www.tiktok.com/@ikmitera",
-      },
-    ],
-  },
-
-  {
-    key: "batavia",
-    link: "/informasi/ukm/batavia",
-    logo: batavia,
-    title: "BATAVIA",
-    ketum: "Najwan Putra Ramadhan",
-    prodi: "Teknik Pertambangan'21",
-    sejarah:
-      "UKM Batavia ITERA adalah sebuah organisasi mahasiswa yang ada di ITERA dengan berlandaskan kebudayaan dan kekeluargaan yang menaungi mahasiswa ITERA yang berasal dari JADETABEK maupun di luar JADETABEK yang ingin mempelajari terkait kebudayaan adat betawi. UKM Batavia ITERA adalah organisasi mahasiswa yang berada di Institut Teknologi Sumatera yang berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No. 169/IT9/KM.04.01/2024. Awal mula nama organisasi BATAVIA sendiri adalah JAVATERA yang setelah itu JAVATERA dipecah menjadi 2 yaitu BATAVIA dan Bumi Pasundan yang dimana BATAVIA menjadi komunitas yang menaungi mahasiswa JADETABEK. Hari jadi UKM Batavia ITERA adalah 19 September 2020. Selain menaungi mahasiswa yang berasal dari JADETABEK, tugas pokok dari UKM Batavia ITERA sendiri adalah mewadahi mahasiswa ITERA yang ingin belajar lebih dalam mengenai adat kebudayaan Betawi. ",
-    visi: "Batavia ITERA sebagai wadah mahasiswa/i baik di dalam maupun di luar JABODETABEK dengan berlandaskan kebudayaan Betawi.",
-    misi: "1. Mengenalkan budaya Betawi kepada civitas akademika Institut Teknologi Sumatera \n2. Mengembangkan potensi minat dan bakat anggota Batavia ITERA \n3. Meningkatkan rasa kekeluargaan antar anggota Batavia ITERA \n4. Menjalin kerjasama yang baik dengan Organisasi Mahasiswa baik di dalam kampus maupun luar kampus",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanbatavia1,
-        deskripsi:
-          "Mimbar Seni: Kegiatan kolaborasi menggabungkan beberapa UKM Kebudayaan dalam menampilkan seni adatnya masing masing di lingkungan ITERA",
-      },
-      {
-        prestasi: kegiatanbatavia2,
-        deskripsi:
-          "Penampilan Seni: UKM Batavia sering menampilkan dan mempertunjukkan seni adat betawi, seperti tarian dan palang pintu.",
-      },
-      {
-        prestasi: kegiatanbatavia3,
-        deskripsi:
-          "BATUNITY: Sebuah kegiatan dalam merayakan dies natalis batavia tiap tahunnya pada tanggal 19 september.",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/bataviaitera/",
-        youtube: "",
-        website: "",
-        tiktok: "https://www.tiktok.com/@batavia.itera",
-      },
-    ],
-  },
-
-  {
-    key: "lancangkuning",
-    link: "/informasi/ukm/lancangkuning",
-    logo: lancangkuning,
-    title: "LANCANG KUNING",
-    ketum: "Vania Kahana Lie H",
-    prodi: "Farmasi '22",
-    sejarah:
-      "UKM Lancang Kuning ITERA merupakan unit kegiatan mahasiswa yang bergerak dibidang sosial, kekeluargaan, kesenian, dan kebudaayan. UKM Lancang Kuning ITERA menjadi wadah kekeluargaan bagi mahasiswa ITERA yang berasal dari Riau dan Kepulauan Riau. UKM Lancang Kuning ITERA membawa ciri khas kebudayaan melayu dan memiliki pepatah yang mengatakan “takkan  melayu  hilang di bumi”, artinya kebudayaan melayu tidak akan hilang di bumi nusantara ini. UKM Lancang Kuning ITERA merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera tepatnya di Provinsi Lampung. Diresmikan sesuai keputusan rektor Institut Teknologi Sumatera Nomor 214/A/SK/KM/X/2016. Terbentuknya UKM Lancang Kuning ITERA disepakati pada 10 September 2015.",
-    visi: "1. Sebagai wadah berkumpulnya mahasiswa dan mahasiswi yang berasal dari Provinsi Riau dan Kepulauan Riau. \n2. Sebagai wadah pembinaan dan pengembangan potensi anggota untuk mempererat tali persaudaraan dan kebersamaan.",
-    misi: "1. Mempererat tali persaudaraan dan kebersamaan antar mahasiswa yang berasal dari Provinsi Riau dan Kepualauan Riau. \n2. Mengembangkan potensi anggota dalam memperkenalkan budaya asal yaitu Riau dan Kepulauan Riau di Institut Teknologi Sumatera.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanlancangkuning1,
-        deskripsi: "Lancang Kuning Berlayar",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/lancangkuningitera/",
+        instagram: "https://www.instagram.com/vollteraofficial/",
         youtube: "",
         website: "",
         tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "usi",
+    link: "/informasi/ukm/usi",
+    logo: unitselam,
+    title: "Unit Selam ITERA",
+    namaketum: "Eric Murales Manik",
+    fotoketum: ketumusi,
+    namapembina : "Novriadi, S.Si., M.Si.",
+    fotopembina : pembinausi,
+    prodi: "",
+    sejarah:
+      "Unit Selam ITERA adalah organisasi kemahasiswaan yang mewadahi minat mahasiswa dalam bidang penyelaman ilmiah, konservasi laut, dan eksplorasi bawah air. Kegiatan unit ini mencakup pelatihan dasar selam, riset keanekaragaman hayati laut, serta aksi pelestarian ekosistem pesisir. Dengan semangat kolaboratif lintas disiplin, Unit Selam ITERA berkomitmen menjaga dan mengungkap potensi laut Indonesia. Unit Selam ITERA lahir dari semangat mahasiswa untuk mengenal, menjaga, dan mengkaji potensi laut sumatera, khususnya di perairan Lampung. Dibentuk sebagai respon atas kebutuhan kegiatan kelautan berbasis ilmiah dan konservasi, Unit ini mulai aktif melalui berbagai pelatihan dasar selam seperti snorkeling dan skin diving yang dirancang untuk membekali anggota dengan keterampilan dasar penyelaman. Seiring berkembangnya kapasitas dan jaringan, Unit Selam ITERA melaksanakan ekspedisi bawah laut ke berbagai wilayah perairan di Lampung untuk melakukan observasi, dokumentasi, dan pengambilan data ekosistem laut. Kini, Unit Selam ITERA menjadi wadah utama pengembangan minat selam dan riset ekosistem kelautan di lingkungan Institut teknologi sumatera, tidak hanya sebagai organisasi hobi, tetapi juga sebagai platform kolaboratif untuk pendidikan, penelitian, dan konservasi laut secara ilmiah dan berkelanjutan.",
+
+    allprestasi: [
+      {
+        prestasi: unitselam1,
+        deskripsi: "LOLOS PROGRAM PENGUATAN KAPASITAS ORGANISASI KEMAHASISWAAN , Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi, Direktorat Pembelajaran dan Kemahasiswaan  2024",
+      },
+      {
+        prestasi: unitselam2,
+        deskripsi: "UNIT KEGIATAN MAHASISWA TERBAIK 2 KEMAHASISWAAN EXPO INSTITUT TEKNOLOGI SUMATERA TH 2024",
+      },
+      {
+        prestasi: unitselam3,
+        deskripsi: "SEKOLAH SELAM (Pelatihan Selam Dasar dan Penyelaman Ilmiah serta riset ekosistem laut)",
+      },
+      {
+        prestasi: unitselam4,
+        deskripsi: "Konservasi Laut & Transplantasi Karang melalui kolaborasi riset dengan Komunitas & Institusi",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/unit_selamitera/",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+
+  },
+
+  {
+    key: "ksr",
+    link: "/informasi/ukm/ksr",
+    logo: ksr,
+    title: "Korps Sukarela Palang Merah Indonesia ITERA",
+    namaketum: "Muhammad Fatihul Ihsan",
+    fotoketum: ketumksr,
+    namapembina : "apt. Riri Fauziyya, S.Farm., M.Farm.",
+    fotopembina : pembinaksr,
+    prodi: "",
+    sejarah:
+      "UKM KSR PMI ITERA (Korps Sukarela Palang Merah Indonesia Institut Teknologi Sumatera) adalah unit kegiatan mahasiswa yang bergerak di bidang kepalangmerahan, kemanusiaan, dan siaga bencana. Organisasi ini menjadi wadah bagi mahasiswa ITERA untuk belajar, berlatih, dan mengabdi sebagai relawan yang sigap, tangguh, dan berjiwa sosial tinggi. Melalui pelatihan, aksi sosial, dan kegiatan kemanusiaan, KSR PMI ITERA berkomitmen membentuk relawan muda yang berdedikasi dan berintegritas. Korps Sukarela Palang Merah Indonesia Unit Institut Teknologi Sumatera (KSR PMI Unit ITERA) merupakan Unit Kegiatan Mahasiswa di lingkungan kampus Institut Teknologi Sumatera yang bergerak pada bidang kepalangmerahan dan kemanusiaan. Berdiri pada tanggal 18 November 2016 dan diresmikan melalui Surat Keputusan Rektor Institut Teknologi Sumatera. KSR PMI Unit ITERA juga berada di bawah naungan Palang Merah Indonesia khususnya Palang Merah Indonesia Provinsi Lampung. Kegiatan ekstrakurikuler di bidang sosial dan kesehatan banyak ragamnya. Untuk itu, diperlukan penataan yang tepat agar dapat mencapai hasil yang optimal. Berkaitan dengan itu, maka dipandang perlu adanya panduaan UKM KSR-PMI Unit Institut Teknologi Sumatera. Panduan ini dimaksudkan sebagai salah satu acuan bagi mahasiswa, baik untuk keperluan pengembangan kegiatan secara internal di dalam kampus maupun dalam rangka tingkat regional, nasional, maupun internasional.",
+
+    allprestasi: [
+      {
+        prestasi: ksr1,
+        deskripsi: "UKM Terbaik III tahun 2024",
+      },
+      {
+        prestasi: ksr2,
+        deskripsi: "Donor Darah rutin 3 bulan sekali yang dilakukan di kampus ITERA",
+      },
+      {
+        prestasi: ksr3,
+        deskripsi: "Pelatihan medis kepada UKM lain maupun organisasi mahasiswa lain yang membutuhkan",
+      },
+      {
+        prestasi: ksr4,
+        deskripsi: "Pengawasan medis terhadap kegiatan yang dilaksanakan oleh pihak kampus maupun pihak organisasi lain",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/ksr.itera/",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "pers",
+    link: "/informasi/ukm/pers",
+    logo: pers,
+    title: "Persatuan Sepak Bola ITERA",
+    namaketum: "Daud Lodwyck Anderson",
+    fotoketum: ketumpers,
+    namapembina : "Imam Safei, M.Or.",
+    fotopembina : pembinapers,
+    prodi: "",
+    sejarah:
+      "Unit Kegiatan Mahasiswa Persatuan Sepak Bola ITERA atau dikenal dengan UKM PERSITERA, merupakan salah satu Unit Kegiatan Mahasiswa tertua yang berada di kampus Institut Teknologi Sumatera. Tidak hanya tentang sepak bola dan juga futsal, UKM PERSITERA juga sangat berperan aktif dalam keorganisasian, yang dimana organisasi di ITERA merupakan wadah bagi sekelompok orang yang bekerja secara terkoordinasi untuk mencapai tujuan bersama khususnya di PERSITERA. Dalam suatu organisasi terdapat tugas tugas yang harus dikoordinasikan sehingga dapat mewujudkan tujuan dari organisasi yang telah dibentuk.UKM PERSITERA dibentuk pada tanggal 11 September 2013 di Jatinangor oleh para mahasiswa angkatan 2012 & 2013 yang memiliki tujuan dan hobi yang sama. Nama PERSITERA dibentuk berdasarkan kesepakatan antara angkatan 2012 dan 2013 yang terinspirasi dari PS ITB (Pesatuan Sepak Bola Institut Teknologi Bandung). PERSITERA diresmikan di ITERA pada tanggal 6 Oktober 2016.",
+
+    allprestasi: [
+      {
+        prestasi: defaultimageprestasi,
+        deskripsi: "Juara 1 IR League 2024 Hubungan Internasional Universitas Lampung",
+      },
+      {
+        prestasi: defaultimageprestasi,
+        deskripsi: "Juara 2 Dekan Cup 8.0 Fakultas Hukum Universitas Sriwijaya",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/persiteraofficial/",
+        youtube: "http://www.youtube.com/@ukmpersitera5201",
+        website: "www.persitera.com",
+        tiktok: "https://www.tiktok.com/@persiteraofficial",
       },
     ],
   },
@@ -328,201 +508,111 @@ export const ukmData = [
     key: "umpasa",
     link: "/informasi/ukm/umpasa",
     logo: umpasa,
-    title: "UMPASA",
-    ketum: "Usmar Andoyo Sianturi",
-    prodi: "Teknik Pertambangan'21",
+    title: "Unit Mahasiswa Pecinta Budaya Sumatera Utara",
+    namaketum: "Pangihutan Gabriel Nainggolan",
+    fotoketum: ketumumpasa,
+    namapembina : "Happy Christin Natalia, S.T., M.T.",
+    fotopembina : pembinaumpasa,
+    prodi: "",
     sejarah:
-      "UKM UMPASA ITERA merupakan organisasi mahasiswa yang terdiri dari 8 etnis sumatera Utara yaitu Batak Toba, Batak Simalungun, Batak Karo, Pakpak, Mandailing, Nias, Angkola, dan Melayu yang bertujuan untuk mengembangkan serta melestarikan kedelapan etnis tersebut serta dapat megembangkan minat dan bakat anggotanya, tidak hanya yang berasal dari Sumatera utara, UMPASA ITERA juga memberikan kesempatan bagi mahasiswa yang berasal dari luar Sumatera Utara yang ingin belajar dan mengenal budaya Sumatera Utara. Berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No. 072/A/SK/KM/IV/2016. Hari jadi UMPASA ITERA disepakati jatuh pada 27 Oktober 2016",
-    visi: "Sebagai wadah untuk membina anggota dalam mengemban, melestarikan serta mengembangkan Seni dan Budaya Sumatera Utara.",
-    misi: "1.Menghimpun segenap mahasiswa Institut Teknologi Sumatera yang tertarik dan cinta terhadap budaya Sumatera Utara tanpa membedakan SARA. \n2. Mengenalkan, mengembangkan, serta melestarikan seni dan budaya Sumatera Utara di Institut Teknologi Sumatera dan Indonesia. \n3.Membina rasa persaudaraan dan kekeluargaan sesama anggota yang bersifat kritis, bertanggung jawab, dan bermasyarakat.",
+      "UMPASA atau Unit Mahasiswa Pecinta Budaya Sumatera Utara adalah Unit Kegiatan Mahasiswa (UKM) di Institut Teknologi Sumatera (ITERA) yang berbasis pada kesenian dan kebudayaan. UMPASA ITERA hadir untuk membawa dan melestarikan budaya yang berasal dari Sumatera Utara. Di dalamnya, UMPASA menaungi 8 etnis/suku yang berasal dari wilayah Sumatera Utara, yaitu Batak Toba, Batak Mandailing, Batak Angkola, Batak Pakpak, Batak Karo, Batak Simalungun, Melayu, dan Nias. Pada awalnya, UMPASA berada di Institut Teknologi Bandung (ITB) ketika ITERA masih bertempat di perguruan tinggi tersebut dan dulunya bernama Unit Kesenian Sumatera Utara (UKSU). Kemudian, pada tahun 2014 ITERA pindah ke Lampung dan diberi nama Unit Mahasiswa Pecinta Budaya Sumatera Utara Institut Teknologi Sumatera (UMPASA ITERA). UMPASA ITERA berdiri pada tanggal 28 April 2016 dan disahkan pada tanggal 28 Oktober 2016 oleh rektor pertama ITERA, Ofyar Zainuddin Tamin sesuai Surat Keputusan Rektor Institut Teknologi Sumatera No. 072/A/SK/KM/IV/2016.",
 
     allprestasi: [
       {
-        prestasi: kegiatanumpasa1,
-        deskripsi:
-          "UKM UMPASA ITERA Juara Tari Kreasi Batak Se-Provinsi Lampung tahun 2019",
+        prestasi: umpasa1,
+        deskripsi: "Juara 1 lomba tari kreasi batak se-provinsi Lampung: UMPASA ITERA meraih juara 1 lomba tari kreasi Batak dalam Festival Budaya Batak se-provinsi Lampung yang diadakan Solidaritas Mahasiswa Batak (SOMBA) Lampung di Balai Keratun Bandar Lampung pada 11-12 Mei 2019.",
       },
       {
-        prestasi: kegiatanumpasa2,
-        deskripsi:
-          "TIM TARI UMPASA ITERA tampil di WISUDA PERIODE KE XII ITERA ",
+        prestasi: umpasa2,
+        deskripsi: "UKM terbaik 2019: UMPASA meraih predikat sebagai UKM terbaik 1 di ITERA pada acara Kemahasiswaan Expo tanggal 10 November 2019.",
       },
       {
-        prestasi: kegiatanumpasa3,
-        deskripsi:
-          "Juara 2 festival kumite+68 kg u21 PUTRI dan juara 3 open kumite +68 U21 PUTRI pada KEJURDA KARATE SHOKAIDO PROVINSI LAMPUNG OPEN TURNAMEN DAN FESTIVAL",
+        prestasi: umpasa3,
+        deskripsi: "Juara 2 IAC Fest 2024: UMPASA meraih juara 2 pada IAC Fest (ITERA Art And Culture Festival) yang diadakan oleh Kabinet KM ITERA pada tanggal 16 November 2024.",
       },
       {
-        prestasi: kegiatanumpasa4,
-        deskripsi:
-          "UMPASA DAY yang merupakan program kerja dari Departemen pengembangan dan pelestarian budaya yang bertujuan memperkenalkan UMPASA ITERA ke dalam maupun luar ITERA dengan penampilan musik dan tarian dari 8 etnis Sumatera Utara ",
+        prestasi: umpasa4,
+        deskripsi: "UMPASA Fest",
       },
     ],
 
     allsosmed: [
       {
         instagram: "https://www.instagram.com/umpasaitera_/",
-        youtube: "https://www.youtube.com/@umpasaitera8919",
+        youtube: "",
         website: "",
         tiktok: "https://www.tiktok.com/@umpasaitera_",
       },
     ],
+
   },
 
   {
-    key: "sriwijaya",
-    link: "/informasi/ukm/sriwijaya",
-    logo: sriwijaya,
-    title: "SRIWIJAYA",
-    ketum: "Wahyu Imam Triatmojo",
-    prodi: "Teknik Pertambangan'21",
+    key: "kukang",
+    link: "/informasi/ukm/kukang",
+    logo: kukang,
+    title: "Kukang EV",
+    namaketum: "Fachrizal Amri",
+    fotoketum: ketumkukang,
+    namapembina : "Dr. Duwi Hariyanto, S.Si., M.Si.",
+    fotopembina : pembinakukang,
+    prodi: "",
     sejarah:
-      "UKM Sriwijaya ITERA adalah sebuah organisasi mahasiswa yang bertujuan untuk melestarikan, mengembangkan, dan mempromosikan serta belajar beragam aspek kebudayaan yang berasal dari daerah Sumatera Selatan kepada seluruh mahasiswa Institut Teknologi Sumatera. UKM Sriwijaya resmi terbentuk pada tanggal 16 Januari 2016 dan diresmikan berdasarkan SK Rektor pada tanggal 1 April 2016. Hingga saat ini, UKM Sriwijaya terus berupaya mengembangkan diri menuju arah yang lebih baik. ",
-    visi: "Menjadikan SRIWIJAYA ITERA sebagai wadah mahasiswa/i ITERA untuk meciptakan kekeluargaan yang harmonis, menkonservasi kebudayaan sumatera selatan agar tetap terjaga eksistensinya dan menjadi wadah pengembangkan softskill khususnya bagi mahasiswa yang berada di daerah Sumatera Selatan",
-    misi: "1. Memperkenalkan kebudayaan sumatera selatan di internal dan eksternalITERA . \n2. ⁠Menjaga keharmonisan antar anggota UKM SRIWIJAYA ITERA. \n3. ⁠Mengaplikasikan program kerja secara sistematis guna mencapai tujuan dariUKM SRIWIJAYA ITERA \n4. ⁠Meningkatkan kualitas sumber daya manusia UKM SRIWIJAYA ITERA dengan mengadakan kegiatan berlandaskan kekeluargaan. \n5. ⁠Mengembangkan minat dan bakat anggota UKM SRIWIJAYA ITERA",
+      "KUKANG EV ITERA adalah komunitas mahasiswa Institut Teknologi Sumatera (ITERA) yang berfokus pada pengembangan kendaraan hemat bahan bakar dengan slogan “Silent Drive Powerful Impact”. Sejak 2022, KUKANG EV ITERA telah meriset dan mengembangkan prototipe kendaraan hyper-efficient fuel car, berkomitmen menciptakan teknologi berdampak positif jangka panjang bagi manusia dan bumi. KUKANG EV ITERA berkontribusi pada mobilitas berkelanjutan dengan kendaraan hemat energi yang mendukung transisi energi bersih dan mengurangi ketergantungan pada bahan bakar fosil. Kolaborasi antara akademisi, industri, dan pemerintah diperlukan untuk mencapai visi ini serta mendukung SDGs. KUKANG EV ITERA berdiri pada tanggal 30 Oktober 2022",
 
     allprestasi: [
       {
-        prestasi: kegiatansriwijaya1,
-        deskripsi: "Galangan Dana/Peduli Sesama UKM Sriwijaya",
+        prestasi: kukang1,
+        deskripsi: "Partisipasi kelas prototipe bakar battery electric dalam Shell Eco-Marathon Asia Pacific & Middle East 2024 di sirkuit Internasional Mandalika, NTB, Indonesia",
       },
       {
-        prestasi: kegiatansriwijaya2,
-        deskripsi:
-          "Kunjungan ke panti asuhan, untuk mendukung upaya pendidikan terhadap kebudayaan Sumatera Selatan ",
-      },
-      {
-        prestasi: kegiatansriwijaya3,
-        deskripsi:
-          "Sriwijaya Begesah yang bertujuan untuk  menjalin silaturahmi dan keakaraban antar mahasiswa dari berbagai daerah di Sumatera Selatan.",
-      },
-      {
-        prestasi: kegiatansriwijaya4,
-        deskripsi:
-          "Ngirup Cuko yang merupakan kegiatan ramah tamah atau Sharing session yang dilakukan dengan Unit Kegiatan Mahasiswa Kebudayaan selain Sriwijaya.",
+        prestasi: kukang2,
+        deskripsi: "Partisipasi kelas prototipe bakar battery electric dalam Shell Eco-Maeathon Asia Pacific & Middle East 2023 di sirkuit Internasional Mandalika, NTB, Indonesia",
       },
     ],
 
     allsosmed: [
       {
-        instagram: "https://www.instagram.com/sriwijayaitera",
-        youtube: "https://www.youtube.com/@sriwijayaitera775",
-        website: "https://sriwijaya.ukm.itera.ac.id/",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "ukmbsm",
-    link: "/informasi/ukm/ukmbsm",
-    logo: ukmbsm,
-    title: "BSM",
-    ketum: "Rhenald Melki Kastanja",
-    prodi: "Teknik Elektro'21",
-    sejarah:
-      "BSM ITERA merupakan oraganisasi yang berada dibawah naungan Institut Teknologi Sumatera yang bergerak di bidang seni musik. BSM ITERA ditunjang dengan adanya studio musik yang terletak di gedung D lantai 3 sebagai wadah untuk menyalurkan dan mengembangkan minat bakat yang dimiliki anggotanya. BSM ITERA memiliki acara yang rutin digelar setiap tahunnya antara lain Hi-Klas, Mantaru, Choaching Clinic, ArtCall, dan banyak acara lainnya yang gak kalah seru. BSM ITERA didirikan pada tanggal 15 Oktober 2016",
-    visi: "BSM ITERA sebagai wadah dalam menyalurkan dan mengembangkan minat, bakat, serta kreativitas di bidang seni musik secara mandiri dan profesional.",
-    misi: "1. Optimalisasi kualitas sistem internal.\n2. Mewadahi anggota BSM ITERA dalam bidang seni musik.\n3. Menyelenggarakan kegiatan yang meningkatkan kreativitas dan produktivitas anggota.\n4. Membangun keharmonisan di internal dan eksternal BSM ITERA.\n5. Memperluas jaringan kerja sama dan kolaborasi dengan mitra industri musik.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanukmbsm1,
-        deskripsi: "Sound Engineering",
-      },
-      {
-        prestasi: kegiatanukmbsm2,
-        deskripsi: "ArtCall",
-      },
-      {
-        prestasi: kegiatanukmbsm3,
-        deskripsi: "Choacing Clinic",
-      },
-      {
-        prestasi: kegiatanukmbsm4,
-        deskripsi: "Dies Natalis",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/musikitera",
-        youtube: "https://www.youtube.com/@musikitera5519",
-        website: "https://bsm.ukm.itera.ac.id/",
-        tiktok: "https://www.tiktok.com/@musikitera",
-      },
-    ],
-  },
-
-  {
-    key: "kraken",
-    link: "/informasi/ukm/kraken",
-    logo: kraken,
-    title: "KRAKEN",
-    ketum: "Hadiana Rochman",
-    prodi: "Teknik Perkeretaapian'21",
-    sejarah:
-      "Unit Kegiatan Mahasiswa KRAKEN Institut Teknologi Sumatera atau bila disingkat menjadi UKM KRAKEN ITERA adalah sebuah organisasi yang memiliki fungsi untuk menyatukan seluruh mahasiswa ITERA yang memiliki minat dan bakat dalam olahraga Baseball dan Softball sebagai sarana penyaluran bakat seluruh mahasiswa Institut Teknologi Sumatera. Didirikan di Lampung Selatan pada 22 November 2017.",
-    visi: "Menjadikan KRAKEN ITERA (Baseball – Softball) sebagai Unit Kegiatan Mahasiswa yang mampu berperan aktif dan produktif dalam menyalurkan minat dan bakat mahasiswa ITERA dalam bidang olahraga baseball dan softball.",
-    misi: "1. Mengembangkan dan menyalurkan wawasan seputar olahraga baseball dan softball melalui kegiatan berorganisasi.\n2. Sebagai sarana untuk melatih mahasiswa dalam berpikir, mengontrol diri dan bekerjasama serta mengambil keputusan secara cepat. \n3. Sebagai delegasi Perguruan Tinggi dalam berbagai Kejuaraan. \n4. Menumbuhkan budaya gemar berolahraga.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatankraken1,
-        deskripsi:
-          "Ananda Arkan Khalik (Mahasiswa Prodi Teknologi Industri Pertanian) PON XX Papua 2021 dengan meraih Mendali Emas bersama Tim Softball Lampung",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/softball_itera",
+        instagram: "https://www.instagram.com/iterakukang/",
         youtube: "",
-        website: "https://krakenitera.blogspot.com/softball_itera",
-        tiktok: "",
+        website: "",
+        tiktok: "https://www.tiktok.com/@kukangev",
       },
     ],
   },
 
   {
-    key: "kmpa",
-    link: "/informasi/ukm/kmpa",
-    logo: kmpa,
-    title: "KMPA",
-    ketum: "Azizul Qadhri Khairi",
-    prodi: "Teknik Pertambangan'22",
+    key: "plbc",
+    link: "/informasi/ukm/plbc",
+    logo: plbc,
+    title: "Punchline Boxing Club",
+    namaketum: "Ahmad Faa’iz Bizikrillah",
+    fotoketum: ketumplbc,
+    namapembina : "Erny Amalia Lestari, S.Pd., M.I.P., M.Pd.",
+    fotopembina : pembinaplbc,
+    prodi: "",
     sejarah:
-      "UKM KMPA ITERA (keluarga mahasiswa pecinta alam) ITERA adalah organisasi mahasiswa berTujuan dibentuknya KMPA ITERA antara lain sebagai wadah penyaluran hobi berkegiatan outdoor, interaksi dan bertukar pikiran seputar organisasi serta pelestarian alam dan konservasi  alam. Organisasi ini di bentuk pada tahun 2013 di Jatinangor dengan nama awal Adventure Club ITERA (ACI). Pada pertengahan tahun 2013 berubah menjadi KMPA, dan pada 6 Oktober 2015 KMPA diresmikan",
-    visi: "KMPA ITERA sebagai organisasi yang mengembangkan rasa kekeluargaan dengan tujuan membentuk manusia yang memiliki intelektualitas,cinta tanah air, dan menghargai setiap ciptaan tuhan di bumi Indonesia.",
-    misi: "1. Menjalankan organisasi dengan asas kekeluargaan yang mengikat. \n2. Mengembangkan kemampuan teknis, organisasi, dan pelestarian alam. \n3. Memiliki kemampuan untuk berhubungan baik dengan tuhan, manusia dan lingkungan. \n4.Menjunjung tinggi kejujuran dengan menjadi diri sendiri dalam keadaan apapun.",
+      "PLBC Itera adalah wadah pengembangan minat dan bakat mahasiswa dalam cabang olahraga tinju yang berfokus pada peningkatan kebugaran fisik, teknik bela diri, sportivitas, dan sikap disiplin. Melalui latihan rutin, sparring terstruktur, dan partisipasi dalam kejuaraan, PLBC Itera mendorong anggotanya untuk tumbuh sebagai atlet sekaligus mahasiswa yang berprestasi.PLBC berdiri di Institut Teknologi Sumatera pada tahun 2023.",
 
     allprestasi: [
       {
-        prestasi: defaultimage,
-        deskripsi:
-          " Juara 1 lead putri di pekan olahraga mahasiswa daerah lampung cabang panjat tebing 2023",
+        prestasi: plbc1,
+        deskripsi: "Gubernur Cup Kejuaraan Tinju Amatir se Sumbagsel tahun 2023, Lampung Boxing Competition Goes to Pra Popnas tahun 2024, Gubernur Cup Kejuaraan Tinju Amatir se Sumbagsel tahun 2024, Bhayangkara Boxing Clash 2025.",
       },
       {
-        prestasi: defaultimage,
-        deskripsi:
-          "Juara harapan 3  kategori W21 dalam kompetisi artala orientering competititon tingkat nasional 2023",
+        prestasi: plbc2,
+        deskripsi: "Gubernur Cup Kejuaraan Tinju Amatir se Sumbagsel tahun 2023, Lampung Boxing Competition Goes to Pra Popnas tahun 2024, Gubernur Cup Kejuaraan Tinju Amatir se Sumbagsel tahun 2024, Bhayangkara Boxing Clash 2025.",
       },
       {
-        prestasi: defaultimage,
-        deskripsi:
-          "Juara harapan 2 orientering up20 putri dalam kompetisi mahapala orientering and climbing competition 2023 nasional",
-      },
-      {
-        prestasi: defaultimage,
-        deskripsi:
-          "Perwakilan Mahasasiswa dalam kegiatan pekan olahraga mahasiswa nasional cabang olahraga panjat tebing di kalimantan 2023",
+        prestasi: plbc3,
+        deskripsi: "Gubernur Cup Kejuaraan Tinju Amatir se Sumbagsel tahun 2023, Lampung Boxing Competition Goes to Pra Popnas tahun 2024, Gubernur Cup Kejuaraan Tinju Amatir se Sumbagsel tahun 2024, Bhayangkara Boxing Clash 2025.",
       },
     ],
 
     allsosmed: [
       {
-        instagram: "https://www.instagram.com/kmpa_itera/",
-        youtube: "https://www.youtube.com/@kmpaitera7922",
+        instagram: "https://www.instagram.com/punchlinebc/",
+        youtube: "",
         website: "",
         tiktok: "",
       },
@@ -542,14 +632,6 @@ export const ukmData = [
     misi: "1. Menumbuhkan rasa kekeluargaan dalam bidang olahraga bagi mahasiswa ITERA. \n2. Memperkenalkan serta mempopulerkan olahraga Handball di ITERA maupun di luar ITERA. \n3. Membantu dan melatih para atlet dan calon atlet yang berpotensi di olahraga bola tangan. \n4. Mengaktifkan peran olahraga HANDBALL ITERA untuk menjadi wadah minat dan bakat mahasiswa dalam berorganisasi dan kegiatan mahasiswa di ITERA. \n5. Membentuk kompetisi olahraga HANDBALL untuk memajukan dan mengembangkan olahraga HANDBALL di ITERA dan Provinsi Lampung.",
 
     allprestasi: [
-      {
-        prestasi: defaultimage,
-        deskripsi: "COOMING SOON",
-      },
-      {
-        prestasi: defaultimage,
-        deskripsi: "COOMING SOON",
-      },
     ],
 
     allsosmed: [
@@ -563,64 +645,108 @@ export const ukmData = [
   },
 
   {
-    key: "kukang",
-    link: "/informasi/ukm/kukang",
-    logo: kukang,
-    title: "KUKANG EV",
-    ketum: "Rangga Andhika Fadillah",
-    prodi: "Teknik Elektro'21",
+    key: "swarnakasa",
+    link: "/informasi/ukm/swarnakasa",
+    logo: swarnakasa,
+    title: "Swarnakasa ITERA",
+    namaketum: "Muhammad Afiq Ahnaf",
+    fotoketum: ketumswarnakasa,
+    namapembina : "",
+    fotopembina : pembinaplbc ,
+    prodi: "",
     sejarah:
-      "Kukang EV adalah sebuah komunitas mahasiswa yang berasal dari berbagai prodi dengan bertujuan untuk meriset, mengembangkan, dan mengaplikasikan hal-hal mengenai kendaraan listrik kepada kendaraan listrik yang sedang kami buat dengan berlandaskan efisiensi energi ataupun kecepatan. Kukang EV merupakan sebuah komunitas yang berada di Institut Teknologi Sumatera, Lampung. Terbentuk dan memiliki anggota pada tahun 2022",
-    visi: "Menjadi komunitas mahasiswa dalam pengembangan kendaraan listrik yang efisien dan berkelanjutan dari Institut Teknologi Sumatera untuk Indonesia.",
-    misi: "1. Melakukan riset dan pengembangan teknologi kendaraan listrik yang inovatif dan efisien. \n2. Mengembangkan prototipe kendaraan listrik yang ramah lingkungan dan terjangkau. \n3. Menjadi wadah bagi para mahasiswa untuk berkarya dan berinovasi dalam bidang kendaraan listrik.",
+      "Komunitas yang mempunyai visi sebagai pelopor pengembangan UAV dan Aeromodelling di ITERA yang membawa nama baik kampus di kompetisi nasional maupun internasional pada masa yang akan datang, melalui riset, inovasi, dan prestasi. Swarnakasa didirikan pada Maret 2023, sebagai nama tim delegasi Kontes Robot Terbang Indonesia tahun 2023 dan masih di bawah naungan UROTERA. Lalu di awal 2024, Swarnakasa menjadi komunitas independen yang berfokus pada riset dan pengembangan di bidang UAV & Aeromodelling di dalam ITERA yang didirikan oleh mantan tim KRTI 2023. saat ini, Swarnakasa memiliki 24 anggota aktif, telah menjadi delegasi ITERA di KRTI 2024 di divisi Racing Plane dan Technology Development, serta telah mengembangkan 3 generasi prototype UAV tipe fixed wing yang terus dikembangkan hingga saat ini untuk KRTI 2025.",
 
     allprestasi: [
-      {
-        prestasi: defaultimage,
-        deskripsi: "COOMING SOON",
-      },
-      {
-        prestasi: defaultimage,
-        deskripsi: "COOMING SOON",
-      },
     ],
-
     allsosmed: [
       {
-        instagram: "https://www.instagram.com/iterakukang/",
-        youtube: "",
-        website: "",
-        tiktok: "https://www.tiktok.com/@kukangev",
+        instagram: "https://www.instagram.com/swarnakasa.itera/",
+        youtube: "https://www.youtube.com/SwarnakasaITERA/",
+        website: "https://swarnakasa-itera.my.id",
+        tiktok: "",
       },
     ],
   },
 
   {
-    key: "aksara",
-    link: "/informasi/ukm/aksara",
-    logo: aksara,
-    title: "AKSARA",
-    ketum: "Afiqa Najla Sifana",
-    prodi: "Farmasi'20",
+    key: "himalaya",
+    link: "/informasi/ukm/himalaya",
+    logo: himalaya,
+    title: "Perhimpunan Mahasiswa Lampung Raya ITERA",
+    namaketum: "Antoni Novendi",
+    fotoketum: ketumhimalaya,
+    namapembina : "Ir. Muhammad Abi Berkah Nadi, S.T., M.T., IPM.",
+    fotopembina : pembinahimalaya,
+    prodi: "",
     sejarah:
-      "Aspirasi Kepeminatan Sastra ITERA adalah sebuah komunitas yang berfokus dalam pengembangan sastra di ITERA yang bertujuan untuk menciptakan antusias terhadap wawasan kesusastraan dan literasi sastrawi pada lingkup mahasiswa/i ITERA guna mendukung Pengembangan, Pembinaan, dan Pelindungan Bahasa dan Sastra, serta Peningkatan Fungsi Bahasa Indonesia. Aspirasi Kepeminatan Sastra ITERA (AKSARA ITERA) telah berdiri sejak tahun 2018.",
-    visi: "1. Menciptakan mahasiswa yang antusias terhadap wawasan kesusastraan serta literasi sastrawi. \n2. Memberi nilai tambah kepeminatan, pengetahuan, serta keterampilan di bidang sastra kepada mahasiswa Institut Teknologi Sumatera baik yang ikut andil dalam keanggotaan komunitas maupun di luar komunitas.",
-    misi: "1. Meningkatkan wawasan sastra dengan kegiatan-kegiatan edukatif baik berupa bimbingan maupun diskusi antar anggota. \n 2. Memberikan pemahaman dan pengalaman yang menyenangkan tentang  sastra melalui kegiatan partisipatif seperti malam sastra.",
-
+      "Himalaya ITERA adalah salah satu Unit Kegiatan Mahasiswa (UKM) Perhimpunan Mahasiswa Lampung Raya di Institut Teknologi Sumatera (ITERA). UKM ini bertujuan untuk mewadahi mahasiswa ITERA yang berasal dari Lampung dan sekitarnya, serta berkontribusi dalam pelestarian budaya Lampung. Perhimpunan Mahasiswa Lampung Raya merupakan sebuah organisasi atau perkumpulan yang terdiri dari mahasiswa/i Lampung yang mengambil studi di Institut Teknologi Sumatera (ITERA) dan memiliki tujuan dibidang kebudayaan daerah. Perhimpunan Mahasiswa Lampung Raya ITERA atau dapat disingkat menjadi HIMALAYA ITERA diresmikan pada tanggal 25 September 2013 di Bandung, sehingga tanggal tersebut dijadikan sebagai Dies Natalis HIMALAYA",
     allprestasi: [
-      {
-        prestasi: kegiatanaksara1,
-        deskripsi:
-          "Telah menerbitkan buku antologi puisi berjudul 'Pembebasan Jiwa yang Rapuh'.",
-      },
     ],
 
     allsosmed: [
       {
-        instagram: "https://www.instagram.com/aksara_itera/",
-        youtube: "https://www.youtube.com/@aksaraitera2638",
-        website: "https://issuu.com/aksaraitera",
+        instagram: "https://www.instagram.com/himalayaitera/",
+        youtube: "",
+        website: "",
         tiktok: "",
+      },
+    ],
+  },
+  {
+    key: "kmkitera",
+    link: "/informasi/ukm/kmk",
+    logo: kmk,
+    title: "Keluarga Mahasiswa Katolik St. Thomas Aquinas",
+    namaketum: "Ripai Septian Turnip",
+    fotoketum: ketumkmk,
+    namapembina: "Refita Ika Indrayati, S.Ds., M.Ds.",
+    fotopembina: pembinakmk,
+    prodi: "",
+    sejarah: "Keluarga Mahasiswa Katolik (KMK) merupakan sebuah organisasi yang menghimpun mahasiswa mahasiswi beragama Katolik di lingkungan kampus. KMK St. Thomas Aquinas ITERA diresmikan pada tanggal 30 November 2019.",
+    allprestasi: [
+      {
+        "prestasi": kmk1,
+        "deskripsi": " Natal KMK sebagai perayaan hari kelahiran Yesus Kristus",
+      },
+      {
+        "prestasi": kmk2,
+        "deskripsi": "Paskah KMK sebagai perayaan hari kebangkitan Yesus",
+      },
+      {
+        "prestasi": kmk3,
+        "deskripsi": "Retret with KMK sebagai wadah mempererat persaudaraan anggota KMK",
+      },
+    ],
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/kmkitera",
+        youtube: "",
+        website: "",
+        tiktok: "https://www.tiktok.com/@kmk.itera",
+      }
+    ],
+  },
+
+  {
+    key: "pmk",
+    link: "/informasi/ukm/pmk",
+    logo: pmk,
+    title: "Persekutuan Mahasiswa Kristen ITERA",
+    namaketum: "Andre Hadiman Rotua Parhusip",
+    fotoketum: ketumpmk,
+    namapembina: "Martin C. T. Manullang, S.T., M.T., Ph.D.",
+    fotopembina: pembinapmk,
+    prodi: "",
+    sejarah: "PMK ITERA didirikan sebagai UKM di ITERA menjadi wadah bagi mahasiswa Kristen Protestan untuk mengembangkan sikap yang sesuai dengan ajaran Firman Tuhan dan meneladani Yesus Kristus dalam kehidupan mereka. PMK ITERA berfungsi untuk memfasilitasi kebutuhan spiritual mahasiswa Kristen Protestan dalam menjalankan ibadah, memperkuat ikatan antar umat beragama, dan menjadi 'keluarga' dalam menumbuhkan nilai-nilai Kristen yang diajarkan oleh Tuhan Yesus Kristus. Sejak awal, mahasiswa dan bagian kemahasiswaan ITERA telah bekerja sama mendirikan UKM bernama Komunitas Mahasiswa Kristen Katolik (KMKK), yang dikhususkan untuk kegiatan rohani bagi mahasiswa beragama Kristen Protestan dan Katolik. Namun, seiring waktu dan peningkatan jumlah anggota, timbul kebutuhan untuk membentuk UKM terpisah bagi mahasiswa beragama Kristen Protestan. Maka, PMK ITERA didirikan pada tanggal 14 Februari 2020 di Institut Teknologi Sumatera dan resmi melalui surat keputusan rektor dengan no 188/A/SK/KM/ 2015.",
+    allprestasi: [
+    ],
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/pmk_itera",
+        youtube: "http://www.youtube.com/@pmkitera6371",
+        website: "www.pmkitera.com",
+        tiktok: "https://www.tiktok.com/@pmk_itera",
       },
     ],
   },
@@ -629,860 +755,34 @@ export const ukmData = [
     key: "gamahira",
     link: "/informasi/ukm/gamahira",
     logo: gamahira,
-    title: "GAMAHIRA",
-    ketum: "I Gede Riyan Oka Saputra",
-    prodi: "Teknik Mesin'21",
-    sejarah:
-      "UKM GAMAHIRA adalah GAMAHIRA, singkatan dari “Keluarga Mahasiswa Hindu Institut Teknologi Sumatera”, didirikan untuk memfasilitasi mahasiswa Hindu di Itera dalam memperkuat kerohanian dan keterampilan beragama mereka. Organisasi ini memahami bahwa bimbingan rohani dan kecerdasan spiritual adalah aspek penting bagi setiap mahasiswa. Tujuan GAMAHIRA adalah membantu mahasiswa mengimplementasikan pembelajaran dan nilai-nilai rohani ke tingkat yang lebih tinggi. Setelah perjalanan yang panjang, Gamahira akhirnya berhasil menjadi UKM resmi dan menerima SK Kepengurusan pertama pada tahun 2021",
-    visi: "Membangun solidaritas dan integritas Mahasiswa Hindu yang berlandaskan Tri  Kaya  Parisudha  serta  mampu  menyeimbangkan  konsep  Tri  Hita Karana demi terwujudnya organisasi yang produktif dan harmonis.  ",
-    misi: "1. Meningkatkan ketaqwaan kepada Ida Sang Hyang Widhi Wasa (Tuhan Yang Maha Esa). \n2. Taat dan patuh dalam menjalankan ajaran agama. \n3. Menjaga dan melestarikan nilai-nilai luhur, adat dan budaya.",
-
+    title: "KELUARGA MAHASISWA HINDU ITERA",
+    namaketum: "Bagus Arianto",
+    fotoketum: ketumgamahira,
+    namapembina: "Dr. I Putu Mahendra, S.Si.",
+    fotopembina: pembinagamahira,
+    prodi: "",
+    sejarah: "GAMAHIRA, singkatan dari \"Keluarga Mahasiswa Hindu Institut Teknologi Sumatera\", terkait erat dengan tujuan memperkuat kerohanian dan meningkatkan keterampilan beragama mahasiswa Hindu di Itera. UKM GAMAHIRA didirikan sebagai wadah yang membantu mahasiswa menerapkan pembelajaran dan nilai-nilai rohani ke tingkat yang lebih tinggi. Gamahira dimulai pada tahun 2018 di Institut Teknologi Sumatera. Gamahira dibuat di pantai Selaki oleh Wayan Carles sebagai ketua umum saat itu. Kemudian pada tanggal 30 Agustus 2018, dilakukan pengajuan pembentukan Gamahira sebagai UKM resmi di Lampung Selatan. Setelah perjalanan yang panjang, Gamahira akhirnya berhasil menjadi UKM resmi dan menerima SK Kepengurusan pertama pada tahun 2021.",
     allprestasi: [
       {
-        prestasi: kegiatangamahira1,
-        deskripsi: "GGTP ( Gamahira Go To Pasraman )",
+        prestasi: gamahira1,
+        deskripsi: "Kadek Pradnya Uttistha(Sains Aktuatia'24) Juara 1 Lomba Dharmawacana WIDYA SANGGA VI BEM STAH  Lampung 2025",
       },
       {
-        prestasi: kegiatangamahira2,
-        deskripsi: "Piodalan pura vidya dharma ",
+        prestasi: gamahira2,
+        deskripsi: "Made Enjelita(Biomedis'24) & Made Sukresih(Sains Aktuatia'24) Juara 3 Lomba Sloka Kreatif JNANA DHARMA UKM Hindu  UNILA 2025",
       },
+      {
+        prestasi: gamahira3,
+        deskripsi: "Made Enjelita(Biomedis'24) & Made Sukresih(Sains Aktuatia'24) Juara 3 Lomba Sloka Kreatif JNANA DHARMA UKM Hindu  UNILA 2025",
+      }
     ],
 
     allsosmed: [
       {
-        instagram: "https://www.instagram.com/gamahira_itera/",
+        instagram: "https://www.instagram.com/gamahira_itera",
         youtube: "",
-        website: "https://gamahira.ukm.itera.ac.id/",
+        website: "",
         tiktok: "https://www.tiktok.com/@gamahiraitera",
-      },
-    ],
-  },
-
-  {
-    key: "ibt",
-    link: "/informasi/ukm/ibt",
-    logo: ibt,
-    title: "IBT",
-    ketum: "Natanael Yabes Marcelino M.",
-    prodi: "Teknik Mesin'21",
-    sejarah:
-      "UKM Itera Basketball Team adalah UKM yang berlandaskan kekeluargaan, UKM ini juga merupakan wadah bagi para mahasiswa maupun mahasiswi yang ingin berorganisasi dan mempunyai minat bakat di bidang olahraga basket dengan tujuan mengembangkan bakat para mahasiswa agar bisa melestarikan nama kampus di cabang olahraga basket. UKM ITERA Basketball Team terbentuk pada tanggal 5 september 2014 di Institut Teknologi Bandung ",
-    visi: "1. Menghimpun atau mewadahi segenap mahasiswa ITERA pada olahraga basket. \n2. Mengembangkan minat dan bakat untuk anggota ITERA Basketball Team. \n3. Membentuk rasa persaudaraan serta kekeluargaan sesama anggota ITERA Basketball Team dan alumni serta Keluarga Mahasiswa ITERA. \n4. Membentuk anggota-anggota menjadi mahasiswa yang kritis, analitis, bertanggung jawab, dan berwawasan dalam berorganisasi",
-    misi: "1. Menghimpun atau mewadahi segenap mahasiswa ITERA pada olahraga basket. \n2. Mengembangkan minat dan bakat untuk anggota ITERA Basketball Team. \n3. Membentuk rasa persaudaraan serta kekeluargaan sesama anggota ITERA Basketball Team dan alumni serta Keluarga Mahasiswa ITERA. \n4. Membentuk anggota-anggota menjadi mahasiswa yang kritis, analitis, bertanggung jawab, dan berwawasan dalam berorganisasi",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanibt1,
-        deskripsi: "Juara 3 pada event siger basketball competition 2024",
-      },
-      {
-        prestasi: defaultimage,
-        deskripsi: "juara 3 pekan olahraga mahasiswa daerah (pomda)",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/iterabasketball/",
-        youtube: "https://www.youtube.com/@ITERABasketballTeam",
-        website: "",
-        tiktok: "https://www.tiktok.com/@iterabasketbaallteam",
-      },
-    ],
-  },
-
-  {
-    key: "ibc",
-    link: "/informasi/ukm/ibc",
-    logo: ibc,
-    title: "IBC",
-    ketum: "Dimas Amiruliantaka Prameshwara",
-    prodi: "Teknik Pertambangan'21",
-    sejarah:
-      "UKM Itera Badminton Club (IBC) merupakan sebuah komunitas olahraga badminton yang bertujuan untuk mewadahi dan mengembangkan minat bakat bulu tangkis mahasiswa ITERA. Itera Badminton Club (IBC) merupakan komunitas olahraga badminton yang berada di Institut Teknologi Sumatera yang telah berdiri pada tahun 2015 dan diresmikan  pada 13 Februari 2016.",
-    visi: "-",
-    misi: "-",
-    allprestasi: [
-      {
-        prestasi: kegiatanibc1,
-        deskripsi: "Juara 1 Ganda Campuran POMPROV 2022",
-      },
-      {
-        prestasi: kegiatanibc2,
-        deskripsi: "Juara 3 pekan olahraga mahasiswa daerah (pomda)",
-      },
-      {
-        prestasi: kegiatanibc3,
-        deskripsi: "IBC OPEN",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/1bc_official/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "icc",
-    link: "/informasi/ukm/icc",
-    logo: icc,
-    title: "ICC",
-    ketum: "M. Gathan Hibrizi",
-    prodi: "Teknik Elektro'20",
-    sejarah:
-      "Ukm itera chess club adalah sebuah organisasi mahasiswa yang bertujuan untuk  belajar, mengembangkan bakat, meningkatkan kemampuan dalam hal bermain catur",
-    visi: "-",
-    misi: "-",
-    allprestasi: [
-      {
-        prestasi: kegiatanicc1,
-        deskripsi:
-          "Juara 1 ASEAN GAMES UNIVERSITY kategori catur standar beregu putri",
-      },
-      {
-        prestasi: kegiatanicc2,
-        deskripsi:
-          "Juara 2 ASEAN GAMES UNIVERSITY kategori catur cepat beregu putri",
-      },
-      {
-        prestasi: kegiatanicc3,
-        deskripsi:
-          "Juara 2 ASEAN GAMES UNIVERSITY kategori catur kilat beregu putri",
-      },
-      {
-        prestasi: kegiatanicc4,
-        deskripsi:
-          "Juara 1 pekan olahraga nasional mahasiswa (pomnas) kategori catur standar perorangan putri",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/iterachess/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "ipsitera",
-    link: "/informasi/ukm/ipsitera",
-    logo: ipsitera,
-    title: "IPSITERA",
-    ketum: "Addira Suharuddin",
-    prodi: "Teknik Telekomunikasi'22",
-    sejarah:
-      "Organisasi ini bernama Unit Kegiatan Mahasiswa Ikatan Pencak Silat Institut Teknologi Sumatera disingkat UKM IPSITERA, UKM IPSITERA bertujuan untuk mempersatukan dan membina persaudaraan antar UKM/Komunitas Pencak Silat yang ada di Institut Teknologi Sumatera, UKM IPSITERA bertujuan untuk mempersatukan dan membina persaudaraan antar UKM/Komunitas Pencak Silat yang ada di Institut Teknologi Sumatera. Organisasi UKM IPSITERA resmi didirikan pada 9 September 2016",
-    visi: "-",
-    misi: "-",
-    allprestasi: [
-      {
-        prestasi: kegiatanipsitera1,
-        deskripsi: "Juara umum 1 jawara lampung competition",
-      },
-      {
-        prestasi: kegiatanipsitera2,
-        deskripsi: "Juara umum 2 lampung champion ship",
-      },
-      {
-        prestasi: kegiatanipsitera3,
-        deskripsi: "Juara umum 2 lampung berjaya",
-      },
-      {
-        prestasi: kegiatanipsitera4,
-        deskripsi:
-          "Mendali perunggu dalam pekan olahraga mahasiswa nasional 2023",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/ipsitera/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "karate",
-    link: "/informasi/ukm/karate",
-    logo: karate,
-    title: "KARATE",
-    ketum: "Fathurahman Faisal",
-    prodi: "Teknik Kimia'21",
-    sejarah:
-      "UKM Karate ITERA adalah organisasi mahasiswa di Institut Teknologi Sumatera yang berfokus pada pengembangan kemampuan seni bela diri karate. UKM ini menawarkan wadah bagi mahasiswa yang memiliki minat dalam karate untuk berlatih dan mengembangkan keterampilan mereka, baik untuk tujuan kesehatan, hobi, maupun prestasi. UKM Karate di bentuk pada tahun 2014 bersamaan dengan pembentukan UKM lainya.",
-    visi: "Mewujudkan suatu badan yang berfungsi sebagai wadah atau tempat mahasiswa menempa diri baik dalam organisasi Unit Kegiatan Mahasiswa, maupun didalam kepelatihan bela diri karate.",
-    misi: "1. Memperjuangkan nilai-nilai, prinsip, dan semangat UKM Karate dalam ruang lingkup internal maupun eksternal. \n2. Menjadi wadah aspirasi, koordinasi, dan komunikasi antar Anggota Karate. \n3. Menjadi wadah untuk memperjuangkan kepentingan maupun hak-hak anggota Karate khususnya dan mahasiswa umumnya. \n4. Menjadi wadah pengembangan ilmu keorganisasian, kepelatihan, dan prestasi",
-
-    allprestasi: [
-      {
-        prestasi: kegiatankarate1,
-        deskripsi: "Meraih 7 Mendali pada ajang Kejuaraan Karate FORKI Lampura",
-      },
-      {
-        prestasi: kegiatankarate2,
-        deskripsi:
-          "Meraih 12 Medali pada ajang Kejuaraaan Karate LA Cup Tahun 2022.",
-      },
-      {
-        prestasi: kegiatankarate3,
-        deskripsi:
-          "Kejuaraan Sirkuit Karate Pelajar Shokaido Provinsi Lampung 2023",
-      },
-      {
-        prestasi: kegiatankarate4,
-        deskripsi:
-          "Meraih 9 Mendali pada ajang Kejuaraan karate Piala walikota Bandar Lampung 2022",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/karate.itera/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "teraesport",
-    link: "/informasi/ukm/teraesport",
-    logo: teraesport,
-    title: "TERA ESPORT",
-    ketum: "Muhammad Ikhwan Habib Arifi",
-    prodi: "Teknik Geofisika'21",
-    sejarah:
-      "Unit Kegiatan Mahasiswa Tera Esports merupakan wadah untuk mahasiswa Institut Teknologi Sumatera yang memiliki minat di bidang olahraga elektronik, dengan harapan dapat mengembangkan skill dan prestasi. Serta menghasilkan kepribadian yang memiliki jiwa kompetitif dan solidaritas yang tinggi. ",
-    visi: "Memajukan kualitas Tera Esports dengan mengedepankan kebersamaan, perjuangan serta keberhasilan yang memuaskan.",
-    misi: "1.Menjadi wadah mahasiswa Itera yang hobi dalam bidang Esports. \n2.Mengenalkan E-sports sebagai sarana prestasi yang dapat digapai di lingkungan kampus dan luar kampus \n3.Membantu dan mengarahkan para atlet dan calon atlet yang berpotensi di bidang esports \n4.Menjadikan Tera Esports lebih dikenal oleh public kampus dan di luar kampus \n5.Berperan dalam mengikuti perkembangan dunia Esports dan menerapkannya dilingkungan ITERA.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanteraesport1,
-        deskripsi:
-          "Juara 1 dan 3 PUBG Mobile  Piala Gubernur Esports Pelajar-Mahasiswa 2022",
-      },
-      {
-        prestasi: kegiatanteraesport2,
-        deskripsi: "ITERA Olympic Cabang Olahraga Esports",
-      },
-      {
-        prestasi: kegiatanteraesport3,
-        deskripsi:
-          "PUBG Mobile Jawara Champion S5 Road To PUBG Mobile Campus Champion",
-      },
-      {
-        prestasi: kegiatanteraesport4,
-        deskripsi:
-          "Top 16 LENM Mobile Legend Men dan Top 32 LENM Mobile Legend Women",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/tera_esports/",
-        youtube: "https://www.youtube.com/@tera_esports",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "archery",
-    link: "/informasi/ukm/archery",
-    logo: archery,
-    title: "ARCHERY",
-    ketum: "Esta Widarma Susila",
-    prodi: "Arsitektur Lanskap'22",
-    sejarah:
-      "ITERA Archery adalah menjadi salah satu wadah yang dapat menghimpun kreatifitas serta bakat mahasiswa ITERA dalam mengekspresikan diri atau kemampuannya ke dalam suatu bidang atau hobi yang diminatinya terutama pada bidang olahraga khususnya panahan. ITERA Archery merupakan organisasi yang bergerak dalam bidang panahan yang dibentuk sejak tahun 2017 dan resmi menjadi UKM pada 2 Januari 2023 ",
-    visi: "Menjadi wadah yang dapat menghimpun kreatifitas serta bakat mahasiswa ITERA dalam mengekspresikan diri atau kemampuanya dalam bidang panahan",
-    misi: "1. Melaksanakan ibadah sunnah bagi yang beragama Islam. \n2. menyelenggarakan kegiatan latihan memanah guna meningkatkan fokus, kepercayaan diri, dan kesabaran dalam anggota secara khusus dan civitas akademika ITERA secara umum. \n3. mengasah kemampuan dan bakat mahasiswa dalam memanah, serta mempererat tali persaudaraan antar mahasiswa ITERA",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanarchery1,
-        deskripsi: "Latihan bersama UKM dan komunitas panahan di Lampung",
-      },
-      {
-        prestasi: kegiatanarchery2,
-        deskripsi:
-          "Medalis emas kategori Putri standar bow pada Kejuaraan panahan PAC 1st Half Archery Youth League di Palembang 2024",
-      },
-      {
-        prestasi: kegiatanarchery3,
-        deskripsi:
-          "Juara umum 1 dan 3 pada Perlombaan PELATPROV DAN SELEKSI KEJURNAS YUNIOR SIRKUIT 1 LAMPUNG 2024",
-      },
-      {
-        prestasi: kegiatanarchery4,
-        deskripsi:
-          "Juara umum 3 dan 1 pada kejuaraan KAI KADRIVE IV CUP ARCHERY COMPETITION 2023",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/iteraarchery/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "saibatin",
-    link: "/informasi/ukm/saibatin",
-    logo: saibatin,
-    title: "SAIBATIN",
-    ketum: "Hizkia Maratur Nababan",
-    prodi: "Teknik Material'21",
-    sejarah:
-      "Komunitas SAIBATIN ITERA merupakan sebuah wadah yang dibentuk untuk menyalurkan hobby atau ketertarikan pada bidang remote control terkhusus pada kapal. Selain itu, SAIBATIN ITERA juga mempunyai misi untuk menaikkan nama ITERA di tingkat nasional dan internasional serta mendukung penuh anggota yang bergabung didalamnya untuk meningkatkan skill dan prestasi yang dimiliki. SAIBATIN ITERA terbentuk pada 22 Maret 2023.",
-    visi: "-",
-    misi: "-",
-
-    allprestasi: [
-      {
-        prestasi: kegiatansaibatin1,
-        deskripsi:
-          "Finalis 10 Besar Marine Innovation Festival Indonesia (MARINESIA) Universitas Hasanuddin",
-      },
-      {
-        prestasi: kegiatansaibatin2,
-        deskripsi:
-          "Juara Fun Race Etam Ship Competition (ESC) Institut Teknologi Kalimantan ",
-      },
-      {
-        prestasi: kegiatansaibatin3,
-        deskripsi:
-          "Finalis 10 Besar Semarak Mahasiswa Perkapalan (SAMPAN) Institut Teknologi Sepuluh Nopember ",
-      },
-      {
-        prestasi: kegiatansaibatin4,
-        deskripsi:
-          "Juara 1 Kontes Kapal Cepat Tak Berawak (KKCTBN) Kategori Electrical Boat",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/saibatin_itera/",
-        youtube: "",
-        website: "",
-        tiktok: "https://www.tiktok.com/@saibatin_itera",
-      },
-    ],
-  },
-
-  {
-    key: "unitselam",
-    link: "/informasi/ukm/unitselam",
-    logo: unitselam,
-    title: "UNIT SELAM",
-    ketum: "Muhamad Zidan Arrasyid",
-    prodi: "Sains Lingkungan Kelautan'21",
-    sejarah:
-      "UKM Unit Selam Itera adalah sebuah organisasi mahasiswa yang ada di itera, yang bertujuan untuk mengenal dan mempelajari lebih jauh tentang alam bawah laut, Untuk mencapai tujuan Unit Selam ITERA sesuai dengan bentuk dan sifatnya, maka adapun kegiatannya seperti Pelatihan, Edukasi, Konservasi, Riset, Pengabdian Masyarakat. Hari jadi USI ITERA disepakati jatuh pada 20 Maret 2024.",
-    visi: "Mewujudkan organisasi mahasiswa yang berkualitas di Institut Teknologi Sumatera, yang menonjolkan keunggulan, integritas, serta kemandirian sebagai salah satu pusat pengembang keterampilan selam dan pusat data keanekaragaman hayati dan kemaritiman Sumatera.",
-    misi: "Memberdayakan potensi pendidikan, penelitian, konservasi, dan pelatihan mahasiswa di lingkungan Institut Teknologi Sumatera yang berfokus pada keunggulan pengkajian hayati pada zona intertidal, litoral, dan pelagik.",
-
-    allprestasi: [
-      {
-        prestasi: defaultimage,
-        deskripsi: "Cooming Soon",
-      },
-      {
-        prestasi: defaultimage,
-        deskripsi: "Cooming Soon",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/unitselamitera_/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "pramuka",
-    link: "/informasi/ukm/pramuka",
-    logo: pramuka,
-    title: "PRAMUKA",
-    ketum: "Joni Efendi & Sindy Evitasari",
-    prodi: "Desain Komunikasi Visual'21 & Arsitektur'21",
-    sejarah:
-      "Nama Pramuka Itera sendiri diambil dari 2 kata, yaitu “Racana Itera” yang dimana artinya pada tingkatan anggota dewasa muda dan anggota muda di naungan sebuah Racana yang ada di Institut Teknologi Sumatera. Adapun nama racana putra adalah Musannif Ryacudu, dimana tokoh pahlawan laki-laki tersebut berasal dari Provinsi Lampung  dan letak kampus Itera yang berada di jalan terusan ryacudu. Kiranya dengan racana putra mengambil nama tokoh tersebut adalah agar semangat tinggi jiwa muda racana putra yang bergejolak mengantarkan kedepan untuk memajukan Indonesia lebih baik melalui apresiasi, inspirasi serta peduli dengan lingkungan sekitar. Adapun nama racana putri adalah Martha Christina Tiahahu, dimana tokoh pahlawan wanita tersebut berasal dari maluku. Ia adalah lambang keberanian wanita Indonesia, maka dari itu kiranya racana putri sebagai wanita harus mencontoh dirinya yang berani langsung berjuang di medan pertempuran dan dapat memberi semangat kepada kaum wanita yang lain. Dalam hal ini racana putri harus memiliki jiwa yang pantang mundur, pemberani, konsekuen terhadap cita-citanya, serta ikut ambil bagian di setiap kegiatan. Racana musannif ryacudu dan martha christina tiahahu berdiri pada tanggal 6 Oktober 2016 melalui keputusan rektor",
-    visi: "Mewujudkan Racana Itera menjadi organisasi yang mampu melahirkan generasi muda penerus bangsa yang memiliki mental kuat, berkarakterkan satya dan dharma pramuka, serta mempunyai keterampilan dalam manajemen organisasi dengan berasaskan Tri Bina Pramuka dan Tri Dharma Perguruan Tinggi",
-    misi: "1. Menyelenggarakan kepramukaan bagi anggota dewasa muda dan anggota muda gerakan pramuka sesuai dengan prinsip dasar dan metode kepramukaan. \n2. Melaksanakan penelitian dan pengabdian pada masyarakat sebagai pelaksanaan Tri Bina Pramuka dan Tri Dharma Perguruan Tinggi. \n3. Memberdayakan sumber daya manusia dengan peningkatan kualitas pendidikan pelatihan, pengalaman, serta pengembangan intelektualitas, kreativitas, minat dan bakat. \n. 4.Menjalin hubungan yang erat dengan pihak internal kampus dan purnawarga maupun eksternal, khususnya masyarakat sekitar.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanpramuka1,
-        deskripsi:
-          "Juara umum 2 putra jambore Nasional mahasiswa bela negara yang diadakan di UPNV Yogyakarta ",
-      },
-      {
-        prestasi: kegiatanpramuka2,
-        deskripsi:
-          "Juara umum 3 putri Jambore Nasional mahasiswa Bela Negara yang diadakan di UPNV Yogyakarta ",
-      },
-      {
-        prestasi: kegiatanpramuka3,
-        deskripsi:
-          "Juara 1 tali temali putra pada jambore Nasional mahasiswa bela negara di UPNV Yogyakarta ",
-      },
-      {
-        prestasi: kegiatanpramuka4,
-        deskripsi:
-          "Juara 2 rapling putri pada jambore Nasional mahasiswa bela negara di UPNV Yogyakarta ",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/pramuka_itera/",
-        youtube: "https://www.youtube.com/@pramukaitera2966",
-        website:
-          "https://linktr.ee/racana.pramuka?fbclid=PAZXh0bgNhZW0CMTEAAaZhr7tYn70HcYz1qxUexSJYAUD6glDilIx6OPpKW3qaqAiRYgqPaeQERNY_aem_uGfC4h34AmCwzhcmaBOeTA",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "akai",
-    link: "/informasi/ukm/akai",
-    logo: akai,
-    title: "AKAI",
-    ketum: "Adit Setiawan ",
-    prodi: "Teknik Telekomunikasi'21",
-    sejarah:
-      "UKM ATTARASHII SEKAI ITERA adalah sebuah organisasi mahasiswa yang menampung setiap mahasiswa itera yang memiliki ketertarikan mempelajari  bahasa dan budaya  Jepang , serta mengembangkan berbagai minat bakat untuk kemajuan dan perkembangan anggota. UKM ATTARASHII SEKAI ITERA (Akai ITERA) merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera, Lampung yang berdiri pada 24 September 2016 dan di resmikan oleh Institut Teknologi Sumatera sesuai keputusan rektor ITERA. Hari jadi Atarashii Sekai Itera di sepakati jatuh pada  24 September 2016",
-    visi: "Sebagai wadah untuk mengembangkan  minat bakat mahasiswa Institut Teknologi Sumatera (ITERA) yang terorganisir dan berkesinambungan dalam bidang bahasa dan kebudayaan Negara Jepang.",
-    misi: "1.Menghimpun segenap Mahasiswa Itera yang tertarik untuk mempelajari bahasa dan kebudayaan Jepang. \n2. Memperkenalkan dan mempelajari bahasa dan kebudayaan Jepang khususnya di Itera dan Indonesia pada umumnya. \n3.membina persaudaraan serta kekeluargaan sesama anggota. \n4. Membina anggota-anggota menjadi mahasiswa yang kritis, analitis, bertanggung jawab, dan berwawasan masyarakat global.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanakai1,
-        deskripsi:
-          "Juara 1 anisong competition dalam event Tacco Fest di taman budaya Lampung ",
-      },
-      {
-        prestasi: kegiatanakai2,
-        deskripsi:
-          "Juara 3 cosplay Competition dalam event Ibento Kanri Comuncation yang di selenggarakan oleh Universitas Bandar Lampung di taman Budaya provinsi Lampung",
-      },
-      {
-        prestasi: kegiatanakai3,
-        deskripsi:
-          "Juara 3 Digital Art dalam event Ibento Kanri Comuncation yang di selenggarakan oleh Universitas Bandar Lampung di taman Budaya provinsi Lampung",
-      },
-      {
-        prestasi: kegiatanakai4,
-        deskripsi:
-          "Juara Favorit 2 dalam event Krakatau Festival yang di selenggarakan oleh Dinas Pariwisatadan kreatif di lapangan Korpri",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/akai.itera/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "ksrpmi",
-    link: "/informasi/ukm/ksrpmi",
-    logo: pmi,
-    title: "KSR PMI",
-    ketum: "Nawi Rastoko",
-    prodi: "Teknik Fisika'21",
-    sejarah:
-      "UKM Korps sukarela PMI unit itera adalah sebuah organisasi mahasiswa yang bertujuan untuk Membina dan mengembangkan jiwa serta semangat kemanusian dikalangan  mahasiswa agar memilki rasa tanggung jawab dalam hidup bermasyarakat,   berbangsa dan bernegara berlandaskan gerakan kepalangmerahan. UKM KSR PMI Unit ITERA di resmikan pada tahun 2016, dengan hari jadi yang di sepakati pada tanggal 18 November 2016",
-    visi: "Mewujudkan KSR PMI Unit Institut Teknologi Sumatera sebagai organisasi  kemanusiaan yang berlandaskan Pancasila dan Prinsip Prinsip Dasar Gerakan Palang Merah Dan Bulan Sabit Merah Internasional.",
-    misi: "1.Menyiapkan mahasiswa sebagai kader PMI yang ikut berperan aktif dalam kegiatan Kepalangmerahan baik di dalam maupun di luar lingkungan kampus Institut Teknologi Sumatera. \n2.Melaksanakan peningkatan keterampilan dan partisipasi anggota tentang kepalangmerahan. \n3.Menerapkan prinsip-prinsip dasar gerakan palang merah dan bulan sabit merah internasional baik di dalam maupun di luar lingkungan kampus Institut Teknologi Sumatera.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanpmi1,
-        deskripsi: "Pendonor terbaik kategori perguruan tinggi",
-      },
-      {
-        prestasi: kegiatanpmi2,
-        deskripsi:
-          "Pemateri pelatihan pertolongan pertama dan atau bantuan hidup dasar",
-      },
-      {
-        prestasi: kegiatanpmi3,
-        deskripsi: "Pengabdian masyarakat",
-      },
-      {
-        prestasi: kegiatanpmi4,
-        deskripsi: "Peduli lingkungan",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/ksr.itera/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "lembagapers",
-    link: "/informasi/ukm/lembagapers",
-    logo: lembagapers,
-    title: "LEMBAGA PERS",
-    ketum: "Ahmad Farhan",
-    prodi: "Teknik Kimia'21",
-    sejarah:
-      "Lembaga Pers ITERA merupakan unit kegiatan mahasiswa di Institut Teknologi Sumatera yang bergerak di bidang media Informasi. Organisasi ini bertujuan untuk mempublikasikan informasi terkini, transparan, dan menarik di kalangan mahasiswa. Selain itu, Lembaga Pers juga memiliki tujuan untuk mengembangkan kompetensi dan menyatukan minat para mahasiswa yang tertarik di bidang jurnalistik, fotografi, videografi, dan desain. Organisasi ini sebelumnya bernama Dimensi ITERA, didirikan pada tanggal 4 November 2013 di Jatinangor, Sumedang.",
-    visi: "1. Meningkatkan minat mengeksplorasi ilmu dan berkarya di kalangan mahasiswa Institut Teknologi Sumatera. \n2. Memberikan informasi aktual, cerdas, transparan, dan berselera kemahasiswaan. \n3. Sebagai tempat untuk memperluas relasi berdasarkan minat dan bakat yang sama. \n4. Sebagai wadah untuk menyalurkan hobi di bidang fotografi, videografi, jurnalistik, dan desain.",
-    misi: "1. Menjadi wadah aspirasi, ekspresi dan gagasan mahasiswa Institut Teknologi Sumatera.\n2. Melatih dan meningkatkan kemampuan dalam bidang terkait fotografi, videografi, jurnalistik, dan desain.\n3. Mempublikasikan aktivitas dan kreativitas mahasiswa ITERA serta perkembangan seputar kampus ITERA.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanlembagapers1,
-        deskripsi:
-          "Juara 1 Lomba Essai Kanal Akbar Suara Ekonomi VIII LPM Suara Ekonomi Universitas Pancasila Tahun 2023",
-      },
-      {
-        prestasi: kegiatanlembagapers2,
-        deskripsi:
-          "Juara 2 Lomba Fotografi Jurnalistik Kanal Akbar Suara Ekonomi VIII LPM Suara Ekonomi Universitas Pancasila Tahun 2023",
-      },
-      {
-        prestasi: kegiatanlembagapers3,
-        deskripsi:
-          "Juara 3 Lomba Fotografi Jurnalistik Kanal Akbar Suara Ekonomi VIII LPM Suara Ekonomi Universitas Pancasila Tahun 2023",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/lembagapers_itera/",
-        youtube: "https://www.youtube.com/@lembagapers_itera",
-        website: "https://persmahasiswa.ukm.itera.ac.id/",
-        tiktok: "https://www.tiktok.com/@lembagapers_itera",
-      },
-    ],
-  },
-
-  {
-    key: "pmk",
-    link: "/informasi/ukm/pmk",
-    logo: pmk,
-    title: "PMK",
-    ketum: "Andreas Ananda Situmorang",
-    prodi: "Teknik pertambangan'21",
-    sejarah:
-      "PMK ITERA adalah wadah untuk memfasilitasi kebutuhan spiritual mahasiswa Kristen Protestan dalam menjalankan ibadah, memperkuat ikatan antar umat beragama, dan menjadi 'keluarga' dalam menumbuhkan nilai-nilai Kristen yang diajarkan oleh Tuhan Yesus Kristus di dalam kehidupan mahasiswa Kristen Protestan Institut Teknologi Sumatera.Untuk mendukung tujuan tersebut, PMK ITERA didirikan sebagai UKM di ITERA.Ini menjadi wadah bagi mahasiswa Kristen Protestan untuk mengembangkan sikap yang sesuai dengan ajaran Firman Tuhan dan meneladani Yesus Kristus dalam kehidupan mereka.Diharapkan bahwa UKM ini akan tumbuh dan memiliki dampak yang lebih besar seiring berjalannya waktu. Dahulu bernama KMKK kemudian berubah pada tanggal 14 Febuari 2020 sesuai keputusan rektor",
-    visi: "Menjadikan mahasiswa ITERA garam dan terang dunia, rajin melakukan kegiatan-kegiatan positif, dan dapat berkembang dalam hal spiritual, intelektual, serta kedewasaan dalam iman seperti Yesus Kristus.",
-    misi: "Melaksanakan misi pembekalan, pelatihan, pengutusan PMK, dan dalam memasuki kehidupan masyarakat dan profesi. \n Prinsip-prinsip keorganisasian PMK ITERA:\n1. Interdenominasi. \n2. Tidak menginduk pada lembaga, gereja dan organisasi apapun. \n3. Tidak berpolitik praktis.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanpmk1,
-        deskripsi: "Natal dan Paskah PMK",
-      },
-      {
-        prestasi: kegiatanpmk2,
-        deskripsi: "PITC (PMK ITERA Talent Competition",
-      },
-      {
-        prestasi: kegiatanpmk3,
-        deskripsi: "Ibadah mingguan",
-      },
-      {
-        prestasi: kegiatanpmk2,
-        deskripsi: "LARUTIN PMK (OLAHRAGA RUTIN PMK) ",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/pmk_itera/",
-        youtube: "https://www.youtube.com/@pmkitera6371",
-        website: "https://reactpmk.vercel.app/",
-        tiktok: "https://www.tiktok.com/@pmk_itera",
-      },
-    ],
-  },
-
-  {
-    key: "kmk",
-    link: "/informasi/ukm/kmk",
-    logo: kmk,
-    title: "KMK",
-    ketum: "Pahala Tua Saragih",
-    prodi: "Rekayasa Kehutanan'21",
-    sejarah:
-      "KMK St.Thomas Aquinas ITERA merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera,Lampung.Berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No.Hari jadi KMK St Thomas Aquinas ITERA disepakati jatuh pada tanggal 30 November 2019. ",
-    visi: "Terwujudnya mahasiswa katolik yang berintegritas, berjiwa solidaritas, cerdas jasmani dan rohani dengan berlandaskan iman katolik dan teladan St. Thomas Aquinas.",
-    misi: "1.Meningkatkan ketakwaan kepada Tuhan Yang Maha Esa. \n2.Meningkatkan jiwa kekeluargaan antar mahasiswa katolik ITERA. \n3.Memfasilitasi dan mendukung minat, bakat, serta menampung aspirasi seluruh mahasiswa Katolik ITERA. \n4.Meningkatkan semangat mahasiswa katolik ITERA dalam pelayanan. \n5.Menjalin hubungan yang harmonis didalam maupun diluar kampus ITERA.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatankmk1,
-        deskripsi:
-          "Spotify KMK merupakan suatu media musik yang dibuat KMK untuk menyalurkankan bakat suara dari anak KMK sekaligus mengenalkan KMK ITERA",
-      },
-      {
-        prestasi: kegiatankmk2,
-        deskripsi:
-          "KMK OUR DAY merupakan kegiatan yang diadakan KMK ITERA, yang bertujuan untuk menghimpun UKM katolik yang ada di Lampung sekaligus mengenalkan KMK itera ke  UKM katolik yang ada di Lampung",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/kmkitera/",
-        youtube: "",
-        website: "",
-        tiktok: "https://www.tiktok.com/@kmk.itera",
-      },
-    ],
-  },
-
-  {
-    key: "menwa",
-    link: "/informasi/ukm/menwa",
-    logo: menwa,
-    title: "MENWA",
-    ketum: "Muhammad Giar Falih ",
-    prodi: "Teknik Kelautan'22",
-    sejarah:
-      "UKM Resimen Mahasiswa (menwa) adalah sebuah organisasi yang dipersiapkan sebagai kekuatan sipil yang dilatih untuk mempertahankan NKRI sebagai perwujudan Sistem Pertahanan dan Keamanan Rakyat Semesta (Sishankamrata).Menwa diberikan wewenang dan tanggung jawab yang berbeda dengan UKM lain dan berada langsung dibawah rektorat. Berdiri secara resmi sesuai keputusan rektor pada tanggal 24 Maret 2016",
-    visi: "Menciptakan SDM Menwa yang Berkualitas serta Berkarakter Unggul, Mandiri, dan Berbudaya.",
-    misi: "1. Menjalin kerjasama internal dan eksternal dalam rangka pengembangan SDM. \n2. Melaksanakan pendidikan berjenjang dan berkelanjutan bagi personil. \n3. Kaderisasi sesuai dengan potensi bidang keahlian personil.  \n4. Optimalisasi potensi dan pengembangan kemampuan personil untuk kemajuanorganisasi. \n5. Pengembangan wirausaha sebagai modal pergerakan organisasi",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanmenwa1,
-        deskripsi: "Pradiksarmil, Diksarmil",
-      },
-      {
-        prestasi: kegiatanmenwa2,
-        deskripsi: "PAM Wisuda",
-      },
-      {
-        prestasi: kegiatanmenwa3,
-        deskripsi: "Lempar pisau",
-      },
-      {
-        prestasi: kegiatanmenwa4,
-        deskripsi: "Binsik",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/menwa_itera/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "psmlipphughesa",
-    link: "/informasi/ukm/psmlipphughesa",
-    logo: psm,
-    title: "PSM",
-    ketum: "Natanael Frisco",
-    prodi: "Teknik Lingkungan'21",
-    sejarah:
-      "UKM PSM Lipphu Ghesa ITERA merupakan organisasi kebudayaan yang bergerak atas landasan yang sama yaitu harmonisasi suara. Menciptakan dan mengembangkan kemampuan serta minat anggota dalam paduan suara serta ikut mendukung seluruh kegiatan kebudayaan yang ada di Institut Teknologi Sumatera. Lipphu Ghesa ITERA didirikan pada tanggal 29 Maret 2013 di Bandung dan disahkan pada tanggal 6 Oktober 2015 di Lampung Selatan.",
-    visi: "Menjadikan paduan suara mahasiswa ITERA sebagai unit yang kreatif, berprestasi, dan bersolidaritas tinggi serta membangun organisasi yang berkompeten untuk paduan suara mahasiswa. ",
-    misi: "1. Membangun hubungan harmonis antar anggota PSM.  \n2. Mengebangkan bakat yang ada pada setiap anggota PSM.  \n3. Meningkatkan solidaritas keluarga PSM yang menjunjung tinggi nilai dan komitmen tanggung jawab.  \n4. Menciptakan budaya tersendiri terhadap anggota psm",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanpsm1,
-        deskripsi:
-          "meraih medali perak pada kategori Mix Youth Choir dan kategori Gospel Spiritual di ajang Bali International Choir (BICF) 7 tahun 2018",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/psm.itera/",
-        youtube: "https://www.youtube.com/@psmlipphughesa",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "dancecover",
-    link: "/informasi/ukm/dancecover",
-    logo: dancecover,
-    title: "DANCE COVER",
-    ketum: "Jenni Bunga Enjelita S",
-    prodi: "Teknik Biomedis'20",
-    sejarah:
-      "Didirikan dengan kecintaan bersama pada K-pop dan seni tari, DC ITERA bukan hanya komunitas; ini adalah keluarga erat penggemar tari. Sejak didirikan pada 2017, kami berkomitmen untuk menyatukan individu yang mencintai ritme K-pop. DC ITERA lebih dari sekadar tari; ini adalah platform untuk ekspresi diri, pertumbuhan pribadi, dan menjalin persahabatan abadi. Kami berkomitmen untuk meningkatkan keterampilan tari anggota, kepercayaan diri, dan keterampilan hidup mereka, sambil merayakan keindahan budaya K-pop. Jangan lewatkan proyek cover dance K-pop dan pertunjukan live kami. Saksikan pesonanya di Instagram kami, @dc_itera, dan jadi bagian dari perjalanan kami yang selalu berkembang dalam dunia tari dan budaya K-pop yang memikat. DC Terbentuk di tahun 2017, debut dengan lagu 'Fire' by BTS di Itera Got Talent pada tanggal 22 April 2018.",
-    visi: "Menjadi komunitas dance yang menginspirasi dan memajukan seni tari melalui kerjasama, inovasi, dan kreativitas, serta memperkuat ikatan sosial di antara para anggotanya.",
-    misi: "Menjadi komunitas dance yang menginspirasi dan memajukan seni tari melalui kerjasama, inovasi, dan kreativitas, serta memperkuat ikatan sosial di antara para anggotanya.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatandancecover1,
-        deskripsi: "DC ITERA KPop Random Play Dance ",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/dc__itera/",
-        youtube: "",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "senireligi",
-    link: "/informasi/ukm/senireligi",
-    logo: senireligi,
-    title: "SENI RELIGI",
-    ketum: "Ahmad Fauzi ",
-    prodi: "Matematika'21",
-    sejarah:
-      "Seni Religi Itera yang mulanya bernama Seni Rebana Itera merupakan organisasi yang didirikan dengan tujuan untuk mewadahi mahasiswa ITERA dalam mengembangkan minat dan bakat dalam kesenin rebana. Organisasi ini dibentuk oleh beberapa mahasiswa ITERA yang memiliki bakat dalam bidang kesenian rebana atau hadroh, dimana pada saat itu belum terdapat organisasi di ITERA yang mewadahi mahasiswa pada bidang tersebut. Sehingga mereka berinisiatif untuk membuat perkumpulan mahasiswa ITERA yang memiliki bakat rebana atau hadroh. Organisasi ini berbentuk komunitas yang didirikan pada tanggal 1 November 2018",
-    visi: "Menjadi pusat pengembangan dan pelestarian kesenian Islam yang unggul guna mencetak generasi prestatif serta religius di Institut Teknologi Sumatera.",
-    misi: "1. Mewadahi dan menyalurkan bakat anggota UKM Seni Religi ITERA dalam mengembangkan kesenian Islam.\n2. Menjadikan anggota Seni Religi ITERA yang memiliki jiwa kreatif, berprestasi, bertaqwa, serta berakhlaqul karimah.\n3. Menumbuhkan rasa cinta terhadap budaya dan kesenian Islam",
-
-    allprestasi: [
-      {
-        prestasi: kegiatansenireligi1,
-        deskripsi: "Juara 1 Festival Hadroh Online Se-Lampung 08 November 2021",
-      },
-      {
-        prestasi: kegiatansenireligi2,
-        deskripsi:
-          "Musabaqah Tilawatil Qur'an Mahasiswa Nasional (MTQ-MN) Universitas Brawijaya",
-      },
-      {
-        prestasi: kegiatansenireligi3,
-        deskripsi:
-          "Juara 1 Lomba MTQ Remaja Tingkat Kabupaten TulangBawang,28 November 2019 MTQ Remaja (Putri)Yanti Sari",
-      },
-      {
-        prestasi: kegiatansenireligi4,
-        deskripsi:
-          "Juara 1 Tartil Qur’anOlimpiade Mahasiswa Muslim ITERA 2021 17 Mei 2021Gusri Wahyuni	",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/senireligiitera",
-        youtube: "https://www.youtube.com/@senireligiitera722",
-        website: "",
-        tiktok: "",
-      },
-    ],
-  },
-
-  {
-    key: "idensity",
-    link: "/informasi/ukm/idensity",
-    logo: idensity,
-    title: "IDENSITY",
-    ketum: "Frenklyn Fenuel Febe",
-    prodi: "Matematika'21",
-    sejarah:
-      "IDENSITY merupakan sebuah komunitas dance mahasiswa itera yang bergenre kan hiphop dan pop, komunitas ini juga bertujuan untuk menyalurkan dan mengembangkan bakat para mahasiswanya untuk lebih mendalami basic dance dan proses pembuatan choreo itu sendiri. IDENSITY adalah komunitas mahasiswa yang beda di Institut Teknologi Sumatera, Lampung yang dibentuk sejak 16 Oktober 2016",
-    visi: "Menjadi tempat bagi Mahasiswa Institut Teknologi Sumatera untuk mengembangkan bakat mereka dalam seni dance modern.",
-    misi: "1. Mendorong pengembangan kreativitas individu untuk memperkuat bakat mereka. \n2. Mengembangkan rasa percaya diri yang tinggi pada individu.  \n3. Membangun kemampuan bekerja sama dalam tim. \n4. Menyempurnakan kemampuan organisasi bagi anggotanya.",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanidensity1,
-        deskripsi: "Juara 2 ITERA Got Talent 2021",
-      },
-      {
-        prestasi: kegiatanidensity2,
-        deskripsi: "Juara 2 ITERA Got Talent 2022",
-      },
-      {
-        prestasi: kegiatanidensity3,
-        deskripsi: "Juara 2 SAP Got Talent 2022",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/idensity__",
-        youtube: "https://www.youtube.com/@IDENSITY",
-        website: "",
-        tiktok: "https://www.tiktok.com/@idensity",
-      },
-    ],
-  },
-
-  {
-    key: "petanque",
-    link: "/informasi/ukm/petanque",
-    logo: petanque,
-    title: "PETANQUE",
-    ketum: "Rasti Fatika Sari",
-    prodi: "Teknik Perkeretaapian'21",
-    sejarah:
-      "UKM Petanque ITERA adalah wadah bagi mahasiswa yang berminat dan berbakat dalam olahraga petanque. Dibentuk untuk mengembangkan keterampilan dan prestasi, UKM ini rutin mengadakan latihan, serta berpartisipasi dalam berbagai turnamen eksternal. Selain meningkatkan teknik bermain, UKM Petanque ITERA juga menekankan kerjasama tim, sportivitas, dan pengembangan soft skills seperti manajemen waktu dan kepemimpinan. Bergabung dengan UKM ini membuka peluang untuk memperluas jaringan sosial dan komunitas petanque di dalam dan luar kampus. Pada Desember 2023, komunitas petanque ITERA secara resmi diakui sebagai Unit Kegiatan Mahasiswa (UKM) oleh pihak kampus. Dengan status resmi sebagai UKM",
-    visi: "Menjadi  wadah  unggulan  bagi  mahasiswa  ITERA  dalammengembangkan  bakat dan  keterampilan  dalam  olahraga  Petanque,  serta mendorong semangat kompetitif dan sportivitas yang tinggi.",
-    misi: "1. Menjadi wadah mahasiswa itera dalam bidang olahraga petanque. \n2. Mengembangkan Keahlian Petanque: Memfasilitasi mahasiswa ITERA  dalam  memperoleh  keterampilan  teknis  dan  strategis yang diperlukan untuk berkompetisi dalam olahraga Petanque. \n3. Membangun  atmosfer  inklusif  dan  mendukung  bagi  anggota  UKM Petanque, di mana kolaborasi dan kebersamaan menjadi nilai inti. \n4. Memberikan  kesempatan  dan  dukungan  kepada  mahasiswa  yang memiliki potensi  untuk  meraih  prestasi  dalam  kompetisi  Petanque tingkat regional, nasional, dan internasional.  \n5. Aktif berkontribusi dalam mengembangkan dan memajukan olahraga Petanque di tingkat lokal maupun nasional. ",
-
-    allprestasi: [
-      {
-        prestasi: kegiatanpetanque1,
-        deskripsi:
-          "Juara 1 dan 3 dalam kejuaraan sosialisasi  dan exhibition olahraga petanque antar universitas se provinsi lampung",
-      },
-      {
-        prestasi: kegiatanpetanque2,
-        deskripsi:
-          "Mengirimkan 4 delegasi untuk Pra-PON cabor Petanque di Bali ",
-      },
-    ],
-
-    allsosmed: [
-      {
-        instagram: "https://www.instagram.com/petanque_itera",
-        youtube: "",
-        website: "",
-        tiktok: "https://www.tiktok.com/@petanque.itera",
       },
     ],
   },
@@ -1491,22 +791,19 @@ export const ukmData = [
     key: "kmb",
     link: "/informasi/ukm/kmb",
     logo: kmb,
-    title: "KMB",
-    ketum: "Marsel",
-    prodi: "Prodi'21",
+    title: "Keluarga Mahasiswa Buddhis Dhirasena ITERA",
+    namaketum: "Dion Darmawan",
+    fotoketum: ketumkmb,
+    namapembina : "Kirtinanda P, S.T., M.T.",
+    fotopembina : pembinakmb,
+    prodi: "",
     sejarah:
-      "Keluarga Mahasiswa Buddhis Institut Teknologi Sumatera merupakan salah satu Unit Kegiatan Mahasiswa (UKM) yang bertujuan untuk mewujudkan persatuan dan kebersamaan diantara mahasiswa buddhis, di dalam hubungan dan interaksi sosial dengan kehidupan di lingkungan Institut Teknologi Sumatera pada umumnya, yang di dalam gerak langkahnya tersebut bersifat kekeluargaan dan bernaung langsung di bawah Rektorat Institut Teknologi Sumatera, serta sepenuhnya mengabdi untuk kepentingan almamater, nusa dan bangsa. Kegiatan Mahasiswa Buddhis Institut Teknologi Sumatera merupakan organisasi mahasiswa yang berada di Institut Teknologi Sumatera, Lampung. Berdiri sebagai Komunitas sejak tahun 2020",
-    visi: "KMB-ITERA adalah Unit Kegiatan Mahasiswa buddhis di Institut Teknologi Sumatera yang bersifat kekeluargaan, dan bernaung langsung di bawah Rektorat Institut Teknologi Sumatera, serta bebas dan terbuka bagi semua mahasiswa buddhis dan/atau mahasiswa lainnya di lingkungan kampus Institut Teknologi Sumatera yang terdaftar secara sah di Institut Teknologi Sumatera dan patuh kepada Anggaran Dasar dan Anggaran Rumah Tangga KMB-ITERA.",
-    misi: "1. Mengamalkan dan mengembangkan nilai-nilai Buddha Dhamma dalam rangka pelaksanaan Tri Dharma Perguruan Tinggi \n2. Mendukung upaya terciptanya mahasiswa buddhis yang berakhlak, bermoral, dan berintelektual tinggi \n3. Menjadi organisasi yang maju, bersolidaritas, berintegritas dan dapat dipercaya diantara sesama anggota dan antar mahasiswa buddhis lainnya \n4. Ikut berperan aktif dalam dinamika proses pembinaan kepribadian dan mengembangkan nilai-nilai persatuan dan kesatuan di kalangan mahasiswa.",
+      "Keluarga Mahasiswa Buddhis (KMB) ITERA adalah organisasi kemahasiswaan yang mewadahi mahasiswa Buddhis di Institut Teknologi Sumatera. KMB ITERA berfokus pada pengembangan spiritual, intelektual, dan sosial melalui kegiatan keagamaan, diskusi Dhamma, serta aksi sosial. Dengan semangat kebersamaan, KMB ITERA berupaya menciptakan lingkungan yang harmonis dan penuh nilai kebajikan di tengah kehidupan kampus.",
 
     allprestasi: [
       {
-        prestasi: defaultimage,
-        deskripsi: "Cooming Soon",
-      },
-      {
-        prestasi: defaultimage,
-        deskripsi: "Cooming Soon",
+        prestasi: kmb1,
+        deskripsi: "Ibadah Rutin bagi Mahasiswa/Mahasiswi ITERA yang beragama Buddha Kegiatan Ibadah yang dilakukan di RIMA ITERA setiap hari Jumat, bertujuan untuk meningkatkan spiritual mahasiswa/mahasiswi yang sedang menjalankan kegiatan perkuliahan ",
       },
     ],
 
@@ -1518,23 +815,1063 @@ export const ukmData = [
         tiktok: "",
       },
     ],
+
   },
+
+  {
+    key: "karate",
+    link: "/informasi/ukm/karate",
+    logo: karate,
+    title: "Unit Kegiatan Mahasiswa Karate ITERA",
+    namaketum: "Rossa Farasdiani Rahma",
+    fotoketum: ketumkarate,
+    namapembina : "Ir. Arif Rohman, S.T., M.T., Ph.D (Cand.)",
+    fotopembina : pembinakarate,
+    prodi: "",
+    sejarah:
+      "Unit Kegiatan Mahasiswa Karate Institut Teknologi Sumatera adalah suatu Unit Kegiatan Yang bergerak di bidang Olahraga Beladiri, yang memiliki fokus tujuan untuk meningkatkan prestasi baik prestasi olahraga maupun keorganisasian. Karate itera berdiri bersamaan dengan Prodi Teknik Geomatika yaitu tahun 2014, akan tetapi saat itu khusus untuk prodi itu sendiri dan terdiri dari satu perguruan yaitu BKC. Seiring berjalan nya waktu banyak peminat dari prodi lain dan dari perguruan lain untuk membentuk organisasi karate di Itera. Karena prodi Geomatika masih banyak sekali pertimbangan, jadi tim karate itera membentuk Komunitas Karate ITERA namun belum resmi di bawahi oleh ITERA. Seiring berjalannya waktu pada 13 April 2022 di masa jabatan Bang Arif dan Bang Rodhi, Komunitas Karate Itera resmi menjadi UKM karate itera dan di Bina Oleh Pak Arif Rohman hingga saat ini. Adapun nama nama ketua dari terbentuk nya organisasi karate itera yaitu M. Arif Budiman 2019 komunitas Karate Itera angkatan 2016Desi 2020 komunitas Karate Itera angkatan 2017Muhammad Nur Rafif 2021 komunitas Karate Itera angkatan 2018Arif setio Wibowo 2022 UKM angkatan 2019Fahrul Afandi 2023 UKM angkatan 2021Fathurahman Faisal 2024 UKM angkatan 2021Rossa Farasdiani Rahma 2025 UKM angkatan 2022.",
+
+    allprestasi: [
+      {
+        prestasi: karate1,
+        deskripsi: "Event Kejuaraan dan Seminar Nasional",
+      },
+      {
+        prestasi: karate2,
+        deskripsi: "Kejuaraan LA CUP 5 Lampung 2025",
+      },
+      {
+        prestasi: karate3,
+        deskripsi: "Kejuaraan Dharmapala Championship 2024",
+      },
+      {
+        prestasi: karate4,
+        deskripsi: "Invitasi Mahasiswa Cabor Karate Nasional 2024",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/karate.itera",
+        youtube: "https://www.youtube.com/@karate.itera",
+        website: "",
+        tiktok: "http://www.youtube.com/@karateitera3801",
+      },
+    ],
+  },
+
+  {
+    key: "itmi",
+    link: "/informasi/ukm/itmi",
+    logo: itmi,
+    title: "Ikatan Taekwondo Mahasiswa ITERA",
+    namaketum: "Fathan Abdullah",
+    fotoketum: ketumitmi,
+    namapembina : "Dr. Achmad Gus Fahmi, S.Si., M.Si.",
+    fotopembina : pembinaitmi,
+    prodi: "",
+    sejarah:
+      "Menjadi wadah bagi setiap civitas akademik Institut Teknologi Sumatera (ITERA) dalam mengembangkan minat dan bakat serta memperoleh prestasi di bidang Taekwondo. Organisasi ini bernama Ikatan Taekwondo Mahasiswa Itera yang disingkat ITMI. ITMI didirikan pada Selasa, 23 Mei 2017 di Institut Teknologi Sumatera (ITERA). SK kepengurusan turun pada 18 Maret 2018. ",
+
+    allprestasi: [
+      {
+        prestasi: taekwondo1,
+        deskripsi: "Mengikuti kejuaraan tahunan Provinsi Lampung",
+      },
+      {
+        prestasi: taekwondo2,
+        deskripsi: "Mengikuti seleksi POMDA/Pekan Olahraga Mahasiswa Daerah untuk mengikuti POMNAS/ Pekan Olahraga Mahasiswa Nasional",
+      },
+      {
+        prestasi: taekwondo3,
+        deskripsi: "Latihan gabungan dengan kampus lain",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/taekwondoitera",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "ihara",
+    link: "/informasi/ukm/ihara",
+    logo: ihara,
+    title: "Ikatan Hapkido Itera",
+    namaketum: "Yuda Ade Prasasti",
+    fotoketum: ketumihara,
+    namapembina : "Putri Kholida, S.Ds., M.Ds.",
+    fotopembina : pembinaihara,
+    prodi: "",
+    sejarah:
+      "UKM Ikatan Hapkido ITERA (IHARA) adalah wadah bagi mahasiswa yang ingin mengembangkan diri melalui seni bela diri modern asal Korea Selatan, Hapkido. Tidak hanya melatih fisik dan teknik pertahanan diri, IHARA juga menanamkan nilai-nilai disiplin, sportivitas, tanggung jawab, dan solidaritas. Dengan latihan rutin dan pembinaan karakter, IHARA menjadi ruang tumbuh bagi pribadi tangguh dan berintegritas di lingkungan kampus. IHARA resmi berdiri pada 21 September 2020 sebagai inisiatif mahasiswa ITERA yang ingin mengembangkan kemampuan beladiri Hapkido. Sejak saat itu, IHARA aktif mengadakan latihan, membangun jejaring dengan organisasi Hapkido nasional, dan meraih prestasi di berbagai ajang, seperti Kejurnas 2022, Kejurda Lampung 2023, STKIP Rosalia Cup 2024, dan Kejurda 2025. Dengan perolehan belasan medali, IHARA terus tumbuh sebagai UKM berprestasi yang membanggakan nama kampus.",
+
+    allprestasi: [
+      {
+        prestasi: hapkido1,
+        deskripsi: "Medali Perunggu PON XXVI ACEH-SUMUT. Tiara Chandra Kirani & Berlian Chandra Kirana, berhasil meraih medali perunggu dalam cabang Hapkido kategori Hoshinsul Authorized Senior Putri, mewakili Provinsi Lampung",
+      },
+      {
+        prestasi: hapkido2,
+        deskripsi: "Juara 1 Kibon Nakbop & Juara 3 Hyung Senior Beginer. Yuda Ade Prasasti meraih 2 gelar di Kejuaraan Daerah Provinsi Lampung 2025.",
+      },
+      {
+        prestasi: hapkido3,
+        deskripsi: "Juara 2 Kibon Nakbop & Juara 2 Hyung Senior Beginer. Raka Lingga Suta Prawira berhasil meraih 2 gelar di Kejuaraan Hapkido STKIP Rosalia Cup 2024.",
+      },
+      {
+        prestasi: defaultimageprestasi,
+        deskripsi: "Juara 2 Mugihyung & Juara 3 Daeryun. Syakira Dian Rachmadiny berhasil meraih 2 gelar di Kejuaraan Daerah Hapkido Provinsi Lampung 2025.",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/hapkido_itera",
+        youtube: "https://www.youtube.com/@ikatanhapkidoitera",
+        website: "",
+        tiktok: "https://www.tiktok.com/@hapkido_itera",
+      },
+    ],
+  },
+
+  {
+    key: "kraken",
+    link: "/informasi/ukm/kraken",
+    logo: kraken,
+    title: "KRAKEN ITERA",
+    namaketum: "Antoni Novendi",
+    fotoketum: ketumkraken,
+    namapembina : "Ir. Muhammad Abi Berkah Nadi, S.T., M.T., IPM.",
+    fotopembina : pembinakraken,
+    prodi: "",
+    sejarah:
+      "UKM Kraken ITERA merupakan wadah bagi mahasiswa yang memiliki minat di bidang olahraga softball. UKM ini bertujuan mengembangkan kemampuan teknis, sportivitas, dan kekompakan antar anggota. Organisasi ini bernama Unit Kegiatan Mahasiswa KRAKEN Institut Teknologi Sumatera. KRAKEN ITERA didirikan di Lampung Selatan pada 22 November 2017.",
+    allprestasi: [
+      {
+        prestasi: kraken1,
+        deskripsi: "KRAKEN CUP merupakan turnamen tahunan yang diselenggarakan oleh UKM Softball ITERA, sebagai ajang silaturahmi dan unjuk kemampuan dari berbagai prodi itera. Acara ini tidak hanya mempererat sportivitas, tetapi juga membangun semangat kompetisi yang sehat di kalangan mahasiswa",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/softball_itera",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "teraesports",
+    link: "/informasi/ukm/teraesports",
+    logo: teraesports,
+    title: "Tera Esports",
+    namaketum: "Kevin Ruben Sihotang",
+    fotoketum: ketumteraesports,
+    namapembina : "Redho Surya Perdana, S.T., M.T.",
+    fotopembina : pembinateraesports,
+    prodi: "",
+    sejarah:"Tera Esports merupakan bagian dari olahraga elektronik di Institut Teknologi Sumatera (ITERA) dan dengan harapan dapat mewujudkan prestasi olahraga elektronik yang menghasilkan kepribadian berattitude, berdasarkan pancasila. dan memiliki jiwa kompetitif serta solidaritas yang tinggi.Dengan kepedulian atas berkembangnya olahraga elektronik di Indonesia, dengan ini Tera Esports menjadi wadah bagi mahasiswa di Institut Teknologi Sumatera (ITERA). Yang ingin mengembangkan skill dan prestasi dibidang olahraga elektronik (Esports). Lalu pada tahun 2021 Tera Esport bertambah jumlah anggota nya menjadi 99 pengurus, terdiri dari Ketua umum serta Wakil ketua, Sekretaris Jenderal, Sekretaris Umum, Bendahara Umum, Campus Ambassador dan para kepala department (Media Kreatif, Fundraising, Athlete dan Humas) serta kepala divisi dari tiap departemen dan juga staff. Lalu sampai dimana, Tera Esports diresmikan sebagai UKM pada 15 Oktober 2023 hingga saat ini.",
+    allprestasi: [
+      {
+        prestasi: terasport1,
+        deskripsi: "Kegiatan Tera Warfare UniPin Student Warchief (USW) adalah program dan turnamen esports yang diselenggarakan oleh UniPin khusus untuk mahasiswa di berbagai universitas di Indonesia salah satunya di ITERA. Program ini bertujuan untuk mewadahi komunitas esports kampus, memberikan pengalaman, relasi, serta dukungan dari UniPin.",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/tera_esports",
+        youtube: "",
+        website: "",
+        tiktok: "https://www.tiktok.com/@teraesports",
+      },
+    ],
+  },
+
+  {
+    key: "batavia",
+    link: "/informasi/ukm/batavia",
+    logo: batavia,
+    title: "Batavia ITERA",
+    namaketum: "Kevin Alexander Chrisel",
+    fotoketum: ketumbatavia,
+    namapembina : "Muklas Rivai, S.Stat., M.Si.",
+    fotopembina : pembinabatavia,
+    prodi: "",
+    sejarah:
+      "Salah satu Unit Kegiatan Mahasiswa yang berada di ITERA. Organisasi yang berlandaskan kebudayaan dengan asas Tridharma Perguruan Tinggi dan bersifat kekeluargaan. Batavia menjadi wadah bagi mahasiswa ITERA yang ingin mengetahui lebih dalam tentang kebudayaan Betawi khususnya daerah JADETABEK. Berawal dengan nama organisasi JAVATERA  yang menaungi mahasiswa berdomisili dari pulau Jawa. JAVATERA sendiri dipelopori oleh bang Haris pada tahun 2016. Kemudian JAVATERA dibagi menjadi 2 komunitas yaitu Batavia sebagai wadah mahasiswa yang berasal dari JADETABEK dan Bumi Pasundan mewadahi mahasiswa yang berasal dari Jawa Barat",
+
+    allprestasi: [
+      {
+        prestasi: batavia1,
+        deskripsi: "Kerap berpartisipasi atau sering terlibat tampil dalam berbagai kegiatan di event tertentu",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/bataviaitera",
+        youtube: "",
+        website: "",
+        tiktok: "https://www.tiktok.com/@batavia.itera",
+      },
+    ],
+  },
+
+  {
+    key: "senireligi",
+    link: "/informasi/ukm/senireligi",
+    logo: senireligi,
+    title: "Seni Religi ITERA",
+    namaketum: "Fastabiq Rahmatullah",
+    fotoketum: ketumsenireligi,
+    namapembina : "M Luqmanul Hakim Habibie SQ, M.Pd.I.",
+    fotopembina : pembinasenireligi,
+    prodi: "",
+    sejarah:
+      "Seni Religi ITERA merupakan UKM yang berfokus pada pengembangan minat dan bakat mahasiswa Institut Teknologi Sumatera dalam bidang kesenian religi. Seni religi ITERA awal mulanya menggunakan nama Seni Rebana ITERA sebagai sebuah komunitas dan hanya menaungi kesenian Islam bidang rebana. Nama Seni Rebana ITERA sendiri diusulkan oleh Bapak Dr. Muhammad Zainal Ibad., S.T., M.T. yang merupakan dosen PWK ITERA dan beliau merupakan alumni dari unit rebana ITB dan nama Seni Rebana di sepakati pada tanggal 1 November 2018. Pada tahun 2019 mendapatkan catatan dari KM ITERA berubah menjadi Seni Religi ITERA, di tahun 2020 mendapatkan surat pengesahan dari senat KM-ITERA , dan di tahun 2024 mendapatkan SK rektor penetapan UKM Seni Religi ITERA",
+
+    allprestasi: [
+      {
+        prestasi: religi1,
+        deskripsi: "ITERA bersholawat : kegiatan atau acara di mana komunitas Institut Teknologi Sumatera (ITERA) secara bersama-sama melantunkan sholawat, yaitu doa dan pujian kepada Nabi Muhammad SAW. Sholawat merupakan bentuk ibadah dalam Islam yang bertujuan untuk memohon rahmat dan keberkahan dari Allah SWT untuk Nabi Muhammad dan keluarganya, serta sebagai bentuk penghormatan dan kecintaan kepada beliau.",
+      },
+      {
+        prestasi: religi2,
+        deskripsi: "MTQ tingkat nasional : perlombaan yang di selenggarakan oleh KEMDIKTISAINTEK.RI",
+      },
+      {
+        prestasi: religi3,
+        deskripsi: "HalalBihalal : kegiatan rutin 1 tahun sekali yang dihadiri oleh sivitas akademik Institut Teknologi Sumatera",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/senireligiitera",
+        youtube: "https://www.youtube.com/@senireligiitera6211",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "dancecover",
+    link: "/informasi/ukm/dancecover",
+    logo: dancecover,
+    title: "Dance Cover ITERA",
+    namaketum: "Maria Vivalda",
+    fotoketum: ketumdancecover,
+    namapembina : "",
+    fotopembina :pembinaidensity ,
+    prodi: "",
+    sejarah:"Dance Cover ITERA adalah komunitas dance modern di Institut Teknologi Sumatera yang fokus pada cover dance K-Pop dan genre modern lainnya. Komunitas ini rutin tampil di berbagai event kampus maupun luar kampus, serta aktif mengikuti lomba dance. Dance Cover ITERA menjadi ruang bagi mahasiswa untuk berkreasi, mengekspresikan diri, dan membangun kekompakan. Dance Cover ITERA terbentuk sejak tahun 2017, berawal dari kecintaan bersama para mahasiswa terhadap K-Pop dan seni tari modern. Lagu debut kami adalah ‘Fire’ dari BTS yang ditampilkan di Itera Got Talent pada 22 April 2018, menjadi langkah awal untuk tampil di depan publik dan mulai dikenal di lingkungan kampus. Sejak itu, DC ITERA berkembang menjadi lebih dari sekadar komunitas, kami adalah keluarga erat bagi siapa pun yang ingin mengekspresikan diri melalui gerakan tari. Dengan semangat kebersamaan, kami terus berkomitmen menjadi wadah untuk menyalurkan bakat, menumbuhkan rasa percaya diri, serta menjalin persahabatan tanpa batas di antara para anggotanya. Hingga sekarang, DC ITERA aktif tampil di berbagai event kampus maupun luar kampus, mengadakan Random Play Dance setiap tiga bulan sekali, membuka kelas modern dance untuk umum, dan rutin berpartisipasi dalam kompetisi. Kami akan terus tumbuh menjadi komunitas dance modern yang solid, kreatif, dan menjadi rumah bagi siapa saja yang ingin berkarya bersama di dunia tari.",
+    
+    allprestasi: [
+      {
+        prestasi: dancecover1,
+        deskripsi: "Dance Cover ITERA memiliki beberapa kegiatan unggulan, seperti Random Play Dance yang diadakan setiap tiga bulan sekali untuk umum dengan konsep dance bersama, sharing, dan hadiah menarik.",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/dc__itera",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "euforia",
+    link: "/informasi/ukm/euforia",
+    logo: euforia,
+    title: "English Unit For ITERA",
+    namaketum: "M. Rizki Fadli Alamsyah",
+    fotoketum: ketumeuforia,
+    namapembina : "Doni Alfaruqy, M.Pd.",
+    fotopembina : pembinaeuforia,
+    prodi: "",
+    sejarah:
+      "English Unit For ITERA (Euforia) merupakan UKM ITERA yang berfokus pada bidang pendidikan, khususnya bahasa Inggris. Euforia memiliki tujuan untuk menciptakan lingkungan bebas berbahasa Inggris tanpa adanya celaan. Euforia menjadi wadah pengembangan minat, bakat, serta kepercayaan diri mahasiswa ITERA dalam penggunaan bahasa Inggris. EUFORIA pertama kali dibentuk pada 4 November 2018. EUFORIA adalah Unit Kegiatan Mahasiswa (UKM) yang mewadahi mahasiswa untuk mengembangkan minat dan bakat mereka dalam Bahasa Inggris.",
+
+    allprestasi: [
+      {
+        prestasi: english1,
+        deskripsi: "Convo Class (Conversation Class)",
+      },
+      {
+        prestasi: english2,
+        deskripsi: "TOEFL Test",
+      },
+      {
+        prestasi: defaultimageprestasi,
+        deskripsi: "Debate Practice",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/euforia.itera",
+        youtube: "http://www.youtube.com/@EnglishUnitforITERA",
+        website: "https://sites.google.com/view/euforiaitera",
+        tiktok: "https://www.tiktok.com/@euforia.itera",
+      },
+    ],
+  },
+
+  {
+    key: "urotera",
+    link: "/informasi/ukm/urotera",
+    logo: urotera,
+    title: "Unit Robotika ITERA",
+    namaketum: "Niyo Putra Harapan Tampubolon",
+    fotoketum: ketumurotera,
+    namapembina : "Purwono Prasetyawan, S.T., M.T.",
+    fotopembina : pembinaurotera,
+    prodi: "",
+    sejarah:
+      "Unit Robotika ITERA (UROTERA) adalah organisasi mahasiswa di Institut Teknologi Sumatera yang berfokus pada bidang robotika. Organisasi ini mewadahi seluruh mahasiswa ITERA yang memiliki minat di bidang elektronika dan teknologi. Kegiatan yang dilakukan UROTERA berorientasi pada perkembangan teknologi dan dunia digital. UKM UROTERA resmi berdiri pada tanggal 15 Maret 2013 sebagai organisasi yang berfokus pada pengembangan robotika. Organisasi ini pertama kali didirikan di Institut Teknologi Bandung (ITB) oleh tiga mahasiswa dari jurusan Teknik Elektro. Ketiga pendiri tersebut adalah Gde KM Atmajaya, Jauhar Ismiyadinata, dan Anggi Mukti Saputra, yang memiliki minat dan visi yang sama dalam dunia robotika. Sejak awal pendiriannya, UROTERA telah menjadi wadah bagi mahasiswa untuk mengembangkan kreativitas, inovasi, dan kemampuan di bidang robotika.",
+
+    allprestasi: [
+
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/uro.itera",
+        youtube: "http://www.youtube.com/@unitrobotikaitera-urotera6413",
+        website: "https://urotera.ukm.itera.ac.id",
+        tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "lancangkuning",
+    link: "/informasi/ukm/lancangkuning",
+    logo: lancangkuning,
+    title: "Unit Kebudayaan Melayu Lancang Kuning ITERA",
+    namaketum: "Nurpirizki Wansyah",
+    fotoketum: ketumlancangkuning,
+    namapembina : "Bilal Al Farishi, B.Sc., M.Sc.",
+    fotopembina : pembinalancangkuning,
+    prodi: "",
+    sejarah: `Lancang kuning ITERA dibentuk oleh mahasiswa/i yang berasal dari Kepulauan Riau dan Provinsi Riau pada tanggal 10 September tahun 2015. "Lancang Kuning" berasal dari kata "Lancang" yang berarti "melaju", bergerak dinamis, dan "kuning" keemasan melambangkan kemakmuran. Bermakna bahwa orang Melayu dan sekitarnya harus dinamis dan memiliki kepekaan sosial untuk membangun peradaban. Orang Melayu tak pernah berpangku tangan, apalagi pantang diri untuk mengemis dan meminta-minta. Harga diri dijaga dan marwah diri terpelihara. Riau dan Kepulauan Riau merupakan dua provinsi yang berbeda letak geografis, namun memiliki satu kebudayaan yang sama yakni kebudayaan Melayu. Atas dasar itu, mahasiswa Riau dan Kepulauan Riau ITERA mempunyai tujuan yang sama untuk membentuk unit kebudayaan Melayu (UKM) yang bernama UKM Lancang Kuning ITERA. Bertujuan untuk menggali potensi, bakat, ide-ide, dan mempererat persaudaraan mahasiswa/i yang berasal dari satu daerah asal, serta menjadi sarana untuk mempertahankan kebudayaan-kebudayaan Melayu. Pepatah Melayu mengatakan “takkan Melayu hilang di bumi”, artinya kebudayaan Melayu tidak akan hilang di bumi Nusantara ini.`,
+    allprestasi: [
+      {
+        prestasi: lancangkuning1,
+        deskripsi: "Dies Natalis Lancang Kuning",
+      },
+      {
+        prestasi: lancangkuning2,
+        deskripsi: "Berbagi bersama Lancang Kuning",
+      },
+      {
+        prestasi: lancangkuning3,
+        deskripsi: "Ramah Tamah",
+      },
+      {
+        prestasi: lancangkuning4,
+        deskripsi: "Tari Persembahan",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/lancangkuningitera",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "ibt",
+    link: "/informasi/ukm/ibt",
+    logo: ibt,
+    title: "ITERA Basketball Team",
+    namaketum: "Imam Waluya Indra Praja",
+    fotoketum: ketumibt,
+    namapembina : "Dr. Rahmat Nawi Siregar, S.Pd., M.Sc.",
+    fotopembina : pembinaibt,
+    prodi: "",
+    sejarah:
+      "UKM ITERA Basketball Team merupakan unit kegiatan mahasiswa yang berfokus sebagai wadah bagi mahasiswa ITERA yang memiliki minat dan bakat di bidang olahraga bola basket. UKM ITERA Basketball Team ini terbentuk pada tanggal 5 September 2014 di Institut Teknologi Bandung, seiring dengan perkembangan ITERA sebagai perguruan tinggi. UKM ITERA Basketball Team ini juga tidak hanya berfokus pada bidang olahraga basket saja, tetapi kita bisa belajar berorganisasi di dalam UKM tersebut",
+
+    allprestasi: [
+      {
+        prestasi: basket1,
+        deskripsi: "Dekan Cup, kejuaraan yang diikuti oleh UKM ITERA BASKETBALL TEAM dilaksanakan oleh Universitas Sriwijaya tahun 2024, ITERA berhasil mendapatkan Juara 2 pada cabang olahraga basket putra",
+      },
+      {
+        prestasi: basket2,
+        deskripsi: "Strolling, merupakan agenda tahunan yang dilaksanakan oleh UKM ITERA BASKETBALL TEAM yang bertujuan untuk mempererat kebersamaan anggota UKM ",
+      },
+      {
+        prestasi: basket3,
+        deskripsi: "Fungame, dilaksanakan dari UKM untuk massa ITERA dimana dilakukan sebanyak 6x dalam satu periode. Tujuan diadakannya fungame adalah untuk menjalin kebersamaan serta mengasah kemampuan mahasiswa ITERA dalam bidang basket",
+      },
+      {
+        prestasi: basket4,
+        deskripsi: "CIBT CUP, Merupakan event basket yang dilaksanakan setiap awal tahun ajaran ganjil peserta yang berkompetisi merupakan program studi dari Institut Teknologi Sumatera",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/iterabasketball",
+        youtube: "",
+        website: "",
+        tiktok: "https://www.tiktok.com/@iterabasketballteam",
+      },
+    ],
+  },
+
+  {
+    key: "idensity",
+    link: "/informasi/ukm/idensity",
+    logo: idensity,
+    title: "ITERA Dance Evolution Community (Idensity)",
+    namaketum: "Frenklyn Fenuel Febe",
+    fotoketum: ketumidensity,
+    namapembina : "",
+    fotopembina : pembinaidensity,
+    prodi: "",
+    sejarah:
+      "IDENSITY adalah komunitas dance yang ada di itera dengan mengusung tema modern dance dengan genre pop dan hip hop. Selain itu IDENSITY tidak mengcover, melainkan membuat dan memodifikasi choreo dance itu sendiri. Pada awalnya IDENSITY terbentuk dari sekumpulan mahasiswa yang memiliki minat dan ketertarikan yang sama di bidang modern dance, lalu terbentuklah IDENSITY yang dibangun dan mulai berjalan pada 20 Oktober 2016 dan terus berkarya hingga kini. ",
+
+    allprestasi: [
+      {
+        prestasi: idencity1,
+        deskripsi: "1st Runner Up ITGT 2021 and 2022",
+      },
+      {
+        prestasi: idencity2,
+        deskripsi: "1st Runner Up SAP’GT 2023",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/idensity_",
+        youtube: "http://www.youtube.com/@IDENSITY",
+        website: "",
+        tiktok: "https://www.tiktok.com/@idensity",
+      },
+    ],
+  },
+
+  {
+    key: "akai",
+    link: "/informasi/ukm/akai",
+    logo: akai,
+    title: "Atarashii Sekai ITERA",
+    namaketum: "Garland Wijaya",
+    fotoketum: ketumakai,
+    namapembina : "Listra Yehezkiel Ginting, S.T., M.Eng.",
+    fotopembina : pembinaakai,
+    prodi: "",
+    sejarah:
+      "Atarashii Sekai Itera (Akai) merupakan unit kegiatan mahasiswa dalam bidang bahasa jepang. Selain fokus mempelajari dan mengembangkan skill berbahasa jepang, Akai juga mewadahi dalam membina minat mahasiswa dalam budaya jepang lain seperti cosplay, manga, fundraising dan ongaku(music). Kegiatan Akai juga berkembang di luar kampus, menjalin kerja sama dengan ukm jejepangan lainnya, juga komunitas - komunitas terkhususnya di wilayah kota bandar lampung.  Berdasar pada ketertarikan mahasiswa Institut Teknologi Sumatera untuk mempelajari bahasa dan budaya Jepang untuk menimba manfaat darinya, unit kegiatan Atarashii Sekai ITERA (disingkat AKAI ITERA) dibentuk pada tanggal 24 September 2016 di Lampung selatan. AKAI ITERA berfungsi sebagai wadah pembinaan anggota sebagai pengemban dalam mengenalkan. dan mempelajari bahasa dan kebudayaan Jepang Atarashii Sekai ITERA terikat secara organisatoris terhadap institut dan berada dibawah naungan Institut Teknologi Sumatera.",
+    allprestasi: [ 
+      {
+        prestasi: atarashi1,
+        deskripsi: "Divisi Benkyou: Yudhistira Novianto Kurniawan, meraih skor 107/180 lulus JLPT N5 pada tahun 2021",
+      },
+      {
+        prestasi: atarashi2,
+        deskripsi: "Divisi Ongaku: Al Aziiz Sultan R, Juara 1 lomba Anisong di acara TA COFEST 2024), Devis Lazuard Saduk Juara 1 lomba Anisong di acara summer fest by aigatsu 2024",
+      },
+      {
+        prestasi: atarashi3,
+        deskripsi: "Divisi Manga: Khaidar Ma'ruf, Juara 3 mascot draw competition acara summer fest by aigatsu 2024",
+      },
+      {
+        prestasi: atarashi4,
+        deskripsi: "Divisi Cosplay: Muhammad Alif Habibie Juara 1 Rookie Cosplay Competition di event street japan vibes by aigatsu 2024, Azizah Sri Fauziah Juara 3 Rookie Cosplay Competition di event street japan vibes by aigatsu",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/akai.itera",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+
+  {
+    key: "saibatin",
+    link: "/informasi/ukm/saibatin",
+    logo: saibatin,
+    title: "Saibatin ITERA",
+    namaketum: "Chindy Setia Nauli Manullang",
+    fotoketum: ketumsaibatin,
+    namapembina : "Dr. Muhamad Fatikul Arif, S.T., M.Sc.",
+    fotopembina : pembinasaibatin,
+    prodi: "",
+    sejarah:
+      "Saibatin ITERA merupakan komunitas yang bergerak di bidang pengembangan kapal tanpa awak dan teknologi maritim. Komunitas ini menjadi wadah bagi mahasiswa ITERA untuk mengembangkan ide, riset, dan inovasi di sektor kemaritiman. Saibatin ITERA resmi berdiri pada 22 Maret 2023 sebagai komunitas mahasiswa ITERA yang berfokus pada pengembangan kapal tanpa awak. Komunitas ini lahir dari tekad untuk menghadirkan inovasi di bidang kemaritiman melalui riset dan teknologi. Nama “Saibatin” berasal dari suku adat pesisir Lampung yang berarti “satu batin”, mencerminkan semangat persatuan dalam berkarya. Sejak berdiri, Saibatin ITERA aktif berkontribusi dalam berbagai kompetisi maritim di tingkat nasional.",
+
+    allprestasi: [
+      {
+        prestasi: saibatin1,
+        deskripsi: "Juara 1 KKCTBN 2023 Kategori LBERC, Meraih Juara 1 dalam Kontes Kapal Cepat Tak Berawak Nasional (KKCTBN) 2023 kategori LBERC yang diselenggarakan oleh Puspresnas, BPTI, Kemendikbud Ristek",
+      },
+      {
+        prestasi: saibatin2,
+        deskripsi: "Juara Fun Race Etam Ship Competition 2023, Menjadi juara dalam kategori Fun Race pada Etam Ship Competition yang diselenggarakan oleh Institut Teknologi Kalimantan.",
+      },
+      {
+        prestasi: saibatin3,
+        deskripsi: "Juara 3 Etam Ship Competition 2024, Meraih posisi Juara 3 pada Etam Ship Competition di Institut Teknologi Kalimantan",
+      },
+      {
+        prestasi: saibatin4,
+        deskripsi: "Aktif dalam Kegiatan Pengabdian Masyarakat, Berperan aktif dalam kegiatan sosial dan edukatif terhadap masyarakat",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/saibatin_itera",
+        youtube: "http://www.youtube.com/@saibatin_itera",
+        website: "",
+        tiktok: "https://www.tiktok.com/@saibatin_itera",
+      },
+    ],
+  },
+
+  {
+    key: "thesus",
+    link: "/informasi/ukm/thesus",
+    logo: thesus,
+    title: "The Speakup Society ITERA",
+    namaketum: "Aris Munandar",
+    fotoketum: ketumthesus,
+    namapembina : "Andi Hilman Fahmi, S.Pd.",
+    fotopembina : pembinathesus,
+    prodi: "",
+    sejarah:
+      "UKM Thesus ITERA merupakan wadah pengembangan diri bagi mahasiswa yang ingin mengasah kemampuan public speaking. UKM ini memfasilitasi pelatihan dan praktik dalam berbagai bidang seperti MC, presenter, host, voice over talent, hingga announcer. Dengan bergabung di Thesus, anggota dapat meningkatkan rasa percaya diri serta kemampuan komunikasi secara profesional. Lembaga mahasiswa ini bernama Unit Kegiatan Mahasiswa “THE SPEAK-UP SOCIETY“ selanjutnya disingkat menjadi “THESUS”. THE SPEAK-UP SOCIETY didirikan pada tanggal 20 April 2024. THE SPEAK-UP SOCIETY berkedudukan di Institut Teknologi Sumatera dan di bawah naungan KM-ITERA.",
+
+    allprestasi: [
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/thesus_itera",
+        youtube: "",
+        website: "",
+        tiktok: "https://www.tiktok.com/@thesus_itera",
+      },
+    ],
+  },
+
+  {
+    key: "adinata",
+    link: "/informasi/ukm/adinata",
+    logo: adinata,
+    title: "Adinata Proto Team",
+    namaketum: "Ahmad Frantoni Aji",
+    fotoketum: ketumadinata,
+    namapembina : "Abdul Muhyi, S.T., M.T.",
+    fotopembina : pembinaadinata,
+    prodi: "",
+    sejarah: "Adinata Proto Team Institut Teknologi Sumatera ini adalah tim yang dibentuk untuk berkompetisi di bidang mobil hemat energi. Tim ini Berkompetisi pada kategori Prototype dikelas Ethanol. Kendaraan Prototype yang dimiliki oleh Adinata Proto Team adalah Nero Speed-1. Sejarah Terbentuknya Adinata Proto Team sejalan dengan berdirinya Departemen biro project HMM ITERA. Diawali dengan perbincangan santai 3 orang mahasiswa yang mana salah satunya memiliki mimpi untuk bisa berdiri di lintasan bersama tim dan mobil ciptaan mereka. Awal mula tim ini berdiri dengan nama Hyena Tim ITERA, namun setelah menatap Jendela registrasi pendaftaran Kontes Mobil Hemat Energi 2024 sepertinya kami harus memiliki nama yang memiliki gambaran dan tujuan dari Tim ini dan terciptalah ADINATA PROTO TEAM ITERA pada 6 Mei 2024 yang berarti ”Paling unggul”",
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/adinatateamitera",
+        youtube: "",
+        website: "",
+        tiktok: "https://www.tiktok.com/@adinata.itera",
+      },
+    ],
+  },
+
+  {
+    key: "sriwijaya",
+    link: "/informasi/ukm/sriwijaya",
+    logo: sriwijaya,
+    title: "Sriwijaya ITERA",
+    namaketum: "M. Abdillah",
+    fotoketum: ketummsriwijaya,
+    namapembina : "Rahmatullah Harianja, ST.Par., MM.(Par).",
+    fotopembina : pembinasriwijaya,
+    prodi: "",
+    sejarah:
+      "Sriwijaya ITERA merupakan Unit Kegiatan Mahasiswa yang hadir sebagai wadah bagi mahasiswa asal Sumatera Selatan yang sedang menempuh pendidikan di Institut Teknologi Sumatera (ITERA). Tujuan utama dari pembentukan Sriwijaya ITERA adalah untuk mempererat tali silaturahmi, memperkuat solidaritas, serta menciptakan rasa kekeluargaan antar sesama mahasiswa Sumatera Selatan di lingkungan kampus. Melalui berbagai kegiatan seperti forum diskusi, kegiatan sosial, pelatihan, hingga perayaan budaya daerah, Sriwijaya ITERA turut mendukung pengembangan potensi dan keterlibatan aktif anggotanya dalam kehidupan kampus maupun di luar. Melalui serangkaian perjalanan yang panjang UKM Sriwijaya resmi terbentuk SK Rektor pada tanggal 1 April 2016 yang diketuai oleh Bang Anggi Ade, pada saat itu ITERA Berpijar dilaksanakan di Palembang.  Berawal dari intensitas berkumpul yang cukup sering dilakukan oleh mahasiswa yang berasal  dari daerah Sumatera Selatan dan tercetus ide dari Bang Angga untuk membentuk wadah bagi sanak rantau yang berasal dari Sumatera Selatan. Dengan adanya kesadaran akan hak dan kewajiban serta tanggung jawab sebagai anggota masyarakat yang memiliki potensi ilmu pengetahuan dan dinamika yang melekat pada dirinya. Untuk itu diperlukan adanya pengenalan, pengembangan, serta pelestarian kebudayaan  tradisional Sumatera Selatan yang merupakan bagian dari kebudayaan nasional, ditambah dengan ada nya mahasiswa di ITERA yang berasal dari luar Lampung khususnya dari Sumatera maka dibentuknya UKM Sriwijaya sehingga mahasiswa tidak lupa dengan kampung halamannya.",
+    allprestasi: [
+      {
+        prestasi: sriwijaya1,
+        deskripsi: "Sekolah Kabinet",
+      },
+      {
+        prestasi: sriwijaya2,
+        deskripsi: "Lestari Sriwijaya ",
+      },
+      {
+        prestasi: sriwijaya3,
+        deskripsi: "Pesona Sriwijaya",
+      },
+      {
+        prestasi: sriwijaya4,
+        deskripsi: "Ado Kami",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/madaniitera/",
+        youtube: "https://www.youtube.com/@MadaniItera",
+        website: "https://madani.ukm.itera.ac.id/",
+        tiktok: "",
+      },
+    ],
+  },
+  {
+    key: "ikm",
+    link: "/informasi/ukm/ikm",
+    logo: ikm,
+    title: "Ikatan Keluarga Minangkabau ITERA",
+    namaketum: "Adib Ramadhani",
+    fotoketum: ketumikm,
+    namapembina : "Dr. Eng. Feerzet Achmad, S.T., M.T.",
+    fotopembina : pembinaikm,
+    prodi: "",
+    sejarah:
+      "Merupakan unit kegiatan mahasiswa yang beranggotakan mahasiswa/i ITERA dari Sumatera Barat. UKM ini merupakan UKM yang bergerak di bidang budaya yaitu budaya minangkabau yang berlandaskan kekeluargaan. Ikatan Keluarga Minangkabau Institut Teknologi Sumatera atau yang disingkat IKM-ITERA adalah sebuah organisasi intra kampus dibawah naungan rektor Institut Teknologi Sumatera yang ditetapkan pada tanggal 20 Oktober 2015 di Institut Teknologi Sumatera.",
+
+    allprestasi: [
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/ikm_itera",
+        youtube: "http://www.youtube.com/@ikmitera8340",
+        website: "https://ikm.ukm.itera.ac.id",
+        tiktok: "https://www.tiktok.com/@ikmitera",
+      },
+    ],
+  },
+  {
+    key: "kmpa",
+    link: "/informasi/ukm/kmpa",
+    logo: kmpa,
+    title: "Keluarga Mahasiswa Pecinta Alam ITERA",
+    namaketum: "Azizul Qadhri Khairi",
+    fotoketum: ketumkmpa,
+    namapembina : "Ir. Arif Rohman, S.T., M.T.",
+    fotopembina : pembinakmpa,
+    prodi: "",
+    sejarah:
+      "KMPA ITERA, merupakan organisasi internal kampus ITERA yang merupakan bagian dari Keluraga Mahasiswa ITERA (KM ITERA) dalam bentuk unit kegiatan mahasiswa (UKM) dengan kegiatan tematik utamannya adalah outdoor activity seperti hiking, camping, dan kegiatan alam bebas lainnya namun tidak menutup kemungkinan aktif dalam kegiatan internal kampus ataupun indoor activity. Awal mulanya KMPA diinisiasi oleh beberapa mahasiswa dari angkatan 2012 yang beberapa kesempatan melakukan kegiatan outdoor dan mendaki gunung Bersama yaitu: Gading Nur Rahmat, Alief Bani Ghazi, Bernardus Galih DW, Bramah Ing Sona, Ragil Karim, Fahmi Adi W, dan Christopher Immanuel.Maka untuk selanjutnya tercetuslah membentuk sebuah Lembaga agar lebih terkoordinasi kegiatannya dan lebih banyak teman-teman mahasiswa yang bergabung dan berkegiatan bersama. Pada tanggal 7 Maret 2013 KMPA terbentuk dengan 7 anggota lalu kembali melakukan aktivitas pendakian dengan merekrut massa kampus yang lebih banyak lagi hingga akhirnya pada tanggal 6 Oktober 2015, KMPA diresmikan oleh pihak Rektorat ITERA sebagai salah satu organisasi kemahasiswaan yang legal dalam KM ITERA bersamaan dengan organisasi kemahasiswaan lainnya.",
+
+    allprestasi: [
+      {
+        prestasi: defaultimageprestasi,
+        deskripsi: "Juara 1 Lead Putri POMDA 2023",
+      },
+      {
+        prestasi: defaultimageprestasi,
+        deskripsi: "Juara 2 Speed Classic Putri POMDA 2023",
+      },
+      {
+        prestasi: kmpa3,
+        deskripsi: "Juara 2 Orientering Up 20 Putri MOCC 2025",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com//kmpa_itera/",
+        youtube: "http://www.youtube.com/@kmpaitera7922",
+        website: "https://kmpa.ukm.itera.ac.id/",
+        tiktok: "https://www.tiktok.com/@kmpa.itera",
+      },
+    ],
+  },
+  {
+    key: "petanque",
+    link: "/informasi/ukm/petanque",
+    logo: petanque,
+    title: "Petanque ITERA",
+    namaketum: "Fiqri Aldiansyah",
+    fotoketum: ketumpetanque,
+    namapembina : "Boy Sembaba Tarigan, S.Pd., M.Or.",
+    fotopembina : pembinapetanque,
+    prodi: "",
+    sejarah:
+      "Petanque adalah olahraga asal Prancis yang dimainkan dengan melempar bola logam (boules) sedekat mungkin ke bola kecil sasaran (cochonnet) di atas permukaan tanah berpasir. Permainan ini dapat dimainkan secara individu, ganda, atau tim, dan mengutamakan strategi serta ketepatan lemparan. Pemain harus berdiri di dalam lingkaran saat melempar dan tidak boleh melangkah keluar hingga bola mendarat. ",
+
+    allprestasi: [
+      {
+        prestasi: petanque1,
+        deskripsi: "Raih Emas dan Perunggu di Exhibition Petanque Antaruniversitas Se-Provinsi Lampung",
+      },
+      {
+        prestasi: petanque2,
+        deskripsi: "Juara 3 di Kategori Shooting Kumabat ITERA",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/petanque_itera",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+  {
+    key: "pikr",
+    link: "/informasi/ukm/pikr",
+    logo: pikr,
+    title: "Pusat Informasi Dan Konseling Remaja Sejahtera Institut Teknologi Sumatera (PIK-R Sejahtera ITERA)",
+    namaketum: "Galih Widhia Putra",
+    fotoketum: ketumpikr,
+    namapembina : "Eliza Dianasari, S.Psi.",
+    fotopembina : pembinapikr,
+    prodi: "",
+    sejarah:
+      "PIK-R Sejahtera ITERA merupakan wadah pengembangan diri mahasiswa yang fokus memberikan solusi terhadap berbagai permasalahan remaja dan mahasiswa di lingkungan kampus. UKM ini aktif menyelenggarakan penyuluhan seputar PKBR (Penyiapan Kehidupan Berkeluarga Bagi Remaja), kesehatan mental, seksualitas, pendewasaan usia perkawinan, serta life skill. Selain itu, PIK-R Sejahtera ITERA juga menyediakan layanan konseling bagi mahasiswa sebagai upaya mendukung terciptanya generasi yang sehat, mandiri, dan berdaya. Pusat Informasi dan Konseling Remaja Sejahtera Institut Teknologi Sumatera (PIK-R Sejahtera ITERA) resmi berdiri pada 19 Maret 2021 dan bermarkas di GKU 1-309b ITERA. PIK-R Sejahtera ITERA berada di bawah naungan LPMPP melalui pembinaan PPSDM ITERA. Keberadaannya lahir sebagai respons atas tantangan dan permasalahan remaja serta mahasiswa, seperti kesehatan mental, hubungan sosial, akademik, hingga seksualitas. Selain menjadi wadah konseling, PIK-R juga aktif menyelenggarakan pelatihan dan pengabdian kepada remaja di SMP dan SMA.",
+
+    allprestasi: [
+      {
+        prestasi: pikr1,
+        deskripsi: "Juara 1 Putri Duta GenRe Provinsi Lampung Tahun 2024PIK-R Sejahtera ITERA berhasil meraih prestasi sebagai Juara 1 Putri Duta Generasi Berencana (GenRe) tingkat Provinsi Lampung tahun 2024, yang menjadi bukti kontribusi aktif dalam mengedukasi dan menginspirasi remaja mengenai perencanaan kehidupan berkeluarga",
+      },
+      {
+        prestasi: pikr2,
+        deskripsi: "Pemilihan Duta Generasi Berencana ITERA Ajang tahunan untuk mencari mahasiswa ITERA yang memiliki komitmen dan kemampuan sebagai role model dalam menyuarakan isu kesehatan reproduksi, perencanaan keluarga, dan kesehatan mental di lingkungan kampus.",
+      },
+      {
+        prestasi: pikr3,
+        deskripsi: "Webinar Series Program edukasi Hybrid yang membahas berbagai topik seputar kesehatan mental, seksualitas, pendewasaan usia perkawinan, serta keterampilan hidup, yang diikuti oleh ratusan peserta dari berbagai daerah.",
+      },
+      {
+        prestasi: pikr4,
+        deskripsi: "Open Recruitment Anggota Muda PIK-R Sejahtera ITERA Kegiatan seleksi dan pembekalan bagi mahasiswa baru yang ingin bergabung sebagai Anggota muda PIK-R Sejahtera ITERA, guna memperkuat peran PIK-R dalam memberikan edukasi dan pelayanan konseling di kampus.",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/sejahtera.itera",
+        youtube: "http://www.youtube.com/@SejahteraITERA",
+        website: "https://pikr.itera.ac.id/",
+        tiktok: "https://www.tiktok.com/@sejahtera.itera",
+      },
+    ],
+  },
+  {
+    key: "angsoduo",
+    link: "/informasi/ukm/angsoduo",
+    logo: angsoduo,
+    title: "Angsoduo ITERA",
+    namaketum: "Muhammad Ilham",
+    fotoketum: ketumangsoduo,
+    namapembina : "Fran Sinatra, S.P., M.T",
+    fotopembina : pembinaangsoduo,
+    prodi: "",
+    sejarah:
+      "Angsoduo ITERA merupakan komunitas kedaerahan bersifat kekeluargaan yang menaungi mahasiswa ITERA yang berasal dari Provinsi Jambi. Angso Duo ITERA di bentuk dari adanya keinginan untuk membentuk ikatan kekeluargaan sesama mahasiswa Itera yang berasal dari daerah Jambi dan bertujuan untuk membentuk rasa kekeluargaan sesama mahasiswa Jambi. Terbentuklah di tahun 2016 perkumpulan pertama kali, tahun 2019 memulai jejaknya di Institut Teknologi Sumatera sebagai bentuk perkumpulan yang bersifat kedaerahan atau kebudayaan. Meski sempat vakum karena pandemi covid-19 di pertengahan tahun 2019 hingga tahun 2022, Angsoduo ITERA mulai aktif kembali di tahun 2023 dengan memulai dari pembentukan BPH pertama kalinya. Hingga tahun 2024 merupakan kepengurusan BPH dengan program prioritas pembentukan dari komunitas menjadi UKM.",
+
+    allprestasi: [
+      {
+        prestasi: angsoduo1,
+        deskripsi: "First Gathering: Acara pertemuan dan penyambutan bagi mahasiswa baru dari Jambi yang telah resmi berkuliah di ITERA",
+      },
+      {
+        prestasi: angsoduo2,
+        deskripsi: "Bakar-bakar Angsoduo : kegiatan bakar-bakar dan makan bersama di awal masa perkuliahan untuk meningkatkan kebersamaan antar anggotaa",
+      },
+      {
+        prestasi: angsoduo3,
+        deskripsi: "Buka Bersama Angsoduo : kegiatan buka bersama di bulan Ramadan untuk mempererat kekeluargaan dan kebersamaan antar anggota",
+      },
+      {
+        prestasi: angsoduo4,
+        deskripsi: " K3 : Kamis Kumpul Kanti: pertemuan rutin setiap hari kamis antar anggota",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/angsoduo_itera",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+  {
+    key: "debatera",
+    link: "/informasi/ukm/debatera",
+    logo: debatera,
+    title: "DEBATERA (ITERA Debating Club)",
+    namaketum: "Feri Setiawan",
+    fotoketum: ketumdebatera,
+    namapembina : "Reza Pustika, S.Pd., M.Pd.",
+    fotopembina : pembinadebatera,
+    prodi: "",
+    sejarah:
+      "DEBATERA (Itera Debating Club) adalah Unit Kegiatan Mahasiswa di bawah naungan KM ITERA yang fokus pada pengembangan debat dalam Bahasa Indonesia dan Inggris. UKM ini menjadi satu-satunya organisasi debat resmi di ITERA yang berwenang membina dan mengkoordinasi kegiatan debat di lingkungan kampus. DEBATERA berperan aktif dalam membina keterampilan berpikir kritis, public speaking, dan semangat kompetitif mahasiswa. DEBATERA didirikan pada tanggal 1 Desember 2024 di Institut Teknologi Sumatera (ITERA), Lampung Selatan. Pembentukan ini dilatarbelakangi oleh pentingnya kemampuan berpikir kritis dan komunikasi global di abad ke-21. DEBATERA hadir sebagai wadah bagi mahasiswa ITERA untuk mengasah kemampuan debat dan berbicara di depan umum. Sejak berdiri, DEBATERA terus berkontribusi dalam mengembangkan debat di tingkat lokal, nasional, hingga internasional.",
+
+    allprestasi: [
+      {
+        prestasi: debatera1,
+        deskripsi: "Wakil ITERA di NUDC dan KDMI 2024DEBATERA menjadi perwakilan resmi ITERA dalam ajang National University Debating Championship (NUDC) dan Kompetisi Debat Mahasiswa Indonesia (KDMI) tahun 2024, menunjukkan prestasi dan kualitas debat mahasiswa ITERA di tingkat nasional.",
+      },
+      {
+        prestasi: debatara2,
+        deskripsi: "Coaching Clinic DebatKegiatan pelatihan intensif yang rutin diselenggarakan DEBATERA untuk meningkatkan kemampuan teknis dan strategi debat bagi anggota, termasuk pelatihan debat Bahasa Indonesia dan Inggris.",
+      },
+      {
+        prestasi: debatera3,
+        deskripsi: "Fasilitasi Kompetisi Debat DEBATERA secara aktif memfasilitasi dan mendampingi mahasiswa yang berpartisipasi dalam lomba debat di tingkat kampus, nasional, maupun internasional, termasuk pembinaan, logistik, dan administrasi.",
+      },
+      {
+        prestasi: debatera4,
+        deskripsi: "Penyelenggara Event Debat DEBATERA juga menjadi pelaksana kegiatan kompetisi debat internal dan eksternal sebagai ajang pengembangan minat dan bakat, serta wadah seleksi delegasi ITERA untuk ajang debat skala lebih besar.",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/debatera.club",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+  {
+    key: "horseriding",
+    link: "/informasi/ukm/horseriding",
+    logo: horseriding,
+    title: "ITERA Horse Riding",
+    namaketum: "Rasyid Fadillah",
+    fotoketum: ketumhorseriding,
+    namapembina : "Ibu Azry Ayu Nabillah, S.Pd., M.Pd",
+    fotopembina : pembinahorseriding,
+    prodi: "",
+    sejarah:
+      "UKM Itera Horse Riding diresmikan oleh rektor itera pada tanggal 1 Februari 2024 yang bertujuan untuk menyalurkan minat dan bakat mahasiswa Itera pada olahraga berkuda. Dies natalis UKM IHR diselenggarakan pada tanggal 26 Desember. Kabinet yang sedang bertugas bernamakan andalusian, UKM IHR sudah bekerja sama dengan Pordasi lampung dan stable sekitar Itera. ",
+
+    allprestasi: [
+      {
+        prestasi: horse1,
+        deskripsi: "Juara 1 horseback archery kejuaran terbuka nasional pordasi Lampung 2024. ",
+      },
+      {
+        prestasi: horse2,
+        deskripsi: "Mentoring Anggota",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/itera.horseriding",
+        youtube: "https://www.youtube.com/@MadaniItera",
+        website: "https://madani.ukm.itera.ac.id/",
+        tiktok: "",
+      },
+    ],
+  },
+  {
+    key: "ibc",
+    link: "/informasi/ukm/ibc",
+    logo: ibc,
+    title: "ITERA Badminton Club",
+    namaketum: "Samuel Rudi Hartono Sinaga",
+    fotoketum: ketumibc,
+    namapembina : "Rizqi Wahyudi, S.TP., M.Sc.",
+    fotopembina : pembinaibc,
+    prodi: "",
+    sejarah:
+      "Unit Kegiatan Mahasiswa (UKM) merupakan lembaga kemahasiswaan tempat berkumpulnya mahasiswa yang memiliki kesamaan minat atau kegemaran, serta kreativitas dalam kampus. UKM memiliki empat bidang, yaitu penalaran, olahraga, seni, dan kesejahteraan. UKM ITERA Badminton Club (IBC) bertujuan untuk mewadahi dan mengembangkan minat bakat mahasiswa ITERA terhadap bulu tangkis, serta memberikan pengetahuan tentang organisasi kemahasiswaan dan mendukung kegiatan kemahasiswaan dalam bidang bulu tangkis. ITERA Badminton Club (IBC) dibentuk sebagai wadah untuk mengembangkan serta menyalurkan bakat dan hobi di bidang olahraga bulutangkis, sekaligus menjadi sarana positif untuk mengisi waktu luang. ITERA Badminton Club (IBC) ini dibentuk pada tanggal 13 Februari 2016 dan diresmikan secara resmi pada 6 Oktober 2016. Pendiri UKM IBC berjumlah lima orang mahasiswa dari angkatan 2015 yang memiliki semangat dan visi yang sama. Mereka adalah Agung Bhakti Pratama (Teknik Geomatika), Johan Effendi (Teknik Sipil), Samuel Gultom (Teknik Geomatika), Al Hamidi (Perencanaan Wilayah dan Kota), dan Lestari Tampubolon (Perencanaan Wilayah dan Kota).",
+
+    allprestasi: [
+      {
+        prestasi: ibc1,
+        deskripsi: "Kejuaraan POMPROV LAMPUNG Pomprov Lampung merupakan ajang seleksi bagi mahasiswa untuk bisa tampil di ajang Pekan Olahraga Mahasiswa Nasional (Pomnas).",
+      },
+      {
+        prestasi: ibc2,
+        deskripsi: " Latihan Rutin Latihan ini bertujuan untuk meningkatkan keterampilan individu maupun kekompakan tim melalui berbagai sesi latihan terstruktur. Setiap latihan mencakup berbagai aspek permainan, mulai dari teknik dasar, taktik permainan, hingga latihan fisik untuk meningkatkan daya tahan dan kelincahan.",
+      },
+      {
+        prestasi: ibc3,
+        deskripsi: "Dies Natalis ITERA Badminton Club Dies Natalis adalah acara untuk memperingati dan merayakan hari diresmikan Itera Badminton Club (IBC).",
+      },
+      {
+        prestasi: ibc4,
+        deskripsi: "IBC OPEN ITERA, merupakan acara kompetisi badminton antar prodi di ITERA dan termasuk acara kompetisi olahraga besar yang diadakan tiap tahun.",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/1bc_official",
+        youtube: "",
+        website: "",
+        tiktok: "https://www.tiktok.com/@ibc_official",
+      },
+    ],
+  },
+  {
+    key: "chess",
+    link: "/informasi/ukm/chess",
+    logo: icc,
+    title: "ITERA Chess Club",
+    namaketum: "Muhammad Jabbar Hakim Antoni",
+    fotoketum: ketumchess,
+    namapembina : "Masayu Nur Ulfa",
+    fotopembina : pembinachess,
+    prodi: "Teknik Informatika '22",
+    sejarah:
+      "ITERA Chess Club adalah unit kegiatan mahasiswa di Institut Teknologi Sumatera (ITERA) yang bergerak di bidang olahraga catur. UKM ini menjadi wadah bagi mahasiswa yang memiliki minat dan bakat dalam permainan catur untuk mengembangkan kemampuan, berkompetisi, menjadi event organizer serta memperluas jaringan pertemanan. ",
+
+    allprestasi: [
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/iterachess",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+  {
+    key: "menwa",
+    link: "/informasi/ukm/menwa",
+    logo: menwa,
+    title: "Resimen Mahasiswa ITERA",
+    namaketum: "Fajri Fadillah",
+    fotoketum: ketummenwa,
+    namapembina : "Andre Febrianto, S.Kom., M.Eng.",
+    fotopembina : pembinamenwa,
+    prodi: "",
+    sejarah: "Resimen Mahasiswa (Menwa) adalah unit kegiatan mahasiswa yang bergerak di bidang bela negara dan kedisiplinan dengan menggabungkan aspek kemiliteran dan kepemudaan. Anggotanya dilatih untuk memiliki jiwa kepemimpinan, nasionalisme, serta kesiapsiagaan dalam menghadapi situasi darurat atau pengabdian masyarakat. Sebagai bagian dari komponen cadangan pertahanan negara, Menwa turut berperan aktif dalam menjaga keamanan kampus dan mendukung kegiatan sosial kemasyarakatan. Resimen Mahasiswa (Menwa) ITERA, seperti halnya Menwa di perguruan tinggi lain, adalah unit kegiatan mahasiswa (UKM) yang bergerak di bidang ilmu pengetahuan dan keprajuritan. Menwa ITERA bertujuan untuk membentuk mahasiswa yang memiliki pengetahuan, sikap disiplin, fisik, mental, dan wawasan kebangsaan, serta mampu melaksanakan Tri Dharma Perguruan Tinggi. Yang pada awalnya Rektor Institut Teknologi Sumatera (ITERA) Prof. Ir. Ofyar Z. Tamin, M.Sc., Ph.D. menerima kunjungan Komandan Resimen Mahasiswa (Menwa) Raden Intan yang juga Wakil Wali Kota Bandar Lampung Muhammad Yusuf Kohar S.E, M.M. di Kampus ITERA, Selasa (22/3/2016).Saat menerima kunjungan ini, Rektor menegaskan unit kegiatan mahasiswa (UKM) Menwa di ITERA akan segera terbentuk. “Kami mohon bimbingan dari Bapak Yusuf Kohar selaku Komandan Menwa untuk pembentukan Menwa di ITERA. Jadi menwa ITERA terbentuk pada bulan maret 2016. Rektor juga  menambahkan organisasi seperti Menwa sangat dibutuhkan di kampus. Kegiatan dalam organisasi Menwa ini, ujar dia, bisa menumbuhkan jiwa juang, determinasi, dan semangat positif lainnya. Dan dengan jiwa juang yang tinggi, mahasiswa akan lebih tangguh dalam menghadapi tantangan dan permasalahan,” tegasnya.",
+    allprestasi: [
+      {
+        prestasi: resimen1,
+        deskripsi: "Raka Lingga Suta Prawira dari program studi Rekayasa Minyak dan Gas Berhasil meraih medali perunggu pada kategori Daeryun Senior Putra di Kejuaraan Daerah Hapkido Lampung 2025",
+      },
+      {
+        prestasi: defaultimageprestasi, 
+        deskripsi: "Marisa Retnalia Pasaribu dari program studi Teknologi Industri Pertanian Sukses menyabet medali emas (Juara 1) kategori -68Kg U21 Putri di Kejuaraan Karate Terbuka Piala FORKI L.A Cup V Tahun 2025",
+      },
+      {
+        prestasi: resimen3,
+        deskripsi: "Fajri Fadillah dari Program studi Rekayasa Minyak dan Gas, Memenangkan Kategori Duta ITERA Berbakat 2024.",
+      },
+      {
+        prestasi: defaultimageprestasi, 
+        deskripsi: "Oloan Napitupulu dari program studi Teknik Informatika. Sukses dalam kegiatan warga terlatih tingkat nasional yang diselenggarakan oleh Staf Teritorial TNI angkatan Darat",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/menwa_itera",
+        youtube: "",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  },
+  {
+    key: "pramuka",
+    link: "/informasi/ukm/pramuka",
+    logo: pramuka,
+    title: "Pramuka ITERA",
+    namaketum: "Joni Efendi",
+    fotoketum: ketumpramuka,
+    namapembina : "Angga Jati Widiatama, S.T., M.T.",
+    fotopembina : pembinapramuka,
+    prodi: "",
+    sejarah:
+      "Pramuka ITERA merupakan suatu organisasi yang menjadi wadah bagi mahasiswa ITERA yang menyukai bidang kepramukaan. Di organisasi ini mahasiswa bebas berekspresi serta mengembangkan ilmu kepramukaan yang mereka miliki. Pramuka ITERA didirikan pada tanggal 6 Oktober 2016. Pramuka ITERA didirikan oleh 4 orang mahasiswa ITERA.",
+
+    allprestasi: [
+      {
+        prestasi: pramuka1,
+        deskripsi: "Jambore Mahasiswa Nasional Bela Negara (Prestasi)",
+      },
+      {
+        prestasi: pramuka2,
+        deskripsi: "Puncak Orientasi Calon Anggota (OCA) (Kegiatan Unggulan)",
+      },
+    ],
+
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/pramuka_itera/",
+        youtube: "http://www.youtube.com/@pramukaitera2966",
+        website: "",
+        tiktok: "https://www.tiktok.com/@pramuka.itera",
+      },
+    ],
+  },
+  {
+    key: "psm",
+    link: "/informasi/ukm/psm",
+    logo: psm,
+    title: "Paduan Suara Mahasiswa (PSM) Lipphu Ghesa ITERA",
+    namaketum: "Gabriel Xaverius Englando Rajagukguk",
+    fotoketum: ketumpsm,
+    namapembina : "Edlyn Yoadan Nathania, S.T., M.T.",
+    fotopembina : pembinapsm,
+    prodi: "",
+    sejarah:
+      "Paduan Suara Mahasiswa Lipphu Ghesa ITERA merupakan wadah bagi para mahasiswa untuk mengembangkan minat dan bakat di bidang tarik suara, khususnya paduan suara. PSM Lipphu Ghesa ITERA merupakan Unit Kegiatan Mahasiswa di Institut Teknologi Sumatera yang mengembangkan kemampuan vocal mahasiswa dalam melantunkan lagu-lagu nasional maupun daerah. Berdasarkan AD ART yang sebelumnya telah disusun, PSM Lipphu Ghesa ITERA didirikan pertama kali di Bandung, pada 28 Maret 2013. Setelah 2 tahun berjalan, diresmikan di Lampung Selatan, pada 6 Oktober 2015. Setelah mengalami vacum selama beberapa tahun, PSM Lipphu Ghesa ITERA mulai aktif kembali pada tahun 2019 dengan mengadakan latihan rutin, dan mengikuti beberapa aktivitas internal kampus.",
+    allsosmed: [
+      {
+        instagram: "https://www.instagram.com/psm.itera",
+        youtube: "http://www.youtube.com/@psmlipphughesa",
+        website: "",
+        tiktok: "",
+      },
+    ],
+  }
 ];
 
 // Acuan saja tidak wajib digunakan
 interface UKMData {
   key: string;
-  logo: string; // Assuming it's a URL or path to an image
+  link: string;
+  logo: string;
   title: string;
-  fotopembina: string; // Assuming it's a URL or path to an image
-  pembina: string;
-  jabatan: string;
-  fotoketua: string; // Assuming it's a URL or path to an image
-  ketum: string;
+  namaketum: string;        // Changed from ketum
+  fotoketum: string;        // New field
+  namapembina: string;      // Changed from pembina
+  fotopembina: string;      // New field
   prodi: string;
   sejarah: string;
   allprestasi: {
-    prestasi: string; // Assuming it's a URL or path to an image
+    prestasi: string;
     deskripsi: string;
   }[];
   allsosmed: {
@@ -1544,230 +1881,3 @@ interface UKMData {
     tiktok: string;
   }[];
 }
-
-// export const ukmData = [
-//     {
-//         key: "madani",
-//         logo: madani,
-//         title: "MADANI",
-//         fotopembina: fotodefault,
-//         pembina: "Nama PEMBINA",
-//         jabatan: "Jabatan Pembina",
-//         fotoketua: fotodefault,
-//         ketum: "M. Abdul Jabbar As Salam",
-//         prodi: "Perencanaan Wilayah dan Kota '21",
-//         sejarah:
-//             "MADANI ITERA adalah unit kegiatan mahasiswa yang berbasis Agama Islam di Institut Teknologi Sumatera. Peran dan fungsi MADANI atau Mahasiswa Peradaban Islam adalah merangkul Mahasiswa Muslim ITERA dari berbagai ras, suku, dan budaya, membina serta menyebarkan nilai-nilai Islam di lingkungan kampus. MADANI didirikan untuk mencetak mahasiswa yang berilmu, beriman, dan sebagai Lembaga Dakwah Kampus (LDK) yang ada di Institut Teknologi Sumatera. MADANI ITERA dirintis sejak 2012 di kampus ITB Jatinangor dan didirikan di Bandung pada Hari Kamis tanggal 04 Juni 2015 bertepatan dengan 17 Sya’ban 1436 Hijriah. Kemudian ditetapkan sebagai Unit Kegiatan Mahasiswa (UKM) resmi di kampus Institut Teknologi Sumatera pada 06 Oktober 2015 / 22 Dzulhijjah 1436 H. ",
-//         allprestasi: [
-//             {
-//                 prestasi: kegiatanmadani1,
-//                 deskripsi: "ABATA (Aksi Bina TPA)",
-//             },
-//             {
-//                 prestasi: kegiatanmadani2,
-//                 deskripsi: "Mentoring Anggota",
-//             },
-//             {
-//                 prestasi: kegiatanmadani3,
-//                 deskripsi: "SAKURA (Seminar Kemuslimahan Azzahra ITERA) ",
-//             },
-//             {
-//                 prestasi: kegiatanmadani4,
-//                 deskripsi: "SALAM (Sapa Langsung Mahasiswa Baru)",
-//             },
-//         ],
-
-//         allsosmed: [
-//             {
-//                 instagram: "https://www.instagram.com/madaniitera/",
-//                 youtube: "https://www.youtube.com/@MadaniItera",
-//                 website: "https://madani.ukm.itera.ac.id/",
-//                 tiktok: "",
-//             },
-//         ],
-//     },
-//     {
-//         key: "himalaya",
-//         logo: himalaya,
-//         title: "HIMALAYA",
-//         fotopembina: fotodefault,
-//         pembina: "Nama PEMBINA",
-//         jabatan: "Jabatan Pembina",
-//         fotoketua: fotodefault,
-//         ketum: "Muhammad Iqbal",
-//         prodi: "Teknik Geomatika '21",
-//         sejarah:
-//             "UKM HIMALAYA atau Perhimpunan Mahasiswa Lampung Raya adalah organisasi mahasiswa yang bergerak dibidang kebudayaan yang menghimpun mahasiswa lampung dan mahasiswa dari daerah lainnya untuk belajar dan mengembangkan budaya Lampung. HIMALAYA ITERA diresmikan pada tanggal 25 September 2013 di Bandung, sehingga tanggal tersebut dijadikan sebagai Dies Natalis HIMALAYA. ",
-//         allprestasi: [
-//             {
-//                 prestasi: kegiatanhimalaya1,
-//                 deskripsi: "Nayuh Fest (Dies Natalis Himalaya)",
-//             },
-//             {
-//                 prestasi: kegiatanhimalaya2,
-//                 deskripsi: "Festival Pemuda",
-//             },
-//             {
-//                 prestasi: kegiatanhimalaya3,
-//                 deskripsi: "Yudisium Wisuda",
-//             },
-//             {
-//                 prestasi: kegiatanhimalaya4,
-//                 deskripsi: "Wisuda Mei 2023",
-//             },
-//         ],
-//         allsosmed: [
-//             {
-//                 instagram: "https://www.instagram.com/himalayaitera/",
-//                 youtube: "",
-//                 website: "",
-//                 tiktok: "",
-//             },
-//         ],
-//     },
-//     {
-//         key: "ikm",
-//         logo: ikm,
-//         title: "IKM",
-//         fotopembina: fotodefault,
-//         pembina: "Nama PEMBINA",
-//         jabatan: "Jabatan Pembina",
-//         fotoketua: fotodefault,
-//         ketum: "Nama Ketua Umum",
-//         prodi: "Prodi '21",
-//         sejarah:
-//             "UKM ITERA adalah sebuah organisasi mahasiswa berbasis kebudayaan. IKM-ITERA ini berasaskan musyawarah dan kekeluargaan, yang sesuai dengan asas Institut Teknologi Sumatera dan tidak bertentangan dengan Adat Basandi Syarak, Syarak basandi kitabullah. Tujuannya untuk merangkul dan menghimpun mahasiswa minang yang ada di itera. Unit Kegiatan Mahasiswa yang bernama ‘Ikatan Keluarga Minangkabau - Institut Teknologi Sumatera’ disingkat IKM-ITERA didirikan pada tanggal 20 Oktober 2015 di Lampung Selatan Provinsi Lampung.",
-//         allprestasi: [
-//             {
-//                 prestasi: kegiatanikm1,
-//                 deskripsi: "Juara 1 ITGT 2022",
-//             },
-//             {
-//                 prestasi: kegiatanikm2,
-//                 deskripsi: "IKM BALIAK KA NAGARI",
-//             },
-//             {
-//                 prestasi: kegiatanikm3,
-//                 deskripsi: "Audiensi bersama gubernur Sumatera Barat ",
-//             },
-//             {
-//                 prestasi: kegiatanikm4,
-//                 deskripsi: "Dies Natalis IKM ITERA ",
-//             },
-//         ],
-
-//         allsosmed: [
-//             {
-//                 instagram: "https://www.instagram.com/ikm_itera/",
-//                 youtube: "https://www.youtube.com/watch?v=i34FwiSQO4w",
-//                 website: "https://ikm.ukm.itera.ac.id/",
-//                 tiktok: "https://www.tiktok.com/@ikmitera",
-//             },
-//         ],
-//     },
-
-//     {
-//         key: "batavia",
-//         logo: batavia,
-//         title: "BATAVIA",
-//         fotopembina: fotodefault,
-//         pembina: "Nama PEMBINA",
-//         jabatan: "Jabatan Pembina",
-//         fotoketua: fotodefault,
-//         ketum: "Nama Ketua Umum",
-//         prodi: "Prodi '21",
-//         sejarah:
-//             "UKM Batavia ITERA adalah sebuah organisasi mahasiswa yang ada di ITERA dengan berlandaskan kebudayaan dan kekeluargaan yang menaungi mahasiswa ITERA yang berasal dari JADETABEK maupun di luar JADETABEK yang ingin mempelajari terkait kebudayaan adat betawi. UKM Batavia ITERA adalah organisasi mahasiswa yang berada di Institut Teknologi Sumatera yang berdiri secara resmi sesuai keputusan rektor Institut Teknologi Sumatera No. 169/IT9/KM.04.01/2024. Awal mula nama organisasi BATAVIA sendiri adalah JAVATERA yang setelah itu JAVATERA dipecah menjadi 2 yaitu BATAVIA dan Bumi Pasundan yang dimana BATAVIA menjadi komunitas yang menaungi mahasiswa JADETABEK. Hari jadi UKM Batavia ITERA adalah 19 September 2020. Selain menaungi mahasiswa yang berasal dari JADETABEK, tugas pokok dari UKM Batavia ITERA sendiri adalah mewadahi mahasiswa ITERA yang ingin belajar lebih dalam mengenai adat kebudayaan Betawi. ",
-//         allprestasi: [
-//             {
-//                 prestasi: kegiatanbatavia1,
-//                 deskripsi:
-//                     "Mimbar Seni: Kegiatan kolaborasi menggabungkan beberapa UKM Kebudayaan dalam menampilkan seni adatnya masing masing di lingkungan ITERA",
-//             },
-//             {
-//                 prestasi: kegiatanbatavia2,
-//                 deskripsi:
-//                     "Penampilan Seni: UKM Batavia sering menampilkan dan mempertunjukkan seni adat betawi, seperti tarian dan palang pintu.",
-//             },
-//             {
-//                 prestasi: kegiatanbatavia3,
-//                 deskripsi:
-//                     "BATUNITY: Sebuah kegiatan dalam merayakan dies natalis batavia tiap tahunnya pada tanggal 19 september.",
-//             },
-//         ],
-//         allsosmed: [
-//             {
-//                 instagram: "https://www.instagram.com/bataviaitera/",
-//                 youtube: "",
-//                 website: "",
-//                 tiktok: "https://www.tiktok.com/@batavia.itera",
-//             },
-//         ],
-//     },
-
-//     {
-//         key: "urotera",
-//         logo: madani,
-//         title: "MADANI",
-//     },
-//     {
-//         key: "urotera",
-//         logo: urotera,
-//         title: "UROTERA",
-//     },
-//     {
-//         key: "urotera",
-//         logo: madani,
-//         title: "MADANI",
-//     },
-//     {
-//         key: "urotera",
-//         logo: urotera,
-//         title: "UROTERA",
-//     },
-//     {
-//         key: "urotera",
-//         logo: madani,
-//         title: "MADANI",
-//     },
-//     {
-//         key: "urotera",
-//         logo: urotera,
-//         title: "UROTERA",
-//     },
-//     {
-//         key: "urotera",
-//         logo: madani,
-//         title: "MADANI",
-//     },
-//     {
-//         key: "urotera",
-//         logo: urotera,
-//         title: "UROTERA",
-//     },
-//     {
-//         key: "urotera",
-//         logo: madani,
-//         title: "MADANI",
-//     },
-//     {
-//         key: "urotera",
-//         logo: urotera,
-//         title: "UROTERA",
-//     },
-//     {
-//         key: "urotera",
-//         logo: madani,
-//         title: "MADANI",
-//     },
-//     {
-//         key: "urotera",
-//         logo: urotera,
-//         title: "UROTERA",
-//     },
-//     {
-//         key: "urotera",
-//         logo: madani,
-//         title: "MADANI",
-//     },
-// ];

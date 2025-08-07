@@ -7,7 +7,7 @@ function Page() {
   return (
     <div className="flex items-center justify-center mt-4">
       <div className="flex flex-col items-center justify-center text-center">
-        <h2 className="bg-gradient-to-t font-avigea bg-clip-text sm:text-3xl text-candlelight-600 text-2xl">
+        <h2 className="bg-gradient-to-t font-greek bg-clip-text sm:text-3xl text-candlelight-600 text-2xl">
           MISI
         </h2>
 
@@ -45,7 +45,7 @@ function Page() {
 
         <div className="max-md:flex-col flex gap-10 mt-16">
           <div className="flex sm:h-[439px] sm:w-[330px] h-[350px] w-[280px] flex-col items-center rounded-[3px] bg-white shadow-2xl">
-            <p className="font-avigea mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">
+            <p className="font-greek mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">
               PEMBINA
             </p>
 
@@ -55,13 +55,13 @@ function Page() {
             />
 
             <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-              Ryansyah Izhar, S.T., M.P.W.K
+              Elisa Nurma Riana, S.Si.,M.Si.
             </p>
-            <p className="font-montserrat text-[16px]">Pembina PPLK 2024</p>
+            <p className="font-montserrat text-[16px]">Pembina PPLK 2025</p>
           </div>
 
           <div className="flex sm:h-[439px] sm:w-[330px] h-[350px] w-[280px] flex-col items-center rounded-[3px] bg-white shadow-2xl">
-            <p className="font-avigea mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">
+            <p className="font-greek mt-5 text-candlelight-600 sm:text-[25px] text-[16px]">
               KETUA PELAKSANA
             </p>
 
@@ -72,10 +72,10 @@ function Page() {
               />
             </div>
             <p className="font-montserrat text-[20px] font-bold sm:mt-10 mt-5">
-              Ikbar Raihansyah
+              M.Daffa Satria Perdana
             </p>
             <p className="font-montserrat text-[16px]">
-              Ketua Pelaksana PPLK 2024
+              Ketua Pelaksana PPLK 2025
             </p>
           </div>
         </div>

@@ -377,9 +377,19 @@ class UserController extends Controller
    }
    public function getKelompok()
    {
-      $kelompok = Kelompok::select('nama_kelompok', 'id', 'no_kelompok')->get();
+      try {
+         // Ambil SEMUA kelompok, pilih kolom yang dibutuhkan, dan urutkan.
+         $semuaKelompok = Kelompok::select('id', 'nama_kelompok', 'no_kelompok')
+                                    ->orderBy('id', 'asc')
+                                    ->get(); // Gunakan get() untuk mendapatkan semua data
 
-      return response()->json($kelompok);
+         // Kembalikan sebagai array of objects
+         return response()->json($semuaKelompok);
+
+      } catch (\Exception $e) {
+         // Jika terjadi error, kembalikan array kosong
+         return response()->json([], 500);
+      }
    }
 
    /**

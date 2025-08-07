@@ -16,6 +16,74 @@ use Inertia\Inertia;
 
 class PresensiPplkController extends Controller
 {
+   // ===== KONFIGURASI TANGGAL PRESENSI =====
+   // Ubah tanggal-tanggal ini sesuai kebutuhan
+   
+   // Jam operasional presensi
+   const JAM_MULAI_PRESENSI = 6;  // 6 AM
+   const JAM_AKHIR_PRESENSI = 20; // 8 PM
+   
+   // Tanggal khusus untuk role_id = 5 (PJ Prodi)
+   const TANGGAL_KHUSUS_PJ_PRODI = [
+      '2024-08-12',
+      '2025-08-15'
+   ];
+   
+   // Konfigurasi Event/Periode PPLK
+   const EVENT_PPLK = [
+      'pra_pplk_day_0' => [
+         'nama' => 'Pra-PPLK',
+         'tanggal' => '2025-08-09',
+         'deskripsi' => 'Persiapan sebelum PPLK dimulai'
+      ],
+      'pplk_day_1' => [
+         'nama' => 'PPLK Day 0',
+         'tanggal' => '2025-08-11',
+         'deskripsi' => 'Hari pertama PPLK'
+      ],
+      'pplk_day_2' => [
+         'nama' => 'PPLK Day 1',
+         'tanggal' => '2025-08-12',
+         'deskripsi' => 'Hari kedua PPLK'
+      ],
+      'pplk_day_3' => [
+         'nama' => 'PPLK Day 2',
+         'tanggal' => '2025-08-13',
+         'deskripsi' => 'Hari ketiga PPLK'
+      ],
+      'pplk_day_4' => [
+         'nama' => 'PPLK Day 3',
+         'tanggal' => '2025-08-14',
+         'deskripsi' => 'Hari keempat PPLK'
+      ],
+      'pplk_day_5' => [
+         'nama' => 'PPLK Day 4',
+         'tanggal' => '2025-08-15',
+         'deskripsi' => 'Hari kelima PPLK - Penutupan'
+      ]
+   ];
+   
+   // Mendapatkan semua tanggal event untuk validasi
+   public static function getAllEventDates() {
+      return array_column(self::EVENT_PPLK, 'tanggal');
+   }
+   
+   // Mendapatkan info event berdasarkan tanggal
+   public static function getEventByDate($date) {
+      foreach (self::EVENT_PPLK as $key => $event) {
+         if ($event['tanggal'] === $date) {
+            return $event;
+         }
+      }
+      return null;
+   }
+   
+   // Tanggal mulai dan akhir periode presensi (opsional, uncomment jika diperlukan)
+   // const TANGGAL_MULAI_PERIODE = '2025-08-10';
+   // const TANGGAL_AKHIR_PERIODE = '2025-08-15';
+   
+   // ===== AKHIR KONFIGURASI =====
+
    public function QRScan(Request $request)
    {
       $validated = $request->validate([
@@ -24,8 +92,8 @@ class PresensiPplkController extends Controller
 
       // Define the time window when actions are allowed
       $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(6); // 7 AM today
-      $end = Carbon::today()->setHour(20); // 8 PM today
+      $start = Carbon::today()->setHour(self::JAM_MULAI_PRESENSI);
+      $end = Carbon::today()->setHour(self::JAM_AKHIR_PRESENSI);
 
       // Check if the action is permissible based on the date and current time
       $action = Carbon::today()->toDateString() && $currentTime->between($start, $end);
@@ -34,9 +102,8 @@ class PresensiPplkController extends Controller
          $action = Carbon::today()->toDateString();
       }
 
-      $day = ['2024-08-12', '2024-08-15'];
       if (Auth::user()->role_id === 5) {
-         if (!in_array(Carbon::today()->toDateString(), $day)) {
+         if (!in_array(Carbon::today()->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
             return response()->json([
                'response' => [
                   "status" => 403,
@@ -49,7 +116,7 @@ class PresensiPplkController extends Controller
          return response()->json([
             'response' => [
                "status" => 403,
-               "message" => "Maaf hanya bisa dilakukan saat jam 7 Pagi hingga Jam 6 Sore",
+               "message" => "Maaf hanya bisa dilakukan saat jam " . self::JAM_MULAI_PRESENSI . " Pagi hingga Jam " . (self::JAM_AKHIR_PRESENSI - 2) . " Sore",
             ]
          ]);
       }
@@ -163,7 +230,9 @@ class PresensiPplkController extends Controller
    // tambah berdasarkan prodi filter bydate
    public function index()
    {
-      return Inertia::render('Dashboard/absensi-maba/Page');
+      return Inertia::render('Dashboard/absensi-maba/Page', [
+         'eventList' => self::EVENT_PPLK
+      ]);
    }
    public function dataHadir(Request $request)
    {
@@ -177,6 +246,9 @@ class PresensiPplkController extends Controller
       $izin = 0;
 
       $date = $request->input('date', Carbon::today()->toDateString());
+      
+      // Get event info if date matches any event
+      $eventInfo = self::getEventByDate($date);
 
       if ($user->role_id == 2 || $user->role_id == 4) {
          // Get latest attendance entries for the kelompok
@@ -256,6 +328,8 @@ class PresensiPplkController extends Controller
                'tidakHadir' => $users - $hadir - $izin,
                'hadir' => $hadir,
                'izin' => $izin,
+               'eventInfo' => $eventInfo,
+               'tanggal' => $date
             ]
          ]
       ], 200);
@@ -270,14 +344,14 @@ class PresensiPplkController extends Controller
 
       // Define the time window when actions are allowed
       $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(6); // 7 AM today
-      $end = Carbon::today()->setHour(20); // 8 PM today
+      $start = Carbon::today()->setHour(self::JAM_MULAI_PRESENSI);
+      $end = Carbon::today()->setHour(self::JAM_AKHIR_PRESENSI);
 
       // Check if the action is permissible based on the date and current time
       $action = $date === Carbon::today()->toDateString() && $currentTime->between($start, $end);
 
       if (Auth::user()->role_id === 5) {
-         $action = $action && in_array($date, ['2024-08-12', '2024-08-15']);
+         $action = $action && in_array($date, self::TANGGAL_KHUSUS_PJ_PRODI);
       } else if (Auth::user()->role_id === 3) {
          $action = true;
       }
@@ -318,6 +392,8 @@ class PresensiPplkController extends Controller
       // Add the action boolean to the pagination result
       $attendances->getCollection()->transform(function ($user) use ($action, $date) {
          $presence = optional($user->presensi)->first(); // Safe access
+         $eventInfo = self::getEventByDate($date);
+         
          return [
             'id' => $user->id,
             'user' => [
@@ -336,7 +412,8 @@ class PresensiPplkController extends Controller
                'ket_izin' => ($presence && $presence->kehadiran === 'Izin') ? $presence->keterangan : '-',
             ],
             'action' => $action, // Include the action key here
-            'date' => $date
+            'date' => $date,
+            'eventInfo' => $eventInfo
          ];
       });
 
@@ -351,19 +428,18 @@ class PresensiPplkController extends Controller
    {
       // Check if the current time is within the allowed range
       $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(6); // 7 AM today
-      $end = Carbon::today()->setHour(20); // 8 PM today
+      $start = Carbon::today()->setHour(self::JAM_MULAI_PRESENSI);
+      $end = Carbon::today()->setHour(self::JAM_AKHIR_PRESENSI);
 
       if (!$currentTime->between($start, $end)) {
          return redirect()->route('dashboard.absensi-maba')->with('response', [
             'status' => 403,
-            'message' => 'Presensi hanya dapat ditambahkan antara jam 7 pagi dan 8 malam.'
+            'message' => 'Presensi hanya dapat ditambahkan antara jam ' . self::JAM_MULAI_PRESENSI . ' pagi dan ' . self::JAM_AKHIR_PRESENSI . ' malam.'
          ]);
       }
 
-      $day = ['2024-08-12', '2024-08-15'];
       if (Auth::user()->role_id === 5) {
-         if (!in_array(Carbon::today()->toDateString(), $day)) {
+         if (!in_array(Carbon::today()->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
             return redirect()->back()->with('response', [
                "status" => 403,
                "message" => "Maaf presensi hari ini hanya bisa dilakukan oleh Daplok dan Mentor",
@@ -372,7 +448,7 @@ class PresensiPplkController extends Controller
       }
 
       if (in_array(Auth::user()->role_id, [2, 4])) {
-         if (in_array(Carbon::today()->toDateString(), $day)) {
+         if (in_array(Carbon::today()->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
             return redirect()->back()->with('response', [
                "status" => 403,
                "message" => "Maaf presensi hari ini hanya bisa dilakukan oleh PJ Prodi",

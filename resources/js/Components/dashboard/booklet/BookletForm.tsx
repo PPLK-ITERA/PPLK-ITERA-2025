@@ -111,6 +111,27 @@ function BookletForm({ booklet }: Props) {
           />
         </div>
         <div className="grid items-center grid-cols-4 gap-4">
+          <Label htmlFor="day" className="text-right">
+            Day
+          </Label>
+          <select
+            id="day"
+            name="day"
+            required
+            value={data.day}
+            className="col-span-3"
+            onChange={(e) => setData("day", e.target.value)}
+          >
+            <option value="">Pilih Day</option>
+            <option value="1">Day 1</option>
+            <option value="2">Day 2</option>
+            <option value="3">Day 3</option>
+            <option value="4">Day 4</option>
+            <option value="5">Day 5</option>
+            <option value="6">Day 6</option>
+          </select>
+        </div>
+        <div className="grid items-center grid-cols-4 gap-4">
           <Label htmlFor="url_booklet" className="text-right">
             Link Google Drive Booklet
           </Label>
@@ -147,7 +168,7 @@ function BookletForm({ booklet }: Props) {
           <Button
             size="sm"
             type="submit"
-            className={`w-full`}
+            className={`w-full bg-[#BE3F00]`}
             disabled={!!urlError || !!error}
           >
             {booklet ? "Perbarui" : "Tambahkan"} Booklet

@@ -2,6 +2,7 @@
 import React from "react";
 
 // import { usePage } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { AturMabaClient } from "@/Components/tables/atur-maba/client";
@@ -11,7 +12,7 @@ import { Toaster } from "@/Components/ui/toaster";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Atur Maba", link: "/dashboard/atur-maba" },
 ];
 
@@ -20,9 +21,10 @@ export default function Page({ auth }) {
 
   return (
     <>
+      <Head title="Atur Maba" />
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
-        <h2 className="text-3xl font-bold tracking-tight">Atur Maba</h2>
+        <h2 className="text-3xl font-semibold font-inter tracking-tight">Atur Maba</h2>
 
         <AturMabaClient />
       </DashboardLayout>

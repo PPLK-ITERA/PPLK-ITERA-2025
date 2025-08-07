@@ -2,7 +2,7 @@ import { IDetectedBarcode, Scanner, outline } from "@yudiel/react-qr-scanner";
 
 import React, { useEffect, useState } from "react";
 
-import { useForm } from "@inertiajs/react";
+import { useForm, Head } from "@inertiajs/react";
 
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
@@ -14,7 +14,7 @@ import { Toaster } from "@/Components/ui/toaster";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Game Offline", link: "/dashboard/game-offline" },
 ];
 
@@ -59,6 +59,7 @@ export default function Page({ auth, response }) {
 
   return (
     <>
+      <Head title="Game Offline" />
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
         <h2 className="text-3xl font-bold tracking-tight">Game Offline</h2>

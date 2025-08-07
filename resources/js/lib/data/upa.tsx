@@ -1,29 +1,33 @@
 import kegiatan_1_upa_kebun_raya from "!assets/kegiatanUnggulan/1/upa-kebun-raya.png";
-import kegiatan_1_upa_lab_1 from "!assets/kegiatanUnggulan/1/upa-lab-1.png";
-import kegiatan_1_upa_lab_2 from "!assets/kegiatanUnggulan/1/upa-lab-2.png";
-import kegiatan_1_upa_lab_3 from "!assets/kegiatanUnggulan/1/upa-lab-3.png";
-import kegiatan_1_upa_mkg from "!assets/kegiatanUnggulan/1/upa-mkg.png";
-import kegiatan_1_upa_oail from "!assets/kegiatanUnggulan/1/upa-oail.png";
+import kegiatan_1_upa_lab_1 from "!assets/kegiatanUnggulan/1/upa-lab.png";
+// import kegiatan_1_upa_lab_2 from "!assets/kegiatanUnggulan/1/upa-lab-2.png";
+// import kegiatan_1_upa_lab_3 from "!assets/kegiatanUnggulan/1/upa-lab-3.png";
+// import kegiatan_1_upa_mkg from "!assets/kegiatanUnggulan/1/upa-mkg.png";
+// import kegiatan_1_upa_oail from "!assets/kegiatanUnggulan/1/upa-oail.png";
 import kegiatan_1_upa_perpustakaan from "!assets/kegiatanUnggulan/1/upa-perpustakaan.png";
 import kegiatan_1_upa_tik from "!assets/kegiatanUnggulan/1/upa-tik.png";
 import kegiatan_1_upt_k3l from "!assets/kegiatanUnggulan/1/upt-k3l.png";
+import kegiatan_1_upt_bahasa from "!assets/kegiatanUnggulan/1/upt-bahasa.png";
 // import foto kegiatan unggulan-1
 import kegiatan_2_upa_kebun_raya from "!assets/kegiatanUnggulan/2/upa-kebun-raya.png";
-import kegiatan_2_upa_lab_1 from "!assets/kegiatanUnggulan/2/upa-lab-1.png";
-import kegiatan_2_upa_lab_2 from "!assets/kegiatanUnggulan/2/upa-lab-2.png";
+import kegiatan_2_upa_lab_1 from "!assets/kegiatanUnggulan/2/upa-lab.png";
+import kegiatan_2_upa_lab_2 from "!assets/kegiatanUnggulan/2/upa-lab.png";
 import kegiatan_2_upa_lab_3 from "!assets/kegiatanUnggulan/2/upa-lab-3.png";
 import kegiatan_2_upa_mkg from "!assets/kegiatanUnggulan/2/upa-mkg.png";
 import kegiatan_2_upa_oail from "!assets/kegiatanUnggulan/2/upa-oail.png";
 import kegiatan_2_upa_perpustakaan from "!assets/kegiatanUnggulan/2/upa-perpustakaan.png";
 import kegiatan_2_upa_tik from "!assets/kegiatanUnggulan/2/upa-tik.png";
 import kegiatan_2_upt_k3l from "!assets/kegiatanUnggulan/2/upt-k3l.png";
+import kegiatan_2_upt_bahasa from "!assets/kegiatanUnggulan/2/upt-bahasa.png";
 // import foto kegiatan unggulan-2
 import kegiatan_3_upa_kebun_raya from "!assets/kegiatanUnggulan/3/upa-kebun-raya.jpg";
 import kegiatan_3_upa_mkg from "!assets/kegiatanUnggulan/3/upa-mkg.png";
 import kegiatan_3_upa_oail from "!assets/kegiatanUnggulan/3/upa-oail.png";
-import kegiatan_3_upa_perpustakaan from "!assets/kegiatanUnggulan/3/upa-perpustakaan.png";
+import kegiatan_3_upa_perpustakaan from "!assets/kegiatanUnggulan/3/upa-perpustakaan-1.png";
 import kegiatan_3_upa_tik from "!assets/kegiatanUnggulan/3/upa-tik.png";
 import kegiatan_3_upt_k3l from "!assets/kegiatanUnggulan/3/upt-k3l.png";
+import kegiatan_3_upa_lab from "!assets/kegiatanUnggulan/2/upa-lab.png";
+import kegiatan_3_upt_bahasa from "!assets/kegiatanUnggulan/3/upt-bahasa.png";
 // import foto kegiatan unggulan-3
 import kepala_upa_kebun_raya from "!assets/kepalaUpt/upa-kebun-raya.png";
 import kepala_upa_lab from "!assets/kepalaUpt/upa-lab.png";
@@ -32,6 +36,7 @@ import kepala_upa_oail from "!assets/kepalaUpt/upa-oail.png";
 import kepala_upa_perpustakaan from "!assets/kepalaUpt/upa-perpustakaan.png";
 import kepala_upa_tik from "!assets/kepalaUpt/upa-tik.png";
 import kepala_upt_k3l from "!assets/kepalaUpt/upt-k3l.png";
+import kepala_upt_bahasa from "!assets/kepalaUpt/upa-bahasa.png";
 import logo_upa_perpus from "!assets/logoupt/logo-upa-perpus.png";
 import logo_upa_kebun_raya from "!assets/logoupt/upa-kebun-raya.png";
 import logo_upa_laboratorium from "!assets/logoupt/upa-lab.png";
@@ -40,6 +45,8 @@ import logo_upa_oail from "!assets/logoupt/upa-oail.png";
 import logo_upa_perpustakaan from "!assets/logoupt/upa-perpustakaan.png";
 import logo_upa_tik from "!assets/logoupt/upa-tik.png";
 import logo_upt_k3l from "!assets/logoupt/upt-k3l.png";
+import logo_upt_bahasa from "!assets/logoupt/upa-bahasa.png";
+
 
 // Acuan saja tidak wajib digunakan
 export interface UptData {
@@ -78,47 +85,48 @@ export const DetailUPTData: UptData[] = [
     title: "UPA TIK",
     logo: logo_upa_tik,
     description:
-      "Unit Penunjang Akademik Teknologi Informasi dan Komunikasi (UPA TIK) ITERA adalah unit yang memiliki tugas tugas melaksanakan pengembangan sistem dan pengelolaan teknologi informasi dan komunikasi serta pelayanan teknologi informasi dan komunikasi.",
+      "Unit Penunjang Akademik TIK ITERA merupakan unit pendukung kebutuhan akademik di Institut Teknologi Sumatera yang berfokus pada layanan teknologi, informasi, dan komunikasi. UPA TIK bertugas membuat dan mengembangkan aplikasi serta menyelesaikan berbagai permasalahan terkait TIK di lingkungan kampus.",
     headerDescription:
       "UPA TIK ITERA mengelola dan mengembangkan teknologi informasi dan komunikasi untuk mendukung efisiensi operasional dan pencapaian tridharma perguruan tinggi.",
     history:
-      "UPA TIK (Pusat Informasi Teknis) Institut Teknologi Sumatera (ITERA) merupakan bagian dari universitas yang tergolong baru yang didirikan pada tanggal 6 Oktober 2014",
+      "UPA TIK didirikan pada tahun 2015 sebagai langkah pemenuhan kebutuhan dalam pengembangan dan pengelolaan infrastruktur teknologi yang modern, dengan tujuan mendukung kegiatan akademik dan administratif di lingkungan kampus dengan 556 user dan 5 sistem informasi pada kala awal dicipatakan. Hampir 1 dekade berdiri kini UPA TIK memiliki pencapaian 100+ aplikasi sistem informasi yamg dikembangkan dan memiliki 34.000+ user.",
     visi: "Menjadi Unit Penunjang Akademik yang terkemuka dan unggul dalam menyelenggarakan layanan teknologi informasi demi mewujudkan cita-cita dan Tri Darma Institut Teknologi Sumatera",
     misi: [
       "Menyelenggarakan layanan teknologi informasi yang berdaya saing global.",
-      "Berkontribusi pada pemberdayaan potensi sumber daya yang ada di wilayah Sumatera khususnya, dan Indonesia serta dunia melalui keunggulan teknologi informasi dan komunikasi.",
+      "Berkontribusi pada pemberdayaan potensi sumber daya yang ada di wilayah sumatera khususnya, dan Indonesia serta dunia melalui keunggulan teknologi informasi dan komunikasi",
     ],
     kepalaUpt: {
-      nama: "Andre Febrianto, S.Kom., M.Eng",
+      nama: "Harry Yuliansyah, S.T., M.Eng.",
       foto: kepala_upa_tik,
-      jabatan: "Kepala UPA",
-      nip: "198602142019031008",
+      jabatan: "Kepala",
+      nip: "198607222012121002",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/upatikitera/",
-      youtube: "https://www.youtube.com/@upttikiteraoffical",
+      tiktok: "",
       website: "https://tik.itera.ac.id/",
+      youtube: "https://www.youtube.com/@upttikiteraoffical",
     },
     kegiatanUnggulan: [
       {
-        title: "Benchmarking Studies UPA TIK 2023",
+        title: "Aplikasi Pocket ITERA untuk Android &  IOS",
         description:
-          "Kegiatan ini bertujuan untuk mempelajari praktik terbaik dalam pengelolaan teknologi informasi di berbagai institusi, guna meningkatkan efisiensi dan efektivitas operasional UPA TIK.",
-        tanggal: "2023",
+          "Pocket ITERA merupakan aplikasi yang dikembangkan untuk memudahkan mahasiswa dalam menjalani aktivitas akademik di ITERA dengan lebih efisien dan nyaman.",
+        tanggal: "2025",
         img: kegiatan_1_upa_tik,
       },
       {
-        title: "Perjalanan Dinas UPT TIK 2022",
+        title: "Wifi Corner Setiap Gedung di ITERA",
         description:
-          "Kegiatan ini melibatkan kunjungan ke beberapa institusi untuk melakukan koordinasi dan diskusi terkait pengembangan teknologi informasi, serta memperkuat kerjasama antar lembaga.",
-        tanggal: "2022",
+          "Layanan ini bertujuan untuk memudahkan akses internet di setiap gedung di ITERA oleh setiap civitas akademika ITERA.",
+        tanggal: "2025",
         img: kegiatan_2_upa_tik,
       },
       {
-        title: "Sosialisasi Aplikasi E-Surat",
+        title: "Event Tahunan seperti UTBK, Tes POLRI, Tes SKD CAT CPNS",
         description:
-          "Kegiatan ini bertujuan untuk memperkenalkan dan melatih staf serta pengguna terkait penggunaan aplikasi E-Surat, yang diharapkan dapat meningkatkan efisiensi dalam pengelolaan surat-menyurat di lingkungan UPA TIK.",
-        tanggal: "2022",
+          "UPA TIK seringg dipercayai sebagai salah satu untuk membantu menyelenggarakan event-event besar seperti UTBK, Tes POLRI, Tes SKD CAT CPNS.",
+        tanggal: "2025",
         img: kegiatan_3_upa_tik,
       },
     ],
@@ -134,7 +142,7 @@ export const DetailUPTData: UptData[] = [
     headerDescription:
       "Perpustakaan ITERA menyediakan sumber daya informasi yang komprehensif untuk mendukung tridharma perguruan tinggi, meliputi pendidikan, penelitian, dan pengabdian masyarakat.",
     history:
-      "Sebagai perpustakaan universitas, perpustakaan itera hadir dalam memenuhi akses pengetahuan untuk menunjang pelaksanaan tri dharma perguruan tinggi dalam bidang pendidikan, penelitian dan pengabdian masyarakat. Saat ini terdapat dua lokasi perpustakaan di itera. Pertama, perpustakaan itera berlokasi di lantai 4 GKU 1 yang menyediakan layanan sirkulasi, ruang baca, komputer, administrasi perpustakaan dan bimbingan pustakawan bagi pengunjung. Kedua, perpustakaan berlokasi di GKU 2 yang menyediakan layanan refrensi seperti tugas akhir, majalah, dan koleksi BI corner. Untuk meningkatkan pelayanan, perpustakaan itera menyediakan e-library itera dan layanan repository.",
+      "Sebagai perpustakaan universitas, perpustakaan itera hadir dalam memenuhi akses pengetahuan untuk menunjang pelaksanaan tri dharma perguruan tinggi dalam bidang pendidikan, penelitian dan pengabdian masyarakat. Saat ini terdapat dua lokasi perpustakaan di itera. Pertama, perpustakaan itera berlokasi di lantai 4 GKU 1 yang menyediakan layanan sirkulasi, ruang baca, komputer, administrasi perpustakaan dan bimbingan pustakawan bagi pengunjung. Kedua, perpustakaan berlokasi di GKU 2 yang menyediakan layanan refrensi seperti tugas akhir, majalah, dan koleksi BI corner. Untuk meningkatkan pelayanan, perpustakaan itera menyediakan e-library itera dan layanan repository",
     visi: "Menjadi perpustakaan yang unggul dan mandiri sebagai sumber informasi untuk mendukung pelaksanaan tridharma perguruan tinggi bagi sivitas akademika ITERA.",
     misi: [
       "Mengumpulkan, mengorganisasi, mendistribusikan informasi terkini sebagai bahan rujukan bagi sivitas akademika ITERA",
@@ -148,34 +156,35 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "M. ALVIEN GHIFARI, S.SI., M.SC.",
       foto: kepala_upa_perpustakaan,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "199511082022031010",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/library.itera/",
-      youtube: "https://www.youtube.com/@uptperpustakaanitera6160",
+      tiktok: "",
       website: "https://perpustakaan.itera.ac.id",
+      youtube: "https://www.youtube.com/@uptperpustakaanitera6160",
     },
     kegiatanUnggulan: [
       {
-        title: "Pekan Kreatif Seminar LIBTERA",
+        title: "AHI 2024 Kategori 'Pengelolaan Media Sosial' terbaik 1",
         description:
-          "Seminar ini diadakan sebagai bagian dari Pekan Kreatif untuk mendorong inovasi dan kreativitas dalam bidang perpustakaan dan literasi. Acara ini menghadirkan berbagai pembicara ahli dan diskusi menarik tentang perkembangan terbaru dalam dunia perpustakaan.",
-        tanggal: "2023",
+          "Perpustakaan ITERA meraih penghargaan sebagai pengelola media sosial terbaik di kategori 'Pengelolaan Media Sosial' dalam ajang Anugerah Humas ITERA 2023.",
+        tanggal: "2024",
         img: kegiatan_1_upa_perpustakaan,
       },
       {
-        title: "Peraih 3 Penghargaan Anugerah Humas ITERA 2023",
+        title: "AHI 2024 Kategori Fakultas Lembaga UPA 'Insan Humas Terfavorit' UPA Perpustakaan",
         description:
-          "Perpustakaan ITERA meraih tiga penghargaan bergengsi dalam ajang Anugerah Humas ITERA 2023. Penghargaan ini merupakan pengakuan atas inovasi dan dedikasi perpustakaan dalam meningkatkan layanan informasi dan literasi di lingkungan kampus.",
-        tanggal: "2022",
+          "Perpustakaan ITERA meraih penghargaan bergengsi sebagai 'Insan Humas Terfavorit' dalam kategori Fakultas, Lembaga, dan UPA pada ajang Anugerah Humas ITERA (AHI) 2024. Penghargaan ini menjadi bentuk apresiasi atas inovasi, kreativitas, dan dedikasi Perpustakaan ITERA dalam meningkatkan layanan informasi serta literasi di lingkungan kampus.",
+        tanggal: "2024",
         img: kegiatan_2_upa_perpustakaan,
       },
       {
-        title: "Kunjungan Perpustakaan ITK ke perpustakaan ITERA",
+        title: "Kunjungan Benchmarking ke Perpustakaan Nasional, Brin, dan Kemendikbud",
         description:
-          "Kegiatan ini melibatkan kunjungan dari tim Perpustakaan Institut Teknologi Kalimantan (ITK) ke Perpustakaan ITERA. Tujuan kunjungan ini adalah untuk berbagi pengetahuan dan pengalaman serta memperkuat kerjasama antara kedua institusi.",
-        tanggal: "2022",
+          "Perpustakaan ITERA menerima kunjungan benchmarking dari tim Perpustakaan Nasional, BRIN, dan Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi (Kemendikbudristek). Kunjungan ini bertujuan untuk berbagi pengetahuan, pengalaman, serta memperkuat kolaborasi antara ketiga institusi dengan Perpustakaan ITERA dalam pengembangan layanan perpustakaan dan literasi informasi.",
+        tanggal: "2024",
         img: kegiatan_3_upa_perpustakaan,
       },
     ],
@@ -187,11 +196,11 @@ export const DetailUPTData: UptData[] = [
     title: "UPA Laboratorium Terpadu",
     logo: logo_upa_laboratorium,
     description:
-      "Laboratorium Teknik Institut Teknologi Sumatera (ITERA) adalah fasilitas sebagai tempat pelaksanaannya praktikum dan kegiatan yang menunjang perkuliahan.",
+      "UPA Laboratorium Tepadu ITERA adalah unit penunjang akademik yang menyedikan layanan pendidikan khususnya pada bidang praktikum yang berada pada lingkungan Institut Teknologi Sumatera dalam menjalankan misi pendidikan, penelitian, dan layanan pengujian",
     headerDescription:
       "UPA Laboratorium Terpadu ITERA menyediakan fasilitas canggih untuk praktikum dan kegiatan akademik, mendukung tridharma perguruan tinggi dengan standar ISO 17025:2017.",
     history:
-      "UPT Laboratorium Terpadu dibentuk dengan tujuan untuk melaksanakan tugas pengelolaan laboratorium dan peningkatan kualitas Pendidikan dan penelitian di lingkungan Institut Teknologi Sumatera. Pembentukan Unit kerja UPT Lab Terpadu berdasarkan SK Rektor Nomor 007/IT.A/SK/OT/2018 Tentang Pembentukan Unit Pelaksana Teknis Pengelolaan Laboratorium Terpadu Institut Teknologi Sumatera pada tanggal 2 Januari 2018 yang ditandatangani oleh Rektor Institut Teknologi Sumatera Prof. Ir. Ofyar Z Tamin, M.Sc., Ph.D. Pada tahun 2023 dengan terbitnya Peraturan Menteri Pendidikan, Kebudayaan, Riset, Dan Teknologi Nomor 56 Tahun 2023 Tentang Organisasi dan Tata Kerja Institut Teknologi Sumatera, UPT Laboratorium Terpadu berganti nama menjadi UPA Laboratorium Terpadu.",
+      "Sebagai kebutuhan dan memenuhi fungsi dari tridharma perguruan tinggi, Institut Teknologi Sumatera mendirikan UPA Laboratorium terpadu yang melayani pengujian, penelitian, dan pendidikan terutama pengujian bahan alam dan keteknikan yang lebih profesional dan terbaik pada kelasnya baik bagi institusi sendiri dan umum.",
     visi: "Menjadi pusat layanan laboratorium di Sumatera yang unggul dan profesional dalam mendukung penyelenggaraan tridharma perguruan tinggi dan layanan pengujian berstandar ISO 17025:2017.",
     misi: [
       "Menyediakan layanan laboratorium yang profesional untuk kegiatan pendidikan, termasuk praktikum dan peminjaman ruang/alat laboratorium untuk penelitian dan pengabdian kepada masyarakat.",
@@ -199,37 +208,38 @@ export const DetailUPTData: UptData[] = [
       "Mengedepankan kesehatan dan keselamatan kerja dalam pelaksanaan layanan laboratorium.",
     ],
     kepalaUpt: {
-      nama: "Dr. Tarmizi Taher, S.Si.",
+      nama: "Agel Vidian Krama, S.Pd., M.Si",
       foto: kepala_upa_lab,
-      jabatan: "Kepala UPA",
-      nip: "1993032920211345",
+      jabatan: "Kepala",
+      nip: "198807172019031011",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/upalabitera",
+      tiktok: "",
       youtube: "",
       website: "https://ilab.itera.ac.id/faq",
     },
     kegiatanUnggulan: [
       {
-        title: "Pelayanan Pendidikan",
+        title: "Workshop Fitokimia",
         description:
-          "Kegiatan ini mencakup berbagai layanan laboratorium yang mendukung kegiatan pendidikan, seperti praktikum mahasiswa, peminjaman ruang, dan peralatan laboratorium untuk penelitian dan proyek akademik.",
-        tanggal: "2023",
+          "Workshop Fitokimia diselenggarakan dengan tujuan meningkatkan pemahaman mahasiswa ITERA tentang konsep dasar fitokimia serta aplikasinya dalam bidang penelitian, khususnya terkait senyawa-senyawa kimia alami yang berasal dari tumbuhan. Kegiatan ini diharapkan dapat memperluas wawasan dan keterampilan mahasiswa ITERA dalam menganalisis serta memanfaatkan potensi fitokimia untuk pengembangan ilmu dan inovasi.",
+        tanggal: "2025",
         img: kegiatan_1_upa_lab_1,
       },
       {
-        title: "Pelayanan Pengujian",
+        title: "Pengujian Bahan Alam dan Teknik",
         description:
-          "Layanan pengujian yang diberikan oleh laboratorium mencakup pengujian material, kualitas air, dan berbagai parameter lainnya sesuai dengan standar ISO17025:2017, baik untuk kebutuhan akademik maupun industri.",
-        tanggal: "2022",
+          "Laboratorium ITERA menyediakan layanan pengujian Bahan Alam dan Teknik yang mencakup analisis material, pengujian kualitas air, serta berbagai parameter fisik dan kimia lainnya. Seluruh layanan pengujian dilaksanakan sesuai dengan standar mutu ISO/IEC 17025:2017 dan didukung oleh peralatan laboratorium yang terkalibrasi. Layanan ini terbuka untuk mendukung kegiatan penelitian akademik, tugas akhir mahasiswa, hingga kebutuhan industri dan instansi eksternal.",
+        tanggal: "2025",
         img: kegiatan_2_upa_lab_1,
       },
       {
-        title: "Pembagian Tugas CR",
+        title: "Penelitian Laboratorium",
         description:
-          "Kegiatan ini bertujuan untuk mendistribusikan tugas dan tanggung jawab dalam tim laboratorium untuk memastikan efisiensi operasional dan peningkatan kualitas layanan.",
-        tanggal: "2022",
-        img: kegiatan_2_upa_lab_2,
+          "Laboratorium ITERA aktif dalam penelitian yang berfokus pada pengembangan teknologi dan inovasi di bidang sains dan teknik. Penelitian ini melibatkan kolaborasi dengan berbagai fakultas dan lembaga, serta berupaya untuk menghasilkan solusi praktis yang dapat diterapkan di masyarakat.",
+        tanggal: "2025",
+        img: kegiatan_3_upa_lab,
       },
     ],
   },
@@ -259,140 +269,192 @@ export const DetailUPTData: UptData[] = [
     kepalaUpt: {
       nama: "Alawiyah, S.P., M.Hut.",
       foto: kepala_upa_kebun_raya,
-      jabatan: "Kepala UPA",
+      jabatan: "Kepala",
       nip: "",
     },
     sosmedUPT: {
       instagram: "https://www.instagram.com/kebunrayaitera/",
+      tiktok: "",
       youtube: "https://www.youtube.com/channel/UCVaKg6QVo-mRZkV0Wec9d-g",
       website: "https://kebunraya.itera.ac.id/",
     },
     kegiatanUnggulan: [
       {
-        title: "ANUGERAH IKPA ITERA TAHUN 2022",
-        description: "Pemberian penghargaan untuk prestasi di bidang IKPA.",
-        tanggal: "2022",
+        title: "Konservasi Tumbuhan melalui Pengembangan Konservasi Tumbuhan yang Ada di Sumatera",
+        description: "Kebun Raya ITERA berkomitmen terhadap upaya konservasi tumbuhan melalui pengembangan koleksi flora khas Sumatera. Fokus utama konservasi mencakup spesies tumbuhan lokal, endemik, dan langka yang memiliki nilai ekologis dan ilmiah tinggi. Program ini juga berperan sebagai sarana penelitian, pendidikan, dan wisata ilmiah berbasis konservasi.",
+        tanggal: "2025",
         img: kegiatan_1_upa_kebun_raya,
       },
       {
         title:
-          "Pembangunan dan Pengelolaan Kebun Raya di Indonesia dari BRIN RI",
-        description: "Penghargaan dari Badan Riset dan Inovasi Nasional.",
-        tanggal: "2022",
+          "Program Eduwisata (Edukasi Flora) untuk Pelajar hingga Perguruan Tinggi tentang Pengenalan Tumbuhan",
+        description: "Program ini menyediakan kegiatan edukasi flora di Kebun Raya ITERA, yang meliputi pengenalan tumbuhan lokal, endemik, dan langka serta upaya rehabilitasi lahan di Kebun Raya ITERA.",
+        tanggal: "2025",
         img: kegiatan_2_upa_kebun_raya,
       },
       {
-        title: "Pengelolaan Media Sosial Kategori Jurusan/UPT/Unit/Lembaga",
-        description: "Penghargaan HUMAS ITERA untuk pengelolaan media sosial.",
-        tanggal: "2023",
+        title: "Program Wisata ",
+        description: "Program ini mencakup kegiatan wisata ilmiah, pengelolaan lahan, rehabilitasi lahan, dan pengelolaan koleksi flora di Kebun Raya ITERA.",
+        tanggal: "2025",
         img: kegiatan_3_upa_kebun_raya,
       },
     ],
   },
 
   // data UPA OAIL
-  {
-    key: "upa-oail",
-    title: "UPA OAIL",
-    logo: logo_upa_oail,
-    description:
-      "Unit Pelaksana Teknis Observatorium Astronomi ITERA Lampung (UPT OAIL) merupakan laboratorium keantariksaan yang dibangun sejak tahun 2018 untuk menunjang aktivitas tridharma perguruan tinggi di ITERA khususnya untuk program studi Sains Atmosfer dan Keplanetan (SAP). Selain itu, OAIL juga berguna sebagai sarana edukasi untuk memfasilitasi siswa, mahasiswa, dan seluruh masyarakat yang memiliki minat pada bidang sains khususnya astronomi seperti pengamatan benda-benda langit menggunakan teleskop.",
-    headerDescription:
-      "UPA OAIL ITERA adalah pusat pengamatan astronomi yang mendukung pendidikan dan penelitian dalam bidang sains atmosfer dan keplanetan.",
-    history:
-      "Institut Tenologi Sumatera (ITERA) bersama Institut Teknologi Bandung (ITB) dan Pemerintah Provinsi Lampung merencanakan suatu proyek pembangunan OAIL di Taman Abdurrahman, Gunung Betung, Lampung. Selama masa tahap pembangunan observatorium, program kegiatan ini dilaksanakan di lingkungan kampus ITERA. Tujuan kegiatan ini sendiri diharapkan dapat membangkitkan kesadaran sejak dini akan fenomena alam yang terjadi di sekitar kita dan juga sebagai sarana untuk menggali minat dalam bidang ilmu sains. Akhirnya UPT OAIL ITERA berdiri sejak tahun 2018 di ITERA Lampung untuk mendukung aktivitas tridharma perguruan tinggi.",
-    visi: "Mencerdaskan masyarakat, sebagai laboratorium pendidikan tersier di lingkungan ITERA, ikut secara proaktif berpartisipasi dalam jejaring eksplorasi dan patroli langit.",
-    misi: [
-      "Melakukan penelitian dan eksplorasi langit dari wilayah Indonesia.",
-      "Memanfaatkan langit untuk pendidikan keantariksaan bagi mahasiswa ITERA dan ITB serta masyarakat Lampung dan Sumatera.",
-      "Memanfaatkan lokasi UPT OAIL untuk wisata edukasi, terutama dalam bidang sains antariksa, kebumian, dan teknologi instrumentasi.",
-      "Membangun kerjasama nasional maupun internasional dalam melakukan eksplorasi langit untuk kesejahteraan manusia.",
-    ],
-    kepalaUpt: {
-      nama: "Dr. Moedji Raharto",
-      foto: kepala_upa_oail,
-      jabatan: "Kepala UPA",
-      nip: "195411081981031002",
-    },
-    sosmedUPT: {
-      instagram: "https://www.instagram.com/oail.itera/",
-      youtube: "https://youtube.com/@oailitera9398",
-      website: "https://oail.itera.ac.id",
-    },
-    kegiatanUnggulan: [
-      {
-        title: "Ngamat Bareng OAIL (NGABRIL)",
-        description: "Kegiatan pengamatan langit bersama masyarakat.",
-        tanggal: "2022",
-        img: kegiatan_1_upa_oail,
-      },
-      {
-        title: "Rukyatul Hilal",
-        description:
-          "Kegiatan pengamatan hilal untuk menentukan awal bulan Hijriyah.",
-        tanggal: "2022",
-        img: kegiatan_2_upa_oail,
-      },
-      {
-        title: "Wisata Edukasi Astronomi OAIL",
-        description:
-          "Kegiatan wisata edukasi untuk mengenalkan astronomi kepada masyarakat.",
-        tanggal: "2023",
-        img: kegiatan_3_upa_oail,
-      },
-    ],
-  },
+  // {
+  //   key: "upa-oail",
+  //   title: "UPA OAIL",
+  //   logo: logo_upa_oail,
+  //   description:
+  //     "Unit Pelaksana Teknis Observatorium Astronomi ITERA Lampung (UPT OAIL) merupakan laboratorium keantariksaan yang dibangun sejak tahun 2018 untuk menunjang aktivitas tridharma perguruan tinggi di ITERA khususnya untuk program studi Sains Atmosfer dan Keplanetan (SAP). Selain itu, OAIL juga berguna sebagai sarana edukasi untuk memfasilitasi siswa, mahasiswa, dan seluruh masyarakat yang memiliki minat pada bidang sains khususnya astronomi seperti pengamatan benda-benda langit menggunakan teleskop.",
+  //   headerDescription:
+  //     "UPA OAIL ITERA adalah pusat pengamatan astronomi yang mendukung pendidikan dan penelitian dalam bidang sains atmosfer dan keplanetan.",
+  //   history:
+  //     "Institut Tenologi Sumatera (ITERA) bersama Institut Teknologi Bandung (ITB) dan Pemerintah Provinsi Lampung merencanakan suatu proyek pembangunan OAIL di Taman Abdurrahman, Gunung Betung, Lampung. Selama masa tahap pembangunan observatorium, program kegiatan ini dilaksanakan di lingkungan kampus ITERA. Tujuan kegiatan ini sendiri diharapkan dapat membangkitkan kesadaran sejak dini akan fenomena alam yang terjadi di sekitar kita dan juga sebagai sarana untuk menggali minat dalam bidang ilmu sains. Akhirnya UPT OAIL ITERA berdiri sejak tahun 2018 di ITERA Lampung untuk mendukung aktivitas tridharma perguruan tinggi.",
+  //   visi: "Mencerdaskan masyarakat, sebagai laboratorium pendidikan tersier di lingkungan ITERA, ikut secara proaktif berpartisipasi dalam jejaring eksplorasi dan patroli langit.",
+  //   misi: [
+  //     "Melakukan penelitian dan eksplorasi langit dari wilayah Indonesia.",
+  //     "Memanfaatkan langit untuk pendidikan keantariksaan bagi mahasiswa ITERA dan ITB serta masyarakat Lampung dan Sumatera.",
+  //     "Memanfaatkan lokasi UPT OAIL untuk wisata edukasi, terutama dalam bidang sains antariksa, kebumian, dan teknologi instrumentasi.",
+  //     "Membangun kerjasama nasional maupun internasional dalam melakukan eksplorasi langit untuk kesejahteraan manusia.",
+  //   ],
+  //   kepalaUpt: {
+  //     nama: "Dr. Moedji Raharto",
+  //     foto: kepala_upa_oail,
+  //     jabatan: "Kepala",
+  //     nip: "195411081981031002",
+  //   },
+  //   sosmedUPT: {
+  //     instagram: "https://www.instagram.com/oail.itera/",
+  //     tiktok: "",
+  //     youtube: "https://youtube.com/@oailitera9398",
+  //     website: "https://oail.itera.ac.id",
+  //   },
+  //   kegiatanUnggulan: [
+  //     {
+  //       title: "Ngamat Bareng OAIL (NGABRIL)",
+  //       description: "Kegiatan pengamatan langit bersama masyarakat.",
+  //       tanggal: "2022",
+  //       img: kegiatan_1_upa_oail,
+  //     },
+  //     {
+  //       title: "Rukyatul Hilal",
+  //       description:
+  //         "Kegiatan pengamatan hilal untuk menentukan awal bulan Hijriyah.",
+  //       tanggal: "2022",
+  //       img: kegiatan_2_upa_oail,
+  //     },
+  //     {
+  //       title: "Wisata Edukasi Astronomi OAIL",
+  //       description:
+  //         "Kegiatan wisata edukasi untuk mengenalkan astronomi kepada masyarakat.",
+  //       tanggal: "2023",
+  //       img: kegiatan_3_upa_oail,
+  //     },
+  //   ],
+  // },
 
   // data UPA MKG
+  // {
+  //   key: "upa-mkg",
+  //   title: "UPA MKG",
+  //   logo: logo_upa_mkg,
+  //   description:
+  //     "UPT MKG atau Pusat Meteorologi, Klimatologi dan Geofisika bernaung dibawah Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM) sebagai pengembangan fasilitas dan struktur kerja sama antara pihak BMKG dan ITERA yang bertujuan untuk pemanfaatan sarana prasarana, pendidikan, penelitian, dan pengabdian kepada masyarakat yang menunjang kajian potensi bencana.",
+  //   headerDescription:
+  //     "UPA MKG adalah kolaborasi antara ITERA dan BMKG, fokus pada pendidikan dan penelitian dalam bidang meteorologi, klimatologi, dan geofisika.",
+  //   history:
+  //     "Unit Pelaksana Teknis Meteorologi, Klimatologi, dan Geofisika (UPT MKG), terbentuk pada tahun 2017 karena pemanfaatan sarana dan prasarana, pendidikan, penelitian, pengembangan di bidang meteorologi, klimatologi, dan geofisika masih terbatas dan masih pada tahap pengembangan secara masif. Seiring berjalannya waktu, kini UPT MKG telah berganti menjadi Pusat Meteorologi, Klimatologi, dan Geofisika yang bernaung dibawah Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM) sejak akhir tahun 2022.",
+  //   visi: "Menjadi pusat pengembangan dan riset bersama BMKG-ITERA yang produktif dalam pendidikan serta aktif dalam penelitian dan pengabdian masyarakat.",
+  //   misi: [
+  //     "Bersama secara tahunan mengembangkan kurikulum pendidikan tinggi sesuai kebutuhan terkini.",
+  //     "Mengedukasi masyarakat terkait meteorologi, klimatologi, dan geofisika.",
+  //   ],
+  //   kepalaUpt: {
+  //     nama: "Drs. Zadrach Ledoufij Dupe, M.Si",
+  //     foto: kepala_upa_mkg,
+  //     jabatan: "Kepala",
+  //     nip: "195703221983031003",
+  //   },
+  //   sosmedUPT: {
+  //     instagram: "https://www.instagram.com/mkg_itera/",
+  //     tiktok: "",
+  //     youtube: "https://youtube.com/@uptmkgitera3276?si=YYAoSYxCUXY7RKJI",
+  //     website: "https://sites.google.com/itera.ac.id/mkgitera/home",
+  //   },
+  //   kegiatanUnggulan: [
+  //     {
+  //       title: "Pelatihan Navigasi Darat",
+  //       description: "Pelatihan untuk meningkatkan kemampuan navigasi darat.",
+  //       tanggal: "2022",
+  //       img: kegiatan_1_upa_mkg,
+  //     },
+  //     {
+  //       title: "Pelatihan Bantuan Hidup Dasar",
+  //       description:
+  //         "Pelatihan untuk memberikan pengetahuan dasar mengenai bantuan hidup.",
+  //       tanggal: "2023",
+  //       img: kegiatan_2_upa_mkg,
+  //     },
+  //     {
+  //       title: "Pelatihan Water Rescue",
+  //       description: "Pelatihan untuk keterampilan penyelamatan di air.",
+  //       tanggal: "2023",
+  //       img: kegiatan_3_upa_mkg,
+  //     },
+  //   ],
+  // },
+// UPT Bahasa
   {
-    key: "upa-mkg",
-    title: "UPA MKG",
-    logo: logo_upa_mkg,
+    key: "upt-bahasa",
+    title: "UPT Bahasa",
+    logo: logo_upt_bahasa,
     description:
-      "UPT MKG atau Pusat Meteorologi, Klimatologi dan Geofisika bernaung dibawah Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM) sebagai pengembangan fasilitas dan struktur kerja sama antara pihak BMKG dan ITERA yang bertujuan untuk pemanfaatan sarana prasarana, pendidikan, penelitian, dan pengabdian kepada masyarakat yang menunjang kajian potensi bencana.",
+      "UPA Bahasa menyediakan layanan terkait Bahasa bagi sivitas akademik ITERA. UPA Bahasa berperan sebagai pusat pengelolaan informasi, penyebaran informasi sumber belajar dan penunjang pembelajaran Bahasa Asing dan Bahasa Indonesia bagi Penutur Asing sehingga mampu mengakomodasi mahasiswa dan sivitas akademik untuk dapat berkomunikasi dalam bahasa asing baik itu secara verbal, kolaborasi dan profesional di bidangnya. UPA menyediakan berbagai macam layanan seperti layanan administrasi , layanan akademik ,dan layanan sarana dan prasarana dan mampu menjadi tempat yang akomodatif  untuk menjadi pusat belajar bahasa.",
     headerDescription:
-      "UPA MKG adalah kolaborasi antara ITERA dan BMKG, fokus pada pendidikan dan penelitian dalam bidang meteorologi, klimatologi, dan geofisika.",
+      "UPA Bahasa ITERA merupakan pusat layanan bahasa yang mendukung pengembangan kemampuan berbahasa asing dan Bahasa Indonesia bagi Penutur Asing (BIPA) bagi sivitas akademik. Melalui layanan akademik, administrasi, serta sarana prasarana yang lengkap, UPA Bahasa menjadi wadah pembelajaran yang akomodatif untuk komunikasi, kolaborasi, dan profesionalisme lintas bahasa.",
     history:
-      "Unit Pelaksana Teknis Meteorologi, Klimatologi, dan Geofisika (UPT MKG), terbentuk pada tahun 2017 karena pemanfaatan sarana dan prasarana, pendidikan, penelitian, pengembangan di bidang meteorologi, klimatologi, dan geofisika masih terbatas dan masih pada tahap pengembangan secara masif. Seiring berjalannya waktu, kini UPT MKG telah berganti menjadi Pusat Meteorologi, Klimatologi, dan Geofisika yang bernaung dibawah Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM) sejak akhir tahun 2022.",
-    visi: "Menjadi pusat pengembangan dan riset bersama BMKG-ITERA yang produktif dalam pendidikan serta aktif dalam penelitian dan pengabdian masyarakat.",
+      "Unit Penunjang Akademik Bahasa merupakan Unit yang berada di dalam Institut Teknologi Sumatera pertama kali dibentuk tahun 2015 sesuai dengan peraturan Nomor 37 Tahun 2015. Sejak November, 2015 Unit Penunjang Akademik Bahasa dipimpin oleh Hafiz Budi Firmansyah, S.Kom., M.Sc., Ph.D. Jumlah SDM sebanyak 7 (tujuh) orang terdiri dari 2 (dua) tenaga kependidikan dan 5 (lima) instruktur. Unit Penunjang Akademik Bahasa mempunyai wilayah kerja meliputi layanan akademik, layanan non-akademik, kerjasama institusional dan pengembangan sumber daya bahasa. Pada tahun 2023 sesuai dengan peraturan Nomor 56 Tahun 2023 UPT Bahasa berubah nama menjadi Unit Penunjang Akademik (UPA) Bahasa. Unit Penunjang Akademik Bahasa di Institut Teknologi Sumatera (ITERA) merupakan salah satu unit strategis yang berperan penting dalam mendukung pencapaian visi dan misi institusi, khususnya dalam aspek peningkatan kualitas akademik dan internasionalisasi. Unit ini hadir untuk memberikan layanan kebahasaan yang menyeluruh kepada sivitas akademika, mencakup pelatihan, penerjemahan, penyuntingan naskah ilmiah, hingga pengajaran bahasa asing dan Bahasa Indonesia bagi penutur asing (BIPA). Dalam menjalankan fungsinya, unit ini menyelenggarakan berbagai program pelatihan bahasa, baik untuk meningkatkan kemampuan bahasa Inggris akademik maupun umum. Salah satu program unggulan adalah pelatihan TOEFL dan IELTS preparation yang ditujukan untuk mahasiswa dan dosen yang ingin melanjutkan studi atau melakukan publikasi di tingkat internasional. Selain itu, unit ini juga memberikan layanan proofreading dan editing karya tulis ilmiah, sehingga mendukung peningkatan kualitas publikasi dosen dan mahasiswa di jurnal bereputasi. Tidak hanya fokus pada bahasa Inggris, Unit Penunjang Akademik Bahasa ITERA juga menyelenggarakan program pengajaran Bahasa Indonesia bagi Penutur Asing (BIPA), sebagai bentuk dukungan terhadap program internasionalisasi kampus dan penerimaan mahasiswa atau mitra kerja sama dari luar negeri. Secara keseluruhan, unit ini memiliki peran strategis dalam memfasilitasi sivitas akademika ITERA untuk meningkatkan kompetensi kebahasaan mereka, sekaligus memperkuat posisi ITERA dalam kancah akademik nasional dan internasional. Melalui layanan yang profesional dan berorientasi pada mutu, Unit Penunjang Akademik Bahasa ITERA terus berkomitmen untuk menjadi mitra utama dalam pengembangan kapasitas akademik berbasis kebahasaan. Unit Penunjang Akademik Bahasa dipimpin oleh Hafiz Budi Firmansyah, S.Kom., M.Sc., Ph.D. Jumlah SDM sebanyak 2 Tenaga Kependidikan, 1 Pegawai Perjanjian Waktu Tertentu (PKWT) dan 5 Dosen yang masuk ke dalam Tim Instruktur UPA Bahasa. UPA Bahasa berlokasi di Gedung Kuliah Umum 1 lantai 1 Institut Teknologi Sumatera.",
+    visi: "Melaksanakan pelatihan / pembelajaran bahasa yang efektif. Menjadikan Laboratorium Bahasa sebagai tempat penelitian, pendidikan dan pengkajian keterampilan kebahasaan kepada sivitas akademika, dari masyarakat luas baik secara kelembagaan (seperti perguruan tinggi, sekolah lanjutan dan pondok pesantren) maupun perorangan.",
     misi: [
-      "Bersama secara tahunan mengembangkan kurikulum pendidikan tinggi sesuai kebutuhan terkini.",
-      "Mengedukasi masyarakat terkait meteorologi, klimatologi, dan geofisika.",
+      "Menyelenggarakan kursus/pelatihan bahasa yang efektif Memberikan pelayanan kepada civitas akademik ITERA dan masyarakat luas dalam bidang paltihan, pengembangan masalah kebahasaan Menyelenggarakan layanan kursus bahasa Indonesia untuk orang asing Meningkatkan peranan dalam jaringan kerjasama dalam dan luar negeri di bidang kebahasaan.",
     ],
     kepalaUpt: {
-      nama: "Drs. Zadrach Ledoufij Dupe, M.Si",
-      foto: kepala_upa_mkg,
-      jabatan: "Kepala UPA",
-      nip: "195703221983031003",
+      nama: "Hafiz Budi Firmansyah, S.Kom., M.Sc., Ph.D",
+      foto: kepala_upt_bahasa,
+      jabatan: "Kepala UPT",
+      nip: "199108242019031014",
     },
     sosmedUPT: {
-      instagram: "https://www.instagram.com/mkg_itera/",
-      youtube: "https://youtube.com/@uptmkgitera3276?si=YYAoSYxCUXY7RKJI",
-      website: "https://sites.google.com/itera.ac.id/mkgitera/home",
+      instagram: "https://www.instagram.com/languagecenter.itera",
+      tiktok: "",
+      youtube: "",
+      website: "https://pusatbahasa.itera.ac.id",
     },
     kegiatanUnggulan: [
       {
-        title: "Pelatihan Navigasi Darat",
-        description: "Pelatihan untuk meningkatkan kemampuan navigasi darat.",
-        tanggal: "2022",
-        img: kegiatan_1_upa_mkg,
-      },
-      {
-        title: "Pelatihan Bantuan Hidup Dasar",
+        title: "Computer-Based Test (CBT) Itera English Proficiency Test (INCITE)",
         description:
-          "Pelatihan untuk memberikan pengetahuan dasar mengenai bantuan hidup.",
-        tanggal: "2023",
-        img: kegiatan_2_upa_mkg,
+          "Tes kemampuan bahasa Inggris berbasis komputer (CBT) yang diselenggarakan oleh UPA Bahasa ITERA untuk mengukur kompetensi bahasa Inggris mahasiswa, dosen, dan tenaga kependidikan sebagai bagian dari persiapan akademik dan internasionalisasi.",
+        tanggal: "2025",
+        img: kegiatan_1_upt_bahasa,
       },
       {
-        title: "Pelatihan Water Rescue",
-        description: "Pelatihan untuk keterampilan penyelamatan di air.",
-        tanggal: "2023",
-        img: kegiatan_3_upa_mkg,
+        title: "Kursus Bahasa",
+        description:
+          "Program pembelajaran bahasa asing dan Bahasa Indonesia bagi Penutur Asing (BIPA) yang dirancang untuk meningkatkan kemampuan berbahasa secara lisan maupun tulisan bagi sivitas akademika ITERA.",
+        tanggal: "2025",
+        img: kegiatan_2_upt_bahasa,
+      },
+      {
+        title: "Bulan Bahasa",
+        description: "Kegiatan tahunan yang diselenggarakan UPA Bahasa ITERA sebagai bentuk apresiasi terhadap keberagaman bahasa dan budaya, serta mendorong peningkatan literasi dan kemampuan berbahasa melalui lomba, seminar, dan pelatihan.",
+        tanggal: "2025",
+        img: kegiatan_3_upt_bahasa,
       },
     ],
   },
-
   // UPT K3L
   {
     key: "upt-k3l",
@@ -415,13 +477,14 @@ export const DetailUPTData: UptData[] = [
       "Menciptakan dan menjaga lingkungan ITERA yang sehat, nyaman dan bersahabat.",
     ],
     kepalaUpt: {
-      nama: "drh. Sri Sulistiawati, M.M.",
+      nama: "EDO KHARISMA ARMY, S.T., M.T",
       foto: kepala_upt_k3l,
       jabatan: "Kepala UPT",
-      nip: "196507101995032001",
+      nip: "199209172022031007",
     },
     sosmedUPT: {
       instagram: "",
+      tiktok: "",
       youtube: "",
       website: "",
     },

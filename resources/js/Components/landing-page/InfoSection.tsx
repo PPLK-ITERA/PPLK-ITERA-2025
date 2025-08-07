@@ -1,68 +1,110 @@
-import React, { useEffect, useState } from "react";
-
-import { Link } from "@inertiajs/react";
-
-import { InformasiInfoSection } from "@/lib/data/data";
-import { dataInfoSection } from "@/lib/data/funfact";
-import { useAos } from "@/lib/hooks/useAos";
+import React, { useState } from 'react';
+import { ChevronUp, ChevronDown, ArrowRight } from 'lucide-react';
 
 export default function InfoSection() {
-  useAos();
+  const [openItems, setOpenItems] = useState({});
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const toggleItem = (index) => {
+    setOpenItems(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % dataInfoSection.length);
-    }, 3000); // Change index every 3 seconds
+  const faqItems = [
+    {
+      question: "Apa itu PPLK?",
+      answer: "Program Pengenalan Lingkungan Kampus atau biasa disebut dengan singkatan PPLK, adalah kegiatan yang rutin diadakan setiap tahun oleh perguruan tinggi untuk membantu mahasiswa baru beradaptasi dengan lingkungan kampus, mengenal fasilitas-fasilitas yang ada, serta memahami aturan dan budaya kampus untuk dapat membantu Mahasiswa Baru beradaptasi dengan lingkungan kampus ITERA.  PPLK juga merupakan sebuah Program Pengenalan Lingkungan Kampus (PPLK) bagi mahasiswa baru, yang diselenggarakan melalui Keluarga Mahasiswa ITERA (KM-ITERA)"
+    },
+    {
+      question: "Apa tujuan dari diadakannya PPLK?",
+      answer: "Program Pengenalan Lingkungan Kampus (PPLK) ini bertujuan untuk memperkenalkan mahasiswa baru terhadap lingkungan kampus, mulai dari kegiatan akademik, fasilitas dan lingkungan kampus, hingga kegiatan kemahasiswaan."
+    },
+    {
+      question: "Bagaimana cara mengedit informasi media sosial di profil saya?",
+      answer: "Kamu cukup mengisi kolom LinkedIn dan Instagram pada bagian “Edit Sosial Media”, lalu tekan tombol 'Simpan' di bawahnya agar perubahan tersimpan."
+    },
+    {
+      question: "Apa fungsi dari QR Code di halaman profil?",
+      answer: "QR Code digunakan untuk presensi kegiatan PPLK. Kamu bisa menunjukkannya saat diminta panitia atau mengunduhnya dengan menekan tombol 'Download QR Code'."
+    },
+    {
+      question: "Apa bentuk dukungan fakultas terhadap mahasiswa yang ingin meneliti dan membuat inovasi baru?",
+      answer: "Fakultas menyediakan berbagai dukungan seperti akses ke laboratorium, pendampingan dari dosen pembimbing, serta pendanaan atau fasilitasi program untuk mahasiswa yang ingin mengembangkan riset atau menciptakan inovasi di bidangnya."
+    }
+  ];
 
-    // Cleanup the interval on component unmount
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentData = dataInfoSection[currentIndex];
+  const navigationItems = [
+    { label: "Visit FAQ", icon: ArrowRight, href: "/faq" },
+    { label: "Visit Dokumentasi", icon: ArrowRight, href: "/dokumentasi" },
+    { label: "Visit Ketentuan Atribut", icon: ArrowRight, href: "/ketentuan-atribut" }
+  ];
 
   return (
-    <div
-      data-aos="fade-up"
-      data-aos-duration={1000}
-      className="flex h-full items-center justify-center px-2.5 lg:min-h-screen"
-    >
-      <div className="flex flex-col rounded-md bg-jaffa-200 md:w-[700px] md:rounded-[24px] lg:h-[750px] lg:w-[900px] xl:h-[700px] xl:w-[1200px]">
-        <div className="flex flex-col rounded-md bg-flower-pattern h-[400px] md:h-[350px] md:rounded-[24px] lg:h-[475px]">
-          <div className="flex h-full w-full flex-col items-center justify-center rounded-md bg-gradient-to-r from-jaffa-700/90 to-jaffa-800/90 px-4 md:rounded-[24px] py-10 md:px-[10%]">
-            <div className="flex flex-col items-start w-full">
-              <h2 className="text-start font-avigea md:text-5xl lg:text-6xl w-full text-2xl text-white">
-                {currentData.title}
-              </h2>
-
-              <p className="text-16px mt-5 w-full font-montserrat font-normal text-white/80 md:text-xl lg:max-w-[80%]">
-                {currentData.description}
-              </p>
-
-              <p className="mt-10 font-montserrat text-[10px] md:text-[16px] font-normal text-white/80 lg:max-w-[80%]">
-                {currentData.additional}
-              </p>
+    <div className="min-h-screen p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Left Section - Title and Navigation */}
+          <div className="lg:col-span-1">
+            <h1 className="text-4xl md:text-5xl font-bold font-greek text-[#581D00] mb-8 tracking-wide">
+              FREQUENTLY
+              <br />
+              ASKED
+              <br />
+              QUESTIONS
+            </h1>
+            
+            {/* Blue accent line */}
+            <div className="w-16 h-1 bg-blue-300 mb-8"></div>
+            
+            {/* Navigation Buttons */}
+            <div className="space-y-4">
+              {navigationItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="w-full bg-[#FFDAD6] hover:bg-orange-300 transition-colors duration-200 p-4 rounded-lg flex items-center justify-between group"
+                >
+                  <span className="text-gray-800 font-medium">{item.label}</span>
+                  <item.icon className="w-5 h-5 text-gray-600 group-hover:translate-x-1 transition-transform duration-200" />
+                </a>
+              ))}
             </div>
           </div>
-        </div>
-
-        <div className="md:flex-row lg:mt-16 lg:px-20 lg:pb-0 xl:pb-0 flex flex-col items-center w-full px-8 pb-10 mt-5">
-          <p className="w-full font-semibold md:w-1/4 md:text-[20px] lg:w-1/3 lg:text-2xl">
-            Mengenal <span className="font-bold">ITERA</span>{" "}
-            <br className="md:block hidden" /> Lebih Dalam
-          </p>
-
-          <div className="md:mt-0 md:w-3/4 lg:w-2/3 flex flex-wrap w-full gap-3 mt-5">
-            {InformasiInfoSection.map((info, index) => (
-              <Link
-                key={index}
-                href={info.href}
-                className="rounded-[6px] bg-gradient-to-t from-[#A6680C] to-[#B9822F] px-4 py-[10px] font-montserrat text-[12px] font-semibold uppercase text-white shadow-sm md:text-[14px]"
-              >
-                {info.title}
-              </Link>
-            ))}
+          
+          {/* Right Section - FAQ Items */}
+          <div className="lg:col-span-2">
+            <div className="space-y-4">
+              {faqItems.map((item, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <button
+                    onClick={() => toggleItem(index)}
+                    className={`w-full p-4 md:p-6 text-left flex items-center justify-between transition-colors duration-200 ${
+                      index === 0 
+                        ? 'bg-[#da5b1c] text-white hover:bg-amber-900' 
+                        : 'bg-orange-500 text-white hover:bg-orange-600'
+                    }`}
+                  >
+                    <span className="font-medium text-sm md:text-base pr-4">
+                      {item.question}
+                    </span>
+                    {openItems[index] ? (
+                      <ChevronUp className="w-5 h-5 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 flex-shrink-0" />
+                    )}
+                  </button>
+                  
+                  {openItems[index] && (
+                    <div className="p-4 md:p-6 bg-white animate-in slide-in-from-top-2 duration-200">
+                      <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

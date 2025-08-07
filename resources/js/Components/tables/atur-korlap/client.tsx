@@ -12,10 +12,7 @@ export const AturKorlapClient = () => {
         searchKey="name"
         columns={columns}
         apiEndpoint={route("dashboard.user.data.korlap")}
-        title={"Data Korlap"}
-        description={
-          "Gunakan sistem informasi ini untuk manajemen data Korlap!"
-        }
+        title={"Korlap"}
       />
     </>
   );

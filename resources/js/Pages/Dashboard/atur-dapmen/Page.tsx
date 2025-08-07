@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Head } from "@inertiajs/react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { AturDapmenClient } from "@/Components/tables/atur-dapmen/client";
@@ -8,7 +9,7 @@ import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { useFlashToast } from "@/lib/hooks/useFlashToast";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Atur Dapmen", link: "/dashboard/atur-dapmen" },
 ];
 
@@ -16,11 +17,14 @@ export default function Page({ auth }) {
   useFlashToast();
 
   return (
-    <DashboardLayout user={auth.user}>
-      <Breadcrumbs items={breadcrumbItems} />
-      <h2 className="text-3xl font-bold tracking-tight">Atur Dapmen</h2>
+    <>
+      <Head title="Atur Dapmen" />
+      <DashboardLayout user={auth.user}>
+        <Breadcrumbs items={breadcrumbItems} />
+        <h2 className="text-3xl font-semibold font-inter tracking-tight">Atur Dapmen</h2>
 
-      <AturDapmenClient />
-    </DashboardLayout>
+        <AturDapmenClient />
+      </DashboardLayout>
+    </>
   );
 }

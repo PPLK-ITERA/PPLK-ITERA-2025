@@ -24,82 +24,66 @@ const DATA_DIVISI = [
   {
     nama: "Prajamusi",
     logo: Prajamusi,
-    link: "https://www.instagram.com/p/C-XJo8ipyvj/",
   },
   {
     nama: "Sakasella",
     logo: Sakasella,
-    link: "https://www.instagram.com/p/C-XJyvtpp28/",
   },
   {
     nama: "Utsala",
     logo: Utsala,
-    link: "https://www.instagram.com/p/C-XJWXGp1ZS/",
   },
   {
     nama: "Rakula",
     logo: Rakula,
-    link: "https://www.instagram.com/p/C-XC-hcpC7U/",
   },
   {
     nama: "Darsatica",
     logo: Darsatica,
-    link: "https://www.instagram.com/p/C-XJb17pLME/",
   },
   {
     nama: "Berdhana",
     logo: Berdhana,
-    link: "https://www.instagram.com/p/C-XJb17pLME/",
   },
   {
     nama: "Amphorta",
     logo: Amphorta,
-    link: "https://www.instagram.com/p/C-XIBBZJ5vi/",
   },
   {
     nama: "Lixus",
     logo: Lixus,
-    link: "https://www.instagram.com/p/C-XFdmXJUN1/",
   },
   {
     nama: "Caetana",
     logo: Caetana,
-    link: "https://www.instagram.com/p/C-XIrP1JNnP/",
   },
   {
     nama: "Ragita",
     logo: Ragita,
-    link: "https://www.instagram.com/p/C-XHaZaJezW/",
   },
   {
     nama: "Kartatera",
     logo: Kartatera,
-    link: "https://www.instagram.com/p/C-XGK7Fpkgx/",
   },
   {
     nama: "Mercopium",
     logo: Mercopium,
-    link: "https://www.instagram.com/p/C-XDyMaJFi7/",
   },
   {
     nama: "Dharmaleus",
     logo: Dharmaleus,
-    link: "https://www.instagram.com/p/C-XC-hcpC7U/",
   },
   {
     nama: "Karceus",
     logo: Karceus,
-    link: "https://www.instagram.com/p/C-XC-hcpC7U/",
   },
   {
     nama: "Airasta",
     logo: Airasta,
-    link: "https://www.instagram.com/p/C-XC-hcpC7U/",
   },
   {
     nama: "Kracias",
     logo: Kracias,
-    link: "https://www.instagram.com/p/C-XCJlqJTt7/",
   },
 ];
 
@@ -141,11 +125,11 @@ const Divisi = () => {
       className="flex flex-col items-center justify-center pb-20 mt-10"
       id="divisi-pplk"
     >
-      <h2 className="font-avigea sm:text-3xl text-candlelight-600 text-2xl text-center">
+      <h2 className="font-greek sm:text-3xl text-candlelight-600 text-2xl text-center">
         SEMUA DIVISI PPLK
       </h2>
 
-      <a href="https://www.instagram.com/p/C-XJ8LlpZJa/" target="_blank">
+      <a>
         <img
           src={Vagiotesis}
           alt={"Vagiotesis"}

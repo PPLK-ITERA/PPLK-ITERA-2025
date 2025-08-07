@@ -12,8 +12,8 @@ export const AturMabaClient = () => {
         searchKey="name"
         columns={columns}
         apiEndpoint={route("dashboard.user.data.maba")}
-        title={"All Data Maba"}
-        description={"Gunakan sistem informasi ini untuk manajemen data Maba!"}
+        title={"Maba"}
+        description={""}
       />
     </>
   );

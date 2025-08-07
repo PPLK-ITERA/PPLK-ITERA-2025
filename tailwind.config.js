@@ -26,6 +26,7 @@ export default {
                 "4/3": "4 / 3",
                 "3/4": "3 / 4",
             },
+            
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -137,6 +138,9 @@ export default {
                 spacegrotesk: ['"Space Grotesk"'],
                 anothertag: ["AnotherTag"],
                 lostar: ["Lostar"],
+                greek: ["GreekFreak"],
+                poppins: ["Poppins"],
+                inter: ["Inter"],
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",
@@ -154,6 +158,7 @@ export default {
                 "history-completed":
                     "url('!assets/mading/history-completed.png')",
                 scoreboard: "url('!assets/background-scoreboard.png')",
+                "dashboard": "url('!assets/bg-dashboard.png')",
             },
         },
     },

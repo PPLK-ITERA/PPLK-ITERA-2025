@@ -8,10 +8,11 @@ import { CheckIcon } from "lucide-react";
 
 import { IconPlus } from "@tabler/icons-react";
 
+import { Head } from "@inertiajs/react";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { MateriCellActions } from "@/Components/dashboard/materi/MateriCellActions";
-import MateriForm from "@/Components/dashboard/materi/MateriForm";
+import TugasForm from "@/Components/dashboard/tugas/TugasForm";
 import { PengumpulanTugasClient } from "@/Components/tables/pengumpulan-tugas/client";
 import { Breadcrumbs } from "@/Components/ui/breadcrumbs";
 import { Button } from "@/Components/ui/button";
@@ -53,18 +54,8 @@ import { Materi } from "@/lib/types/Materi";
 import { cn } from "@/lib/utils";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/dashboard" },
+  { title: "Ellysion Panel", link: "/dashboard" },
   { title: "Pengumpulan Tugas", link: "/dashboard/pengumpulan-tugas" },
-];
-
-const ListDataTugas = [
-  { id: 1, label: "DIRETRA", value: "1" },
-  { id: 2, label: "HARTATERA", value: "2" },
-  { id: 3, label: "COOLIN", value: "3" },
-  { id: 4, label: "GARTA MATERA", value: "4" },
-  { id: 5, label: "PORTAL DILOGI", value: "5" },
-  { id: 6, label: "REKASITERA", value: "6" },
-  { id: 7, label: "MOTLET CAKRAWALA", value: "7" },
 ];
 
 interface kelompokData {
@@ -73,68 +64,183 @@ interface kelompokData {
   no_kelompok: string;
 }
 
+interface tugasData {
+  id: number;
+  judul: string;
+  deskripsi?: string;
+  deadline?: string;
+  status?: string;
+}
+
 export default function Page({ auth, response }) {
+  const user = auth.user;
   useFlashToast();
 
+  // State management
   const [openKelompok, setOpenKelompok] = useState(false);
   const [kelompokValue, setKelompokValue] = useState("");
-  const [selectedTask, setSelectedTask] = useState("1"); // State for storing the selected task
-  const [selectedTaskId, setSelectedTaskId] = useState(1); // State for storing the selected task id
-  const [submissionStatus, setSubmissionStatus] = useState(""); // State for storing the submission status
+  const [selectedTask, setSelectedTask] = useState("");
+  const [selectedTaskId, setSelectedTaskId] = useState<number | "">("");
+  const [submissionStatus, setSubmissionStatus] = useState("");
 
+  // Data states
   const [kelompokData, setKelompokData] = useState<kelompokData[]>([]);
+  const [tugasData, setTugasData] = useState<tugasData[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch data tugas dari database
+  const getTugasData = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(route("dashboard.tugas.data.judulTugas"), {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      // Sesuaikan dengan struktur response dari backend yang sudah ada
+      const data = result.response?.data || result.data || result;
+      setTugasData(data);
+
+      // Set default selection ke tugas pertama
+      if (data && data.length > 0) {
+        setSelectedTask(data[0].id.toString());
+        setSelectedTaskId(data[0].id);
+      }
+    } catch (error) {
+      console.error("Error fetching tugas data:", error);
+      setError("Gagal mengambil data tugas dari server");
+      // Fallback ke data statis jika API gagal
+      const fallbackData = [
+        { id: 1, judul: "DIRETRA" },
+        { id: 2, judul: "HARTATERA" },
+        { id: 3, judul: "COOLIN" },
+        { id: 4, judul: "GARTA MATERA" },
+        { id: 5, judul: "PORTAL DILOGI" },
+        { id: 6, judul: "REKASITERA" },
+        { id: 7, judul: "MOTLET CAKRAWALA" },
+      ];
+      setTugasData(fallbackData);
+      setSelectedTask(fallbackData[0].id.toString());
+      setSelectedTaskId(fallbackData[0].id);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const getKelompokData = async () => {
-    const response = await fetch(route("dashboard.user.data.kelompok"), {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
+    try {
+      const response = await fetch(route("dashboard.user.data.kelompok"), {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
 
-    const data = await response.json();
-    setKelompokData(data);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setKelompokData(data);
+    } catch (error) {
+      console.error("Error fetching kelompok data:", error);
+    }
   };
 
+  // Load data saat komponen mount
   useEffect(() => {
     getKelompokData();
+    getTugasData();
   }, []);
 
-  // Handlers for selections
-  const handleTaskSelection = (value) => {
-    setSelectedTask(value); // Update state when a user selects a task
-    setSelectedTaskId(value);
+  // Handlers untuk perubahan selection
+  const handleTaskSelection = (value: string) => {
+    setSelectedTask(value);
+    setSelectedTaskId(parseInt(value));
   };
 
-  const handleSubmissionStatusChange = (status) => {
-    setSubmissionStatus(status); // Update state when a user selects a submission status
+  const handleSubmissionStatusChange = (status: string) => {
+    setSubmissionStatus(status);
+  };
+
+  const handleKelompokSelection = (currentValue: string) => {
+    setKelompokValue(currentValue === kelompokValue ? "" : currentValue);
+    setOpenKelompok(false);
+  };
+
+  // Refresh data setelah menambah tugas baru
+  const handleTugasAdded = () => {
+    getTugasData();
   };
 
   return (
     <>
+      <Head title="Pengumpulan Tugas" />
       <DashboardLayout user={auth.user}>
         <Breadcrumbs items={breadcrumbItems} />
         <h2 className="text-3xl font-bold tracking-tight">Pengumpulan Tugas</h2>
 
+        {/* Button untuk membuat tugas baru - hanya untuk role tertentu */}
+        {(user.role_id == 7 || user.role_id == 3) ? (
+          <div className="place-content-start flex w-full">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button>
+                  <IconPlus size={18} />
+                  <span>Buat Tugas</span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Buat Tugas</DialogTitle>
+                </DialogHeader>
+                <TugasForm />
+              </DialogContent>
+            </Dialog>
+          </div>
+        ) : null}
+
         <h2>Filter berdasarkan...</h2>
+
+        {/* Error message */}
+        {error && (
+          <div className="p-4 mb-4 text-red-700 bg-red-100 border border-red-300 rounded">
+            {error}
+          </div>
+        )}
+
         <div className="md:flex-row md:items-center flex flex-col items-start gap-1">
+          {/* Dropdown Nama Tugas */}
           <div className="grow w-full">
             <Label className="ml-[1px]">Nama Tugas</Label>
-
             <Select
               onValueChange={handleTaskSelection}
-              defaultValue={selectedTask}
+              value={selectedTask}
+              disabled={loading}
             >
               <SelectTrigger className="w-full font-bold">
-                <SelectValue placeholder="Pilih nama tugas" />
+                <SelectValue
+                  placeholder={loading ? "Memuat..." : "Pilih nama tugas"}
+                />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Nama Tugas</SelectLabel>
-                  {ListDataTugas.map((item) => (
-                    <SelectItem key={item.id} value={item.value}>
-                      {item.label}
+                  {tugasData.map((item) => (
+                    <SelectItem key={item.id} value={item.id.toString()}>
+                      {item.judul}
                     </SelectItem>
                   ))}
                 </SelectGroup>
@@ -142,9 +248,9 @@ export default function Page({ auth, response }) {
             </Select>
           </div>
 
+          {/* Dropdown Nama Kelompok */}
           <div className="grow w-full">
             <Label className="ml-[1px]">Nama Kelompok</Label>
-
             <Popover open={openKelompok} onOpenChange={setOpenKelompok}>
               <PopoverTrigger asChild>
                 <Button
@@ -158,12 +264,14 @@ export default function Page({ auth, response }) {
                     ? kelompokData.find(
                         (kelompok) =>
                           JSON.stringify(kelompok.id) === kelompokValue,
-                      )?.id
+                      )?.no_kelompok + " - " + kelompokData.find(
+                        (kelompok) =>
+                          JSON.stringify(kelompok.id) === kelompokValue,
+                      )?.nama_kelompok
                     : `Pilih Kelompok`}
                   <CaretSortIcon className="shrink-0 w-4 h-4 ml-2 opacity-50" />
                 </Button>
               </PopoverTrigger>
-
               <PopoverContent>
                 <Command>
                   <CommandInput
@@ -178,16 +286,9 @@ export default function Page({ auth, response }) {
                             <CommandItem
                               key={index}
                               value={JSON.stringify(kelompok.id)}
-                              onSelect={(currentValue) => {
-                                setKelompokValue(
-                                  currentValue === kelompokValue
-                                    ? ""
-                                    : currentValue,
-                                );
-                                setOpenKelompok(false);
-                              }}
+                              onSelect={handleKelompokSelection}
                             >
-                              {kelompok.no_kelompok}-{kelompok.nama_kelompok}
+                              {kelompok.no_kelompok} - {kelompok.nama_kelompok}
                               <CheckIcon
                                 className={cn(
                                   "ml-auto h-4 w-4",
@@ -207,12 +308,12 @@ export default function Page({ auth, response }) {
             </Popover>
           </div>
 
+          {/* Dropdown Status Pengumpulan */}
           <div className="grow w-full">
             <Label className="ml-[1px]">Status Pengumpulan</Label>
-
             <Select
               onValueChange={handleSubmissionStatusChange}
-              defaultValue={submissionStatus}
+              value={submissionStatus}
             >
               <SelectTrigger className="w-full font-bold">
                 <SelectValue placeholder="Pilih status pengumpulan" />
@@ -230,10 +331,11 @@ export default function Page({ auth, response }) {
           </div>
         </div>
 
+        {/* Tabel Data Pengumpulan Tugas */}
         <PengumpulanTugasClient
-          tugas_id={selectedTaskId}
-          no_kelompok={parseInt(kelompokValue)}
-          status={parseInt(submissionStatus)}
+          tugas_id={typeof selectedTaskId === "number" ? selectedTaskId : 0}
+          no_kelompok={kelompokValue ? parseInt(JSON.parse(kelompokValue)) : 0}
+          status={submissionStatus ? parseInt(submissionStatus) : 0}
         />
       </DashboardLayout>
 
