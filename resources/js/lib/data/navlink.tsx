@@ -96,7 +96,7 @@ export const InformasiDropDown = [
     icon: <IconCode size={24} color="#fcedd8" />,
   },
   {
-    title: "Lppm",
+    title: "LPPM",
     href: "/informasi/lppm",
     icon: <IconHomeCheck size={24} color="#fcedd8" />,
   },
@@ -168,16 +168,16 @@ export const UserDropdown = [
   //   href: "/mading",
   //   icon: <IconMap size={24} color="#fcedd8" />,
   // },
-  {
-    title: "Kuis Asesmen",
-    href: "/asesmen",
-    icon: <IconBallpen size={24} color="#fcedd8" />,
-  },
-  {
-    title: "Game",
-    href: "/game",
-    icon: <IconDeviceGamepad2 size={24} color="#fcedd8" />,
-  },
+//   {
+//     title: "Kuis Asesmen",
+//     href: "/asesmen",
+//     icon: <IconBallpen size={24} color="#fcedd8" />,
+//   },
+//   {
+//     title: "Game",
+//     href: "/game",
+//     icon: <IconDeviceGamepad2 size={24} color="#fcedd8" />,
+//   },
   {
     title: "Scoreboard",
     href: "/scoreboard",

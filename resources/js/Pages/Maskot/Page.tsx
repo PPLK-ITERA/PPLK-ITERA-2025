@@ -64,8 +64,8 @@ function App() {
             <button
               onClick={() => setActiveMaskot("rhinoceto")}
               className={`block transition-all duration-300 mb-1 sm:mb-2 ${
-                activeMaskot === "rhinoceto" 
-                  ? "text-orange-600 font-bold scale-110" 
+                activeMaskot === "rhinoceto"
+                  ? "text-orange-600 font-bold scale-110"
                   : "text-gray-500 hover:text-orange-500"
               }`}
             >
@@ -74,8 +74,8 @@ function App() {
             <button
               onClick={() => setActiveMaskot("rhinocera")}
               className={`block transition-all duration-300 ${
-                activeMaskot === "rhinocera" 
-                  ? "text-[#982519] font-bold scale-110" 
+                activeMaskot === "rhinocera"
+                  ? "text-[#982519] font-bold scale-110"
                   : "text-gray-500 hover:text-[#982519]"
               }`}
             >
@@ -111,7 +111,7 @@ function App() {
 
             {/* Animasi muncul dari bawah - Responsive spacing */}
             <div
-              className={`flex flex-col justify-center items-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl transition-all duration-1000 ease-out 
+              className={`flex flex-col justify-center items-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl transition-all duration-1000 ease-out
               ${show ? "animate-slide-up" : "opacity-0 translate-y-full"}`}
             >
               {/* Box Maskot dengan gradient dinamis - Responsive sizing */}
@@ -123,19 +123,19 @@ function App() {
                     className="mx-auto w-32 sm:w-40 md:w-52 lg:w-64 z-50 transition-all duration-500"
                   />
                 </div>
-                
+
                 <h2 className={`text-lg sm:text-xl md:text-2xl font-bold ${currentTheme.titleColor} mb-2 sm:mb-3 md:mb-4 transition-all duration-300`}>
                   {activeMaskot.toUpperCase()}
                 </h2>
-                
+
                 <p className="text-xs sm:text-sm md:text-base text-gray-800 px-2 sm:px-4 md:px-6 leading-relaxed">
                   {activeMaskot === "rhinoceto" ? (
                     <>
-                      Halo, namaku Rhinoceto. Aku biasa dipanggil “Seto”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak jantan dan “Cato” yang berarti bijaksana. Aku merupakan perwujudan mahasiswa baru yang senantiasa bijaksana dan berani dalam mengambil keputusan. Namaku menjadi titik balik bagi mahasiswa baru untuk memiliki jiwa kepemimpinan dan mampu bertanggung jawab atas dirinya dan lingkungan sekitar
+                      Halo, namaku Rhinoceto. Aku biasa dipanggil 'Cato'. Namaku berasal dari gabungan kata 'Rhinoceros', yang berarti badak jantan dan 'Cato' yang berarti bijaksana. Aku merupakan perwujudan mahasiswa baru yang senantiasa bijaksana dan berani dalam mengambil keputusan. Namaku menjadi titik balik bagi mahasiswa baru untuk memiliki jiwa kepemimpinan dan mampu bertanggung jawab atas dirinya dan lingkungan sekitar
                     </>
                   ) : (
                     <>
-                      Hai, namaku Rhinocera. Aku biasa di panggil “Sera”. Namaku berasal dari gabungan kata “Rhinoceros”, yang berarti badak betina dan “Vara” yang berarti terpilih. Aku menggambarkan mahasiswa-mahasiswa terpilih yang berkesempatan untuk menjajakan  perjalanan akademiknya di pulau Sumatera dan mewujudkan Indonesia emas 2045.
+                      Hai, namaku Rhinocera. Aku biasa di panggil 'Sera'. Namaku berasal dari gabungan kata 'Rhinoceros', yang berarti badak betina dan 'Vara' yang berarti terpilih. Aku menggambarkan mahasiswa-mahasiswa terpilih yang berkesempatan untuk menjajakan  perjalanan akademiknya di pulau Sumatera dan mewujudkan Indonesia emas 2045.
                     </>
                   )}
                 </p>
@@ -157,7 +157,7 @@ function App() {
             transform: translateY(0);
           }
         }
-        
+
         .animate-slide-up {
           animation: slide-up 1s ease-out;
         }
