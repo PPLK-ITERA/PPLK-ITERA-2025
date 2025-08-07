@@ -30,9 +30,6 @@ import { useFlashToast } from "@/lib/hooks/useFlashToast";
 import { Kelompok } from "@/lib/types/InformasiKelompok";
 
 import logopplk from "!assets/logo-pplk-2025.png";
-import { CellAction } from "@/Components/tables/kelompok/cell-action";
-import { columns } from "@/Components/tables/kelompok/columns";
-import { DetailPilar } from "@/Components/tables/kelompok/DetailPilar";
 
 const breadcrumbItems = [
     { title: "Ellysion Panel", link: "/dashboard" },
