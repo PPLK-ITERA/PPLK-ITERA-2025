@@ -1,38 +1,37 @@
 ---
 deployment:
-    tasks:
-        - export DEPLOYPATH=/home/pplkitera
+  tasks:
+    # 1. Definisikan path utama untuk kemudahan
+    - export DEPLOYPATH=/home/pplkiter
 
-        # Step 1: Copy laravel/env to DEPLOYPATH
-        - /bin/mv ${DEPLOYPATH}/laravel/.env ${DEPLOYPATH}/
+    # 2. Backup file .env yang sudah ada di server (jika ada)
+    - /bin/mv -f ${DEPLOYPATH}/laravel/.env ${DEPLOYPATH}/.env_backup || true
 
-        # Step 2: Clear the public_html directory
-        - /bin/rm -rf ${DEPLOYPATH}/public_html/*
+    # 3. Hapus konten lama untuk memastikan instalasi bersih
+    - /bin/rm -rf ${DEPLOYPATH}/public_html/*
+    - /bin/rm -rf ${DEPLOYPATH}/laravel/*
 
-        # Step 3: Clear the laravel directory if it exists
-        - /bin/rm -rf ${DEPLOYPATH}/laravel/*
+    # 4. Buat kembali direktori laravel
+    - /bin/mkdir -p ${DEPLOYPATH}/laravel
 
-        # Step 4: Copy the contents of the public directory to public_html
-        - /bin/cp -r public/* ${DEPLOYPATH}/public_html/
+    # 5. Salin folder 'public' dari repo ke 'public_html' di server
+    - /bin/cp -r public/* ${DEPLOYPATH}/public_html/
 
-        # Step 5: Create the laravel directory if it doesn't exist
-        - /bin/mkdir -p ${DEPLOYPATH}/laravel
+    # 6. Salin semua file & folder KECUALI 'public' ke direktori 'laravel' di server
+    - /bin/find . -maxdepth 1 -mindepth 1 ! -name "public" -exec /bin/cp -r {} ${DEPLOYPATH}/laravel/ \;
 
-        # Step 6: Copy all other files to the laravel directory
-        - /bin/find . -mindepth 1 -maxdepth 1 -not -name 'public' -exec cp -r {} ${DEPLOYPATH}/laravel/ \;
+    # 7. Sesuaikan path di index.php agar menunjuk ke folder 'laravel'
+    - /bin/sed -i 's|/../bootstrap|/../laravel/bootstrap|g' ${DEPLOYPATH}/public_html/index.php
+    - /bin/sed -i 's|/../vendor|/../laravel/vendor|g' ${DEPLOYPATH}/public_html/index.php
 
-        # Step 7: Replace '/../' with '/../laravel/' in index.php in public_html
-        - /bin/sed -i 's|/../|/../laravel/|g' ${DEPLOYPATH}/public_html/index.php
+    # 8. Pulihkan .env dari backup, atau buat dari .env.example jika ini deploy pertama kali
+    - if [ -f "${DEPLOYPATH}/.env_backup" ]; then /bin/mv -f ${DEPLOYPATH}/.env_backup ${DEPLOYPATH}/laravel/.env; else /bin/cp ${DEPLOYPATH}/laravel/.env.example ${DEPLOYPATH}/laravel/.env; fi
+    
+    # 9. Pindahkan manifest.json dari Vite/Mix build (jika ada)
+    - if [ -f "${DEPLOYPATH}/public_html/build/manifest.json" ]; then /bin/mkdir -p ${DEPLOYPATH}/laravel/public/build && /bin/cp ${DEPLOYPATH}/public_html/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json; fi
 
-        # Step 8: Copy .env.example to .env in the laravel directory
-        - /bin/cp ${DEPLOYPATH}/laravel/.env.example ${DEPLOYPATH}/laravel/.env
-
-        # Step 9: Copy manifest.json to the laravel/public/build directory
-        - /bin/mkdir -p ${DEPLOYPATH}/laravel/public/build
-        - /bin/cp ${DEPLOYPATH}/public_html/build/manifest.json ${DEPLOYPATH}/laravel/public/build/manifest.json
-
-        # Step 10: Copy DEPLOYPATH/.env to DEPLOYPATH/laravel
-        - /bin/mv ${DEPLOYPATH}/.env ${DEPLOYPATH}/laravel
-
-        # Step 11: cache the route
-        - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan route:cache
+    # 10. Jalankan perintah artisan untuk finalisasi & optimasi 🚀
+    - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan key:generate
+    - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan config:cache
+    - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan route:cache
+    - /usr/local/bin/php ${DEPLOYPATH}/laravel/artisan view:cache
