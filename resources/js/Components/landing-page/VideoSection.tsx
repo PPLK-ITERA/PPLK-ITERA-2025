@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Carousel,
   CarouselContent,
@@ -38,7 +37,13 @@ export default function VideoSection() {
         className="absolute right-0 w-[30%] hidden md:block "
       />
 
-      <Carousel className="xl:max-w-4xl md:max-w-xl lg:max-w-2xl relative max-w-xl">
+      <Carousel
+        className="xl:max-w-4xl md:max-w-xl lg:max-w-2xl relative max-w-xl"
+        opts={{
+          align: "start",
+          loop: true, // Aktifkan infinite looping
+        }}
+      >
         <CarouselContent>
           {VideoPPLK.map((video, index) => (
             <CarouselItem key={index}>
