@@ -58,7 +58,7 @@ export const DataAtribut = [
       { text: "Topi ITERA" },
       { text: "Kaos kaki panjang hitam" },
     ],
-    speakMaba: [
+    SpekMaba: [
       { text: "Tumbler berisi air minum (minimal 500 ml)" },
       { text: "Buku PPLK" },
       { text: "ATK (pensil, pulpen, penghapus)" },
@@ -73,7 +73,7 @@ export const DataAtribut = [
       { text: "Oronamin 1 botol" },
       { text: "Snack Roni by PT. Dua Kelinci (minimal 1, ukuran bebas)" },
     ],
-    speakKelompok: [
+    SpekKelompok: [
       { text: "Trashbag besar 1 buah per hari" },
       { text: "Oxycan 2 buah" },
       { text: "Bendera kelompok dan tiangnya" },
@@ -120,7 +120,7 @@ export const DataAtribut = [
       { text: "Ikat pinggang hitam" },
       { text: "Topi ITERA" },
     ],
-    speakMaba: [
+    SpekMaba: [
       { text: "Tumbler berisi air minum (minimal 500 ml)" },
       { text: "Buku PPLK" },
       { text: "ATK (pensil, pulpen, penghapus)" },
@@ -138,7 +138,7 @@ export const DataAtribut = [
       { text: "Oronamin 1 botol" },
       { text: "Sandal jepit" },
     ],
-    speakKelompok: [
+    SpekKelompok: [
       { text: "Trashbag besar 1 buah per hari" },
       { text: "Oxycan 2 buah" },
       { text: "Bendera kelompok dan tiangnya" },
@@ -185,7 +185,7 @@ export const DataAtribut = [
       { text: "Ikat pinggang hitam" },
       { text: "Topi ITERA" },
     ],
-    speakMaba: [
+    SpekMaba: [
       { text: "Tumbler berisi air minum (minimal 500 ml)" },
       { text: "Buku PPLK" },
       { text: "ATK (pensil, pulpen, penghapus)" },
@@ -202,7 +202,7 @@ export const DataAtribut = [
       { text: "Oronamin 1 botol" },
       { text: "Sandal jepit" },
     ],
-    speakKelompok: [
+    SpekKelompok: [
       { text: "Trashbag besar 1 buah per hari" },
       { text: "Oxycan 2 buah" },
       { text: "Bibit tanaman" },
@@ -251,7 +251,7 @@ export const DataAtribut = [
       { text: "Kaos kaki panjang hitam" },
       { text: "Topi ITERA" },
     ],
-    speakMaba: [
+    SpekMaba: [
       { text: "Tumbler berisi air minum (minimal 500 ml)" },
       { text: "Buku PPLK" },
       { text: "ATK (pensil, pulpen, penghapus)" },
@@ -270,7 +270,7 @@ export const DataAtribut = [
       { text: "Permen Woods" },
       { text: "Sandal jepit" },
     ],
-    speakKelompok: [
+    SpekKelompok: [
       { text: "Trashbag besar 1 buah per hari" },
       { text: "Oxycan 2 buah" },
       { text: "Bendera kelompok dan tiangnya" },
@@ -318,7 +318,7 @@ export const DataAtribut = [
       { text: "Kaos kaki hitam" },
       { text: "Topi ITERA" },
     ],
-    speakMaba: [
+    SpekMaba: [
       { text: "Tumbler berisi air minum (minimal 500 ml)" },
       { text: "Buku PPLK" },
       { text: "ATK (pensil, pulpen, penghapus)" },
@@ -336,7 +336,7 @@ export const DataAtribut = [
       { text: "Oronamin 1 botol" },
       { text: "Sandal jepit" },
     ],
-    speakKelompok: [
+    SpekKelompok: [
       { text: "Trashbag besar 1 buah per hari" },
       { text: "Oxycan 2 buah" },
       { text: "Bendera kelompok dan tiangnya" },
@@ -380,7 +380,7 @@ export const DataAtribut = [
       { text: "Kaos kaki panjang hitam" },
       { text: "Topi ITERA" },
     ],
-    speakMaba: [
+    SpekMaba: [
       { text: "Tumbler berisi air minum (minimal 500 ml)" },
       { text: "Buku PPLK" },
       { text: "ATK (pensil, pulpen, penghapus)" },
@@ -398,7 +398,7 @@ export const DataAtribut = [
       { text: "Permen Woods" },
       { text: "Sandal jepit" },
     ],
-    speakKelompok: [
+    SpekKelompok: [
       { text: "Trashbag besar 1 buah per hari" },
       { text: "Oxycan 2 buah" },
       { text: "Bendera kelompok dan tiangnya" },

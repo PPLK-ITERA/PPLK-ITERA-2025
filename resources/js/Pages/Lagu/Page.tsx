@@ -12,7 +12,7 @@ const embedLinks = {
     "https://www.youtube.com/embed/DGXzReYJFkQ?si=mCJEGj4NQaNgdJZM",
   "mars-itera": "https://www.youtube.com/embed/4qMGuIJzZiE?si=GuHoxqZdrEMSQVoA",
   "melodi-mimpi":
-    "https://www.youtube.com/embed/G6U5Ub6v4SU?si=YFGiH8Ed4SImjL_C",
+    "https://youtu.be/Ie4BQCyuGYU?si=gqNosryUv2iijhMQ",
 };
 
 const LYRICS = {
@@ -140,87 +140,45 @@ const LYRICS = {
     {
       id: 4,
       lines: [
-        "Rap:",
-        '"Kita mulai langkah ini dari ITERA',
-        "Berjuang keras, bangun bangsa, jangan pernah menyerah",
-        "Kami datang dari pelosok, dari semua sudut negeri",
-        'Bersatu padu di sini, kuatkan tekad dan visi"',
+        "Kita berasal dari segala penjuru",
+        "Bersama teman baru semua lebih seru",
+        "Dengan penuh semangat menjadi sahabat",
+        "Bersama sama pasti kita hebat",
+        "Merajut mimpi seindah asa",
+        "Kita percaya kita pasti bisa",
       ],
     },
     {
       id: 5,
       lines: [
-        "Jawa:",
-        '"Raih mimpi seduwur langit, gapai kabeh cita',
-        'Dewe generasi emas, delokke semangat membara"',
+        "Reff:",
+        "Kita ada di PPLK ITERA",
+        "Mengawali semua perjuangan kita",
+        "Mencetak generasi penerus bangsa",
+        "Generasi emas Indonesia",
       ],
     },
     {
       id: 6,
       lines: [
-        "Lampung:",
-        "Anjak ITERA guwai indonesia,",
-        "Generasei mas, lapah, gham menjak jamo bekhjayou",
+        "Satu Nusa, Satu Asa",
+        "Untuk Indonesia",
+        "Satu Nusa, Satu Asa",
+        "Untuk Indonesia",
       ],
     },
     {
       id: 7,
       lines: [
-        "Palembang:",
-        "Di PPLK kito belajar membangun karakter kuat",
-        "Samo kawan baru, laju kito nambah mantap",
-        "Dak galak mundur, terus maju, itu dio motto kito",
-        "Bukak mato, bangun cinto, untuk bangso tercinto",
-      ],
-    },
-    {
-      id: 8,
-      lines: [
-        "Batak:",
-        "Hita sude i ITERA on,",
-        "marsada, marhiteon",
-        "Berjuang ditoruni merah putih na dison",
-      ],
-    },
-    {
-      id: 9,
-      lines: [
-        "Minang:",
-        "Dari Minang tibo di ITERA,",
-        "Anak rantau basatu di arena,",
-        "PPLK kini waktunyo kito basatu,",
-        "Semangat juang tinggi, jan sampai diragu.",
-      ],
-    },
-    {
-      id: 10,
-      lines: [
         "Reff:",
         "Kita ada di PPLK ITERA",
         "Mengawali semua perjuangan kita",
         "Mencetak generasi penerus bangsa",
         "Generasi emas Indonesia",
-        "Raih mimpi",
-        "Gapai cita",
-        "Kita luar biasa",
-        "Buka mata",
-        "Bangun cinta",
-        "Untuk Indonesia",
-      ],
-    },
-    {
-      id: 11,
-      lines: ["Oooooo, Ooooooo"],
-    },
-    {
-      id: 12,
-      lines: [
-        "Reff:",
-        "Kita ada di PPLK ITERA",
-        "Mengawali semua perjuangan kita",
-        "Mencetak generasi penerus bangsa",
-        "Generasi emas…Generasi emas.",
+        "Generasi emas......",
+        "Generasi emas",
         "Generasi emas Indonesia",
+        
       ],
     },
   ],
