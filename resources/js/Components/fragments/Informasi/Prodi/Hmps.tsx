@@ -43,7 +43,7 @@ const Hmps = ({ prodi, className }: Props) => {
                   <img
                     src={prodi.hmpsImageUrl}
                     alt="Logo Himpunan"
-                    className="w-40 h-auto object-contain"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
               </div>
