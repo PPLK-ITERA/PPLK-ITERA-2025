@@ -10,6 +10,7 @@ use App\Models\Day;
 use App\Models\Progres;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class TeslaController extends Controller
 {
@@ -411,8 +412,8 @@ class TeslaController extends Controller
     public function getProgresByUserId($id)
     {
         try {
-            $progres = \App\Models\Progres::where('user_id', $id)->get();
-            $nama = \App\Models\User::findOrFail($id)->name;
+            $progres = Progres::where('user_id', $id)->get();
+            $nama = User::findOrFail($id)->name;
         } catch (\Exception $e) {
             return response()->json([
                 'response' => [
@@ -440,6 +441,44 @@ class TeslaController extends Controller
                 'data' => $response
             ],
             'nama' => $nama
+        ]);
+    }
+
+    // Render TTS page with initial data (for Inertia)
+    public function page(Request $request)
+    {
+        $teslas = Tesla::select('nomor', 'tipe', 'pertanyaan', 'jawaban', 'start_row', 'start_col')->get();
+        $day = Day::first();
+        return Inertia::render('Tesla/Page', [
+            'teslas' => $teslas,
+            'day' => $day ? $day->change_day : 'DAY 1',
+            // Optionally, pass user progress/history here if needed
+        ]);
+    }
+
+    // Handle answer submission (POST), redirect back with flash result
+    public function answer(Request $request, $nomor)
+    {
+        $request->validate([
+            'jawaban' => 'required|string',
+        ]);
+        $tesla = Tesla::where('nomor', $nomor)->first();
+        if (!$tesla || !$tesla->jawaban) {
+            return Redirect::back()->with('answer_result', [
+                'status' => 'error',
+                'message' => 'Soal/jawaban tidak ditemukan',
+                'hasil' => 'error',
+            ]);
+        }
+        $userAnswer = strtolower(trim($request->jawaban));
+        $correctAnswer = strtolower(trim($tesla->jawaban));
+        $hasil = $userAnswer === $correctAnswer ? 'benar' : 'salah';
+        return Redirect::back()->with('answer_result', [
+            'status' => 'success',
+            'message' => $hasil === 'benar' ? 'Jawaban benar!' : 'Jawaban salah!',
+            'hasil' => $hasil,
+            'jawaban_user' => $request->jawaban,
+            'nomor' => $nomor,
         ]);
     }
 }
