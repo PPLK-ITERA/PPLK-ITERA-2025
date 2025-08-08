@@ -411,8 +411,8 @@ class TeslaController extends Controller
     public function getProgresByUserId($id)
     {
         try {
-            $progres = \App\Models\Progres::where('user_id', $id)->get();
-            $nama = \App\Models\User::findOrFail($id)->name;
+            $progres = Progres::where('user_id', $id)->get();
+            $nama = User::findOrFail($id)->name;
         } catch (\Exception $e) {
             return response()->json([
                 'response' => [

@@ -67,12 +67,12 @@ export default function Navbar({
 
   return (
     <nav
-      className={`z-50 font-greek tracking-widest ${isFixed ? "fixed left-0 right-0 top-0" : ""} ${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800 md:fixed md:rounded-lg md:left-2 md:right-2 md:top-2 md:shadow-lg" : "bg-transparent"} transition-all duration-300 ease-in`}
+      className={`z-50 font-jakarta tracking-widest ${isFixed ? "fixed left-0 right-0 top-0" : ""} ${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800 md:fixed md:rounded-lg md:left-2 md:right-2 md:top-2 md:shadow-lg" : "bg-transparent"} transition-all duration-300 ease-in`}
     >
       <MaxWidthWrapper className="flex items-center justify-between w-full py-2">
         {/* Logo PPLK*/}
         <Link
-          className="font-greek md:-ml-4 flex items-center justify-start transition duration-300 ease-in-out"
+          className="font-jakarta md:-ml-4 flex items-center justify-start transition duration-300 ease-in-out"
           href="/"
         >
           {isScrolled || isSolid ? (
@@ -121,7 +121,7 @@ export default function Navbar({
                 align="end"
               >
                 <p
-                  className={`pl-[11px] text-[14px] py-[4px] mx-2 font-semibold font-greek ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                  className={`pl-[11px] text-[14px] py-[4px] mx-2 font-semibold font-jakarta ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                 >
                   Hallo, {auth.user.name}
                 </p>
@@ -139,7 +139,7 @@ export default function Navbar({
                   >
                     <Link
                       href={item.href}
-                      className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-greek ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                      className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-jakarta ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                     >
                       <span
                         className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
@@ -157,7 +157,7 @@ export default function Navbar({
                   <Link
                     href={route("logout")}
                     method="post"
-                    className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-greek ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                    className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-jakarta ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                   >
                     <span
                       className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
@@ -172,7 +172,7 @@ export default function Navbar({
           ) : (
             <Link
               href={route("login")}
-              className={`mx-2 rounded-[6px] px-4 py-[10px] font-greek text-[16px] font-semibold  shadow-sm ${isScrolled || isSolid ? "bg-white text-jaffa-950" : "bg-jaffa-400 text-white"} transition duration-300 ease-in-out`}
+              className={`mx-2 rounded-[6px] px-4 py-[10px] font-jakarta text-[16px] font-semibold  shadow-sm ${isScrolled || isSolid ? "bg-white text-jaffa-950" : "bg-jaffa-400 text-white"} transition duration-300 ease-in-out`}
             >
               Login
             </Link>
