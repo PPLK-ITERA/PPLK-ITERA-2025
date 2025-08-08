@@ -5,7 +5,6 @@ import Navbar from "@/Components/Navbar";
 import RelasiLoading from "@/Components/relasi/RelasiLoading";
 import TopKelompok from "@/Components/scoreboard/TopKelompok";
 import { Card } from "@/Components/ui/card";
-import { Progress } from "@/Components/ui/progress";
 
 import { useAos } from "@/lib/hooks/useAos";
 import { DataKelompokScore, DataTopTen } from "@/lib/types/Scoreboard";
@@ -18,28 +17,38 @@ function Page() {
   const [dataTopTen, setDataTopTen] = useState<DataTopTen[]>([]);
   const [dataKelompokScore, setDataKelompokScore] =
     useState<DataKelompokScore | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const getTopTen = async () => {
-    const response = await fetch(route("scoreboard.top-score"), {
-      method: "GET",
-    });
-
-    const data = await response.json();
-    setDataTopTen(data);
+    try {
+      const response = await fetch(route("scoreboard.top-score"), {
+        method: "GET",
+      });
+      const data = await response.json();
+      setDataTopTen(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error("Gagal fetch top score:", error);
+      setDataTopTen([]);
+    }
   };
 
   const getKelompokScore = async () => {
-    const response = await fetch(route("scoreboard.kelompok"), {
-      method: "GET",
-    });
-
-    const data = await response.json();
-    setDataKelompokScore(data);
+    try {
+      const response = await fetch(route("scoreboard.kelompok"), {
+        method: "GET",
+      });
+      const data = await response.json();
+      setDataKelompokScore(data ?? null);
+    } catch (error) {
+      console.error("Gagal fetch kelompok score:", error);
+      setDataKelompokScore(null);
+    }
   };
 
   useEffect(() => {
-    getTopTen();
-    getKelompokScore();
+    Promise.all([getTopTen(), getKelompokScore()]).finally(() =>
+      setLoading(false)
+    );
   }, []);
 
   return (
@@ -53,34 +62,38 @@ function Page() {
           </h1>
 
           <div className="md:max-w-2xl w-full max-w-sm mx-auto">
-            {dataTopTen.length === 0 ? (
+            {loading ? (
               <RelasiLoading className="w-full h-full my-16 text-center text-white" />
-            ) : (
+            ) : dataTopTen.length >= 3 ? (
               <div className="sm:gap-4 md:max-w-2xl lg:gap-8 flex justify-center w-full max-w-lg gap-2 pt-4 overflow-y-hidden text-center">
                 <TopKelompok
-                  kelompok={dataTopTen[1].kelompok}
-                  score={dataTopTen[1].total_score}
+                  kelompok={dataTopTen[1]?.kelompok}
+                  score={dataTopTen[1]?.total_score ?? 0}
                   rank={2}
                   podiumHeight={160}
                   className="w-full text-white"
                 />
 
                 <TopKelompok
-                  kelompok={dataTopTen[0].kelompok}
-                  score={dataTopTen[0].total_score}
+                  kelompok={dataTopTen[0]?.kelompok}
+                  score={dataTopTen[0]?.total_score ?? 0}
                   rank={1}
                   podiumHeight={196}
                   className="w-full text-white"
                 />
 
                 <TopKelompok
-                  score={dataTopTen[2].total_score}
-                  kelompok={dataTopTen[2].kelompok}
+                  kelompok={dataTopTen[2]?.kelompok}
+                  score={dataTopTen[2]?.total_score ?? 0}
                   rank={3}
                   podiumHeight={144}
                   className="w-full text-white"
                 />
               </div>
+            ) : (
+              <p className="text-center text-white my-8">
+                Data belum tersedia
+              </p>
             )}
             <div className="bg-moccaccino-700 w-full h-1"></div>
           </div>
@@ -119,16 +132,20 @@ function Page() {
 
                             <img
                               src={
-                                scoreboard.kelompok.logo_kelompok
+                                scoreboard.kelompok?.logo_kelompok
                                   ? scoreboard.kelompok.logo_kelompok
                                   : logoPplk
                               }
-                              alt={scoreboard.kelompok.nama_kelompok}
+                              alt={
+                                scoreboard.kelompok?.nama_kelompok ??
+                                "Kelompok"
+                              }
                               className="w-16 h-16 rounded-full"
                             />
 
                             <h2 className="font-bold">
-                              {scoreboard.kelompok.nama_kelompok}
+                              {scoreboard.kelompok?.nama_kelompok ??
+                                "Tidak diketahui"}
                             </h2>
                           </div>
 
@@ -145,34 +162,36 @@ function Page() {
           </div>
         </div>
 
-        {dataKelompokScore === null ? null : (
-          <>
-            {dataKelompokScore.position > 10 ? (
-              <Card className="bg-jaffa-300 border-jaffa-600 sticky bottom-0 flex justify-between max-w-2xl mx-auto border rounded-lg">
-                <li className="flex items-center justify-between w-full px-4 py-1">
-                  <div className="flex items-center gap-3">
-                    <p className="text-jaffa-50 text-xl font-bold">
-                      #{dataKelompokScore?.position}
-                    </p>
+        {dataKelompokScore && dataKelompokScore.position > 10 && (
+          <Card className="bg-jaffa-300 border-jaffa-600 sticky bottom-0 flex justify-between max-w-2xl mx-auto border rounded-lg">
+            <li className="flex items-center justify-between w-full px-4 py-1">
+              <div className="flex items-center gap-3">
+                <p className="text-jaffa-50 text-xl font-bold">
+                  #{dataKelompokScore?.position}
+                </p>
 
-                    <img
-                      src={dataKelompokScore?.kelompok.logo_kelompok}
-                      alt={dataKelompokScore?.kelompok.nama_kelompok}
-                      className="w-16 h-16 rounded-full"
-                    />
+                <img
+                  src={
+                    dataKelompokScore?.kelompok?.logo_kelompok ?? logoPplk
+                  }
+                  alt={
+                    dataKelompokScore?.kelompok?.nama_kelompok ??
+                    "Kelompok"
+                  }
+                  className="w-16 h-16 rounded-full"
+                />
 
-                    <h2 className="text-jaffa-50 font-bold">
-                      {dataKelompokScore?.kelompok.nama_kelompok}
-                    </h2>
-                  </div>
+                <h2 className="text-jaffa-50 font-bold">
+                  {dataKelompokScore?.kelompok?.nama_kelompok ??
+                    "Tidak diketahui"}
+                </h2>
+              </div>
 
-                  <p className="bg-jaffa-400 px-2 py-1 font-bold text-white rounded-full">
-                    {dataKelompokScore?.total_score} pts
-                  </p>
-                </li>
-              </Card>
-            ) : null}
-          </>
+              <p className="bg-jaffa-400 px-2 py-1 font-bold text-white rounded-full">
+                {dataKelompokScore?.total_score} pts
+              </p>
+            </li>
+          </Card>
         )}
       </div>
     </>
