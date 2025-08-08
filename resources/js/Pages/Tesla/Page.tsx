@@ -733,6 +733,9 @@ export default function Page() {
             ].slice(0, 6);
             return newHistory;
         });
+        // Tambahkan ini agar history di-refresh dari backend
+        await fetchProgresHistory();
+
         setStarted(false);
         setTime(0);
         setIsPlaying(true);
