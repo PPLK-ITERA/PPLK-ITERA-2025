@@ -1,0 +1,7 @@
+import{j as a,r as s}from"./CIhTuXRG.js";import{b as e}from"./DwymkT3b.js";import{a as i}from"./DUrDnauO.js";import{c}from"./BKM7wPLr.js";
+/**
+ * @license lucide-react v0.399.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const l=c("Ellipsis",[["circle",{cx:"12",cy:"12",r:"1",key:"41hilf"}],["circle",{cx:"19",cy:"12",r:"1",key:"1wjl8i"}],["circle",{cx:"5",cy:"12",r:"1",key:"1pcz8c"}]]),r=({className:s,...e})=>a.jsx("nav",{role:"navigation","aria-label":"pagination",className:i("mx-auto flex w-full justify-center",s),...e});r.displayName="Pagination";const n=s.forwardRef((({className:s,...e},c)=>a.jsx("ul",{ref:c,className:i("flex flex-row items-center gap-1",s),...e})));n.displayName="PaginationContent";const t=s.forwardRef((({className:s,...e},c)=>a.jsx("li",{ref:c,className:i("",s),...e})));t.displayName="PaginationItem";const o=({className:s,isActive:c,size:l="icon",...r})=>a.jsx("a",{"aria-current":c?"page":void 0,className:i(e({variant:c?"outline":"ghost",size:l}),s),...r});o.displayName="PaginationLink";const m=({className:s,...e})=>a.jsxs("span",{"aria-hidden":!0,className:i("flex h-9 w-9 items-center justify-center",s),...e,children:[a.jsx(l,{className:"w-4 h-4"}),a.jsx("span",{className:"sr-only",children:"More pages"})]});m.displayName="PaginationEllipsis";export{r as P,n as a,t as b,o as c,m as d};

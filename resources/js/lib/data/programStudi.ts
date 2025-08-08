@@ -27,7 +27,7 @@ import fotokaprodiperkeretaapian from "!assets/logoprodi/fotokaprodiperkeretaapi
 import fotokaprodipertambangan from "!assets/logoprodi/fotokaprodipertambangan.jpg";
 import fotokaprodipertanian from "!assets/logoprodi/fotokaprodipertanian.jpg";
 import fotokaprodipwk from "!assets/logoprodi/fotokaprodipwk.jpeg";
-// import fotokaprodirekayasainstrumentasi from "!assets/logoprodi/fotokaprodirekayasainstrumentasi.jpg";
+import fotokaprodirekayasainstrumentasi from "!assets/logoprodi/fotokaprodirekayasainstrumentasi.jpg";
 import fotokaprodirekayasakehutanan from "!assets/logoprodi/fotokaprodirekayasakehutanan.jpg";
 import fotokaprodirekayasakeolahragaan from "!assets/logoprodi/fotokaprodirekayasakeolahragaan.jpg";
 import fotokaprodirekayasaminyak from "!assets/logoprodi/fotokaprodirekayasaminyak.png";
@@ -64,6 +64,7 @@ import kahimhmbm from "!assets/logoprodi/kahimhmbm.jpg";
 import kahimhmdkv from "!assets/logoprodi/kahimhmdkv.jpeg";
 import kahimhme from "!assets/logoprodi/kahimhme.png";
 import kahimhmgl from "!assets/logoprodi/kahimhmgl.jpg";
+import kahimhmg from "!assets/logoprodi/kahimhmg.jpg";
 import kahimhmia from "!assets/logoprodi/kahimhmia.jpg";
 import kahimbiologi from "!assets/logoprodi/kahimbiologi.jpg";
 import kahimhmif from "!assets/logoprodi/kahimhmif.jpg";
@@ -73,6 +74,7 @@ import kahimhms from "!assets/logoprodi/kahimhms.jpg";
 import kahimhmsd from "!assets/logoprodi/kahimhmsd.png";
 import kahimhmse from "!assets/logoprodi/kahimhmse.jpg";
 import kahimhmta from "!assets/logoprodi/kahimhmta.jpg";
+import kahimhmtl from "!assets/logoprodi/kahimhmtl.png";
 import kahimhmtf from "!assets/logoprodi/kahimhmtf.jpg";
 import kahimhmtg from "!assets/logoprodi/kahimhmtg.jpg";
 import kahimhmti from "!assets/logoprodi/kahimhmti.jpg";
@@ -741,7 +743,7 @@ export const programStudies: ProgramStudi[] = [
       "Melakukan pengabdian kepada masyarakat melalui penerapan hasil penelitian",
       "Menjalin kerja sama dengan institusi, lembaga pemerintah, industri pertambangan dalam bidang pendidikan, penelitian, dan pengabdian kepada masyarakat",
     ],
-    coordinatorPhoto: fotokaprodiinformatika,
+    coordinatorPhoto: fotokaprodipertambangan,
     coordinatorName: "ALIO JASIPTO, S.T., M.T.",
     kk: [
       {
@@ -1004,7 +1006,7 @@ export const programStudies: ProgramStudi[] = [
       "Melakukan kegiatan penelitian yang dapat menghasilkan pengembangan teknologi yang inovatif dalam bidang telekomunikasi.",
       "Menyelenggarakan kegiatan pengabdian kepada masyarakat yang memanfaatkan teknologi telekomunikasi untuk mewujudkan masyarakat yang cakap teknologi.",
     ],
-    coordinatorPhoto: "",
+    coordinatorPhoto: fotokaproditelekomunikasi,
     coordinatorName: "Novalia Pertiwi, S.Pd, M.T",
     kk: [
       {
@@ -1253,7 +1255,7 @@ Program Studi ini hadir bersamaan dengan 2 program studi baru yang ada di ITERA 
       "Mengembangkan keunggulan dalam penelitian dan pengabdian kepada masyarakat dalam bidang Rekayasa Instrumentasi dan Automasi serta mampu menyelesaikan masalah di sumatera untuk Indonesia dan dunia.",
       "Menjalin koneksi kerjasama yang berkelanjutan dengan dunia usaha, dunia industri (DUDI) dan pemerintahan di tingkat nasional maupun internasional dalam rangka mendukung penyelenggaraan Tridharma Perguruan Tinggi.",
     ],
-    coordinatorPhoto: "",
+    coordinatorPhoto: fotokaprodirekayasainstrumentasi,
     coordinatorName: "Yusuf Affandi, S.Pd., M.Sc.",
     kk: [
       {
@@ -1308,7 +1310,7 @@ Program Studi ini hadir bersamaan dengan 2 program studi baru yang ada di ITERA 
       "Menghasilkan karya dan inovasi di bidang Kehutanan Tropika melalui edukasi, penelitian, dan pengembangan, serta pengabdian masyarakat.",
       "Mewujudkan komitmen, tanggung jawab, dan kepedulian moral terhadap pembangunan berkelanjutan dan kelestarian sumber daya hayati pada lulusan sarjana Rekayasa Kehutanan",
     ],
-    coordinatorPhoto: "",
+    coordinatorPhoto: fotokaprodirekayasakehutanan,
     coordinatorName: "Khoryfatul Munawaroh, S Hut., M Si",
     kk: [
       {
@@ -1347,6 +1349,7 @@ Program Studi ini hadir bersamaan dengan 2 program studi baru yang ada di ITERA 
     hmpsDescrption:
       "Forestry Engineering Student Association yang disingkat menjadi FORESTA termasuk himpunan mahasiswa Rekayasa kehutanan. Foresta terbentuk pada tanggal 23 Maret 2021",
     kahim: "Rezki Desnata Sitepu",
+    
     hmpsActivities: [
       {
         title: "Seminar Nasional",
@@ -2295,7 +2298,7 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     hmpsImageUrl: logohmp,
     hmpsAcronym: "HMP",
     hmpsDescrption:
-      "Himpunan Mahasiswa Sains Aktuaria Institut Teknologi Sumatera (HIMAKTU ITERA) yang didirikan pada tanggal 5 Januari 2021 merupakan himpunan mahasiswa dengan latar belakang keilmuan Sains Aktuaria. HIMAKTU ITERA menaungi mahasiswa S1 Prodi Sains Aktuaria ITERA dengan tujuan mewadahi anggotanya dalam mengamalkan Tri Dharma Perguruan Tinggi dan mengembangkan kemampuannya baik akademik maupun non akademik. HIMAKTU ITERA berasaskan kekeluargaan dan profesionalisme dengan berlandaskan Pancasila dan Tri Dharma Perguruan Tinggi dan bersifat efektif, efisien, transparan, aspiratif, demokratis, adil, dan akuntabel.",
+      "HMP Mandalanata ITERA merupakan himpunan mahasiswa Program Studi Perencanaan Wilayah dan Kota yang menjadi wadah aspirasi, pengembangan diri, dan solidaritas antaranggota. HMP Mandalanata berperan aktif dalam mendukung kegiatan akademik maupun nonakademik mahasiswa PWK. Melalui berbagai program kerja, HMP Mandalanata turut mendorong terciptanya lingkungan yang kolaboratif, kritis, dan berwawasan perencanaan.",
     kahim: "Muhammad Andhika Refaldy",
     kahimPhoto: kahimpwk,
     hmpsActivities: [
@@ -2344,7 +2347,7 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
       "Menyelesaikan persoalan-persoalan dalam lingkup aplikasi teknologi survei dan pemetaan serta sains informasi geografis.",
       "Melaksanakan penelitian dan mendayagunakan hasil penelitian.",
     ],
-    coordinatorPhoto: "",
+    coordinatorPhoto: fotokaprodigeomatika,
     coordinatorName: "Nirmawana Simarmata. S.Pd., M.Sc.",
     kk: [
       {
@@ -2374,6 +2377,7 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     hmpsDescrption:
       "Himpunan Mahasiswa Geomatika (HMG) pada awalnya berdiri dengan nama IMGG (Ikatan Mahasiswa Geodesi dan Geomatika) di Institut Teknologi Sumatera. Namun, pada tahun 2013 nama IMGG diubah menjadi HMG atas Peraturan Rektor terkait Peraturan Organisasi Mahasiswa di ITERA.",
     kahim: "Musa Damar Hadi",
+    kahimPhoto: kahimhmg,
     hmpsActivities: [
       {
         title: "Orientera",
@@ -2463,6 +2467,7 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     hmpsDescrption:
       "Himpunan Mahasiswa Teknik Lingkungan (HMTL) merupakan wadah organisasi kemahasiswaan yang berdiri dari mahasiswa Teknik Lingkungan. Organisasi ini berada di Institut Teknologi Sumatera dan berdiri pada tanggal 19 Februari 2018. Himpunan ini merupakan perwujudan hasrat bersama untuk berkarya, berjuang, membina seta menampung segenap potensi mahasiswa.",
     kahim: "Marchel Timoti Purba",
+    kahimPhoto: kahimhmtl,
     hmpsActivities: [
       {
         title: "IISMA Awardee 2024",
