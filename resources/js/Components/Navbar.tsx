@@ -67,12 +67,12 @@ export default function Navbar({
 
   return (
     <nav
-      className={`z-50 font-jakarta tracking-widest ${isFixed ? "fixed left-0 right-0 top-0" : ""} ${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800 md:fixed md:rounded-lg md:left-2 md:right-2 md:top-2 md:shadow-lg" : "bg-transparent"} transition-all duration-300 ease-in`}
+      className={`z-50 tracking-widest ${isFixed ? "fixed left-0 right-0 top-0" : ""} ${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800 md:fixed md:rounded-lg md:left-2 md:right-2 md:top-2 md:shadow-lg" : "bg-transparent"} transition-all duration-300 ease-in`}
     >
       <MaxWidthWrapper className="flex items-center justify-between w-full py-2">
         {/* Logo PPLK*/}
         <Link
-          className="font-jakarta md:-ml-4 flex items-center justify-start transition duration-300 ease-in-out"
+          className="font-greek md:-ml-4 flex items-center justify-start transition duration-300 ease-in-out"
           href="/"
         >
           {isScrolled || isSolid ? (

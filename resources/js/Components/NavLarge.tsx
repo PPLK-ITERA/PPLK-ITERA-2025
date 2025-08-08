@@ -25,7 +25,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
   const router = usePage().url;
 
   return (
-    <div className="hidden max-w-[800px] md:flex gap-2 xl:-ml-20 -ml-4">
+    <div className="hidden max-w-[800px] md:flex gap-2 xl:-ml-20 -ml-4 font-greek">
       <Link
         href="/"
         className={`lg:mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold  text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
