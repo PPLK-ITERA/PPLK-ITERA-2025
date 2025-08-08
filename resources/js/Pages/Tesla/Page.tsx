@@ -703,38 +703,28 @@ export default function Page() {
         return null;
     };
 
-    // Fungsi untuk simpan progres ke backend (pakai POST /api/progres)
+    // Fungsi untuk simpan progres ke localStorage
     const handleSaveProgress = async () => {
+        const newEntry = {
+            time,
+            percentage: progress.percentage,
+            answered: progress.answered,
+            total: progress.total,
+            date: new Date().toLocaleString(),
+            score: progress.answered * 10,
+        };
+        // Ambil history dari localStorage
+        let historyArr: typeof history = [];
         try {
-            await axios.post('/api/progres/', {
-                tanggal: new Date().toISOString(),
-                waktu: time,
-                selesai: progress.percentage,
-                jawaban: `${progress.answered}/${progress.total}`,
-                skor: progress.answered * 10,
-            });
-        } catch (e: any) {
-            if (e?.response?.status === 401) {
-                alert('Anda belum login. Silakan login untuk menyimpan progres.');
+            const raw = localStorage.getItem('tesla_progress_history');
+            if (raw) {
+                historyArr = JSON.parse(raw);
             }
-            // Optional: tampilkan error toast/modal
-        }
-        setHistory(prev => {
-            const newHistory = [
-                {
-                    time,
-                    percentage: progress.percentage,
-                    answered: progress.answered,
-                    total: progress.total,
-                    date: new Date().toLocaleString(),
-                    score: progress.answered * 10,
-                },
-                ...prev,
-            ].slice(0, 6);
-            return newHistory;
-        });
-        // Tambahkan ini agar history di-refresh dari backend
-        await fetchProgresHistory();
+        } catch { }
+        // Tambahkan entry baru di depan, max 6
+        historyArr = [newEntry, ...historyArr].slice(0, 6);
+        localStorage.setItem('tesla_progress_history', JSON.stringify(historyArr));
+        setHistory(historyArr);
 
         setStarted(false);
         setTime(0);
@@ -748,49 +738,16 @@ export default function Page() {
         setTempWrongAnswers({});
     };
 
-    // Fungsi untuk ambil riwayat progres dari backend (pakai GET /api/progres)
+    // Fungsi untuk ambil riwayat progres dari localStorage
     const fetchProgresHistory = async () => {
+        let historyArr: typeof history = [];
         try {
-            const res = await axios.get('/api/progres/');
-            if (Array.isArray(res.data.data)) {
-                setHistory(
-                    res.data.data.map(item => ({
-                        time: item.waktu,
-                        percentage: item.selesai,
-                        answered: parseInt(item.jawaban.split('/')[0]),
-                        total: parseInt(item.jawaban.split('/')[1]),
-                        date: new Date(item.tanggal).toLocaleString(),
-                        score: item.skor,
-                    }))
-                );
+            const raw = localStorage.getItem('tesla_progress_history');
+            if (raw) {
+                historyArr = JSON.parse(raw);
             }
-        } catch (e: any) {
-            if (e?.response?.status === 401) {
-                alert('Anda belum login. Silakan login untuk melihat progres Anda.');
-            }
-            // Optional: tampilkan error toast/modal
-        }
-    };
-
-    // Fungsi untuk ambil riwayat progres dari backend berdasarkan user id tertentu
-    const fetchProgresHistoryByUserId = async (userId: number | string) => {
-        try {
-            const res = await axios.get(`/api/progres/user/${userId}`);
-            if (Array.isArray(res.data.data)) {
-                setHistory(
-                    res.data.data.map(item => ({
-                        time: item.waktu,
-                        percentage: item.selesai,
-                        answered: parseInt(item.jawaban.split('/')[0]),
-                        total: parseInt(item.jawaban.split('/')[1]),
-                        date: new Date(item.tanggal).toLocaleString(),
-                        score: item.skor,
-                    }))
-                );
-            }
-        } catch (e) {
-            // Optional: tampilkan error toast/modal
-        }
+        } catch { }
+        setHistory(historyArr);
     };
 
     const boardMaxWidth = 640 + 420 + 32; // 640px (dropdown max) + 420px (progress max) + gap
