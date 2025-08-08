@@ -54,7 +54,7 @@ export const CellAction: React.FC<CellActionProps> = ({
           Edit
         </Link>
 
-        {auth.user.role_id !== 3 ? null : (
+        {!(auth.user.role_id == 2 || auth.user.role_id == 3 || auth.user.role_id == 4) ? null : (
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <Button className="gap-2" size={"sm"} variant={"destructive"}>
