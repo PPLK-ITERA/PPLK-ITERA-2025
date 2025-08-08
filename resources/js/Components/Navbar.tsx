@@ -121,7 +121,7 @@ export default function Navbar({
                 align="end"
               >
                 <p
-                  className={`pl-[11px] text-[14px] py-[4px] mx-2 font-semibold font-greek ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                  className={`pl-[11px] text-[14px] py-[4px] mx-2 font-semibold font-jakarta ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                 >
                   Hallo, {auth.user.name}
                 </p>
@@ -139,7 +139,7 @@ export default function Navbar({
                   >
                     <Link
                       href={item.href}
-                      className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-greek ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                      className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-jakarta ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                     >
                       <span
                         className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
@@ -157,7 +157,7 @@ export default function Navbar({
                   <Link
                     href={route("logout")}
                     method="post"
-                    className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-greek ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                    className={`mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-jakarta ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                   >
                     <span
                       className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
@@ -172,7 +172,7 @@ export default function Navbar({
           ) : (
             <Link
               href={route("login")}
-              className={`mx-2 rounded-[6px] px-4 py-[10px] font-greek text-[16px] font-semibold  shadow-sm ${isScrolled || isSolid ? "bg-white text-jaffa-950" : "bg-jaffa-400 text-white"} transition duration-300 ease-in-out`}
+              className={`mx-2 rounded-[6px] px-4 py-[10px] font-jakarta text-[16px] font-semibold  shadow-sm ${isScrolled || isSolid ? "bg-white text-jaffa-950" : "bg-jaffa-400 text-white"} transition duration-300 ease-in-out`}
             >
               Login
             </Link>
