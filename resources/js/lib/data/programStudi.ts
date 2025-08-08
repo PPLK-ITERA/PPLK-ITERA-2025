@@ -24,7 +24,7 @@ import fotokaprodimaterial from "!assets/logoprodi/fotokaprodimaterial.jpg";
 import fotokaprodimesin from "!assets/logoprodi/fotokaprodimesin.jpg";
 import fotokaprodipariwisata from "!assets/logoprodi/fotokaprodipariwisata.jpg";
 import fotokaprodiperkeretaapian from "!assets/logoprodi/fotokaprodiperkeretaapian.jpg";
-import fotokaprodipertambangan from "!assets/logoprodi/fotokaprodipertambangan.jpg";
+import fotokaprodipertambangan from "!assets/logoprodi/kaproditambang.jpg";
 import fotokaprodipertanian from "!assets/logoprodi/fotokaprodipertanian.jpg";
 import fotokaprodipwk from "!assets/logoprodi/fotokaprodipwk.jpeg";
 import fotokaprodirekayasainstrumentasi from "!assets/logoprodi/fotokaprodirekayasainstrumentasi.jpg";
