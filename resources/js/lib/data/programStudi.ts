@@ -362,6 +362,9 @@ import kegiatanaktu3 from "!assets/logoprodi/kegiatanaktu3.jpg";
 import kegiatanaktu4 from "!assets/logoprodi/kegiatanaktu4.jpg";
 import cibtindustri from "!assets/logoprodi/cibtindustri.jpg";
 import datapudi from "!assets/logoprodi/datapudi.png";
+import kegiatanslaut1 from "!assets/logoprodi/kegiatanslaut1.jpg";
+import kegiatanslaut2 from "!assets/logoprodi/kegiatanslaut2.png";
+import kegiatanslaut3 from "!assets/logoprodi/kegiatanslaut3.png";
 
 export const PRODI_DATA = [
   { id: 1, value: "biologi", label: "BIOLOGI" },
@@ -546,28 +549,13 @@ export const programStudies: ProgramStudi[] = [
       "Mengembangkan program pendidikan teknik geofisika yang unggul, berdaya bersaing serta mampu membina kemampuan berpikir kritis, kreatif, cerdas dan bertanggung jawab.",
       "Melaksanakan kegiatan penelitian dan pengabdian kepada masyarakat untuk mendorong peningkatan IPTEK yang menunjang proses pembelajaran melalui penerapan ilmu teknik geofisika yang inovatif, berkualitas, dan tanggap terhadap perkembangan dan tantangan lokal maupun global.",
       "Memberikan kontribusi nyata terhadap penciptaan, diseminasi IPTEK serta penerapannya bagi peningkatan kesejahteraan masyarakat dan pengembangan sumber daya kebumian wilayah.",
-      "Turut andil dalam pemberdayaan potensi kebumian secara optimal melalui keunggulan dalam pendidikan, penelitian, dan pengabdian kepada masyarakat,Menjalin kerja sama dengan pihak pemerintah, perguruan tinggi dalam dan luar negeri, industri, organisasi profesi, serta masyarakat dalam rangka mendukung penyelenggaraan Tridharma Perguruan Tinggi.",
+      "Turut andil dalam pemberdayaan potensi kebumian secara optimal melalui keunggulan dalam pendidikan, penelitian, dan pengabdian kepada masyarakat",
+      "Menjalin kerja sama dengan pihak pemerintah, perguruan tinggi dalam dan luar negeri, industri, organisasi profesi, serta masyarakat dalam rangka mendukung penyelenggaraan Tridharma Perguruan Tinggi.",
     ],
     coordinatorPhoto: fotokaprodigeofisika,
     coordinatorName: "Purwaditya Nugraha, S.Si., M.T.",
     kk: [
-      {
-        title: "Seismologi",
-        description: "",
-      },
-      {
-        title: "Geodinamika",
-        description: "",
-      },
-      {
-        title: "Seismik Eksplorasi",
-        description: "",
-      },
 
-      {
-        title: "Geomagnetisme & Geo-Eletromagnetisme",
-        description: "",
-      },
     ],
     instagramUrl: "https://www.instagram.com/tg_itera",
     youtubeUrl: "https://youtube.com/@teknikgeofisikaitera8163",
@@ -917,7 +905,7 @@ export const programStudies: ProgramStudi[] = [
     hmpsInstagramUrl: "https://www.instagram.com/himagrin_itera/",
     hmpsYoutubeUrl: "https://www.youtube.com/@HIMAGRINITERA",
     hmpsWebsiteUrl: "http://tip.itera.ac.id/",
-    hmpsTiktokUrl: "https://www.tiktok.com/@/himagrinitera",
+    hmpsTiktokUrl: "https://www.tiktok.com/@himagrinitera",
   },
 
   {
@@ -2155,7 +2143,7 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     hmpsInstagramUrl: "https://www.instagram.com/himatepa_itera/",
     hmpsYoutubeUrl: "",
     hmpsWebsiteUrl: "",
-    hmpsTiktokUrl: "https://www.tiktok.com/@/Himatepa.Itera",
+    hmpsTiktokUrl: "https://www.tiktok.com/@himatepa.itera",
   },
 
   //DATA FTIK
@@ -3842,17 +3830,17 @@ PS SLL pertama menerima mahasiswa di tahun 2020 dengan jumlah mahasiswa yang dit
       {
         title: "Bronze medal essay tingkat Nasional",
         description: "",
-        documentation:kegiatandefault
+        documentation:kegiatanslaut1
         },
         {
         title: "Lolos pendanaan PKM di Kota karang",
         description: "",
-        documentation:kegiatandefault
+        documentation:kegiatanslaut2
         },
         {
         title: "Juara 2 Voli pasir 4x4 pada ajang Pomprov Lampung 2025",
         description: "",
-        documentation:kegiatandefault
+        documentation:kegiatanslaut3
         },
     ],
     instagramUrl: "https://www.instagram.com/sll_itera/",

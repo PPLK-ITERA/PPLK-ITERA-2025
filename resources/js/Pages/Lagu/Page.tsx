@@ -11,8 +11,7 @@ const embedLinks = {
   "hymne-itera":
     "https://www.youtube.com/embed/DGXzReYJFkQ?si=mCJEGj4NQaNgdJZM",
   "mars-itera": "https://www.youtube.com/embed/4qMGuIJzZiE?si=GuHoxqZdrEMSQVoA",
-  "melodi-mimpi":
-    "https://youtu.be/Ie4BQCyuGYU?si=gqNosryUv2iijhMQ",
+  "melodi-mimpi":"https://youtu.be/Ie4BQCyuGYU?si=kNMvLUlyorIG2Fjs",
 };
 
 const LYRICS = {
