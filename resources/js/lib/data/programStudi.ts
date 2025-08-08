@@ -2298,7 +2298,7 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     hmpsImageUrl: logohmp,
     hmpsAcronym: "HMP",
     hmpsDescrption:
-      "Himpunan Mahasiswa Sains Aktuaria Institut Teknologi Sumatera (HIMAKTU ITERA) yang didirikan pada tanggal 5 Januari 2021 merupakan himpunan mahasiswa dengan latar belakang keilmuan Sains Aktuaria. HIMAKTU ITERA menaungi mahasiswa S1 Prodi Sains Aktuaria ITERA dengan tujuan mewadahi anggotanya dalam mengamalkan Tri Dharma Perguruan Tinggi dan mengembangkan kemampuannya baik akademik maupun non akademik. HIMAKTU ITERA berasaskan kekeluargaan dan profesionalisme dengan berlandaskan Pancasila dan Tri Dharma Perguruan Tinggi dan bersifat efektif, efisien, transparan, aspiratif, demokratis, adil, dan akuntabel.",
+      "HMP Mandalanata ITERA merupakan himpunan mahasiswa Program Studi Perencanaan Wilayah dan Kota yang menjadi wadah aspirasi, pengembangan diri, dan solidaritas antaranggota. HMP Mandalanata berperan aktif dalam mendukung kegiatan akademik maupun nonakademik mahasiswa PWK. Melalui berbagai program kerja, HMP Mandalanata turut mendorong terciptanya lingkungan yang kolaboratif, kritis, dan berwawasan perencanaan.",
     kahim: "Muhammad Andhika Refaldy",
     kahimPhoto: kahimpwk,
     hmpsActivities: [
