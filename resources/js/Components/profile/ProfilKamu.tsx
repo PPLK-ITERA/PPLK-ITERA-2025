@@ -58,7 +58,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                   htmlFor="linkedin"
                   className="block text-sm mb-1"
                 >
-                LinkedIn
+                Link LinkedIn
                 </label>
 
 
@@ -71,7 +71,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                       setData("linkedinURL", e.target.value);
                     }}
                     placeholder="ex. https://www.linkedin.com/in/username/"
-                    className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
+                    className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10 p-1"
                   />
                   <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none ">
                     <img src="/image/profile/lock.png" className="w-[20px] ml-1" />
@@ -97,7 +97,7 @@ const ProfilKamu = ({ props }: { props: UserResponse }) => {
                       setData("instagramURL", e.target.value);
                     }}
                     placeholder="ex. https://www.instagram.com/pplkitera/"
-                    className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10"
+                    className="xl:max-w-[396px] xl:max-h-[44px] w-full h-full rounded-sm border border-jaffa-600 bg-white text-monserrat text-[16px] pl-10 p-1"
                   />
                   <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
                                 <img src="/image/profile/lock.png" className="w-[20px] ml-1" />

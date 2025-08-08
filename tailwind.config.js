@@ -141,6 +141,7 @@ export default {
                 greek: ["GreekFreak"],
                 poppins: ["Poppins"],
                 inter: ["Inter"],
+                jakarta: ["Plus Jakarta Sans"],
             },
             backgroundImage: {
                 "hero-image": "url('!assets/hero-background.png')",
