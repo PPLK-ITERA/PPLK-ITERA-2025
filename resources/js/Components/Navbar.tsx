@@ -121,7 +121,7 @@ export default function Navbar({
                                 align="end"
                             >
                                 <p
-                                    className={`pl-[11px] text-[14px] py-[4px] mx-2 font-semibold font-jakarta ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                                    className={`pl-[11px] text-[14px] py-[4px] mx-2 font-semibold font-jakarta font-greek ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                                 >
                                     Hallo, {auth.user.name}
                                 </p>

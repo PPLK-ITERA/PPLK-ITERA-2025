@@ -20,162 +20,182 @@ import lembagapers_itera from "!assets/media-patners/lembagapers_itera.png";
 import radio_rri from "!assets/media-patners/radio-rri.png";
 
 export const VideoPPLK = [
-  {
-    id: 1,
-    embed: (
-      <iframe
-        className="w-full h-full min-h-[200px]"
-        src="https://www.youtube.com/embed/Ie4BQCyuGYU"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen={true}
-      />
-    ),
-  },
-  {
-    id: 2,
-    embed: (
-      <iframe
-        className="w-full h-full min-h-[200px]"
-        src="https://www.youtube.com/embed/8nq8zmAzZs0"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen={true}
-      />
-    ),
-  },
-  {
-    id: 3,
-    embed: (
-      <iframe
-        className="w-full h-full"
-        src="https://www.youtube.com/embed/SZZn5dZxhcc"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen={true}
-      />
-    ),
-  },
-  {
-    id: 4,
-    embed: (
-      <iframe
-        className="w-full h-full"
-        src="https://www.youtube.com/embed/jWk9R4TVHQU"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen={true}
-      />
-    ),
-  },
-  {
-    id: 5,
-    embed: (
-      <iframe
-        className="w-full h-full"
-        src="https://www.youtube.com/embed/UzBdg7CncZE"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen={true}
-      />
-    ),
-  },
-  {
-    id: 6,
-    embed: (
-      <iframe
-        className="w-full h-full"
-        src="https://www.youtube.com/embed/bN4kJ4tPQE4"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen={true}
-      />
-    ),
-  },
+    {
+        id: 1,
+        embed: (
+            <iframe
+                className="w-full h-full min-h-[200px]"
+                src="https://www.youtube.com/embed/Ie4BQCyuGYU"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen={true}
+            />
+        ),
+    },
+    {
+        id: 2,
+        embed: (
+            <iframe
+                className="w-full h-full min-h-[200px]"
+                src="https://www.youtube.com/embed/8nq8zmAzZs0"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen={true}
+            />
+        ),
+    },
+    {
+        id: 3,
+        embed: (
+            <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/SZZn5dZxhcc"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen={true}
+            />
+        ),
+    },
+    {
+        id: 4,
+        embed: (
+            <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/jWk9R4TVHQU"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen={true}
+            />
+        ),
+    },
+    {
+        id: 5,
+        embed: (
+            <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/UzBdg7CncZE"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen={true}
+            />
+        ),
+    },
+    {
+        id: 6,
+        embed: (
+            <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/bN4kJ4tPQE4"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen={true}
+            />
+        ),
+    },
 ];
 
 export const data_media_partner = [
-  {
-    name: "A Radio",
-    src: a_radio,
-  },
-  {
-    name: "Event Lampung",
-    src: eventlampung,
-  },
-  {
-    name: "Info Kyai",
-    src: infokyai,
-  },
-  {
-    name: "Lampung Folk",
-    src: lampungfolk,
-  },
-  {
-    name: "Lampung Geh",
-    src: lampunggeh,
-  },
-  {
-    name: "Lembaga Pers ITERA",
-    src: lembagapers_itera,
-  },
-  {
-    name: "Radio RRI",
-    src: radio_rri,
-  },
+    {
+        id: 1,
+        name: "A Radio",
+        src: a_radio,
+    },
+    {
+        id: 2,
+        name: "Event Lampung",
+        src: eventlampung,
+    },
+    {
+        id: 3,
+        name: "Info Kyai",
+        src: infokyai,
+    },
+    {
+        id: 4,
+        name: "Lampung Folk",
+        src: lampungfolk,
+    },
+    {
+        id: 5,
+        name: "Lampung Geh",
+        src: lampunggeh,
+    },
+    {
+        id: 6,
+        name: "Lembaga Pers ITERA",
+        src: lembagapers_itera,
+    },
+    {
+        id: 7,
+        name: "Radio RRI",
+        src: radio_rri,
+    },
 ];
 
 export const data_sponsor = [
-  {
-    name: "Good Day",
-    src: goodday,
-  },
-  {
-    name: "Mandiri",
-    src: mandiri,
-  },
-  {
-    name: "Wardah",
-    src: wardah,
-  },
-  {
-    name: "Emina",
-    src: emina,
-  },
-  {
-    name: "Khaf",
-    src: khaf,
-  },
-  {
-    name: "Lirik Kita",
-    src: lirik_kita,
-  },
-  {
-    name: "Fitbar",
-    src: fitbar,
-  },
-  {
-    name: "Elmufid",
-    src: elmufid,
-  },
-  {
-    name: "Arutara",
-    src: arutara,
-  },
-  {
-    name: "Asoka",
-    src: asoka,
-  },
-  {
-    name: "Earnest Aparel",
-    src: earnest_aparel,
-  },
-  {
-    name: "Rumah Masker",
-    src: rumah_masker,
-  },
-  {
-    name: "Erlangga",
-    src: erlangga,
-  },
+    {
+        id: 1,
+        name: "Good Day",
+        src: goodday,
+    },
+    {
+        id: 2,
+        name: "Mandiri",
+        src: mandiri,
+    },
+    {
+        id: 3,
+        name: "Wardah",
+        src: wardah,
+    },
+    {
+        id: 4,
+        name: "Emina",
+        src: emina,
+    },
+    {
+        id: 5,
+        name: "Khaf",
+        src: khaf,
+    },
+    {
+        id: 6,
+        name: "Lirik Kita",
+        src: lirik_kita,
+    },
+    {
+        id: 7,
+        name: "Fitbar",
+        src: fitbar,
+    },
+    {
+        id: 8,
+        name: "Elmufid",
+        src: elmufid,
+    },
+    {
+        id: 9,
+        name: "Arutara",
+        src: arutara,
+    },
+    {
+        id: 10,
+        name: "Asoka",
+        src: asoka,
+    },
+    {
+        id: 11,
+        name: "Earnest Aparel",
+        src: earnest_aparel,
+    },
+    {
+        id: 12,
+        name: "Rumah Masker",
+        src: rumah_masker,
+    },
+    {
+        id: 13,
+        name: "Erlangga",
+        src: erlangga,
+    },
 ];

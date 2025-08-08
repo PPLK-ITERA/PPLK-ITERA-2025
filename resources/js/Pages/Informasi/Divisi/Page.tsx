@@ -69,7 +69,7 @@ const Page = () => {
         },
         {
             id: 3,
-            name: 'APOLLONIX',
+            name: 'APOLLIORA',
             title: 'Apollo (dewa seni dan cahaya) + ora (waktu, suara, ritme)',
             makna: "Makna: Penjaga harmoni waktu dan suasana, perancang momen-momen megah.",
             icon: logo_3,
@@ -78,7 +78,7 @@ const Page = () => {
         },
         {
             id: 4,
-            name: 'ATHENASTRA',
+            name: 'HEFAKRIY',
             title: 'Hephaistos (dewa kerja teknis) + kriya (aksi nyata)',
             makna: "Makna: Pelaksana nyata yang merancang dan menggerakkan mekanisme teknis",
             icon: logo_4,

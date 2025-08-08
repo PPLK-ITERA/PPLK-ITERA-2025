@@ -135,7 +135,7 @@ const Page = ({ response }) => {
 
     return (
         <>
-            <Head title={`myprofile`} />
+            <Head title={`Profil Saya`} />
             {/* PATERN BARU */}
             <div className=""
                 style={{

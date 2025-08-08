@@ -77,14 +77,14 @@ export default function NavMobile({
                         <Accordion type="single" collapsible className="w-full">
                             <Link
                                 href="/"
-                                className={`text-[18px] font-bold text-white transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
+                                className={`text-[18px] font-bold text-white font-greek transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
                             >
                                 Beranda
                             </Link>
 
                             <AccordionItem value="item-1">
                                 <AccordionTrigger
-                                    className={`text-[18px] font-bold text-white transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
+                                    className={`text-[18px] font-bold text-white font-greek transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
                                 >
                                     Informasi
                                 </AccordionTrigger>
@@ -107,7 +107,7 @@ export default function NavMobile({
 
                             <AccordionItem value="item-2" className="-mt-4 border-none">
                                 <AccordionTrigger
-                                    className={`text-[18px] font-bold text-white transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
+                                    className={`text-[18px] font-bold text-white font-greek transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
                                 >
                                     Mahasiswa Baru
                                 </AccordionTrigger>
@@ -123,7 +123,7 @@ export default function NavMobile({
                                             </Link>
                                         ))}
                                         <a
-                                            href="https://drive.google.com/drive/folders/1jsJHZSWUynxDs1P_URlCwz2l1um6voUf?usp=sharing"
+                                            href="https://drive.google.com/drive/folders/1nxipOqCI8SckF3-kR_yL0VME5FJCbbAg?usp=sharing"
                                             target="_blank"
                                             className={`ml-2 text-[18px] font-bold text-white transition duration-200 ease-in`}
                                         >
@@ -135,7 +135,7 @@ export default function NavMobile({
 
                             <Link
                                 href="/faq"
-                                className={`text-[18px] font-bold text-white transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
+                                className={`text-[18px] font-bold text-white font-greek transition duration-200 ease-in focus:border-none focus:outline-none ring-0 focus:ring-0 border-none outline-none`}
                             >
                                 FAQ
                             </Link>
@@ -157,7 +157,7 @@ export default function NavMobile({
                                                 color="white"
                                                 className="place-items-end"
                                             />
-                                            <p className="font-semibold text-white">
+                                            <p className="font-semibold text-white font-greek">
                                                 {auth.user.name}
                                             </p>
                                         </div>
