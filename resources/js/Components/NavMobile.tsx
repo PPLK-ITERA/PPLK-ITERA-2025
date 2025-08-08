@@ -55,7 +55,7 @@ export default function NavMobile({
   const { auth } = usePage<MyPage>().props;
 
   return (
-    <div className="md:hidden block -mt-2">
+    <div className="md:hidden block -mt-2 font-greek">
       <Sheet>
         <SheetTrigger
           asChild
