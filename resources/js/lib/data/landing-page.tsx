@@ -260,4 +260,3 @@ export const data_sponsor = [
     src: woods
   }
 ];
-

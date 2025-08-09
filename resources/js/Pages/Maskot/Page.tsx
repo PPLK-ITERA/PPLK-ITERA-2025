@@ -60,7 +60,7 @@ function App() {
         {/* Konten utama */}
         <div className="relative z-20 px-4 sm:px-6 lg:px-8">
           {/* Tulisan kiri atas dengan warna dinamis - Responsive positioning */}
-          <div className="absolute z-50 top-4 left-4 sm:top-6 sm:left-6 text-xs sm:text-sm font-semibold cursor-pointer select-none z-30">
+          <div className="absolute z-50 top-4 left-4 sm:top-6 sm:left-6 text-xs sm:text-sm font-semibold cursor-pointer select-none">
             <button
               onClick={() => setActiveMaskot("rhinoceto")}
               className={`block transition-all duration-300 mb-1 sm:mb-2 ${
@@ -146,7 +146,7 @@ function App() {
       </div>
 
       {/* Custom CSS untuk animasi slide-up */}
-      <style jsx>{`
+      <style>{`
         @keyframes slide-up {
           from {
             opacity: 0;

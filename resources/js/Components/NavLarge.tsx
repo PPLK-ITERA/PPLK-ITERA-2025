@@ -8,117 +8,117 @@ import { ChevronDown } from "lucide-react";
 import { IconNotebook } from "@tabler/icons-react";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
 import { InformasiDropDown, MabaDropDown } from "@/lib/data/navlink";
 
 type NavLargeProps = {
-  isScrolled?: boolean;
-  isSolid?: boolean;
+    isScrolled?: boolean;
+    isSolid?: boolean;
 };
 
 export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
-  const router = usePage().url;
+    const router = usePage().url;
 
-  return (
-    <div className="hidden font-greek max-w-[800px] md:flex gap-2 xl:-ml-20 -ml-4">
-      <Link
-        href="/"
-        className={`lg:mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold  text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
-      >
-        Beranda
-      </Link>
-
-      <DropdownMenu>
-        <DropdownMenuTrigger
-          className={`lg:mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} border-none outline-none transition-all duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
-        >
-          Informasi <ChevronDown className="w-4 h-4" />
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
-        >
-          {InformasiDropDown.map((item, index) =>
-            item ? (
-              <DropdownMenuItem
-                key={index}
-                className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
-              >
-                <Link
-                  href={item.href}
-                  className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
-                >
-                  <span
-                    className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
-                  >
-                    {item.icon}
-                  </span>
-                  {item.title}
-                </Link>
-              </DropdownMenuItem>
-            ) : null
-          )}
-        </DropdownMenuContent>
-      </DropdownMenu>
-
-      <DropdownMenu>
-        <DropdownMenuTrigger
-          className={`lg:mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} border-none outline-none transition-all duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
-        >
-          Mahasiswa Baru <ChevronDown className="w-4 h-4" />
-        </DropdownMenuTrigger>
-
-        <DropdownMenuContent
-          className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
-        >
-          {MabaDropDown.map((item, index) => (
-            <DropdownMenuItem
-              key={index}
-              className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
+    return (
+        <div className="hidden max-w-[800px] md:flex gap-2 xl:-ml-20 -ml-4 font-greek">
+            <Link
+                href="/"
+                className={`lg:mx-2 text-[18px] ${router === "/" ? "underline underline-offset-2" : ""} font-bold  text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in`}
             >
-              <Link
-                href={item.href}
-                className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
-              >
-                <span
-                  className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                Beranda
+            </Link>
+
+            <DropdownMenu>
+                <DropdownMenuTrigger
+                    className={`lg:mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} border-none outline-none transition-all duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
                 >
-                  {item.icon}
-                </span>
-                {item.title}
-              </Link>
-            </DropdownMenuItem>
-          ))}
-          <DropdownMenuItem
-            className={`${isScrolled || isSolid ? `focus:bg-jaffa-600` : `focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
-          >
-            <a
-              href="https://drive.google.com/drive/folders/1nxipOqCI8SckF3-kR_yL0VME5FJCbbAg?usp=sharing"
-              target="_blank"
-              className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                    Informasi <ChevronDown className="w-4 h-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                    className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
+                >
+                    {InformasiDropDown.map((item, index) =>
+                        item ? (
+                            <DropdownMenuItem
+                                key={index}
+                                className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
+                            >
+                                <Link
+                                    href={item.href}
+                                    className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                                >
+                                    <span
+                                        className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                                    >
+                                        {item.icon}
+                                    </span>
+                                    {item.title}
+                                </Link>
+                            </DropdownMenuItem>
+                        ) : null
+                    )}
+                </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+                <DropdownMenuTrigger
+                    className={`lg:mx-2 flex items-center justify-center text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} border-none outline-none transition-all duration-200 ease-in focus:border-none focus:outline-none focus:ring-0`}
+                >
+                    Mahasiswa Baru <ChevronDown className="w-4 h-4" />
+                </DropdownMenuTrigger>
+
+                <DropdownMenuContent
+                    className={`${isScrolled || isSolid ? "bg-gradient-to-r from-jaffa-700 to-jaffa-800" : "bg-jaffa-100"} border-none outline-none`}
+                >
+                    {MabaDropDown.map((item, index) => (
+                        <DropdownMenuItem
+                            key={index}
+                            className={`${isScrolled || isSolid ? `${router === `${item.href}` ? `bg-jaffa-600` : ""} focus:bg-jaffa-600` : `${router === `${item.href}` ? `bg-jaffa-200` : ""} focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
+                        >
+                            <Link
+                                href={item.href}
+                                className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                            >
+                                <span
+                                    className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                                >
+                                    {item.icon}
+                                </span>
+                                {item.title}
+                            </Link>
+                        </DropdownMenuItem>
+                    ))}
+                    <DropdownMenuItem
+                        className={`${isScrolled || isSolid ? `focus:bg-jaffa-600` : `focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
+                    >
+                        <a
+                            href="https://drive.google.com/drive/folders/1jsJHZSWUynxDs1P_URlCwz2l1um6voUf?usp=sharing"
+                            target="_blank"
+                            className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
+                        >
+                            <span
+                                className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
+                            >
+                                <IconNotebook size={24} color="#fcedd8" />
+                            </span>
+                            Panduan Penggunaan
+                        </a>
+                    </DropdownMenuItem>
+
+                </DropdownMenuContent>
+            </DropdownMenu>
+
+            <Link
+                href="/faq"
+                className={`lg:mx-2 ${router === "/faq" ? "underline underline-offset-2" : ""} text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in-out`}
             >
-              <span
-                className={`${isScrolled || isSolid ? "bg-jaffa-500" : "bg-jaffa-300"} p-1 rounded-md`}
-              >
-                <IconNotebook size={24} color="#fcedd8" />
-              </span>
-              Panduan Penggunaan
-            </a>
-          </DropdownMenuItem>
-
-        </DropdownMenuContent>
-      </DropdownMenu>
-
-      <Link
-        href="/faq"
-        className={`lg:mx-2 ${router === "/faq" ? "underline underline-offset-2" : ""} text-[18px] font-bold text-jaffa-100 ${isScrolled || isSolid ? "text-white" : ""} transition-all duration-200 ease-in-out`}
-      >
-        FAQ
-      </Link>
-    </div>
-  );
+                FAQ
+            </Link>
+        </div>
+    );
 }

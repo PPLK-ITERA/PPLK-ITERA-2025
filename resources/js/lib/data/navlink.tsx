@@ -184,6 +184,11 @@ export const UserDropdown = [
     icon: <IconCrown size={24} color="#fcedd8" />,
   },
   {
+    title: "Petaka",
+    href: "/petaka",
+    icon: <IconMapPin size={24} color="#fcedd8" />,
+  },
+  {
     title: "Tesla",
     href: "/tesla",
     icon: <IconGoGame size={24} color="#fcedd8" />,
