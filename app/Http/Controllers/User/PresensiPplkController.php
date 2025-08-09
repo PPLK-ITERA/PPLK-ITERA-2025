@@ -26,7 +26,7 @@ class PresensiPplkController extends Controller
    // Tanggal khusus untuk role_id = 5 (PJ Prodi)
    const TANGGAL_KHUSUS_PJ_PRODI = [
       '2024-08-12',
-      '2025-08-15'
+      '2024-08-15'
    ];
    
    // Konfigurasi Event/Periode PPLK
@@ -91,19 +91,19 @@ class PresensiPplkController extends Controller
       ]);
 
       // Define the time window when actions are allowed
-      $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(self::JAM_MULAI_PRESENSI);
-      $end = Carbon::today()->setHour(self::JAM_AKHIR_PRESENSI);
+      $currentTime = Carbon::now('Asia/Jakarta');
+      $start = Carbon::today('Asia/Jakarta')->setHour(self::JAM_MULAI_PRESENSI);
+      $end = Carbon::today('Asia/Jakarta')->setHour(self::JAM_AKHIR_PRESENSI);
 
       // Check if the action is permissible based on the date and current time
-      $action = Carbon::today()->toDateString() && $currentTime->between($start, $end);
+      $action = Carbon::today('Asia/Jakarta')->toDateString() && $currentTime->between($start, $end);
 
       if (Auth::user()->role_id === 3) {
-         $action = Carbon::today()->toDateString();
+         $action = Carbon::today('Asia/Jakarta')->toDateString();
       }
 
       if (Auth::user()->role_id === 5) {
-         if (!in_array(Carbon::today()->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
+         if (!in_array(Carbon::today('Asia/Jakarta')->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
             return response()->json([
                'response' => [
                   "status" => 403,
@@ -170,13 +170,13 @@ class PresensiPplkController extends Controller
             ]
          ], 404);
       }
-      $presensi = PresensiPplk::where('user_id', $user->id)->where('tanggal_presensi', Carbon::today());
+      $presensi = PresensiPplk::where('user_id', $user->id)->where('tanggal_presensi', Carbon::today('Asia/Jakarta'));
       if (!$presensi->exists()) {
          DB::beginTransaction();
          try {
             $presensi_now = PresensiPplk::create([
                'user_id' => $user->id,
-               'tanggal_presensi' => Carbon::today(),
+               'tanggal_presensi' => Carbon::today('Asia/Jakarta'),
                'status' => 'Hadir',
             ]);
             DB::commit();
@@ -245,7 +245,7 @@ class PresensiPplkController extends Controller
       $hadir = 0;
       $izin = 0;
 
-      $date = $request->input('date', Carbon::today()->toDateString());
+      $date = $request->input('date', Carbon::today('Asia/Jakarta')->toDateString());
       
       // Get event info if date matches any event
       $eventInfo = self::getEventByDate($date);
@@ -340,20 +340,24 @@ class PresensiPplkController extends Controller
    {
       $perPage = $request->input('perPage', 10);
       $searchTerm = $request->input('search', '');
-      $date = $date ?: Carbon::today()->toDateString();
+      $date = $date ?: Carbon::today('Asia/Jakarta')->toDateString();
 
       // Define the time window when actions are allowed
-      $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(self::JAM_MULAI_PRESENSI);
-      $end = Carbon::today()->setHour(self::JAM_AKHIR_PRESENSI);
+      $currentTime = Carbon::now('Asia/Jakarta');
+      $start = Carbon::today('Asia/Jakarta')->setHour(self::JAM_MULAI_PRESENSI);
+      $end = Carbon::today('Asia/Jakarta')->setHour(self::JAM_AKHIR_PRESENSI);
 
       // Check if the action is permissible based on the date and current time
-      $action = $date === Carbon::today()->toDateString() && $currentTime->between($start, $end);
+      $action = $date === Carbon::today('Asia/Jakarta')->toDateString() && $currentTime->between($start, $end);
 
       if (Auth::user()->role_id === 5) {
          $action = $action && in_array($date, self::TANGGAL_KHUSUS_PJ_PRODI);
       } else if (Auth::user()->role_id === 3) {
          $action = true;
+      } else if (in_array(Auth::user()->role_id, [2, 4])) {
+         // Allow roles 2,4 to take attendance on any date within operating hours
+         // OR allow them to take attendance on current date regardless of time
+         $action = $currentTime->between($start, $end) || $date === Carbon::today('Asia/Jakarta')->toDateString();
       }
 
       if (!in_array(Auth::user()->role_id, [2, 4, 5, 3])) {
@@ -427,9 +431,9 @@ class PresensiPplkController extends Controller
    public function store(Request $request)
    {
       // Check if the current time is within the allowed range
-      $currentTime = Carbon::now();
-      $start = Carbon::today()->setHour(self::JAM_MULAI_PRESENSI);
-      $end = Carbon::today()->setHour(self::JAM_AKHIR_PRESENSI);
+      $currentTime = Carbon::now('Asia/Jakarta');
+      $start = Carbon::today('Asia/Jakarta')->setHour(self::JAM_MULAI_PRESENSI);
+      $end = Carbon::today('Asia/Jakarta')->setHour(self::JAM_AKHIR_PRESENSI);
 
       if (!$currentTime->between($start, $end)) {
          return redirect()->route('dashboard.absensi-maba')->with('response', [
@@ -439,7 +443,7 @@ class PresensiPplkController extends Controller
       }
 
       if (Auth::user()->role_id === 5) {
-         if (!in_array(Carbon::today()->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
+         if (!in_array(Carbon::today('Asia/Jakarta')->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
             return redirect()->back()->with('response', [
                "status" => 403,
                "message" => "Maaf presensi hari ini hanya bisa dilakukan oleh Daplok dan Mentor",
@@ -448,7 +452,7 @@ class PresensiPplkController extends Controller
       }
 
       if (in_array(Auth::user()->role_id, [2, 4])) {
-         if (in_array(Carbon::today()->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
+         if (in_array(Carbon::today('Asia/Jakarta')->toDateString(), self::TANGGAL_KHUSUS_PJ_PRODI)) {
             return redirect()->back()->with('response', [
                "status" => 403,
                "message" => "Maaf presensi hari ini hanya bisa dilakukan oleh PJ Prodi",
@@ -490,7 +494,7 @@ class PresensiPplkController extends Controller
          } else {
             // Check if there's a last attendance record for today
             $lastPresensi = PresensiPplk::where('user_id', $validated['id'])
-               ->where('tanggal_presensi', Carbon::today())
+               ->where('tanggal_presensi', Carbon::today('Asia/Jakarta'))
                ->latest()
                ->first();
 
@@ -502,7 +506,7 @@ class PresensiPplkController extends Controller
             // Create the new attendance record
             $presensi = PresensiPplk::create([
                'user_id' => $validated['id'],
-               'tanggal_presensi' => Carbon::today(),
+               'tanggal_presensi' => Carbon::today('Asia/Jakarta'),
                'kehadiran' => $validated['kehadiran'],
                'keterangan' => $validated['keterangan']
             ]);
@@ -531,7 +535,7 @@ class PresensiPplkController extends Controller
          'date' => 'string|nullable'
       ]);
 
-      $today = Carbon::today();
+      $today = Carbon::today('Asia/Jakarta');
       if (Auth::user()->role_id === 3) {
          $today = $validated['date'];
       }

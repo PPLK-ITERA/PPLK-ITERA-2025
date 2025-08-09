@@ -1,5 +1,7 @@
 import { ProgramStudi } from "../types/ProgramStudi";
-import ppdonat from "!assets/logoprodi/ppdonat.jpg";
+
+import cibtindustri from "!assets/logoprodi/cibtindustri.jpg";
+import datapudi from "!assets/logoprodi/datapudi.png";
 import fotokaprodiaktuaria from "!assets/logoprodi/fotokaprodiaktuaria.jpg";
 import fotokaprodiarsitektur from "!assets/logoprodi/fotokaprodiarsitektur.jpg";
 import fotokaprodibiologi from "!assets/logoprodi/fotokaprodibiologi.png";
@@ -15,8 +17,6 @@ import fotokaprodigeomatika from "!assets/logoprodi/fotokaprodigeomatika.jpg";
 import fotokaprodiindustri from "!assets/logoprodi/fotokaprodiindustri.png";
 import fotokaprodiinformatika from "!assets/logoprodi/fotokaprodiinformatika.jpg";
 import fotokaprodikelautan from "!assets/logoprodi/fotokaprodikelautan.jpg";
-import fotokaprodikimia from "!assets/logoprodi/fotokaprodikimia.jpg";
-import fotokaprodikosmetik from "!assets/logoprodi/kaprodirekos.png";
 import fotokaprodilanskap from "!assets/logoprodi/fotokaprodilanskap.jpg";
 import fotokaprodilingkungan from "!assets/logoprodi/fotokaprodilingkungan.png";
 import fotokaprodimatematika from "!assets/logoprodi/fotokaprodimatematika.jpeg";
@@ -24,13 +24,11 @@ import fotokaprodimaterial from "!assets/logoprodi/fotokaprodimaterial.jpg";
 import fotokaprodimesin from "!assets/logoprodi/fotokaprodimesin.jpg";
 import fotokaprodipariwisata from "!assets/logoprodi/fotokaprodipariwisata.jpg";
 import fotokaprodiperkeretaapian from "!assets/logoprodi/fotokaprodiperkeretaapian.jpg";
-import fotokaprodipertambangan from "!assets/logoprodi/kaproditambang.jpg";
 import fotokaprodipertanian from "!assets/logoprodi/fotokaprodipertanian.jpg";
 import fotokaprodipwk from "!assets/logoprodi/fotokaprodipwk.jpeg";
 import fotokaprodirekayasainstrumentasi from "!assets/logoprodi/fotokaprodirekayasainstrumentasi.jpg";
 import fotokaprodirekayasakehutanan from "!assets/logoprodi/fotokaprodirekayasakehutanan.jpg";
 import fotokaprodirekayasakeolahragaan from "!assets/logoprodi/fotokaprodirekayasakeolahragaan.jpg";
-import fotokaprodirekayasaminyak from "!assets/logoprodi/kaprodimigas.jpg";
 import fotokaprodisainsdata from "!assets/logoprodi/fotokaprodisainsdata.jpg";
 import fotokaprodisap from "!assets/logoprodi/fotokaprodisap.jpg";
 import fotokaprodisipil from "!assets/logoprodi/fotokaprodisipil.jpg";
@@ -42,11 +40,11 @@ import fotokaproditekpang from "!assets/logoprodi/fotokaproditekpang.png";
 import fotokaproditelekomunikasi from "!assets/logoprodi/fotokaproditelekomunikasi.jpg";
 import fotokaproditkap from "!assets/logoprodi/fotokaproditkap.jpg";
 import logohmtg from "!assets/logoprodi/hmtg.png";
+import kahimbiologi from "!assets/logoprodi/kahimbiologi.jpg";
 import kahimhimafa from "!assets/logoprodi/kahimhimafa.jpg";
 import kahimhimafi from "!assets/logoprodi/kahimhimafi.jpg";
 import kahimhimagrin from "!assets/logoprodi/kahimhimagrin.jpg";
 import kahimhimaka from "!assets/logoprodi/kahimhimaka.jpg";
-import kahimhmlk from "!assets/logoprodi/kahimhmlk.png";
 import kahimhimakos from "!assets/logoprodi/kahimhimakos.png";
 import kahimhimaktu from "!assets/logoprodi/kahimhimaktu.jpg";
 import kahimhimapar from "!assets/logoprodi/kahimhimapar.jpg";
@@ -63,27 +61,38 @@ import kahimhimatika from "!assets/logoprodi/kahimhimatika.jpg";
 import kahimhmbm from "!assets/logoprodi/kahimhmbm.jpg";
 import kahimhmdkv from "!assets/logoprodi/kahimhmdkv.jpeg";
 import kahimhme from "!assets/logoprodi/kahimhme.png";
-import kahimhmgl from "!assets/logoprodi/kahimhmgl.jpg";
 import kahimhmg from "!assets/logoprodi/kahimhmg.jpg";
+import kahimhmgl from "!assets/logoprodi/kahimhmgl.jpg";
 import kahimhmia from "!assets/logoprodi/kahimhmia.jpg";
-import kahimbiologi from "!assets/logoprodi/kahimbiologi.jpg";
 import kahimhmif from "!assets/logoprodi/kahimhmif.jpg";
+import kahimhmlk from "!assets/logoprodi/kahimhmlk.png";
 import kahimhmmg from "!assets/logoprodi/kahimhmmg.jpg";
 import kahimhmmt from "!assets/logoprodi/kahimhmmt.jpg";
 import kahimhms from "!assets/logoprodi/kahimhms.jpg";
 import kahimhmsd from "!assets/logoprodi/kahimhmsd.png";
 import kahimhmse from "!assets/logoprodi/kahimhmse.jpg";
 import kahimhmta from "!assets/logoprodi/kahimhmta.jpg";
-import kahimhmtl from "!assets/logoprodi/kahimhmtl.png";
 import kahimhmtf from "!assets/logoprodi/kahimhmtf.jpg";
 import kahimhmtg from "!assets/logoprodi/kahimhmtg.jpg";
 import kahimhmti from "!assets/logoprodi/kahimhmti.jpg";
+import kahimhmtl from "!assets/logoprodi/kahimhmtl.png";
 import kahimmesin from "!assets/logoprodi/kahimmesin.jpg";
 import kahimpwk from "!assets/logoprodi/kahimpwk.jpg";
+import fotokaprodikimia from "!assets/logoprodi/kaprodikimia.jpg";
+import fotokaprodirekayasaminyak from "!assets/logoprodi/kaprodimigas.jpg";
+import fotokaprodikosmetik from "!assets/logoprodi/kaprodirekos.png";
+import fotokaprodipertambangan from "!assets/logoprodi/kaproditambang.jpg";
+import kegiatanaktu1 from "!assets/logoprodi/kegiatanaktu1.jpg";
+import kegiatanaktu2 from "!assets/logoprodi/kegiatanaktu2.jpg";
+import kegiatanaktu3 from "!assets/logoprodi/kegiatanaktu3.jpg";
+import kegiatanaktu4 from "!assets/logoprodi/kegiatanaktu4.jpg";
 import kegiatanarsi1 from "!assets/logoprodi/kegiatanarsi1.png";
 import kegiatanarsi2 from "!assets/logoprodi/kegiatanarsi2.png";
 import kegiatanarsi3 from "!assets/logoprodi/kegiatanarsi3.png";
 import kegiatanarsi4 from "!assets/logoprodi/kegiatanarsi4.png";
+import kegiatanbio1 from "!assets/logoprodi/kegiatanbio1.jpg";
+import kegiatanbio2 from "!assets/logoprodi/kegiatanbio2.jpg";
+import kegiatanbio3 from "!assets/logoprodi/kegiatanbio3.jpg";
 import kegiatanbiomed1 from "!assets/logoprodi/kegiatanbiomed1.jpg";
 import kegiatanbiomed2 from "!assets/logoprodi/kegiatanbiomed2.jpg";
 import kegiatanbiomed3 from "!assets/logoprodi/kegiatanbiomed3.jpg";
@@ -93,6 +102,10 @@ import kegiatandkv2 from "!assets/logoprodi/kegiatandkv2.webp";
 import kegiatanelektro1 from "!assets/logoprodi/kegiatanelektro1.jpg";
 import kegiatanelektro2 from "!assets/logoprodi/kegiatanelektro2.jpg";
 import kegiatanelektro3 from "!assets/logoprodi/kegiatanelektro3.jpg";
+import kegiatanfarmasi1 from "!assets/logoprodi/kegiatanfarmasi1.jpg";
+import kegiatanfarmasi2 from "!assets/logoprodi/kegiatanfarmasi2.png";
+import kegiatanfarmasi3 from "!assets/logoprodi/kegiatanfarmasi3.jpg";
+import kegiatanfarmasi4 from "!assets/logoprodi/kegiatanfarmasi4.png";
 import kegiatanforesta2 from "!assets/logoprodi/kegiatanforesta2.jpg";
 import kegiatanforesta3 from "!assets/logoprodi/kegiatanforesta3.jpg";
 import kegiatanforesta4 from "!assets/logoprodi/kegiatanforesta4.jpg";
@@ -152,13 +165,13 @@ import kegiatanhimatika1 from "!assets/logoprodi/kegiatanhimatika1.jpg";
 import kegiatanhimatika2 from "!assets/logoprodi/kegiatanhimatika2.jpg";
 import kegiatanhimatika3 from "!assets/logoprodi/kegiatanhimatika3.jpg";
 import kegiatanhimatika4 from "!assets/logoprodi/kegiatanhimatika4.jpg";
+import kegiatanhmb1 from "!assets/logoprodi/kegiatanhmb1.jpg";
+import kegiatanhmb2 from "!assets/logoprodi/kegiatanhmb2.jpg";
+import kegiatanhmb3 from "!assets/logoprodi/kegiatanhmb3.jpg";
 import kegiatanhmbm1 from "!assets/logoprodi/kegiatanhmbm1.png";
 import kegiatanhmbm2 from "!assets/logoprodi/kegiatanhmbm2.png";
 import kegiatanhmbm3 from "!assets/logoprodi/kegiatanhmbm3.jpg";
 import kegiatanhmbm4 from "!assets/logoprodi/kegiatanhmbm4.jpg";
-import kegiatanhmb1 from "!assets/logoprodi/kegiatanhmb1.jpg";
-import kegiatanhmb2 from "!assets/logoprodi/kegiatanhmb2.jpg";
-import kegiatanhmb3 from "!assets/logoprodi/kegiatanhmb3.jpg";
 import kegiatanhmdkv1 from "!assets/logoprodi/kegiatanhmdkv1.jpg";
 import kegiatanhmdkv2 from "!assets/logoprodi/kegiatanhmdkv2.png";
 import kegiatanhmdkv3 from "!assets/logoprodi/kegiatanhmdkv3.jpg";
@@ -171,14 +184,14 @@ import kegiatanhmia1 from "!assets/logoprodi/kegiatanhmia1.jpg";
 import kegiatanhmif1 from "!assets/logoprodi/kegiatanhmif1.jpg";
 import kegiatanhmif2 from "!assets/logoprodi/kegiatanhmif2.jpg";
 import kegiatanhmif3 from "!assets/logoprodi/kegiatanhmif3.png";
-import kegiatanhmlk1 from "!assets/logoprodi/kegiatanhmlk1.jpg";
-import kegiatanhmlk2 from "!assets/logoprodi/kegiatanhmlk2.jpg";
-import kegiatanhmlk3 from "!assets/logoprodi/kegiatanhmlk3.jpg";
-import kegiatanhmlk4 from "!assets/logoprodi/kegiatanhmlk4.jpg";
 import kegiatanhmk1 from "!assets/logoprodi/kegiatanhmk1.png";
 import kegiatanhmk2 from "!assets/logoprodi/kegiatanhmk2.png";
 import kegiatanhmk3 from "!assets/logoprodi/kegiatanhmk3.png";
 import kegiatanhmk4 from "!assets/logoprodi/kegiatanhmk4.jpg";
+import kegiatanhmlk1 from "!assets/logoprodi/kegiatanhmlk1.jpg";
+import kegiatanhmlk2 from "!assets/logoprodi/kegiatanhmlk2.jpg";
+import kegiatanhmlk3 from "!assets/logoprodi/kegiatanhmlk3.jpg";
+import kegiatanhmlk4 from "!assets/logoprodi/kegiatanhmlk4.jpg";
 import kegiatanhmm1 from "!assets/logoprodi/kegiatanhmm1.png";
 import kegiatanhmm2 from "!assets/logoprodi/kegiatanhmm2.jpg";
 import kegiatanhmm3 from "!assets/logoprodi/kegiatanhmm3.jpg";
@@ -237,6 +250,9 @@ import kegiatanmigas3 from "!assets/logoprodi/kegiatanmigas3.jpg";
 import kegiatanmt1 from "!assets/logoprodi/kegiatanmt1.jpg";
 import kegiatanmt2 from "!assets/logoprodi/kegiatanmt2.jpg";
 import kegiatanmt3 from "!assets/logoprodi/kegiatanmt3.jpg";
+import kegiatanmtk1 from "!assets/logoprodi/kegiatanmtk1.jpg";
+import kegiatanmtk2 from "!assets/logoprodi/kegiatanmtk2.jpg";
+import kegiatanmtk3 from "!assets/logoprodi/kegiatanmtk3.jpg";
 import kegiatanpwk1 from "!assets/logoprodi/kegiatanpwk1.png";
 import kegiatanpwk2 from "!assets/logoprodi/kegiatanpwk2.jpeg";
 import kegiatanpwk3 from "!assets/logoprodi/kegiatanpwk3.jpeg";
@@ -245,6 +261,9 @@ import kegiatanrekhut2 from "!assets/logoprodi/kegiatanrekhut2.jpg";
 import kegiatansinergi1 from "!assets/logoprodi/kegiatansinergi1.png";
 import kegiatansinergi2 from "!assets/logoprodi/kegiatansinergi2.png";
 import kegiatansinergi3 from "!assets/logoprodi/kegiatansinergi3.png";
+import kegiatanslaut1 from "!assets/logoprodi/kegiatanslaut1.jpg";
+import kegiatanslaut2 from "!assets/logoprodi/kegiatanslaut2.png";
+import kegiatanslaut3 from "!assets/logoprodi/kegiatanslaut3.png";
 import kegiatantambang1 from "!assets/logoprodi/kegiatantambang1.jpg";
 import kegiatantambang2 from "!assets/logoprodi/kegiatantambang2.jpg";
 import kegiatantambang3 from "!assets/logoprodi/kegiatantambang3.jpg";
@@ -346,25 +365,7 @@ import logoteknikkimia from "!assets/logoprodi/logoteknikkimia.png";
 import logotekpang from "!assets/logoprodi/logotekpang.png";
 import logotelekomunikasi from "!assets/logoprodi/logotelekomunikasi.png";
 import logotkap from "!assets/logoprodi/logotkap.png";
-import kegiatanmtk1 from "!assets/logoprodi/kegiatanmtk1.jpg";
-import kegiatanmtk2 from "!assets/logoprodi/kegiatanmtk2.jpg";
-import kegiatanmtk3 from "!assets/logoprodi/kegiatanmtk3.jpg";
-import kegiatanbio1 from "!assets/logoprodi/kegiatanbio1.jpg";
-import kegiatanbio2 from "!assets/logoprodi/kegiatanbio2.jpg";
-import kegiatanbio3 from "!assets/logoprodi/kegiatanbio3.jpg";
-import kegiatanfarmasi1 from "!assets/logoprodi/kegiatanfarmasi1.jpg";
-import kegiatanfarmasi2 from "!assets/logoprodi/kegiatanfarmasi2.png";
-import kegiatanfarmasi3 from "!assets/logoprodi/kegiatanfarmasi3.jpg";
-import kegiatanfarmasi4 from "!assets/logoprodi/kegiatanfarmasi4.png";
-import kegiatanaktu1 from "!assets/logoprodi/kegiatanaktu1.jpg";
-import kegiatanaktu2 from "!assets/logoprodi/kegiatanaktu2.jpg";
-import kegiatanaktu3 from "!assets/logoprodi/kegiatanaktu3.jpg";
-import kegiatanaktu4 from "!assets/logoprodi/kegiatanaktu4.jpg";
-import cibtindustri from "!assets/logoprodi/cibtindustri.jpg";
-import datapudi from "!assets/logoprodi/datapudi.png";
-import kegiatanslaut1 from "!assets/logoprodi/kegiatanslaut1.jpg";
-import kegiatanslaut2 from "!assets/logoprodi/kegiatanslaut2.png";
-import kegiatanslaut3 from "!assets/logoprodi/kegiatanslaut3.png";
+import ppdonat from "!assets/logoprodi/ppdonat.jpg";
 
 export const PRODI_DATA = [
   { id: 1, value: "biologi", label: "BIOLOGI" },
@@ -554,9 +555,7 @@ export const programStudies: ProgramStudi[] = [
     ],
     coordinatorPhoto: fotokaprodigeofisika,
     coordinatorName: "Purwaditya Nugraha, S.Si., M.T.",
-    kk: [
-
-    ],
+    kk: [],
     instagramUrl: "https://www.instagram.com/tg_itera",
     youtubeUrl: "https://youtube.com/@teknikgeofisikaitera8163",
     websiteUrl: "https://tg.itera.ac.id/",
@@ -1026,6 +1025,10 @@ export const programStudies: ProgramStudi[] = [
         title: "Optik",
         description: "",
       },
+      {
+        title: "IoT",
+        description: "",
+      },
     ],
     prodiActivities: [
       {
@@ -1350,7 +1353,7 @@ Program Studi ini hadir bersamaan dengan 2 program studi baru yang ada di ITERA 
     hmpsDescrption:
       "Forestry Engineering Student Association yang disingkat menjadi FORESTA termasuk himpunan mahasiswa Rekayasa kehutanan. Foresta terbentuk pada tanggal 23 Maret 2021",
     kahim: "Rezki Desnata Sitepu",
-    
+
     hmpsActivities: [
       {
         title: "Seminar Nasional",
@@ -1842,21 +1845,26 @@ Pada tahun berikutnya, yaitu 2018, Teknik Fisika ITERA mulai menerima mahasiswa 
     ],
     prodiActivities: [
       {
-        title:
-          "Penerima Program Pendanaan Penelitian dan Pengabdian Kepada Masyarakat melalui Hibah DPPM Kemdiktisaintek Tahun Anggaran 2025",
+        title: "BIONE (Biomedical Engineering Exhibition)",
         description: "",
-        documentation: kegiatanbiomed1,
-      },
-      {
-        title: "Publikasi Ilmiah (Buku dan Jurnal)",
-        description: "",
-        documentation: kegiatanbiomed2,
+        documentation: kegiatandefault,
       },
       {
         title:
-          "Pertukaran Pelajar Mahasiswa Prodi Biologi ke Departemen Biologi IPB University dan Biologi Unila",
+          "BIEPC (Biomedical International Essay and Poster Competition Diest Natalis BME X HMBM",
         description: "",
-        documentation: kegiatanbiomed3,
+        documentation: kegiatandefault,
+      },
+      {
+        title:
+          "Program Student Mobility Di University Malaysia Perlis (UNIMAP)",
+        description: "",
+        documentation: kegiatandefault,
+      },
+      {
+        title: "Lolos PKM tahun 2025 (PKM -KC)",
+        description: "",
+        documentation: kegiatandefault,
       },
     ],
     instagramUrl: "https://www.instagram.com/teknik.biomedis.itera",
@@ -2096,7 +2104,8 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     ],
     prodiActivities: [
       {
-        title: "eknologi Pangan Itera menjadi Pemenang dalam Faculty of Industrial Technology Award (FTI Award) Itera",
+        title:
+          "eknologi Pangan Itera menjadi Pemenang dalam Faculty of Industrial Technology Award (FTI Award) Itera",
         description: "",
         documentation: kegiatandefault,
       },
@@ -2106,7 +2115,8 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
         documentation: kegiatandefault,
       },
       {
-        title: "Juara 2 Gagasan Bisnis dan Juara 3 Video Konten Kreatif dalam acara LITERA dan Expo Kemahasiswaan 2024",
+        title:
+          "Juara 2 Gagasan Bisnis dan Juara 3 Video Konten Kreatif dalam acara LITERA dan Expo Kemahasiswaan 2024",
         description: "",
         documentation: kegiatandefault,
       },
@@ -3310,12 +3320,14 @@ perkuliahan masih dititipkan di kampus Institut Teknologi Bandung (ITB), Jatinan
         documentation: kegiatanfarmasi2,
       },
       {
-        title: "Dosen Farmasi Penerima Federation of Asian and Oceanian Biochemist and Molecular Biologist (FAOBMB) 2025 Travel Awards",
+        title:
+          "Dosen Farmasi Penerima Federation of Asian and Oceanian Biochemist and Molecular Biologist (FAOBMB) 2025 Travel Awards",
         description: "",
         documentation: kegiatanfarmasi3,
       },
       {
-        title: "Dosen Farmasi Pemenang hibah Daewoong Pharmaceutical Open Research Collaboration",
+        title:
+          "Dosen Farmasi Pemenang hibah Daewoong Pharmaceutical Open Research Collaboration",
         description: "",
         documentation: kegiatanfarmasi4,
       },
@@ -3398,7 +3410,8 @@ Studi Matematika ITERA diharapkan dapat memenuhi kebutuhan Sumatera dan sekitarn
         documentation: kegiatanmtk1,
       },
       {
-        title: "Anugrah Humas ITERA Tahun 2024 : Sinergi Humas Wujudkan Itera Bermartabat dalam kategori Pengolahan Laman : Program Studi terbaik ke-2",
+        title:
+          "Anugrah Humas ITERA Tahun 2024 : Sinergi Humas Wujudkan Itera Bermartabat dalam kategori Pengolahan Laman : Program Studi terbaik ke-2",
         description: "",
         documentation: kegiatanmtk2,
       },
@@ -3575,7 +3588,8 @@ Studi Matematika ITERA diharapkan dapat memenuhi kebutuhan Sumatera dan sekitarn
         documentation: datapudi,
       },
       {
-        title: "Juara dalam kategori The Most Scalable Algorithm di event Satria Data 2023",
+        title:
+          "Juara dalam kategori The Most Scalable Algorithm di event Satria Data 2023",
         description: "",
         documentation: kegiatandefault,
       },
@@ -3734,22 +3748,24 @@ Studi Matematika ITERA diharapkan dapat memenuhi kebutuhan Sumatera dan sekitarn
         description: "",
       },
     ],
-    prodiActivities:[
+    prodiActivities: [
       {
-        title: "Penerima Program Pendanaan Penelitian dan Pengabdian Kepada Masyarakat melalui Hibah DPPM Kemdiktisaintek Tahun Anggaran 2025" ,
+        title:
+          "Penerima Program Pendanaan Penelitian dan Pengabdian Kepada Masyarakat melalui Hibah DPPM Kemdiktisaintek Tahun Anggaran 2025",
         description: "",
         documentation: kegiatanbio1,
-        },
-        {
-        title: "Publikasi Ilmiah (Buku dan Jurnal)" ,
+      },
+      {
+        title: "Publikasi Ilmiah (Buku dan Jurnal)",
         description: "",
         documentation: kegiatanbio2,
-        },
-        {
-        title: " Pertukaran Pelajar Mahasiswa Prodi Biologi ke Departemen Biologi IPB University dan Biologi Unila" ,
+      },
+      {
+        title:
+          " Pertukaran Pelajar Mahasiswa Prodi Biologi ke Departemen Biologi IPB University dan Biologi Unila",
         description: "",
         documentation: kegiatanbio3,
-        },
+      },
     ],
     instagramUrl: "https://www.instagram.com/biologiitera",
     youtubeUrl: "https://youtube.com/@biotube9264",
@@ -3769,7 +3785,8 @@ Studi Matematika ITERA diharapkan dapat memenuhi kebutuhan Sumatera dan sekitarn
         documentation: kegiatanhmb1,
       },
       {
-        title: "Juara 3 Lomba Konten Video Dies Natalis ke-10 institut Teknologi Sumatera",
+        title:
+          "Juara 3 Lomba Konten Video Dies Natalis ke-10 institut Teknologi Sumatera",
         description: "",
         documentation: kegiatanhmb2,
       },
@@ -3790,13 +3807,11 @@ Studi Matematika ITERA diharapkan dapat memenuhi kebutuhan Sumatera dan sekitarn
     key: "sains-lingkungan-kelautan",
     name: "Sains Lingkungan Kelautan",
     imageUrl: logosll,
-    description:
-      `Sains Lingkungan Kelautan adalah program studi di Institut Teknologi Sumatera yang bertujuan menyelenggarakan pendidikan dan pengembangan mengenai kajian proses bio-geo-kemiko-fisis laut dan interaksinya dengan lingkungannya (dalam badan air laut, di bawah laut dan di atas laut).
+    description: `Sains Lingkungan Kelautan adalah program studi di Institut Teknologi Sumatera yang bertujuan menyelenggarakan pendidikan dan pengembangan mengenai kajian proses bio-geo-kemiko-fisis laut dan interaksinya dengan lingkungannya (dalam badan air laut, di bawah laut dan di atas laut).
 
 Lulusannya diharapkan selain mempunyai pengetahuan dasar mengenai bio-geo-kemiko-fisis laut juga mempunyai kemampuan menyusun perencanaan, pengelolaan dan pemanfaatan (planning, management dan utilization) sumber daya laut (hayati dan nirhayati) yang berkelanjutan.
 `,
-    history:
-      `Sejalan dengan program pengembangan ITERA yang tertera dalam Masterplan Percepatan Pembangunan Kampus ITERA 2017-2027 dengan SK Rektor nomor 1515/IT9.A/LL/2017, maka dilakukan rencana pembukaan beberapa program studi baru, salah satunya adalah Program Studi Sains Lingkungan Kelautan ITERA. Pendirian prodi baru ini dilakukan dalam rangka pemenuhan kebutuhan sumber daya manusia yang dapat menerapkan ilmu atau bidang Sains Lingkungan Kelautan dalam pemanfaatan sumber hayati laut khususnya di Sumatera dan sekitarnya.
+    history: `Sejalan dengan program pengembangan ITERA yang tertera dalam Masterplan Percepatan Pembangunan Kampus ITERA 2017-2027 dengan SK Rektor nomor 1515/IT9.A/LL/2017, maka dilakukan rencana pembukaan beberapa program studi baru, salah satunya adalah Program Studi Sains Lingkungan Kelautan ITERA. Pendirian prodi baru ini dilakukan dalam rangka pemenuhan kebutuhan sumber daya manusia yang dapat menerapkan ilmu atau bidang Sains Lingkungan Kelautan dalam pemanfaatan sumber hayati laut khususnya di Sumatera dan sekitarnya.
 
 PS SLL pertama menerima mahasiswa di tahun 2020 dengan jumlah mahasiswa yang diterima sebanyak 55 mahasiswa. Visi, misi, tujuan dan strategi serta Kurikulum PS SLL dirumuskan dengan melibatkan stakeholder baik dari lembaga pemerintah, akademisi, dan Lembaga non-pemerintah. Pendirian program studi ini dilakukan dalam rangka pemenuhan kebutuhan sumber daya manusia yang dapat menerapkan ilmu atau bidang Sains Lingkungan Kelautan dalam pemanfaatan sumber hayati laut khususnya di Sumatera dan sekitarnya.`,
     accreditation: "Baik",
@@ -3826,22 +3841,22 @@ PS SLL pertama menerima mahasiswa di tahun 2020 dengan jumlah mahasiswa yang dit
         description: "",
       },
     ],
-    prodiActivities:[
+    prodiActivities: [
       {
         title: "Bronze medal essay tingkat Nasional",
         description: "",
-        documentation:kegiatanslaut1
-        },
-        {
+        documentation: kegiatanslaut1,
+      },
+      {
         title: "Lolos pendanaan PKM di Kota karang",
         description: "",
-        documentation:kegiatanslaut2
-        },
-        {
+        documentation: kegiatanslaut2,
+      },
+      {
         title: "Juara 2 Voli pasir 4x4 pada ajang Pomprov Lampung 2025",
         description: "",
-        documentation:kegiatanslaut3
-        },
+        documentation: kegiatanslaut3,
+      },
     ],
     instagramUrl: "https://www.instagram.com/sll_itera/",
     youtubeUrl: "https://www.youtube.com/@sainslingkungankelautanite9511",
@@ -3856,7 +3871,8 @@ PS SLL pertama menerima mahasiswa di tahun 2020 dengan jumlah mahasiswa yang dit
     kahimPhoto: kahimhmlk,
     hmpsActivities: [
       {
-        title: "Juara 2 Voli Pasir 4x4 putri pada ajang Pomprov Lampung 2025 (individu)",
+        title:
+          "Juara 2 Voli Pasir 4x4 putri pada ajang Pomprov Lampung 2025 (individu)",
         description: "",
         documentation: kegiatanhmlk1,
       },
@@ -3875,11 +3891,10 @@ PS SLL pertama menerima mahasiswa di tahun 2020 dengan jumlah mahasiswa yang dit
         description: "",
         documentation: kegiatanhmlk4,
       },
-
     ],
     hmpsInstagramUrl: "https://www.instagram.com/hmlk.itera/",
     hmpsYoutubeUrl: "",
     hmpsWebsiteUrl: "",
     hmpsTiktokUrl: "",
   },
-]
+];

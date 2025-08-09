@@ -1,1 +1,0 @@
-{"version":3,"file":"TImSfXz4.js","sources":["../../../resources/js/Pages/Auth/Booklet/Page.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Page() {\n  return <div>Booklet Page</div>;\n}\n\nexport default Page;\n"],"names":["Page","jsx","children"],"mappings":"kCAEA,SAASA,IACP,SAAOC,IAAC,OAAIC,SAAA,gBACd"}
