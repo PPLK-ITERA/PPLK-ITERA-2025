@@ -1,8 +1,6 @@
 import Autoplay from "embla-carousel-autoplay";
-
 import React from "react";
-
-import goodday from "!assets/logo-sponsor/goodday.png";
+import goodday from "!assets/logo-sponsor/GoodDay.png";
 import MaxWidthWrapper from "@/Components/MaxWidthWrapper";
 import { Card, CardContent } from "@/Components/ui/card";
 import {
@@ -84,7 +82,7 @@ export default function Sponsorship() {
             {data_media_partner.map((_, index) => (
               <CarouselItem
                 key={index}
-                className="md:min-h-[150px] min-w-[100px] min-h-[100px] md:min-w-[150px] basis-1/5 my-20"
+                className="basis-1/5 my-20"
               >
                 <div className="p-1">
                   <Card className="overflow-hidden border rounded-full shadow-none">
@@ -92,7 +90,7 @@ export default function Sponsorship() {
                       <img
                         src={_.src}
                         alt={_.name}
-                        className="object-contain w-[100px]"
+                        className="object-contain w-[200px]"
                       />
                     </CardContent>
                   </Card>

@@ -7,11 +7,8 @@ import Header from "@/Components/informasi/Upa/Header";
 import KegiatanUnggulan from "@/Components/informasi/Upa/KegiatanUnggulan";
 import KepalaUPT from "@/Components/informasi/Upa/KepalaUPT";
 import VisiMisi from "@/Components/informasi/Upa/VisiMisi";
-
 import { DetailUPTData } from "@/lib/data/upa";
 
-import overlay_box from "!assets/overlay-box.png";
-import pillar_brown from "!assets/pillar-brown.png";
 
 function Page({ nama_upa }) {
   const upa = DetailUPTData.find((upa) => upa.key === nama_upa);

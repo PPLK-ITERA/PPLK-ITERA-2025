@@ -98,14 +98,14 @@ export default function LandingPage() {
             <Maskot />
           </MaxWidthWrapper>
         </div>
-
+{/* 
         <img
           data-aos="slide-up"
           data-aos-duration={1000}
           src={overlay_box}
           alt="pillar_brown"
           className="absolute -mt-[50px] w-full lg:-mt-[100px] xl:-mt-[200px]"
-        />
+        /> */}
 
         <div className="bg-pattern-white pt-40 pb-20">
           <InfoSection />
