@@ -1,1 +1,0 @@
-{"version":3,"file":"Bq_Gm2ip.js","sources":["../../../resources/js/Pages/Auth/Game/Page.tsx"],"sourcesContent":["import React from \"react\";\n\nfunction Page() {\n  return <div>Game Page</div>;\n}\n\nexport default Page;\n"],"names":["Page","jsx","children"],"mappings":"kCAEA,SAASA,IACP,SAAOC,IAAC,OAAIC,SAAA,aACd"}

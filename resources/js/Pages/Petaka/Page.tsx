@@ -126,7 +126,7 @@ export default function Page() {
                         </p>
 
                      <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 px-4 sm:px-6 lg:px-8">
-  {!!auth.user.isKetua ? (
+  {/* {!!auth.user.isKetua ? (
     <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mt-6 sm:mt-8 md:mt-10 rounded-lg bg-white border border-amber-100 shadow-md p-4 sm:p-5 md:p-6">
       <h2 className="text-jaffa-700 font-montserrat text-lg sm:text-xl md:text-2xl font-bold mb-4 md:mb-5 text-center sm:text-left">
         Cek Ketentuan Cover Mading
@@ -166,7 +166,7 @@ export default function Page() {
         </DialogContent>
       </Dialog>
     </div>
-  ) : null}
+  ) : null} */}
   
   <div className="relative z-10 w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
     <div className="flex flex-col justify-center mt-12 sm:mt-16 md:mt-20 lg:mt-24 px-4 sm:px-6">
