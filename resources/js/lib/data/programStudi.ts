@@ -13,7 +13,7 @@ import fotokaprodifarmasi from "!assets/logoprodi/fotokaprodifarmasi.jpg";
 import fotokaprodifisika from "!assets/logoprodi/fotokaprodifisika.jpg";
 import fotokaprodigeofisika from "!assets/logoprodi/fotokaprodigeofisika.png";
 import fotokaprodigeologi from "!assets/logoprodi/fotokaprodigeologibaru.png";
-import fotokaprodigeomatika from "!assets/logoprodi/fotokaprodigeomatika.jpg";
+import fotokaprodigeomatika from "!assets/logoprodi/kaprodigeomatikanew.jpg";
 import fotokaprodiindustri from "!assets/logoprodi/fotokaprodiindustri.png";
 import fotokaprodiinformatika from "!assets/logoprodi/fotokaprodiinformatika.jpg";
 import fotokaprodikelautan from "!assets/logoprodi/fotokaprodikelautan.jpg";
@@ -366,7 +366,22 @@ import logotekpang from "!assets/logoprodi/logotekpang.png";
 import logotelekomunikasi from "!assets/logoprodi/logotelekomunikasi.png";
 import logotkap from "!assets/logoprodi/logotkap.png";
 import ppdonat from "!assets/logoprodi/ppdonat.jpg";
-
+import bione from "!assets/logoprodi/BIONE.jpg";
+import biepc from "!assets/logoprodi/BIEPC.jpg";
+import smpbione from "!assets/logoprodi/smpbione.jpg";
+import pkmbione from "!assets/logoprodi/pkmbione.jpg";
+import kegiatanpangan1 from "!assets/logoprodi/kegiatanpangan1.png";
+import kegiatanpangan2 from "!assets/logoprodi/kegiatanpangan2.png";
+import kegiatanpangan3 from "!assets/logoprodi/kegiatanpangan3.jpg";
+import kegiatanpangan4 from "!assets/logoprodi/kegiatanpangan4.png";
+import kegiatanolahraga1 from "!assets/logoprodi/kegiatanolahraga1.jpg";
+import kegiatanolahraga2 from "!assets/logoprodi/kegiatanolahraga2.jpg";
+import kegiatanolahraga3 from "!assets/logoprodi/kegiatanolahraga3.jpg";
+import kegiatanolahraga4 from "!assets/logoprodi/kegiatanolahraga4.jpg";
+import kulapgeomatika from "!assets/logoprodi/kulapgeomatika.jpg";
+import sggeomatika from "!assets/logoprodi/sggeomatika.png";
+import praktikumgeomatika from "!assets/logoprodi/paraktikumgeomatika.jpg";
+import sertifikasigeomatika from "!assets/logoprodi/sertifikasigeomatika.png";
 export const PRODI_DATA = [
   { id: 1, value: "biologi", label: "BIOLOGI" },
   { id: 2, value: "farmasi", label: "FARMASI" },
@@ -779,7 +794,7 @@ export const programStudies: ProgramStudi[] = [
     ],
     instagramUrl: "https://www.instagram.com/tambang.itera",
     youtubeUrl: "http://www.youtube.com/@TeknikPertambanganITERA",
-    websiteUrl: "ta.itera.ac.id",
+    websiteUrl: "https://ta.itera.ac.id",
     tiktokUrl: "",
     hmpsName: "Himpunan Mahasiswa Teknik Pertambangan BALAKOSA ITERA",
     hmpsImageUrl: logohmta,
@@ -848,6 +863,10 @@ export const programStudies: ProgramStudi[] = [
       },
       {
         title: "Rekayasa Proses",
+        description: "",
+      },
+      {
+        title: "Pengemasan",
         description: "",
       },
     ],
@@ -946,6 +965,10 @@ export const programStudies: ProgramStudi[] = [
         title: "Teknik Industri Pertanian",
         description: "",
       },
+      {
+        title: "Teknik Pertanian",
+        description: "",
+      },
     ],
     prodiActivities: [
       {
@@ -985,7 +1008,7 @@ export const programStudies: ProgramStudi[] = [
     hmpsInstagramUrl: "https://www.instagram.com/himateb.itera/",
     hmpsYoutubeUrl: "https://www.youtube.com/@HIMATEBITERAOFFICIAL",
     hmpsWebsiteUrl: "",
-    hmpsTiktokUrl: "https://www.tiktok.com/@Himatebitera.official",
+    hmpsTiktokUrl: "https://www.tiktok.com/@himateb.itera",
   },
 
   {
@@ -1136,7 +1159,7 @@ Program Studi ini hadir bersamaan dengan 2 program studi baru yang ada di ITERA 
         documentation: "",
       },
     ],
-    hmpsInstagramUrl: "https://www.instagram.com/hmmgpetrovandra/",
+    hmpsInstagramUrl: "https://www.instagram.com/hmmg_petrovandra",
     hmpsYoutubeUrl: "",
     hmpsWebsiteUrl: "",
     hmpsTiktokUrl: "https://www.tiktok.com/@Hmmg.petrovandra",
@@ -1351,7 +1374,7 @@ Program Studi ini hadir bersamaan dengan 2 program studi baru yang ada di ITERA 
     hmpsImageUrl: logoforesta,
     hmpsAcronym: "FORESTA",
     hmpsDescrption:
-      "Forestry Engineering Student Association yang disingkat menjadi FORESTA termasuk himpunan mahasiswa Rekayasa kehutanan. Foresta terbentuk pada tanggal 23 Maret 2021",
+    "Forestry Engineering Student Association yang disingkat menjadi FORESTA termasuk himpunan mahasiswa Rekayasa kehutanan. Foresta terbentuk pada tanggal 23 Maret 2021",
     kahim: "Rezki Desnata Sitepu",
 
     hmpsActivities: [
@@ -1388,13 +1411,13 @@ Program Studi ini hadir bersamaan dengan 2 program studi baru yang ada di ITERA 
     name: "Rekayasa Keolahragaan",
     imageUrl: logorekayasakeolahragaan,
     description:
-      "Program Studi Rekayasa Keolahragaan adalah disiplin ilmu yang mengintegrasikan prinsip-prinsip keteknikan dengan ilmu keolahragaan untuk mengembangkan inovasi teknologi, peralatan, dan sistem guna meningkatkan performa atlet dan kesehatan masyarakat.",
+    "Program Studi Rekayasa Keolahragaan adalah disiplin ilmu yang mengintegrasikan prinsip-prinsip keteknikan dengan ilmu keolahragaan untuk mengembangkan inovasi teknologi, peralatan, dan sistem guna meningkatkan performa atlet dan kesehatan masyarakat.",
     history:
-      "Program Studi S1 Rekayasa Keolahragaan Institut Teknologi Sumatera (ITERA) resmi berdiri berdasarkan Keputusan Mendikbud Ristek RI Nomor 426/E/O/2023. Prodi ini merupakan yang pertama di Indonesia dalam bidang Rekayasa Keolahragaan pada jenjang S1. Penerimaan mahasiswa perdana dilakukan melalui jalur Seleksi Mandiri Masuk Perguruan Tinggi Negeri (SMMPTN) Wilayah Barat dengan pendaftaran hingga 27 Juni 2023.",
+    "Program Studi S1 Rekayasa Keolahragaan Institut Teknologi Sumatera (ITERA) resmi berdiri berdasarkan Keputusan Mendikbud Ristek RI Nomor 426/E/O/2023. Prodi ini merupakan yang pertama di Indonesia dalam bidang Rekayasa Keolahragaan pada jenjang S1. Penerimaan mahasiswa perdana dilakukan melalui jalur Seleksi Mandiri Masuk Perguruan Tinggi Negeri (SMMPTN) Wilayah Barat dengan pendaftaran hingga 27 Juni 2023.",
     accreditation: "Baik",
     accreditationNo: "6616/SK/BAN-PT/Ak/S/V/2025",
     vision:
-      "Mewujudkan keunggulan dalam pengembangan ilmu pengetahuan dan teknologi di bidang keolahragaan untuk menciptakan inovasi yang berdampak pada peningkatan prestasi atlet, kesehatan masyarakat, dan pengembangan industri olahraga yang berkelanjutan.",
+    "Mewujudkan keunggulan dalam pengembangan ilmu pengetahuan dan teknologi di bidang keolahragaan untuk menciptakan inovasi yang berdampak pada peningkatan prestasi atlet, kesehatan masyarakat, dan pengembangan industri olahraga yang berkelanjutan.",
     mission: [
       "Pengembangan Riset dan Inovasi: Melakukan penelitian dan pengembangan di bidang biomekanika, fisiologi olahraga, material olahraga, instrumentasi, dan data analitik untuk menghasilkan teknologi dan produk keolahragaan yang mutakhir.",
       "Peningkatan Performa Atlet: Menerapkan prinsip-prinsip rekayasa untuk menganalisis dan mengoptimalkan gerakan atlet, merancang program latihan yang efektif, serta mengembangkan peralatan yang mendukung peningkatan performa dan pencegahan cedera.",
@@ -1407,17 +1430,39 @@ Program Studi ini hadir bersamaan dengan 2 program studi baru yang ada di ITERA 
     coordinatorName: "Erny Amalia Lestari, M.Pd. ",
     kk: [
       // {
-      //   title: "",
-      //   description: "",
-      // },
-      // {
-      //   title: "",
-      //   description: "",
-      // },
-      // {
-      //   title: "",
-      //   description: "",
-      // },
+        //   title: "",
+        //   description: "",
+        // },
+        // {
+          //   title: "",
+          //   description: "",
+          // },
+          // {
+            //   title: "",
+            //   description: "",
+            // },
+          ],
+    prodiActivities: [
+      {
+        title: "Juara I kumite-61 kg Under 21 putri kejuaraan karate terbuka piala LA CUP V Lampung Tahun 2025",
+        description: "",
+        documentation: kegiatanolahraga1,
+      },
+      {
+        title: "WUGAMES UNIVERSITAS INDONESIA 2024 : juara 1 CHANG QUAN B MALE MAHASISWA",
+        description: "",
+        documentation: kegiatanolahraga2,
+      },
+      {
+        title: "Juara 1 Kelas C Dewasa Putra north lampung championship Pencak Silat + pesilat terbaik dewasa putra 2025",
+        description: "",
+        documentation: kegiatanolahraga3,
+      },
+      {
+        title: "Juara 3 kumite -60 kg    U21 putra kejuaraan Darmapala Karate championship open tournament dan festival 2024",
+        description: "",
+        documentation: kegiatanolahraga4,
+      },
     ],
     instagramUrl: "https://www.instagram.com/rekayasa_keolahragaan",
     youtubeUrl: "",
@@ -1847,24 +1892,24 @@ Pada tahun berikutnya, yaitu 2018, Teknik Fisika ITERA mulai menerima mahasiswa 
       {
         title: "BIONE (Biomedical Engineering Exhibition)",
         description: "",
-        documentation: kegiatandefault,
+        documentation: bione,
       },
       {
         title:
           "BIEPC (Biomedical International Essay and Poster Competition Diest Natalis BME X HMBM",
         description: "",
-        documentation: kegiatandefault,
+        documentation: biepc,
       },
       {
         title:
           "Program Student Mobility Di University Malaysia Perlis (UNIMAP)",
         description: "",
-        documentation: kegiatandefault,
+        documentation: smpbione,
       },
       {
         title: "Lolos PKM tahun 2025 (PKM -KC)",
         description: "",
-        documentation: kegiatandefault,
+        documentation: pkmbione,
       },
     ],
     instagramUrl: "https://www.instagram.com/teknik.biomedis.itera",
@@ -1879,25 +1924,25 @@ Pada tahun berikutnya, yaitu 2018, Teknik Fisika ITERA mulai menerima mahasiswa 
     kahimPhoto: kahimhmbm,
     hmpsActivities: [
       {
-        title: "BIONE (Biomedical Engineering Exhibition)",
+        title: "IISMA Awardee 2024",
         description: "",
-        documentation: kegiatanhmbm1,
+        documentation: kegiatandefault,
       },
       {
         title:
-          "⁠BIEPC (Biomedical International Essay and Poster Competition Diest Natalis BME X HMBM)",
+          "MAHASISWA BERPRESTASI 1 FTIK ITERA",
         description: "",
-        documentation: kegiatanhmbm2,
+        documentation: kegiatandefault,
       },
       {
-        title: "Lolos PKM-KC",
+        title: "Juara 2 (Gold Medal) IKhayyam International Invention & Innovation Festival 2",
         description: "",
-        documentation: kegiatanhmbm3,
+        documentation: kegiatandefault,
       },
       {
-        title: "Student Mobility Program",
+        title: "Athena (Dies Natalis)",
         description: "",
-        documentation: kegiatanhmbm4,
+        documentation: kegiatandefault,
       },
     ],
     hmpsInstagramUrl: "https://www.instagram.com/hmbm_itera/",
@@ -2105,25 +2150,25 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     prodiActivities: [
       {
         title:
-          "eknologi Pangan Itera menjadi Pemenang dalam Faculty of Industrial Technology Award (FTI Award) Itera",
+          "Teknologi Pangan Itera menjadi Pemenang dalam Faculty of Industrial Technology Award (FTI Award) Itera",
         description: "",
-        documentation: kegiatandefault,
+        documentation: kegiatanpangan1,
       },
       {
         title: "Awardee IISMA-E di Curtin University, Australia",
         description: "",
-        documentation: kegiatandefault,
+        documentation: kegiatanpangan2,
       },
       {
         title:
           "Juara 2 Gagasan Bisnis dan Juara 3 Video Konten Kreatif dalam acara LITERA dan Expo Kemahasiswaan 2024",
         description: "",
-        documentation: kegiatandefault,
+        documentation: kegiatanpangan3,
       },
       {
         title: "Bazar Inovasi Pangan",
         description: "",
-        documentation: kegiatandefault,
+        documentation: kegiatanpangan4,
       },
     ],
     instagramUrl: "https://www.instagram.com/foodtechitera",
@@ -2199,19 +2244,24 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     ],
     prodiActivities: [
       {
-        title: "Coming Soon",
+        title: "Kuliah Lapangan",
         description: "",
-        documentation: kegiatandefault,
+        documentation: kulapgeomatika,
       },
       {
-        title: "Coming Soon",
+        title: "Studium Generale",
         description: "",
-        documentation: kegiatandefault,
+        documentation: sggeomatika,
       },
       {
-        title: "Coming Soon",
+        title: "Kegiatan Praktikum",
         description: "",
-        documentation: kegiatandefault,
+        documentation: praktikumgeomatika,
+      },
+      {
+        title: "Sertifikasi",
+        description: "",
+        documentation: sertifikasigeomatika,
       },
     ],
     instagramUrl: "https://www.instagram.com/tekniksipil.itera",
@@ -2227,17 +2277,17 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
     kahimPhoto: kahimhms,
     hmpsActivities: [
       {
-        title: "Coming Soon",
+        title: "Mengadakan Seminar Bersama PT Adhi Persada Beton",
         description: "",
         documentation: kegiatandefault,
       },
       {
-        title: "Coming Soon",
+        title: "Mengadakan Seminar Berkala Nasional",
         description: "",
         documentation: kegiatandefault,
       },
       {
-        title: "Coming Soon",
+        title: "Juara Harapan 1 dan Juara Favorit Lomba Kuat Tekan Beton Universitas Andalas",
         description: "",
         documentation: kegiatandefault,
       },
@@ -2384,6 +2434,10 @@ Prodi ini merujuk pada kurikulum dari 6 universitas dunia terkemuka di bidang ko
       },
       {
         title: "Kadaster",
+        description: "",
+      },
+      {
+        title: "Survei Hidrografi",
         description: "",
       },
     ],
@@ -3211,9 +3265,8 @@ perkuliahan masih dititipkan di kampus Institut Teknologi Bandung (ITB), Jatinan
     vision:
       "Menjadi program studi yang unggul, bermartabat, mandiri, dan diakui dunia, serta berinovasi pada bidang sains atmosfer dan keplanetan, melalui pendidikan, penelitian, dan pengabdian masyarakat yang mampu meningkatkan kesejahteraan bangsa Indonesia dan dunia dengan memberdayakan potensi yang ada di wilayah Sumatera dan sekitarnya.",
     mission: [
-      `Menyelenggarakan pendidikan dasar dan terapan dalam bidang sains atmosfer dan keplanetan yang berdaya saing global diimbangi dengan peningkatan kualitas tenaga pendidik dan kependidikan.,
-      Meningkatkan keilmuan dan apresiasi masyarakat terhadap sains atmosfer dan keplanetan.
-      Mengadakan kerja sama dengan pemerintah (pusat dan daerah) maupun bidang swasta dalam pelaksanaan pengajaran, penelitian, dan pengabdian masyarakat di bidang sains atmosfer dan keplanetan.`,
+      "Menyelenggarakan pendidikan dasar dan terapan dalam bidang sains atmosfer dan keplanetan yang berdaya saing global diimbangi dengan peningkatan kualitas tenaga pendidik dan kependidikan.",
+      "Meningkatkan keilmuan dan apresiasi masyarakat terhadap sains atmosfer dan keplanetan.Mengadakan kerja sama dengan pemerintah (pusat dan daerah) maupun bidang swasta dalam pelaksanaan pengajaran, penelitian, dan pengabdian masyarakat di bidang sains atmosfer dan keplanetan",
     ],
     coordinatorPhoto: fotokaprodisap,
     coordinatorName: "Hendra Agus Prastyo, S.Si., M.Si.",

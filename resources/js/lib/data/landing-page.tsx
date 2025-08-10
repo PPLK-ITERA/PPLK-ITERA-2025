@@ -17,6 +17,7 @@ import roni from "!assets/logo-sponsor/RONI.png";
 import sari_roti from "!assets/logo-sponsor/Sari Roti.png";
 import wardah from "!assets/logo-sponsor/wardah.png";
 import woods from "!assets/logo-sponsor/Woods.png";
+import vica from "!assets/logo-sponsor/vica.jpg";
 
 
 // media patner
@@ -224,8 +225,8 @@ export const data_sponsor = [
     src: idcard_lampung
   },
   {
-    name: "Kahf",
-    src: khaf
+    name: "Vica",
+    src: vica
   },
   {
     name: "Kriyakala Studio",
