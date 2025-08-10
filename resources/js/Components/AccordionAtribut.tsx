@@ -94,7 +94,7 @@ export function AccordionAtribut() {
                 {/* Speak Mahasiswa Baru */}
                 <div className="flex-1 border border-jaffa-600 bg-jaffa-100 rounded-lg p-4 shadow-sm">
                   <div className="text-center font-semibold text-lg mb-3">
-                    Speak Mahasiswa Baru
+                    Spek Mahasiswa Baru
                   </div>
                   {item.speakMaba?.length > 0 && (
                     <div className="flex flex-col gap-3">
@@ -122,7 +122,7 @@ export function AccordionAtribut() {
                 {/* Speak Kelompok */}
                 <div className="flex-1 border border-jaffa-600 bg-jaffa-100 rounded-lg p-4 shadow-sm">
                   <div className="text-center font-semibold text-lg mb-3">
-                    Speak Kelompok
+                    Spek Kelompok
                   </div>
                   {item.speakKelompok?.length > 0 && (
                     <div className="flex flex-col gap-3">
