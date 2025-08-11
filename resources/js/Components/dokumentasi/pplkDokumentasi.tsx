@@ -10,7 +10,7 @@ import dokum_28 from "!assets/dokumentasi/dokum-28.jpg";
 import dokum_29 from "!assets/dokumentasi/dokum-29.jpg";
 import dokum_30 from "!assets/dokumentasi/dokum-30.jpg";
 import dokum_31 from "!assets/dokumentasi/dokum-31.jpg";
-import dokum_32 from "!assets/dokumentasi/dokum-32.jpg";
+// import dokum_32 from "!assets/dokumentasi/dokum-32.jpg";
 import dokum_33 from "!assets/dokumentasi/dokum-33.jpg";
 import dokum_34 from "!assets/dokumentasi/dokum-34.jpg";
 import dokum_35 from "!assets/dokumentasi/dokum-35.jpg";
@@ -73,7 +73,7 @@ const PplkDokumtasi = () => {
 
     const imageData = {
         'The Calling of Olympus': [
-            dokum_21, dokum_22, dokum_23, dokum_24, dokum_25, dokum_26, dokum_27, dokum_28, dokum_29 , dokum_30, dokum_31 , dokum_32, dokum_33, dokum_34, dokum_35
+            dokum_21, dokum_22, dokum_23, dokum_24, dokum_25, dokum_26, dokum_27, dokum_28, dokum_29 , dokum_30, dokum_31 , dokum_33, dokum_34, dokum_35
         ],
         'Part of Chaos': [
              dokum_36, dokum_37, dokum_38
