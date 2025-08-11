@@ -13,9 +13,12 @@ export default function Page() {
     };
 
     const questItems = [
-        "Lorem ipsum dolor sit amet consectetur",
-        "Lorem ipsum dolor sit amet consectetur",
-        "Lorem ipsum dolor sit amet consectetur"
+        "POS 1",
+        "POS 2",
+        "POS 3",
+        "POS 4",
+        "POS 5"
+
     ];
 
     return (
@@ -36,7 +39,9 @@ export default function Page() {
                         </h1>
 
                         <p className="text-[#543122] text-base md:text-lg mb-4 md:mb-6 leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur. Augue vulputate mattis vestibulum fames metus a quis commodo bibendum. Et morbi penatibus pulvinar arcu arcu feugiat nibh eros.
+                            Hallo Satriya ITERA, selamat telah menyelesaikan Day 0 PPLK!
+Berikut adalah tantangan untuk Day 0, yang berisi:\
+
                         </p>
 
                         <div className="space-y-3 md:space-y-4">
@@ -86,7 +91,8 @@ export default function Page() {
                             SUMMARY
                         </h2>
                         <p className="text-[#543122] text-base md:text-lg leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur. Augue vulputate mattis vestibulum fames metus a quis commodo bibendum. Et morbi penatibus pulvinar arcu arcu feugiat nibh eros. Augue vulputate mattis vestibulum fames metus a quis commodo bibendum. Et morbi penatibus pulvinar arcu arcu feugiat eros.
+                            Pada hari ini, kalian telah melaksanakan Pra-PPLK di mana kalian sudah mulai mengenal lingkungan Kampus ITERA, memahami titik-titik penting yang akan menjadi bagian dari kehidupan perkuliahan, serta membangun kerja sama dengan teman-teman baru. Semoga pengalaman ini menjadi awal yang menyenangkan, penuh semangat, dan memotivasi kalian untuk terus berpartisipasi aktif dalam setiap rangkaian kegiatan PPLK selanjutnya.
+
                         </p>
                     </div>
 

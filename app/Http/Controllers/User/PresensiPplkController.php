@@ -21,8 +21,9 @@ class PresensiPplkController extends Controller
    
    // Jam operasional presensi
    const JAM_MULAI_PRESENSI = 6;  // 6 AM
-   const JAM_AKHIR_PRESENSI = 20; // 8 PM
+   const JAM_AKHIR_PRESENSI = 13; // 1 PM
    
+   // Tanggal khusus untuk role_id = 6 (Korlap)
    // Tanggal khusus untuk role_id = 5 (PJ Prodi)
    const TANGGAL_KHUSUS_PJ_PRODI = [
       '2025-08-13',
