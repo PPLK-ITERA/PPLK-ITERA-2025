@@ -92,6 +92,15 @@ const PplkDokumtasi = () => {
         ]
     };
 
+    const drivePplk = [
+        'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
+        'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
+        'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
+        'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
+        'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
+        'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
+    ]
+
 
     const itemsPerPage = 6;
     const totalPages = 3;
@@ -213,6 +222,10 @@ const PplkDokumtasi = () => {
                                 {page}
                             </button>
                         ))}
+                    </div>
+
+                    <div className='flex justify-start my-5'>
+                        <a href={drivePplk[currentPage - 1]} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg text-white p-2">Lihat Semua</a>
                     </div>
                 </div>
             </div>
