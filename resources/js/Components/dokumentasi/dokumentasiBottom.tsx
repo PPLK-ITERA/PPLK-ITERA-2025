@@ -24,7 +24,7 @@ export default function dokumentasiBottom() {
             <div>
                 <div className="max-w-6xl absolute inset-0 my-20 space-y-10 mx-auto text-white">
                     <p className="text-center font-greek text-2xl font-bold md:text-4xl">
-                        Kenangan PPLK ITERA 2024
+                        Kenangan PPLK ITERA 2025
                     </p>
 
                     <div className="grid grid-cols-12 grid-rows-6 gap-2 px-2 md:gap-3 h-[600px]">

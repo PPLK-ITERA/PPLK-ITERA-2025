@@ -1,63 +1,60 @@
 import React, { useState } from 'react';
 import DefaultLayout from "@/Layouts/DefaultLayout";
-import bg_1 from "!assets/checkPoint/bg-1.png";
+import { Data_Page_ChekPoint } from "@/lib/data/chekPoint"
 
 export default function Page() {
-    const bg = bg_1;
+
+    // konsum data page checkPoint
+    const { title, description1, description2, bg_image, checkBoxData } = Data_Page_ChekPoint[0];
+
     const [checkedItems, setCheckedItems] = useState([false, false, false]);
 
-    const handleCheckboxChange = (index) => {
+    const handleCheckboxChange = (key) => {
         const newCheckedItems = [...checkedItems];
-        newCheckedItems[index] = !newCheckedItems[index];
+        newCheckedItems[key] = !newCheckedItems[key];
         setCheckedItems(newCheckedItems);
     };
-
-    const questItems = [
-        "Lorem ipsum dolor sit amet consectetur",
-        "Lorem ipsum dolor sit amet consectetur",
-        "Lorem ipsum dolor sit amet consectetur"
-    ];
 
     return (
         <DefaultLayout>
             <div
                 className="min-h-screen p-2 md:p-4 bg-cover bg-center bg-no-repeat relative flex items-center justify-center"
                 style={{
-                    backgroundImage: `url(${bg})`,
+                    backgroundImage: `url(${bg_image})`,
                 }}
             >
                 <div className="relative w-full mt-20 md:max-w-4xl md:mr-auto glass-container p-4 md:p-8 rounded-xl my-4 md:my-20 mx-2 md:mx-4">
                     <div className="mb-6 md:mb-8">
                         <h1 className="block md:hidden font-greek text-2xl font-bold text-[#682300] mb-3">
-                            Quest DAY 1
+                            {title}
                         </h1>
                         <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-[#682300] font-greek mb-4 tracking-wide">
-                            QUEST DAY 1
+                            {title}
                         </h1>
 
                         <p className="text-[#543122] text-base md:text-lg mb-4 md:mb-6 leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur. Augue vulputate mattis vestibulum fames metus a quis commodo bibendum. Et morbi penatibus pulvinar arcu arcu feugiat nibh eros.
+                            {description1}
                         </p>
 
                         <div className="space-y-3 md:space-y-4">
-                            {questItems.map((item, index) => (
+                        {Object.entries(checkBoxData[0]).map(([key, value]) => (
                                 <div
-                                    key={index}
+                                    key={key}
                                     className="flex md:max-w-xl items-center glass-item p-3 md:p-4 rounded-lg md:rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
                                 >
                                     <div className="relative mr-3 md:mr-4">
                                         <input
                                             type="checkbox"
-                                            id={`quest-${index}`}
-                                            checked={checkedItems[index]}
-                                            onChange={() => handleCheckboxChange(index)}
+                                            id={`quest-${key}`}
+                                            checked={checkedItems[key]}
+                                            onChange={() => handleCheckboxChange(key)}
                                             className="sr-only"
                                         />
                                         <label
-                                            htmlFor={`quest-${index}`}
+                                            htmlFor={`quest-${key}`}
                                             className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 border-2 border-white rounded cursor-pointer transition-all duration-200"
                                         >
-                                            {checkedItems[index] && (
+                                            {checkedItems[key] && (
                                                 <svg
                                                     className="w-3 h-3 md:w-4 md:h-4 text-white"
                                                     fill="currentColor"
@@ -73,7 +70,7 @@ export default function Page() {
                                         </label>
                                     </div>
                                     <span className="text-white text-base md:text-lg flex-1">
-                                        {item}
+                                        {value}
                                     </span>
                                 </div>
                             ))}
@@ -86,7 +83,7 @@ export default function Page() {
                             SUMMARY
                         </h2>
                         <p className="text-[#543122] text-base md:text-lg leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur. Augue vulputate mattis vestibulum fames metus a quis commodo bibendum. Et morbi penatibus pulvinar arcu arcu feugiat nibh eros. Augue vulputate mattis vestibulum fames metus a quis commodo bibendum. Et morbi penatibus pulvinar arcu arcu feugiat eros.
+                            {description2}
                         </p>
                     </div>
 
