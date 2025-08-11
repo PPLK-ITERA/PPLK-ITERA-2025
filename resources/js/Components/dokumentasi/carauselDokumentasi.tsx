@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import dokum_11 from "!assets/dokumentasi/dokum-11.jpg";
-import dokum_12 from "!assets/dokumentasi/dokum-12.jpg";
-import dokum_13 from "!assets/dokumentasi/dokum-13.jpg";
-import dokum_14 from "!assets/dokumentasi/dokum-14.jpg";
-import dokum_15 from "!assets/dokumentasi/dokum-15.jpg";
-import dokum_16 from "!assets/dokumentasi/dokum-16.jpg";
-import dokum_17 from "!assets/dokumentasi/dokum-17.jpg";
-import dokum_18 from "!assets/dokumentasi/dokum-18.jpg";
-import dokum_19 from "!assets/dokumentasi/dokum-19.jpg";
-import dokum_20 from "!assets/dokumentasi/dokum-20.jpg";
+import dokum_11 from "!assets/dokumentasi/dokum-21.jpg";
+import dokum_12 from "!assets/dokumentasi/dokum-22.jpg";
+import dokum_13 from "!assets/dokumentasi/dokum-23.jpg";
+import dokum_14 from "!assets/dokumentasi/dokum-24.jpg";
+import dokum_15 from "!assets/dokumentasi/dokum-25.jpg";
+import dokum_16 from "!assets/dokumentasi/dokum-26.jpg";
+import dokum_17 from "!assets/dokumentasi/dokum-27.jpg";
+import dokum_18 from "!assets/dokumentasi/dokum-28.jpg";
+import dokum_19 from "!assets/dokumentasi/dokum-29.jpg";
+import dokum_20 from "!assets/dokumentasi/dokum-30.jpg";
 
 
 export default function CarauselDokumentasi({ images = [], speed = 0.5 }) {
