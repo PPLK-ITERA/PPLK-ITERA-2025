@@ -97,7 +97,7 @@ export default function NavLarge({ isScrolled, isSolid }: NavLargeProps) {
                         className={`${isScrolled || isSolid ? `focus:bg-jaffa-600` : `focus:bg-jaffa-200`} w-full transition-all duration-300 ease-in-out`}
                     >
                         <a
-                            href="https://drive.google.com/drive/folders/1jsJHZSWUynxDs1P_URlCwz2l1um6voUf?usp=sharing"
+                            href="https://drive.google.com/drive/folders/1nxipOqCI8SckF3-kR_yL0VME5FJCbbAg?usp=sharing"
                             target="_blank"
                             className={`lg:mx-2 flex w-full items-center justify-start gap-3 px-[2px] py-[4px] text-[14px] font-semibold font-montserrat ${isScrolled || isSolid ? "text-white" : "text-black"} transition-all duration-200 ease-in`}
                         >

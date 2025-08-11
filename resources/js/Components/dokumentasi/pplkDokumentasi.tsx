@@ -73,10 +73,10 @@ const PplkDokumtasi = () => {
 
     const imageData = {
         'The Calling of Olympus': [
-            dokum_21, dokum_22, dokum_23, dokum_24, dokum_25, dokum_26, dokum_27, dokum_28, dokum_29
+            dokum_21, dokum_22, dokum_23, dokum_24, dokum_25, dokum_26, dokum_27, dokum_28, dokum_29 , dokum_30, dokum_31 , dokum_32, dokum_33, dokum_34, dokum_35
         ],
         'Part of Chaos': [
-            dokum_30, dokum_31, dokum_32, dokum_33, dokum_34, dokum_35, dokum_36, dokum_37, dokum_38
+             dokum_36, dokum_37, dokum_38
         ],
         'Flame of Hephaestus': [
             dokum_39, dokum_40, dokum_41, dokum_42, dokum_43, dokum_44, dokum_45, dokum_46, dokum_47

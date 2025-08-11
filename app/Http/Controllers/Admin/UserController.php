@@ -270,7 +270,7 @@ class UserController extends Controller
 
       $jumlah = User::where('kelompok_id', $validated['kelompok_id'])->count();
       $urut = $jumlah + 1;
-      $password = "naramuda2024";
+      $password = "satriya2025";
 
       // Define the closure for email generation inside the store method
       $generateEmail = function ($number, $name, $code) {

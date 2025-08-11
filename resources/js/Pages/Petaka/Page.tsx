@@ -184,13 +184,13 @@ export default function Page() {
     </div>
   </div>
 
-  <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl px-4 sm:px-6">
+  {/* <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl px-4 sm:px-6">
     {data?.isSelesai ? (
       <CompletedMessage />
     ) : (
       data?.history && <RiwayatTugas historys={data.history} />
     )}
-  </div>
+  </div> */}
 </div>
 
                         <div className="w-full">

@@ -25,8 +25,8 @@ class PresensiPplkController extends Controller
    
    // Tanggal khusus untuk role_id = 5 (PJ Prodi)
    const TANGGAL_KHUSUS_PJ_PRODI = [
-      '2024-08-12',
-      '2024-08-15'
+      '2025-08-13',
+      '2025-08-14'
    ];
    
    // Konfigurasi Event/Periode PPLK

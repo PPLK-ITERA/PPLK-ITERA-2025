@@ -233,7 +233,7 @@ export default function Page({ id }) {
           <MaxWidthWrapper className="min-h-screen">
             <div className="px-2.5 bg-white/80 py-5 rounded-md md:px-5 lg:px-10 xl:px-28">
               <Link
-                href={route("mading")}
+                href={route("petaka")}
                 className={`${buttonVariants({ variant: "outline" })} bg-transparent hover:bg-transparent shadow-none items-center border-none flex gap-2 -ml-5`}
               >
                 <ChevronLeft />
