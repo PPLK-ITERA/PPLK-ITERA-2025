@@ -76,6 +76,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/api/photo-profile', [ProfileController::class, 'getPhotoProfileUrl'])->name('api.photo-profile');
 });
 
+// Tambahkan route berikut di bawah group dashboard jika belum ada:
+Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
+    // ...existing code...
+    Route::get('/pengumpulan-tugas', [\App\Http\Controllers\Dashboard\PengumpulanTugasController::class, 'index'])->name('pengumpulan-tugas.index');
+    // ...existing code...
+});
+
 require __DIR__ . '/auth.php';
 require __DIR__ . '/ui.php';
 require __DIR__ . '/game.php';
