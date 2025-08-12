@@ -349,10 +349,12 @@ class TeslaController extends Controller
             ], 401);
         }
 
-        $progres = Progres::where('user_id', $user->id)
+        $progres = \App\Models\Progres::where('user_id', $user->id)
             ->orderBy('tanggal', 'desc')
             ->get()
-            ->map(function ($item) {
+            ->map(function ($item) use ($user) {
+                // Ambil data user lengkap
+                $userData = $user ? $user->toArray() : null;
                 return [
                     'id' => $item->id,
                     'tanggal' => $item->tanggal,
@@ -360,6 +362,7 @@ class TeslaController extends Controller
                     'selesai' => $item->selesai,
                     'jawaban' => $item->jawaban,
                     'skor' => $item->skor,
+                    'user' => $userData, // Tambahkan seluruh data user
                 ];
             })
             ->values();
@@ -369,7 +372,6 @@ class TeslaController extends Controller
             'data' => $progres
         ]);
     }
-
 
     /**
      * API: Simpan progres baru (user_id dari request->user()->id, fallback ke request->input('user_id'))
@@ -412,7 +414,7 @@ class TeslaController extends Controller
     {
         try {
             $progres = Progres::where('user_id', $id)->get();
-            $nama = User::findOrFail($id)->name;
+            $user = User::findOrFail($id);
         } catch (\Exception $e) {
             return response()->json([
                 'response' => [
@@ -422,7 +424,7 @@ class TeslaController extends Controller
             ]);
         }
 
-        $response = $progres->transform(function ($item) {
+        $response = $progres->transform(function ($item) use ($user) {
             return [
                 'id' => $item->id,
                 'tanggal' => $item->tanggal,
@@ -430,6 +432,7 @@ class TeslaController extends Controller
                 'selesai' => $item->selesai,
                 'jawaban' => $item->jawaban,
                 'skor' => $item->skor,
+                'user' => $user ? $user->toArray() : null, // Tambahkan seluruh data user
             ];
         });
 
@@ -439,7 +442,33 @@ class TeslaController extends Controller
                 'message' => 'Berhasil mendapatkan data',
                 'data' => $response
             ],
-            'nama' => $nama
+            'nama' => $user->name
+        ]);
+    }
+
+    /**
+     * API: Ambil semua progres dari semua user (admin/global)
+     */
+    public function getAllProgres()
+    {
+        $progres = Progres::orderBy('tanggal', 'desc')->get();
+
+        $result = $progres->map(function ($item) {
+            $user = User::find($item->user_id);
+            return [
+                'id' => $item->id,
+                'tanggal' => $item->tanggal,
+                'waktu' => $item->waktu,
+                'selesai' => $item->selesai,
+                'jawaban' => $item->jawaban,
+                'skor' => $item->skor,
+                'user' => $user ? $user->toArray() : null,
+            ];
+        })->values();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $result
         ]);
     }
 }
