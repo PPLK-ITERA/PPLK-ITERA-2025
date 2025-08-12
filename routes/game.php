@@ -74,4 +74,6 @@ Route::middleware('auth')->prefix('api/progres')->group(function () {
     Route::post('/', [TeslaController::class, 'storeProgres']);
     // GET progres by user id, public (tidak pakai middleware auth)
     Route::get('/user/{id}', [TeslaController::class, 'getProgresByUserId'])->name('progres.user');
+    // Tambahkan endpoint untuk get semua progres semua user
+    Route::get('/all', [TeslaController::class, 'getAllProgres']);
 });
