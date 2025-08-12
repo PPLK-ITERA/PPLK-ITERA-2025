@@ -393,16 +393,37 @@ class TeslaController extends Controller
             'jawaban' => 'required|string',
             'skor' => 'required|integer',
         ]);
-        $progres = Progres::create([
-            'user_id' => $userId,
-            'tanggal' => $request->tanggal,
-            'waktu' => $request->waktu,
-            'selesai' => $request->selesai,
-            'jawaban' => $request->jawaban,
-            'skor' => $request->skor,
-        ]);
+
+        // Cek apakah sudah ada progres untuk user_id dan tanggal yang sama
+        $progres = Progres::where('user_id', $userId)
+            ->whereDate('tanggal', date('Y-m-d', strtotime($request->tanggal)))
+            ->first();
+
+        if ($progres) {
+            // Update progres yang sudah ada
+            $progres->waktu = $request->waktu;
+            $progres->selesai = $request->selesai;
+            $progres->jawaban = $request->jawaban;
+            $progres->skor = $request->skor;
+            $progres->tanggal = $request->tanggal;
+            $progres->save();
+            $status = 'updated';
+        } else {
+            // Buat progres baru
+            $progres = Progres::create([
+                'user_id' => $userId,
+                'tanggal' => $request->tanggal,
+                'waktu' => $request->waktu,
+                'selesai' => $request->selesai,
+                'jawaban' => $request->jawaban,
+                'skor' => $request->skor,
+            ]);
+            $status = 'created';
+        }
+
         return response()->json([
             'status' => 'success',
+            'action' => $status,
             'data' => $progres
         ]);
     }
