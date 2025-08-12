@@ -117,7 +117,7 @@ class PresensiPplkController extends Controller
          return response()->json([
             'response' => [
                "status" => 403,
-               "message" => "Maaf hanya bisa dilakukan saat jam " . self::JAM_MULAI_PRESENSI . " Pagi hingga Jam " . (self::JAM_AKHIR_PRESENSI - 2) . " Sore",
+               "message" => "Maaf hanya bisa dilakukan saat jam " . self::JAM_MULAI_PRESENSI . " Pagi hingga Jam " . (self::JAM_AKHIR_PRESENSI) . " Sore",
             ]
          ]);
       }
