@@ -39,6 +39,9 @@ export default function BuktiPengerjaan({
   const [countPercent4, setCountPercent4] = useState(0);
   const [countPercent5, setCountPercent5] = useState(0);
 
+  // Ambil kategori tugas pertama dari data.card.kategori_tugas_pertama
+  const kategoriTugasPertama = data.card.kategori_tugas_pertama?.[0] || "kelompok";
+
   return (
     <Carousel
       opts={{ align: "start" }}
@@ -54,50 +57,52 @@ export default function BuktiPengerjaan({
               className={`bg-white ${data.card.cardOpen[index] ? "" : "bg-jaffa-700"} xl:w-[400px] md:w-[350px] lg:w-[350px] md:h-[550px] w-[280px] h-[400px] xl:h-[600px] overflow-hidden rounded-lg relative border border-dashed border-jaffa-700 font-montserrat`}
             >
               <CardContent className="relative flex flex-col items-center justify-center h-full p-0 text-white">
-                {index !== 0 && data.card.cardOpen[index] ? (
+                {/* Judul card pertama: tampilkan sesuai kategori */}
+                {index === 0 && data.card.cardOpen[index] ? (
                   <h2
                     className={`font-greek text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
                   >
-                    Day {index}
+                    {kategoriTugasPertama === "individu" ? "Tugas Individu" : "Tugas Kelompok"}
                   </h2>
                 ) : null}
 
+                {/* Card pertama: logika tombol upload dan pesan */}
                 {data.card.cardOpen[index] ? (
                   <>
-                    {isKetua && index === 0 ? (
-                      <>
-                        <h2
-                          className={`font-greek text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
-                        >
-                          Tugas Kelompok
-                        </h2>
+                    {/* Tugas Kelompok: hanya ketua yang bisa upload */}
+                    {index === 0 && kategoriTugasPertama === "kelompok" ? (
+                      isKetua ? (
                         <Link
                           className="text-[48px] font-bold text-jaffa-700 aspect-square flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent"
                           href={`/mading/pengumpulan/${index}`}
                         >
                           +
                         </Link>
-                      </>
-                    ) : !isKetua && index === 0 ? (
-                      <>
-                        <h2
-                          className={`font-greek text-[44px] pb-10 text-center ${data.card.cardOpen[index] ? "text-jaffa-700" : "text-white"}`}
-                        >
-                          Tugas Kelompok
-                        </h2>
+                      ) : (
                         <div className="text-sm font-bold text-jaffa-700 flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent">
                           <p className="text-center">
-                            Tugas ini belum dikumpulkan oleh ketua kelompok!
+                            Tugas ini hanya bisa dikumpulkan oleh ketua kelompok!
                           </p>
                         </div>
-                      </>
+                      )
                     ) : (
-                      <Link
-                        className="text-[48px] font-bold text-jaffa-700 aspect-square flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent"
-                        href={`/mading/pengumpulan/${index}`}
-                      >
-                        +
-                      </Link>
+                      // Tugas Individu: semua anggota bisa upload
+                      index === 0 && kategoriTugasPertama === "individu" ? (
+                        <Link
+                          className="text-[48px] font-bold text-jaffa-700 aspect-square flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent"
+                          href={`/mading/pengumpulan/${index}`}
+                        >
+                          +
+                        </Link>
+                      ) : (
+                        // Card selain index 0 (day 1-5): tetap seperti sebelumnya
+                        <Link
+                          className="text-[48px] font-bold text-jaffa-700 aspect-square flex items-center justify-center md:p-[50px] lg:p-14 p-9 mx-auto bg-transparent"
+                          href={`/mading/pengumpulan/${index}`}
+                        >
+                          +
+                        </Link>
+                      )
                     )}
                   </>
                 ) : (
@@ -389,5 +394,7 @@ export default function BuktiPengerjaan({
 //             </Link>
 //         );
 //     }
+//     return null;
+// }
 //     return null;
 // }

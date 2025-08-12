@@ -703,7 +703,7 @@ export default function Page() {
         return null;
     };
 
-    // Fungsi untuk simpan progres ke localStorage dan API
+    // Fungsi untuk simpan progres ke localStorage
     const handleSaveProgress = async () => {
         const newEntry = {
             time,
@@ -725,19 +725,6 @@ export default function Page() {
         historyArr = [newEntry, ...historyArr].slice(0, 6);
         localStorage.setItem('tesla_progress_history', JSON.stringify(historyArr));
         setHistory(historyArr);
-
-        // --- Save to API (storeProgres) ---
-        try {
-            await axios.post('/api/progres', {
-                tanggal: new Date().toISOString(),
-                waktu: time,
-                selesai: progress.percentage,
-                jawaban: `${progress.answered}/${progress.total}`,
-                skor: progress.answered * 10,
-            });
-        } catch (e) {
-            // Optional: handle error (e.g. show toast)
-        }
 
         setStarted(false);
         setTime(0);

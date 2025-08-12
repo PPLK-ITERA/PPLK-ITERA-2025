@@ -49,6 +49,7 @@ class MadingController extends Controller
       $cardOpen = [];
       $posters = [];
       $days = [];
+      $cardKategori = []; // <-- tambahkan ini
 
       $isSelesai = false;
 
@@ -82,6 +83,11 @@ class MadingController extends Controller
             // Set card to open only if the current user has not submitted their task
             if (!$userTaskSubmitted) {
                $cardOpen[$hari] = true;
+            }
+
+            // Tambahkan kategori tugas pertama untuk setiap hari
+            if (!isset($cardKategori[$hari])) {
+               $cardKategori[$hari] = $tugas->kategori;
             }
          }
       }
@@ -120,7 +126,8 @@ class MadingController extends Controller
             'completionPercentage' => $completionPercentage,
             'cardOpen' => $cardOpen,
             'posters' => $posters,
-            'hari' => $days
+            'hari' => $days,
+            'kategori_tugas_pertama' => $cardKategori ?? [], // <-- tambahkan ini
          ],
          'history' => $riwayat,  // Ensure $riwayat is defined and assigned appropriately before this point
          'logo_kelompok' => $logo,
@@ -135,32 +142,38 @@ class MadingController extends Controller
       $user = Auth::user();
       $userId = $user->id;
 
-
       $isSubmitted = false;
 
-      if ($user->isKetua == 1) {
-         $tugass = Tugas::where('hari', $hari)->whereIn('kategori', ['individu', 'kelompok']);
-      } else {
-         $tugass = Tugas::where('hari', $hari)->where('kategori', 'individu');
-      }
+      // Ambil semua tugas pada hari tersebut
+      $tugass = Tugas::where('hari', $hari)->get();
 
-      $tugass = $tugass
-         ->whereDoesntHave('pengumpulanTugas', function ($query) use ($userId) {
-            $query->where('user_id', $userId)->where('isReturn', false);
-         })->get();
-
-      foreach ($tugass as $tugas) {
-         $isSubmitted = PengumpulanTugas::where('tugas_id', $tugas->id)->where('user_id', Auth::id())->where('isReturn', false)->exists();
-         if (!$isSubmitted) {
-            break;
+      // Filter tugas yang boleh dikumpulkan oleh user
+      $filteredTugas = $tugass->filter(function ($tugas) use ($user) {
+         if ($tugas->kategori === 'kelompok') {
+            // Hanya ketua kelompok yang boleh mengumpulkan tugas kelompok
+            return $user->isKetua == 1;
+         } else {
+            // Tugas individu boleh dikumpulkan oleh siapa saja
+            return true;
          }
-      }
+      });
+
+      // Ambil tugas yang belum dikumpulkan oleh user
+      $tugasBelumKumpul = $filteredTugas->filter(function ($tugas) use ($userId) {
+         return !PengumpulanTugas::where('tugas_id', $tugas->id)
+            ->where('user_id', $userId)
+            ->where('isReturn', false)
+            ->exists();
+      });
+
+      // Cek apakah user sudah mengumpulkan semua tugas yang boleh dikumpulkan
+      $isSubmitted = $tugasBelumKumpul->isEmpty();
 
       if ($isSubmitted) {
          return redirect()->route('mading')->with(['message' => 'Task already submitted']);
       }
 
-      return response()->json(['tugas' => $tugass, 'isSubmitted' => $isSubmitted]);
+      return response()->json(['tugas' => $tugasBelumKumpul->values(), 'isSubmitted' => $isSubmitted]);
    }
 
    public function storeTugas(Request $request)
