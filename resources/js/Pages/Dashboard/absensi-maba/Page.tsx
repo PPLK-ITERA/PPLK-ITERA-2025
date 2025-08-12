@@ -45,7 +45,7 @@ export default function Page({ auth, response, eventList }) {
     // Role 5 (PJ Prodi) only gets specific days
     if (auth.user.role_id === 5) {
       return eventsArray.filter(event => 
-        event.tanggal === '2025-08-12' || event.tanggal === '2025-08-15'
+        event.tanggal === '2025-08-13' || event.tanggal === '2025-08-14'
       );
     }
     
