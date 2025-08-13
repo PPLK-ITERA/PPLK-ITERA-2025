@@ -689,4 +689,50 @@ class UserController extends Controller
          ]
       ]);
    }
+   public function destroyMaba(Request $request)
+   {
+      $validated = $request->validate(
+         [
+            'id' => ['required', 'integer'],
+         ]
+      );
+      $user = User::find($validated['id']);
+
+      if($user->role_id != 1) {
+         return redirect()->route('dashboard.atur-maba')->with([
+            'response' => [
+               'status' => 501,
+               'message' => 'Gagal mengubah user',
+            ]
+         ]);
+      }
+
+      DB::beginTransaction();
+      try {
+         $penyakit = Penyakit::find($user->penyakit_id);
+         $qrcode = Qrcode::where('user_id', $user->id)->first();
+         if ($qrcode) {
+            $qrcode->delete();
+         }
+         if ($penyakit) {
+            $penyakit->delete();
+         }
+         $user->delete();
+         DB::commit();
+      } catch (\Exception $e) {
+         DB::rollBack();
+         return redirect()->route('dashboard.atur-maba')->with([
+            'response' => [
+               'status' => 500,
+               'message' => 'Gagal menghapus user',
+            ]
+         ]);
+      }
+      return redirect()->route('dashboard.atur-maba')->with([
+         'response' => [
+            'status' => 200,
+            'message' => 'Berhasil menghapus user',
+         ]
+      ]);
+   }
 }
