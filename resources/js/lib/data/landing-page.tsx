@@ -3,7 +3,7 @@ import deoni from "!assets/logo-sponsor/Deoni.jpg";
 import earnest_apparel from "!assets/logo-sponsor/Earnest Apparel.png";
 import emina from "!assets/logo-sponsor/emina.png";
 import fitbar from "!assets/logo-sponsor/fitbar.png";
-import good_day from "!assets/logo-sponsor/GoodDay.png";
+import good_day from "!assets/logo-sponsor/goodday.png";
 import grab from "!assets/logo-sponsor/Grab.png";
 import gradient from "!assets/logo-sponsor/Gradient.png";
 import humble_donuts from "!assets/logo-sponsor/Humble Donuts.png";
@@ -17,7 +17,7 @@ import roni from "!assets/logo-sponsor/RONI.png";
 import sari_roti from "!assets/logo-sponsor/Sari Roti.png";
 import wardah from "!assets/logo-sponsor/wardah.png";
 import woods from "!assets/logo-sponsor/Woods.png";
-import vica from "!assets/logo-sponsor/vica.jpg";
+import vica from "!assets/logo-sponsor/Vica.jpg";
 
 
 // media patner
@@ -27,7 +27,7 @@ import davikapost from "!assets/media-patners/davikaPost.png";
 import humaltera from "!assets/media-patners/humaltera.png";
 import iterapers from "!assets/media-patners/iteraPers.jpg";
 import lampungfok from "!assets/media-patners/lampungfok.png";
-import lampunggeh from "!assets/media-patners/lampungGeh.png";
+import lampunggeh from "!assets/media-patners/lampunggeh.png";
 import lampungmedia from "!assets/media-patners/lampungMedia.png";
 import lampungpost from "!assets/media-patners/lampungPost.png";
 import lanugraha from "!assets/media-patners/laNugraha.jpg";
