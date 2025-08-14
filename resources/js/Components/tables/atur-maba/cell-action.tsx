@@ -31,7 +31,7 @@ export const CellAction: React.FC<CellActionProps> = ({
   });
 
   const handleDelete = () => {
-    deleteUser(route("dashboard.user.destroy"));
+    deleteUser(route("dashboard.user.destroyMaba"));
   };
 
   type MyPage = PageProps<{

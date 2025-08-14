@@ -62,6 +62,8 @@ Route::middleware('auth')->group(function () {
             // =====================================
             // USER DATA MABA
             // =====================================
+            Route::delete('deleteMaba', [UserController::class, 'destroyMaba'])->name('destroyMaba');
+
             Route::prefix('data')->name('data.')->group(function () {
                Route::get('maba', [UserController::class, 'getUsersMaba'])->name('maba');
                Route::get('prodi', [UserController::class, 'getProdis'])->name('prodi');
