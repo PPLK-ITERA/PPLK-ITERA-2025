@@ -7,11 +7,15 @@ export default function Page() {
     const [popupMessage, setPopupMessage] = useState("");
 
     const handleDayClick = (e, day) => {
-        if (day !== "Day-1") {
+        // Daftar day yang boleh diklik tanpa popup
+        const allowedDays = ["pra-pplk", "Day-0", "Day-1", "Day-2", "Day-3", "Cui"];
+        
+        if (!allowedDays.includes(day)) {
             e.preventDefault();
             setPopupMessage(`Belum sampai PPLK 2025 ${day}`);
             setShowPopup(true);
         }
+        // Jika day ada dalam allowedDays, link akan berfungsi normal
     };
 
     const closePopup = () => {
@@ -52,14 +56,14 @@ export default function Page() {
 
                     <div className="absolute inset-0">
                         <a
-                            href="/chekPoint"
+                            href="/chekPoint?day=pra-pplk"
                             className="absolute z-20 group"
                             style={{
                                 top: '15%',
                                 left: '20%',
                             }}
                             title="Pra-PPLK"
-                            onClick={(e) => handleDayClick(e, "Day-1")}
+                            onClick={(e) => handleDayClick(e, "pra-pplk")}
                         >
                             <div className="w-4 h-4 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-all duration-200"></div>
                             <div className="absolute top-0 left-0 mt-5 ml-1 bg-white text-red-500 w-20 text-center py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
@@ -68,30 +72,14 @@ export default function Page() {
                         </a>
 
                         <a
-                            href="/map"
-                            className="absolute z-20 group"
-                            style={{
-                                top: '38%',
-                                left: '60%',
-                            }}
-                            title="Day-1"
-                            onClick={(e) => handleDayClick(e, "Day-3")}
-                        >
-                            <div className="w-4 h-4 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-all duration-200"></div>
-                            <div className="absolute top-0 left-0 mt-5 ml-1 bg-white text-red-500 w-20 text-center py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                Day-1
-                            </div>
-                        </a>
-
-                        <a
-                            href="/map"
+                            href="/chekPoint?day=day-0"
                             className="absolute z-20 group"
                             style={{
                                 top: '40%',
                                 left: '36%',
                             }}
                             title="Day-0"
-                            onClick={(e) => handleDayClick(e, "Day-2")}
+                            onClick={(e) => handleDayClick(e, "Day-0")}
                         >
                             <div className="w-4 h-4 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-all duration-200"></div>
                             <div className="absolute top-0 left-0 mt-5 ml-1 bg-white text-red-500 w-20 text-center py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
@@ -100,39 +88,71 @@ export default function Page() {
                         </a>
 
                         <a
-                            href="/map"
+                            href="/chekPoint?day=day-1"
+                            className="absolute z-20 group"
+                            style={{
+                                top: '38%',
+                                left: '60%',
+                            }}
+                            title="Day-1"
+                            onClick={(e) => handleDayClick(e, "Day-1")}
+                        >
+                            <div className="w-4 h-4 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-all duration-200"></div>
+                            <div className="absolute top-0 left-0 mt-5 ml-1 bg-white text-red-500 w-20 text-center py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                Day-1
+                            </div>
+                        </a>
+
+                        <a
+                            href="/chekPoint?day=day-2"
                             className="absolute z-20 group"
                             style={{
                                 top: '55%',
                                 left: '80%',
                             }}
-                            title="Day-4"
-                            onClick={(e) => handleDayClick(e, "Day-5")}
+                            title="Day-2"
+                            onClick={(e) => handleDayClick(e, "Day-2")}
                         >
                             <div className="w-4 h-4 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-all duration-200"></div>
                             <div className="absolute top-0 left-0 mt-5 ml-1 bg-white text-red-500 w-20 text-center py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                Day-4
+                                Day-2
                             </div>
                         </a>
 
                         <a
-                            href="/map"
+                            href="/chekPoint?day=day-2"
                             className="absolute z-20 group"
                             style={{
                                 top: '70%',
                                 left: '55%',
                             }}
-                            title="Day-3"
-                            onClick={(e) => handleDayClick(e, "map-4")}
+                            title="Day-2"
+                            onClick={(e) => handleDayClick(e, "Day-2")}
                         >
                             <div className="w-4 h-4 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-all duration-200"></div>
                             <div className="absolute top-0 left-0 mt-5 ml-1 bg-white text-red-500 w-20 text-center py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                Day 3
+                                Day-2
                             </div>
                         </a>
 
                         <a
-                            href="/map"
+                            href="/chekPoint?day=day-3"
+                            className="absolute z-20 group"
+                            style={{
+                                top: '55%',
+                                left: '80%',
+                            }}
+                            title="Day-3"
+                            onClick={(e) => handleDayClick(e, "Day-3")}
+                        >
+                            <div className="w-4 h-4 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-all duration-200"></div>
+                            <div className="absolute top-0 left-0 mt-5 ml-1 bg-white text-red-500 w-20 text-center py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                Day-3
+                            </div>
+                        </a>
+
+                        <a
+                            href="/chekPoint?day=cui"
                             className="absolute z-20 group"
                             style={{
                                 top: '80%',

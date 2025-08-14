@@ -1,68 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DefaultLayout from "@/Layouts/DefaultLayout";
-import bg_1 from "!assets/checkPoint/bg-1.png";
+import { Data_Page_ChekPoint } from "@/lib/data/chekPoint";
 
 export default function Page() {
-    const bg = bg_1;
-    const [checkedItems, setCheckedItems] = useState([false, false, false]);
+    const [dayData, setDayData] = useState(null);
+    const [checkedItems, setCheckedItems] = useState([]);
 
-    const handleCheckboxChange = (index) => {
+    useEffect(() => {
+        // Ambil parameter day dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const dayParam = urlParams.get('day');
+        
+        // Cari data yang sesuai berdasarkan parameter day
+        const foundData = Data_Page_ChekPoint.find(data => data.name === dayParam);
+        
+        // Jika data ditemukan, set data tersebut. Jika tidak, gunakan data pertama sebagai default
+        const selectedData = foundData || Data_Page_ChekPoint[0];
+        setDayData(selectedData);
+        
+        // Initialize checkedItems berdasarkan jumlah item dalam checkBoxData
+        if (selectedData && selectedData.checkBoxData[0]) {
+            const itemCount = Object.keys(selectedData.checkBoxData[0]).length;
+            setCheckedItems(new Array(itemCount).fill(false));
+        }
+    }, []);
+
+    const handleCheckboxChange = (key) => {
         const newCheckedItems = [...checkedItems];
-        newCheckedItems[index] = !newCheckedItems[index];
+        newCheckedItems[key] = !newCheckedItems[key];
         setCheckedItems(newCheckedItems);
     };
 
-    const questItems = [
-        "POS 1",
-        "POS 2",
-        "POS 3",
-        "POS 4",
-        "POS 5"
+    // Loading state jika data belum tersedia
+    if (!dayData) {
+        return (
+            <DefaultLayout>
+                <div className="min-h-screen flex items-center justify-center">
+                    <div className="text-center">
+                        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#682300]"></div>
+                        <p className="mt-4 text-[#682300]">Loading...</p>
+                    </div>
+                </div>
+            </DefaultLayout>
+        );
+    }
 
-    ];
+    const { title, description1, description2, bg_image, checkBoxData } = dayData;
 
     return (
         <DefaultLayout>
             <div
                 className="min-h-screen p-2 md:p-4 bg-cover bg-center bg-no-repeat relative flex items-center justify-center"
                 style={{
-                    backgroundImage: `url(${bg})`,
+                    backgroundImage: `url(${bg_image})`,
                 }}
             >
                 <div className="relative w-full mt-20 md:max-w-4xl md:mr-auto glass-container p-4 md:p-8 rounded-xl my-4 md:my-20 mx-2 md:mx-4">
                     <div className="mb-6 md:mb-8">
                         <h1 className="block md:hidden font-greek text-2xl font-bold text-[#682300] mb-3">
-                            Quest DAY 1
+                            {title}
                         </h1>
                         <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-[#682300] font-greek mb-4 tracking-wide">
-                            QUEST DAY 1
+                            {title}
                         </h1>
 
                         <p className="text-[#543122] text-base md:text-lg mb-4 md:mb-6 leading-relaxed">
-                            Hallo Satriya ITERA, selamat telah menyelesaikan Day 0 PPLK!
-Berikut adalah tantangan untuk Day 0, yang berisi:\
-
+                            {description1}
                         </p>
 
                         <div className="space-y-3 md:space-y-4">
-                            {questItems.map((item, index) => (
+                            {Object.entries(checkBoxData[0]).map(([key, value]) => (
                                 <div
-                                    key={index}
+                                    key={key}
                                     className="flex md:max-w-xl items-center glass-item p-3 md:p-4 rounded-lg md:rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
                                 >
                                     <div className="relative mr-3 md:mr-4">
                                         <input
                                             type="checkbox"
-                                            id={`quest-${index}`}
-                                            checked={checkedItems[index]}
-                                            onChange={() => handleCheckboxChange(index)}
+                                            id={`quest-${key}`}
+                                            checked={checkedItems[key - 1] || false}
+                                            onChange={() => handleCheckboxChange(key - 1)}
                                             className="sr-only"
                                         />
                                         <label
-                                            htmlFor={`quest-${index}`}
+                                            htmlFor={`quest-${key}`}
                                             className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 border-2 border-white rounded cursor-pointer transition-all duration-200"
                                         >
-                                            {checkedItems[index] && (
+                                            {checkedItems[key - 1] && (
                                                 <svg
                                                     className="w-3 h-3 md:w-4 md:h-4 text-white"
                                                     fill="currentColor"
@@ -78,7 +102,7 @@ Berikut adalah tantangan untuk Day 0, yang berisi:\
                                         </label>
                                     </div>
                                     <span className="text-white text-base md:text-lg flex-1">
-                                        {item}
+                                        {value}
                                     </span>
                                 </div>
                             ))}
@@ -91,9 +115,21 @@ Berikut adalah tantangan untuk Day 0, yang berisi:\
                             SUMMARY
                         </h2>
                         <p className="text-[#543122] text-base md:text-lg leading-relaxed">
-                            Pada hari ini, kalian telah melaksanakan Pra-PPLK di mana kalian sudah mulai mengenal lingkungan Kampus ITERA, memahami titik-titik penting yang akan menjadi bagian dari kehidupan perkuliahan, serta membangun kerja sama dengan teman-teman baru. Semoga pengalaman ini menjadi awal yang menyenangkan, penuh semangat, dan memotivasi kalian untuk terus berpartisipasi aktif dalam setiap rangkaian kegiatan PPLK selanjutnya.
-
+                            {description2}
                         </p>
+                    </div>
+
+                    {/* Back to Map Button */}
+                    <div className="mt-8 md:mt-12">
+                        <a
+                            href="/map"
+                            className="inline-flex items-center px-6 py-3 bg-[#682300] text-white font-medium rounded-lg hover:bg-[#543122] transition-colors duration-200"
+                        >
+                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Kembali ke Peta
+                        </a>
                     </div>
 
                     <div className="hidden md:block absolute top-10 right-10 w-16 h-16 rounded-full bg-white opacity-10 backdrop-blur-sm"></div>

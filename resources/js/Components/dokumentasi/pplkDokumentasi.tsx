@@ -76,7 +76,7 @@ const PplkDokumtasi = () => {
             dokum_21, dokum_22, dokum_23, dokum_24, dokum_25, dokum_26, dokum_27, dokum_28, dokum_29 , dokum_30, dokum_31 , dokum_33, dokum_34, dokum_35
         ],
         'Part of Chaos': [
-             dokum_36, dokum_37, dokum_38
+             dokum_36, dokum_37, dokum_38,dokum_39, dokum_40, dokum_41, dokum_42, dokum_43, dokum_44, dokum_45, dokum_46, dokum_47,dokum_48, dokum_49, dokum_50, dokum_51
         ],
         'Flame of Hephaestus': [
             dokum_39, dokum_40, dokum_41, dokum_42, dokum_43, dokum_44, dokum_45, dokum_46, dokum_47
@@ -93,8 +93,8 @@ const PplkDokumtasi = () => {
     };
 
     const drivePplk = [
-        'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
-        'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
+        'https://drive.google.com/drive/folders/1AVOHVEOOPxTIaUX4L4S9F6-A4I6Iodjj',
+        'https://drive.google.com/drive/folders/12rkYk2DxB4ulUOfXB1vpR2FraszDluJm',
         'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
         'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
         'https://drive.google.com/drive/folders/1C0-7MWlPxqlJHfHbyW5K2el-fxojwojo',
